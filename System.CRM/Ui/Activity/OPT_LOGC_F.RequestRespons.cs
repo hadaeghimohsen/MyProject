@@ -55,6 +55,9 @@ namespace System.CRM.Ui.Activity
             case 10:
                Actn_CalF_P(job);
                break;
+            case 100:
+               SetTemplateText(job);
+               break;
             case 150:
                SetMentioned(job);
                break;
@@ -269,6 +272,16 @@ namespace System.CRM.Ui.Activity
          }
          
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 100
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetTemplateText(Job job)
+      {
+         var xinput = job.Input as XElement;
+         Comment_Txt.Text = xinput.Element("Temp_Text").Element("Result").Value;
       }
 
       /// <summary>

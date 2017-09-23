@@ -365,5 +365,30 @@ namespace System.CRM.Ui.Activity
             )
          );
       }
+
+      private void TemplateText_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Btn_Back_Click(null, null);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 69 /* Execute Tmpl_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "TMPL_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Request",
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("fileno", fileno)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch { }
+      }
    }
 }

@@ -93,6 +93,16 @@ namespace System.CRM.Ui.BaseDefination
                      )
                   );
                   break;
+               case "OPT_LOGC_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 25 /* Execute Opt_Logc_F */)                           
+                        }
+                     )
+                  );
+                  break;
                case "OPT_AEML_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",

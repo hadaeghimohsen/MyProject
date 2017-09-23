@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="iProject">
+  <DataContextMoniker Name="/iProjectDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8400f8a3-f7f5-4c3d-88d8-5104dbbcc62c" absoluteBounds="6.125, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/iProjectDataContext/Sub_System" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fbe9d3ec-56f1-4b9f-ad5e-eb917561e949" absoluteBounds="6.1400000000000006, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a26bc2e5-44bd-4872-8ec4-12c3b752d01e" absoluteBounds="0.5, 0.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/iProjectDataContext/D_LNTP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9bfd68ad-1656-44e6-bbca-775c5102c632" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5801d4f0-50a9-49f4-a7f0-5665bc129850" absoluteBounds="0.5, 1.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/iProjectDataContext/D_MGTP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f76a1617-3eb6-4c54-9941-093292b3f051" absoluteBounds="0.51499999999999968, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc8c6aae-423f-4d00-b64a-42d8b62d981c" absoluteBounds="0.5, 3.25, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/iProjectDataContext/D_MSG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cd7ac29-7787-43fb-8768-bb95e26cba8b" absoluteBounds="0.51499999999999968, 3.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26da8301-9823-45a8-965e-2269e9b3fcf6" absoluteBounds="3.375, 1.625, 2, 4.2708154296875">
+      <DataClassMoniker Name="/iProjectDataContext/Sms_Message_Box" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e4c8053-9760-49fe-adf0-7aab3358f71c" absoluteBounds="3.3899999999999997, 2.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.125 : 1.0624995); (4.375 : 1.0624995); (4.375 : 1.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iProjectDataContext/Sub_System/Sub_System_Sms_Message_Box" />
+      <nodes>
+        <classShapeMoniker Id="8400f8a3-f7f5-4c3d-88d8-5104dbbcc62c" />
+        <classShapeMoniker Id="26da8301-9823-45a8-965e-2269e9b3fcf6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fee6ef79-96f4-4dda-a18f-5be957b6ec32" absoluteBounds="6.25, 2.25, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/iProjectDataContext/Message_Broad_Setting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dc2a4a9-84c0-4c8d-bdd4-0ca8ecae6247" absoluteBounds="6.265, 2.71, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

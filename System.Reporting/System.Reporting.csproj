@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F458ACCA-7F01-4740-8F4E-A96F9674E5CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Reporting</RootNamespace>
+    <AssemblyName>System.Reporting</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSource\Code\Datasource.Gateways.cs" />
+    <Compile Include="DataSource\Code\Datasource.Routering.cs" />
+    <Compile Include="DataSource\Code\Datasource.StartPoint.cs" />
+    <Compile Include="DataSource\Code\Datasource.Tasks.cs" />
+    <Compile Include="DataSource\Code\Datasource.Uis.cs" />
+    <Compile Include="DataSource\Ui\Configuration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataSource\Ui\Configuration.Designer.cs">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource\Ui\Configuration.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Code\ReportProfiler.Gateways.cs" />
+    <Compile Include="ReportProfiler\Code\ReportProfiler.Routering.cs" />
+    <Compile Include="ReportProfiler\Code\ReportProfiler.StartPoint.cs" />
+    <Compile Include="ReportProfiler\Code\ReportProfiler.Tasks.cs" />
+    <Compile Include="ReportProfiler\Code\ReportProfiler.Uis.cs" />
+    <Compile Include="ReportProfiler\Ui\ProfilerTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\ProfilerTemplate.Designer.cs">
+      <DependentUpon>ProfilerTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\ProfilerTemplate.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyFilter.Designer.cs">
+      <DependentUpon>SpecifyFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyFilter.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyFilter.Processing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyFilter.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyFilter.Xml.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyGroupItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyGroupItems.Designer.cs">
+      <DependentUpon>SpecifyGroupItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyGroupItems.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyProfilerGroupHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyProfilerGroupHeader.Designer.cs">
+      <DependentUpon>SpecifyProfilerGroupHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyProfilerGroupHeader.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyReportGroupHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyReportGroupHeader.Designer.cs">
+      <DependentUpon>SpecifyReportGroupHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyReportGroupHeader.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyReportProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyReportProfile.Designer.cs">
+      <DependentUpon>SpecifyReportProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\Ui\SpecifyReportProfile.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Extensions\SQL.Tasks.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.Designer.cs">
+      <DependentUpon>Filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.FormulaSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.Xml.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Code\ProfilerGroups.StartPoint.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Code\ProfilerGroups.Gateways.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Code\ProfilerGroups.Routering.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Code\ProfilerGroups.Tasks.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ProfilerGroups\Code\ProfilerGroups.Uis.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Code\ReportFiles.Gateways.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Code\ReportFiles.Routering.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Code\ReportFiles.StartPoint.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Code\ReportFiles.Tasks.cs" />
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Code\ReportFiles.Uis.cs" />
+    <Compile Include="ReportUnitType\Code\ReportUnitType.Gateways.cs" />
+    <Compile Include="ReportUnitType\Code\ReportUnitType.Routering.cs" />
+    <Compile Include="ReportUnitType\Code\ReportUnitType.StartPoint.cs" />
+    <Compile Include="ReportUnitType\Code\ReportUnitType.Tasks.cs" />
+    <Compile Include="ReportUnitType\Code\ReportUnitType.Uis.cs" />
+    <Compile Include="ReportUnitType\Ui\SpecifyAppDecision.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportUnitType\Ui\SpecifyAppDecision.Designer.cs">
+      <DependentUpon>SpecifyAppDecision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUnitType\Ui\SpecifyAppDecision.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportUnitType\Ui\SpecifyReportFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportUnitType\Ui\SpecifyReportFile.Designer.cs">
+      <DependentUpon>SpecifyReportFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUnitType\Ui\SpecifyReportFile.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\Code\ReportViewers.Gateways.cs" />
+    <Compile Include="ReportViewers\Code\ReportViewers.Routering.cs" />
+    <Compile Include="ReportViewers\Code\ReportViewers.StartPoint.cs" />
+    <Compile Include="ReportViewers\Code\ReportViewers.Tasks.cs" />
+    <Compile Include="ReportViewers\Code\ReportViewers.Uis.cs" />
+    <Compile Include="ReportViewers\Ui\Viewers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\Ui\Viewers.Designer.cs">
+      <DependentUpon>Viewers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\Ui\Viewers.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Self\Code\Reporting.Gateways.cs" />
+    <Compile Include="Self\Code\Reporting.Routering.cs" />
+    <Compile Include="Self\Code\Reporting.StartPoint.cs" />
+    <Compile Include="Self\Code\Reporting.Tasks.cs" />
+    <Compile Include="Self\Code\Reporting.Uis.cs" />
+    <Compile Include="Self\Ui\ReportCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Self\Ui\ReportCtrl.Designer.cs">
+      <DependentUpon>ReportCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Self\Ui\ReportCtrl.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Self\Ui\SettingsMetro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Self\Ui\SettingsMetro.Designer.cs">
+      <DependentUpon>SettingsMetro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Self\Ui\SettingsMetro.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Code\WorkFlow.Gateways.cs" />
+    <Compile Include="WorkFlow\Code\WorkFlow.Routering.cs" />
+    <Compile Include="WorkFlow\Code\WorkFlow.StartPoint.cs" />
+    <Compile Include="WorkFlow\Code\WorkFlow.Tasks.cs" />
+    <Compile Include="WorkFlow\Code\WorkFlow.Uis.cs" />
+    <Compile Include="WorkFlow\Ui\PRF_CHNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_CHNG_F.Designer.cs">
+      <DependentUpon>PRF_CHNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_CHNG_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_CHNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_MBAR_M.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_MBAR_M.Designer.cs">
+      <DependentUpon>PRF_MBAR_M.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_MBAR_M.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_MBAR_M.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SPRF_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SPRF_F.Designer.cs">
+      <DependentUpon>PRF_SPRF_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SPRF_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SPRF_F.Processing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SPRF_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SRCH_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SRCH_F.Designer.cs">
+      <DependentUpon>PRF_SRCH_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SRCH_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\PRF_SRCH_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Ui\RPT_CHNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Ui\RPT_CHNG_F.Designer.cs">
+      <DependentUpon>RPT_CHNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Ui\RPT_CHNG_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportProfiler\UnderGateways\ReportFiles\Ui\RPT_CHNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_MBAR_M.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_MBAR_M.Designer.cs">
+      <DependentUpon>RPT_MBAR_M.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_MBAR_M.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_MBAR_M.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRCH_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRCH_F.Designer.cs">
+      <DependentUpon>RPT_SRCH_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRCH_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRCH_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRPT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRPT_F.Designer.cs">
+      <DependentUpon>RPT_SRPT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRPT_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRPT_F.Processing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\RPT_SRPT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\WHR_SCON_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\WHR_SCON_F.Designer.cs">
+      <DependentUpon>WHR_SCON_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\WHR_SCON_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\WHR_SCON_F.Processing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Ui\WHR_SCON_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataSource\Ui\Configuration.resx">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\Ui\ProfilerTemplate.resx">
+      <DependentUpon>ProfilerTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\Ui\SpecifyFilter.resx">
+      <DependentUpon>SpecifyFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\Ui\SpecifyGroupItems.resx">
+      <DependentUpon>SpecifyGroupItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\Ui\SpecifyProfilerGroupHeader.resx">
+      <DependentUpon>SpecifyProfilerGroupHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\Ui\SpecifyReportGroupHeader.resx">
+      <DependentUpon>SpecifyReportGroupHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\Ui\SpecifyReportProfile.resx">
+      <DependentUpon>SpecifyReportProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\UnderGateways\ProfilerGroups\Ui\Filter.resx">
+      <DependentUpon>Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportUnitType\Ui\SpecifyAppDecision.resx">
+      <DependentUpon>SpecifyAppDecision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportUnitType\Ui\SpecifyReportFile.resx">
+      <DependentUpon>SpecifyReportFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\Ui\Viewers.resx">
+      <DependentUpon>Viewers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Self\Ui\ReportCtrl.resx">
+      <DependentUpon>ReportCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Self\Ui\SettingsMetro.resx">
+      <DependentUpon>SettingsMetro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\PRF_CHNG_F.resx">
+      <DependentUpon>PRF_CHNG_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\PRF_MBAR_M.resx">
+      <DependentUpon>PRF_MBAR_M.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\PRF_SPRF_F.resx">
+      <DependentUpon>PRF_SPRF_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\PRF_SRCH_F.resx">
+      <DependentUpon>PRF_SRCH_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportProfiler\UnderGateways\ReportFiles\Ui\RPT_CHNG_F.resx">
+      <DependentUpon>RPT_CHNG_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\RPT_MBAR_M.resx">
+      <DependentUpon>RPT_MBAR_M.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\RPT_SRCH_F.resx">
+      <DependentUpon>RPT_SRCH_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\RPT_SRPT_F.resx">
+      <DependentUpon>RPT_SRPT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Ui\WHR_SCON_F.resx">
+      <DependentUpon>WHR_SCON_F.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\System.Resource\Resources\IMAGE_1009.png">
+      <Link>AllImgRes\IMAGE_1009.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1013.png">
+      <Link>AllImgRes\IMAGE_1013.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1014.png">
+      <Link>AllImgRes\IMAGE_1014.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1015.png">
+      <Link>AllImgRes\IMAGE_1015.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1032.png">
+      <Link>AllImgRes\IMAGE_1032.png</Link>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

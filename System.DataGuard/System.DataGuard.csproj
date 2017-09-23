@@ -1,0 +1,1461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{425821C6-1DCF-4621-91DD-92EDB29A947A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.DataGuard</RootNamespace>
+    <AssemblyName>System.DataGuard</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>88212de4</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataEditShamsi">
+      <HintPath>..\System.Scsc\bin\Debug\DataEditShamsi.dll</HintPath>
+    </Reference>
+    <Reference Include="DateTimeSelector">
+      <HintPath>..\MyProject\bin\Debug\DateTimeSelector.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DirectShowLib-2005">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.GPU">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.GPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.ML">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.ML.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.OCR">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Stitching">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.Stitching.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.GL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Emgu.CV.VideoStab">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.VideoStab.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util">
+      <HintPath>..\packages\EmguCV.3.1.0.1\lib\net30\Emgu.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\iProject.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iProject.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Code\Login.Gateways.cs" />
+    <Compile Include="Login\Code\Login.Routering.cs" />
+    <Compile Include="Login\Code\Login.StartPoint.cs" />
+    <Compile Include="Login\Code\Login.Tasks.cs" />
+    <Compile Include="Login\Code\Login.Uis.cs" />
+    <Compile Include="Login\Ui\SelectedLastUserLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\SelectedLastUserLogin.Designer.cs">
+      <DependentUpon>SelectedLastUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Ui\LastUserLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\LastUserLogin.Designer.cs">
+      <DependentUpon>LastUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Ui\SelectedLastUserLogin.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\LastUserLogin.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\LockScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\LockScreen.Designer.cs">
+      <DependentUpon>LockScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Ui\LockScreen.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Ui\Login.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Privilege\Ui\PrivilegeProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Privilege\Ui\PrivilegeProfile.Designer.cs">
+      <DependentUpon>PrivilegeProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Privilege\Ui\ShowAllPrivileges.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Privilege\Ui\ShowAllPrivileges.Designer.cs">
+      <DependentUpon>ShowAllPrivileges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Code\Role.Gateways.cs" />
+    <Compile Include="SecPolicy\Role\Code\Role.Routering.cs" />
+    <Compile Include="SecPolicy\Role\Code\Role.StartPoint.cs" />
+    <Compile Include="SecPolicy\Role\Code\Role.Tasks.cs" />
+    <Compile Include="SecPolicy\Role\Code\Role.Uis.cs" />
+    <Compile Include="SecPolicy\Role\Ui\CreateNewRole.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\CreateNewRole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\CreateNewRole.Designer.cs">
+      <DependentUpon>CreateNewRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\DuplicateRole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\DuplicateRole.Designer.cs">
+      <DependentUpon>DuplicateRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\DuplicateRole.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\JoinOrLeaveCurrentUserToRoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\JoinOrLeaveCurrentUserToRoles.Designer.cs">
+      <DependentUpon>JoinOrLeaveCurrentUserToRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\JoinOrLeaveCurrentUserToRoles.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\PropertySingleRoleMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\PropertySingleRoleMenu.Designer.cs">
+      <DependentUpon>PropertySingleRoleMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\PropertySingleRoleMenu.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\ShowAllRoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Role\Ui\ShowAllRoles.Designer.cs">
+      <DependentUpon>ShowAllRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Code\SecurityPolicy.Gateways.cs" />
+    <Compile Include="SecPolicy\Share\Code\SecurityPolicy.Routering.cs" />
+    <Compile Include="SecPolicy\Share\Code\SecurityPolicy.StartPoint.cs" />
+    <Compile Include="SecPolicy\Share\Code\SecurityPolicy.Tasks.cs" />
+    <Compile Include="SecPolicy\Share\Code\SecurityPolicy.Uis.cs" />
+    <Compile Include="SecPolicy\Share\Ui\ActionCenter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActionCenter.Designer.cs">
+      <DependentUpon>ActionCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSendEmail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSendEmail.Designer.cs">
+      <DependentUpon>SettingsSendEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountSetEmailAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountSetEmailAddress.Designer.cs">
+      <DependentUpon>SettingsAccountSetEmailAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSendEmail.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountSetEmailAddress.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsMailServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsMailServer.Designer.cs">
+      <DependentUpon>SettingsMailServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsMailServer.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsUnAuthoriseGateway.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsUnAuthoriseGateway.Designer.cs">
+      <DependentUpon>SettingsUnAuthoriseGateway.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsBlockGateway.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsBlockGateway.Designer.cs">
+      <DependentUpon>SettingsBlockGateway.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsUnAuthoriseGateway.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsBlockGateway.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNetworkConnectionInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNetworkConnectionInfo.Designer.cs">
+      <DependentUpon>SettingsNetworkConnectionInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNetworkConnectionInfo.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsDuplicateAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsDuplicateAccount.Designer.cs">
+      <DependentUpon>SettingsDuplicateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsDuplicateAccount.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsChangeNetwork.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsChangeNetwork.Designer.cs">
+      <DependentUpon>SettingsChangeNetwork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsChangeNetwork.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAuthoriseGateway.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAuthoriseGateway.Designer.cs">
+      <DependentUpon>SettingsAuthoriseGateway.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAuthoriseGateway.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsOtherAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsOtherAccount.Designer.cs">
+      <DependentUpon>SettingsOtherAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsOtherAccount.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNewAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNewAccount.Designer.cs">
+      <DependentUpon>SettingsNewAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNewAccount.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsOtherAccounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsOtherAccounts.Designer.cs">
+      <DependentUpon>SettingsOtherAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsOtherAccounts.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountLocalSecurityPolicy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountLocalSecurityPolicy.Designer.cs">
+      <DependentUpon>SettingsAccountLocalSecurityPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountLocalSecurityPolicy.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountChangePassword.Designer.cs">
+      <DependentUpon>SettingsAccountChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountGallery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountGallery.Designer.cs">
+      <DependentUpon>SettingsAccountGallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountCamera.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountCamera.Designer.cs">
+      <DependentUpon>SettingsAccountCamera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountChangePassword.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountGallery.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalizationSystemTryItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalizationSystemTryItem.Designer.cs">
+      <DependentUpon>SettingsPersonalizationSystemTryItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalizationDockStartMenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalizationDockStartMenuItem.Designer.cs">
+      <DependentUpon>SettingsPersonalizationDockStartMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountCamera.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalizationSystemtryItem.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalizationDockStartMenuItem.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemPackage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemPackage.Designer.cs">
+      <DependentUpon>SettingsSystemPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemPackage.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsUpdateSecurity.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystem.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPrivacy.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalization.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNetworkConnection.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsDevice.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsServicesApp.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccount.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\Settings.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActionCenter.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActionNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActionNotification.Designer.cs">
+      <DependentUpon>ActionNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActionNotification.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActiveCyclData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActiveCyclData.Designer.cs">
+      <DependentUpon>ActiveCyclData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ActiveCyclData.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ControlPanel.Designer.cs">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\ControlPanel.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\POSConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\POSConfig.Designer.cs">
+      <DependentUpon>POSConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SecurityManagment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SecurityManagment.Designer.cs">
+      <DependentUpon>SecurityManagment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SecurityManagment.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SecuritySettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SecuritySettings.Designer.cs">
+      <DependentUpon>SecuritySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SecuritySettings.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsUpdateSecurity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsUpdateSecurity.Designer.cs">
+      <DependentUpon>SettingsUpdateSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPrivacy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPrivacy.Designer.cs">
+      <DependentUpon>SettingsPrivacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsServicesApp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsServicesApp.Designer.cs">
+      <DependentUpon>SettingsServicesApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccount.Designer.cs">
+      <DependentUpon>SettingsAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPersonalization.Designer.cs">
+      <DependentUpon>SettingsPersonalization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNetworkConnection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNetworkConnection.Designer.cs">
+      <DependentUpon>SettingsNetworkConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SoftVersionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SoftVersionControl.Designer.cs">
+      <DependentUpon>SoftVersionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SoftVersionControl.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsDevice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsDevice.Designer.cs">
+      <DependentUpon>SettingsDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystem.Designer.cs">
+      <DependentUpon>SettingsSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Code\User.Gateways.cs" />
+    <Compile Include="SecPolicy\User\Code\User.Routering.cs" />
+    <Compile Include="SecPolicy\User\Code\User.StartPoint.cs" />
+    <Compile Include="SecPolicy\User\Code\User.Tasks.cs" />
+    <Compile Include="SecPolicy\User\Code\User.Uis.cs" />
+    <Compile Include="SecPolicy\User\Ui\CreateNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CreateNew.Designer.cs">
+      <DependentUpon>CreateNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CreateNew.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangeUserType.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangeUserType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangeUserType.Designer.cs">
+      <DependentUpon>CurrentChangeUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangePassword.Designer.cs">
+      <DependentUpon>CurrentChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangeUserName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangeUserName.Designer.cs">
+      <DependentUpon>CurrentChangeUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangePassword.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentChangeUserName.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\Duplicate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\Duplicate.Designer.cs">
+      <DependentUpon>Duplicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\Duplicate.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\OtherUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\OtherUsers.Designer.cs">
+      <DependentUpon>OtherUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\OtherUsers.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\PropertySingleMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\PropertySingleMenu.Designer.cs">
+      <DependentUpon>PropertySingleMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\PropertySingleMenu.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\ShowAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\ShowAll.Designer.cs">
+      <DependentUpon>ShowAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\ShowAll.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\Profile.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentUserInfo.Designer.cs">
+      <DependentUpon>CurrentUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\User\Ui\CurrentUserInfo.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Self\Code\DataGuard.Gateways.cs" />
+    <Compile Include="Self\Code\DataGuard.Routering.cs" />
+    <Compile Include="Self\Code\DataGuard.StartPoint.cs" />
+    <Compile Include="Self\Code\DataGuard.Tasks.cs" />
+    <Compile Include="Self\Code\DataGuard.Uis.cs" />
+    <Compile Include="Self\Ui\Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Self\Ui\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Self\Ui\Main.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SecPolicy\Privilege\Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Data\iProject.dbml.layout">
+      <DependentUpon>iProject.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Login\Ui\SelectedLastUserLogin.resx">
+      <DependentUpon>SelectedLastUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Ui\LastUserLogin.resx">
+      <DependentUpon>LastUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Ui\LockScreen.resx">
+      <DependentUpon>LockScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Ui\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Privilege\Ui\ShowAllPrivileges.resx">
+      <DependentUpon>ShowAllPrivileges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Role\Ui\CreateNewRole.resx">
+      <DependentUpon>CreateNewRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Role\Ui\DuplicateRole.resx">
+      <DependentUpon>DuplicateRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Role\Ui\JoinOrLeaveCurrentUserToRoles.resx">
+      <DependentUpon>JoinOrLeaveCurrentUserToRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Role\Ui\PropertySingleRoleMenu.resx">
+      <DependentUpon>PropertySingleRoleMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Role\Ui\ShowAllRoles.resx">
+      <DependentUpon>ShowAllRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\ActionCenter.resx">
+      <DependentUpon>ActionCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\ActionNotification.resx">
+      <DependentUpon>ActionNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\ActiveCyclData.resx">
+      <DependentUpon>ActiveCyclData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\ControlPanel.resx">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\POSConfig.resx">
+      <DependentUpon>POSConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SecurityManagment.resx">
+      <DependentUpon>SecurityManagment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SecuritySettings.resx">
+      <DependentUpon>SecuritySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSendEmail.resx">
+      <DependentUpon>SettingsSendEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccountSetEmailAddress.resx">
+      <DependentUpon>SettingsAccountSetEmailAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsMailServer.resx">
+      <DependentUpon>SettingsMailServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsUnAuthoriseGateway.resx">
+      <DependentUpon>SettingsUnAuthoriseGateway.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsBlockGateway.resx">
+      <DependentUpon>SettingsBlockGateway.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsNetworkConnectionInfo.resx">
+      <DependentUpon>SettingsNetworkConnectionInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsDuplicateAccount.resx">
+      <DependentUpon>SettingsDuplicateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsChangeNetwork.resx">
+      <DependentUpon>SettingsChangeNetwork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAuthoriseGateway.resx">
+      <DependentUpon>SettingsAuthoriseGateway.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsOtherAccount.resx">
+      <DependentUpon>SettingsOtherAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsNewAccount.resx">
+      <DependentUpon>SettingsNewAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsOtherAccounts.resx">
+      <DependentUpon>SettingsOtherAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccountLocalSecurityPolicy.resx">
+      <DependentUpon>SettingsAccountLocalSecurityPolicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccountChangePassword.resx">
+      <DependentUpon>SettingsAccountChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccountGallery.resx">
+      <DependentUpon>SettingsAccountGallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccountCamera.resx">
+      <DependentUpon>SettingsAccountCamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsPersonalizationSystemTryItem.resx">
+      <DependentUpon>SettingsPersonalizationSystemTryItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsPersonalizationDockStartMenuItem.resx">
+      <DependentUpon>SettingsPersonalizationDockStartMenuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystemPackage.resx">
+      <DependentUpon>SettingsSystemPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsUpdateSecurity.resx">
+      <DependentUpon>SettingsUpdateSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsPrivacy.resx">
+      <DependentUpon>SettingsPrivacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsServicesApp.resx">
+      <DependentUpon>SettingsServicesApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccount.resx">
+      <DependentUpon>SettingsAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsPersonalization.resx">
+      <DependentUpon>SettingsPersonalization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsNetworkConnection.resx">
+      <DependentUpon>SettingsNetworkConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SoftVersionControl.resx">
+      <DependentUpon>SoftVersionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsDevice.resx">
+      <DependentUpon>SettingsDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystem.resx">
+      <DependentUpon>SettingsSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\CreateNew.resx">
+      <DependentUpon>CreateNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\CurrentChangeUserType.resx">
+      <DependentUpon>CurrentChangeUserType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\CurrentChangePassword.resx">
+      <DependentUpon>CurrentChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\CurrentChangeUserName.resx">
+      <DependentUpon>CurrentChangeUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\Duplicate.resx">
+      <DependentUpon>Duplicate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\OtherUsers.resx">
+      <DependentUpon>OtherUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\PropertySingleMenu.resx">
+      <DependentUpon>PropertySingleMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\ShowAll.resx">
+      <DependentUpon>ShowAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\User\Ui\CurrentUserInfo.resx">
+      <DependentUpon>CurrentUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Self\Ui\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Access_User_Datasource.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Action_Center.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Active_Session.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Bank.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Bank_Account.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Bank_Branch.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Box_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Country.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.CRM_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.DataGuard_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.DataSource.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_ACST.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_ACTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_AUTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_BKGT.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_BMPL.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_DLMT.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_ESRV.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_LNTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_MGTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_MSG.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_NSCL.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_VLDT.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_YSNO.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Gas_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Gateway.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Gateway_Public.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Global_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.ISP_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Mail_Server.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Msgb_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Package.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Package_Activity.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance_User_Gateway.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance_User_Qiuck_Action.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Pos_Subsystem.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Province.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Region.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Report_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.RoboTech_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Role.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Role_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Role_User.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Sas_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Scsc_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Security_Managment.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.ServiceDef_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Sub_System.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Sub_System_Item.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.User.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.User_Gateway.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.User_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.V_Computer.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.V_TopNActiveSessionCurrentGateway.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.V_Top_Active_Session.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.V_User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.MaxUi\System.MaxUi.csproj">
+      <Project>{A30C958D-0DD4-4D57-922C-BB9D2640FABC}</Project>
+      <Name>System.MaxUi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Resource\System.Resource.csproj">
+      <Project>{0e520701-a8b3-49f1-a2d6-8a6ba1d0d5c2}</Project>
+      <Name>System.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\System.Resource\Resources\IMAGE_0001.png">
+      <Link>Resources\IMAGE_0001.png</Link>
+    </None>
+    <None Include="..\System.Resource\Resources\IMAGE_1001.png">
+      <Link>Resources\IMAGE_1001.png</Link>
+    </None>
+    <None Include="Data\iProject.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>iProject.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\System.Resource\Resources\IMAGE_1003.png">
+      <Link>Resources\IMAGE_1003.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1005.png">
+      <Link>Resources\IMAGE_1005.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1008.jpg">
+      <Link>Resources\IMAGE_1008.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1018.png">
+      <Link>Resources\IMAGE_1018.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1065.png">
+      <Link>Resources\IMAGE_1065.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1087.png">
+      <Link>Resources\IMAGE_1087.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1089.png">
+      <Link>Resources\IMAGE_1089.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1102.png">
+      <Link>Resources\IMAGE_1102.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1117.png">
+      <Link>Resources\IMAGE_1117.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1118.png">
+      <Link>Resources\IMAGE_1118.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1119.png">
+      <Link>Resources\IMAGE_1119.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1150.png">
+      <Link>Resources\IMAGE_1150.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1151.png">
+      <Link>Resources\IMAGE_1151.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1165.png">
+      <Link>Resources\IMAGE_1165.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1166.png">
+      <Link>Resources\IMAGE_1166.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1167.png">
+      <Link>Resources\IMAGE_1167.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1168.png">
+      <Link>Resources\IMAGE_1168.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1169.jpg">
+      <Link>Resources\IMAGE_1169.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1190.png">
+      <Link>Resources\IMAGE_1190.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1196.png">
+      <Link>Resources\IMAGE_1196.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1201.png">
+      <Link>Resources\IMAGE_1201.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1202.png">
+      <Link>Resources\IMAGE_1202.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1203.png">
+      <Link>Resources\IMAGE_1203.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1211.png">
+      <Link>Resources\IMAGE_1211.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1212.png">
+      <Link>Resources\IMAGE_1212.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1361.png">
+      <Link>Resources\IMAGE_1361.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1362.png">
+      <Link>Resources\IMAGE_1362.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1363.png">
+      <Link>Resources\IMAGE_1363.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1364.png">
+      <Link>Resources\IMAGE_1364.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1365.png">
+      <Link>Resources\IMAGE_1365.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1366.png">
+      <Link>Resources\IMAGE_1366.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1367.png">
+      <Link>Resources\IMAGE_1367.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1368.png">
+      <Link>Resources\IMAGE_1368.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1369.png">
+      <Link>Resources\IMAGE_1369.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1370.png">
+      <Link>Resources\IMAGE_1370.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1371.png">
+      <Link>Resources\IMAGE_1371.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1372.png">
+      <Link>Resources\IMAGE_1372.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1373.png">
+      <Link>Resources\IMAGE_1373.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1374.png">
+      <Link>Resources\IMAGE_1374.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1375.png">
+      <Link>Resources\IMAGE_1375.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1376.png">
+      <Link>Resources\IMAGE_1376.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1377.png">
+      <Link>Resources\IMAGE_1377.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1378.png">
+      <Link>Resources\IMAGE_1378.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1379.png">
+      <Link>Resources\IMAGE_1379.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1380.png">
+      <Link>Resources\IMAGE_1380.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1381.png">
+      <Link>Resources\IMAGE_1381.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1382.png">
+      <Link>Resources\IMAGE_1382.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1383.png">
+      <Link>Resources\IMAGE_1383.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1384.png">
+      <Link>Resources\IMAGE_1384.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1385.png">
+      <Link>Resources\IMAGE_1385.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1386.png">
+      <Link>Resources\IMAGE_1386.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1387.png">
+      <Link>Resources\IMAGE_1387.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1388.png">
+      <Link>Resources\IMAGE_1388.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1389.png">
+      <Link>Resources\IMAGE_1389.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1390.png">
+      <Link>Resources\IMAGE_1390.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1391.png">
+      <Link>Resources\IMAGE_1391.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1392.png">
+      <Link>Resources\IMAGE_1392.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1393.png">
+      <Link>Resources\IMAGE_1393.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1394.png">
+      <Link>Resources\IMAGE_1394.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1395.png">
+      <Link>Resources\IMAGE_1395.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1396.png">
+      <Link>Resources\IMAGE_1396.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1397.png">
+      <Link>Resources\IMAGE_1397.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1398.png">
+      <Link>Resources\IMAGE_1398.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1399.png">
+      <Link>Resources\IMAGE_1399.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1400.png">
+      <Link>Resources\IMAGE_1400.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1401.png">
+      <Link>Resources\IMAGE_1401.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1402.png">
+      <Link>Resources\IMAGE_1402.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1403.png">
+      <Link>Resources\IMAGE_1403.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1404.png">
+      <Link>Resources\IMAGE_1404.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1405.png">
+      <Link>Resources\IMAGE_1405.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1406.png">
+      <Link>Resources\IMAGE_1406.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1407.png">
+      <Link>Resources\IMAGE_1407.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1408.png">
+      <Link>Resources\IMAGE_1408.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1409.png">
+      <Link>Resources\IMAGE_1409.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1410.png">
+      <Link>Resources\IMAGE_1410.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1411.png">
+      <Link>Resources\IMAGE_1411.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1412.png">
+      <Link>Resources\IMAGE_1412.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1413.png">
+      <Link>Resources\IMAGE_1413.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1414.png">
+      <Link>Resources\IMAGE_1414.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1415.png">
+      <Link>Resources\IMAGE_1415.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1416.png">
+      <Link>Resources\IMAGE_1416.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1417.png">
+      <Link>Resources\IMAGE_1417.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1418.png">
+      <Link>Resources\IMAGE_1418.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1419.png">
+      <Link>Resources\IMAGE_1419.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1420.png">
+      <Link>Resources\IMAGE_1420.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1421.png">
+      <Link>Resources\IMAGE_1421.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1422.png">
+      <Link>Resources\IMAGE_1422.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1423.png">
+      <Link>Resources\IMAGE_1423.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1424.png">
+      <Link>Resources\IMAGE_1424.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1425.png">
+      <Link>Resources\IMAGE_1425.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1426.png">
+      <Link>Resources\IMAGE_1426.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1427.png">
+      <Link>Resources\IMAGE_1427.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1428.png">
+      <Link>Resources\IMAGE_1428.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1429.jpg">
+      <Link>Resources\IMAGE_1429.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1430.png">
+      <Link>Resources\IMAGE_1430.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1431.png">
+      <Link>Resources\IMAGE_1431.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1432.png">
+      <Link>Resources\IMAGE_1432.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1433.png">
+      <Link>Resources\IMAGE_1433.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1434.png">
+      <Link>Resources\IMAGE_1434.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1435.png">
+      <Link>Resources\IMAGE_1435.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1436.png">
+      <Link>Resources\IMAGE_1436.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1437.png">
+      <Link>Resources\IMAGE_1437.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1438.png">
+      <Link>Resources\IMAGE_1438.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1439.png">
+      <Link>Resources\IMAGE_1439.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1440.png">
+      <Link>Resources\IMAGE_1440.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1441.png">
+      <Link>Resources\IMAGE_1441.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1442.png">
+      <Link>Resources\IMAGE_1442.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1443.png">
+      <Link>Resources\IMAGE_1443.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1444.bmp">
+      <Link>Resources\IMAGE_1444.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1445.bmp">
+      <Link>Resources\IMAGE_1445.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1446.bmp">
+      <Link>Resources\IMAGE_1446.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1447.bmp">
+      <Link>Resources\IMAGE_1447.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1448.bmp">
+      <Link>Resources\IMAGE_1448.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1449.bmp">
+      <Link>Resources\IMAGE_1449.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1450.bmp">
+      <Link>Resources\IMAGE_1450.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1451.bmp">
+      <Link>Resources\IMAGE_1451.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1452.bmp">
+      <Link>Resources\IMAGE_1452.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1453.bmp">
+      <Link>Resources\IMAGE_1453.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1454.bmp">
+      <Link>Resources\IMAGE_1454.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1455.bmp">
+      <Link>Resources\IMAGE_1455.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1456.bmp">
+      <Link>Resources\IMAGE_1456.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1457.bmp">
+      <Link>Resources\IMAGE_1457.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1458.bmp">
+      <Link>Resources\IMAGE_1458.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1459.bmp">
+      <Link>Resources\IMAGE_1459.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1460.bmp">
+      <Link>Resources\IMAGE_1460.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1461.bmp">
+      <Link>Resources\IMAGE_1461.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1462.bmp">
+      <Link>Resources\IMAGE_1462.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1463.bmp">
+      <Link>Resources\IMAGE_1463.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1464.bmp">
+      <Link>Resources\IMAGE_1464.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1465.bmp">
+      <Link>Resources\IMAGE_1465.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1466.bmp">
+      <Link>Resources\IMAGE_1466.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1467.bmp">
+      <Link>Resources\IMAGE_1467.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1468.bmp">
+      <Link>Resources\IMAGE_1468.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1469.bmp">
+      <Link>Resources\IMAGE_1469.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1470.bmp">
+      <Link>Resources\IMAGE_1470.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1471.bmp">
+      <Link>Resources\IMAGE_1471.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1472.bmp">
+      <Link>Resources\IMAGE_1472.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1473.bmp">
+      <Link>Resources\IMAGE_1473.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1474.bmp">
+      <Link>Resources\IMAGE_1474.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1475.bmp">
+      <Link>Resources\IMAGE_1475.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1476.bmp">
+      <Link>Resources\IMAGE_1476.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1477.bmp">
+      <Link>Resources\IMAGE_1477.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1478.bmp">
+      <Link>Resources\IMAGE_1478.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1479.bmp">
+      <Link>Resources\IMAGE_1479.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1480.bmp">
+      <Link>Resources\IMAGE_1480.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1481.png">
+      <Link>Resources\IMAGE_1481.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1482.png">
+      <Link>Resources\IMAGE_1482.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1483.png">
+      <Link>Resources\IMAGE_1483.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1484.png">
+      <Link>Resources\IMAGE_1484.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1485.jpg">
+      <Link>Resources\IMAGE_1485.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1486.jpg">
+      <Link>Resources\IMAGE_1486.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1487.png">
+      <Link>Resources\IMAGE_1487.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1507.png">
+      <Link>Resources\IMAGE_1507.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1537.png">
+      <Link>Resources\IMAGE_1537.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1538.png">
+      <Link>Resources\IMAGE_1538.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1539.png">
+      <Link>Resources\IMAGE_1539.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1551.png">
+      <Link>Resources\IMAGE_1551.png</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="TINYLib">
+      <Guid>{DF1D4B1E-D56E-4A40-BA98-2CC06080E796}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
+    <Error Condition="!Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
+  </Target>
+  <Import Project="..\packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('..\packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

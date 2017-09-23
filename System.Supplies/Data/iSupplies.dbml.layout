@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13" name="iSupplies">
+  <DataContextMoniker Name="/iSuppliesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1c2dd4ea-8c87-4058-be2c-e7cb6df4cf81" absoluteBounds="0.75, 9.25, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/iSuppliesDataContext/Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9df18ba4-d017-40f9-ac8a-ea5b09a061af" absoluteBounds="0.765, 9.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1e4cf2b-812b-4716-87a2-1e8036106ae5" absoluteBounds="7.375, 5.625, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/iSuppliesDataContext/Report" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7457501-8612-417b-9972-e510aaf8b2db" absoluteBounds="7.3900000000000006, 6.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9c42780-cd26-4780-9de1-aef876a75351" absoluteBounds="6.25, 1.375, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/iSuppliesDataContext/FactorPayPrice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a794450-a1b4-4eda-a84d-081d1b7aed16" absoluteBounds="6.265, 1.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f767ecf-7a34-425b-b12b-a62d0d656fd6" absoluteBounds="0.75, 5.875, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/iSuppliesDataContext/Hospital" />
+      <nestedChildShapes>
+        <elementListCompartment Id="203c0502-93df-4283-a8cc-d3fd1e685e1a" absoluteBounds="0.765, 6.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65e90e9a-e4bd-4a12-b24e-36d0291b929e" absoluteBounds="0.75, 1.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iSuppliesDataContext/PayGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b82d5e9e-c9cd-446c-bb4f-4fc544c2b321" absoluteBounds="0.765, 1.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d733c476-c1c7-4fa5-b5f4-0b3f261ad7d1" absoluteBounds="3.625, 1.5, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/iSuppliesDataContext/FactorDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6a32866-db12-4038-b721-42b396dcf781" absoluteBounds="3.64, 1.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.625 : 2.70755126953125); (6.25 : 2.70755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/iSuppliesDataContext/FactorDetail/FactorDetail_FactorPayPrice" />
+      <nodes>
+        <classShapeMoniker Id="d733c476-c1c7-4fa5-b5f4-0b3f261ad7d1" />
+        <classShapeMoniker Id="e9c42780-cd26-4780-9de1-aef876a75351" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 11.0008048502604); (4.625 : 11.0008048502604); (4.625 : 5.00160970052083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/iSuppliesDataContext/Company/Company_FactorDetail" />
+      <nodes>
+        <classShapeMoniker Id="1c2dd4ea-8c87-4058-be2c-e7cb6df4cf81" />
+        <classShapeMoniker Id="d733c476-c1c7-4fa5-b5f4-0b3f261ad7d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.14505126953125); (4.0937475 : 7.14505126953125); (4.0937475 : 5.00160970052083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/iSuppliesDataContext/Hospital/Hospital_FactorDetail" />
+      <nodes>
+        <classShapeMoniker Id="0f767ecf-7a34-425b-b12b-a62d0d656fd6" />
+        <classShapeMoniker Id="d733c476-c1c7-4fa5-b5f4-0b3f261ad7d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.67390055338542); (3.625 : 2.67390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/iSuppliesDataContext/PayGroup/PayGroup_FactorDetail" />
+      <nodes>
+        <classShapeMoniker Id="65e90e9a-e4bd-4a12-b24e-36d0291b929e" />
+        <classShapeMoniker Id="d733c476-c1c7-4fa5-b5f4-0b3f261ad7d1" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

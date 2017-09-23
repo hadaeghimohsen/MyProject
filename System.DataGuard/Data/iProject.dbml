@@ -1,0 +1,1012 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="iProject" Class="iProjectDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=iProject;Integrated Security=True" SettingsObjectName="System.DataGuard.Properties.Settings" SettingsPropertyName="iProjectConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="DataGuard.Gateway" Member="Gateways">
+    <Type Name="Gateway">
+      <Column Name="MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GWPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IP_DNRM" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="COMP_NAME_DNRM" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DFLT_FACT_DNRM" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="VALD_TYPE_DNRM" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="AUTH_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PORT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQST_JBQU_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQST_SEND_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RQST_RCIV_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="UPDT_NEW_SERV_PRVD_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CYCL_GET_CACH_SERV_PRVD_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDT_NEW_CLNT_PRVD_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CYCL_SEND_INFO_PRVD_CLNT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CNTR_PART_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Gateway_User_Gateway" Member="User_Gateways" ThisKey="MAC_ADRS" OtherKey="GTWY_MAC_ADRS" Type="User_Gateway" />
+      <Association Name="Gateway_Gateway_Public" Member="Gateway_Publics" ThisKey="MAC_ADRS" OtherKey="GTWY_MAC_ADRS" Type="Gateway_Public" />
+      <Association Name="Gateway_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="MAC_ADRS" OtherKey="HOST_NAME" Type="Access_User_Datasource" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.User_Gateway" Member="User_Gateways">
+    <Type Name="User_Gateway">
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VALD_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_Gateway_Active_Session" Member="Active_Sessions" ThisKey="GTWY_MAC_ADRS,USER_ID,RWNO" OtherKey="USGW_GTWY_MAC_ADRS,USGW_USER_ID,USGW_RWNO" Type="Active_Session" />
+      <Association Name="User_Gateway_Package_Instance_User_Gateway" Member="Package_Instance_User_Gateways" ThisKey="GTWY_MAC_ADRS,USER_ID,RWNO" OtherKey="USGW_GTWY_MAC_ADRS,USGW_USER_ID,USGW_RWNO" Type="Package_Instance_User_Gateway" />
+      <Association Name="Gateway_User_Gateway" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
+      <Association Name="User_User_Gateway" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Gateway_Public" Member="Gateway_Publics">
+    <Type Name="Gateway_Public">
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RECT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DFLT_FACT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="VALD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NEW_RQST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AUTH_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PORT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQST_JBQU_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQST_SEND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RQST_RCIV" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="UPDT_NEW_SERV_PRVD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CYCL_GET_CACH_SERV_PRVD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDT_NEW_CLNT_PRVD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CYCL_SEND_INFO_PRVD_CLNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CNTR_PART" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Gateway_Gateway_Public" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Package" Member="Packages">
+    <Type Name="Package">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Package_Package_Instance" Member="Package_Instances" ThisKey="SUB_SYS,CODE" OtherKey="PAKG_SUB_SYS,PAKG_CODE" Type="Package_Instance" />
+      <Association Name="Package_Package_Activity" Member="Package_Activities" ThisKey="SUB_SYS,CODE" OtherKey="PAKG_SUB_SYS,PAKG_CODE" Type="Package_Activity" />
+      <Association Name="Sub_System_Package" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Action_Center" Member="Action_Centers">
+    <Type Name="Action_Center">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MESG_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MESG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MESG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Sub_System_Action_Center" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+      <Association Name="User_Action_Center" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Bank" Member="Banks">
+    <Type Name="Bank">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BANK_DESC" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TITL" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Bank_Bank_Branch" Member="Bank_Branches" ThisKey="CODE" OtherKey="BANK_CODE" Type="Bank_Branch" />
+    </Type>
+  </Table>
+  <Table Name="Global.Bank_Branch" Member="Bank_Branches">
+    <Type Name="Bank_Branch">
+      <Column Name="BANK_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TEL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HEAD_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Bank_Branch_Bank_Account" Member="Bank_Accounts" ThisKey="BANK_CODE,CODE" OtherKey="BNKB_BANK_CODE,BNKB_CODE" Type="Bank_Account" />
+      <Association Name="Bank_Bank_Branch" Member="Bank" ThisKey="BANK_CODE" OtherKey="CODE" Type="Bank" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Bank_Account" Member="Bank_Accounts">
+    <Type Name="Bank_Account">
+      <Column Name="BNKB_BANK_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ACNT_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ACNT_TYPE" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="OWNR_TYPE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SHBA_ACNT" Type="System.String" DbType="VarChar(26)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Bank_Account_Pos_Subsystem" Member="Pos_Subsystems" ThisKey="BNKB_BANK_CODE,BNKB_CODE,ACNT_NUMB" OtherKey="BNKA_BNKB_BANK_CODE,BNKA_BNKB_CODE,BNKA_ACNT_NUMB" Type="Pos_Subsystem" />
+      <Association Name="Bank_Branch_Bank_Account" Member="Bank_Branch" ThisKey="BNKB_BANK_CODE,BNKB_CODE" OtherKey="BANK_CODE,CODE" Type="Bank_Branch" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Pos_Subsystem" Member="Pos_Subsystems">
+    <Type Name="Pos_Subsystem">
+      <Column Name="BNKA_BNKB_BANK_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BNKA_BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="POS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_AMNT_EDIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_DATA_ON_DEVC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILL_RSLT_DATA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="POS_CNCT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Bank_Account_Pos_Subsystem" Member="Bank_Account" ThisKey="BNKA_BNKB_BANK_CODE,BNKA_BNKB_CODE,BNKA_ACNT_NUMB" OtherKey="BNKB_BANK_CODE,BNKB_CODE,ACNT_NUMB" Type="Bank_Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Sub_System_Pos_Subsystem" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.V#Computers" Member="V_Computers">
+    <Type Name="V_Computer">
+      <Column Name="IP_DNRM" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CPU_SRNO_DNRM" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="COMP_NAME_DNRM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.V#Users" Member="V_Users">
+    <Type Name="V_User">
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Package_Instance" Member="Package_Instances">
+    <Type Name="Package_Instance">
+      <Column Name="PAKG_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PAKG_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="INST_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MAX_ROW" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ROW_COUNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Package_Instance_Package_Instance_User_Gateway" Member="Package_Instance_User_Gateways" ThisKey="PAKG_SUB_SYS,PAKG_CODE,RWNO" OtherKey="PKIN_PAKG_SUB_SYS,PKIN_PAKG_CODE,PKIN_RWNO" Type="Package_Instance_User_Gateway" />
+      <Association Name="Package_Package_Instance" Member="Package" ThisKey="PAKG_SUB_SYS,PAKG_CODE" OtherKey="SUB_SYS,CODE" Type="Package" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Sub_System_Item" Member="Sub_System_Items">
+    <Type Name="Sub_System_Item">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Sub_System_Item_Package_Activity" Member="Package_Activities" ThisKey="SUB_SYS,RWNO" OtherKey="SSIT_SUB_SYS,SSIT_RWNO" Type="Package_Activity" />
+      <Association Name="Sub_System_Sub_System_Item" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Package_Activity" Member="Package_Activities">
+    <Type Name="Package_Activity">
+      <Column Name="SSIT_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SSIT_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PAKG_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PAKG_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Package_Activity_Package_Instance_User_Qiuck_Action" Member="Package_Instance_User_Qiuck_Actions" ThisKey="SSIT_SUB_SYS,SSIT_RWNO,PAKG_SUB_SYS,PAKG_CODE" OtherKey="PKAC_SSIT_SUB_SYS,PKAC_SSIT_RWNO,PKAC_PKAG_SUB_SYS,PKAC_PAKG_CODE" Type="Package_Instance_User_Qiuck_Action" />
+      <Association Name="Package_Package_Activity" Member="Package" ThisKey="PAKG_SUB_SYS,PAKG_CODE" OtherKey="SUB_SYS,CODE" Type="Package" IsForeignKey="true" />
+      <Association Name="Sub_System_Item_Package_Activity" Member="Sub_System_Item" ThisKey="SSIT_SUB_SYS,SSIT_RWNO" OtherKey="SUB_SYS,RWNO" Type="Sub_System_Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Package_Instance_User_Qiuck_Action" Member="Package_Instance_User_Qiuck_Actions">
+    <Type Name="Package_Instance_User_Qiuck_Action">
+      <Column Name="PIUG_PKIN_PAKG_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PIUG_PKIN_PAKG_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PIUG_PKIN_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PIUG_USGW_GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PIUG_USER_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PIUG_USGW_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PKAC_SSIT_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PKAC_SSIT_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PKAC_PKAG_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PKAC_PAKG_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Package_Activity_Package_Instance_User_Qiuck_Action" Member="Package_Activity" ThisKey="PKAC_SSIT_SUB_SYS,PKAC_SSIT_RWNO,PKAC_PKAG_SUB_SYS,PKAC_PAKG_CODE" OtherKey="SSIT_SUB_SYS,SSIT_RWNO,PAKG_SUB_SYS,PAKG_CODE" Type="Package_Activity" IsForeignKey="true" />
+      <Association Name="Package_Instance_User_Gateway_Package_Instance_User_Qiuck_Action" Member="Package_Instance_User_Gateway" ThisKey="PIUG_PKIN_PAKG_SUB_SYS,PIUG_PKIN_PAKG_CODE,PIUG_PKIN_RWNO,PIUG_USGW_GTWY_MAC_ADRS,PIUG_USER_ID,PIUG_USGW_RWNO" OtherKey="PKIN_PAKG_SUB_SYS,PKIN_PAKG_CODE,PKIN_RWNO,USGW_GTWY_MAC_ADRS,USGW_USER_ID,USGW_RWNO" Type="Package_Instance_User_Gateway" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Active_Session" Member="Active_Sessions">
+    <Type Name="Active_Session">
+      <Column Name="USGW_GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USGW_USER_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USGW_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AUDS_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_Gateway_Active_Session" Member="User_Gateway" ThisKey="USGW_GTWY_MAC_ADRS,USGW_USER_ID,USGW_RWNO" OtherKey="GTWY_MAC_ADRS,USER_ID,RWNO" Type="User_Gateway" IsForeignKey="true" />
+      <Association Name="Access_User_Datasource_Active_Session" Member="Access_User_Datasource" ThisKey="AUDS_ID" OtherKey="ID" Type="Access_User_Datasource" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.V#Top_Active_Session" Member="V_Top_Active_Sessions">
+    <Type Name="V_Top_Active_Session">
+      <Column Name="USGW_GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" CanBeNull="false" />
+      <Column Name="USGW_USER_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="USGW_RWNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AUDS_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Report.DataSource" Member="DataSources">
+    <Type Name="DataSource">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="DatabaseServer" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IPAddress" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Port" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Database_Alias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="[Database]" Member="Database" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="DataSource_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="DSRC_ID" Type="Access_User_Datasource" />
+      <Association Name="Sub_System_DataSource" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Country" Member="Countries">
+    <Type Name="Country">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LTIN_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Country_Province" Member="Provinces" ThisKey="CODE" OtherKey="CNTY_CODE" Type="Province" />
+    </Type>
+  </Table>
+  <Table Name="Global.Province" Member="Provinces">
+    <Type Name="Province">
+      <Column Name="CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LTIN_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Province_Region" Member="Regions" ThisKey="CNTY_CODE,CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE" Type="Region" />
+      <Association Name="Country_Province" Member="Country" ThisKey="CNTY_CODE" OtherKey="CODE" Type="Country" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Region" Member="Regions">
+    <Type Name="Region">
+      <Column Name="PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="LTIN_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LON" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LAT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Region_Region" Member="Regions" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" Type="Region" />
+      <Association Name="Region_Package_Instance_User_Gateway" Member="Package_Instance_User_Gateways" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Package_Instance_User_Gateway" />
+      <Association Name="Region_User" Member="Users" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="User" />
+      <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
+      <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Security_Managment" Member="Security_Managments">
+    <Type Name="Security_Managment">
+      <Column Name="SMID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAST_UPDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_MAC_ADDR_FLTR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USE_VPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_COMP_BLOK" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOGN_COMP_BLOK" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_ALRM_UNAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POST_PONE_UNAT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_FORC_SAFE_ENTR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_SECR_PSWD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PSWD_HIST_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAX_PSWD_AGE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_PSWD_AGE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_PSWD_LEN" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_PSWD_CMPX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HASH_PASS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.V#TopNActiveSessionCurrentGateway" Member="V_TopNActiveSessionCurrentGateways">
+    <Type Name="V_TopNActiveSessionCurrentGateway">
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Package_Instance_User_Gateway" Member="Package_Instance_User_Gateways">
+    <Type Name="Package_Instance_User_Gateway">
+      <Column Name="PKIN_PAKG_SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PKIN_PAKG_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PKIN_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USGW_GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USGW_USER_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USGW_RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_NOTF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_NOTF_LOCK_SCRN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_NOTF_WRMD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_SYS_SUGT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BACK_GRND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_LYOT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BACK_GRND_COLR" Type="System.String" DbType="VarChar(7)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="THEM_COLR" Type="System.String" DbType="VarChar(7)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOCK_SCRN_BACK_GRND_COLR" Type="System.String" DbType="VarChar(7)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOCK_SCRN_NOTF_MESG_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOCK_SCRN_DTIM_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOCK_SCRN_WETR_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_DESK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_STRT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_TASK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_SHOW_MORE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_SHOW_FAV" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_FULL_SCRN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_EXIT_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_STNG_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_ACTV_USER_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_CNTC_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_NOTF_MESG_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_PROF_USER_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_WETR_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TASK_LOCT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TASK_SIZE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRY_DTIM_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRY_NOTF_MESG_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRY_NETW_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRY_BKRS_BUTN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WETR_ACES_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_LOG_IN_DESC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOG_IN_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Package_Instance_User_Gateway_Package_Instance_User_Qiuck_Action" Member="Package_Instance_User_Qiuck_Actions" ThisKey="PKIN_PAKG_SUB_SYS,PKIN_PAKG_CODE,PKIN_RWNO,USGW_GTWY_MAC_ADRS,USGW_USER_ID,USGW_RWNO" OtherKey="PIUG_PKIN_PAKG_SUB_SYS,PIUG_PKIN_PAKG_CODE,PIUG_PKIN_RWNO,PIUG_USGW_GTWY_MAC_ADRS,PIUG_USER_ID,PIUG_USGW_RWNO" Type="Package_Instance_User_Qiuck_Action" />
+      <Association Name="Package_Instance_Package_Instance_User_Gateway" Member="Package_Instance" ThisKey="PKIN_PAKG_SUB_SYS,PKIN_PAKG_CODE,PKIN_RWNO" OtherKey="PAKG_SUB_SYS,PAKG_CODE,RWNO" Type="Package_Instance" IsForeignKey="true" />
+      <Association Name="Region_Package_Instance_User_Gateway" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="User_Gateway_Package_Instance_User_Gateway" Member="User_Gateway" ThisKey="USGW_GTWY_MAC_ADRS,USGW_USER_ID,USGW_RWNO" OtherKey="GTWY_MAC_ADRS,USER_ID,RWNO" Type="User_Gateway" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="CRM.Privilege" Member="CRM_Privileges">
+    <Type Name="CRM_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TitleEn" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Box_Privilege_CRM_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Box_Privilege" Member="Box_Privileges">
+    <Type Name="Box_Privilege">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BPID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BOXP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_CRM_Privilege" Member="CRM_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="CRM_Privilege" />
+      <Association Name="Box_Privilege_DataGuard_Privilege" Member="DataGuard_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="DataGuard_Privilege" />
+      <Association Name="Box_Privilege_Gas_Privilege" Member="Gas_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Gas_Privilege" />
+      <Association Name="Box_Privilege_Global_Privilege" Member="Global_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Global_Privilege" />
+      <Association Name="Box_Privilege_ISP_Privilege" Member="ISP_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="ISP_Privilege" />
+      <Association Name="Box_Privilege_Msgb_Privilege" Member="Msgb_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Msgb_Privilege" />
+      <Association Name="Box_Privilege_Report_Privilege" Member="Report_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Report_Privilege" />
+      <Association Name="Box_Privilege_RoboTech_Privilege" Member="RoboTech_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="RoboTech_Privilege" />
+      <Association Name="Box_Privilege_Sas_Privilege" Member="Sas_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Sas_Privilege" />
+      <Association Name="Box_Privilege_Scsc_Privilege" Member="Scsc_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Scsc_Privilege" />
+      <Association Name="Box_Privilege_ServiceDef_Privilege" Member="ServiceDef_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="ServiceDef_Privilege" />
+      <Association Name="Box_Privilege_User_Privilege" Member="User_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="User_Privilege" />
+      <Association Name="Box_Privilege_Role_Privilege" Member="Role_Privileges" ThisKey="BPID" OtherKey="BOXP_BPID" Type="Role_Privilege" />
+      <Association Name="Sub_System_Box_Privilege" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Privilege" Member="DataGuard_Privileges">
+    <Type Name="DataGuard_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_DataGuard_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Gas.Privilege" Member="Gas_Privileges">
+    <Type Name="Gas_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_Gas_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Privilege" Member="Global_Privileges">
+    <Type Name="Global_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_Global_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ISP.Privilege" Member="ISP_Privileges">
+    <Type Name="ISP_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="VarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_ISP_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Msgb.Privilege" Member="Msgb_Privileges">
+    <Type Name="Msgb_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_Msgb_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Report.Privilege" Member="Report_Privileges">
+    <Type Name="Report_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_Report_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="RoboTech.Privilege" Member="RoboTech_Privileges">
+    <Type Name="RoboTech_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="VarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_RoboTech_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sas.Privilege" Member="Sas_Privileges">
+    <Type Name="Sas_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="VarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_Sas_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Scsc.Privilege" Member="Scsc_Privileges">
+    <Type Name="Scsc_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="VarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_Scsc_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ServiceDef.Privilege" Member="ServiceDef_Privileges">
+    <Type Name="ServiceDef_Privilege">
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Box_Privilege_ServiceDef_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.User_Privilege" Member="User_Privileges">
+    <Type Name="User_Privilege">
+      <Column Name="Sub_Sys" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PrivilegeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Box_Privilege_User_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+      <Association Name="Sub_System_User_Privilege" Member="Sub_System" ThisKey="Sub_Sys" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+      <Association Name="User_User_Privilege" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="STitleFa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDefualt" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Role_Role_Privilege" Member="Role_Privileges" ThisKey="ID" OtherKey="RoleID" Type="Role_Privilege" />
+      <Association Name="Role_Role_User" Member="Role_Users" ThisKey="ID" OtherKey="RoleID" Type="Role_User" />
+      <Association Name="Sub_System_Role" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Role_Privilege" Member="Role_Privileges">
+    <Type Name="Role_Privilege">
+      <Column Name="Sub_Sys" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BOXP_BPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PrivilegeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RPID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Box_Privilege_Role_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
+      <Association Name="Role_Role_Privilege" Member="Role" ThisKey="RoleID" OtherKey="ID" Type="Role" IsForeignKey="true" />
+      <Association Name="Sub_System_Role_Privilege" Member="Sub_System" ThisKey="Sub_Sys" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Role_User" Member="Role_Users">
+    <Type Name="Role_User">
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Role_Role_User" Member="Role" ThisKey="RoleID" OtherKey="ID" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_Role_User" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$ACST" Member="D_ACSTs">
+    <Type Name="D_ACST">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$YSNO" Member="D_YSNOs">
+    <Type Name="D_YSNO">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$ACTP" Member="D_ACTPs">
+    <Type Name="D_ACTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$AUTP" Member="D_AUTPs">
+    <Type Name="D_AUTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$BKGT" Member="D_BKGTs">
+    <Type Name="D_BKGT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$BMPL" Member="D_BMPLs">
+    <Type Name="D_BMPL">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$DLMT" Member="D_DLMTs">
+    <Type Name="D_DLMT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$ESRV" Member="D_ESRVs">
+    <Type Name="D_ESRV">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$LNTP" Member="D_LNTPs">
+    <Type Name="D_LNTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$MGTP" Member="D_MGTPs">
+    <Type Name="D_MGTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$MSGS" Member="D_MSGs">
+    <Type Name="D_MSG">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$NSCL" Member="D_NSCLs">
+    <Type Name="D_NSCL">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$VLDT" Member="D_VLDTs">
+    <Type Name="D_VLDT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Global.Access_User_Datasource" Member="Access_User_Datasources">
+    <Type Name="Access_User_Datasource">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DSRC_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ACES_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="HOST_NAME" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Access_User_Datasource_Active_Session" Member="Active_Sessions" ThisKey="ID" OtherKey="AUDS_ID" Type="Active_Session" />
+      <Association Name="DataSource_Access_User_Datasource" Member="DataSource" ThisKey="DSRC_ID" OtherKey="ID" Type="DataSource" IsForeignKey="true" />
+      <Association Name="Gateway_Access_User_Datasource" Member="Gateway" ThisKey="HOST_NAME" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
+      <Association Name="User_Access_User_Datasource" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="Global.Mail_Server" Member="Mail_Servers">
+    <Type Name="Mail_Server">
+      <Column Name="MSID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EMAL_SRVR_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IMAP_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="IMAP_PORT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IMAP_SSL_MODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SMTP_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SMTP_PORT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SMTP_SSL_MODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SMTP_DLVR_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SMTP_TIME_OUT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MAIL_SCAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Sub_System" Member="Sub_Systems">
+    <Type Name="Sub_System">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SCHM_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DLL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CAN_UN_INST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_APP_STRT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LICN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LICN_TRIL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LICN_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VERS_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DB_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUPR_EMAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="JOBS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FREQ_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Sub_System_Package" Member="Packages" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Package" />
+      <Association Name="Sub_System_Action_Center" Member="Action_Centers" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Action_Center" />
+      <Association Name="Sub_System_Pos_Subsystem" Member="Pos_Subsystems" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Pos_Subsystem" />
+      <Association Name="Sub_System_Sub_System_Item" Member="Sub_System_Items" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System_Item" />
+      <Association Name="Sub_System_DataSource" Member="DataSources" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="DataSource" />
+      <Association Name="Sub_System_Box_Privilege" Member="Box_Privileges" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Box_Privilege" />
+      <Association Name="Sub_System_User_Privilege" Member="User_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="User_Privilege" />
+      <Association Name="Sub_System_Role" Member="Roles" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Role" />
+      <Association Name="Sub_System_Role_Privilege" Member="Role_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="Role_Privilege" />
+    </Type>
+    <UpdateFunction FunctionId="FunctionId1">
+      <Argument Parameter="sub_Sys" Member="SUB_SYS" />
+      <Argument Parameter="stat" Member="STAT" />
+      <Argument Parameter="inst_Stat" Member="INST_STAT" />
+      <Argument Parameter="inst_Date" Member="INST_DATE" />
+      <Argument Parameter="licn_Type" Member="LICN_TYPE" />
+      <Argument Parameter="licn_Tril_Date" Member="LICN_TRIL_DATE" />
+      <Argument Parameter="licn_Desc" Member="LICN_DESC" />
+      <Argument Parameter="sub_Desc" Member="SUB_DESC" />
+      <Argument Parameter="jobs_Stat" Member="JOBS_STAT" />
+      <Argument Parameter="freq_Intr" Member="FREQ_INTR" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="DataGuard.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="STitleEn" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="USERDB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASSDB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsLock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MUST_CHNG_PASS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FRST_LOGN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_FORC_SAFE_ENTR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASS_MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_FACT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADD_COMP_LIST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WETR_ACES_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONT_PBLC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USER_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRVC_LOCK_SCRN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_LOGN_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VOIP_NUMB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_LOGN_FORM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR_PROF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR_ACNT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_USER_HELP_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_User_Gateway" Member="User_Gateways" ThisKey="ID" OtherKey="USER_ID" Type="User_Gateway" />
+      <Association Name="User_Action_Center" Member="Action_Centers" ThisKey="ID" OtherKey="USER_ID" Type="Action_Center" />
+      <Association Name="User_User_Privilege" Member="User_Privileges" ThisKey="ID" OtherKey="UserID" Type="User_Privilege" />
+      <Association Name="User_Role_User" Member="Role_Users" ThisKey="ID" OtherKey="UserID" Type="Role_User" />
+      <Association Name="User_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="USER_ID" Type="Access_User_Datasource" />
+      <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="SaveHostInfoResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="DataGuard.CheckHostUserEntry" Method="CheckHostUserEntry" IsComposable="true">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="DataGuard.ChangeHostAuthorized" Method="ChangeHostAuthorized">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="ChangeHostAuthorizedResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_UPWD_U" Method="GET_UPWD_U" IsComposable="true">
+    <Parameter Name="P_RqstXml" Parameter="p_RqstXml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="DataGuard.SaveVersionControl" Method="SaveVersionControl">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="SaveVersionControlResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GETDATA" Method="GETDATA" IsComposable="true">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Xml.Linq.XElement" />
+  </Function>
+  <Function Name="DataGuard.VF$DataBaseFileInfo" Method="VF_DataBaseFileInfo" IsComposable="true">
+    <Parameter Name="DbName" Parameter="dbName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="VF_DataBaseFileInfoResult">
+      <Column Name="type" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="type_desc" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="physical_name" Type="System.String" DbType="NVarChar(260) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="state_desc" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="size" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="max_size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="File_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="DataGuard.ShrinkLogFileDb" Method="ShrinkLogFileDb">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.SaveActiveSession" Method="SaveActiveSession">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.CreateNewUser" Method="CreateNewUser">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.UpdatePrivilegeToBox" Method="UpdatePrivilegeToBox">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.CreateOrReplaceBoxPrivilege" Method="CreateOrReplaceBoxPrivilege">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.DeleteBoxPrivilege" Method="DeleteBoxPrivilege">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.IUDRole" Method="IUDRole">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.GRRole" Method="GRRole">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.DeactivePrivilegesToRole" Method="DeactivePrivilegesToRole">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.ActivePrivilegesInRole" Method="ActivePrivilegesInRole">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.JoinUserToRoles" Method="JoinUserToRoles">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.LeaveUserFromRoles" Method="LeaveUserFromRoles">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.GRUser" Method="GRUser">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.ActivePrivilegesInUser" Method="ActivePrivilegesInUser">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.DeactivePrivilegesToUser" Method="DeactivePrivilegesToUser">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.DuplicateUser" Method="DuplicateUser">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.DeleteUser" Method="DeleteUser">
+    <Parameter Name="Xml" Parameter="xml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CHK_MALS_U" Method="CHK_MALS_U" IsComposable="true">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.ConfigurationUserMailServer" Method="ConfigurationUserMailServer">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId1" Name="DataGuard.UpdateSubSystem" Method="UpdateSubSystem">
+    <Parameter Name="Sub_Sys" Parameter="sub_Sys" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Inst_Stat" Parameter="inst_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Inst_Date" Parameter="inst_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Licn_Type" Parameter="licn_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Licn_Tril_Date" Parameter="licn_Tril_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Licn_Desc" Parameter="licn_Desc" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Sub_Desc" Parameter="sub_Desc" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Jobs_Stat" Parameter="jobs_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Freq_Intr" Parameter="freq_Intr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.InstallOrUninstallJob" Method="InstallOrUninstallJob">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="InstallOrUninstallJobResult">
+      <Column Name="has_server_access" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="is_sysadmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="actual_login_name" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

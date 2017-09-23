@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iRoboTech Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iRoboTech</Alias>
+        <ConnectionString>Integrated Security=True;Initial Catalog=iRoboTech;Data Source=.</ConnectionString>
+        <Name>iRoboTech</Name>
+        <PromptUserNameAndPassword>True</PromptUserNameAndPassword>
+      </iRoboTech>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <Order Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Order</Alias>
+        <Columns isList="true" count="8">
+          <value>CHAT_ID,System.Int64</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>TOTL,System.Int32</value>
+          <value>CHNL_TELG,System.Int32</value>
+          <value>CHNL_WHTS,System.Int32</value>
+          <value>CHNL_INST,System.Int32</value>
+          <value>GROP_TELG,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Order</Name>
+        <NameInSource>iRoboTech</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT o.CHAT_ID, 
+	s.FRST_NAME,
+	s.LAST_NAME,
+	COUNT(*) AS TOTL, 
+	(SELECT COUNT(*) FROM dbo.[Order] o1, dbo.Order_Detail od WHERE o.CHAT_ID = o1.CHAT_ID AND o1.CODE = od.ORDR_CODE AND od.ORDR_CMNT = N'معرفی کانال تلگرام') AS CHNL_TELG,
+(SELECT COUNT(*) FROM dbo.[Order] o1, dbo.Order_Detail od WHERE o.CHAT_ID = o1.CHAT_ID AND o1.CODE = od.ORDR_CODE AND od.ORDR_CMNT = N'معرفی کانال واتس آپ') AS CHNL_WHTS,
+(SELECT COUNT(*) FROM dbo.[Order] o1, dbo.Order_Detail od WHERE o.CHAT_ID = o1.CHAT_ID AND o1.CODE = od.ORDR_CODE AND od.ORDR_CMNT = N'معرفی کانال اینستاگرام') AS CHNL_INST,
+(SELECT COUNT(*) FROM dbo.[Order] o1, dbo.Order_Detail od WHERE o.CHAT_ID = o1.CHAT_ID AND o1.CODE = od.ORDR_CODE AND od.ORDR_CMNT = N'معرفی گروه تلگرام') AS GROP_TELG
+    FROM dbo.[Order] o, dbo.Service s--, QXML
+   WHERE o.CHAT_ID = s.CHAT_ID     
+         {WhereClause}
+     /*AND (QXML.Chat_Id IS NULL OR o.CHAT_ID = QXML.Chat_Id)
+     AND (QXML.Strt_Date IS NULL OR CAST(o.STRT_DATE AS DATE) = CAST(QXML.Strt_Date AS DATE))*/
+   GROUP BY o.CHAT_ID, s.FRST_NAME, s.LAST_NAME</SqlCommand>
+      </Order>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <HeaderOrder Ref="5" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,0.76</ClientRectangle>
+          <Components isList="true" count="8">
+            <HeaderOrder_CHAT_ID Ref="6" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_CHAT_ID</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کد تلگرام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_CHAT_ID>
+            <HeaderOrder_FRST_NAME Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.46,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_FRST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_FRST_NAME>
+            <HeaderOrder_LAST_NAME Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.92,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_LAST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_LAST_NAME>
+            <HeaderOrder_TOTL Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.39,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_TOTL</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کل پیام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_TOTL>
+            <HeaderOrder_CHNL_TELG Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.85,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_CHNL_TELG</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کانال تلگرام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_CHNL_TELG>
+            <HeaderOrder_CHNL_WHTS Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.31,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_CHNL_WHTS</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کانال واتس آپ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_CHNL_WHTS>
+            <HeaderOrder_CHNL_INST Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.78,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_CHNL_INST</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کانال اینستاگرام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_CHNL_INST>
+            <HeaderOrder_GROP_TELG Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.24,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_GROP_TELG</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>گروه تلگرام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_GROP_TELG>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderOrder</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </HeaderOrder>
+        <DataOrder Ref="14" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,1.96,27.7,0.76</ClientRectangle>
+          <Components isList="true" count="8">
+            <DataOrder_CHAT_ID Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_CHAT_ID</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Order.CHAT_ID}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_CHAT_ID>
+            <DataOrder_FRST_NAME Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.46,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_FRST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Order.FRST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_FRST_NAME>
+            <DataOrder_LAST_NAME Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.92,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_LAST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Order.LAST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_LAST_NAME>
+            <DataOrder_TOTL Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.39,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_TOTL</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Order.TOTL}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_TOTL>
+            <DataOrder_CHNL_TELG Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.85,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_CHNL_TELG</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Order.CHNL_TELG}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_CHNL_TELG>
+            <DataOrder_CHNL_WHTS Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>17.31,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_CHNL_WHTS</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Order.CHNL_WHTS}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_CHNL_WHTS>
+            <DataOrder_CHNL_INST Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20.78,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_CHNL_INST</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Order.CHNL_INST}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_CHNL_INST>
+            <DataOrder_GROP_TELG Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>24.24,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_GROP_TELG</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Order.GROP_TELG}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_GROP_TELG>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Order</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataOrder</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataOrder>
+        <FooterOrder Ref="23" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.52,27.7,0.76</ClientRectangle>
+          <Components isList="true" count="8">
+            <FooterOrder_CHAT_ID Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_CHAT_ID</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_CHAT_ID>
+            <FooterOrder_FRST_NAME Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.46,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_FRST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_FRST_NAME>
+            <FooterOrder_LAST_NAME Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.92,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_LAST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_LAST_NAME>
+            <FooterOrder_TOTL Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.39,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_TOTL</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(Order.TOTL)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_TOTL>
+            <FooterOrder_CHNL_TELG Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.85,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_CHNL_TELG</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(Order.CHNL_TELG)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_CHNL_TELG>
+            <FooterOrder_CHNL_WHTS Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.31,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_CHNL_WHTS</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(Order.CHNL_WHTS)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_CHNL_WHTS>
+            <FooterOrder_CHNL_INST Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.78,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_CHNL_INST</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(Order.CHNL_INST)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_CHNL_INST>
+            <FooterOrder_GROP_TELG Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.24,0,3.46,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_GROP_TELG</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(Order.GROP_TELG)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_GROP_TELG>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterOrder</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </FooterOrder>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>ddc5085f469748718f2b668468f81760</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="32" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="33" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/6/2017 9:55:03 AM</ReportChanged>
+  <ReportCreated>9/6/2017 9:03:47 AM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\SubSys\iRoboTech\Report002.mrt</ReportFile>
+  <ReportGuid>ce3af7c0e25a43e99ef4b47ca3f2e7cc</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

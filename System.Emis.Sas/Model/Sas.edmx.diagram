@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2961fe1e99cc4902bf3a6e8d1976dd8d" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="Model.BASE_METER_SPEC" Width="1.5" PointX="5.5" PointY="5.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.METER_SPEC" Width="1.5" PointX="0.625" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REGION" Width="1.5" PointX="3.5" PointY="6.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REQUEST" Width="1.5" PointX="9.75" PointY="6.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REQUEST_ROW" Width="1.5" PointX="6.25" PointY="9.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REQUEST_TYPE" Width="1.5" PointX="8.625" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REQUESTER_TYPE" Width="1.5" PointX="7.875" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.SERVICE" Width="2" PointX="3.5" PointY="11" IsExpanded="false" />
+        <AssociationConnector Association="Model.BMSP_REGN_FK" />
+        <AssociationConnector Association="Model.BMSP_RQRO_FK" />
+        <AssociationConnector Association="Model.BMSP_SERV_FK" />
+        <AssociationConnector Association="Model.MSPC_REGN_FK" />
+        <AssociationConnector Association="Model.MSPC_RQRO_FK" />
+        <AssociationConnector Association="Model.MSPC_SERV_FK" />
+        <AssociationConnector Association="Model.REGN_REGN_FK" />
+        <AssociationConnector Association="Model.RQRO_REGN_FK" />
+        <AssociationConnector Association="Model.RQST_REGN_FK" />
+        <AssociationConnector Association="Model.RQST_REGN_RALATE_TO_FK" />
+        <AssociationConnector Association="Model.SERV_REGN_FK" />
+        <AssociationConnector Association="Model.RQRO_RQST_FK" />
+        <AssociationConnector Association="Model.RQST_RQST_FK" />
+        <AssociationConnector Association="Model.RQST_RQTP_FK" />
+        <AssociationConnector Association="Model.RQST_RQTT_FK" />
+        <AssociationConnector Association="Model.RQRO_RQTP_FK" />
+        <AssociationConnector Association="Model.RQRO_RQTT_FK" />
+        <AssociationConnector Association="Model.RQRO_SERV_FK" />
+        <EntityTypeShape EntityType="Model.CG_REF_CODES" Width="1.5" PointX="0.875" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.STEP_HISTORY_DETAIL" Width="1.5" PointX="13.875" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.STEP_HISTORY_SUMMERY" Width="1.5" PointX="11.125" PointY="4.5" IsExpanded="false" />
+        <AssociationConnector Association="Model.SHIS_RQST_FK" />
+        <AssociationConnector Association="Model.SHIT_SHIS_FK" />
+        <EntityTypeShape EntityType="Model.BIL_CONSUMPTION" Width="1.5" PointX="14.375" PointY="7.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.BILL" Width="1.5" PointX="5.875" PointY="13.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.CONS_BILL_FK" />
+        <AssociationConnector Association="Model.BILL_BILL_FK" />
+        <AssociationConnector Association="Model.BILL_REGN_FK" />
+        <AssociationConnector Association="Model.BILL_RQRO_FK" />
+        <AssociationConnector Association="Model.BILL_SERV_FK" />
+        <EntityTypeShape EntityType="Model.BIL_PREVENT_CODE" Width="1.5" PointX="4" PointY="15.25" IsExpanded="false" />
+        <AssociationConnector Association="Model.BILL_PRCD_FK" />
+        <EntityTypeShape EntityType="Model.BIL_BILL_DEBIT" Width="1.5" PointX="8.125" PointY="16.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.BDEB_BILL_FK" />
+        <EntityTypeShape EntityType="Model.BIL_BILL_AMOUNT" Width="1.5" PointX="9.375" PointY="12.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.BAMN_BILL_FK" />
+        <EntityTypeShape EntityType="Model.BIL_CONSUMPTION_DETAIL" Width="1.5" PointX="14.5" PointY="8.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.CNSD_CONS_FK" />
+        <EntityTypeShape EntityType="Model.SAS_PUBLIC" Width="1.5" PointX="11.625" PointY="10.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.BILL_PBLC_FK" />
+        <AssociationConnector Association="Model.PBLC_REGN_FK" />
+        <AssociationConnector Association="Model.PBLC_RQRO_FK" />
+        <AssociationConnector Association="Model.PBLC_SERV_FK" />
+        <EntityTypeShape EntityType="Model.BASE_METER_TARIFF" Width="1.5" PointX="6.25" PointY="2.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.BMTR_BMSP_FK" />
+        <AssociationConnector Association="Model.CONS_BMTR_FK" />
+        <EntityTypeShape EntityType="Model.ADM_CATEGORY" Width="1.5" PointX="13.625" PointY="15.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.BIL_FIRST_INFORMATION" Width="1.5" PointX="11.375" PointY="14.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.BIL_TARIFF" Width="1.5" PointX="13.625" PointY="13.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.SERVICE_TARIFF" Width="1.5" PointX="15.875" PointY="11.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.TARF_CTGY_FK" />
+        <AssociationConnector Association="Model.BAMN_FINF_FK" />
+        <AssociationConnector Association="Model.CNSD_FINF_FK" />
+        <AssociationConnector Association="Model.FINF_FINF_FK" />
+        <AssociationConnector Association="Model.TARF_FINF_FK" />
+        <AssociationConnector Association="Model.STRF_TARF_FK" />
+        <AssociationConnector Association="Model.STRF_REGN_FK" />
+        <AssociationConnector Association="Model.STRF_SERV_FK" />
+        <EntityTypeShape EntityType="Model.BIL_DEBIT" Width="1.5" PointX="6.25" PointY="18.125" IsExpanded="false" />
+        <AssociationConnector Association="Model.BDEB_DEBT_FK" />
+        <AssociationConnector Association="Model.DEBT_SERV_FK" />
+        <EntityTypeShape EntityType="Model.BIL_ACCOUNT" Width="1.5" PointX="9.25" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.BIL_ACCOUNT_DETAIL" Width="1.5" PointX="11.5" PointY="2.5" IsExpanded="false" />
+        <AssociationConnector Association="Model.ACDT_ACNT_FK" />
+        <AssociationConnector Association="Model.ACNT_REGN_FK" />
+        <AssociationConnector Association="Model.ACNT_SERV_FK" />
+        <EntityTypeShape EntityType="Model.BIL_RCPT_ROW_ANNOUNCEMENT" Width="1.5" PointX="8.125" PointY="21.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.RCAR_BILL_FK" />
+        <EntityTypeShape EntityType="Model.SAS_REC_TYPE" Width="1.5" PointX="1" PointY="7.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.BMSP_RECT_FK" />
+        <AssociationConnector Association="Model.MSPC_RECT_FK" />
+        <AssociationConnector Association="Model.PBLC_RECT_FK" />
+        <EntityTypeShape EntityType="Model.ADM_TRANSFER_SPEC" Width="1.5" PointX="4" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CYCLE" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.EXPENSE" Width="1.5" PointX="18.375" PointY="19.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.EXPENSE_TYPE" Width="1.5" PointX="16.125" PointY="16.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REGULATION" Width="1.5" PointX="3.75" PointY="17.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.REGULATION_ROW" Width="1.5" PointX="6" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.SAS_DOCUMENT_SPEC" Width="1.5" PointX="10.875" PointY="21.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.SAS_EXPENSE_ITEM" Width="1.5" PointX="13.875" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.SAS_REQUEST_DOCUMENT" Width="1.5" PointX="13.125" PointY="17.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.SAS_REQUEST_REQUESTER" Width="1.5" PointX="10.875" PointY="16.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.RGRO_TRSP_FK" />
+        <AssociationConnector Association="Model.RQRO_TRSP_FK" />
+        <AssociationConnector Association="Model.FINF_CYCL_FK" />
+        <AssociationConnector Association="Model.REGL_CYCL_FK" />
+        <AssociationConnector Association="Model.RQST_CYCL_FK" />
+        <AssociationConnector Association="Model.EXPN_EXTP_FK" />
+        <AssociationConnector Association="Model.EXPN_RGRO_FK" />
+        <AssociationConnector Association="Model.EXTP_EPIT_FK" />
+        <AssociationConnector Association="Model.EXTP_RQRQ_FK" />
+        <AssociationConnector Association="Model.REGL_REGL_FK" />
+        <AssociationConnector Association="Model.RGRO_REGL_FK" />
+        <AssociationConnector Association="Model.RQRQ_REGL_FK" />
+        <AssociationConnector Association="Model.RQRO_RGRO_FK" />
+        <AssociationConnector Association="Model.RQRQ_RQTP_FK" />
+        <AssociationConnector Association="Model.RQRQ_RQTT_FK" />
+        <AssociationConnector Association="Model.RQDC_DCMT_FK" />
+        <AssociationConnector Association="Model.RQDC_RQRQ_FK" />
+        <EntityTypeShape EntityType="Model.ADM_REGION_EXPENSE_ACOUNT" Width="1.5" PointX="19.625" PointY="10.625" />
+        <EntityTypeShape EntityType="Model.BANK" Width="1.5" PointX="0.75" PointY="20" />
+        <EntityTypeShape EntityType="Model.BANK_ACCOUNT" Width="1.5" PointX="5.25" PointY="19.375" />
+        <EntityTypeShape EntityType="Model.BANK_BRANCH" Width="1.5" PointX="3" PointY="19.625" />
+        <AssociationConnector Association="Model.REAC_BNKA_FK" />
+        <AssociationConnector Association="Model.REAC_EXTP_FK" />
+        <AssociationConnector Association="Model.REAC_REGL_FK" />
+        <AssociationConnector Association="Model.REAC_REGN_FK" />
+        <AssociationConnector Association="Model.BNKB_BANK_FK" />
+        <AssociationConnector Association="Model.BNKA_BNKB_FK" />
+        <AssociationConnector Association="Model.RQRO_BNKA_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

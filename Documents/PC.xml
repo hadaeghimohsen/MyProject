@@ -1,0 +1,60 @@
+<Control id="1">
+	<Selected action="1">	
+		<Enabling>
+		  <Control id="2"/>
+         <Control id="3"/>
+         <Control id="4"/>
+         <Control id="6"/>
+         <Control id="7"/>
+         <Control id="8"/>
+		</Enabling>
+
+		<Disabling>
+		  <Control id="5"/>
+         <Control id="9"/>
+         <Control id="10"/>
+		</Disabling>
+	</Selected>
+	<Selected action="2">
+		<Enabling>
+		  <Control id="2"/>
+         <Control id="3"/>
+         <Control id="4"/>
+         <Control id="5"/>
+         <Control id="6"/>
+         <Control id="7"/>
+         <Control id="8"/>
+         <Control id="9"/>
+         <Control id="10"/>
+		</Enabling>
+   </Selected>
+	<Selected action="3">
+		<Enabling>
+         <Control id="4"/>
+		</Enabling>
+
+		<Disabling>
+		  <Control id="2"/>
+         <Control id="3"/>
+		  <Control id="5"/>
+         <Control id="6"/>
+         <Control id="7"/>
+         <Control id="8"/>
+         <Control id="9"/>
+         <Control id="10"/>
+		</Disabling>
+	</Selected>
+	<Selected action="4">
+		<Disabling>
+		  <Control id="2"/>
+         <Control id="3"/>
+         <Control id="4"/>
+		  <Control id="5"/>
+         <Control id="6"/>
+         <Control id="7"/>
+         <Control id="8"/>
+         <Control id="9"/>
+         <Control id="10"/>
+		</Disabling>
+	</Selected>	
+</Control>

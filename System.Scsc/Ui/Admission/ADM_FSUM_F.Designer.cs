@@ -1,0 +1,1281 @@
+﻿namespace System.Scsc.Ui.Admission
+{
+   partial class ADM_FSUM_F
+   {
+      /// <summary> 
+      /// Required designer variable.
+      /// </summary>
+      private System.ComponentModel.IContainer components = null;
+
+      /// <summary> 
+      /// Clean up any resources being used.
+      /// </summary>
+      /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+      protected override void Dispose(bool disposing)
+      {
+         if (disposing && (components != null))
+         {
+            components.Dispose();
+         }
+         base.Dispose(disposing);
+      }
+
+      #region Component Designer generated code
+
+      /// <summary> 
+      /// Required method for Designer support - do not modify 
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+         this.components = new System.ComponentModel.Container();
+         System.Windows.Forms.Label sSTT_CODELabel;
+         System.Windows.Forms.Label sSTT_MSTT_CODELabel;
+         System.Windows.Forms.Label mDFY_DATELabel;
+         System.Windows.Forms.Label mDFY_BYLabel;
+         System.Windows.Forms.Label cRET_DATELabel;
+         System.Windows.Forms.Label cRET_BYLabel;
+         System.Windows.Forms.Label rQTT_CODELabel;
+         System.Windows.Forms.Label rEGN_CODELabel;
+         System.Windows.Forms.Label rEGN_PRVN_CODELabel;
+         System.Windows.Forms.Label rQIDLabel;
+         System.Windows.Forms.Label fILE_NOLabel;
+         System.Windows.Forms.Label rWNOLabel;
+         System.Windows.Forms.Label cRTF_NUMBLabel;
+         System.Windows.Forms.Label rSLTLabel;
+         System.Windows.Forms.Label gLOB_CODELabel;
+         System.Windows.Forms.Label cRTF_DATELabel;
+         System.Windows.Forms.Label tEST_DATELabel;
+         System.Windows.Forms.Label cGTY_CODELabel;
+         System.Windows.Forms.Label cTGY_MTOD_CODELabel;
+         System.Windows.Forms.Label fRST_NAMELabel;
+         System.Windows.Forms.Label lAST_NAMELabel;
+         System.Windows.Forms.Label fATH_NAMELabel;
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_FSUM_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.requestBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+         this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+         this.requestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+         this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.Tsb_SaveItem = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.Tsb_Sreach = new System.Windows.Forms.ToolStripButton();
+         this.Tsb_Query = new System.Windows.Forms.ToolStripButton();
+         this.groupBox3 = new System.Windows.Forms.GroupBox();
+         this.textBox1 = new System.Windows.Forms.TextBox();
+         this.textBox2 = new System.Windows.Forms.TextBox();
+         this.P_RqtpCode = new System.Windows.Forms.TextBox();
+         this.label1 = new System.Windows.Forms.Label();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.mDFY_DATEPersianDateEdit = new dxExample.PersianDateEdit();
+         this.cRET_DATEPersianDateEdit = new dxExample.PersianDateEdit();
+         this.SSTT_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.subStatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.mainStateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.sSTT_CODETextBox = new System.Windows.Forms.TextBox();
+         this.SSTT_MSTT_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.sSTT_MSTT_CODETextBox = new System.Windows.Forms.TextBox();
+         this.mDFY_BYTextBox = new System.Windows.Forms.TextBox();
+         this.cRET_BYTextBox = new System.Windows.Forms.TextBox();
+         this.RQTT_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.requesterTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.REGN_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.regionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.REGN_PRVN_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.RQID_TextBox = new System.Windows.Forms.TextBox();
+         this.tabControl1 = new System.Windows.Forms.TabControl();
+         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.fATH_NAMETextBox = new System.Windows.Forms.TextBox();
+         this.fighter_PublicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.fightersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.lAST_NAMETextBox = new System.Windows.Forms.TextBox();
+         this.fRST_NAMETextBox = new System.Windows.Forms.TextBox();
+         this.TEST_DATE_PersianDateEdit = new dxExample.PersianDateEdit();
+         this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.CRTF_DATE_PersianDateEdit = new dxExample.PersianDateEdit();
+         this.CTGY_MTOD_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.methodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.GLOB_CODE_TextBox = new System.Windows.Forms.TextBox();
+         this.CTGY_CODE_ComboBox = new System.Windows.Forms.ComboBox();
+         this.categoryBeltsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.RSLT_ComboBox = new System.Windows.Forms.ComboBox();
+         this.dTRSLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.CRTF_NUMB_TextBox = new System.Windows.Forms.TextBox();
+         this.RWNO_TextBox = new System.Windows.Forms.TextBox();
+         this.FILE_NO_TextBox = new System.Windows.Forms.TextBox();
+         this.PBTN = new System.Windows.Forms.Panel();
+         this.button2 = new System.Windows.Forms.Button();
+         this.button1 = new System.Windows.Forms.Button();
+         this.Btn_CnclRqst = new System.Windows.Forms.Button();
+         this.Btn_Next = new System.Windows.Forms.Button();
+         this.Btn_Back = new System.Windows.Forms.Button();
+         sSTT_CODELabel = new System.Windows.Forms.Label();
+         sSTT_MSTT_CODELabel = new System.Windows.Forms.Label();
+         mDFY_DATELabel = new System.Windows.Forms.Label();
+         mDFY_BYLabel = new System.Windows.Forms.Label();
+         cRET_DATELabel = new System.Windows.Forms.Label();
+         cRET_BYLabel = new System.Windows.Forms.Label();
+         rQTT_CODELabel = new System.Windows.Forms.Label();
+         rEGN_CODELabel = new System.Windows.Forms.Label();
+         rEGN_PRVN_CODELabel = new System.Windows.Forms.Label();
+         rQIDLabel = new System.Windows.Forms.Label();
+         fILE_NOLabel = new System.Windows.Forms.Label();
+         rWNOLabel = new System.Windows.Forms.Label();
+         cRTF_NUMBLabel = new System.Windows.Forms.Label();
+         rSLTLabel = new System.Windows.Forms.Label();
+         gLOB_CODELabel = new System.Windows.Forms.Label();
+         cRTF_DATELabel = new System.Windows.Forms.Label();
+         tEST_DATELabel = new System.Windows.Forms.Label();
+         cGTY_CODELabel = new System.Windows.Forms.Label();
+         cTGY_MTOD_CODELabel = new System.Windows.Forms.Label();
+         fRST_NAMELabel = new System.Windows.Forms.Label();
+         lAST_NAMELabel = new System.Windows.Forms.Label();
+         fATH_NAMELabel = new System.Windows.Forms.Label();
+         ((System.ComponentModel.ISupportInitialize)(this.requestBindingNavigator)).BeginInit();
+         this.requestBindingNavigator.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.requestBindingSource)).BeginInit();
+         this.groupBox3.SuspendLayout();
+         this.groupBox1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.mDFY_DATEPersianDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.mDFY_DATEPersianDateEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cRET_DATEPersianDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cRET_DATEPersianDateEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.subStatesBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.mainStateBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.requesterTypeBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.regionsBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.provinceBindingSource)).BeginInit();
+         this.tabControl1.SuspendLayout();
+         this.tabPage1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.fighter_PublicsBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.fightersBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TEST_DATE_PersianDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TEST_DATE_PersianDateEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CRTF_DATE_PersianDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CRTF_DATE_PersianDateEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.methodBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.categoryBeltsBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dTRSLBindingSource)).BeginInit();
+         this.PBTN.SuspendLayout();
+         this.SuspendLayout();
+         // 
+         // sSTT_CODELabel
+         // 
+         sSTT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         sSTT_CODELabel.AutoSize = true;
+         sSTT_CODELabel.Location = new System.Drawing.Point(314, 132);
+         sSTT_CODELabel.Name = "sSTT_CODELabel";
+         sSTT_CODELabel.Size = new System.Drawing.Size(79, 13);
+         sSTT_CODELabel.TabIndex = 13;
+         sSTT_CODELabel.Text = "وضعیت فرعی :";
+         // 
+         // sSTT_MSTT_CODELabel
+         // 
+         sSTT_MSTT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         sSTT_MSTT_CODELabel.AutoSize = true;
+         sSTT_MSTT_CODELabel.Location = new System.Drawing.Point(573, 132);
+         sSTT_MSTT_CODELabel.Name = "sSTT_MSTT_CODELabel";
+         sSTT_MSTT_CODELabel.Size = new System.Drawing.Size(78, 13);
+         sSTT_MSTT_CODELabel.TabIndex = 19;
+         sSTT_MSTT_CODELabel.Text = "وضعیت اصلی :";
+         // 
+         // mDFY_DATELabel
+         // 
+         mDFY_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         mDFY_DATELabel.AutoSize = true;
+         mDFY_DATELabel.Location = new System.Drawing.Point(314, 106);
+         mDFY_DATELabel.Name = "mDFY_DATELabel";
+         mDFY_DATELabel.Size = new System.Drawing.Size(71, 13);
+         mDFY_DATELabel.TabIndex = 17;
+         mDFY_DATELabel.Text = "تاریخ ویرایش :";
+         // 
+         // mDFY_BYLabel
+         // 
+         mDFY_BYLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         mDFY_BYLabel.AutoSize = true;
+         mDFY_BYLabel.Location = new System.Drawing.Point(571, 106);
+         mDFY_BYLabel.Name = "mDFY_BYLabel";
+         mDFY_BYLabel.Size = new System.Drawing.Size(97, 13);
+         mDFY_BYLabel.TabIndex = 15;
+         mDFY_BYLabel.Text = "کاربر ویرایش کننده :";
+         // 
+         // cRET_DATELabel
+         // 
+         cRET_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         cRET_DATELabel.AutoSize = true;
+         cRET_DATELabel.Location = new System.Drawing.Point(314, 80);
+         cRET_DATELabel.Name = "cRET_DATELabel";
+         cRET_DATELabel.Size = new System.Drawing.Size(59, 13);
+         cRET_DATELabel.TabIndex = 13;
+         cRET_DATELabel.Text = "تاریخ ایجاد :";
+         // 
+         // cRET_BYLabel
+         // 
+         cRET_BYLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         cRET_BYLabel.AutoSize = true;
+         cRET_BYLabel.Location = new System.Drawing.Point(571, 80);
+         cRET_BYLabel.Name = "cRET_BYLabel";
+         cRET_BYLabel.Size = new System.Drawing.Size(85, 13);
+         cRET_BYLabel.TabIndex = 11;
+         cRET_BYLabel.Text = "کاربر ایجاد کننده :";
+         // 
+         // rQTT_CODELabel
+         // 
+         rQTT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         rQTT_CODELabel.AutoSize = true;
+         rQTT_CODELabel.Location = new System.Drawing.Point(314, 28);
+         rQTT_CODELabel.Name = "rQTT_CODELabel";
+         rQTT_CODELabel.Size = new System.Drawing.Size(71, 13);
+         rQTT_CODELabel.TabIndex = 8;
+         rQTT_CODELabel.Text = "نوع متقاضی :";
+         // 
+         // rEGN_CODELabel
+         // 
+         rEGN_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         rEGN_CODELabel.AutoSize = true;
+         rEGN_CODELabel.Location = new System.Drawing.Point(314, 54);
+         rEGN_CODELabel.Name = "rEGN_CODELabel";
+         rEGN_CODELabel.Size = new System.Drawing.Size(51, 13);
+         rEGN_CODELabel.TabIndex = 5;
+         rEGN_CODELabel.Text = "کد ناحیه :";
+         // 
+         // rEGN_PRVN_CODELabel
+         // 
+         rEGN_PRVN_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         rEGN_PRVN_CODELabel.AutoSize = true;
+         rEGN_PRVN_CODELabel.Location = new System.Drawing.Point(573, 54);
+         rEGN_PRVN_CODELabel.Name = "rEGN_PRVN_CODELabel";
+         rEGN_PRVN_CODELabel.Size = new System.Drawing.Size(56, 13);
+         rEGN_PRVN_CODELabel.TabIndex = 2;
+         rEGN_PRVN_CODELabel.Text = "کد استان :";
+         // 
+         // rQIDLabel
+         // 
+         rQIDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         rQIDLabel.AutoSize = true;
+         rQIDLabel.Location = new System.Drawing.Point(571, 28);
+         rQIDLabel.Name = "rQIDLabel";
+         rQIDLabel.Size = new System.Drawing.Size(92, 13);
+         rQIDLabel.TabIndex = 0;
+         rQIDLabel.Text = "شماره درخواست :";
+         // 
+         // fILE_NOLabel
+         // 
+         fILE_NOLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         fILE_NOLabel.AutoSize = true;
+         fILE_NOLabel.Location = new System.Drawing.Point(567, 26);
+         fILE_NOLabel.Name = "fILE_NOLabel";
+         fILE_NOLabel.Size = new System.Drawing.Size(74, 13);
+         fILE_NOLabel.TabIndex = 0;
+         fILE_NOLabel.Text = "شماره پرونده :";
+         // 
+         // rWNOLabel
+         // 
+         rWNOLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         rWNOLabel.AutoSize = true;
+         rWNOLabel.Location = new System.Drawing.Point(567, 52);
+         rWNOLabel.Name = "rWNOLabel";
+         rWNOLabel.Size = new System.Drawing.Size(92, 13);
+         rWNOLabel.TabIndex = 2;
+         rWNOLabel.Text = "ردیف تست آزمون :";
+         // 
+         // cRTF_NUMBLabel
+         // 
+         cRTF_NUMBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         cRTF_NUMBLabel.AutoSize = true;
+         cRTF_NUMBLabel.Location = new System.Drawing.Point(310, 150);
+         cRTF_NUMBLabel.Name = "cRTF_NUMBLabel";
+         cRTF_NUMBLabel.Size = new System.Drawing.Size(68, 13);
+         cRTF_NUMBLabel.TabIndex = 6;
+         cRTF_NUMBLabel.Text = "شماره حکم :";
+         // 
+         // rSLTLabel
+         // 
+         rSLTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         rSLTLabel.AutoSize = true;
+         rSLTLabel.Location = new System.Drawing.Point(310, 202);
+         rSLTLabel.Name = "rSLTLabel";
+         rSLTLabel.Size = new System.Drawing.Size(66, 13);
+         rSLTLabel.TabIndex = 10;
+         rSLTLabel.Text = "نتیجه آزمون :";
+         // 
+         // gLOB_CODELabel
+         // 
+         gLOB_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         gLOB_CODELabel.AutoSize = true;
+         gLOB_CODELabel.Location = new System.Drawing.Point(310, 229);
+         gLOB_CODELabel.Name = "gLOB_CODELabel";
+         gLOB_CODELabel.Size = new System.Drawing.Size(101, 13);
+         gLOB_CODELabel.TabIndex = 14;
+         gLOB_CODELabel.Text = "شماره حکم جهانی :";
+         // 
+         // cRTF_DATELabel
+         // 
+         cRTF_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         cRTF_DATELabel.AutoSize = true;
+         cRTF_DATELabel.Location = new System.Drawing.Point(310, 124);
+         cRTF_DATELabel.Name = "cRTF_DATELabel";
+         cRTF_DATELabel.Size = new System.Drawing.Size(86, 13);
+         cRTF_DATELabel.TabIndex = 17;
+         cRTF_DATELabel.Text = "تاریخ صدور حکم :";
+         // 
+         // tEST_DATELabel
+         // 
+         tEST_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         tEST_DATELabel.AutoSize = true;
+         tEST_DATELabel.Location = new System.Drawing.Point(310, 176);
+         tEST_DATELabel.Name = "tEST_DATELabel";
+         tEST_DATELabel.Size = new System.Drawing.Size(63, 13);
+         tEST_DATELabel.TabIndex = 18;
+         tEST_DATELabel.Text = "تاریخ آزمون :";
+         // 
+         // cGTY_CODELabel
+         // 
+         cGTY_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         cGTY_CODELabel.AutoSize = true;
+         cGTY_CODELabel.Location = new System.Drawing.Point(567, 130);
+         cGTY_CODELabel.Name = "cGTY_CODELabel";
+         cGTY_CODELabel.Size = new System.Drawing.Size(61, 13);
+         cGTY_CODELabel.TabIndex = 12;
+         cGTY_CODELabel.Text = "رسته :";
+         // 
+         // cTGY_MTOD_CODELabel
+         // 
+         cTGY_MTOD_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         cTGY_MTOD_CODELabel.AutoSize = true;
+         cTGY_MTOD_CODELabel.Location = new System.Drawing.Point(567, 103);
+         cTGY_MTOD_CODELabel.Name = "cTGY_MTOD_CODELabel";
+         cTGY_MTOD_CODELabel.Size = new System.Drawing.Size(40, 13);
+         cTGY_MTOD_CODELabel.TabIndex = 16;
+         cTGY_MTOD_CODELabel.Text = "سبک :";
+         // 
+         // fRST_NAMELabel
+         // 
+         fRST_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         fRST_NAMELabel.AutoSize = true;
+         fRST_NAMELabel.Location = new System.Drawing.Point(567, 78);
+         fRST_NAMELabel.Name = "fRST_NAMELabel";
+         fRST_NAMELabel.Size = new System.Drawing.Size(27, 13);
+         fRST_NAMELabel.TabIndex = 18;
+         fRST_NAMELabel.Text = "نام :";
+         // 
+         // lAST_NAMELabel
+         // 
+         lAST_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         lAST_NAMELabel.AutoSize = true;
+         lAST_NAMELabel.Location = new System.Drawing.Point(309, 74);
+         lAST_NAMELabel.Name = "lAST_NAMELabel";
+         lAST_NAMELabel.Size = new System.Drawing.Size(72, 13);
+         lAST_NAMELabel.TabIndex = 20;
+         lAST_NAMELabel.Text = "نام خانوادگی :";
+         // 
+         // fATH_NAMELabel
+         // 
+         fATH_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         fATH_NAMELabel.AutoSize = true;
+         fATH_NAMELabel.Location = new System.Drawing.Point(310, 100);
+         fATH_NAMELabel.Name = "fATH_NAMELabel";
+         fATH_NAMELabel.Size = new System.Drawing.Size(43, 13);
+         fATH_NAMELabel.TabIndex = 22;
+         fATH_NAMELabel.Text = "نام پدر :";
+         // 
+         // requestBindingNavigator
+         // 
+         this.requestBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+         this.requestBindingNavigator.BackColor = System.Drawing.Color.Transparent;
+         this.requestBindingNavigator.BindingSource = this.requestBindingSource;
+         this.requestBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+         this.requestBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+         this.requestBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.Tsb_SaveItem,
+            this.toolStripSeparator1,
+            this.Tsb_Sreach,
+            this.Tsb_Query});
+         this.requestBindingNavigator.Location = new System.Drawing.Point(0, 0);
+         this.requestBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+         this.requestBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+         this.requestBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+         this.requestBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+         this.requestBindingNavigator.Name = "requestBindingNavigator";
+         this.requestBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+         this.requestBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+         this.requestBindingNavigator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.requestBindingNavigator.Size = new System.Drawing.Size(704, 25);
+         this.requestBindingNavigator.TabIndex = 0;
+         this.requestBindingNavigator.Text = "bindingNavigator1";
+         // 
+         // bindingNavigatorAddNewItem
+         // 
+         this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorAddNewItem.Enabled = false;
+         this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+         this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+         this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorAddNewItem.Text = "Add new";
+         // 
+         // requestBindingSource
+         // 
+         this.requestBindingSource.DataSource = typeof(System.Scsc.Data.Request);
+         // 
+         // bindingNavigatorCountItem
+         // 
+         this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Text = "of {0}";
+         this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+         // 
+         // bindingNavigatorDeleteItem
+         // 
+         this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorDeleteItem.Enabled = false;
+         this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+         this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+         this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorDeleteItem.Text = "Delete";
+         // 
+         // bindingNavigatorMoveFirstItem
+         // 
+         this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+         this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+         this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveFirstItem.Text = "Move first";
+         // 
+         // bindingNavigatorMovePreviousItem
+         // 
+         this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+         this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+         this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+         // 
+         // bindingNavigatorSeparator
+         // 
+         this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+         this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+         // 
+         // bindingNavigatorPositionItem
+         // 
+         this.bindingNavigatorPositionItem.AccessibleName = "Position";
+         this.bindingNavigatorPositionItem.AutoSize = false;
+         this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+         this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+         this.bindingNavigatorPositionItem.Text = "0";
+         this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+         // 
+         // bindingNavigatorSeparator1
+         // 
+         this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+         this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+         // 
+         // bindingNavigatorMoveNextItem
+         // 
+         this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+         this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+         this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveNextItem.Text = "Move next";
+         // 
+         // bindingNavigatorMoveLastItem
+         // 
+         this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+         this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+         this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveLastItem.Text = "Move last";
+         // 
+         // bindingNavigatorSeparator2
+         // 
+         this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+         this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+         // 
+         // Tsb_SaveItem
+         // 
+         this.Tsb_SaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.Tsb_SaveItem.Image = ((System.Drawing.Image)(resources.GetObject("Tsb_SaveItem.Image")));
+         this.Tsb_SaveItem.Name = "Tsb_SaveItem";
+         this.Tsb_SaveItem.Size = new System.Drawing.Size(23, 22);
+         this.Tsb_SaveItem.Text = "Save Data";
+         this.Tsb_SaveItem.Click += new System.EventHandler(this.Tsb_SaveItem_Click);
+         // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+         // 
+         // Tsb_Sreach
+         // 
+         this.Tsb_Sreach.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+         this.Tsb_Sreach.Image = ((System.Drawing.Image)(resources.GetObject("Tsb_Sreach.Image")));
+         this.Tsb_Sreach.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.Tsb_Sreach.Name = "Tsb_Sreach";
+         this.Tsb_Sreach.Size = new System.Drawing.Size(45, 22);
+         this.Tsb_Sreach.Text = "جستجو";
+         this.Tsb_Sreach.Click += new System.EventHandler(this.Tsb_Sreach_Click);
+         // 
+         // Tsb_Query
+         // 
+         this.Tsb_Query.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+         this.Tsb_Query.Image = ((System.Drawing.Image)(resources.GetObject("Tsb_Query.Image")));
+         this.Tsb_Query.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.Tsb_Query.Name = "Tsb_Query";
+         this.Tsb_Query.Size = new System.Drawing.Size(175, 22);
+         this.Tsb_Query.Text = "ورود اطلاعات برای جستجوی مجدد";
+         this.Tsb_Query.Click += new System.EventHandler(this.Tsb_Query_Click);
+         // 
+         // groupBox3
+         // 
+         this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.groupBox3.Controls.Add(this.textBox1);
+         this.groupBox3.Controls.Add(this.textBox2);
+         this.groupBox3.Controls.Add(this.P_RqtpCode);
+         this.groupBox3.Controls.Add(this.label1);
+         this.groupBox3.Location = new System.Drawing.Point(3, 28);
+         this.groupBox3.Name = "groupBox3";
+         this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.groupBox3.Size = new System.Drawing.Size(698, 41);
+         this.groupBox3.TabIndex = 1;
+         this.groupBox3.TabStop = false;
+         // 
+         // textBox1
+         // 
+         this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox1.Location = new System.Drawing.Point(154, 13);
+         this.textBox1.Name = "textBox1";
+         this.textBox1.ReadOnly = true;
+         this.textBox1.Size = new System.Drawing.Size(185, 21);
+         this.textBox1.TabIndex = 1;
+         this.textBox1.Text = "اطلاعات تکمیلی هنرجویان قدیمی";
+         // 
+         // textBox2
+         // 
+         this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox2.Location = new System.Drawing.Point(345, 13);
+         this.textBox2.Name = "textBox2";
+         this.textBox2.ReadOnly = true;
+         this.textBox2.Size = new System.Drawing.Size(185, 21);
+         this.textBox2.TabIndex = 1;
+         this.textBox2.Text = "ثبت نام";
+         // 
+         // P_RqtpCode
+         // 
+         this.P_RqtpCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.P_RqtpCode.Location = new System.Drawing.Point(536, 13);
+         this.P_RqtpCode.Name = "P_RqtpCode";
+         this.P_RqtpCode.ReadOnly = true;
+         this.P_RqtpCode.Size = new System.Drawing.Size(48, 21);
+         this.P_RqtpCode.TabIndex = 1;
+         this.P_RqtpCode.Text = "001";
+         this.P_RqtpCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(590, 16);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(77, 13);
+         this.label1.TabIndex = 0;
+         this.label1.Text = "نوع درخواست :";
+         // 
+         // groupBox1
+         // 
+         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.groupBox1.Controls.Add(this.mDFY_DATEPersianDateEdit);
+         this.groupBox1.Controls.Add(this.cRET_DATEPersianDateEdit);
+         this.groupBox1.Controls.Add(this.SSTT_CODE_ComboBox);
+         this.groupBox1.Controls.Add(sSTT_CODELabel);
+         this.groupBox1.Controls.Add(this.sSTT_CODETextBox);
+         this.groupBox1.Controls.Add(this.SSTT_MSTT_CODE_ComboBox);
+         this.groupBox1.Controls.Add(sSTT_MSTT_CODELabel);
+         this.groupBox1.Controls.Add(this.sSTT_MSTT_CODETextBox);
+         this.groupBox1.Controls.Add(mDFY_DATELabel);
+         this.groupBox1.Controls.Add(mDFY_BYLabel);
+         this.groupBox1.Controls.Add(this.mDFY_BYTextBox);
+         this.groupBox1.Controls.Add(cRET_DATELabel);
+         this.groupBox1.Controls.Add(cRET_BYLabel);
+         this.groupBox1.Controls.Add(this.cRET_BYTextBox);
+         this.groupBox1.Controls.Add(this.RQTT_CODE_ComboBox);
+         this.groupBox1.Controls.Add(rQTT_CODELabel);
+         this.groupBox1.Controls.Add(this.REGN_CODE_ComboBox);
+         this.groupBox1.Controls.Add(rEGN_CODELabel);
+         this.groupBox1.Controls.Add(this.REGN_PRVN_CODE_ComboBox);
+         this.groupBox1.Controls.Add(rEGN_PRVN_CODELabel);
+         this.groupBox1.Controls.Add(rQIDLabel);
+         this.groupBox1.Controls.Add(this.RQID_TextBox);
+         this.groupBox1.Location = new System.Drawing.Point(3, 75);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.groupBox1.Size = new System.Drawing.Size(698, 162);
+         this.groupBox1.TabIndex = 2;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "اطلاعات درخواست";
+         // 
+         // mDFY_DATEPersianDateEdit
+         // 
+         this.mDFY_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.mDFY_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.requestBindingSource, "MDFY_DATE", true));
+         this.mDFY_DATEPersianDateEdit.EditValue = null;
+         this.mDFY_DATEPersianDateEdit.Location = new System.Drawing.Point(142, 103);
+         this.mDFY_DATEPersianDateEdit.Name = "mDFY_DATEPersianDateEdit";
+         this.mDFY_DATEPersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.mDFY_DATEPersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.mDFY_DATEPersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.mDFY_DATEPersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+         this.mDFY_DATEPersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.mDFY_DATEPersianDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.mDFY_DATEPersianDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.mDFY_DATEPersianDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
+         this.mDFY_DATEPersianDateEdit.Properties.DisplayFormat.FormatString = "D";
+         this.mDFY_DATEPersianDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.mDFY_DATEPersianDateEdit.Properties.MaxValue = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+         this.mDFY_DATEPersianDateEdit.Properties.MinValue = new System.DateTime(622, 3, 21, 0, 0, 0, 0);
+         this.mDFY_DATEPersianDateEdit.Properties.ReadOnly = true;
+         this.mDFY_DATEPersianDateEdit.Properties.ShowWeekNumbers = true;
+         this.mDFY_DATEPersianDateEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+         this.mDFY_DATEPersianDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
+         this.mDFY_DATEPersianDateEdit.Size = new System.Drawing.Size(166, 20);
+         this.mDFY_DATEPersianDateEdit.TabIndex = 10;
+         // 
+         // cRET_DATEPersianDateEdit
+         // 
+         this.cRET_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.cRET_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.requestBindingSource, "CRET_DATE", true));
+         this.cRET_DATEPersianDateEdit.EditValue = null;
+         this.cRET_DATEPersianDateEdit.Location = new System.Drawing.Point(142, 77);
+         this.cRET_DATEPersianDateEdit.Name = "cRET_DATEPersianDateEdit";
+         this.cRET_DATEPersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.cRET_DATEPersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.cRET_DATEPersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+         this.cRET_DATEPersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+         this.cRET_DATEPersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cRET_DATEPersianDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.cRET_DATEPersianDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.cRET_DATEPersianDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
+         this.cRET_DATEPersianDateEdit.Properties.DisplayFormat.FormatString = "D";
+         this.cRET_DATEPersianDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.cRET_DATEPersianDateEdit.Properties.MaxValue = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+         this.cRET_DATEPersianDateEdit.Properties.MinValue = new System.DateTime(622, 3, 21, 0, 0, 0, 0);
+         this.cRET_DATEPersianDateEdit.Properties.ReadOnly = true;
+         this.cRET_DATEPersianDateEdit.Properties.ShowWeekNumbers = true;
+         this.cRET_DATEPersianDateEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+         this.cRET_DATEPersianDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
+         this.cRET_DATEPersianDateEdit.Size = new System.Drawing.Size(166, 20);
+         this.cRET_DATEPersianDateEdit.TabIndex = 8;
+         // 
+         // SSTT_CODE_ComboBox
+         // 
+         this.SSTT_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SSTT_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.requestBindingSource, "SSTT_CODE", true));
+         this.SSTT_CODE_ComboBox.DataSource = this.subStatesBindingSource;
+         this.SSTT_CODE_ComboBox.DisplayMember = "SSTT_DESC";
+         this.SSTT_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.SSTT_CODE_ComboBox.Enabled = false;
+         this.SSTT_CODE_ComboBox.FormattingEnabled = true;
+         this.SSTT_CODE_ComboBox.Location = new System.Drawing.Point(142, 129);
+         this.SSTT_CODE_ComboBox.Name = "SSTT_CODE_ComboBox";
+         this.SSTT_CODE_ComboBox.Size = new System.Drawing.Size(121, 21);
+         this.SSTT_CODE_ComboBox.TabIndex = 15;
+         this.SSTT_CODE_ComboBox.ValueMember = "CODE";
+         // 
+         // subStatesBindingSource
+         // 
+         this.subStatesBindingSource.DataMember = "Sub_States";
+         this.subStatesBindingSource.DataSource = this.mainStateBindingSource;
+         // 
+         // mainStateBindingSource
+         // 
+         this.mainStateBindingSource.DataSource = typeof(System.Scsc.Data.Main_State);
+         // 
+         // sSTT_CODETextBox
+         // 
+         this.sSTT_CODETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.sSTT_CODETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.requestBindingSource, "SSTT_CODE", true));
+         this.sSTT_CODETextBox.Location = new System.Drawing.Point(269, 129);
+         this.sSTT_CODETextBox.Name = "sSTT_CODETextBox";
+         this.sSTT_CODETextBox.ReadOnly = true;
+         this.sSTT_CODETextBox.Size = new System.Drawing.Size(39, 21);
+         this.sSTT_CODETextBox.TabIndex = 14;
+         // 
+         // SSTT_MSTT_CODE_ComboBox
+         // 
+         this.SSTT_MSTT_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SSTT_MSTT_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.requestBindingSource, "SSTT_MSTT_CODE", true));
+         this.SSTT_MSTT_CODE_ComboBox.DataSource = this.mainStateBindingSource;
+         this.SSTT_MSTT_CODE_ComboBox.DisplayMember = "MSTT_DESC";
+         this.SSTT_MSTT_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.SSTT_MSTT_CODE_ComboBox.Enabled = false;
+         this.SSTT_MSTT_CODE_ComboBox.FormattingEnabled = true;
+         this.SSTT_MSTT_CODE_ComboBox.Location = new System.Drawing.Point(399, 129);
+         this.SSTT_MSTT_CODE_ComboBox.Name = "SSTT_MSTT_CODE_ComboBox";
+         this.SSTT_MSTT_CODE_ComboBox.Size = new System.Drawing.Size(121, 21);
+         this.SSTT_MSTT_CODE_ComboBox.TabIndex = 12;
+         this.SSTT_MSTT_CODE_ComboBox.ValueMember = "CODE";
+         // 
+         // sSTT_MSTT_CODETextBox
+         // 
+         this.sSTT_MSTT_CODETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.sSTT_MSTT_CODETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.requestBindingSource, "SSTT_MSTT_CODE", true));
+         this.sSTT_MSTT_CODETextBox.Location = new System.Drawing.Point(526, 129);
+         this.sSTT_MSTT_CODETextBox.Name = "sSTT_MSTT_CODETextBox";
+         this.sSTT_MSTT_CODETextBox.ReadOnly = true;
+         this.sSTT_MSTT_CODETextBox.Size = new System.Drawing.Size(39, 21);
+         this.sSTT_MSTT_CODETextBox.TabIndex = 11;
+         // 
+         // mDFY_BYTextBox
+         // 
+         this.mDFY_BYTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.mDFY_BYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.requestBindingSource, "MDFY_BY", true));
+         this.mDFY_BYTextBox.Location = new System.Drawing.Point(465, 103);
+         this.mDFY_BYTextBox.Name = "mDFY_BYTextBox";
+         this.mDFY_BYTextBox.ReadOnly = true;
+         this.mDFY_BYTextBox.Size = new System.Drawing.Size(100, 21);
+         this.mDFY_BYTextBox.TabIndex = 9;
+         // 
+         // cRET_BYTextBox
+         // 
+         this.cRET_BYTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.cRET_BYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.requestBindingSource, "CRET_BY", true));
+         this.cRET_BYTextBox.Location = new System.Drawing.Point(465, 77);
+         this.cRET_BYTextBox.Name = "cRET_BYTextBox";
+         this.cRET_BYTextBox.ReadOnly = true;
+         this.cRET_BYTextBox.Size = new System.Drawing.Size(100, 21);
+         this.cRET_BYTextBox.TabIndex = 7;
+         // 
+         // RQTT_CODE_ComboBox
+         // 
+         this.RQTT_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RQTT_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.requestBindingSource, "RQTT_CODE", true));
+         this.RQTT_CODE_ComboBox.DataSource = this.requesterTypeBindingSource;
+         this.RQTT_CODE_ComboBox.DisplayMember = "RQTT_DESC";
+         this.RQTT_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.RQTT_CODE_ComboBox.Enabled = false;
+         this.RQTT_CODE_ComboBox.FormattingEnabled = true;
+         this.RQTT_CODE_ComboBox.Location = new System.Drawing.Point(141, 25);
+         this.RQTT_CODE_ComboBox.Name = "RQTT_CODE_ComboBox";
+         this.RQTT_CODE_ComboBox.Size = new System.Drawing.Size(167, 21);
+         this.RQTT_CODE_ComboBox.TabIndex = 2;
+         this.RQTT_CODE_ComboBox.ValueMember = "CODE";
+         // 
+         // requesterTypeBindingSource
+         // 
+         this.requesterTypeBindingSource.DataSource = typeof(System.Scsc.Data.Requester_Type);
+         // 
+         // REGN_CODE_ComboBox
+         // 
+         this.REGN_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.REGN_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.requestBindingSource, "REGN_CODE", true));
+         this.REGN_CODE_ComboBox.DataSource = this.regionsBindingSource;
+         this.REGN_CODE_ComboBox.DisplayMember = "NAME";
+         this.REGN_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.REGN_CODE_ComboBox.Enabled = false;
+         this.REGN_CODE_ComboBox.FormattingEnabled = true;
+         this.REGN_CODE_ComboBox.Location = new System.Drawing.Point(142, 50);
+         this.REGN_CODE_ComboBox.Name = "REGN_CODE_ComboBox";
+         this.REGN_CODE_ComboBox.Size = new System.Drawing.Size(166, 21);
+         this.REGN_CODE_ComboBox.TabIndex = 6;
+         this.REGN_CODE_ComboBox.ValueMember = "PRVN_CODE";
+         // 
+         // regionsBindingSource
+         // 
+         this.regionsBindingSource.DataMember = "Regions";
+         this.regionsBindingSource.DataSource = this.provinceBindingSource;
+         // 
+         // provinceBindingSource
+         // 
+         this.provinceBindingSource.DataSource = typeof(System.Scsc.Data.Province);
+         // 
+         // REGN_PRVN_CODE_ComboBox
+         // 
+         this.REGN_PRVN_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.REGN_PRVN_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.requestBindingSource, "REGN_PRVN_CODE", true));
+         this.REGN_PRVN_CODE_ComboBox.DataSource = this.provinceBindingSource;
+         this.REGN_PRVN_CODE_ComboBox.DisplayMember = "NAME";
+         this.REGN_PRVN_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.REGN_PRVN_CODE_ComboBox.Enabled = false;
+         this.REGN_PRVN_CODE_ComboBox.FormattingEnabled = true;
+         this.REGN_PRVN_CODE_ComboBox.Location = new System.Drawing.Point(399, 50);
+         this.REGN_PRVN_CODE_ComboBox.Name = "REGN_PRVN_CODE_ComboBox";
+         this.REGN_PRVN_CODE_ComboBox.Size = new System.Drawing.Size(166, 21);
+         this.REGN_PRVN_CODE_ComboBox.TabIndex = 4;
+         this.REGN_PRVN_CODE_ComboBox.ValueMember = "CODE";
+         // 
+         // RQID_TextBox
+         // 
+         this.RQID_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RQID_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.requestBindingSource, "RQID", true));
+         this.RQID_TextBox.Location = new System.Drawing.Point(455, 25);
+         this.RQID_TextBox.Name = "RQID_TextBox";
+         this.RQID_TextBox.Size = new System.Drawing.Size(110, 21);
+         this.RQID_TextBox.TabIndex = 0;
+         // 
+         // tabControl1
+         // 
+         this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.tabControl1.Controls.Add(this.tabPage1);
+         this.tabControl1.Location = new System.Drawing.Point(3, 243);
+         this.tabControl1.Name = "tabControl1";
+         this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.tabControl1.RightToLeftLayout = true;
+         this.tabControl1.SelectedIndex = 0;
+         this.tabControl1.Size = new System.Drawing.Size(698, 287);
+         this.tabControl1.TabIndex = 3;
+         // 
+         // tabPage1
+         // 
+         this.tabPage1.AutoScroll = true;
+         this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+         this.tabPage1.Controls.Add(fATH_NAMELabel);
+         this.tabPage1.Controls.Add(this.fATH_NAMETextBox);
+         this.tabPage1.Controls.Add(lAST_NAMELabel);
+         this.tabPage1.Controls.Add(this.lAST_NAMETextBox);
+         this.tabPage1.Controls.Add(fRST_NAMELabel);
+         this.tabPage1.Controls.Add(this.fRST_NAMETextBox);
+         this.tabPage1.Controls.Add(tEST_DATELabel);
+         this.tabPage1.Controls.Add(this.TEST_DATE_PersianDateEdit);
+         this.tabPage1.Controls.Add(cRTF_DATELabel);
+         this.tabPage1.Controls.Add(this.CRTF_DATE_PersianDateEdit);
+         this.tabPage1.Controls.Add(cTGY_MTOD_CODELabel);
+         this.tabPage1.Controls.Add(this.CTGY_MTOD_CODE_ComboBox);
+         this.tabPage1.Controls.Add(gLOB_CODELabel);
+         this.tabPage1.Controls.Add(this.GLOB_CODE_TextBox);
+         this.tabPage1.Controls.Add(cGTY_CODELabel);
+         this.tabPage1.Controls.Add(this.CTGY_CODE_ComboBox);
+         this.tabPage1.Controls.Add(rSLTLabel);
+         this.tabPage1.Controls.Add(this.RSLT_ComboBox);
+         this.tabPage1.Controls.Add(cRTF_NUMBLabel);
+         this.tabPage1.Controls.Add(this.CRTF_NUMB_TextBox);
+         this.tabPage1.Controls.Add(rWNOLabel);
+         this.tabPage1.Controls.Add(this.RWNO_TextBox);
+         this.tabPage1.Controls.Add(fILE_NOLabel);
+         this.tabPage1.Controls.Add(this.FILE_NO_TextBox);
+         this.tabPage1.Location = new System.Drawing.Point(4, 22);
+         this.tabPage1.Name = "tabPage1";
+         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage1.Size = new System.Drawing.Size(690, 261);
+         this.tabPage1.TabIndex = 0;
+         this.tabPage1.Text = "اطلاعات آزمون تست";
+         // 
+         // fATH_NAMETextBox
+         // 
+         this.fATH_NAMETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.fATH_NAMETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fighter_PublicsBindingSource, "FATH_NAME", true));
+         this.fATH_NAMETextBox.Location = new System.Drawing.Point(138, 97);
+         this.fATH_NAMETextBox.Name = "fATH_NAMETextBox";
+         this.fATH_NAMETextBox.ReadOnly = true;
+         this.fATH_NAMETextBox.Size = new System.Drawing.Size(166, 21);
+         this.fATH_NAMETextBox.TabIndex = 23;
+         // 
+         // fighter_PublicsBindingSource
+         // 
+         this.fighter_PublicsBindingSource.DataMember = "Fighter_Publics";
+         this.fighter_PublicsBindingSource.DataSource = this.fightersBindingSource;
+         // 
+         // fightersBindingSource
+         // 
+         this.fightersBindingSource.DataMember = "Fighters";
+         this.fightersBindingSource.DataSource = this.requestBindingSource;
+         // 
+         // lAST_NAMETextBox
+         // 
+         this.lAST_NAMETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.lAST_NAMETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fighter_PublicsBindingSource, "LAST_NAME", true));
+         this.lAST_NAMETextBox.Location = new System.Drawing.Point(138, 71);
+         this.lAST_NAMETextBox.Name = "lAST_NAMETextBox";
+         this.lAST_NAMETextBox.ReadOnly = true;
+         this.lAST_NAMETextBox.Size = new System.Drawing.Size(166, 21);
+         this.lAST_NAMETextBox.TabIndex = 21;
+         // 
+         // fRST_NAMETextBox
+         // 
+         this.fRST_NAMETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.fRST_NAMETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fighter_PublicsBindingSource, "FRST_NAME", true));
+         this.fRST_NAMETextBox.Location = new System.Drawing.Point(412, 75);
+         this.fRST_NAMETextBox.Name = "fRST_NAMETextBox";
+         this.fRST_NAMETextBox.ReadOnly = true;
+         this.fRST_NAMETextBox.Size = new System.Drawing.Size(149, 21);
+         this.fRST_NAMETextBox.TabIndex = 19;
+         // 
+         // TEST_DATE_PersianDateEdit
+         // 
+         this.TEST_DATE_PersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TEST_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.testsBindingSource, "TEST_DATE", true));
+         this.TEST_DATE_PersianDateEdit.EditValue = null;
+         this.TEST_DATE_PersianDateEdit.Location = new System.Drawing.Point(138, 173);
+         this.TEST_DATE_PersianDateEdit.Name = "TEST_DATE_PersianDateEdit";
+         this.TEST_DATE_PersianDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.TEST_DATE_PersianDateEdit.Properties.Appearance.Options.UseBackColor = true;
+         this.TEST_DATE_PersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.TEST_DATE_PersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.TEST_DATE_PersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+         this.TEST_DATE_PersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
+         this.TEST_DATE_PersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.TEST_DATE_PersianDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.TEST_DATE_PersianDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.TEST_DATE_PersianDateEdit.Properties.DisplayFormat.FormatString = "D";
+         this.TEST_DATE_PersianDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.TEST_DATE_PersianDateEdit.Properties.MaxValue = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+         this.TEST_DATE_PersianDateEdit.Properties.MinValue = new System.DateTime(622, 3, 21, 0, 0, 0, 0);
+         this.TEST_DATE_PersianDateEdit.Properties.ShowWeekNumbers = true;
+         this.TEST_DATE_PersianDateEdit.Size = new System.Drawing.Size(166, 20);
+         this.TEST_DATE_PersianDateEdit.TabIndex = 6;
+         // 
+         // testsBindingSource
+         // 
+         this.testsBindingSource.DataMember = "Tests";
+         this.testsBindingSource.DataSource = this.fightersBindingSource;
+         // 
+         // CRTF_DATE_PersianDateEdit
+         // 
+         this.CRTF_DATE_PersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CRTF_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.testsBindingSource, "CRTF_DATE", true));
+         this.CRTF_DATE_PersianDateEdit.EditValue = null;
+         this.CRTF_DATE_PersianDateEdit.Location = new System.Drawing.Point(138, 121);
+         this.CRTF_DATE_PersianDateEdit.Name = "CRTF_DATE_PersianDateEdit";
+         this.CRTF_DATE_PersianDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.CRTF_DATE_PersianDateEdit.Properties.Appearance.Options.UseBackColor = true;
+         this.CRTF_DATE_PersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.CRTF_DATE_PersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.CRTF_DATE_PersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+         this.CRTF_DATE_PersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
+         this.CRTF_DATE_PersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.CRTF_DATE_PersianDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.CRTF_DATE_PersianDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.CRTF_DATE_PersianDateEdit.Properties.DisplayFormat.FormatString = "D";
+         this.CRTF_DATE_PersianDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.CRTF_DATE_PersianDateEdit.Properties.MaxValue = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+         this.CRTF_DATE_PersianDateEdit.Properties.MinValue = new System.DateTime(622, 3, 21, 0, 0, 0, 0);
+         this.CRTF_DATE_PersianDateEdit.Properties.ShowWeekNumbers = true;
+         this.CRTF_DATE_PersianDateEdit.Size = new System.Drawing.Size(166, 20);
+         this.CRTF_DATE_PersianDateEdit.TabIndex = 4;
+         // 
+         // CTGY_MTOD_CODE_ComboBox
+         // 
+         this.CTGY_MTOD_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CTGY_MTOD_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.testsBindingSource, "CTGY_MTOD_CODE", true));
+         this.CTGY_MTOD_CODE_ComboBox.DataSource = this.methodBindingSource;
+         this.CTGY_MTOD_CODE_ComboBox.DisplayMember = "MTOD_DESC";
+         this.CTGY_MTOD_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.CTGY_MTOD_CODE_ComboBox.Enabled = false;
+         this.CTGY_MTOD_CODE_ComboBox.FormattingEnabled = true;
+         this.CTGY_MTOD_CODE_ComboBox.Location = new System.Drawing.Point(412, 100);
+         this.CTGY_MTOD_CODE_ComboBox.Name = "CTGY_MTOD_CODE_ComboBox";
+         this.CTGY_MTOD_CODE_ComboBox.Size = new System.Drawing.Size(149, 21);
+         this.CTGY_MTOD_CODE_ComboBox.TabIndex = 2;
+         this.CTGY_MTOD_CODE_ComboBox.ValueMember = "CODE";
+         // 
+         // methodBindingSource
+         // 
+         this.methodBindingSource.DataSource = typeof(System.Scsc.Data.Method);
+         // 
+         // GLOB_CODE_TextBox
+         // 
+         this.GLOB_CODE_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GLOB_CODE_TextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.GLOB_CODE_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "GLOB_CODE", true));
+         this.GLOB_CODE_TextBox.Location = new System.Drawing.Point(138, 226);
+         this.GLOB_CODE_TextBox.MaxLength = 20;
+         this.GLOB_CODE_TextBox.Name = "GLOB_CODE_TextBox";
+         this.GLOB_CODE_TextBox.Size = new System.Drawing.Size(166, 21);
+         this.GLOB_CODE_TextBox.TabIndex = 8;
+         // 
+         // CTGY_CODE_ComboBox
+         // 
+         this.CTGY_CODE_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CTGY_CODE_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.testsBindingSource, "CTGY_CODE", true));
+         this.CTGY_CODE_ComboBox.DataSource = this.categoryBeltsBindingSource;
+         this.CTGY_CODE_ComboBox.DisplayMember = "CTGY_DESC";
+         this.CTGY_CODE_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.CTGY_CODE_ComboBox.Enabled = false;
+         this.CTGY_CODE_ComboBox.FormattingEnabled = true;
+         this.CTGY_CODE_ComboBox.Location = new System.Drawing.Point(412, 127);
+         this.CTGY_CODE_ComboBox.Name = "CTGY_CODE_ComboBox";
+         this.CTGY_CODE_ComboBox.Size = new System.Drawing.Size(149, 21);
+         this.CTGY_CODE_ComboBox.TabIndex = 3;
+         this.CTGY_CODE_ComboBox.ValueMember = "CODE";
+         // 
+         // categoryBeltsBindingSource
+         // 
+         this.categoryBeltsBindingSource.DataMember = "Category_Belts";
+         this.categoryBeltsBindingSource.DataSource = this.methodBindingSource;
+         // 
+         // RSLT_ComboBox
+         // 
+         this.RSLT_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RSLT_ComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.RSLT_ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.testsBindingSource, "RSLT", true));
+         this.RSLT_ComboBox.DataSource = this.dTRSLBindingSource;
+         this.RSLT_ComboBox.DisplayMember = "DOMN_DESC";
+         this.RSLT_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.RSLT_ComboBox.FormattingEnabled = true;
+         this.RSLT_ComboBox.Location = new System.Drawing.Point(138, 199);
+         this.RSLT_ComboBox.Name = "RSLT_ComboBox";
+         this.RSLT_ComboBox.Size = new System.Drawing.Size(166, 21);
+         this.RSLT_ComboBox.TabIndex = 7;
+         this.RSLT_ComboBox.ValueMember = "VALU";
+         // 
+         // dTRSLBindingSource
+         // 
+         this.dTRSLBindingSource.DataSource = typeof(System.Scsc.Data.D_TRSL);
+         // 
+         // CRTF_NUMB_TextBox
+         // 
+         this.CRTF_NUMB_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CRTF_NUMB_TextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.CRTF_NUMB_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "CRTF_NUMB", true));
+         this.CRTF_NUMB_TextBox.Location = new System.Drawing.Point(138, 147);
+         this.CRTF_NUMB_TextBox.MaxLength = 20;
+         this.CRTF_NUMB_TextBox.Name = "CRTF_NUMB_TextBox";
+         this.CRTF_NUMB_TextBox.Size = new System.Drawing.Size(166, 21);
+         this.CRTF_NUMB_TextBox.TabIndex = 5;
+         // 
+         // RWNO_TextBox
+         // 
+         this.RWNO_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RWNO_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "RWNO", true));
+         this.RWNO_TextBox.Location = new System.Drawing.Point(513, 49);
+         this.RWNO_TextBox.Name = "RWNO_TextBox";
+         this.RWNO_TextBox.ReadOnly = true;
+         this.RWNO_TextBox.Size = new System.Drawing.Size(48, 21);
+         this.RWNO_TextBox.TabIndex = 1;
+         this.RWNO_TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+         // 
+         // FILE_NO_TextBox
+         // 
+         this.FILE_NO_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FILE_NO_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fightersBindingSource, "FILE_NO", true));
+         this.FILE_NO_TextBox.Location = new System.Drawing.Point(444, 23);
+         this.FILE_NO_TextBox.Name = "FILE_NO_TextBox";
+         this.FILE_NO_TextBox.ReadOnly = true;
+         this.FILE_NO_TextBox.Size = new System.Drawing.Size(117, 21);
+         this.FILE_NO_TextBox.TabIndex = 0;
+         this.FILE_NO_TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+         // 
+         // PBTN
+         // 
+         this.PBTN.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+         this.PBTN.Controls.Add(this.button2);
+         this.PBTN.Controls.Add(this.button1);
+         this.PBTN.Enabled = false;
+         this.PBTN.Location = new System.Drawing.Point(243, 533);
+         this.PBTN.Name = "PBTN";
+         this.PBTN.Size = new System.Drawing.Size(218, 29);
+         this.PBTN.TabIndex = 8;
+         // 
+         // button2
+         // 
+         this.button2.Location = new System.Drawing.Point(112, 3);
+         this.button2.Name = "button2";
+         this.button2.Size = new System.Drawing.Size(102, 23);
+         this.button2.TabIndex = 1;
+         this.button2.Text = "مدارک و اسناد";
+         this.button2.UseVisualStyleBackColor = true;
+         // 
+         // button1
+         // 
+         this.button1.Location = new System.Drawing.Point(4, 3);
+         this.button1.Name = "button1";
+         this.button1.Size = new System.Drawing.Size(102, 23);
+         this.button1.TabIndex = 0;
+         this.button1.Text = "دلایل";
+         this.button1.UseVisualStyleBackColor = true;
+         // 
+         // Btn_CnclRqst
+         // 
+         this.Btn_CnclRqst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.Btn_CnclRqst.Location = new System.Drawing.Point(7, 539);
+         this.Btn_CnclRqst.Name = "Btn_CnclRqst";
+         this.Btn_CnclRqst.Size = new System.Drawing.Size(102, 23);
+         this.Btn_CnclRqst.TabIndex = 7;
+         this.Btn_CnclRqst.Text = "انصراف درخواست";
+         this.Btn_CnclRqst.UseVisualStyleBackColor = true;
+         this.Btn_CnclRqst.Click += new System.EventHandler(this.Btn_CnclRqst_Click);
+         // 
+         // Btn_Next
+         // 
+         this.Btn_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_Next.Location = new System.Drawing.Point(617, 539);
+         this.Btn_Next.Name = "Btn_Next";
+         this.Btn_Next.Size = new System.Drawing.Size(84, 23);
+         this.Btn_Next.TabIndex = 6;
+         this.Btn_Next.Text = "مرحله بعد";
+         this.Btn_Next.UseVisualStyleBackColor = true;
+         this.Btn_Next.Click += new System.EventHandler(this.Btn_Next_Click);
+         // 
+         // Btn_Back
+         // 
+         this.Btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_Back.Enabled = false;
+         this.Btn_Back.Location = new System.Drawing.Point(527, 539);
+         this.Btn_Back.Name = "Btn_Back";
+         this.Btn_Back.Size = new System.Drawing.Size(84, 23);
+         this.Btn_Back.TabIndex = 6;
+         this.Btn_Back.Text = "مرحله قبل";
+         this.Btn_Back.UseVisualStyleBackColor = true;
+         // 
+         // ADM_FSUM_F
+         // 
+         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.Controls.Add(this.PBTN);
+         this.Controls.Add(this.Btn_CnclRqst);
+         this.Controls.Add(this.Btn_Back);
+         this.Controls.Add(this.Btn_Next);
+         this.Controls.Add(this.tabControl1);
+         this.Controls.Add(this.requestBindingNavigator);
+         this.Controls.Add(this.groupBox3);
+         this.Controls.Add(this.groupBox1);
+         this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Name = "ADM_FSUM_F";
+         this.Size = new System.Drawing.Size(704, 565);
+         ((System.ComponentModel.ISupportInitialize)(this.requestBindingNavigator)).EndInit();
+         this.requestBindingNavigator.ResumeLayout(false);
+         this.requestBindingNavigator.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.requestBindingSource)).EndInit();
+         this.groupBox3.ResumeLayout(false);
+         this.groupBox3.PerformLayout();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.mDFY_DATEPersianDateEdit.Properties.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.mDFY_DATEPersianDateEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cRET_DATEPersianDateEdit.Properties.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cRET_DATEPersianDateEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.subStatesBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.mainStateBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.requesterTypeBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.regionsBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.provinceBindingSource)).EndInit();
+         this.tabControl1.ResumeLayout(false);
+         this.tabPage1.ResumeLayout(false);
+         this.tabPage1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.fighter_PublicsBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.fightersBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TEST_DATE_PersianDateEdit.Properties.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TEST_DATE_PersianDateEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CRTF_DATE_PersianDateEdit.Properties.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CRTF_DATE_PersianDateEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.methodBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.categoryBeltsBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.dTRSLBindingSource)).EndInit();
+         this.PBTN.ResumeLayout(false);
+         this.ResumeLayout(false);
+         this.PerformLayout();
+
+      }
+
+      #endregion
+
+      private Windows.Forms.BindingNavigator requestBindingNavigator;
+      private Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+      private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+      private Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+      private Windows.Forms.ToolStripButton Tsb_SaveItem;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator1;
+      private Windows.Forms.ToolStripButton Tsb_Sreach;
+      private Windows.Forms.ToolStripButton Tsb_Query;
+      private Windows.Forms.GroupBox groupBox3;
+      private Windows.Forms.TextBox textBox2;
+      private Windows.Forms.TextBox P_RqtpCode;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.GroupBox groupBox1;
+      private dxExample.PersianDateEdit mDFY_DATEPersianDateEdit;
+      private dxExample.PersianDateEdit cRET_DATEPersianDateEdit;
+      private Windows.Forms.ComboBox SSTT_CODE_ComboBox;
+      private Windows.Forms.TextBox sSTT_CODETextBox;
+      private Windows.Forms.ComboBox SSTT_MSTT_CODE_ComboBox;
+      private Windows.Forms.TextBox sSTT_MSTT_CODETextBox;
+      private Windows.Forms.TextBox mDFY_BYTextBox;
+      private Windows.Forms.TextBox cRET_BYTextBox;
+      private Windows.Forms.ComboBox RQTT_CODE_ComboBox;
+      private Windows.Forms.ComboBox REGN_CODE_ComboBox;
+      private Windows.Forms.ComboBox REGN_PRVN_CODE_ComboBox;
+      private Windows.Forms.TextBox RQID_TextBox;
+      private Windows.Forms.BindingSource requestBindingSource;
+      private Windows.Forms.BindingSource requesterTypeBindingSource;
+      private Windows.Forms.BindingSource regionsBindingSource;
+      private Windows.Forms.BindingSource provinceBindingSource;
+      private Windows.Forms.BindingSource subStatesBindingSource;
+      private Windows.Forms.BindingSource mainStateBindingSource;
+      private Windows.Forms.TabControl tabControl1;
+      private Windows.Forms.TabPage tabPage1;
+      private Windows.Forms.TextBox GLOB_CODE_TextBox;
+      private Windows.Forms.BindingSource testsBindingSource;
+      private Windows.Forms.BindingSource fightersBindingSource;
+      private Windows.Forms.ComboBox RSLT_ComboBox;
+      private Windows.Forms.TextBox CRTF_NUMB_TextBox;
+      private Windows.Forms.TextBox RWNO_TextBox;
+      private Windows.Forms.TextBox FILE_NO_TextBox;
+      private dxExample.PersianDateEdit TEST_DATE_PersianDateEdit;
+      private dxExample.PersianDateEdit CRTF_DATE_PersianDateEdit;
+      private Windows.Forms.ComboBox CTGY_MTOD_CODE_ComboBox;
+      private Windows.Forms.BindingSource methodBindingSource;
+      private Windows.Forms.ComboBox CTGY_CODE_ComboBox;
+      private Windows.Forms.BindingSource categoryBeltsBindingSource;
+      private Windows.Forms.BindingSource dTRSLBindingSource;
+      private Windows.Forms.TextBox fATH_NAMETextBox;
+      private Windows.Forms.BindingSource fighter_PublicsBindingSource;
+      private Windows.Forms.TextBox lAST_NAMETextBox;
+      private Windows.Forms.TextBox fRST_NAMETextBox;
+      private Windows.Forms.Panel PBTN;
+      private Windows.Forms.Button button2;
+      private Windows.Forms.Button button1;
+      private Windows.Forms.Button Btn_CnclRqst;
+      private Windows.Forms.Button Btn_Next;
+      private Windows.Forms.Button Btn_Back;
+      private Windows.Forms.TextBox textBox1;
+   }
+}

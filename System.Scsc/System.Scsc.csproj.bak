@@ -1,0 +1,1742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C81A71A0-EE40-4847-B5C3-B631B5663F93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Scsc</RootNamespace>
+    <AssemblyName>System.Scsc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="DataEditShamsi">
+      <HintPath>C:\Users\Aref\Documents\Visual Studio 2012\Projects\LINQ\LinqToiScsc\bin\Debug\DataEditShamsi.dll</HintPath>
+    </Reference>
+    <Reference Include="DateTimeSelector">
+      <HintPath>C:\Users\HADAEGHI\Downloads\Compressed\DateTimeSelector-v1.1.2-bin\DateTimeSelector.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SamanPcToPos">
+      <HintPath>..\..\..\Utility\MicrosoftComponents\Visual Studio Collection\PC-POS PaX\Dot NET\SamanPcToPos.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2014.2.617.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Scsc.Gateways.cs" />
+    <Compile Include="Code\Scsc.Router.cs" />
+    <Compile Include="Code\Scsc.StartPoint.cs" />
+    <Compile Include="Code\Scsc.Tasks.cs" />
+    <Compile Include="Code\Scsc.Uis.cs" />
+    <Compile Include="Data\iScsc.cs">
+      <DependentUpon>iScsc.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\iScsc.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iScsc.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ExtCode\Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_FSUM_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_FSUM_F.Designer.cs">
+      <DependentUpon>ADM_FSUM_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_FSUM_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_REXP_F.Designer.cs">
+      <DependentUpon>ADM_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_RQST_F.Designer.cs">
+      <DependentUpon>ADM_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_SAVE_F.Designer.cs">
+      <DependentUpon>ADM_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_SEXP_F.Designer.cs">
+      <DependentUpon>ADM_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_CHNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_CHNG_F.Designer.cs">
+      <DependentUpon>ADM_CHNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_TOTL_F.Designer.cs">
+      <DependentUpon>ADM_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_CHNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ADM_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Attendance\ATN_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Attendance\ATN_SAVE_F.Designer.cs">
+      <DependentUpon>ATN_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Attendance\ATN_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_REXP_F.Designer.cs">
+      <DependentUpon>CLC_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_RQST_F.Designer.cs">
+      <DependentUpon>CLC_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_SAVE_F.Designer.cs">
+      <DependentUpon>CLC_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_SEXP_F.Designer.cs">
+      <DependentUpon>CLC_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_TOTL_F.Designer.cs">
+      <DependentUpon>CLC_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateCalorie\CLC_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_CEXC_P.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_CEXC_P.Designer.cs">
+      <DependentUpon>CAL_CEXC_P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_CEXC_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_CEXC_F.Designer.cs">
+      <DependentUpon>CAL_CEXC_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_CEXC_P.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_CEXC_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_EXPN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_EXPN_F.Designer.cs">
+      <DependentUpon>CAL_EXPN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CalculateExpense\CAL_EXPN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_TOTL_F.Designer.cs">
+      <DependentUpon>CMP_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Cash\PAY_CASH_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Cash\PAY_CASH_F.Designer.cs">
+      <DependentUpon>PAY_CASH_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Cash\PAY_CASH_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_TOTL_F.Designer.cs">
+      <DependentUpon>CMC_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_REXP_F.Designer.cs">
+      <DependentUpon>CMC_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_SAVE_F.Designer.cs">
+      <DependentUpon>CMC_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_RQST_F.Designer.cs">
+      <DependentUpon>CMC_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_SEXP_F.Designer.cs">
+      <DependentUpon>CMC_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeMethodCategory\CMC_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Club\MSTR_CLUB_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Club\MSTR_CLUB_F.Designer.cs">
+      <DependentUpon>MSTR_CLUB_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Club\MSTR_CLUB_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Club\MSTR_CLUB_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Committee\COM_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Committee\COM_TOTL_F.Designer.cs">
+      <DependentUpon>COM_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Committee\COM_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Common\ALL_FLDF_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Common\ALL_FLDF_F.Designer.cs">
+      <DependentUpon>ALL_FLDF_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Common\ALL_FLDF_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Common\LSI_FLDF_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Common\LSI_FLDF_F.Designer.cs">
+      <DependentUpon>LSI_FLDF_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Common\LSI_FLDF_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Diseases\CMN_DISE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Diseases\CMN_DISE_F.Designer.cs">
+      <DependentUpon>CMN_DISE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Diseases\CMN_DISE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Document\CMN_DCMT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Document\CMN_DCMT_F.Designer.cs">
+      <DependentUpon>CMN_DCMT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Document\CMN_DCMT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\EnablingDisabling\ADM_DSEN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\EnablingDisabling\ADM_DSEN_F.Designer.cs">
+      <DependentUpon>ADM_DSEN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\EnablingDisabling\ADM_ENDS_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\EnablingDisabling\ADM_ENDS_F.Designer.cs">
+      <DependentUpon>ADM_ENDS_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\EnablingDisabling\ADM_DSEN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\EnablingDisabling\ADM_ENDS_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_TOTL_F.Designer.cs">
+      <DependentUpon>EXM_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_REXP_F.Designer.cs">
+      <DependentUpon>EXM_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_RQST_F.Designer.cs">
+      <DependentUpon>EXM_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_SAVE_F.Designer.cs">
+      <DependentUpon>EXM_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_SEXP_F.Designer.cs">
+      <DependentUpon>EXM_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Exam\EXM_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_REXP_F.Designer.cs">
+      <DependentUpon>PBL_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_SAVE_F.Designer.cs">
+      <DependentUpon>PBL_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_SEXP_F.Designer.cs">
+      <DependentUpon>PBL_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_RQST_F.Designer.cs">
+      <DependentUpon>PBL_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\FighterPublic\PBL_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_TOTL_F.Designer.cs">
+      <DependentUpon>HRZ_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_REXP_F.Designer.cs">
+      <DependentUpon>HRZ_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_RQST_F.Designer.cs">
+      <DependentUpon>HRZ_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_SAVE_F.Designer.cs">
+      <DependentUpon>HRZ_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_SEXP_F.Designer.cs">
+      <DependentUpon>HRZ_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\HeartZone\HRZ_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_TOTL_F.Designer.cs">
+      <DependentUpon>INS_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_REXP_F.Designer.cs">
+      <DependentUpon>INS_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_RQST_F.Designer.cs">
+      <DependentUpon>INS_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_SAVE_F.Designer.cs">
+      <DependentUpon>INS_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_SEXP_F.Designer.cs">
+      <DependentUpon>INS_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Insurance\INS_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.Designer.cs">
+      <DependentUpon>MAIN_SUBS_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\FRST_PAGE_F.Designer.cs">
+      <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MasterPage\FRST_PAGE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\MSTR_PAGE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\MSTR_PAGE_F.Designer.cs">
+      <DependentUpon>MSTR_PAGE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MasterPage\MSTR_PAGE_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\MSTR_PAGE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_TOTL_F.Designer.cs">
+      <DependentUpon>MCC_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_REXP_F.Designer.cs">
+      <DependentUpon>MCC_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_RQST_F.Designer.cs">
+      <DependentUpon>MCC_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_SAVE_F.Designer.cs">
+      <DependentUpon>MCC_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_SEXP_F.Designer.cs">
+      <DependentUpon>MCC_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MethodClubCard\MCC_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Method\MSTR_MTOD_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Method\MSTR_MTOD_F.Designer.cs">
+      <DependentUpon>MSTR_MTOD_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Method\MSTR_MTOD_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Method\MSTR_MTOD_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Notifications\NTF_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Notifications\NTF_TOTL_F.Designer.cs">
+      <DependentUpon>NTF_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Notifications\NTF_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\OtherIncome\OIC_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\OtherIncome\OIC_TOTL_F.Designer.cs">
+      <DependentUpon>OIC_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\OtherIncome\OIC_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PaymentMethod\PAY_MTOD_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PaymentMethod\PAY_MTOD_F.Designer.cs">
+      <DependentUpon>PAY_MTOD_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\PaymentMethod\PAY_MTOD_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_TOTL_F.Designer.cs">
+      <DependentUpon>PSF_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_REXP_F.Designer.cs">
+      <DependentUpon>PSF_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_RQST_F.Designer.cs">
+      <DependentUpon>PSF_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_SAVE_F.Designer.cs">
+      <DependentUpon>PSF_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_SEXP_F.Designer.cs">
+      <DependentUpon>PSF_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\PhysicalFitness\PSF_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\POS\POS_TOTL_F.cs" />
+    <Compile Include="Ui\POS\POS_TOTL_F.RequestRespons.cs" />
+    <Compile Include="Ui\Reason\CMN_RESN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Reason\CMN_RESN_F.Designer.cs">
+      <DependentUpon>CMN_RESN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Reason\CMN_RESN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReceiptAnnouncement\MNG_RCAN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReceiptAnnouncement\MNG_RCAN_F.Designer.cs">
+      <DependentUpon>MNG_RCAN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ReceiptAnnouncement\MNG_RCAN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Region\MSTR_REGN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Region\MSTR_REGN_F.Designer.cs">
+      <DependentUpon>MSTR_REGN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Region\MSTR_REGN_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Region\MSTR_REGN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_DCMT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_DCMT_F.Designer.cs">
+      <DependentUpon>MSTR_DCMT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_DCMT_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_DCMT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_EPIT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_EPIT_F.Designer.cs">
+      <DependentUpon>MSTR_EPIT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_EPIT_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_EPIT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_REGL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_REGL_F.Designer.cs">
+      <DependentUpon>MSTR_REGL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_REGL_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\MSTR_REGL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_ACNT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_ACNT_F.Designer.cs">
+      <DependentUpon>REGL_ACNT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_ACNT_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_ACNT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_DCMT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_DCMT_F.Designer.cs">
+      <DependentUpon>REGL_DCMT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_DCMT_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_DCMT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_EXPN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_EXPN_F.Designer.cs">
+      <DependentUpon>REGL_EXPN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_EXPN_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Regulation\REGL_EXPN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\ACN_LIST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\ACN_LIST_F.Designer.cs">
+      <DependentUpon>ACN_LIST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ReportManager\ACN_LIST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_LIST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_LIST_F.Designer.cs">
+      <DependentUpon>RPT_LIST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_LIST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_LRFM_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_LRFM_F.Designer.cs">
+      <DependentUpon>RPT_LRFM_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_LRFM_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_MNGR_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_MNGR_F.Designer.cs">
+      <DependentUpon>RPT_MNGR_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ReportManager\RPT_MNGR_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.Designer.cs">
+      <DependentUpon>RQTR_TYPE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\RequestType\RQST_TYPE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\RequestType\RQST_TYPE_F.Designer.cs">
+      <DependentUpon>RQST_TYPE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\RequestType\RQST_TYPE_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\RequestType\RQST_TYPE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_REXP_F.Designer.cs">
+      <DependentUpon>CMP_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_RQST_F.Designer.cs">
+      <DependentUpon>CMP_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_SAVE_F.Designer.cs">
+      <DependentUpon>CMP_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_SEXP_F.Designer.cs">
+      <DependentUpon>CMP_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Campitition\CMP_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Settings\CFG_STNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Settings\CFG_STNG_F.Designer.cs">
+      <DependentUpon>CFG_STNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Settings\CFG_STNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_TOTL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_TOTL_F.Designer.cs">
+      <DependentUpon>TST_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Test\TST_TOTL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_REXP_F.Designer.cs">
+      <DependentUpon>TST_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Test\TST_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_RQST_F.Designer.cs">
+      <DependentUpon>TST_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Test\TST_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_SAVE_F.Designer.cs">
+      <DependentUpon>TST_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Test\TST_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Test\TST_SEXP_F.Designer.cs">
+      <DependentUpon>TST_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Test\TST_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_REXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_REXP_F.Designer.cs">
+      <DependentUpon>UCC_REXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_REXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_RQST_F.Designer.cs">
+      <DependentUpon>UCC_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_SAVE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_SAVE_F.Designer.cs">
+      <DependentUpon>UCC_SAVE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_SAVE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_SEXP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_SEXP_F.Designer.cs">
+      <DependentUpon>UCC_SEXP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\UserClubCard\UCC_SEXP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Data\iScsc.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>iScsc.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Account.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Account_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Attendance.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Base_Calculate_Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Calorie.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Expense_Coach.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Campitition.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Cash.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Category_Belt.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Club.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Club_Method.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Committee.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Country.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Diseases_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Distance_Category.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Document_Spec.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Dresser.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Dresser_Attendance.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_ACTG.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_ACTV.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_AMTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_ANTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_BLOD.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_BMIR.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CETP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CMLV.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CMSC.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CONF.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CSTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CYCL.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DCKI.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DCMT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DCND.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DCTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DCTY.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DEGR.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DSCT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DYTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_EDUC.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_EXTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_FGST.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_FGTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_ITTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_MBTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_MTTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PERM.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PMTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PYST.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RCAN.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RCMT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RCST.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RCTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RECT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RGTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RQST.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RSLT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_SUB.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_SXTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_TRSL.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_USRT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_YSNO.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Exam.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Expense_Cash.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Expense_Item.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Heart_Zone.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Image_Document.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.iScscDataContext.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Main_State.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Meeting.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Meeting_Comment.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Member_Ship.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Method.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Modual_Report.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Method.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Physical_Fitness.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Planning_Overview.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Present.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Present_Comment.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Province.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Reason_Request.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Reason_Spec.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Receipt_Announcement.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Receive_Document.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Region.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Regulation.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Requester_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Document.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Regulation_History.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Requester.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Row.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Setting.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Step_History_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Step_History_Summery.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Sub_State.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Test.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.User_Club_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.User_Region_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.User_Request_Requester_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Access_Profiler.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Access_Report.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_All_Debt_FighterResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_All_Expense_DetailResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_All_Info_FightersResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_AndRequestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Calculate_CalorieResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_CampititionResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Canceled_RequestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Cashier.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_ClubsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Club_MethodsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Current_RequestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_ExamResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_FightersResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Fighter_Expense_DetailResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Heart_ZoneResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_InComeResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_InsuranceFighterResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Last_Info_FighterResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_OrRequestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_PaymentsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Payment_DeliversResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Physical_FitnessResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_ProvincesResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_RegionsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_RequestsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Request_ChangingResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Request_DocumentResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Request_HistoryResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Saved_RequestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_TestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\iScsc.dbml.layout">
+      <DependentUpon>iScsc.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.MaxUi\System.MaxUi.csproj">
+      <Project>{A30C958D-0DD4-4D57-922C-BB9D2640FABC}</Project>
+      <Name>System.MaxUi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_FSUM_F.resx">
+      <DependentUpon>ADM_FSUM_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_REXP_F.resx">
+      <DependentUpon>ADM_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_RQST_F.resx">
+      <DependentUpon>ADM_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_SAVE_F.resx">
+      <DependentUpon>ADM_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_SEXP_F.resx">
+      <DependentUpon>ADM_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_CHNG_F.resx">
+      <DependentUpon>ADM_CHNG_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ADM_TOTL_F.resx">
+      <DependentUpon>ADM_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Attendance\ATN_SAVE_F.resx">
+      <DependentUpon>ATN_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateCalorie\CLC_REXP_F.resx">
+      <DependentUpon>CLC_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateCalorie\CLC_RQST_F.resx">
+      <DependentUpon>CLC_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateCalorie\CLC_SAVE_F.resx">
+      <DependentUpon>CLC_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateCalorie\CLC_SEXP_F.resx">
+      <DependentUpon>CLC_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateCalorie\CLC_TOTL_F.resx">
+      <DependentUpon>CLC_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateExpense\CAL_CEXC_P.resx">
+      <DependentUpon>CAL_CEXC_P.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateExpense\CAL_CEXC_F.resx">
+      <DependentUpon>CAL_CEXC_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CalculateExpense\CAL_EXPN_F.resx">
+      <DependentUpon>CAL_EXPN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Campitition\CMP_TOTL_F.resx">
+      <DependentUpon>CMP_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Cash\PAY_CASH_F.resx">
+      <DependentUpon>PAY_CASH_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeMethodCategory\CMC_TOTL_F.resx">
+      <DependentUpon>CMC_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeMethodCategory\CMC_REXP_F.resx">
+      <DependentUpon>CMC_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeMethodCategory\CMC_SAVE_F.resx">
+      <DependentUpon>CMC_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeMethodCategory\CMC_RQST_F.resx">
+      <DependentUpon>CMC_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeMethodCategory\CMC_SEXP_F.resx">
+      <DependentUpon>CMC_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Club\MSTR_CLUB_F.resx">
+      <DependentUpon>MSTR_CLUB_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Committee\COM_TOTL_F.resx">
+      <DependentUpon>COM_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Common\ALL_FLDF_F.resx">
+      <DependentUpon>ALL_FLDF_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Common\LSI_FLDF_F.resx">
+      <DependentUpon>LSI_FLDF_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Diseases\CMN_DISE_F.resx">
+      <DependentUpon>CMN_DISE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Document\CMN_DCMT_F.resx">
+      <DependentUpon>CMN_DCMT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\EnablingDisabling\ADM_DSEN_F.resx">
+      <DependentUpon>ADM_DSEN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\EnablingDisabling\ADM_ENDS_F.resx">
+      <DependentUpon>ADM_ENDS_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Exam\EXM_TOTL_F.resx">
+      <DependentUpon>EXM_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Exam\EXM_REXP_F.resx">
+      <DependentUpon>EXM_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Exam\EXM_RQST_F.resx">
+      <DependentUpon>EXM_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Exam\EXM_SAVE_F.resx">
+      <DependentUpon>EXM_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Exam\EXM_SEXP_F.resx">
+      <DependentUpon>EXM_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\FighterPublic\PBL_REXP_F.resx">
+      <DependentUpon>PBL_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\FighterPublic\PBL_SAVE_F.resx">
+      <DependentUpon>PBL_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\FighterPublic\PBL_SEXP_F.resx">
+      <DependentUpon>PBL_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\FighterPublic\PBL_RQST_F.resx">
+      <DependentUpon>PBL_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\HeartZone\HRZ_TOTL_F.resx">
+      <DependentUpon>HRZ_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\HeartZone\HRZ_REXP_F.resx">
+      <DependentUpon>HRZ_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\HeartZone\HRZ_RQST_F.resx">
+      <DependentUpon>HRZ_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\HeartZone\HRZ_SAVE_F.resx">
+      <DependentUpon>HRZ_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\HeartZone\HRZ_SEXP_F.resx">
+      <DependentUpon>HRZ_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Insurance\INS_TOTL_F.resx">
+      <DependentUpon>INS_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Insurance\INS_REXP_F.resx">
+      <DependentUpon>INS_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Insurance\INS_RQST_F.resx">
+      <DependentUpon>INS_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Insurance\INS_SAVE_F.resx">
+      <DependentUpon>INS_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Insurance\INS_SEXP_F.resx">
+      <DependentUpon>INS_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MainSubStat\MAIN_SUBS_F.resx">
+      <DependentUpon>MAIN_SUBS_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MasterPage\FRST_PAGE_F.resx">
+      <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MasterPage\MSTR_PAGE_F.resx">
+      <DependentUpon>MSTR_PAGE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MethodClubCard\MCC_TOTL_F.resx">
+      <DependentUpon>MCC_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MethodClubCard\MCC_REXP_F.resx">
+      <DependentUpon>MCC_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MethodClubCard\MCC_RQST_F.resx">
+      <DependentUpon>MCC_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MethodClubCard\MCC_SAVE_F.resx">
+      <DependentUpon>MCC_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MethodClubCard\MCC_SEXP_F.resx">
+      <DependentUpon>MCC_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Method\MSTR_MTOD_F.resx">
+      <DependentUpon>MSTR_MTOD_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Notifications\NTF_TOTL_F.resx">
+      <DependentUpon>NTF_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\OtherIncome\OIC_TOTL_F.resx">
+      <DependentUpon>OIC_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\PaymentMethod\PAY_MTOD_F.resx">
+      <DependentUpon>PAY_MTOD_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\PhysicalFitness\PSF_TOTL_F.resx">
+      <DependentUpon>PSF_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\PhysicalFitness\PSF_REXP_F.resx">
+      <DependentUpon>PSF_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\PhysicalFitness\PSF_RQST_F.resx">
+      <DependentUpon>PSF_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\PhysicalFitness\PSF_SAVE_F.resx">
+      <DependentUpon>PSF_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\PhysicalFitness\PSF_SEXP_F.resx">
+      <DependentUpon>PSF_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Reason\CMN_RESN_F.resx">
+      <DependentUpon>CMN_RESN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ReceiptAnnouncement\MNG_RCAN_F.resx">
+      <DependentUpon>MNG_RCAN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Region\MSTR_REGN_F.resx">
+      <DependentUpon>MSTR_REGN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Regulation\MSTR_DCMT_F.resx">
+      <DependentUpon>MSTR_DCMT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Regulation\MSTR_EPIT_F.resx">
+      <DependentUpon>MSTR_EPIT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Regulation\MSTR_REGL_F.resx">
+      <DependentUpon>MSTR_REGL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Regulation\REGL_ACNT_F.resx">
+      <DependentUpon>REGL_ACNT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Regulation\REGL_DCMT_F.resx">
+      <DependentUpon>REGL_DCMT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Regulation\REGL_EXPN_F.resx">
+      <DependentUpon>REGL_EXPN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ReportManager\ACN_LIST_F.resx">
+      <DependentUpon>ACN_LIST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ReportManager\RPT_LIST_F.resx">
+      <DependentUpon>RPT_LIST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ReportManager\RPT_LRFM_F.resx">
+      <DependentUpon>RPT_LRFM_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ReportManager\RPT_MNGR_F.resx">
+      <DependentUpon>RPT_MNGR_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\RequesterType\RQTR_TYPE_F.resx">
+      <DependentUpon>RQTR_TYPE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\RequestType\RQST_TYPE_F.resx">
+      <DependentUpon>RQST_TYPE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Campitition\CMP_REXP_F.resx">
+      <DependentUpon>CMP_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Campitition\CMP_RQST_F.resx">
+      <DependentUpon>CMP_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Campitition\CMP_SAVE_F.resx">
+      <DependentUpon>CMP_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Campitition\CMP_SEXP_F.resx">
+      <DependentUpon>CMP_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Settings\CFG_STNG_F.resx">
+      <DependentUpon>CFG_STNG_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Test\TST_TOTL_F.resx">
+      <DependentUpon>TST_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Test\TST_REXP_F.resx">
+      <DependentUpon>TST_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Test\TST_RQST_F.resx">
+      <DependentUpon>TST_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Test\TST_SAVE_F.resx">
+      <DependentUpon>TST_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Test\TST_SEXP_F.resx">
+      <DependentUpon>TST_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\UserClubCard\UCC_REXP_F.resx">
+      <DependentUpon>UCC_REXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\UserClubCard\UCC_RQST_F.resx">
+      <DependentUpon>UCC_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\UserClubCard\UCC_SAVE_F.resx">
+      <DependentUpon>UCC_SAVE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\UserClubCard\UCC_SEXP_F.resx">
+      <DependentUpon>UCC_SEXP_F.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\System.Resource\Icons\ICONS_1045.png">
+      <Link>Resources\ICONS_1045.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1053.jpg">
+      <Link>Resources\IMAGE_1053.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1053.png">
+      <Link>Resources\IMAGE_1053.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1054.png">
+      <Link>Resources\IMAGE_1054.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1055.png">
+      <Link>Resources\IMAGE_1055.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1056.png">
+      <Link>Resources\IMAGE_1056.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1057.png">
+      <Link>Resources\IMAGE_1057.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1058.png">
+      <Link>Resources\IMAGE_1058.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1059.png">
+      <Link>Resources\IMAGE_1059.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1060.png">
+      <Link>Resources\IMAGE_1060.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1061.png">
+      <Link>Resources\IMAGE_1061.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1062.png">
+      <Link>Resources\IMAGE_1062.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1063.png">
+      <Link>Resources\IMAGE_1063.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1064.png">
+      <Link>Resources\IMAGE_1064.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1065.png">
+      <Link>Resources\IMAGE_1065.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1066.png">
+      <Link>Resources\IMAGE_1066.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1067.png">
+      <Link>Resources\IMAGE_1067.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1068.png">
+      <Link>Resources\IMAGE_1068.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1069.png">
+      <Link>Resources\IMAGE_1069.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1070.png">
+      <Link>Resources\IMAGE_1070.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1071.png">
+      <Link>Resources\IMAGE_1071.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1072.png">
+      <Link>Resources\IMAGE_1072.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1073.png">
+      <Link>Resources\IMAGE_1073.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1074.png">
+      <Link>Resources\IMAGE_1074.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1075.png">
+      <Link>Resources\IMAGE_1075.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1076.png">
+      <Link>Resources\IMAGE_1076.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1077.png">
+      <Link>Resources\IMAGE_1077.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1078.png">
+      <Link>Resources\IMAGE_1078.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1079.png">
+      <Link>Resources\IMAGE_1079.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1080.png">
+      <Link>Resources\IMAGE_1080.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1081.png">
+      <Link>Resources\IMAGE_1081.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1082.png">
+      <Link>Resources\IMAGE_1082.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1083.png">
+      <Link>Resources\IMAGE_1083.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1086.png">
+      <Link>Resources\IMAGE_1086.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1087.png">
+      <Link>Resources\IMAGE_1087.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1088.png">
+      <Link>Resources\IMAGE_1088.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1089.png">
+      <Link>Resources\IMAGE_1089.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1090.png">
+      <Link>Resources\IMAGE_1090.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1091.png">
+      <Link>Resources\IMAGE_1091.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1092.png">
+      <Link>Resources\IMAGE_1092.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1093.png">
+      <Link>Resources\IMAGE_1093.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1094.png">
+      <Link>Resources\IMAGE_1094.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1095.png">
+      <Link>Resources\IMAGE_1095.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1096.png">
+      <Link>Resources\IMAGE_1096.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1097.png">
+      <Link>Resources\IMAGE_1097.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1098.png">
+      <Link>Resources\IMAGE_1098.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1099.png">
+      <Link>Resources\IMAGE_1099.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1100.png">
+      <Link>Resources\IMAGE_1100.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1101.png">
+      <Link>Resources\IMAGE_1101.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1102.png">
+      <Link>Resources\IMAGE_1102.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1103.png">
+      <Link>Resources\IMAGE_1103.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1104.png">
+      <Link>Resources\IMAGE_1104.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1105.png">
+      <Link>Resources\IMAGE_1105.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1106.png">
+      <Link>Resources\IMAGE_1106.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1107.png">
+      <Link>Resources\IMAGE_1107.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1108.png">
+      <Link>Resources\IMAGE_1108.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1109.png">
+      <Link>Resources\IMAGE_1109.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1110.png">
+      <Link>Resources\IMAGE_1110.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1111.png">
+      <Link>Resources\IMAGE_1111.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1112.png">
+      <Link>Resources\IMAGE_1112.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1113.png">
+      <Link>Resources\IMAGE_1113.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1114.png">
+      <Link>Resources\IMAGE_1114.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1115.png">
+      <Link>Resources\IMAGE_1115.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1116.png">
+      <Link>Resources\IMAGE_1116.png</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

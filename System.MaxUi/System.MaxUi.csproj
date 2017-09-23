@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A30C958D-0DD4-4D57-922C-BB9D2640FABC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.MaxUi</RootNamespace>
+    <AssemblyName>System.MaxUi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckBtn.Designer.cs">
+      <DependentUpon>CheckBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupBox.Designer.cs">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewMaxBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewMaxBtn.designer.cs">
+      <DependentUpon>NewMaxBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPickBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPickBtn.designer.cs">
+      <DependentUpon>NewPickBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewToolBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewToolBtn.designer.cs">
+      <DependentUpon>NewToolBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewToolPickBnt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewToolPickBnt.Designer.cs">
+      <DependentUpon>NewToolPickBnt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewValueBarH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewValueBarH.Designer.cs">
+      <DependentUpon>NewValueBarH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewValueBarV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewValueBarV.Designer.cs">
+      <DependentUpon>NewValueBarV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewValueTextBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewValueTextBar.Designer.cs">
+      <DependentUpon>NewValueTextBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumUpDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NumUpDown.Designer.cs">
+      <DependentUpon>NumUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RadioBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RadioBtn.Designer.cs">
+      <DependentUpon>RadioBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rollout03.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rollout03.designer.cs">
+      <DependentUpon>Rollout03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rollout04.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rollout04.designer.cs">
+      <DependentUpon>Rollout04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundedButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoundedButton.Designer.cs">
+      <DependentUpon>RoundedButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundedButtonDesigner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CheckBtn.resx">
+      <DependentUpon>CheckBtn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupBox.resx">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgBox.resx">
+      <DependentUpon>MsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewMaxBtn.resx">
+      <DependentUpon>NewMaxBtn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPickBtn.resx">
+      <DependentUpon>NewPickBtn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewToolBtn.resx">
+      <DependentUpon>NewToolBtn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewToolPickBnt.resx">
+      <DependentUpon>NewToolPickBnt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewValueBarH.resx">
+      <DependentUpon>NewValueBarH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewValueBarV.resx">
+      <DependentUpon>NewValueBarV.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewValueTextBar.resx">
+      <DependentUpon>NewValueTextBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumUpDown.resx">
+      <DependentUpon>NumUpDown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RadioBtn.resx">
+      <DependentUpon>RadioBtn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rollout03.resx">
+      <DependentUpon>Rollout03.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rollout04.resx">
+      <DependentUpon>Rollout04.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoundedButton.resx">
+      <DependentUpon>RoundedButton.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

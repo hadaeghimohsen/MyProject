@@ -1,0 +1,1031 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67F0FAAA-3D81-44C1-A45F-FBCBB1D1C28D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyProject</RootNamespace>
+    <AssemblyName>MyProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iProject.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Itenso.TimePeriod, Version=2.1.1.0, Culture=neutral, PublicKeyToken=8cb6db75b4e81486, processorArchitecture=MSIL">
+      <HintPath>..\packages\TimePeriodLibrary.NET.2.1.1\lib\net45\Itenso.TimePeriod.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commons\ChangeHandling\Code\ChangeHandle.Gateways.cs" />
+    <Compile Include="Commons\ChangeHandling\Code\ChangeHandle.Routering.cs" />
+    <Compile Include="Commons\ChangeHandling\Code\ChangeHandle.StartPoint.cs" />
+    <Compile Include="Commons\ChangeHandling\Code\ChangeHandle.Tasks.cs" />
+    <Compile Include="Commons\ChangeHandling\Code\ChangeHandle.Uis.cs" />
+    <Compile Include="Commons\ChangeHandling\Ui\ChangeName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\ChangeHandling\Ui\ChangeName.Designer.cs">
+      <DependentUpon>ChangeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\ChangeHandling\Ui\ChangeName.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Code\Commons.Gateways.cs" />
+    <Compile Include="Commons\Code\Commons.Routering.cs" />
+    <Compile Include="Commons\Code\Commons.StartPoint.cs" />
+    <Compile Include="Commons\Code\Commons.Tasks.cs" />
+    <Compile Include="Commons\Code\Commons.Uis.cs" />
+    <Compile Include="Commons\Desktop\Ui\StartMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\StartMenu.Designer.cs">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\SettingsDrawer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\SettingsDrawer.Designer.cs">
+      <DependentUpon>SettingsDrawer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\StartMenu.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\SettingsDrawer.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\StartDrawer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\StartDrawer.Designer.cs">
+      <DependentUpon>StartDrawer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\StartDrawer.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ErrorMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ErrorMessage.Designer.cs">
+      <DependentUpon>ErrorMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ErrorMessage.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Form_Settings\Code\FORM_STNG.Gateways.cs" />
+    <Compile Include="Commons\Form_Settings\Code\FORM_STNG.Router.cs" />
+    <Compile Include="Commons\Form_Settings\Code\FORM_STNG.StartPoint.cs" />
+    <Compile Include="Commons\Form_Settings\Code\FORM_STNG.Tasks.cs" />
+    <Compile Include="Commons\Form_Settings\Code\FORM_STNG.Uis.cs" />
+    <Compile Include="Commons\Form_Settings\Ui\FRPT_STNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Form_Settings\Ui\FRPT_STNG_F.Designer.cs">
+      <DependentUpon>FRPT_STNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Form_Settings\Ui\FRPT_STNG_F.Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Form_Settings\Ui\FRPT_STNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\LifeTime\Code\LifeTime.Gateways.cs" />
+    <Compile Include="Commons\LifeTime\Code\LifeTime.Routering.cs" />
+    <Compile Include="Commons\LifeTime\Code\LifeTime.StartPoint.cs" />
+    <Compile Include="Commons\LifeTime\Code\LifeTime.Tasks.cs" />
+    <Compile Include="Commons\LifeTime\Code\LifeTime.Uis.cs" />
+    <Compile Include="Commons\LifeTime\Ui\ToolOperation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\LifeTime\Ui\ToolOperation.Designer.cs">
+      <DependentUpon>ToolOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\LifeTime\Ui\ToolOperation.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Code\ErrorHandle.Gateways.cs" />
+    <Compile Include="Commons\ErrorHandling\Code\ErrorHandle.Routering.cs" />
+    <Compile Include="Commons\ErrorHandling\Code\ErrorHandle.StartPoint.cs" />
+    <Compile Include="Commons\ErrorHandling\Code\ErrorHandle.Tasks.cs" />
+    <Compile Include="Commons\ErrorHandling\Code\ErrorHandle.Uis.cs" />
+    <Compile Include="Commons\ErrorHandling\Ui\ErrorHandle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ErrorHandle.Designer.cs">
+      <DependentUpon>ErrorHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ErrorHandle.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\HelpHandling\Code\HelpHandle.Gateways.cs" />
+    <Compile Include="Commons\HelpHandling\Code\HelpHandle.Routering.cs" />
+    <Compile Include="Commons\HelpHandling\Code\HelpHandle.StartPoint.cs" />
+    <Compile Include="Commons\HelpHandling\Code\HelpHandle.Tasks.cs" />
+    <Compile Include="Commons\HelpHandling\Code\HelpHandle.Uis.cs" />
+    <Compile Include="Commons\HelpHandling\Ui\HelpHandle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\HelpHandling\Ui\HelpHandle.Designer.cs">
+      <DependentUpon>HelpHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\HelpHandling\Ui\HelpHandle.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\RedoLogs\Code\RedoLog.Gateways.cs" />
+    <Compile Include="Commons\RedoLogs\Code\RedoLog.Routering.cs" />
+    <Compile Include="Commons\RedoLogs\Code\RedoLog.StartPoint.cs" />
+    <Compile Include="Commons\RedoLogs\Code\RedoLog.Tasks.cs" />
+    <Compile Include="Commons\RedoLogs\Code\RedoLog.Uis.cs" />
+    <Compile Include="Commons\RedoLogs\Ui\RedoLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\RedoLogs\Ui\RedoLog.Designer.cs">
+      <DependentUpon>RedoLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\RedoLogs\Ui\RedoLog.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\Code\DemoStuff.cs" />
+    <Compile Include="Commons\Ui\Code\Map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\Code\Program.cs" />
+    <Compile Include="Commons\Ui\Code\SQLiteIpCache.cs" />
+    <Compile Include="Commons\Ui\DateTimes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\DateTimes.Designer.cs">
+      <DependentUpon>DateTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\DateTimes.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNets.Designer.cs">
+      <DependentUpon>GMapNets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\ProgressBar\ProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\ProgressBar\ProgressBar.Designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\ProgressBar\ToolStripProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\BseColorTable.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\BseRenderer.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\ColorTableBlack.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\ColorTableBlue.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\Office2007BlackColorTable.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\Office2007BlueColorTable.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\Office2007Renderer.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\Office2007SilverColorTable.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\OfficeColorTable.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Renderer\ProfessionalColorTable.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Resources.Designer.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Splitter\Splitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Splitter\Splitter.Designer.cs">
+      <DependentUpon>Splitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\BasePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\CaptionStyle.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\ColorScheme.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\ColorSchemeChangeEventArgs.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\Constants.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\CustomColors.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\CustomPanelColors.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\CustomXPanderPanelColors.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\DisplayInformation.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\HoverState.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\HoverStateChangeEventArgs.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\IPanel.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\Panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\Panel.Designer.cs">
+      <DependentUpon>Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColors.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsBlack.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsBlue.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsBse.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsOffice.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsOffice2007Black.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsOffice2007Blue.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsOffice2007Silver.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelColorsRed.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelSettingsManager.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelStyle.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\PanelStyleChangeEventArgs.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\UseAntiAlias.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\UseClearTypeGridFit.cs" />
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderPanel.Designer.cs">
+      <DependentUpon>XPanderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderPanelList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderPanelList.Designer.cs">
+      <DependentUpon>XPanderPanelList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderStateChangeEventArgs.cs" />
+    <Compile Include="Commons\Ui\GMapNet\CustomMarkers\GMapMarkerCircle.cs" />
+    <Compile Include="Commons\Ui\GMapNet\CustomMarkers\GMapMarkerRect.cs" />
+    <Compile Include="Commons\Ui\GMapNet\CustomMarkers\GMarkerArrow.cs" />
+    <Compile Include="Commons\Ui\GMapNet\Others\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\Others\Message.designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\Others\StaticImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNet\Others\StaticImage.designer.cs">
+      <DependentUpon>StaticImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\Shutdown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\Shutdown.Designer.cs">
+      <DependentUpon>Shutdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Ui\GMapNets.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\Shutdown.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Programs\Code\Program.Gateways.cs" />
+    <Compile Include="Programs\Code\Program.Routering.cs" />
+    <Compile Include="Programs\Code\Program.StartPoint.cs" />
+    <Compile Include="Programs\Code\Program.Tasks.cs" />
+    <Compile Include="Programs\Code\Program.Uis.cs" />
+    <Compile Include="Programs\Ui\Wall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Programs\Ui\Wall.Designer.cs">
+      <DependentUpon>Wall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Programs\Ui\Wall.RequestRespons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Commons\Desktop\Code\Desktop.Gateways.cs" />
+    <Compile Include="Commons\Desktop\Code\Desktop.Routering.cs" />
+    <Compile Include="Commons\Desktop\Code\Desktop.StartPoint.cs" />
+    <Compile Include="Commons\Desktop\Code\Desktop.Tasks.cs" />
+    <Compile Include="Commons\Desktop\Code\Desktop.Uis.cs" />
+    <Compile Include="Commons\Desktop\Ui\Desktop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\Desktop.Designer.cs">
+      <DependentUpon>Desktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Desktop\Ui\Desktop.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="Commons\ChangeHandling\Ui\ChangeName.resx">
+      <DependentUpon>ChangeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Desktop\Ui\StartMenu.resx">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Desktop\Ui\SettingsDrawer.resx">
+      <DependentUpon>SettingsDrawer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Desktop\Ui\StartDrawer.resx">
+      <DependentUpon>StartDrawer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\ErrorHandling\Ui\ErrorMessage.resx">
+      <DependentUpon>ErrorMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Form_Settings\Ui\FRPT_STNG_F.resx">
+      <DependentUpon>FRPT_STNG_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\LifeTime\Ui\ToolOperation.resx">
+      <DependentUpon>ToolOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\ErrorHandling\Ui\ErrorHandle.resx">
+      <DependentUpon>ErrorHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\HelpHandling\Ui\HelpHandle.resx">
+      <DependentUpon>HelpHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\DateTimes.resx">
+      <DependentUpon>DateTimes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNets.resx">
+      <DependentUpon>GMapNets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\Panel.resx">
+      <DependentUpon>Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderPanel.resx">
+      <DependentUpon>XPanderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNet\BSE.Windows.Forms\XPander\XPanderPanelList.resx">
+      <DependentUpon>XPanderPanelList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNet\Others\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\GMapNet\Others\StaticImage.resx">
+      <DependentUpon>StaticImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\Shutdown.resx">
+      <DependentUpon>Shutdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Programs\Ui\Wall.resx">
+      <DependentUpon>Wall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Commons\Desktop\Ui\Desktop.resx">
+      <DependentUpon>Desktop.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.CRM\System.CRM.csproj">
+      <Project>{5f1fc4f8-a652-46f0-a2ec-4ada0d86aac9}</Project>
+      <Name>System.CRM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.DataAccess\System.DataAccess.csproj">
+      <Project>{fe0b4bd5-beab-4e34-a364-709533cddde6}</Project>
+      <Name>System.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.DataGuard\System.DataGuard.csproj">
+      <Project>{425821c6-1dcf-4621-91dd-92edb29a947a}</Project>
+      <Name>System.DataGuard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Emis.Sas\System.Emis.Sas.csproj">
+      <Project>{83bdc0a8-ecc1-4ad0-9534-b2bef10a9c32}</Project>
+      <Name>System.Emis.Sas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Gas\System.Gas.csproj">
+      <Project>{924e3ee6-cc2f-4982-ae88-665dabe8c68b}</Project>
+      <Name>System.Gas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.ISP\System.ISP.csproj">
+      <Project>{ad309c0f-b2a3-440c-a5f2-49dc2e7fef35}</Project>
+      <Name>System.ISP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.MaxUi\System.MaxUi.csproj">
+      <Project>{A30C958D-0DD4-4D57-922C-BB9D2640FABC}</Project>
+      <Name>System.MaxUi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.MessageBroadcast\System.MessageBroadcast.csproj">
+      <Project>{58b3ee9c-6f93-43af-83bc-4101ff330fe7}</Project>
+      <Name>System.MessageBroadcast</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Reporting\System.Reporting.csproj">
+      <Project>{f458acca-7f01-4740-8f4e-a96f9674e5cb}</Project>
+      <Name>System.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.RoboTech\System.RoboTech.csproj">
+      <Project>{0abbf420-3d88-45bb-9612-d77eefb96de6}</Project>
+      <Name>System.RoboTech</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Scsc\System.Scsc.csproj">
+      <Project>{c81a71a0-ee40-4847-b5c3-b631b5663f93}</Project>
+      <Name>System.Scsc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.ServiceDefinition\System.ServiceDefinition.csproj">
+      <Project>{4512985c-8e08-4d8c-b09c-eba676f68d9e}</Project>
+      <Name>System.ServiceDefinition</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\System.Resource\Resources\IMAGE_1002.png">
+      <Link>Resources\IMAGE_1002.png</Link>
+    </None>
+    <None Include="..\System.Resource\Resources\IMAGE_1003.png">
+      <Link>Resources\IMAGE_1003.png</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\System.Resource\Resources\IMAGE_1004.png">
+      <Link>Resources\IMAGE_1004.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1005.png">
+      <Link>Resources\IMAGE_1005.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1006.png">
+      <Link>Resources\IMAGE_1006.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1007.png">
+      <Link>Resources\IMAGE_1007.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1009.png">
+      <Link>Resources\IMAGE_1009.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1010.png">
+      <Link>Resources\IMAGE_1010.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1014.png">
+      <Link>Resources\IMAGE_1014.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1038.jpg">
+      <Link>Resources\IMAGE_1038.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1039.jpg">
+      <Link>Resources\IMAGE_1039.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1040.png">
+      <Link>Resources\IMAGE_1040.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1041.jpg">
+      <Link>Resources\IMAGE_1041.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1042.jpg">
+      <Link>Resources\IMAGE_1042.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1043.jpg">
+      <Link>Resources\IMAGE_1043.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1044.jpg">
+      <Link>Resources\IMAGE_1044.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1045.jpg">
+      <Link>Resources\IMAGE_1045.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1046.jpg">
+      <Link>Resources\IMAGE_1046.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1047.jpg">
+      <Link>Resources\IMAGE_1047.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1048.png">
+      <Link>Resources\IMAGE_1048.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1049.jpg">
+      <Link>Resources\IMAGE_1049.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1050.jpg">
+      <Link>Resources\IMAGE_1050.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1051.jpg">
+      <Link>Resources\IMAGE_1051.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1052.jpg">
+      <Link>Resources\IMAGE_1052.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1059.png">
+      <Link>Resources\IMAGE_1059.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1065.png">
+      <Link>Resources\IMAGE_1065.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1071.png">
+      <Link>Resources\IMAGE_1071.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1084.png">
+      <Link>Resources\IMAGE_1084.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1085.png">
+      <Link>Resources\IMAGE_1085.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1099.png">
+      <Link>Resources\IMAGE_1099.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1102.png">
+      <Link>Resources\IMAGE_1102.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1150.png">
+      <Link>Resources\IMAGE_1150.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1151.png">
+      <Link>Resources\IMAGE_1151.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1154.png">
+      <Link>Resources\IMAGE_1154.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1155.png">
+      <Link>Resources\IMAGE_1155.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1156.png">
+      <Link>Resources\IMAGE_1156.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1158.png">
+      <Link>Resources\IMAGE_1158.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1159.png">
+      <Link>Resources\IMAGE_1159.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1168.png">
+      <Link>Resources\IMAGE_1168.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1170.png">
+      <Link>Resources\IMAGE_1170.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1173.png">
+      <Link>Resources\IMAGE_1173.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1189.png">
+      <Link>Resources\IMAGE_1189.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1196.png">
+      <Link>Resources\IMAGE_1196.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1213.png">
+      <Link>Resources\IMAGE_1213.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1214.png">
+      <Link>Resources\IMAGE_1214.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1215.png">
+      <Link>Resources\IMAGE_1215.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1220.png">
+      <Link>Resources\IMAGE_1220.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1221.png">
+      <Link>Resources\IMAGE_1221.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1224.png">
+      <Link>Resources\IMAGE_1224.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1225.png">
+      <Link>Resources\IMAGE_1225.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1249.jpg">
+      <Link>Resources\IMAGE_1249.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1250.png">
+      <Link>Resources\IMAGE_1250.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1251.png">
+      <Link>Resources\IMAGE_1251.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1252.png">
+      <Link>Resources\IMAGE_1252.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1253.png">
+      <Link>Resources\IMAGE_1253.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1254.png">
+      <Link>Resources\IMAGE_1254.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1255.png">
+      <Link>Resources\IMAGE_1255.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1256.png">
+      <Link>Resources\IMAGE_1256.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1257.png">
+      <Link>Resources\IMAGE_1257.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1258.png">
+      <Link>Resources\IMAGE_1258.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1259.png">
+      <Link>Resources\IMAGE_1259.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1260.png">
+      <Link>Resources\IMAGE_1260.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1261.png">
+      <Link>Resources\IMAGE_1261.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1262.png">
+      <Link>Resources\IMAGE_1262.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1263.png">
+      <Link>Resources\IMAGE_1263.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1301.png">
+      <Link>Resources\IMAGE_1301.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1302.png">
+      <Link>Resources\IMAGE_1302.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1303.png">
+      <Link>Resources\IMAGE_1303.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1304.png">
+      <Link>Resources\IMAGE_1304.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1305.png">
+      <Link>Resources\IMAGE_1305.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1306.png">
+      <Link>Resources\IMAGE_1306.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1307.png">
+      <Link>Resources\IMAGE_1307.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1308.png">
+      <Link>Resources\IMAGE_1308.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1309.png">
+      <Link>Resources\IMAGE_1309.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1310.png">
+      <Link>Resources\IMAGE_1310.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1311.png">
+      <Link>Resources\IMAGE_1311.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1312.png">
+      <Link>Resources\IMAGE_1312.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1313.png">
+      <Link>Resources\IMAGE_1313.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1314.png">
+      <Link>Resources\IMAGE_1314.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1315.png">
+      <Link>Resources\IMAGE_1315.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1316.png">
+      <Link>Resources\IMAGE_1316.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1317.png">
+      <Link>Resources\IMAGE_1317.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1318.png">
+      <Link>Resources\IMAGE_1318.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1319.png">
+      <Link>Resources\IMAGE_1319.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1320.png">
+      <Link>Resources\IMAGE_1320.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1321.png">
+      <Link>Resources\IMAGE_1321.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1322.png">
+      <Link>Resources\IMAGE_1322.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1323.png">
+      <Link>Resources\IMAGE_1323.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1324.png">
+      <Link>Resources\IMAGE_1324.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1325.png">
+      <Link>Resources\IMAGE_1325.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1326.png">
+      <Link>Resources\IMAGE_1326.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1327.png">
+      <Link>Resources\IMAGE_1327.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1328.png">
+      <Link>Resources\IMAGE_1328.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1329.png">
+      <Link>Resources\IMAGE_1329.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1330.png">
+      <Link>Resources\IMAGE_1330.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1331.png">
+      <Link>Resources\IMAGE_1331.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1332.png">
+      <Link>Resources\IMAGE_1332.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1333.png">
+      <Link>Resources\IMAGE_1333.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1334.png">
+      <Link>Resources\IMAGE_1334.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1335.png">
+      <Link>Resources\IMAGE_1335.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1336.png">
+      <Link>Resources\IMAGE_1336.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1337.png">
+      <Link>Resources\IMAGE_1337.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1338.png">
+      <Link>Resources\IMAGE_1338.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1339.png">
+      <Link>Resources\IMAGE_1339.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1340.png">
+      <Link>Resources\IMAGE_1340.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1341.png">
+      <Link>Resources\IMAGE_1341.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1342.png">
+      <Link>Resources\IMAGE_1342.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1343.png">
+      <Link>Resources\IMAGE_1343.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1344.png">
+      <Link>Resources\IMAGE_1344.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1345.png">
+      <Link>Resources\IMAGE_1345.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1346.png">
+      <Link>Resources\IMAGE_1346.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1347.png">
+      <Link>Resources\IMAGE_1347.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1348.png">
+      <Link>Resources\IMAGE_1348.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1349.png">
+      <Link>Resources\IMAGE_1349.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1350.png">
+      <Link>Resources\IMAGE_1350.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1351.png">
+      <Link>Resources\IMAGE_1351.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1352.png">
+      <Link>Resources\IMAGE_1352.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1353.png">
+      <Link>Resources\IMAGE_1353.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1354.png">
+      <Link>Resources\IMAGE_1354.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1355.png">
+      <Link>Resources\IMAGE_1355.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1356.png">
+      <Link>Resources\IMAGE_1356.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1357.png">
+      <Link>Resources\IMAGE_1357.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1358.png">
+      <Link>Resources\IMAGE_1358.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1359.png">
+      <Link>Resources\IMAGE_1359.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1360.png">
+      <Link>Resources\IMAGE_1360.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1366.png">
+      <Link>Resources\IMAGE_1366.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1370.png">
+      <Link>Resources\IMAGE_1370.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1371.png">
+      <Link>Resources\IMAGE_1371.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1412.png">
+      <Link>Resources\IMAGE_1412.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1419.png">
+      <Link>Resources\IMAGE_1419.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1440.png">
+      <Link>Resources\IMAGE_1440.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1488.png">
+      <Link>Resources\IMAGE_1488.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1489.png">
+      <Link>Resources\IMAGE_1489.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1490.png">
+      <Link>Resources\IMAGE_1490.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1491.png">
+      <Link>Resources\IMAGE_1491.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1492.png">
+      <Link>Resources\IMAGE_1492.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1493.png">
+      <Link>Resources\IMAGE_1493.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1494.png">
+      <Link>Resources\IMAGE_1494.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1495.png">
+      <Link>Resources\IMAGE_1495.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1496.png">
+      <Link>Resources\IMAGE_1496.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1497.png">
+      <Link>Resources\IMAGE_1497.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1498.png">
+      <Link>Resources\IMAGE_1498.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1499.png">
+      <Link>Resources\IMAGE_1499.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1500.png">
+      <Link>Resources\IMAGE_1500.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1501.png">
+      <Link>Resources\IMAGE_1501.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1502.png">
+      <Link>Resources\IMAGE_1502.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1503.png">
+      <Link>Resources\IMAGE_1503.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1504.png">
+      <Link>Resources\IMAGE_1504.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1505.png">
+      <Link>Resources\IMAGE_1505.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1506.png">
+      <Link>Resources\IMAGE_1506.png</Link>
+    </Content>
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronDown.png" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronLeft.png" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronRight.png" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronUp.png" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\closePanel.png" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Collapse.jpg" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Collapse_h.jpg" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Expand.jpg" />
+    <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Expand_h.jpg" />
+    <Content Include="iProject.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

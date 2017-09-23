@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83BDC0A8-ECC1-4AD0-9534-B2BEF10A9C32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Emis.Sas</RootNamespace>
+    <AssemblyName>System.Emis.Sas</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DataEditShamsi">
+      <HintPath>C:\Users\Aref\Documents\Visual Studio 2012\Projects\LINQ\LinqToiScsc\bin\Debug\DataEditShamsi.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\Sas.Gateways.cs" />
+    <Compile Include="Controller\Sas.Router.cs" />
+    <Compile Include="Controller\Sas.StartPoints.cs" />
+    <Compile Include="Controller\Sas.Tasks.cs" />
+    <Compile Include="Controller\Sas.Uis.cs" />
+    <Compile Include="Model\ADM_CATEGORY.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ADM_REGION_EXPENSE_ACOUNT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ADM_TRANSFER_SPEC.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BANK.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BANK_ACCOUNT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BANK_BRANCH.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BASE_METER_SPEC.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BASE_METER_TARIFF.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BILL.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_ACCOUNT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_ACCOUNT_DETAIL.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_BILL_AMOUNT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_BILL_DEBIT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_CONSUMPTION.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_CONSUMPTION_DETAIL.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_DEBIT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_FIRST_INFORMATION.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_PREVENT_CODE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_RCPT_ROW_ANNOUNCEMENT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BIL_TARIFF.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CG_REF_CODES.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CYCLE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Domain.cs" />
+    <Compile Include="Model\EXPENSE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EXPENSE_TYPE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\METER_SPEC.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REGION.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REGULATION.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REGULATION_ROW.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REQUEST.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REQUESTER_TYPE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REQUEST_ROW.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\REQUEST_TYPE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SAS_DOCUMENT_SPEC.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SAS_EXPENSE_ITEM.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SAS_PUBLIC.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Access_Entity.cs" />
+    <Compile Include="Model\SAS_REC_TYPE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SAS_REQUEST_DOCUMENT.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SAS_REQUEST_REQUESTER.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SERVICE.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SERVICE_TARIFF.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\STEP_HISTORY_DETAIL.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\STEP_HISTORY_SUMMERY.cs">
+      <DependentUpon>Sas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MSTR_PAGE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_PAGE_F.Designer.cs">
+      <DependentUpon>MSTR_PAGE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MSTR_PAGE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_REGL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_REGL_F.Designer.cs">
+      <DependentUpon>MSTR_REGL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MSTR_REGL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_RQST_F.Designer.cs">
+      <DependentUpon>MSTR_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MSTR_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_SERV_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MSTR_SERV_F.Designer.cs">
+      <DependentUpon>MSTR_SERV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MSTR_SERV_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PBLC_SERV_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PBLC_SERV_F.Designer.cs">
+      <DependentUpon>PBLC_SERV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PBLC_SERV_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_BILL_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_BILL_F.Designer.cs">
+      <DependentUpon>SERV_BILL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SERV_BILL_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_DART_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_DART_F.Designer.cs">
+      <DependentUpon>SERV_DART_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SERV_DART_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_INFO_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_INFO_F.Designer.cs">
+      <DependentUpon>SERV_INFO_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SERV_INFO_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_RQST_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SERV_RQST_F.Designer.cs">
+      <DependentUpon>SERV_RQST_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SERV_RQST_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\Sas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Sas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Model\Sas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Sas.edmx</DependentUpon>
+      <LastGenOutput>Sas.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Sas.edmx.diagram">
+      <DependentUpon>Sas.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Sas.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Sas.edmx</DependentUpon>
+      <LastGenOutput>Sas.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.ADM_CATEGORY.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.ADM_REGION_EXPENSE_ACOUNT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.ADM_TRANSFER_SPEC.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BANK.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BANK_ACCOUNT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BANK_BRANCH.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BASE_METER_SPEC.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BASE_METER_TARIFF.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BILL.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_ACCOUNT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_ACCOUNT_DETAIL.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_BILL_AMOUNT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_BILL_DEBIT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_CONSUMPTION.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_CONSUMPTION_DETAIL.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_DEBIT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_FIRST_INFORMATION.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_PREVENT_CODE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_RCPT_ROW_ANNOUNCEMENT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.BIL_TARIFF.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.CG_REF_CODES.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.CYCLE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.EXPENSE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.EXPENSE_TYPE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.METER_SPEC.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REGION.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REGULATION.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REGULATION_ROW.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REQUEST.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REQUESTER_TYPE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REQUEST_ROW.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.REQUEST_TYPE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SasContext.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SAS_DOCUMENT_SPEC.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SAS_EXPENSE_ITEM.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SAS_PUBLIC.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SAS_REC_TYPE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SAS_REQUEST_DOCUMENT.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SAS_REQUEST_REQUESTER.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SERVICE.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.SERVICE_TARIFF.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.STEP_HISTORY_DETAIL.datasource" />
+    <None Include="Properties\DataSources\System.Emis.Sas.Model.STEP_HISTORY_SUMMERY.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MSTR_PAGE_F.resx">
+      <DependentUpon>MSTR_PAGE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MSTR_REGL_F.resx">
+      <DependentUpon>MSTR_REGL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MSTR_RQST_F.resx">
+      <DependentUpon>MSTR_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MSTR_SERV_F.resx">
+      <DependentUpon>MSTR_SERV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PBLC_SERV_F.resx">
+      <DependentUpon>PBLC_SERV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SERV_BILL_F.resx">
+      <DependentUpon>SERV_BILL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SERV_DART_F.resx">
+      <DependentUpon>SERV_DART_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SERV_INFO_F.resx">
+      <DependentUpon>SERV_INFO_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SERV_RQST_F.resx">
+      <DependentUpon>SERV_RQST_F.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

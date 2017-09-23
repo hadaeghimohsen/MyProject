@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>Integrated Security=True;Initial Catalog=iScsc;Data Source=.</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <Fighter Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter</Alias>
+        <Columns isList="true" count="64">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>CONF_STAT,System.String</value>
+          <value>CONF_DATE,System.DateTime</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter</SqlCommand>
+      </Fighter>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <HeaderFighter Ref="5" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <HeaderFighter_FILE_NO Ref="6" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderFighter_FILE_NO</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره پرونده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderFighter_FILE_NO>
+            <HeaderFighter_NAME_DNRM Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderFighter_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام اعضا</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderFighter_NAME_DNRM>
+            <HeaderFighter_POST_ADRS_DNRM Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderFighter_POST_ADRS_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>آدرس</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderFighter_POST_ADRS_DNRM>
+            <HeaderFighter_CELL_PHON_DNRM Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.8,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderFighter_CELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره همراه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderFighter_CELL_PHON_DNRM>
+            <HeaderFighter_TELL_PHON_DNRM Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>22.4,0,5.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderFighter_TELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره ثابت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderFighter_TELL_PHON_DNRM>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderFighter</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </HeaderFighter>
+        <DataFighter Ref="11" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,2,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <DataFighter_FILE_NO Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_FILE_NO</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>{Fighter.FILE_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_FILE_NO>
+            <DataFighter_NAME_DNRM Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.6,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>{Fighter.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_NAME_DNRM>
+            <DataFighter_POST_ADRS_DNRM Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_POST_ADRS_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>{Fighter.POST_ADRS_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_POST_ADRS_DNRM>
+            <DataFighter_CELL_PHON_DNRM Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.8,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_CELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>{Fighter.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_CELL_PHON_DNRM>
+            <DataFighter_TELL_PHON_DNRM Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>22.4,0,5.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_TELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>{Fighter.TELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_TELL_PHON_DNRM>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Fighter</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataFighter</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataFighter>
+        <FooterFighter Ref="17" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.6,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <FooterFighter_FILE_NO Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterFighter_FILE_NO</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterFighter_FILE_NO>
+            <FooterFighter_NAME_DNRM Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterFighter_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterFighter_NAME_DNRM>
+            <FooterFighter_POST_ADRS_DNRM Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterFighter_POST_ADRS_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterFighter_POST_ADRS_DNRM>
+            <FooterFighter_CELL_PHON_DNRM Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.8,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterFighter_CELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterFighter_CELL_PHON_DNRM>
+            <FooterFighter_TELL_PHON_DNRM Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>22.4,0,5.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterFighter_TELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterFighter_TELL_PHON_DNRM>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterFighter</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </FooterFighter>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>6b4f72aa80f24df78ca1916ae58d8fbe</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="23" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="24" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/14/2017 5:25:38 PM</ReportChanged>
+  <ReportCreated>9/14/2017 4:54:10 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_LIST_001.mrt</ReportFile>
+  <ReportGuid>5c5ef9cb38c1429585286003c555cdfd</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

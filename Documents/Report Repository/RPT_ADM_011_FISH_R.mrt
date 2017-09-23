@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>Password=hadaeghi1020_asrdb;Persist Security Info=True;Data Source=.;Integrated Security=False;Initial Catalog=iScsc;User ID=hadaeghi</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <iQuery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>iQuery</Alias>
+        <Columns isList="true" count="23">
+          <value>RQID,System.Int64</value>
+          <value>PRNT_DESC,System.String</value>
+          <value>RQST_DATE,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>PRVN_NAME,System.String</value>
+          <value>REGN_NAME,System.String</value>
+          <value>CLUB_NAME,System.String</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>FATH_NAME,System.String</value>
+          <value>NATL_CODE,System.String</value>
+          <value>BRTH_DATE,System.String</value>
+          <value>AGE,System.Int32</value>
+          <value>CELL_PHON,System.String</value>
+          <value>TELL_PHON,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>SUM_EXPN_PRIC,System.Int32</value>
+          <value>CBMT_DESC,System.String</value>
+          <value>SEX_DESC,System.String</value>
+          <value>SUM_EXPN_PRIC_DESC,System.String</value>
+          <value>CASH_DESC,System.String</value>
+          <value>TIME,System.TimeSpan</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>iQuery</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT Request.RQID, 
+	Request_Type.RQTP_DESC + ' ' + Requester_Type.RQTT_DESC AS PRNT_DESC, 
+	dbo.GET_MTOS_U(Request.RQST_DATE) AS RQST_DATE, 
+	(SELECT TitleFa FROM [iProject].[DataGuard].[User] WHERE USERDB = Request.CRET_BY) AS CRET_BY, 
+	Fighter.FILE_NO, 
+	Province.NAME AS PRVN_NAME, 
+	Region.NAME AS REGN_NAME, 
+	Club.NAME AS CLUB_NAME,
+	Fighter_Public.FRST_NAME, 
+	Fighter_Public.LAST_NAME, 
+	Fighter_Public.FATH_NAME, 
+	Fighter_Public.NATL_CODE, 
+    CAST(Request.Rqst_Date AS TIME(0)) AS TIME,
+	dbo.GET_MTOS_U(Fighter_Public.BRTH_DATE) AS BRTH_DATE, 
+    DATEDIFF(YEAR, Fighter_Public.BRTH_DATE, GETDATE()) AS AGE,
+	Fighter_Public.CELL_PHON, 
+	Fighter_Public.TELL_PHON, 
+	Fighter_Public.POST_ADRS, 
+	Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT AS SUM_EXPN_PRIC,
+	dbo.GET_CBMT_DESC(Fighter_Public.CBMT_CODE) AS CBMT_DESC,
+	D$SXTP.DOMN_DESC AS SEX_DESC,
+    dbo.GET_NTOS_U(Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT) AS SUM_EXPN_PRIC_DESC,
+(SELECT N' مبلغ ' + LEFT(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY), 1) ,LEN(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY))) - 2)  + N' ریال به ' + Cash.NAME + N', '
+	      FROM Payment_Detail, Cash
+	     WHERE Payment.CASH_CODE = Payment_Detail.PYMT_CASH_CODE
+	       AND Payment.RQST_RQID = Payment_Detail.PYMT_RQST_RQID
+	       AND Request_Row.RWNO  = Payment_Detail.RQRO_RWNO
+	       AND Payment_Detail.PYMT_CASH_CODE = Cash.CODE
+	  GROUP BY Cash.NAME
+	  FOR XML PATH('')) AS CASH_DESC
+FROM   Request INNER JOIN
+       Request_Row ON Request.RQID = Request_Row.RQST_RQID INNER JOIN
+       Request_Type ON Request.RQTP_CODE = Request_Type.CODE INNER JOIN
+       Requester_Type ON Request.RQTT_CODE = Requester_Type.CODE INNER JOIN
+       Fighter ON Request.RQID = Fighter.RQST_RQID AND Request_Row.FIGH_FILE_NO = Fighter.FILE_NO INNER JOIN
+       Fighter_Public ON Request_Row.RQST_RQID = Fighter_Public.RQRO_RQST_RQID AND Request_Row.RWNO = Fighter_Public.RQRO_RWNO AND 
+       Fighter.FILE_NO = Fighter_Public.FIGH_FILE_NO INNER JOIN
+       Payment ON Request.RQID = Payment.RQST_RQID INNER JOIN
+       Club ON Fighter_Public.CLUB_CODE = Club.CODE AND Payment.CLUB_CODE_DNRM = Club.CODE INNER JOIN
+       Region ON Request.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND Request.REGN_PRVN_CODE = Region.PRVN_CODE AND 
+       Request.REGN_CODE = Region.CODE AND Fighter.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
+       Fighter.REGN_PRVN_CODE = Region.PRVN_CODE AND Fighter.REGN_CODE = Region.CODE AND 
+       Fighter_Public.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND Fighter_Public.REGN_PRVN_CODE = Region.PRVN_CODE AND 
+       Fighter_Public.REGN_CODE = Region.CODE AND Club.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
+       Club.REGN_PRVN_CODE = Region.PRVN_CODE AND Club.REGN_CODE = Region.CODE INNER JOIN
+       Province ON Region.PRVN_CNTY_CODE = Province.CNTY_CODE AND Region.PRVN_CODE = Province.CODE INNER JOIN
+       D$SXTP ON Fighter_Public.SEX_TYPE = D$SXTP.VALU
+WHERE  Request.RQST_STAT = '001'
+  AND {WhereClause}
+  
+  </SqlCommand>
+      </iQuery>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="2">
+    <Master_x0020_Page Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <ClubPrint Ref="5" type="SubReport" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0,9.4,12.4</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Name>ClubPrint</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <SubReportPageGuid>a91d987dfec04f218a044e578fe98ab0</SubReportPageGuid>
+        </ClubPrint>
+        <FighterPrint Ref="6" type="SubReport" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>9.6,0,9.4,12.4</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Guid>5af775847fa84da893b46772e773d2a7</Guid>
+          <Name>FighterPrint</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <SubReportPageGuid>a91d987dfec04f218a044e578fe98ab0</SubReportPageGuid>
+        </FighterPrint>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>e560dd4b6aa64346af9cc2b482c1265f</Guid>
+      <LargeHeight>True</LargeHeight>
+      <Margins>1,1,1,1</Margins>
+      <Name>Master Page</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>14.8</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="7" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <ShowImageBehind>False</ShowImageBehind>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Master_x0020_Page>
+    <PaperCutter Ref="8" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <DataBand1 Ref="9" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,9.4,12.4</ClientRectangle>
+          <Columns>2</Columns>
+          <Components isList="true" count="33">
+            <Text1 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,9.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>8e0b5f270edd433a85c99819eb4974e1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.PRNT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="11" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.6,5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>ecc27122c9e6410dae3add2be0703256</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>شماره درخواست : {iQuery.RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="12" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>4447579d59de4685b06d4a8e44fd6bf9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>تاریخ درخواست : {iQuery.RQST_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <BarCode1 Ref="13" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+              <AutoScale>True</AutoScale>
+              <BackColor>Transparent</BackColor>
+              <BarCodeType Ref="14" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
+              <ClientRectangle>0,1.4,9.4,1</ClientRectangle>
+              <Code>{iQuery.RQID}</Code>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold,Pixel</Font>
+              <ForeColor>Black</ForeColor>
+              <Guid>4ef0d20a71e2429183f78e74d3af392f</Guid>
+              <Name>BarCode1</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <ShowLabelText>False</ShowLabelText>
+            </BarCode1>
+            <Text4 Ref="15" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,2.6,5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>c7d2cc2d4fab4c9ea26daf2577a71f66</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>شماره پرونده : {iQuery.FILE_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="16" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.6,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>7925e9ca6d494f9dadbcc95d110f65c0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.PRVN_NAME}، {iQuery.REGN_NAME}، {iQuery.CLUB_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text6 Ref="17" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,3.2,5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>7232903e59a34f5694c034bbd49ba93a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.FRST_NAME}، {iQuery.LAST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="18" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.2,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>cbc99553eaac4c82af09570175e32190</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.FATH_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="19" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,3.2,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>73f0180d45ea4ead958e2ea3fd1ca1c8</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>نام پدر</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 Ref="20" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,3.2,0.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>089778a5b1f741f390aee7d8861e43f5</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text9>
+            <Text13 Ref="21" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.8,4.4,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>5e4fd8423e3c4b46999617d2a5fabc9c</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>تاریخ تولد : {iQuery.BRTH_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="22" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,4.4,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>2e8ac06bc82a43578ecad7ec0e8f68c4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>سن : {iQuery.AGE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text14>
+            <Text15 Ref="23" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,5,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>a4789cf354704bb18e194367582c318b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text16 Ref="24" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,5,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>81fdf26a7af746e1af3e15616ebf6ad5</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.TELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+            <Text17 Ref="25" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,5,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>6b66887a38cb41319a3855d20fc7e096</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>تلفن ثابت</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text18 Ref="26" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,5,0.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>101f2b0dbf34459f9e69ec764e553864</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 Ref="27" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,5,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>ddec4063c4024498a52db1478ff6f41f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>تلفن همراه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text19>
+            <Text20 Ref="28" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,5,0.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>989755dd3c894f818b38ffe40f17f11f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <Text21 Ref="29" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,5.6,7.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>118c9abe0d1843ef85b98baa107cbbbe</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.POST_ADRS}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+            </Text21>
+            <Text22 Ref="30" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,5.6,1.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>7bd3c32042704f48a0b1dcf7aac62b07</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>آدرس پستی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text22>
+            <Text23 Ref="31" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.6,5.6,0.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>e108c85dfa4540c1be9626fa212d4c17</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text23>
+            <Text24 Ref="32" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.8,9.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>5924466c5c4d4922b73929f4d1bd1b6a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>جنسیت : {iQuery.SEX_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text24>
+            <Text25 Ref="33" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,6.8,9.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>dd54c1dd726647fea32852738d48a94e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>ساعت کلاسی : {iQuery.CBMT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text25>
+            <Text26 Ref="34" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,8,9.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>b5712657fd1846b59a548521e9a0eef8</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} ریال</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="35" type="NumberFormat" isKey="true">
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text26>
+            <Text27 Ref="36" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,8.6,9.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>a52753a1819f400da59a5f1eaa83e5b3</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC}  ریال</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text27>
+            <Text28 Ref="37" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,9.2,9.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>9da8960f52e64a87b61a672b93018b85</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>وجه به صورت {iQuery.CASH_DESC} پرداخت شود</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text28>
+            <Text29 Ref="38" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,9.8,5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>30050c9fc9ff49e4a0a4d546913fa5c4</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>صندوقدار : {iQuery.CRET_BY}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text29>
+            <Text30 Ref="39" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,10.4,9.4,2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>نرم افزار مدیریت باشگاه
+پشتیبانی 09333617031، 09171015031 
+www.ArtaClub.Com</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text30>
+            <Text31 Ref="40" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,9.8,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>زمان : {iQuery.TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text31>
+            <Text10 Ref="41" type="Text" isKey="true">
+              <Border>Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,4.4,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>60ece5408cef491f8fa52139dbc0c7d3</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>کد ملی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text11 Ref="42" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,4.4,0.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>726e13807aae496e80e2425c90186d9e</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text11>
+            <Text12 Ref="43" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,4.4,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9.75,Bold</Font>
+              <Guid>a08e9e8b6fd340558fc340bf60716e4a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{iQuery.NATL_CODE}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+            <HorizontalLinePrimitive1 Ref="44" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,2.6,9.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="45" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>1e1b524ad9e849a6a7994959b2d1ea8a</Guid>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <StartCap Ref="46" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>iQuery</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>3a15ddac11004c789eb663c8ea8a1d16</Guid>
+          <Name>DataBand1</Name>
+          <Page isRef="8" />
+          <Parent isRef="8" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>a91d987dfec04f218a044e578fe98ab0</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>PaperCutter</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>11.4</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="47" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </PaperCutter>
+  </Pages>
+  <PrinterSettings Ref="48" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>1/31/2016 5:56:32 PM</ReportChanged>
+  <ReportCreated>1/31/2016 4:39:18 PM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_ADM_011_FISH_R.mrt</ReportFile>
+  <ReportGuid>51ad71f91d954b48ae47af409291bc42</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>Password=hadaeghi1020_asrdb;Persist Security Info=True;Data Source=.;Integrated Security=False;Initial Catalog=iScsc;User ID=hadaeghi</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <iQuery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>iQuery</Alias>
+        <Columns isList="true" count="22">
+          <value>RQID,System.Int64</value>
+          <value>PRNT_DESC,System.String</value>
+          <value>RQST_DATE,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>FATH_NAME,System.String</value>
+          <value>NATL_CODE,System.String</value>
+          <value>BRTH_DATE,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>TELL_PHON,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>SUM_EXPN_PRIC,System.Int32</value>
+          <value>CBMT_DESC,System.String</value>
+          <value>SEX_DESC,System.String</value>
+          <value>PRVN_NAME,System.String</value>
+          <value>REGN_NAME,System.String</value>
+          <value>CLUB_NAME,System.String</value>
+          <value>SUM_EXPN_PRIC_DESC,System.String</value>
+          <value>CASH_DESC,System.String</value>
+          <value>AGE,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>iQuery</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT Request.RQID, 
+	Request_Type.RQTP_DESC + ' ' + Requester_Type.RQTT_DESC AS PRNT_DESC, 
+	dbo.GET_MTOS_U(Request.RQST_DATE) AS RQST_DATE, 
+	(SELECT TitleFa FROM [iProject].[DataGuard].[User] WHERE USERDB = Request.CRET_BY) AS CRET_BY, 
+	Fighter.FILE_NO, 
+	Province.NAME AS PRVN_NAME, 
+	Region.NAME AS REGN_NAME, 
+	Club.NAME AS CLUB_NAME,
+	Fighter_Public.FRST_NAME, 
+	Fighter_Public.LAST_NAME, 
+	Fighter_Public.FATH_NAME, 
+	Fighter_Public.NATL_CODE, 
+	dbo.GET_MTOS_U(Fighter_Public.BRTH_DATE) AS BRTH_DATE, 
+    DATEDIFF(YEAR, Fighter_Public.BRTH_DATE, GETDATE()) AS AGE,
+	Fighter_Public.CELL_PHON, 
+	Fighter_Public.TELL_PHON, 
+	Fighter_Public.POST_ADRS, 
+	Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT AS SUM_EXPN_PRIC,
+	dbo.GET_CBMT_DESC(Fighter_Public.CBMT_CODE) AS CBMT_DESC,
+	N'پروفایل ' + D$SXDC.DOMN_DESC AS SEX_DESC,
+    dbo.GET_NTOS_U(Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT) AS SUM_EXPN_PRIC_DESC,
+	(SELECT N' مبلغ ' + LEFT(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY), 1) ,LEN(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY))) - 2)  + N' ریال به ' + Cash.NAME + N', '
+	      FROM Payment_Detail, Cash
+	     WHERE Payment.CASH_CODE = Payment_Detail.PYMT_CASH_CODE
+	       AND Payment.RQST_RQID = Payment_Detail.PYMT_RQST_RQID
+	       AND Request_Row.RWNO  = Payment_Detail.RQRO_RWNO
+	       AND Payment_Detail.PYMT_CASH_CODE = Cash.CODE
+	  GROUP BY Cash.NAME
+	  FOR XML PATH('')) AS CASH_DESC
+FROM   Request INNER JOIN
+       Request_Row ON Request.RQID = Request_Row.RQST_RQID INNER JOIN
+       Request_Type ON Request.RQTP_CODE = Request_Type.CODE INNER JOIN
+       Requester_Type ON Request.RQTT_CODE = Requester_Type.CODE INNER JOIN
+       Fighter ON Request.RQID = Fighter.RQST_RQID AND Request_Row.FIGH_FILE_NO = Fighter.FILE_NO INNER JOIN
+       Fighter_Public ON Request_Row.RQST_RQID = Fighter_Public.RQRO_RQST_RQID AND Request_Row.RWNO = Fighter_Public.RQRO_RWNO AND 
+       Fighter.FILE_NO = Fighter_Public.FIGH_FILE_NO INNER JOIN
+       Payment ON Request.RQID = Payment.RQST_RQID INNER JOIN
+       Club ON Fighter_Public.CLUB_CODE = Club.CODE AND Payment.CLUB_CODE_DNRM = Club.CODE INNER JOIN
+       Region ON Request.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND Request.REGN_PRVN_CODE = Region.PRVN_CODE AND 
+       Request.REGN_CODE = Region.CODE AND Fighter.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
+       Fighter.REGN_PRVN_CODE = Region.PRVN_CODE AND Fighter.REGN_CODE = Region.CODE AND 
+       Fighter_Public.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND Fighter_Public.REGN_PRVN_CODE = Region.PRVN_CODE AND 
+       Fighter_Public.REGN_CODE = Region.CODE AND Club.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
+       Club.REGN_PRVN_CODE = Region.PRVN_CODE AND Club.REGN_CODE = Region.CODE INNER JOIN
+       Province ON Region.PRVN_CNTY_CODE = Province.CNTY_CODE AND Region.PRVN_CODE = Province.CODE INNER JOIN
+       D$SXDC ON Fighter_Public.SEX_TYPE = D$SXDC.VALU
+WHERE  Request.RQST_STAT = '001'
+  AND  {WhereClause}
+  </SqlCommand>
+      </iQuery>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>All;Black;3;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <DataiQuery Ref="5" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4,200,133.95</ClientRectangle>
+          <Components isList="true" count="41">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,4,56,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره درخواست : {iQuery.RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,10,56,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <Guid>9ba2055b51cb47ce80060775af7cbbc2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تاریخ درخواست : {iQuery.RQST_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,16,56,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <Guid>0b1be490f14d40d592c2dd0cf38999b2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کاربر ثبت کننده : {iQuery.CRET_BY}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text4 Ref="9" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>76,4,50,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,15,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.PRNT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>76,12,50,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <Guid>431ff796f84b4f02855fb3429785ff44</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>باشگاه {iQuery.CLUB_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="11" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>18,38,170,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,14,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.SEX_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text8 Ref="12" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>76,18,50,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>7bd13d669c554be78911b841784729c4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.PRVN_NAME}، {iQuery.REGN_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <BarCode1 Ref="13" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+              <Angle>Angle90</Angle>
+              <AutoScale>True</AutoScale>
+              <BackColor>White</BackColor>
+              <BarCodeType Ref="14" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
+              <ClientRectangle>6,30,10,42</ClientRectangle>
+              <Code>{iQuery.RQID}</Code>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Bold,Point,False,0</Font>
+              <ForeColor>Black</ForeColor>
+              <Name>BarCode1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShowLabelText>False</ShowLabelText>
+            </BarCode1>
+            <Text10 Ref="15" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>130,46,58,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>386394452b29460f870c6c4a6015dc3e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام : {iQuery.FRST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text9 Ref="16" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>126,28,62,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>42bf55a5505b4a4d95368596a824d40b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره پرونده : {iQuery.FILE_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text11 Ref="17" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>66,46,60,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>c8c7f637948d4bef86f311a492bad1bf</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام خانوادگی : {iQuery.LAST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text12 Ref="18" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>130,52,58,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>4aab76f533094a09b65526fdf616a88b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام پدر : {iQuery.FATH_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="19" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>130,58,58,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>d9252f93f8f24dcda30a18d637eb0ed2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تاریخ تولد : {iQuery.BRTH_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="20" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>114,52,12,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>568c7564b6664100bfb5dcf8d82dfea9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کد ملی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="21" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>172,66,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>5cec1a568bad4cc2a4a179919a6f9f68</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تلفن همراه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="22" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>110,66,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>dd8e544f51944e68b20d9f8d1fc26cdb</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تلفن ثابت</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="23" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>178,72,10,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>76df62c24666453dbb59a6270d647281</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>آدرس</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text18 Ref="24" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>18,92,170,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>c97e7975a280431191e04ba6e175950d</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>ساعت کلاسی : {iQuery.CBMT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="25" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>102,104,88,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,15,Bold</Font>
+              <Guid>b93faf904c2742da8e0ac48cf8d2dc7b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} ریال</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text20 Ref="26" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>10,104,90,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,13,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC}  ریال</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text21 Ref="27" type="Text" isKey="true">
+              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>10,112,180,18</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>وجه به صورت {iQuery.CASH_DESC} پرداخت شود.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text22 Ref="28" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>66,58,60,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>58a8cf07b0d44e7781b77b03edd32597</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>سن : {iQuery.AGE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text23 Ref="29" type="Text" isKey="true">
+              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>4,74,14,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>بارکد درخواست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=False, Angle=90, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text24 Ref="30" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>112,52,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>93361a4022344392bada8ffdac94587e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <Text25 Ref="31" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>66,52,46,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>f1c8f2a6be8a4d9aae119d82c149389e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.NATL_CODE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text26 Ref="32" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>170,66,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>3bfe8d8bdbe842f794f5162e7306a577</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text27 Ref="33" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>108,66,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>6d41e9f0000546c4a544161d801a4e97</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text28 Ref="34" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>128,66,42,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>60a89f596c364953b7423c69067ea443</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text29 Ref="35" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>66,66,42,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>efb36594801244c58c2686d4dc84418d</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.TELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <Text30 Ref="36" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>18,78,170,12</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>5a5a4e91addb4c218b136745648d6356</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.POST_ADRS}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text30>
+            <Text31 Ref="37" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>176,72,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>8daeac9614c2479f988142ad442052eb</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+            <BarCode2 Ref="38" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+              <AutoScale>True</AutoScale>
+              <BackColor>White</BackColor>
+              <BarCodeType Ref="39" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
+              <ClientRectangle>40,28,48,8</ClientRectangle>
+              <Code>{iQuery.FILE_NO}</Code>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Bold,Point,False,0</Font>
+              <ForeColor>Black</ForeColor>
+              <Guid>3fa886fdad404be7b3b5fa29434520d4</Guid>
+              <Name>BarCode2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShowLabelText>False</ShowLabelText>
+            </BarCode2>
+            <Text32 Ref="40" type="Text" isKey="true">
+              <Border>Right;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>18,26,20,12</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <Guid>95926bc4a0244464954e7861e300e230</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>بارکد هنرجو</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <StartPointPrimitive1 Ref="41" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>4,26,0,0</ClientRectangle>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>2c7ae8f0edba440fa6c8ae2c01dea953</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 Ref="42" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>196,101.9,0,0</ClientRectangle>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>2c7ae8f0edba440fa6c8ae2c01dea953</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <StartPointPrimitive2 Ref="43" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>4,102,0,0</ClientRectangle>
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>9f4dc1d0c08549c39b801d320d1b3e7e</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <EndPointPrimitive2 Ref="44" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>196,132,0,0</ClientRectangle>
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>9f4dc1d0c08549c39b801d320d1b3e7e</ReferenceToGuid>
+            </EndPointPrimitive2>
+            <StartPointPrimitive3 Ref="45" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>18,26,0,0</ClientRectangle>
+              <Name>StartPointPrimitive3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>f1673adf6a9047ef850010e66b72e6f5</ReferenceToGuid>
+            </StartPointPrimitive3>
+            <EndPointPrimitive3 Ref="46" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>18,102,0,0</ClientRectangle>
+              <Name>EndPointPrimitive3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>f1673adf6a9047ef850010e66b72e6f5</ReferenceToGuid>
+            </EndPointPrimitive3>
+            <HorizontalLinePrimitive1 Ref="47" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>18,38,178,0.254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="48" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <StartCap Ref="49" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+            <HorizontalLinePrimitive2 Ref="50" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>18,92,178,0.254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="51" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>7e3d73ded0e94f1e8eeea61041beb7db</Guid>
+              <Name>HorizontalLinePrimitive2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <StartCap Ref="52" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>iQuery</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataiQuery</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataiQuery>
+        <RoundedRectanglePrimitive1 Ref="53" type="Stimulsoft.Report.Components.StiRoundedRectanglePrimitive" isKey="true">
+          <ClientRectangle>4,30,192,75.9</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>2c7ae8f0edba440fa6c8ae2c01dea953</Guid>
+          <Name>RoundedRectanglePrimitive1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Round>0.1</Round>
+          <Size>2</Size>
+        </RoundedRectanglePrimitive1>
+        <RoundedRectanglePrimitive2 Ref="54" type="Stimulsoft.Report.Components.StiRoundedRectanglePrimitive" isKey="true">
+          <ClientRectangle>4,106,192,30</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>9f4dc1d0c08549c39b801d320d1b3e7e</Guid>
+          <Name>RoundedRectanglePrimitive2</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Round>0.1</Round>
+          <Size>2</Size>
+        </RoundedRectanglePrimitive2>
+        <VerticalLinePrimitive1 Ref="55" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>18,30,0.254,76</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="56" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>f1673adf6a9047ef850010e66b72e6f5</Guid>
+          <Name>VerticalLinePrimitive1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <StartCap Ref="57" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>605ba8eb118540d1b83669cfdc5faf7a</Guid>
+      <Margins>5,5,5,5</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>148.08</PageHeight>
+      <PageWidth>210</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="58" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="59" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>1/7/2016 8:44:44 AM</ReportChanged>
+  <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
+  <ReportFile>\\192.168.1.149\Report Repository\RPT_ADM_001_FISH_R.mrt</ReportFile>
+  <ReportGuid>52525449c0d4417ca8ff1a0efe68a28e</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Millimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

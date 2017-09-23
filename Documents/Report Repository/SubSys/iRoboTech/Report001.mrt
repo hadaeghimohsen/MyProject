@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iRoboTech Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iRoboTech</Alias>
+        <ConnectionString>Integrated Security=True;Initial Catalog=iRoboTech;Data Source=.</ConnectionString>
+        <Name>iRoboTech</Name>
+        <PromptUserNameAndPassword>True</PromptUserNameAndPassword>
+      </iRoboTech>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <Order Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Order</Alias>
+        <Columns isList="true" count="12">
+          <value>CHAT_ID,System.Int64</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>Qualitative,System.Int32</value>
+          <value>Non_qualitative,System.Int32</value>
+          <value>Political,System.Int32</value>
+          <value>Cultural,System.Int32</value>
+          <value>Economic,System.Int32</value>
+          <value>social,System.Int32</value>
+          <value>IT,System.Int32</value>
+          <value>Security,System.Int32</value>
+          <value>Others,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Order</Name>
+        <NameInSource>iRoboTech</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT  a.CHAT_ID ,
+	s.FRST_NAME ,
+	s.LAST_NAME,
+	SUM(CASE ISNULL(a.CONT_TYPE, '000')
+                 WHEN '001' THEN 1
+                 ELSE 0
+               END) AS Qualitative ,
+           SUM(CASE ISNULL(a.CONT_TYPE, '000')
+                 WHEN '002' THEN 1
+                 ELSE 0
+               END) AS Non_qualitative,
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '001') AS Political,
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '002') AS Cultural,
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '003') AS Economic,
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '004') AS social,
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '005') AS IT,
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '006') AS [Security],
+(SELECT COUNT(b.CODE) FROM Robot_Spy_Group_Message aa, dbo.Robot_Spy_Group_Message_Detail b WHERE a.CHAT_ID = aa.CHAT_ID AND aa.CODE = b.RSGM_CODE AND b.STAT = '002' AND b.CHAT_TYPE = '007') AS Others
+   FROM    Robot_Spy_Group_Message a , dbo.Service s--, QXML
+   WHERE a.CHAT_ID = s.CHAT_ID
+     AND a.CONT_TYPE IS NOT NULL
+         {WhereClause}
+     /*AND (QXML.Chat_Id IS NULL OR a.CHAT_ID = QXML.Chat_Id)
+     AND (QXML.Mesg_Type IS NULL OR a.MESG_TYPE = QXML.Mesg_Type)
+     AND (QXML.Mesg_Text IS NULL OR a.MESG_TEXT LIKE QXML.Mesg_Text)
+     AND (QXML.Mesg_Date IS NULL OR CAST(a.MESG_DATE AS DATE) = CAST(QXML.Mesg_Date AS DATE))*/
+   GROUP BY a.CHAT_ID, s.FRST_NAME, s.LAST_NAME</SqlCommand>
+      </Order>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <HeaderOrder Ref="5" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,0.76</ClientRectangle>
+          <Components isList="true" count="12">
+            <HeaderOrder_CHAT_ID Ref="6" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_CHAT_ID</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کد تلگرام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_CHAT_ID>
+            <HeaderOrder_FRST_NAME Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.31,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_FRST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_FRST_NAME>
+            <HeaderOrder_LAST_NAME Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.62,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_LAST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_LAST_NAME>
+            <HeaderOrder_Qualitative Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.92,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Qualitative</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کیفی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Qualitative>
+            <HeaderOrder_Non_qualitative Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.23,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Non_qualitative</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>غیر کیفی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Non_qualitative>
+            <HeaderOrder_Political Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.54,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Political</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>سیاسی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Political>
+            <HeaderOrder_Cultural Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.85,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Cultural</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>فرهنگی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Cultural>
+            <HeaderOrder_Economic Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.16,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Economic</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>اقتصادی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Economic>
+            <HeaderOrder_social Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.47,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_social</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>اجتماعی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_social>
+            <HeaderOrder_IT Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.78,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_IT</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>IT</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_IT>
+            <HeaderOrder_Security Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.08,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Security</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>امنیتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Security>
+            <HeaderOrder_Others Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.39,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderOrder_Others</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>سایر موارد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderOrder_Others>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderOrder</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </HeaderOrder>
+        <DataOrder Ref="18" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,1.96,27.7,0.76</ClientRectangle>
+          <Components isList="true" count="12">
+            <DataOrder_CHAT_ID Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_CHAT_ID</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.CHAT_ID}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_CHAT_ID>
+            <DataOrder_FRST_NAME Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.31,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_FRST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Order.FRST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_FRST_NAME>
+            <DataOrder_LAST_NAME Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.62,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_LAST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Order.LAST_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_LAST_NAME>
+            <DataOrder_Qualitative Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.92,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Qualitative</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Qualitative}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Qualitative>
+            <DataOrder_Non_qualitative Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.23,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Non_qualitative</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Non_qualitative}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Non_qualitative>
+            <DataOrder_Political Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.54,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Political</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Political}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Political>
+            <DataOrder_Cultural Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.85,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Cultural</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Cultural}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Cultural>
+            <DataOrder_Economic Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.16,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Economic</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Economic}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Economic>
+            <DataOrder_social Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18.47,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_social</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.social}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_social>
+            <DataOrder_IT Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20.78,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_IT</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.IT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_IT>
+            <DataOrder_Security Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23.08,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Security</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Security}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Security>
+            <DataOrder_Others Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>25.39,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataOrder_Others</Name>
+              <Page isRef="4" />
+              <Parent isRef="18" />
+              <Text>{Order.Others}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataOrder_Others>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Order</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataOrder</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataOrder>
+        <FooterOrder Ref="31" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.52,27.7,0.76</ClientRectangle>
+          <Components isList="true" count="12">
+            <FooterOrder_CHAT_ID Ref="32" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_CHAT_ID</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_CHAT_ID>
+            <FooterOrder_FRST_NAME Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.31,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_FRST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_FRST_NAME>
+            <FooterOrder_LAST_NAME Ref="34" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.62,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_LAST_NAME</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_LAST_NAME>
+            <FooterOrder_Qualitative Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.92,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Qualitative</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Qualitative)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Qualitative>
+            <FooterOrder_Non_qualitative Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.23,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Non_qualitative</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Non_qualitative)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Non_qualitative>
+            <FooterOrder_Political Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.54,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Political</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Political)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Political>
+            <FooterOrder_Cultural Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.85,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Cultural</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Cultural)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Cultural>
+            <FooterOrder_Economic Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.16,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Economic</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Economic)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Economic>
+            <FooterOrder_social Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.47,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_social</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.social)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_social>
+            <FooterOrder_IT Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.78,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_IT</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.IT)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_IT>
+            <FooterOrder_Security Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.08,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Security</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Security)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Security>
+            <FooterOrder_Others Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.39,0,2.31,0.76</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterOrder_Others</Name>
+              <Page isRef="4" />
+              <Parent isRef="31" />
+              <Text>{Sum(Order.Others)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterOrder_Others>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterOrder</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </FooterOrder>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>ddc5085f469748718f2b668468f81760</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="44" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="45" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/6/2017 11:36:33 AM</ReportChanged>
+  <ReportCreated>9/6/2017 9:03:47 AM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\SubSys\iRoboTech\Report001.mrt</ReportFile>
+  <ReportGuid>a3b12fe97ece4b5dae3f94be058697bc</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

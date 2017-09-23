@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="iSupplies" Class="iSuppliesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=iSupplies;Integrated Security=True" SettingsObjectName="System.Supplies.Properties.Settings" SettingsPropertyName="iSuppliesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Company" Member="Companies">
+    <Type Name="Company">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code#" Member="Code_" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="MOBILE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="INTERFACE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BANKNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BANKACCOUNTNO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IDCODE#" Member="IDCODE_" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ISVISIBLE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MODIFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Company_FactorDetail" Member="FactorDetails" ThisKey="ID_" OtherKey="CompanyID_" Type="FactorDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report" Member="Reports">
+    <Type Name="Report">
+      <Column Name="ID#" Member="ID_" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentID#" Member="ParentID_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsVisble" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactorPayPrice" Member="FactorPayPrices">
+    <Type Name="FactorPayPrice">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FactorID#" Member="FactorID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PayPriceDate" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="PayPrice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDOFIY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MODIFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FactorDetail_FactorPayPrice" Member="FactorDetail" ThisKey="FactorID_" OtherKey="ID_" Type="FactorDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hospital" Member="Hospitals">
+    <Type Name="Hospital">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code#" Member="Code_" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MODIFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Hospital_FactorDetail" Member="FactorDetails" ThisKey="ID_" OtherKey="HospitalID_" Type="FactorDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PayGroup" Member="PayGroups">
+    <Type Name="PayGroup">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code#" Member="Code_" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ISVISIBLE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MODIFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PayGroup_FactorDetail" Member="FactorDetails" ThisKey="ID_" OtherKey="PayGroupID_" Type="FactorDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactorDetail" Member="FactorDetails">
+    <Type Name="FactorDetail">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HospitalID#" Member="HospitalID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyID#" Member="CompanyID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PayGroupID#" Member="PayGroupID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FactorNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FactorDate" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="SumPrice" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SumPayPrice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ISVISIBLE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MODIFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FactorDetail_FactorPayPrice" Member="FactorPayPrices" ThisKey="ID_" OtherKey="FactorID_" Type="FactorPayPrice" />
+      <Association Name="Company_FactorDetail" Member="Company" ThisKey="CompanyID_" OtherKey="ID_" Type="Company" IsForeignKey="true" />
+      <Association Name="Hospital_FactorDetail" Member="Hospital" ThisKey="HospitalID_" OtherKey="ID_" Type="Hospital" IsForeignKey="true" />
+      <Association Name="PayGroup_FactorDetail" Member="PayGroup" ThisKey="PayGroupID_" OtherKey="ID_" Type="PayGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="Pkg_Company.DeleteObject" Method="DeleteCompanyObject">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_Company.DMLCompany" Method="DMLCompany">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_Company.LoadData" Method="LoadCompanyData">
+    <ElementType Name="LoadDataResult">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CODE#" Member="CODE_" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="MOBILE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="INTERFACE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BANKNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BANKACCOUNTNO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IDCODE#" Member="IDCODE_" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_FactorDetail.AddNewFactor" Method="AddNewFactor">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_FactorDetail.DeleteObject" Method="DeleteFactorDetailObject">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_FactorDetail.LoadData" Method="LoadFactorDetailData">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="LoadDataResult1">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="HospitalID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PayGroupID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FactorDate" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="SumPrice" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SumPayPrice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ReminderPrice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_FactorDetail.UpdateFactorData" Method="UpdateFactorData">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_FactorPayPrice.AddNewPayPrice" Method="AddNewPayPrice">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_FactorPayPrice.DeleteObject" Method="DeleteFactorPayPriceObject">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_FactorPayPrice.LoadData" Method="LoadFactorPayPriceData">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="LoadDataResult2">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FactorID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PayPriceDate" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="PayPrice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_FactorPayPrice.MoveTo" Method="MoveFactorPayPriceTo">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_FactorPayPrice.UpdatePayPriceData" Method="UpdatePayPriceData">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_Hospital.LoadData" Method="LoadHospitalData">
+    <ElementType Name="LoadDataResult3">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code#" Member="Code_" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RowState#" Member="RowState_" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_PayGroup.DeleteObject" Method="DeletePayGroupObject">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_PayGroup.DMLPayGroup" Method="DMLPayGroup">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_PayGroup.LoadData" Method="LoadPayGroupData">
+    <ElementType Name="LoadDataResult4">
+      <Column Name="ID#" Member="ID_" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CODE#" Member="CODE_" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_Report.LoadParentReport" Method="LoadParentReport">
+    <ElementType Name="LoadParentReportResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_Report.LoadReport" Method="LoadReport">
+    <Parameter Name="XMLARG" Parameter="xMLARG" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="LoadReportResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RowState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Pkg_Report.SaveParentReport" Method="SaveParentReport">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Pkg_Report.SaveReport" Method="SaveReport">
+    <Parameter Name="XmlArg" Parameter="xmlArg" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

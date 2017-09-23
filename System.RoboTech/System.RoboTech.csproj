@@ -1,0 +1,1593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0ABBF420-3D88-45BB-9612-D77EEFB96DE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.RoboTech</RootNamespace>
+    <AssemblyName>System.RoboTech</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1Command.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8" />
+    <Reference Include="C1.Win.C1Input.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Ribbon.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="ClosedXML">
+      <HintPath>..\MyProject\bin\Debug\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DataEditShamsi">
+      <HintPath>..\MyProject\bin\Debug\DataEditShamsi.dll</HintPath>
+    </Reference>
+    <Reference Include="DateTimeSelector">
+      <HintPath>..\MyProject\bin\Debug\DateTimeSelector.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyProject\bin\Debug\Stimulsoft.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyProject\bin\Debug\Stimulsoft.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyProject\bin\Debug\Stimulsoft.Controls.Win.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyProject\bin\Debug\Stimulsoft.Report.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyProject\bin\Debug\Stimulsoft.Report.Win.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telegram.Bot, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.10.4.0\lib\net45\Telegram.Bot.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\RoboTech.Gateways.cs" />
+    <Compile Include="Code\RoboTech.Router.cs" />
+    <Compile Include="Code\RoboTech.StartPoint.cs" />
+    <Compile Include="Code\RoboTech.Tasks.cs" />
+    <Compile Include="Code\RoboTech.Uis.cs" />
+    <Compile Include="Controller\iRobot.cs" />
+    <Compile Include="Controller\IRobotController.cs" />
+    <Compile Include="Controller\RobotController.cs" />
+    <Compile Include="Data\iRoboTech.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iRoboTech.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionHandlings\ExceptionLogs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Action\RPT_LRFM_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\RPT_LRFM_F.Designer.cs">
+      <DependentUpon>RPT_LRFM_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Action\RPT_LRFM_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\RPT_MNGR_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\RPT_MNGR_F.Designer.cs">
+      <DependentUpon>RPT_MNGR_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Action\RPT_MNGR_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\STNG_RPRT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\STNG_RPRT_F.Designer.cs">
+      <DependentUpon>STNG_RPRT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Action\STRT_ROBO_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\STRT_ROBO_F.Designer.cs">
+      <DependentUpon>STRT_ROBO_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Action\STNG_RPRT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Action\STRT_ROBO_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\WGUL_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\WGUL_DFIN_F.Designer.cs">
+      <DependentUpon>WGUL_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\ORGN_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\ORGN_DFIN_F.Designer.cs">
+      <DependentUpon>ORGN_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\ISIC_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\ISIC_DFIN_F.Designer.cs">
+      <DependentUpon>ISIC_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\WGUL_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\ORGN_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.Designer.cs">
+      <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\ISIC_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORML_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORML_DVLP_F.Designer.cs">
+      <DependentUpon>ORML_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORML_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORGN_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORGN_DVLP_F.Designer.cs">
+      <DependentUpon>ORGN_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ODRM_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ODRM_DVLP_F.Designer.cs">
+      <DependentUpon>ODRM_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBMN_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBMN_DVLP_F.Designer.cs">
+      <DependentUpon>RBMN_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ODRM_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSM_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSM_DVLP_F.Designer.cs">
+      <DependentUpon>RBSM_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBOD_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBOD_DVLP_F.Designer.cs">
+      <DependentUpon>RBOD_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBMN_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSM_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSA_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSA_DVLP_F.Designer.cs">
+      <DependentUpon>RBSA_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBOD_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSR_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSR_DVLP_F.Designer.cs">
+      <DependentUpon>RBSR_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSA_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBSR_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBKN_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORGN_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBKN_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\RBKN_DVLP_F.Designer.cs">
+      <DependentUpon>RBKN_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\FRST_PAGE_F.Designer.cs">
+      <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MasterPage\FRST_PAGE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\iRoboTech.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>iRoboTech.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Admin.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.App_Domain.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Country.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTV.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_BULD.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_CMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_CNTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ELMT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_GMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ODST.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_YSNO.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Group.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Group_Header.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Group_Menu_Ussd.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.iRoboTechDataContext.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Isic_Category.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Job.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.log.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Menu_Ussd.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Modual_Report.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Detail.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Organ.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Category.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Description.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Media.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Representation.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Personal_Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Personal_Robot_Job.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Personal_Robot_Job_Order.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Personal_Robot_Job_Service_Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Province.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Region.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Import.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Group.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Message.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Public.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Replay_Message.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Upload.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Visit.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.User_Organ_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.User_Region_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Log.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_Computer.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_RowID.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_UCFGA.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_URFGA.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.MaxUi\System.MaxUi.csproj">
+      <Project>{a30c958d-0dd4-4d57-922c-bb9d2640fabc}</Project>
+      <Name>System.MaxUi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\iRoboTech.dbml.layout">
+      <DependentUpon>iRoboTech.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Action\RPT_LRFM_F.resx">
+      <DependentUpon>RPT_LRFM_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Action\RPT_MNGR_F.resx">
+      <DependentUpon>RPT_MNGR_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Action\STNG_RPRT_F.resx">
+      <DependentUpon>STNG_RPRT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Action\STRT_ROBO_F.resx">
+      <DependentUpon>STRT_ROBO_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\WGUL_DFIN_F.resx">
+      <DependentUpon>WGUL_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\ORGN_DFIN_F.resx">
+      <DependentUpon>ORGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\ISIC_DFIN_F.resx">
+      <DependentUpon>ISIC_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\REGN_DFIN_F.resx">
+      <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ORML_DVLP_F.resx">
+      <DependentUpon>ORML_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ORGN_DVLP_F.resx">
+      <DependentUpon>ORGN_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ODRM_DVLP_F.resx">
+      <DependentUpon>ODRM_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\RBMN_DVLP_F.resx">
+      <DependentUpon>RBMN_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\RBSM_DVLP_F.resx">
+      <DependentUpon>RBSM_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\RBOD_DVLP_F.resx">
+      <DependentUpon>RBOD_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\RBSA_DVLP_F.resx">
+      <DependentUpon>RBSA_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\RBSR_DVLP_F.resx">
+      <DependentUpon>RBSR_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\RBKN_DVLP_F.resx">
+      <DependentUpon>RBKN_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MasterPage\FRST_PAGE_F.resx">
+      <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\System.Resource\Resources\IMAGE_0001.png">
+      <Link>Resources\IMAGE_0001.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1001.png">
+      <Link>Resources\IMAGE_1001.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1002.png">
+      <Link>Resources\IMAGE_1002.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1003.png">
+      <Link>Resources\IMAGE_1003.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1004.png">
+      <Link>Resources\IMAGE_1004.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1005.png">
+      <Link>Resources\IMAGE_1005.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1006.png">
+      <Link>Resources\IMAGE_1006.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1007.png">
+      <Link>Resources\IMAGE_1007.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1008.jpg">
+      <Link>Resources\IMAGE_1008.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1009.png">
+      <Link>Resources\IMAGE_1009.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1010.png">
+      <Link>Resources\IMAGE_1010.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1011.png">
+      <Link>Resources\IMAGE_1011.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1013.png">
+      <Link>Resources\IMAGE_1013.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1014.png">
+      <Link>Resources\IMAGE_1014.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1015.png">
+      <Link>Resources\IMAGE_1015.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1016.png">
+      <Link>Resources\IMAGE_1016.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1017.png">
+      <Link>Resources\IMAGE_1017.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1018.png">
+      <Link>Resources\IMAGE_1018.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1019.png">
+      <Link>Resources\IMAGE_1019.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1020.png">
+      <Link>Resources\IMAGE_1020.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1021.png">
+      <Link>Resources\IMAGE_1021.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1022.png">
+      <Link>Resources\IMAGE_1022.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1023.png">
+      <Link>Resources\IMAGE_1023.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1024.png">
+      <Link>Resources\IMAGE_1024.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1025.png">
+      <Link>Resources\IMAGE_1025.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1026.png">
+      <Link>Resources\IMAGE_1026.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1027.png">
+      <Link>Resources\IMAGE_1027.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1028.png">
+      <Link>Resources\IMAGE_1028.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1029.png">
+      <Link>Resources\IMAGE_1029.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1030.png">
+      <Link>Resources\IMAGE_1030.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1031.png">
+      <Link>Resources\IMAGE_1031.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1032.png">
+      <Link>Resources\IMAGE_1032.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1033.png">
+      <Link>Resources\IMAGE_1033.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1034.png">
+      <Link>Resources\IMAGE_1034.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1035.png">
+      <Link>Resources\IMAGE_1035.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1036.png">
+      <Link>Resources\IMAGE_1036.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1037.png">
+      <Link>Resources\IMAGE_1037.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1038.jpg">
+      <Link>Resources\IMAGE_1038.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1039.jpg">
+      <Link>Resources\IMAGE_1039.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1040.png">
+      <Link>Resources\IMAGE_1040.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1041.jpg">
+      <Link>Resources\IMAGE_1041.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1042.jpg">
+      <Link>Resources\IMAGE_1042.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1043.jpg">
+      <Link>Resources\IMAGE_1043.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1044.jpg">
+      <Link>Resources\IMAGE_1044.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1045.jpg">
+      <Link>Resources\IMAGE_1045.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1046.jpg">
+      <Link>Resources\IMAGE_1046.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1047.jpg">
+      <Link>Resources\IMAGE_1047.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1048.png">
+      <Link>Resources\IMAGE_1048.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1049.jpg">
+      <Link>Resources\IMAGE_1049.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1050.jpg">
+      <Link>Resources\IMAGE_1050.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1051.jpg">
+      <Link>Resources\IMAGE_1051.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1052.jpg">
+      <Link>Resources\IMAGE_1052.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1053.jpg">
+      <Link>Resources\IMAGE_1053.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1053.png">
+      <Link>Resources\IMAGE_1053.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1054.png">
+      <Link>Resources\IMAGE_1054.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1055.png">
+      <Link>Resources\IMAGE_1055.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1056.png">
+      <Link>Resources\IMAGE_1056.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1057.png">
+      <Link>Resources\IMAGE_1057.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1058.png">
+      <Link>Resources\IMAGE_1058.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1059.png">
+      <Link>Resources\IMAGE_1059.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1060.png">
+      <Link>Resources\IMAGE_1060.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1061.png">
+      <Link>Resources\IMAGE_1061.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1062.png">
+      <Link>Resources\IMAGE_1062.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1063.png">
+      <Link>Resources\IMAGE_1063.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1064.png">
+      <Link>Resources\IMAGE_1064.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1065.png">
+      <Link>Resources\IMAGE_1065.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1066.png">
+      <Link>Resources\IMAGE_1066.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1067.png">
+      <Link>Resources\IMAGE_1067.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1068.png">
+      <Link>Resources\IMAGE_1068.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1069.png">
+      <Link>Resources\IMAGE_1069.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1070.png">
+      <Link>Resources\IMAGE_1070.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1071.png">
+      <Link>Resources\IMAGE_1071.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1072.png">
+      <Link>Resources\IMAGE_1072.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1073.png">
+      <Link>Resources\IMAGE_1073.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1074.png">
+      <Link>Resources\IMAGE_1074.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1075.png">
+      <Link>Resources\IMAGE_1075.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1076.png">
+      <Link>Resources\IMAGE_1076.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1077.png">
+      <Link>Resources\IMAGE_1077.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1078.png">
+      <Link>Resources\IMAGE_1078.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1079.png">
+      <Link>Resources\IMAGE_1079.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1080.png">
+      <Link>Resources\IMAGE_1080.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1081.png">
+      <Link>Resources\IMAGE_1081.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1082.png">
+      <Link>Resources\IMAGE_1082.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1083.png">
+      <Link>Resources\IMAGE_1083.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1084.jpg">
+      <Link>Resources\IMAGE_1084.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1084.png">
+      <Link>Resources\IMAGE_1084.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1085.png">
+      <Link>Resources\IMAGE_1085.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1086.png">
+      <Link>Resources\IMAGE_1086.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1087.png">
+      <Link>Resources\IMAGE_1087.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1088.png">
+      <Link>Resources\IMAGE_1088.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1089.png">
+      <Link>Resources\IMAGE_1089.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1090.png">
+      <Link>Resources\IMAGE_1090.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1091.png">
+      <Link>Resources\IMAGE_1091.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1092.png">
+      <Link>Resources\IMAGE_1092.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1093.png">
+      <Link>Resources\IMAGE_1093.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1094.png">
+      <Link>Resources\IMAGE_1094.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1095.png">
+      <Link>Resources\IMAGE_1095.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1096.png">
+      <Link>Resources\IMAGE_1096.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1097.png">
+      <Link>Resources\IMAGE_1097.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1098.png">
+      <Link>Resources\IMAGE_1098.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1099.png">
+      <Link>Resources\IMAGE_1099.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1100.png">
+      <Link>Resources\IMAGE_1100.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1101.png">
+      <Link>Resources\IMAGE_1101.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1102.png">
+      <Link>Resources\IMAGE_1102.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1103.png">
+      <Link>Resources\IMAGE_1103.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1104.png">
+      <Link>Resources\IMAGE_1104.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1105.png">
+      <Link>Resources\IMAGE_1105.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1106.png">
+      <Link>Resources\IMAGE_1106.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1107.png">
+      <Link>Resources\IMAGE_1107.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1108.png">
+      <Link>Resources\IMAGE_1108.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1109.png">
+      <Link>Resources\IMAGE_1109.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1110.png">
+      <Link>Resources\IMAGE_1110.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1111.png">
+      <Link>Resources\IMAGE_1111.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1112.png">
+      <Link>Resources\IMAGE_1112.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1113.png">
+      <Link>Resources\IMAGE_1113.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1114.png">
+      <Link>Resources\IMAGE_1114.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1115.png">
+      <Link>Resources\IMAGE_1115.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1116.png">
+      <Link>Resources\IMAGE_1116.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1117.png">
+      <Link>Resources\IMAGE_1117.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1118.png">
+      <Link>Resources\IMAGE_1118.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1119.png">
+      <Link>Resources\IMAGE_1119.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1120.png">
+      <Link>Resources\IMAGE_1120.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1121.png">
+      <Link>Resources\IMAGE_1121.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1122.png">
+      <Link>Resources\IMAGE_1122.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1123.png">
+      <Link>Resources\IMAGE_1123.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1124.png">
+      <Link>Resources\IMAGE_1124.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1125.png">
+      <Link>Resources\IMAGE_1125.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1126.png">
+      <Link>Resources\IMAGE_1126.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1127.png">
+      <Link>Resources\IMAGE_1127.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1128.png">
+      <Link>Resources\IMAGE_1128.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1129.png">
+      <Link>Resources\IMAGE_1129.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1130.png">
+      <Link>Resources\IMAGE_1130.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1131.png">
+      <Link>Resources\IMAGE_1131.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1132.png">
+      <Link>Resources\IMAGE_1132.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1133.png">
+      <Link>Resources\IMAGE_1133.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1134.png">
+      <Link>Resources\IMAGE_1134.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1135.png">
+      <Link>Resources\IMAGE_1135.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1136.png">
+      <Link>Resources\IMAGE_1136.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1137.png">
+      <Link>Resources\IMAGE_1137.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1138.png">
+      <Link>Resources\IMAGE_1138.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1139.png">
+      <Link>Resources\IMAGE_1139.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1140.png">
+      <Link>Resources\IMAGE_1140.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1141.png">
+      <Link>Resources\IMAGE_1141.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1142.png">
+      <Link>Resources\IMAGE_1142.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1143.png">
+      <Link>Resources\IMAGE_1143.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1144.png">
+      <Link>Resources\IMAGE_1144.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1145.png">
+      <Link>Resources\IMAGE_1145.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1146.png">
+      <Link>Resources\IMAGE_1146.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1147.png">
+      <Link>Resources\IMAGE_1147.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1148.png">
+      <Link>Resources\IMAGE_1148.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1149.png">
+      <Link>Resources\IMAGE_1149.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1150.png">
+      <Link>Resources\IMAGE_1150.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1151.png">
+      <Link>Resources\IMAGE_1151.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1152.png">
+      <Link>Resources\IMAGE_1152.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1153.png">
+      <Link>Resources\IMAGE_1153.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1154.png">
+      <Link>Resources\IMAGE_1154.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1155.png">
+      <Link>Resources\IMAGE_1155.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1156.png">
+      <Link>Resources\IMAGE_1156.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1157.png">
+      <Link>Resources\IMAGE_1157.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1158.png">
+      <Link>Resources\IMAGE_1158.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1159.png">
+      <Link>Resources\IMAGE_1159.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1160.png">
+      <Link>Resources\IMAGE_1160.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1161.png">
+      <Link>Resources\IMAGE_1161.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1162.png">
+      <Link>Resources\IMAGE_1162.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1163.png">
+      <Link>Resources\IMAGE_1163.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1164.png">
+      <Link>Resources\IMAGE_1164.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1165.png">
+      <Link>Resources\IMAGE_1165.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1166.png">
+      <Link>Resources\IMAGE_1166.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1167.png">
+      <Link>Resources\IMAGE_1167.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1168.png">
+      <Link>Resources\IMAGE_1168.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1169.jpg">
+      <Link>Resources\IMAGE_1169.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1170.png">
+      <Link>Resources\IMAGE_1170.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1171.png">
+      <Link>Resources\IMAGE_1171.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1172.png">
+      <Link>Resources\IMAGE_1172.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1173.png">
+      <Link>Resources\IMAGE_1173.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1174.png">
+      <Link>Resources\IMAGE_1174.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1175.png">
+      <Link>Resources\IMAGE_1175.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1176.png">
+      <Link>Resources\IMAGE_1176.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1177.png">
+      <Link>Resources\IMAGE_1177.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1178.png">
+      <Link>Resources\IMAGE_1178.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1179.png">
+      <Link>Resources\IMAGE_1179.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1180.png">
+      <Link>Resources\IMAGE_1180.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1181.png">
+      <Link>Resources\IMAGE_1181.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1182.png">
+      <Link>Resources\IMAGE_1182.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1183.png">
+      <Link>Resources\IMAGE_1183.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1184.png">
+      <Link>Resources\IMAGE_1184.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1185.png">
+      <Link>Resources\IMAGE_1185.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1186.png">
+      <Link>Resources\IMAGE_1186.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1187.png">
+      <Link>Resources\IMAGE_1187.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1188.png">
+      <Link>Resources\IMAGE_1188.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1189.png">
+      <Link>Resources\IMAGE_1189.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1190.png">
+      <Link>Resources\IMAGE_1190.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1191.png">
+      <Link>Resources\IMAGE_1191.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1192.png">
+      <Link>Resources\IMAGE_1192.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1193.png">
+      <Link>Resources\IMAGE_1193.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1194.png">
+      <Link>Resources\IMAGE_1194.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1195.png">
+      <Link>Resources\IMAGE_1195.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1196.png">
+      <Link>Resources\IMAGE_1196.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1197.png">
+      <Link>Resources\IMAGE_1197.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1198.png">
+      <Link>Resources\IMAGE_1198.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1199.png">
+      <Link>Resources\IMAGE_1199.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1200.png">
+      <Link>Resources\IMAGE_1200.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1201.png">
+      <Link>Resources\IMAGE_1201.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1202.png">
+      <Link>Resources\IMAGE_1202.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1203.png">
+      <Link>Resources\IMAGE_1203.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1204.png">
+      <Link>Resources\IMAGE_1204.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1205.png">
+      <Link>Resources\IMAGE_1205.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1206.png">
+      <Link>Resources\IMAGE_1206.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1207.png">
+      <Link>Resources\IMAGE_1207.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1208.png">
+      <Link>Resources\IMAGE_1208.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1209.png">
+      <Link>Resources\IMAGE_1209.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1210.png">
+      <Link>Resources\IMAGE_1210.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1211.png">
+      <Link>Resources\IMAGE_1211.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1212.png">
+      <Link>Resources\IMAGE_1212.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1213.png">
+      <Link>Resources\IMAGE_1213.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1214.png">
+      <Link>Resources\IMAGE_1214.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1215.png">
+      <Link>Resources\IMAGE_1215.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1216.png">
+      <Link>Resources\IMAGE_1216.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1217.png">
+      <Link>Resources\IMAGE_1217.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1218.png">
+      <Link>Resources\IMAGE_1218.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1219.png">
+      <Link>Resources\IMAGE_1219.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1220.png">
+      <Link>Resources\IMAGE_1220.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1221.png">
+      <Link>Resources\IMAGE_1221.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1222.png">
+      <Link>Resources\IMAGE_1222.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1223.png">
+      <Link>Resources\IMAGE_1223.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1224.png">
+      <Link>Resources\IMAGE_1224.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1225.png">
+      <Link>Resources\IMAGE_1225.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1226.png">
+      <Link>Resources\IMAGE_1226.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1227.png">
+      <Link>Resources\IMAGE_1227.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1228.png">
+      <Link>Resources\IMAGE_1228.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1229.png">
+      <Link>Resources\IMAGE_1229.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1230.png">
+      <Link>Resources\IMAGE_1230.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1231.png">
+      <Link>Resources\IMAGE_1231.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1232.png">
+      <Link>Resources\IMAGE_1232.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1233.png">
+      <Link>Resources\IMAGE_1233.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1234.png">
+      <Link>Resources\IMAGE_1234.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1235.png">
+      <Link>Resources\IMAGE_1235.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1236.png">
+      <Link>Resources\IMAGE_1236.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1237.png">
+      <Link>Resources\IMAGE_1237.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1238.png">
+      <Link>Resources\IMAGE_1238.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1239.png">
+      <Link>Resources\IMAGE_1239.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1240.png">
+      <Link>Resources\IMAGE_1240.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1241.png">
+      <Link>Resources\IMAGE_1241.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1242.jpg">
+      <Link>Resources\IMAGE_1242.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1243.png">
+      <Link>Resources\IMAGE_1243.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1244.png">
+      <Link>Resources\IMAGE_1244.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1245.png">
+      <Link>Resources\IMAGE_1245.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1246.png">
+      <Link>Resources\IMAGE_1246.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1247.png">
+      <Link>Resources\IMAGE_1247.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1248.png">
+      <Link>Resources\IMAGE_1248.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1249.jpg">
+      <Link>Resources\IMAGE_1249.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1250.png">
+      <Link>Resources\IMAGE_1250.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1251.png">
+      <Link>Resources\IMAGE_1251.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1252.png">
+      <Link>Resources\IMAGE_1252.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1253.png">
+      <Link>Resources\IMAGE_1253.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1254.png">
+      <Link>Resources\IMAGE_1254.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1255.png">
+      <Link>Resources\IMAGE_1255.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1256.png">
+      <Link>Resources\IMAGE_1256.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1257.png">
+      <Link>Resources\IMAGE_1257.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1258.png">
+      <Link>Resources\IMAGE_1258.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1259.png">
+      <Link>Resources\IMAGE_1259.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1260.png">
+      <Link>Resources\IMAGE_1260.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1261.png">
+      <Link>Resources\IMAGE_1261.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1262.png">
+      <Link>Resources\IMAGE_1262.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1263.png">
+      <Link>Resources\IMAGE_1263.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1264.png">
+      <Link>Resources\IMAGE_1264.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1265.png">
+      <Link>Resources\IMAGE_1265.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1266.png">
+      <Link>Resources\IMAGE_1266.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1267.png">
+      <Link>Resources\IMAGE_1267.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1268.png">
+      <Link>Resources\IMAGE_1268.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1269.png">
+      <Link>Resources\IMAGE_1269.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1270.png">
+      <Link>Resources\IMAGE_1270.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1271.png">
+      <Link>Resources\IMAGE_1271.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1272.png">
+      <Link>Resources\IMAGE_1272.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1273.png">
+      <Link>Resources\IMAGE_1273.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1274.png">
+      <Link>Resources\IMAGE_1274.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1275.png">
+      <Link>Resources\IMAGE_1275.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1276.png">
+      <Link>Resources\IMAGE_1276.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1277.png">
+      <Link>Resources\IMAGE_1277.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1278.png">
+      <Link>Resources\IMAGE_1278.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1279.png">
+      <Link>Resources\IMAGE_1279.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1280.png">
+      <Link>Resources\IMAGE_1280.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1281.png">
+      <Link>Resources\IMAGE_1281.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1282.png">
+      <Link>Resources\IMAGE_1282.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1283.png">
+      <Link>Resources\IMAGE_1283.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1284.png">
+      <Link>Resources\IMAGE_1284.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1285.png">
+      <Link>Resources\IMAGE_1285.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1286.png">
+      <Link>Resources\IMAGE_1286.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1287.png">
+      <Link>Resources\IMAGE_1287.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1288.png">
+      <Link>Resources\IMAGE_1288.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1289.png">
+      <Link>Resources\IMAGE_1289.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1290.png">
+      <Link>Resources\IMAGE_1290.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1291.png">
+      <Link>Resources\IMAGE_1291.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1292.png">
+      <Link>Resources\IMAGE_1292.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1293.png">
+      <Link>Resources\IMAGE_1293.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1294.png">
+      <Link>Resources\IMAGE_1294.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1295.png">
+      <Link>Resources\IMAGE_1295.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1296.png">
+      <Link>Resources\IMAGE_1296.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1297.png">
+      <Link>Resources\IMAGE_1297.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1298.png">
+      <Link>Resources\IMAGE_1298.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1299.png">
+      <Link>Resources\IMAGE_1299.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1300.png">
+      <Link>Resources\IMAGE_1300.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1301.png">
+      <Link>Resources\IMAGE_1301.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1302.png">
+      <Link>Resources\IMAGE_1302.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1303.png">
+      <Link>Resources\IMAGE_1303.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1304.png">
+      <Link>Resources\IMAGE_1304.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1305.png">
+      <Link>Resources\IMAGE_1305.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1306.png">
+      <Link>Resources\IMAGE_1306.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1307.png">
+      <Link>Resources\IMAGE_1307.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1308.png">
+      <Link>Resources\IMAGE_1308.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1309.png">
+      <Link>Resources\IMAGE_1309.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1310.png">
+      <Link>Resources\IMAGE_1310.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1311.png">
+      <Link>Resources\IMAGE_1311.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1312.png">
+      <Link>Resources\IMAGE_1312.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1313.png">
+      <Link>Resources\IMAGE_1313.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1314.png">
+      <Link>Resources\IMAGE_1314.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1315.png">
+      <Link>Resources\IMAGE_1315.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1316.png">
+      <Link>Resources\IMAGE_1316.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1317.png">
+      <Link>Resources\IMAGE_1317.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1318.png">
+      <Link>Resources\IMAGE_1318.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1319.png">
+      <Link>Resources\IMAGE_1319.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1320.png">
+      <Link>Resources\IMAGE_1320.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1321.png">
+      <Link>Resources\IMAGE_1321.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1322.png">
+      <Link>Resources\IMAGE_1322.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1323.png">
+      <Link>Resources\IMAGE_1323.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1324.png">
+      <Link>Resources\IMAGE_1324.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1325.png">
+      <Link>Resources\IMAGE_1325.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1326.png">
+      <Link>Resources\IMAGE_1326.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1327.png">
+      <Link>Resources\IMAGE_1327.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1328.png">
+      <Link>Resources\IMAGE_1328.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1329.png">
+      <Link>Resources\IMAGE_1329.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1330.png">
+      <Link>Resources\IMAGE_1330.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1331.png">
+      <Link>Resources\IMAGE_1331.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1332.png">
+      <Link>Resources\IMAGE_1332.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1333.png">
+      <Link>Resources\IMAGE_1333.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1334.png">
+      <Link>Resources\IMAGE_1334.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1335.png">
+      <Link>Resources\IMAGE_1335.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1336.png">
+      <Link>Resources\IMAGE_1336.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1337.png">
+      <Link>Resources\IMAGE_1337.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1338.png">
+      <Link>Resources\IMAGE_1338.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1339.png">
+      <Link>Resources\IMAGE_1339.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1340.png">
+      <Link>Resources\IMAGE_1340.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1341.png">
+      <Link>Resources\IMAGE_1341.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1342.png">
+      <Link>Resources\IMAGE_1342.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1343.png">
+      <Link>Resources\IMAGE_1343.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1344.png">
+      <Link>Resources\IMAGE_1344.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1345.png">
+      <Link>Resources\IMAGE_1345.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1346.png">
+      <Link>Resources\IMAGE_1346.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1347.png">
+      <Link>Resources\IMAGE_1347.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1348.png">
+      <Link>Resources\IMAGE_1348.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1349.png">
+      <Link>Resources\IMAGE_1349.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1350.png">
+      <Link>Resources\IMAGE_1350.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1351.png">
+      <Link>Resources\IMAGE_1351.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1352.png">
+      <Link>Resources\IMAGE_1352.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1353.png">
+      <Link>Resources\IMAGE_1353.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1354.png">
+      <Link>Resources\IMAGE_1354.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1355.png">
+      <Link>Resources\IMAGE_1355.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1356.png">
+      <Link>Resources\IMAGE_1356.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1357.png">
+      <Link>Resources\IMAGE_1357.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1358.png">
+      <Link>Resources\IMAGE_1358.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1359.png">
+      <Link>Resources\IMAGE_1359.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1360.png">
+      <Link>Resources\IMAGE_1360.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1525.png">
+      <Link>Resources\IMAGE_1525.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1566.png">
+      <Link>Resources\IMAGE_1566.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1590.png">
+      <Link>Resources\IMAGE_1590.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1591.png">
+      <Link>Resources\IMAGE_1591.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1592.png">
+      <Link>Resources\IMAGE_1592.png</Link>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

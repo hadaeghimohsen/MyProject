@@ -1,0 +1,303 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.JobRouting.Jobs;
+
+namespace System.Scsc.Ui.Organ
+{
+   public partial class ORGN_TOTL_F : UserControl
+   {
+      public ORGN_TOTL_F()
+      {
+         InitializeComponent();
+      }
+      bool requery = false;
+
+      private void Execute_Query(bool runAllQuery)
+      {
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         if(tb_master.SelectedTab == tp_001)
+         {
+            OrgnBs1.DataSource = iScsc.Organs;
+         }
+      }
+
+      private void Btn_Back_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+         );
+      }
+
+      private void OrgnAdd_Butn_Click(object sender, EventArgs e)
+      {
+         OrgnBs1.AddNew();
+      }
+
+      private void OrgnDel_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntobj = OrgnBs1.Current as Data.Organ;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            iScsc.Organs.DeleteOnSubmit(crntobj);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void OrgnUpd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void DeptAdd_Butn_Click(object sender, EventArgs e)
+      {
+         DeptBs1.AddNew();
+      }
+
+      private void DeptDel_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntobj = DeptBs1.Current as Data.Department;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            iScsc.Departments.DeleteOnSubmit(crntobj);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void DeptUpd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void BuntAdd_Butn_Click(object sender, EventArgs e)
+      {
+         BuntBs1.AddNew();
+      }
+
+      private void BuntDel_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntobj = BuntBs1.Current as Data.Base_Unit;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            iScsc.Base_Units.DeleteOnSubmit(crntobj);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void BuntUpd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void SuntAdd_Butn_Click(object sender, EventArgs e)
+      {
+         SuntBs1.AddNew();
+      }
+
+      private void SuntDel_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntobj = SuntBs1.Current as Data.Sub_Unit;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            iScsc.Sub_Units.DeleteOnSubmit(crntobj);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void SuntUpd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void BcdsAdd_Butn_Click(object sender, EventArgs e)
+      {
+         BcdsBs1.AddNew();
+      }
+
+      private void BcdsDel_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntobj = BcdsBs1.Current as Data.Basic_Calculate_Discount;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            iScsc.Basic_Calculate_Discounts.DeleteOnSubmit(crntobj);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void BcdsUpd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+               Execute_Query(false);
+            }
+         }
+      }
+
+      private void BcdsIncPn_Butn_Click(object sender, EventArgs e)
+      {
+         Bcds_SpltCont.SplitterDistance -= 100;
+      }
+
+      private void BcdsDecPn_Butn_Click(object sender, EventArgs e)
+      {
+         Bcds_SpltCont.SplitterDistance += 100;
+      }
+   }
+}

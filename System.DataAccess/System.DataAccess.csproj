@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE0B4BD5-BEAB-4E34-A364-709533CDDDE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.DataAccess</RootNamespace>
+    <AssemblyName>System.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Command.Gateways.cs" />
+    <Compile Include="Commands\Command.Router.cs" />
+    <Compile Include="Commands\Command.StartPoint.cs" />
+    <Compile Include="Commands\Command.Tasks.cs" />
+    <Compile Include="ConnectionStrings\ConnectionString.Gateways.cs" />
+    <Compile Include="ConnectionStrings\ConnectionString.Router.cs" />
+    <Compile Include="ConnectionStrings\ConnectionString.StartPoint.cs" />
+    <Compile Include="ConnectionStrings\ConnectionString.Tasks.cs" />
+    <Compile Include="ConnectionStrings\Crypto.Gateways.cs" />
+    <Compile Include="ConnectionStrings\Crypto.Router.cs" />
+    <Compile Include="ConnectionStrings\Crypto.StartPoint.cs" />
+    <Compile Include="ConnectionStrings\Crypto.Tasks.cs" />
+    <Compile Include="Guis\Build.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\Build.Designer.cs">
+      <DependentUpon>Build.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\Build.RequestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ChooseCommandType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ChooseCommandType.Designer.cs">
+      <DependentUpon>ChooseCommandType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\ChooseCommandType.RequestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ExecuteCommandName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ExecuteCommandName.Designer.cs">
+      <DependentUpon>ExecuteCommandName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\ExecuteCommandName.RequestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ExecuteDsnName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ExecuteDsnName.Designer.cs">
+      <DependentUpon>ExecuteDsnName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\ExecuteDsnName.RequestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ExecuteUserName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\ExecuteUserName.Designer.cs">
+      <DependentUpon>ExecuteUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\ExecuteUserName.ReuqestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\OdbcSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\OdbcSettings.Designer.cs">
+      <DependentUpon>OdbcSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\OdbcSettings.RequestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\SetInputParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guis\SetInputParameter.Designer.cs">
+      <DependentUpon>SetInputParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guis\SetInputParameter.RequestToUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="O2dbccfg\O2dbc.Gateways.cs" />
+    <Compile Include="O2dbccfg\O2dbc.Router.cs" />
+    <Compile Include="O2dbccfg\O2dbc.StartPoint.cs" />
+    <Compile Include="O2dbccfg\O2dbc.Tasks.cs" />
+    <Compile Include="Odbccfg\Odbc.Gateways.cs" />
+    <Compile Include="Odbccfg\Odbc.Guis.cs" />
+    <Compile Include="Odbccfg\Odbc.Router.cs" />
+    <Compile Include="Odbccfg\Odbc.StarPoint.cs" />
+    <Compile Include="Odbccfg\Odbc.Tasks.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transactions\Transaction.Gateways.cs" />
+    <Compile Include="Transactions\Transaction.Router.cs" />
+    <Compile Include="Transactions\Transaction.StartPoint.cs" />
+    <Compile Include="Transactions\Transaction.Tasks.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Guis\Build.resx">
+      <DependentUpon>Build.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guis\ChooseCommandType.resx">
+      <DependentUpon>ChooseCommandType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guis\ExecuteCommandName.resx">
+      <DependentUpon>ExecuteCommandName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guis\ExecuteDsnName.resx">
+      <DependentUpon>ExecuteDsnName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guis\ExecuteUserName.resx">
+      <DependentUpon>ExecuteUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guis\OdbcSettings.resx">
+      <DependentUpon>OdbcSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guis\SetInputParameter.resx">
+      <DependentUpon>SetInputParameter.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4512985C-8E08-4D8C-B09C-EBA676F68D9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.ServiceDefinition</RootNamespace>
+    <AssemblyName>System.ServiceDefinition</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GrpHdr\Code\GroupHeader.Gateways.cs" />
+    <Compile Include="GrpHdr\Code\GroupHeader.Routering.cs" />
+    <Compile Include="GrpHdr\Code\GroupHeader.StartPoint.cs" />
+    <Compile Include="GrpHdr\Code\GroupHeader.Tasks.cs" />
+    <Compile Include="GrpHdr\Code\GroupHeader.Uis.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Share\Code\Services.Gateways.cs" />
+    <Compile Include="Share\Code\Services.Routering.cs" />
+    <Compile Include="Share\Code\Services.StartPoint.cs" />
+    <Compile Include="Share\Code\Services.Tasks.cs" />
+    <Compile Include="Share\Code\Services.Uis.cs" />
+    <Compile Include="Share\Ui\Services.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Share\Ui\Services.Designer.cs">
+      <DependentUpon>Services.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Share\Ui\Services.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SrvDef\Code\Service.Gateways.cs" />
+    <Compile Include="SrvDef\Code\Service.Routering.cs" />
+    <Compile Include="SrvDef\Code\Service.StartPoint.cs" />
+    <Compile Include="SrvDef\Code\Service.Tasks.cs" />
+    <Compile Include="SrvDef\Code\Service.Uis.cs" />
+    <Compile Include="SrvDef\Ui\CreateNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SrvDef\Ui\CreateNew.Designer.cs">
+      <DependentUpon>CreateNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SrvDef\Ui\ShowUpdateRemove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SrvDef\Ui\ShowUpdateRemove.Designer.cs">
+      <DependentUpon>ShowUpdateRemove.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Share\Ui\Services.resx">
+      <DependentUpon>Services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SrvDef\Ui\CreateNew.resx">
+      <DependentUpon>CreateNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SrvDef\Ui\ShowUpdateRemove.resx">
+      <DependentUpon>ShowUpdateRemove.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GrpHdr\Ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
+      <Project>{74274b3f-73a2-4b4b-87cd-96835b98d9f5}</Project>
+      <Name>System.JobRouting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

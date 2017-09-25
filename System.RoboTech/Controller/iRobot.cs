@@ -876,7 +876,7 @@ namespace System.RoboTech.Controller
                   //chat.Runed = true;
                }
             }
-            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "019" }.Contains(menucmndtype.CMND_TYPE))
+            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017","018", "019" }.Contains(menucmndtype.CMND_TYPE))
             {
                /*
                 * 001 - Location
@@ -896,6 +896,7 @@ namespace System.RoboTech.Controller
                 * 015 - Request Contact
                 * 016 - Request Location
                 * 017 - Image & Document
+                * 018 - Upload
                 * 019 - Show Upload
                 */
                if (menucmndtype.CMND_TYPE == "001")
@@ -2084,6 +2085,37 @@ namespace System.RoboTech.Controller
                         //});
                      }
                   }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "018")
+               {
+                  #region Show Image & Text Uploaded
+                  // 002 - Image & Text
+                  chat.Runed = false;
+                  var files = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join u in iRobotTech.Service_Robot_Uploads on r.RBID equals u.SRBT_ROBO_RBID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                 //&& u.STAT == "002"
+                                    && u.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && u.FILE_ID != null
+                                    && u.CHAT_ID == e.Message.Chat.Id
+                              orderby u.RWNO
+                              select new { u.FILE_NAME, u.FILE_PATH, IMAG_DESC = u.FILE_PATH.Substring(u.FILE_PATH.LastIndexOf('\\') + 1), u.FILE_ID }).ToList();
+
+                  Bot.SendTextMessageAsync(
+                     e.Message.Chat.Id,
+                     string.Format("🗂 تعداد فایل های ذخیره شده : {0}", files.Count), 
+                     false, false,
+                     e.Message.MessageId, 
+                     new ReplyKeyboardMarkup()
+                     {
+                        Keyboard = keyBoardMarkup,
+                        ResizeKeyboard = true,
+                        Selective = true
+                     }, ParseMode.Default);
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "019")

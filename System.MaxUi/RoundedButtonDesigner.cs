@@ -14,8 +14,7 @@ namespace System.MaxUi
       }
 
       protected override void PostFilterProperties(IDictionary Properties)
-      {
-         //test
+      {         
          Properties.Remove("AllowDrop");
          Properties.Remove("BackColor");
          Properties.Remove("BackgroundImage");

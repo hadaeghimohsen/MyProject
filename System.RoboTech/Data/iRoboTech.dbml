@@ -1879,4 +1879,16 @@
     <Parameter Name="Down_Load_File_Path" Parameter="down_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.INS_SRUL_P" Method="INS_SRUL_P">
+    <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="CHAT_ID" Parameter="cHAT_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FILE_PATH" Parameter="fILE_PATH" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="FILE_TYPE" Parameter="fILE_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="RECV_DATE" Parameter="rECV_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="FILE_NAME" Parameter="fILE_NAME" Type="System.String" DbType="VarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

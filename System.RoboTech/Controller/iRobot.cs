@@ -441,7 +441,7 @@ namespace System.RoboTech.Controller
             }
             #endregion
             #region Service Uploading
-            if (ussdParentCode != "" && (chat.Message.Photo != null || chat.Message.Video != null || chat.Message.Document != null || chat.Message.Audio != null || chat.Message.Sticker != null))
+            if (ussdParentCode != "" && (e.Message.Photo != null || e.Message.Video != null || e.Message.Document != null || e.Message.Audio != null || e.Message.Sticker != null))
             {
                var parentmenu = (from r in iRobotTech.Robots
                                  join m in iRobotTech.Menu_Ussds on r.RBID equals m.ROBO_RBID
@@ -456,7 +456,7 @@ namespace System.RoboTech.Controller
                   if ((parentmenu.UPLD_FILE_PATH ?? @"D:\") != "")
                   {
                      var fileupload = (parentmenu.UPLD_FILE_PATH ?? @"D:") + "\\" + Me.Username + "\\" + datenow + "\\" + chat.Message.Chat.Id.ToString() + "\\" + parentmenu.MENU_TEXT;
-                     var filename = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                     var filename = DateTime.Now.ToString("yyyyMMdd_HHmmss_") + Guid.NewGuid().ToString();
                      if (!Directory.Exists(fileupload))
                      {
                         DirectoryInfo di = Directory.CreateDirectory(fileupload);
@@ -468,143 +468,212 @@ namespace System.RoboTech.Controller
                                      sr.Robot.TKON_CODE == Token
                         ).ToList().FirstOrDefault();
 
-                     if (chat.Message.Photo != null)
+                     if (e.Message.Photo != null)
                      {
                         try
                         {
                            lock (Bot)
                            {
-                              Bot.GetFile(chat.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                              iRobotTech.INS_SRUL_P(
+                                 serviceRobot.SERV_FILE_NO,
+                                 serviceRobot.ROBO_RBID,
+                                 e.Message.Chat.Id,
+                                 fileupload,
+                                 e.Message.Photo.Reverse().FirstOrDefault().FileId,
+                                 "001",
+                                 DateTime.Now,
+                                 parentmenu.USSD_CODE,
+                                 filename
+                              );                             
+
+                              Bot.GetFile(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
                            }
-                           var newPhoto =
-                           new Data.Service_Robot_Upload()
-                           {
-                              SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
-                              SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
-                              RWNO = 0,
-                              CHAT_ID = chat.Message.Chat.Id,
-                              FILE_ID = chat.Message.Photo.Reverse().FirstOrDefault().FileId,
-                              FILE_PATH = fileupload,
-                              FILE_NAME = filename,
-                              RECV_DATE = DateTime.Now,
-                              FILE_TYPE = "001", // Photo
-                              USSD_CODE = parentmenu.USSD_CODE
-                           };
-                           iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newPhoto);
+
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل عکس شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+                           /*var newPhoto =
+                              new Data.Service_Robot_Upload()
+                              {
+                                 SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
+                                 SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
+                                 RWNO = 0,
+                                 CHAT_ID = chat.Message.Chat.Id,
+                                 FILE_ID = e.Message.Photo.Reverse().FirstOrDefault().FileId,
+                                 FILE_PATH = fileupload,
+                                 FILE_NAME = filename,
+                                 RECV_DATE = DateTime.Now,
+                                 FILE_TYPE = "001", // Photo
+                                 USSD_CODE = parentmenu.USSD_CODE
+                              };
+                           iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newPhoto);*/                           
                         }
-                        catch { }
+                        catch(Exception ex) {
+                           Bot.SendTextMessageAsync(e.Message.Chat.Id, ex.Message, false, false, e.Message.MessageId, null, ParseMode.Default);
+                        }
 
                      }
-                     else if (chat.Message.Video != null)
+                     else if (e.Message.Video != null)
                      {
                         try
                         {
                            lock (Bot)
                            {
-                              Bot.GetFile(chat.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                              iRobotTech.INS_SRUL_P(
+                                 serviceRobot.SERV_FILE_NO,
+                                 serviceRobot.ROBO_RBID,
+                                 e.Message.Chat.Id,
+                                 fileupload,
+                                 e.Message.Video.FileId,
+                                 "002",
+                                 DateTime.Now,
+                                 parentmenu.USSD_CODE,
+                                 filename
+                              );
+                              Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+
+                              Bot.GetFile(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
                            }
-                           var newVideo =
-                              new Data.Service_Robot_Upload()
-                              {
-                                 SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
-                                 SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
-                                 RWNO = 0,
-                                 CHAT_ID = chat.Message.Chat.Id,
-                                 FILE_ID = chat.Message.Video.FileId,
-                                 FILE_PATH = fileupload,
-                                 FILE_NAME = filename,
-                                 RECV_DATE = DateTime.Now,
-                                 FILE_TYPE = "002", // Video
-                                 USSD_CODE = parentmenu.USSD_CODE
-                              };
-                           iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newVideo);
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+                           //var newVideo =
+                           //   new Data.Service_Robot_Upload()
+                           //   {
+                           //      SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
+                           //      SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
+                           //      RWNO = 0,
+                           //      CHAT_ID = chat.Message.Chat.Id,
+                           //      FILE_ID = e.Message.Video.FileId,
+                           //      FILE_PATH = fileupload,
+                           //      FILE_NAME = filename,
+                           //      RECV_DATE = DateTime.Now,
+                           //      FILE_TYPE = "002", // Video
+                           //      USSD_CODE = parentmenu.USSD_CODE
+                           //   };
+                           //iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newVideo);
+
+                           
                         }
                         catch { }
                      }
-                     else if (chat.Message.Document != null)
+                     else if (e.Message.Document != null)
                      {
                         try
                         {
                            lock (Bot)
                            {
-                              Bot.GetFile(chat.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                              iRobotTech.INS_SRUL_P(
+                                 serviceRobot.SERV_FILE_NO,
+                                 serviceRobot.ROBO_RBID,
+                                 e.Message.Chat.Id,
+                                 fileupload,
+                                 e.Message.Document.FileId,
+                                 "003",
+                                 DateTime.Now,
+                                 parentmenu.USSD_CODE,
+                                 filename
+                              );
+
+                              Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+
+                              Bot.GetFile(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
                            }
-                           var newDocument =
-                              new Data.Service_Robot_Upload()
-                              {
-                                 SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
-                                 SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
-                                 RWNO = 0,
-                                 CHAT_ID = chat.Message.Chat.Id,
-                                 FILE_ID = chat.Message.Video.FileId,
-                                 FILE_PATH = fileupload,
-                                 FILE_NAME = filename,
-                                 RECV_DATE = DateTime.Now,
-                                 FILE_TYPE = "003", // Document
-                                 USSD_CODE = parentmenu.USSD_CODE
-                              };
-                           iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newDocument);
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+                           //var newDocument =
+                           //   new Data.Service_Robot_Upload()
+                           //   {
+                           //      SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
+                           //      SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
+                           //      RWNO = 0,
+                           //      CHAT_ID = chat.Message.Chat.Id,
+                           //      FILE_ID = e.Message.Video.FileId,
+                           //      FILE_PATH = fileupload,
+                           //      FILE_NAME = filename,
+                           //      RECV_DATE = DateTime.Now,
+                           //      FILE_TYPE = "003", // Document
+                           //      USSD_CODE = parentmenu.USSD_CODE
+                           //   };
+                           //iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newDocument);
+                           
                         }
                         catch { }
                      }
-                     else if (chat.Message.Audio != null)
+                     else if (e.Message.Audio != null)
                      {
                         try
                         {
                            lock (Bot)
                            {
-                              Bot.GetFile(chat.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                              iRobotTech.INS_SRUL_P(
+                                 serviceRobot.SERV_FILE_NO,
+                                 serviceRobot.ROBO_RBID,
+                                 e.Message.Chat.Id,
+                                 fileupload,
+                                 e.Message.Audio.FileId,
+                                 "004",
+                                 DateTime.Now,
+                                 parentmenu.USSD_CODE,
+                                 filename
+                              );
+                              Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+
+                              Bot.GetFile(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
                            }
-                           var newAudio =
-                              new Data.Service_Robot_Upload()
-                              {
-                                 SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
-                                 SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
-                                 RWNO = 0,
-                                 CHAT_ID = chat.Message.Chat.Id,
-                                 FILE_ID = chat.Message.Video.FileId,
-                                 FILE_PATH = fileupload,
-                                 FILE_NAME = filename,
-                                 RECV_DATE = DateTime.Now,
-                                 FILE_TYPE = "004", // Audio
-                                 USSD_CODE = parentmenu.USSD_CODE
-                              };
-                           iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newAudio);
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+                           
+                           //var newAudio =
+                           //   new Data.Service_Robot_Upload()
+                           //   {
+                           //      SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
+                           //      SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
+                           //      RWNO = 0,
+                           //      CHAT_ID = chat.Message.Chat.Id,
+                           //      FILE_ID = e.Message.Video.FileId,
+                           //      FILE_PATH = fileupload,
+                           //      FILE_NAME = filename,
+                           //      RECV_DATE = DateTime.Now,
+                           //      FILE_TYPE = "004", // Audio
+                           //      USSD_CODE = parentmenu.USSD_CODE
+                           //   };
+                           //iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newAudio);
+                           
                         }
                         catch { }
                      }
-                     else if (chat.Message.Sticker != null)
+                     else if (e.Message.Sticker != null)
                      {
                         try
                         {
                            lock (Bot)
                            {
-                              Bot.GetFile(chat.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                              iRobotTech.INS_SRUL_P(
+                                 serviceRobot.SERV_FILE_NO,
+                                 serviceRobot.ROBO_RBID,
+                                 e.Message.Chat.Id,
+                                 fileupload,
+                                 e.Message.Sticker.FileId,
+                                 "005",
+                                 DateTime.Now,
+                                 parentmenu.USSD_CODE,
+                                 filename
+                              );
+                              Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+
+                              Bot.GetFile(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
                            }
-                           var newSticker =
-                              new Data.Service_Robot_Upload()
-                              {
-                                 SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
-                                 SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
-                                 RWNO = 0,
-                                 CHAT_ID = chat.Message.Chat.Id,
-                                 FILE_ID = chat.Message.Video.FileId,
-                                 FILE_PATH = fileupload,
-                                 FILE_NAME = filename,
-                                 RECV_DATE = DateTime.Now,
-                                 FILE_TYPE = "005", // Sticker
-                                 USSD_CODE = parentmenu.USSD_CODE
-                              };
-                           iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newSticker);
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
+                           //var newSticker =
+                           //   new Data.Service_Robot_Upload()
+                           //   {
+                           //      SRBT_ROBO_RBID = serviceRobot.ROBO_RBID,
+                           //      SRBT_SERV_FILE_NO = serviceRobot.SERV_FILE_NO,
+                           //      RWNO = 0,
+                           //      CHAT_ID = chat.Message.Chat.Id,
+                           //      FILE_ID = e.Message.Video.FileId,
+                           //      FILE_PATH = fileupload,
+                           //      FILE_NAME = filename,
+                           //      RECV_DATE = DateTime.Now,
+                           //      FILE_TYPE = "005", // Sticker
+                           //      USSD_CODE = parentmenu.USSD_CODE
+                           //   };
+                           //iRobotTech.Service_Robot_Uploads.InsertOnSubmit(newSticker);                           
                         }
                         catch { }
                      }
-                     iRobotTech.SubmitChanges();
+                     //iRobotTech.SubmitChanges();
                   }
                }
             }
@@ -807,7 +876,7 @@ namespace System.RoboTech.Controller
                   //chat.Runed = true;
                }
             }
-            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017" }.Contains(menucmndtype.CMND_TYPE))
+            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "019" }.Contains(menucmndtype.CMND_TYPE))
             {
                /*
                 * 001 - Location
@@ -827,6 +896,7 @@ namespace System.RoboTech.Controller
                 * 015 - Request Contact
                 * 016 - Request Location
                 * 017 - Image & Document
+                * 019 - Show Upload
                 */
                if (menucmndtype.CMND_TYPE == "001")
                {
@@ -2012,6 +2082,69 @@ namespace System.RoboTech.Controller
                         //   ResizeKeyboard = true,
                         //   Selective = true
                         //});
+                     }
+                  }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "019")
+               {
+                  #region Show Image & Text Uploaded
+                  // 002 - Image & Text
+                  chat.Runed = false;
+                  var pics = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join u in iRobotTech.Service_Robot_Uploads on r.RBID equals u.SRBT_ROBO_RBID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    //&& u.STAT == "002"
+                                    && u.USSD_CODE == menucmndtype.MNUS_USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && u.FILE_ID != null
+                                    && u.CHAT_ID == chat.Message.Chat.Id
+                              orderby u.RWNO
+                              select new { u.FILE_NAME, u.FILE_PATH, IMAG_DESC = u.FILE_PATH.Substring(u.FILE_PATH.LastIndexOf('\\') + 1), u.FILE_ID }).ToList();
+
+                  foreach (var pic in pics)
+                  {
+                     dynamic photo;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        photo = new FileToSend()
+                        {
+                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                           Filename = pic.FILE_NAME
+                        };
+                     }
+                     else
+                     {
+                        photo = pic.FILE_ID;
+                     }
+
+                     try
+                     {
+                        //RobotClient.SendChatAction(chat.Message.Chat.Id, ChatActions.Upload_photo);
+                        await Bot.SendPhotoAsync(chat.Message.Chat.Id, photo, pic.IMAG_DESC,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        /*Bot.SendTextMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", 
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });*/
                      }
                   }
                   #endregion

@@ -1554,6 +1554,13 @@ namespace System.RoboTech.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, rbid, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SRUL_P")]
+		public int INS_SRUL_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sRBT_SERV_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_ROBO_RBID", DbType="BigInt")] System.Nullable<long> sRBT_ROBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CHAT_ID", DbType="BigInt")] System.Nullable<long> cHAT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FILE_PATH", DbType="NVarChar(1000)")] string fILE_PATH, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FILE_ID", DbType="VarChar(250)")] string fILE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FILE_TYPE", DbType="VarChar(3)")] string fILE_TYPE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RECV_DATE", DbType="DateTime")] System.Nullable<System.DateTime> rECV_DATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USSD_CODE", DbType="VarChar(250)")] string uSSD_CODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FILE_NAME", DbType="VarChar(500)")] string fILE_NAME)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sRBT_SERV_FILE_NO, sRBT_ROBO_RBID, cHAT_ID, fILE_PATH, fILE_ID, fILE_TYPE, rECV_DATE, uSSD_CODE, fILE_NAME);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]

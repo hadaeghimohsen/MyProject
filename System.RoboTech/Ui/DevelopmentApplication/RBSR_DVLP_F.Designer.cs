@@ -220,7 +220,7 @@
          this.Tsb_DelSrrm = new System.Windows.Forms.ToolStripButton();
          this.Tsb_SubmitChangeSrrm = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-         this.toolStripButton33 = new System.Windows.Forms.ToolStripButton();
+         this.SendReplayMessage_Butn = new System.Windows.Forms.ToolStripButton();
          this.Tsb_ReadyToSend = new System.Windows.Forms.ToolStripButton();
          this.gridControl7 = new DevExpress.XtraGrid.GridControl();
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -518,6 +518,7 @@
          this.toolStripSeparator40 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripButton80 = new System.Windows.Forms.ToolStripButton();
          this.Btn_Back = new C1.Win.C1Input.C1Button();
+         this.ListSends_Butn = new System.Windows.Forms.ToolStripButton();
          fILE_PATHLabel = new System.Windows.Forms.Label();
          fILE_NAMELabel = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
@@ -1968,7 +1969,7 @@
          this.splitContainerControl10.Panel2.Controls.Add(this.gridControl6);
          this.splitContainerControl10.Panel2.Text = "Panel2";
          this.splitContainerControl10.Size = new System.Drawing.Size(644, 238);
-         this.splitContainerControl10.SplitterPosition = 306;
+         this.splitContainerControl10.SplitterPosition = 341;
          this.splitContainerControl10.TabIndex = 5;
          this.splitContainerControl10.Text = "splitContainerControl10";
          // 
@@ -1980,7 +1981,7 @@
          this.memoEdit3.Name = "memoEdit3";
          this.memoEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.memoEdit3.Properties.Appearance.Options.UseFont = true;
-         this.memoEdit3.Size = new System.Drawing.Size(306, 238);
+         this.memoEdit3.Size = new System.Drawing.Size(341, 238);
          this.memoEdit3.TabIndex = 1;
          // 
          // SrrmBs
@@ -2003,7 +2004,7 @@
             this.repositoryItemLookUpEdit9,
             this.persianRepositoryItemDateEdit5,
             this.repositoryItemTimeEdit3});
-         this.gridControl6.Size = new System.Drawing.Size(333, 238);
+         this.gridControl6.Size = new System.Drawing.Size(298, 238);
          this.gridControl6.TabIndex = 5;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2229,7 +2230,8 @@
             this.Tsb_DelSrrm,
             this.Tsb_SubmitChangeSrrm,
             this.toolStripSeparator16,
-            this.toolStripButton33,
+            this.SendReplayMessage_Butn,
+            this.ListSends_Butn,
             this.Tsb_ReadyToSend});
          this.SrmgCopyBn.Location = new System.Drawing.Point(3, 18);
          this.SrmgCopyBn.MoveFirstItem = this.toolStripButton27;
@@ -2341,14 +2343,16 @@
          this.toolStripSeparator16.Name = "toolStripSeparator16";
          this.toolStripSeparator16.Size = new System.Drawing.Size(6, 25);
          // 
-         // toolStripButton33
+         // SendReplayMessage_Butn
          // 
-         this.toolStripButton33.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.toolStripButton33.Image = global::System.RoboTech.Properties.Resources.IMAGE_1133;
-         this.toolStripButton33.ImageTransparentColor = System.Drawing.Color.Magenta;
-         this.toolStripButton33.Name = "toolStripButton33";
-         this.toolStripButton33.Size = new System.Drawing.Size(23, 22);
-         this.toolStripButton33.Text = "toolStripButton22";
+         this.SendReplayMessage_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.SendReplayMessage_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1147;
+         this.SendReplayMessage_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.SendReplayMessage_Butn.Name = "SendReplayMessage_Butn";
+         this.SendReplayMessage_Butn.Size = new System.Drawing.Size(23, 22);
+         this.SendReplayMessage_Butn.Text = "toolStripButton22";
+         this.SendReplayMessage_Butn.ToolTipText = "ارسال پاسخ با جزئیات";
+         this.SendReplayMessage_Butn.Click += new System.EventHandler(this.SendReplayMessage_Butn_Click);
          // 
          // Tsb_ReadyToSend
          // 
@@ -5357,6 +5361,15 @@
          this.Btn_Back.UseVisualStyleBackColor = true;
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // ListSends_Butn
+         // 
+         this.ListSends_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.ListSends_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1170;
+         this.ListSends_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.ListSends_Butn.Name = "ListSends_Butn";
+         this.ListSends_Butn.Size = new System.Drawing.Size(23, 22);
+         this.ListSends_Butn.Text = "لیست ارسالی ها";
+         // 
          // RBSR_DVLP_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -5802,7 +5815,7 @@
       private Windows.Forms.ToolStripButton Tsb_DelSrrm;
       private Windows.Forms.ToolStripButton Tsb_SubmitChangeSrrm;
       private Windows.Forms.ToolStripSeparator toolStripSeparator16;
-      private Windows.Forms.ToolStripButton toolStripButton33;
+      private Windows.Forms.ToolStripButton SendReplayMessage_Butn;
       private DevExpress.XtraGrid.GridControl gridControl7;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView8;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
@@ -5988,5 +6001,6 @@
       private Windows.Forms.TextBox UssdCode_Txt;
       private C1.Win.C1Input.C1Button SaveOrder_Butn;
       private Windows.Forms.CheckBox CheckAll_Ckb;
+      private Windows.Forms.ToolStripButton ListSends_Butn;
    }
 }

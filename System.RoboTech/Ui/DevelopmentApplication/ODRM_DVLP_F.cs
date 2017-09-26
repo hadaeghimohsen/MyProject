@@ -26,6 +26,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private long? roboRbid = 0;
       private long? ordtOrdrCode = 0;
       private long? ordtRwno = 0;
+      private long? srmgrwno = 0;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {

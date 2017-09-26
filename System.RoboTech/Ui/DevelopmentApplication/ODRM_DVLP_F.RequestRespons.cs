@@ -215,9 +215,14 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             roboRbid = 0;
             ordtOrdrCode = 0;
             ordtRwno = 0;
+            srmgrwno = 0;
 
             if (xinput.Attribute("srrmrwno") != null)
                srrmRwno = Convert.ToInt64(xinput.Attribute("srrmrwno").Value);
+            
+            // New Code
+            if (xinput.Attribute("srbtmsg") != null)
+               srmgrwno = Convert.ToInt64(xinput.Attribute("srbtmsg").Value);
             
             if (xinput.Attribute("servfileno") != null)
                servFileNo = Convert.ToInt64(xinput.Attribute("servfileno").Value);

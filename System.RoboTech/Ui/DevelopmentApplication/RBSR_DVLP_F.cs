@@ -373,5 +373,30 @@ namespace System.RoboTech.Ui.DevelopmentApplication
               }
           }
       }
+
+      private void SendReplayMessage_Butn_Click(object sender, EventArgs e)
+      {
+         var sm = SrbtMsgBs.Current as Data.Service_Robot_Message;
+         if (sm == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 17 /* Execute Odrm_Dvlp_F */),
+                  new Job(SendType.SelfToUserInterface, "ODRM_DVLP_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input =
+                        new XElement("Service_Robot_Message",
+                           new XAttribute("servfileno", sm.SRBT_SERV_FILE_NO),
+                           new XAttribute("roborbid", sm.SRBT_ROBO_RBID),
+                           new XAttribute("srbtmsg", sm.RWNO),
+                           new XAttribute("type", "new")
+                        )
+                  }
+               }
+            )
+         );
+      }
    }
 }

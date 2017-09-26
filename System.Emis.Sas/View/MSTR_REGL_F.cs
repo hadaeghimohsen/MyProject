@@ -135,6 +135,8 @@ namespace System.Emis.Sas.View
             END;
             ", pRICTextBox.Text, eXTR_PRCTTextBox.Text, RGRO["REGL_CYCL_YEAR"], RGRO["REGL_CODE"], RGRO["ROW_NO"], EXTP["CODE"], EXPN["CODE"]));
          }
+
+         Totl_Expn_Txt.Text = (Convert.ToInt64(pRICTextBox.Text) + Convert.ToInt64(eXTR_PRCTTextBox.Text)).ToString("n0");
       }
 
       private void Code11_LookUpEdit_EditValueChanged(object sender, EventArgs e)
@@ -172,6 +174,39 @@ namespace System.Emis.Sas.View
          var reg11 = Reg11Bs2.Current as DataRowView;
 
          ReacBs2.DataSource = access_entity.Run_Qury_U(string.Format("SELECT Extp_Code, Regn_Code, (SELECT /*'هزینه ' || Epit.Epit_Desc ||*/ ' برای ' || Rqtp.Rqtp_Desc || ' به درخواست ' || Rqtt.Rqtt_Desc FROM Expense_Type Extp, Request_Type Rqtp, Requester_Type Rqtt, Sas_Expense_Item Epit WHERE Rqrq_Regl_Cycl_Year = {5} AND Rqrq_Regl_Code = {6} AND Extp.Code = Reac.Extp_Code AND Rqrq_Rqtp_Code = Rqtp.Code AND Rqrq_Rqtt_Code = Rqtt.Code AND Epit_Code = Epit.Code) AS Long_Extp_Desc FROM Adm_Region_Expense_Acount Reac WHERE REGL_CYCL_YEAR = {0} AND REGL_CODE = {1} AND BNKA_BNKB_BANK_CODE = {2} AND BNKA_BNKB_CODE = {3} AND BNKA_ACNT_NUMB = '{4}'", reg11["CYCL_YEAR"], reg11["CODE"], bnka["BNKB_BANK_CODE"], bnka["BNKB_CODE"], bnka["ACNT_NUMB"], Tx7_CyclYear.Text, Tx7_Code.Text));
+      }
+
+      private void Expense_BindingSource_CurrentChanged(object sender, EventArgs e)
+      {
+         var expn = Expense_BindingSource.Current as DataRowView;
+         if (expn == null) return;
+
+         Totl_Expn_Txt.Text = (Convert.ToInt64(expn["PRIC"]) + Convert.ToInt64(expn["EXTR_PRCT"])).ToString("n0");
+      }
+
+      private void CopyExpn_Butn_Click(object sender, EventArgs e)
+      {
+         var servtype = Txt_CustType.Text;
+         var expn = Expense_BindingSource.Current as DataRowView;
+
+         Regulation_RowBindingSource.MoveFirst();
+         for (int i = 0; i < Regulation_RowBindingSource.Count; ++i )
+         {
+            Regulation_RowBindingSource.MoveNext();
+            RGRO_CurrentChanged(null, null);
+            var RGRO = Regulation_RowBindingSource.Current as Data.DataRowView;
+            if (servtype == domain.RGRO(RGRO["PHAS"].ToString(), RGRO["NETW_TYPE"].ToString(), Convert.ToInt32(RGRO["FROM_AMPR"]), Convert.ToInt32(RGRO["TO_AMPR"]), Convert.ToInt32(RGRO["FROM_POWR"]), Convert.ToInt64(RGRO["TO_POWR"])))
+            {
+               var newexpn = Expense_BindingSource.Current as DataRowView;
+               newexpn["PRIC"] = expn["PRIC"];
+               newexpn["EXTR_PRCT"] = expn["EXTR_PRCT"];
+
+               pRICTextBox.Text = expn["PRIC"].ToString();
+               eXTR_PRCTTextBox.Text = expn["EXTR_PRCT"].ToString();
+
+               Btn_SaveExpn_Click(null, null);
+            }
+         }
       }
 
    }

@@ -166,13 +166,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             // if need insert data
             foreach (var srrm in SrrmBs.List.OfType<Data.Service_Robot_Replay_Message>().Where(s => s.CRET_BY == null))
             {
-               iRoboTech.INS_SRRM_P(srrm.SRBT_SERV_FILE_NO, srrm.SRBT_ROBO_RBID, srrm.RWNO, srrm.SRMG_RWNO, null, null, srrm.MESG_TEXT);
+               iRoboTech.INS_SRRM_P(srrm.SRBT_SERV_FILE_NO, srrm.SRBT_ROBO_RBID, srrm.RWNO, srrm.SRMG_RWNO, null, null, srrm.MESG_TEXT, srrm.FILE_ID, srrm.FILE_PATH, srrm.MESG_TYPE, srrm.LAT, srrm.LON, srrm.CONT_CELL_PHON);
             }
 
             // if need updated data
             foreach (var srrm in SrrmBs.List.OfType<Data.Service_Robot_Replay_Message>().Where(s => s.CRET_BY != null))
             {
-               iRoboTech.UPD_SRRM_P(srrm.SRBT_SERV_FILE_NO, srrm.SRBT_ROBO_RBID, srrm.RWNO, srrm.SRMG_RWNO, srrm.MESG_TEXT, srrm.SEND_STAT);
+               iRoboTech.UPD_SRRM_P(srrm.SRBT_SERV_FILE_NO, srrm.SRBT_ROBO_RBID, srrm.RWNO, srrm.SRMG_RWNO, srrm.MESG_TEXT, srrm.SEND_STAT, srrm.FILE_ID, srrm.FILE_PATH, srrm.MESG_TYPE, srrm.LAT, srrm.LON, srrm.CONT_CELL_PHON);
             }
             requery = true;
          }

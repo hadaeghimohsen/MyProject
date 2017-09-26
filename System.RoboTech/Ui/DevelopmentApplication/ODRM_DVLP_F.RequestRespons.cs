@@ -196,7 +196,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
-      {         
+      {
+         DelmtBs.DataSource = iRoboTech.D_ELMTs;
          job.Status = StatusType.Successful;
       }
 

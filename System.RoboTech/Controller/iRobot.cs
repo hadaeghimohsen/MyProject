@@ -2803,9 +2803,49 @@ namespace System.RoboTech.Controller
          {
             try
             {
-               await Bot.SendTextMessageAsync((long)send.CHAT_ID, send.MESG_TEXT ?? "😊");
-               send.SEND_STAT = "004";
+               if (send.MESG_TYPE == "001")
+               {
+                  await Bot.SendTextMessageAsync((long)send.CHAT_ID, send.MESG_TEXT ?? "😊", replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+               }
+               else if (send.MESG_TYPE == "002" || send.MESG_TYPE == "003" || send.MESG_TYPE == "004" || send.MESG_TYPE == "006" || send.MESG_TYPE == "007" || send.MESG_TYPE == "009")
+               {
+                  dynamic photo;
+                  if (string.IsNullOrEmpty(send.FILE_ID))
+                  {
+                     photo = new FileToSend()
+                     {
+                        Content = new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        Filename = "فایل ارسالی"
+                     };
+                  }
+                  else
+                  {
+                     photo = send.FILE_ID;
+                  }
 
+                  if (send.MESG_TYPE == "002")
+                     await Bot.SendPhotoAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", false,(int) send.SRMG_MESG_ID_DNRM);
+                  else if(send.MESG_TYPE == "003")
+                     await Bot.SendVideoAsync((long)send.CHAT_ID,photo, replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+                  else if (send.MESG_TYPE == "004")
+                     await Bot.SendDocumentAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+                  else if (send.MESG_TYPE == "006")
+                     await Bot.SendAudioAsync((long)send.CHAT_ID, photo, 0, "*", "*", replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+                  else if (send.MESG_TYPE == "007")
+                     await Bot.SendStickerAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+                  else if(send.MESG_TYPE == "009")
+                     await Bot.SendVoiceAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+               }
+               else if (send.MESG_TYPE == "005")
+               {
+                  await Bot.SendLocationAsync((long)send.CHAT_ID, (float)send.LAT, (float)send.LON, replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+               }
+               else if(send.MESG_TYPE == "008")
+               {
+                  await Bot.SendContactAsync((long)send.CHAT_ID, send.CONT_CELL_PHON, send.MESG_TEXT, replyToMessageId: (int)send.SRMG_MESG_ID_DNRM);
+               }               
+
+               send.SEND_STAT = "004";
                if (ConsoleOutLog_MemTxt.InvokeRequired)
                   ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", send.CHAT_ID, send.Service_Robot.Service.FRST_NAME + ", " + send.Service_Robot.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
                else
@@ -2821,6 +2861,7 @@ namespace System.RoboTech.Controller
          }
          iRobotTech.SubmitChanges();
       }
+
       public KeyboardButton[][] CreateArray(List<XElement> list, int rows, int cols)
       {
          int index = 0;

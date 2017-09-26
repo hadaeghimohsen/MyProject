@@ -876,7 +876,7 @@ namespace System.RoboTech.Controller
                   //chat.Runed = true;
                }
             }
-            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017","018", "019" }.Contains(menucmndtype.CMND_TYPE))
+            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017","018", "019", "020" }.Contains(menucmndtype.CMND_TYPE))
             {
                /*
                 * 001 - Location
@@ -898,6 +898,7 @@ namespace System.RoboTech.Controller
                 * 017 - Image & Document
                 * 018 - Upload
                 * 019 - Show Upload
+                * 020 - Invite Friend
                 */
                if (menucmndtype.CMND_TYPE == "001")
                {
@@ -2179,6 +2180,24 @@ namespace System.RoboTech.Controller
                            });*/
                      }
                   }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "020")
+               {
+                  #region Show Image & Text Uploaded
+                  // 002 - Image & Text
+                  chat.Runed = false;
+                  Bot.SendTextMessage(e.Message.Chat.Id, 
+                           string.Format("{0}\n\rhttps://telegram.me/{1}?start={2}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان", robot.NAME, e.Message.Chat.Id),
+                           replyToMessageId:
+                           e.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
                   #endregion
                }
             }

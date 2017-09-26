@@ -1272,6 +1272,7 @@
       <Column Name="SPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="CRTB_URL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="DOWN_LOAD_FILE_PATH" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="INVT_FRND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -1301,6 +1302,7 @@
       <Argument Parameter="spy_Type" Member="SPY_TYPE" />
       <Argument Parameter="crtb_Url" Member="CRTB_URL" />
       <Argument Parameter="down_Load_File_Path" Member="DOWN_LOAD_FILE_PATH" />
+      <Argument Parameter="invt_Frnd" Member="INVT_FRND" />
     </InsertFunction>
     <UpdateFunction FunctionId="FunctionId66">
       <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
@@ -1313,6 +1315,7 @@
       <Argument Parameter="spy_Type" Member="SPY_TYPE" />
       <Argument Parameter="crtb_Url" Member="CRTB_URL" />
       <Argument Parameter="down_Load_File_Path" Member="DOWN_LOAD_FILE_PATH" />
+      <Argument Parameter="invt_Frnd" Member="INVT_FRND" />
     </UpdateFunction>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
@@ -1854,6 +1857,18 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.INS_SRUL_P" Method="INS_SRUL_P">
+    <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="CHAT_ID" Parameter="cHAT_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FILE_PATH" Parameter="fILE_PATH" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="FILE_TYPE" Parameter="fILE_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="RECV_DATE" Parameter="rECV_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="FILE_NAME" Parameter="fILE_NAME" Type="System.String" DbType="VarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Id="FunctionId65" Name="dbo.INS_ROBO_P" Method="INS_ROBO_P">
     <Parameter Name="Orgn_Ogid" Parameter="orgn_Ogid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
@@ -1864,6 +1879,7 @@
     <Parameter Name="Spy_Type" Parameter="spy_Type" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Crtb_Url" Parameter="crtb_Url" Type="System.String" DbType="VarChar(1000)" />
     <Parameter Name="Down_Load_File_Path" Parameter="down_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Invt_Frnd" Parameter="invt_Frnd" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId66" Name="dbo.UPD_ROBO_P" Method="UPD_ROBO_P">
@@ -1877,18 +1893,7 @@
     <Parameter Name="Spy_Type" Parameter="spy_Type" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Crtb_Url" Parameter="crtb_Url" Type="System.String" DbType="VarChar(1000)" />
     <Parameter Name="Down_Load_File_Path" Parameter="down_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.INS_SRUL_P" Method="INS_SRUL_P">
-    <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="CHAT_ID" Parameter="cHAT_ID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FILE_PATH" Parameter="fILE_PATH" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="FILE_TYPE" Parameter="fILE_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="RECV_DATE" Parameter="rECV_DATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="FILE_NAME" Parameter="fILE_NAME" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Invt_Frnd" Parameter="invt_Frnd" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

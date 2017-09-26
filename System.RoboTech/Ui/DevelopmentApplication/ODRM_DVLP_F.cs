@@ -39,12 +39,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
          SrrmBs.DataSource = 
             iRoboTech.Service_Robot_Replay_Messages
-            .FirstOrDefault(
+            .Where(
                m => 
                   m.SRBT_SERV_FILE_NO == servFileNo &&
                   m.SRBT_ROBO_RBID == roboRbid &&
                   (ordtOrdrCode != 0 ? (m.ORDT_ORDR_CODE == ordtOrdrCode && m.ORDT_RWNO == ordtRwno) : true)
-             );
+             ).OrderByDescending(m => m.CRET_DATE).FirstOrDefault();
       }
 
       private void Tsb_SubmitChange_Click(object sender, EventArgs e)

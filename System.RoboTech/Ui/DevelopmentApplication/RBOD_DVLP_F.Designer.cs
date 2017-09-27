@@ -255,6 +255,8 @@
          this.Dlg_SaveFile = new System.Windows.Forms.SaveFileDialog();
          this.Dlg_OpenFile = new System.Windows.Forms.OpenFileDialog();
          this.Dlg_FolderBrowse = new System.Windows.Forms.FolderBrowserDialog();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.SendToCartable_Butn = new System.Windows.Forms.ToolStripButton();
          cHAT_IDLabel = new System.Windows.Forms.Label();
          fRST_NAMELabel = new System.Windows.Forms.Label();
          lAST_NAMELabel = new System.Windows.Forms.Label();
@@ -1229,7 +1231,9 @@
             this.Search_Butn,
             this.ClearParm_Butn,
             this.toolStripSplitButton1,
-            this.FinalOrder_Butn});
+            this.FinalOrder_Butn,
+            this.toolStripSeparator1,
+            this.SendToCartable_Butn});
          this.OrdrBn.Location = new System.Drawing.Point(3, 18);
          this.OrdrBn.MoveFirstItem = this.toolStripButton36;
          this.OrdrBn.MoveLastItem = this.toolStripButton39;
@@ -1472,6 +1476,7 @@
          this.GetUserProfilePhotos_Butn.Size = new System.Drawing.Size(35, 35);
          this.GetUserProfilePhotos_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.GetUserProfilePhotos_Butn.TabIndex = 12;
+         this.GetUserProfilePhotos_Butn.Tooltip = null;
          this.GetUserProfilePhotos_Butn.Click += new System.EventHandler(this.GetUserProfilePhotos_Butn_Click);
          // 
          // SelectUserProfilePhoto_Butn
@@ -1496,6 +1501,7 @@
          this.SelectUserProfilePhoto_Butn.Size = new System.Drawing.Size(35, 35);
          this.SelectUserProfilePhoto_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.SelectUserProfilePhoto_Butn.TabIndex = 13;
+         this.SelectUserProfilePhoto_Butn.Tooltip = null;
          this.SelectUserProfilePhoto_Butn.Click += new System.EventHandler(this.SelectUserProfilePhoto_Butn_Click);
          // 
          // DeleteUserProfilePhoto_Butn
@@ -1520,6 +1526,7 @@
          this.DeleteUserProfilePhoto_Butn.Size = new System.Drawing.Size(35, 35);
          this.DeleteUserProfilePhoto_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.DeleteUserProfilePhoto_Butn.TabIndex = 14;
+         this.DeleteUserProfilePhoto_Butn.Tooltip = null;
          this.DeleteUserProfilePhoto_Butn.Click += new System.EventHandler(this.DeleteUserProfilePhoto_Butn_Click);
          // 
          // ServProfilePhoto_Butn
@@ -1544,6 +1551,7 @@
          this.ServProfilePhoto_Butn.Size = new System.Drawing.Size(46, 46);
          this.ServProfilePhoto_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.ServProfilePhoto_Butn.TabIndex = 11;
+         this.ServProfilePhoto_Butn.Tooltip = null;
          // 
          // StrtDate_DateTime001
          // 
@@ -2508,6 +2516,20 @@
          // 
          this.Dlg_OpenFile.Filter = "All File | *.*";
          // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+         // 
+         // SendToCartable_Butn
+         // 
+         this.SendToCartable_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1247;
+         this.SendToCartable_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.SendToCartable_Butn.Name = "SendToCartable_Butn";
+         this.SendToCartable_Butn.Size = new System.Drawing.Size(103, 22);
+         this.SendToCartable_Butn.Text = "ارسال به کارتابل";
+         this.SendToCartable_Butn.Click += new System.EventHandler(this.SendToCartable_Butn_Click);
+         // 
          // RBOD_DVLP_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2796,5 +2818,7 @@
       private DevExpress.XtraEditors.TextEdit OrdrCmnt_Txt;
       private Windows.Forms.ToolStripButton FinalOrder_Butn;
       private Windows.Forms.FolderBrowserDialog Dlg_FolderBrowse;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator1;
+      private Windows.Forms.ToolStripButton SendToCartable_Butn;
    }
 }

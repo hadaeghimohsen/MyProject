@@ -220,9 +220,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (xinput.Attribute("srrmrwno") != null)
                srrmRwno = Convert.ToInt64(xinput.Attribute("srrmrwno").Value);
             
-            // New Code
-            if (xinput.Attribute("srbtmsg") != null)
-               srmgrwno = Convert.ToInt64(xinput.Attribute("srbtmsg").Value);
+            if (xinput.Attribute("srmgrwno") != null)
+               srmgrwno = Convert.ToInt64(xinput.Attribute("srmgrwno").Value);
             
             if (xinput.Attribute("servfileno") != null)
                servFileNo = Convert.ToInt64(xinput.Attribute("servfileno").Value);
@@ -236,23 +235,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (xinput.Attribute("ordtrwno") != null)
                ordtRwno = Convert.ToInt64(xinput.Attribute("ordtrwno").Value);
 
-            if (ordtOrdrCode != 0 && srrmRwno == 0)
-            {
-               var query =                
-                  iRoboTech.Service_Robot_Replay_Messages
-                  .FirstOrDefault(m =>
-                     m.ORDT_ORDR_CODE == ordtOrdrCode &&
-                     m.ORDT_RWNO == ordtRwno &&
-                     m.RWNO ==
-                        iRoboTech.Service_Robot_Replay_Messages
-                        .Where(rm =>
-                           rm.ORDT_ORDR_CODE == ordtOrdrCode &&
-                           rm.ORDT_RWNO == ordtRwno)
-                        .Max(rm => rm.RWNO));
-
-               if (query != null)
-                  srrmRwno = query.RWNO;
-            }
 
             SrrmBs.List.Clear();
             if(xinput.Attribute("type").Value == "new")
@@ -265,7 +247,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   srrm.SRBT_ROBO_RBID = roboRbid;
                }
 
-               if(ordtOrdrCode != 0)
+               if (ordtOrdrCode != 0)
                {
                   srrm.ORDT_ORDR_CODE = ordtOrdrCode;
                   srrm.ORDT_RWNO = ordtRwno;
@@ -273,9 +255,46 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   servFileNo = srrm.SRBT_SERV_FILE_NO = ordt.Order.SRBT_SERV_FILE_NO;
                   roboRbid = srrm.SRBT_ROBO_RBID = ordt.Order.SRBT_ROBO_RBID;
                }
+               else if (srmgrwno != 0)
+               {
+                  srrm.SRMG_RWNO = srmgrwno;
+               }               
             }
             else
             {
+               if (ordtOrdrCode != 0 && srrmRwno == 0)
+               {
+                  var query =
+                     iRoboTech.Service_Robot_Replay_Messages
+                     .FirstOrDefault(m =>
+                        m.ORDT_ORDR_CODE == ordtOrdrCode &&
+                        m.ORDT_RWNO == ordtRwno &&
+                        m.RWNO ==
+                           iRoboTech.Service_Robot_Replay_Messages
+                           .Where(rm =>
+                              rm.ORDT_ORDR_CODE == ordtOrdrCode &&
+                              rm.ORDT_RWNO == ordtRwno)
+                           .Max(rm => rm.RWNO));
+
+                  if (query != null)
+                     srrmRwno = query.RWNO;
+               }
+               else if (srmgrwno != 0 && srrmRwno == 0)
+               {
+                  var query =
+                     iRoboTech.Service_Robot_Replay_Messages
+                     .FirstOrDefault(m =>
+                        m.SRMG_RWNO == srmgrwno &&
+                        m.RWNO ==
+                           iRoboTech.Service_Robot_Replay_Messages
+                           .Where(rm =>
+                              rm.SRMG_RWNO == srmgrwno)
+                           .Max(rm => rm.RWNO));
+
+                  if (query != null)
+                     srrmRwno = query.RWNO;
+               }
+
                SrrmBs.DataSource = iRoboTech.Service_Robot_Replay_Messages.FirstOrDefault(m => m.RWNO == srrmRwno);
             }
 

@@ -390,13 +390,45 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                         new XElement("Service_Robot_Message",
                            new XAttribute("servfileno", sm.SRBT_SERV_FILE_NO),
                            new XAttribute("roborbid", sm.SRBT_ROBO_RBID),
-                           new XAttribute("srbtmsg", sm.RWNO),
+                           new XAttribute("srmgrwno", sm.RWNO),
                            new XAttribute("type", "new")
                         )
                   }
                }
             )
          );
+      }
+
+      private void ListSends_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var sm = SrbtMsgBs.Current as Data.Service_Robot_Message;
+            if (sm == null) return;
+
+            _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 18 /* Execute Orml_Dvlp_F */),
+                        new Job(SendType.SelfToUserInterface, "ORML_DVLP_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input =
+                              new XElement("Order_Detail",
+                                 new XAttribute("servfileno", sm.SRBT_SERV_FILE_NO),
+                                 new XAttribute("roborbid", sm.SRBT_ROBO_RBID),
+                                 new XAttribute("srmgrwno", sm.RWNO)
+                              )
+                        }
+                     }
+                  )
+               );
+         }
+         catch (Exception)
+         {
+            
+            throw;
+         }
       }
    }
 }

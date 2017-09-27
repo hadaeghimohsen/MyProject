@@ -210,6 +210,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
+            servFileNo = 0;
+            roboRbid = 0;
+            ordtOrdrCode = 0;
+            ordtRwno = 0;
+            srmgrwno = 0;
+
             if (xinput.Attribute("servfileno") != null)
                servFileNo = Convert.ToInt64(xinput.Attribute("servfileno").Value);
 
@@ -221,6 +227,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (xinput.Attribute("ordtrwno") != null)
                ordtRwno = Convert.ToInt64(xinput.Attribute("ordtrwno").Value);
+
+            if (xinput.Attribute("srmgrwno") != null)
+               srmgrwno = Convert.ToInt64(xinput.Attribute("srmgrwno").Value);
 
             Execute_Query();
          }

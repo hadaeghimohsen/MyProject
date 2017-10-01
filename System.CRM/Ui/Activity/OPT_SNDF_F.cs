@@ -144,9 +144,14 @@ namespace System.CRM.Ui.Activity
          {
             if(requery && needclose)
             {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno), new XAttribute("formcaller", GetType().Name), new XAttribute("rqstrqid", rqstrqid)) }
+               );
+               
                //_DefaultGateway.Gateway(
-               //   new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno), new XAttribute("formcaller", GetType().Name), new XAttribute("rqstrqid", rqstrqid)) }
+               //   new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno)) }
                //);
+               
                Btn_Back_Click(null, null);
             }
          }

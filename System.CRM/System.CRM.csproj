@@ -2423,6 +2423,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Payment_Detail_Commodity_Sale.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Payment_Discount.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Payment_Method.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Personnel_Access_Service_Type.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Province.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Reason_Request.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Reason_Spec.datasource" />
@@ -2441,8 +2442,10 @@
     <None Include="Properties\DataSources\System.CRM.Data.Request_Type.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Send_File.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Service_Join_Service_Type.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Public.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Relation.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Service_Type.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Setting.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Step_History_Detail.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Step_History_Summery.datasource" />

@@ -430,5 +430,33 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             throw;
          }
       }
+
+      private void Actn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         var srbt = SrbtBs.Current as Data.Service_Robot;
+         if (srbt == null) return;
+
+         switch(e.Button.Index)
+         {
+            case 0:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 20 /* Execue Srbt_Info_F */),
+                        new Job(SendType.SelfToUserInterface, "SRBT_INFO_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("Service_Robot",
+                                 new XAttribute("servfileno", srbt.SERV_FILE_NO),
+                                 new XAttribute("roborbid", srbt.ROBO_RBID)
+                              )
+                        }
+                     }
+                  )
+               );                  
+               break;
+         }
+      }
    }
 }

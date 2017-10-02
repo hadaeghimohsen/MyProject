@@ -29,6 +29,7 @@ namespace System.RoboTech.Code
       private Ui.DevelopmentApplication.ODRM_DVLP_F _Odrm_Dvlp_F { get; set; }
       private Ui.DevelopmentApplication.ORML_DVLP_F _Orml_Dvlp_F { get; set; }
       private Ui.DevelopmentApplication.RBSM_DVLP_F _Rbsm_Dvlp_F { get; set; }
+      private Ui.DevelopmentApplication.SRBT_INFO_F _Srbt_Info_F { get; set; }
    }   
 }
 

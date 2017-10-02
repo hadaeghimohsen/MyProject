@@ -80,6 +80,9 @@ namespace System.RoboTech.Code
             case 19:
                Rbsm_Dvlp_F(job);
                break;
+            case 20:
+               Srbt_Info_F(job);
+               break;
             #endregion
             #region Action
             case 11:
@@ -153,6 +156,9 @@ namespace System.RoboTech.Code
                break;
             case "RBSM_DVLP_F":
                _Rbsm_Dvlp_F.SendRequest(job);
+               break;
+            case "SRBT_INFO_F":
+               _Srbt_Info_F.SendRequest(job);
                break;
             #endregion
             #region Action

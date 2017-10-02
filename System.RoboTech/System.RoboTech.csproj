@@ -242,6 +242,15 @@
     <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.Designer.cs">
+      <DependentUpon>SRBT_INFO_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\ORML_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -456,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\REGN_DFIN_F.resx">
       <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\SRBT_INFO_F.resx">
+      <DependentUpon>SRBT_INFO_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\ORML_DVLP_F.resx">
       <DependentUpon>ORML_DVLP_F.cs</DependentUpon>

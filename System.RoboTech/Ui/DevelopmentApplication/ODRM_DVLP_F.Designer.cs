@@ -554,7 +554,6 @@
          this.simpleButton1.TabIndex = 9;
          this.simpleButton1.Text = "...";
          this.simpleButton1.ToolTip = "اضافه کردن یادداشت جدید";
-         this.simpleButton1.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // textEdit5
          // 

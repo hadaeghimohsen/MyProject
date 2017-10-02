@@ -66,8 +66,6 @@ namespace System.RoboTech.Data
     partial void InsertUser_RobotListener_Log(User_RobotListener_Log instance);
     partial void UpdateUser_RobotListener_Log(User_RobotListener_Log instance);
     partial void DeleteUser_RobotListener_Log(User_RobotListener_Log instance);
-    partial void InsertService_Robot(Service_Robot instance);
-    partial void DeleteService_Robot(Service_Robot instance);
     partial void InsertModual_Report(Modual_Report instance);
     partial void UpdateModual_Report(Modual_Report instance);
     partial void DeleteModual_Report(Modual_Report instance);
@@ -90,6 +88,8 @@ namespace System.RoboTech.Data
     partial void UpdateRobot_Spy_Group_Message(Robot_Spy_Group_Message instance);
     partial void DeleteRobot_Spy_Group_Message(Robot_Spy_Group_Message instance);
     partial void DeleteRobot(Robot instance);
+    partial void InsertService_Robot(Service_Robot instance);
+    partial void DeleteService_Robot(Service_Robot instance);
     #endregion
 		
 		public iRoboTechDataContext() : 
@@ -514,14 +514,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Service_Robot> Service_Robots
-		{
-			get
-			{
-				return this.GetTable<Service_Robot>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Group_Header> Group_Headers
 		{
 			get
@@ -631,6 +623,14 @@ namespace System.RoboTech.Data
 			get
 			{
 				return this.GetTable<Service_Robot_Replay_Message>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Service_Robot> Service_Robots
+		{
+			get
+			{
+				return this.GetTable<Service_Robot>();
 			}
 		}
 		
@@ -904,11 +904,6 @@ namespace System.RoboTech.Data
 			this.DEL_URLF_P(((System.Nullable<long>)(obj.FGA_CODE)));
 		}
 		
-		private void UpdateService_Robot(Service_Robot obj)
-		{
-			this.UPD_SRBT_P(((System.Nullable<long>)(obj.SERV_FILE_NO)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.GRPH_GHID)), obj.STAT, ((System.Nullable<long>)(obj.CHAT_ID)), obj.CELL_PHON, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.SERV_ADRS, obj.NATL_CODE, obj.NAME, ((System.Nullable<System.DateTime>)(obj.JOIN_DATE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, ((System.Nullable<long>)(obj.RDUS_SRCH)), ((System.Nullable<long>)(obj.REF_CHAT_ID)), ((System.Nullable<System.DateTime>)(obj.EXPR_DATE)));
-		}
-		
 		private void InsertGroup_Header(Group_Header obj)
 		{
 			this.INS_GRPH_P(obj.GRPH_DESC);
@@ -962,6 +957,11 @@ namespace System.RoboTech.Data
 		private void DeleteService_Robot_Replay_Message(Service_Robot_Replay_Message obj)
 		{
 			this.DEL_SRRM_P(((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)), ((System.Nullable<long>)(obj.RWNO)));
+		}
+		
+		private void UpdateService_Robot(Service_Robot obj)
+		{
+			this.UPD_SRBT_P(((System.Nullable<long>)(obj.SERV_FILE_NO)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.GRPH_GHID)), obj.STAT, ((System.Nullable<long>)(obj.CHAT_ID)), obj.CELL_PHON, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.SERV_ADRS, obj.NATL_CODE, obj.NAME, ((System.Nullable<System.DateTime>)(obj.JOIN_DATE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, ((System.Nullable<long>)(obj.RDUS_SRCH)), ((System.Nullable<long>)(obj.REF_CHAT_ID)), ((System.Nullable<System.DateTime>)(obj.EXPR_DATE)), obj.REAL_FRST_NAME, obj.REAL_LAST_NAME, obj.COMP_NAME, obj.OTHR_CELL_PHON, obj.OTHR_SERV_ADDR, obj.SRBT_DESC);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CNTY_P")]
@@ -1460,31 +1460,6 @@ namespace System.RoboTech.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SRBT_P")]
-		public int UPD_SRBT_P(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sERV_FILE_NO, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GRPH_GHID", DbType="BigInt")] System.Nullable<long> gRPH_GHID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CHAT_ID", DbType="BigInt")] System.Nullable<long> cHAT_ID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CELL_PHON", DbType="VarChar(13)")] string cELL_PHON, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORD_X", DbType="Float")] System.Nullable<double> cORD_X, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORD_y", DbType="Float")] System.Nullable<double> cORD_y, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SERV_ADRS", DbType="NVarChar(1000)")] string sERV_ADRS, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NATL_CODE", DbType="VarChar(11)")] string nATL_CODE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NAME", DbType="NVarChar(100)")] string nAME, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="JOIN_DATE", DbType="Date")] System.Nullable<System.DateTime> jOIN_DATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REGN_PRVN_CNTY_CODE", DbType="VarChar(3)")] string rEGN_PRVN_CNTY_CODE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REGN_PRVN_CODE", DbType="VarChar(3)")] string rEGN_PRVN_CODE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REGN_CODE", DbType="VarChar(3)")] string rEGN_CODE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="RDUS_SRCH", DbType="BigInt")] System.Nullable<long> rDUS_SRCH, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REF_CHAT_ID", DbType="BigInt")] System.Nullable<long> rEF_CHAT_ID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EXPR_DATE", DbType="DateTime")] System.Nullable<System.DateTime> eXPR_DATE)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sERV_FILE_NO, rOBO_RBID, gRPH_GHID, sTAT, cHAT_ID, cELL_PHON, cORD_X, cORD_y, sERV_ADRS, nATL_CODE, nAME, jOIN_DATE, rEGN_PRVN_CNTY_CODE, rEGN_PRVN_CODE, rEGN_CODE, rDUS_SRCH, rEF_CHAT_ID, eXPR_DATE);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_PMNU_P")]
 		public int UPD_PMNU_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MUID", DbType="BigInt")] System.Nullable<long> mUID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MNUS_MUID", DbType="BigInt")] System.Nullable<long> mNUS_MUID)
 		{
@@ -1559,6 +1534,37 @@ namespace System.RoboTech.Data
 		public int UPD_SRRM_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sRBT_SERV_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_ROBO_RBID", DbType="BigInt")] System.Nullable<long> sRBT_ROBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RWNO", DbType="BigInt")] System.Nullable<long> rWNO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRMG_RWNO", DbType="BigInt")] System.Nullable<long> sRMG_RWNO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MESG_TEXT", DbType="NVarChar(MAX)")] string mESG_TEXT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEND_STAT", DbType="VarChar(3)")] string sEND_STAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FILE_ID", DbType="VarChar(200)")] string fILE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FILE_PATH", DbType="NVarChar(MAX)")] string fILE_PATH, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MESG_TYPE", DbType="VarChar(3)")] string mESG_TYPE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LAT", DbType="Float")] System.Nullable<double> lAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LON", DbType="Float")] System.Nullable<double> lON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONT_CELL_PHON", DbType="VarChar(11)")] string cONT_CELL_PHON)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sRBT_SERV_FILE_NO, sRBT_ROBO_RBID, rWNO, sRMG_RWNO, mESG_TEXT, sEND_STAT, fILE_ID, fILE_PATH, mESG_TYPE, lAT, lON, cONT_CELL_PHON);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SRBT_P")]
+		public int UPD_SRBT_P(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sERV_FILE_NO, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GRPH_GHID", DbType="BigInt")] System.Nullable<long> gRPH_GHID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CHAT_ID", DbType="BigInt")] System.Nullable<long> cHAT_ID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CELL_PHON", DbType="VarChar(13)")] string cELL_PHON, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORD_X", DbType="Float")] System.Nullable<double> cORD_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORD_y", DbType="Float")] System.Nullable<double> cORD_y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SERV_ADRS", DbType="NVarChar(1000)")] string sERV_ADRS, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NATL_CODE", DbType="VarChar(11)")] string nATL_CODE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NAME", DbType="NVarChar(100)")] string nAME, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="JOIN_DATE", DbType="Date")] System.Nullable<System.DateTime> jOIN_DATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REGN_PRVN_CNTY_CODE", DbType="VarChar(3)")] string rEGN_PRVN_CNTY_CODE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REGN_PRVN_CODE", DbType="VarChar(3)")] string rEGN_PRVN_CODE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REGN_CODE", DbType="VarChar(3)")] string rEGN_CODE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="RDUS_SRCH", DbType="BigInt")] System.Nullable<long> rDUS_SRCH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REF_CHAT_ID", DbType="BigInt")] System.Nullable<long> rEF_CHAT_ID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EXPR_DATE", DbType="DateTime")] System.Nullable<System.DateTime> eXPR_DATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Real_Frst_Name", DbType="NVarChar(250)")] string real_Frst_Name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Real_Last_Name", DbType="NVarChar(250)")] string real_Last_Name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Name", DbType="NVarChar(250)")] string comp_Name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Othr_Cell_Phon", DbType="VarChar(11)")] string othr_Cell_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Othr_Serv_Addr", DbType="NVarChar(MAX)")] string othr_Serv_Addr, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srbt_Desc", DbType="NVarChar(MAX)")] string srbt_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sERV_FILE_NO, rOBO_RBID, gRPH_GHID, sTAT, cHAT_ID, cELL_PHON, cORD_X, cORD_y, sERV_ADRS, nATL_CODE, nAME, jOIN_DATE, rEGN_PRVN_CNTY_CODE, rEGN_PRVN_CODE, rEGN_CODE, rDUS_SRCH, rEF_CHAT_ID, eXPR_DATE, real_Frst_Name, real_Last_Name, comp_Name, othr_Cell_Phon, othr_Serv_Addr, srbt_Desc);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -3814,11 +3820,11 @@ namespace System.RoboTech.Data
 		
 		private string _NAME;
 		
-		private EntityRef<Service_Robot> _Service_Robot;
-		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Robot> _Robot;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3846,9 +3852,9 @@ namespace System.RoboTech.Data
 		
 		public Service_Robot_Public()
 		{
-			this._Service_Robot = default(EntityRef<Service_Robot>);
 			this._Service = default(EntityRef<Service>);
 			this._Robot = default(EntityRef<Robot>);
+			this._Service_Robot = default(EntityRef<Service_Robot>);
 			OnCreated();
 		}
 		
@@ -3863,7 +3869,7 @@ namespace System.RoboTech.Data
 			{
 				if ((this._SRBT_SERV_FILE_NO != value))
 				{
-					if ((this._Service_Robot.HasLoadedOrAssignedValue || this._Service.HasLoadedOrAssignedValue))
+					if ((this._Service.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -3887,7 +3893,7 @@ namespace System.RoboTech.Data
 			{
 				if ((this._SRBT_ROBO_RBID != value))
 				{
-					if ((this._Service_Robot.HasLoadedOrAssignedValue || this._Robot.HasLoadedOrAssignedValue))
+					if ((this._Robot.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -4040,42 +4046,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Public", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
-		public Service_Robot Service_Robot
-		{
-			get
-			{
-				return this._Service_Robot.Entity;
-			}
-			set
-			{
-				Service_Robot previousValue = this._Service_Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service_Robot.Entity = null;
-						previousValue.Service_Robot_Publics.Remove(this);
-					}
-					this._Service_Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robot_Publics.Add(this);
-						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
-						this._SRBT_ROBO_RBID = value.ROBO_RBID;
-					}
-					else
-					{
-						this._SRBT_SERV_FILE_NO = default(long);
-						this._SRBT_ROBO_RBID = default(long);
-					}
-					this.SendPropertyChanged("Service_Robot");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Service_Robot_Public", Storage="_Service", ThisKey="SRBT_SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Service Service
 		{
@@ -4140,6 +4110,42 @@ namespace System.RoboTech.Data
 						this._SRBT_ROBO_RBID = default(long);
 					}
 					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Public", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
+		public Service_Robot Service_Robot
+		{
+			get
+			{
+				return this._Service_Robot.Entity;
+			}
+			set
+			{
+				Service_Robot previousValue = this._Service_Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service_Robot.Entity = null;
+						previousValue.Service_Robot_Publics.Remove(this);
+					}
+					this._Service_Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robot_Publics.Add(this);
+						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
+						this._SRBT_ROBO_RBID = value.ROBO_RBID;
+					}
+					else
+					{
+						this._SRBT_SERV_FILE_NO = default(long);
+						this._SRBT_ROBO_RBID = default(long);
+					}
+					this.SendPropertyChanged("Service_Robot");
 				}
 			}
 		}
@@ -13002,956 +13008,6 @@ namespace System.RoboTech.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Robot")]
-	public partial class Service_Robot : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _SERV_FILE_NO;
-		
-		private long _ROBO_RBID;
-		
-		private System.Nullable<long> _GRPH_GHID;
-		
-		private System.Nullable<int> _SRPB_RWNO;
-		
-		private string _STAT;
-		
-		private System.Nullable<long> _CHAT_ID;
-		
-		private string _CELL_PHON;
-		
-		private System.Nullable<double> _CORD_X;
-		
-		private System.Nullable<double> _CORD_Y;
-		
-		private string _SERV_ADRS;
-		
-		private string _NATL_CODE;
-		
-		private string _NAME;
-		
-		private System.Nullable<System.DateTime> _JOIN_DATE;
-		
-		private string _REGN_PRVN_CNTY_CODE;
-		
-		private string _REGN_PRVN_CODE;
-		
-		private string _REGN_CODE;
-		
-		private System.Nullable<long> _RDUS_SRCH;
-		
-		private System.Nullable<long> _REF_CHAT_ID;
-		
-		private System.Nullable<System.DateTime> _EXPR_DATE;
-		
-		private EntitySet<Service_Robot_Public> _Service_Robot_Publics;
-		
-		private EntitySet<Service_Robot_Visit> _Service_Robot_Visits;
-		
-		private EntitySet<Service_Robot_Group> _Service_Robot_Groups;
-		
-		private EntitySet<Service_Robot_Upload> _Service_Robot_Uploads;
-		
-		private EntitySet<Service_Robot_Message> _Service_Robot_Messages;
-		
-		private EntitySet<Service_Robot_Send_Advertising> _Service_Robot_Send_Advertisings;
-		
-		private EntitySet<Order> _Orders;
-		
-		private EntitySet<Personal_Robot_Job_Service_Robot> _Personal_Robot_Job_Service_Robots;
-		
-		private EntitySet<Robot_Spy_Group_Message> _Robot_Spy_Group_Messages;
-		
-		private EntitySet<Service_Robot_Replay_Message> _Service_Robot_Replay_Messages;
-		
-		private EntityRef<Region> _Region;
-		
-		private EntityRef<Group_Header> _Group_Header;
-		
-		private EntityRef<Service> _Service;
-		
-		private EntityRef<Robot> _Robot;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSERV_FILE_NOChanging(long value);
-    partial void OnSERV_FILE_NOChanged();
-    partial void OnROBO_RBIDChanging(long value);
-    partial void OnROBO_RBIDChanged();
-    partial void OnGRPH_GHIDChanging(System.Nullable<long> value);
-    partial void OnGRPH_GHIDChanged();
-    partial void OnSRPB_RWNOChanging(System.Nullable<int> value);
-    partial void OnSRPB_RWNOChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnCHAT_IDChanging(System.Nullable<long> value);
-    partial void OnCHAT_IDChanged();
-    partial void OnCELL_PHONChanging(string value);
-    partial void OnCELL_PHONChanged();
-    partial void OnCORD_XChanging(System.Nullable<double> value);
-    partial void OnCORD_XChanged();
-    partial void OnCORD_YChanging(System.Nullable<double> value);
-    partial void OnCORD_YChanged();
-    partial void OnSERV_ADRSChanging(string value);
-    partial void OnSERV_ADRSChanged();
-    partial void OnNATL_CODEChanging(string value);
-    partial void OnNATL_CODEChanged();
-    partial void OnNAMEChanging(string value);
-    partial void OnNAMEChanged();
-    partial void OnJOIN_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnJOIN_DATEChanged();
-    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
-    partial void OnREGN_PRVN_CNTY_CODEChanged();
-    partial void OnREGN_PRVN_CODEChanging(string value);
-    partial void OnREGN_PRVN_CODEChanged();
-    partial void OnREGN_CODEChanging(string value);
-    partial void OnREGN_CODEChanged();
-    partial void OnRDUS_SRCHChanging(System.Nullable<long> value);
-    partial void OnRDUS_SRCHChanged();
-    partial void OnREF_CHAT_IDChanging(System.Nullable<long> value);
-    partial void OnREF_CHAT_IDChanged();
-    partial void OnEXPR_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnEXPR_DATEChanged();
-    #endregion
-		
-		public Service_Robot()
-		{
-			this._Service_Robot_Publics = new EntitySet<Service_Robot_Public>(new Action<Service_Robot_Public>(this.attach_Service_Robot_Publics), new Action<Service_Robot_Public>(this.detach_Service_Robot_Publics));
-			this._Service_Robot_Visits = new EntitySet<Service_Robot_Visit>(new Action<Service_Robot_Visit>(this.attach_Service_Robot_Visits), new Action<Service_Robot_Visit>(this.detach_Service_Robot_Visits));
-			this._Service_Robot_Groups = new EntitySet<Service_Robot_Group>(new Action<Service_Robot_Group>(this.attach_Service_Robot_Groups), new Action<Service_Robot_Group>(this.detach_Service_Robot_Groups));
-			this._Service_Robot_Uploads = new EntitySet<Service_Robot_Upload>(new Action<Service_Robot_Upload>(this.attach_Service_Robot_Uploads), new Action<Service_Robot_Upload>(this.detach_Service_Robot_Uploads));
-			this._Service_Robot_Messages = new EntitySet<Service_Robot_Message>(new Action<Service_Robot_Message>(this.attach_Service_Robot_Messages), new Action<Service_Robot_Message>(this.detach_Service_Robot_Messages));
-			this._Service_Robot_Send_Advertisings = new EntitySet<Service_Robot_Send_Advertising>(new Action<Service_Robot_Send_Advertising>(this.attach_Service_Robot_Send_Advertisings), new Action<Service_Robot_Send_Advertising>(this.detach_Service_Robot_Send_Advertisings));
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
-			this._Personal_Robot_Job_Service_Robots = new EntitySet<Personal_Robot_Job_Service_Robot>(new Action<Personal_Robot_Job_Service_Robot>(this.attach_Personal_Robot_Job_Service_Robots), new Action<Personal_Robot_Job_Service_Robot>(this.detach_Personal_Robot_Job_Service_Robots));
-			this._Robot_Spy_Group_Messages = new EntitySet<Robot_Spy_Group_Message>(new Action<Robot_Spy_Group_Message>(this.attach_Robot_Spy_Group_Messages), new Action<Robot_Spy_Group_Message>(this.detach_Robot_Spy_Group_Messages));
-			this._Service_Robot_Replay_Messages = new EntitySet<Service_Robot_Replay_Message>(new Action<Service_Robot_Replay_Message>(this.attach_Service_Robot_Replay_Messages), new Action<Service_Robot_Replay_Message>(this.detach_Service_Robot_Replay_Messages));
-			this._Region = default(EntityRef<Region>);
-			this._Group_Header = default(EntityRef<Group_Header>);
-			this._Service = default(EntityRef<Service>);
-			this._Robot = default(EntityRef<Robot>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long SERV_FILE_NO
-		{
-			get
-			{
-				return this._SERV_FILE_NO;
-			}
-			set
-			{
-				if ((this._SERV_FILE_NO != value))
-				{
-					if (this._Service.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSERV_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_FILE_NO = value;
-					this.SendPropertyChanged("SERV_FILE_NO");
-					this.OnSERV_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long ROBO_RBID
-		{
-			get
-			{
-				return this._ROBO_RBID;
-			}
-			set
-			{
-				if ((this._ROBO_RBID != value))
-				{
-					if (this._Robot.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnROBO_RBIDChanging(value);
-					this.SendPropertyChanging();
-					this._ROBO_RBID = value;
-					this.SendPropertyChanged("ROBO_RBID");
-					this.OnROBO_RBIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRPH_GHID", DbType="BigInt")]
-		public System.Nullable<long> GRPH_GHID
-		{
-			get
-			{
-				return this._GRPH_GHID;
-			}
-			set
-			{
-				if ((this._GRPH_GHID != value))
-				{
-					if (this._Group_Header.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGRPH_GHIDChanging(value);
-					this.SendPropertyChanging();
-					this._GRPH_GHID = value;
-					this.SendPropertyChanged("GRPH_GHID");
-					this.OnGRPH_GHIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRPB_RWNO", DbType="Int")]
-		public System.Nullable<int> SRPB_RWNO
-		{
-			get
-			{
-				return this._SRPB_RWNO;
-			}
-			set
-			{
-				if ((this._SRPB_RWNO != value))
-				{
-					this.OnSRPB_RWNOChanging(value);
-					this.SendPropertyChanging();
-					this._SRPB_RWNO = value;
-					this.SendPropertyChanged("SRPB_RWNO");
-					this.OnSRPB_RWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
-		public System.Nullable<long> CHAT_ID
-		{
-			get
-			{
-				return this._CHAT_ID;
-			}
-			set
-			{
-				if ((this._CHAT_ID != value))
-				{
-					this.OnCHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CHAT_ID = value;
-					this.SendPropertyChanged("CHAT_ID");
-					this.OnCHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(13)")]
-		public string CELL_PHON
-		{
-			get
-			{
-				return this._CELL_PHON;
-			}
-			set
-			{
-				if ((this._CELL_PHON != value))
-				{
-					this.OnCELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._CELL_PHON = value;
-					this.SendPropertyChanged("CELL_PHON");
-					this.OnCELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float")]
-		public System.Nullable<double> CORD_X
-		{
-			get
-			{
-				return this._CORD_X;
-			}
-			set
-			{
-				if ((this._CORD_X != value))
-				{
-					this.OnCORD_XChanging(value);
-					this.SendPropertyChanging();
-					this._CORD_X = value;
-					this.SendPropertyChanged("CORD_X");
-					this.OnCORD_XChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float")]
-		public System.Nullable<double> CORD_Y
-		{
-			get
-			{
-				return this._CORD_Y;
-			}
-			set
-			{
-				if ((this._CORD_Y != value))
-				{
-					this.OnCORD_YChanging(value);
-					this.SendPropertyChanging();
-					this._CORD_Y = value;
-					this.SendPropertyChanged("CORD_Y");
-					this.OnCORD_YChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_ADRS", DbType="NVarChar(1000)")]
-		public string SERV_ADRS
-		{
-			get
-			{
-				return this._SERV_ADRS;
-			}
-			set
-			{
-				if ((this._SERV_ADRS != value))
-				{
-					this.OnSERV_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_ADRS = value;
-					this.SendPropertyChanged("SERV_ADRS");
-					this.OnSERV_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(11)")]
-		public string NATL_CODE
-		{
-			get
-			{
-				return this._NATL_CODE;
-			}
-			set
-			{
-				if ((this._NATL_CODE != value))
-				{
-					this.OnNATL_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._NATL_CODE = value;
-					this.SendPropertyChanged("NATL_CODE");
-					this.OnNATL_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(100)")]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this.OnNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._NAME = value;
-					this.SendPropertyChanged("NAME");
-					this.OnNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JOIN_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> JOIN_DATE
-		{
-			get
-			{
-				return this._JOIN_DATE;
-			}
-			set
-			{
-				if ((this._JOIN_DATE != value))
-				{
-					this.OnJOIN_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._JOIN_DATE = value;
-					this.SendPropertyChanged("JOIN_DATE");
-					this.OnJOIN_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3)")]
-		public string REGN_PRVN_CNTY_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CNTY_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CNTY_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CNTY_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CNTY_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
-					this.OnREGN_PRVN_CNTY_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3)")]
-		public string REGN_PRVN_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CODE");
-					this.OnREGN_PRVN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3)")]
-		public string REGN_CODE
-		{
-			get
-			{
-				return this._REGN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_CODE = value;
-					this.SendPropertyChanged("REGN_CODE");
-					this.OnREGN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RDUS_SRCH", DbType="BigInt")]
-		public System.Nullable<long> RDUS_SRCH
-		{
-			get
-			{
-				return this._RDUS_SRCH;
-			}
-			set
-			{
-				if ((this._RDUS_SRCH != value))
-				{
-					this.OnRDUS_SRCHChanging(value);
-					this.SendPropertyChanging();
-					this._RDUS_SRCH = value;
-					this.SendPropertyChanged("RDUS_SRCH");
-					this.OnRDUS_SRCHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_CHAT_ID", DbType="BigInt")]
-		public System.Nullable<long> REF_CHAT_ID
-		{
-			get
-			{
-				return this._REF_CHAT_ID;
-			}
-			set
-			{
-				if ((this._REF_CHAT_ID != value))
-				{
-					this.OnREF_CHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._REF_CHAT_ID = value;
-					this.SendPropertyChanged("REF_CHAT_ID");
-					this.OnREF_CHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> EXPR_DATE
-		{
-			get
-			{
-				return this._EXPR_DATE;
-			}
-			set
-			{
-				if ((this._EXPR_DATE != value))
-				{
-					this.OnEXPR_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPR_DATE = value;
-					this.SendPropertyChanged("EXPR_DATE");
-					this.OnEXPR_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Public", Storage="_Service_Robot_Publics", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Public> Service_Robot_Publics
-		{
-			get
-			{
-				return this._Service_Robot_Publics;
-			}
-			set
-			{
-				this._Service_Robot_Publics.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Visit", Storage="_Service_Robot_Visits", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRRB_SERV_FILE_NO,SRRB_ROBO_RBID")]
-		public EntitySet<Service_Robot_Visit> Service_Robot_Visits
-		{
-			get
-			{
-				return this._Service_Robot_Visits;
-			}
-			set
-			{
-				this._Service_Robot_Visits.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Group", Storage="_Service_Robot_Groups", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Group> Service_Robot_Groups
-		{
-			get
-			{
-				return this._Service_Robot_Groups;
-			}
-			set
-			{
-				this._Service_Robot_Groups.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Upload", Storage="_Service_Robot_Uploads", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Upload> Service_Robot_Uploads
-		{
-			get
-			{
-				return this._Service_Robot_Uploads;
-			}
-			set
-			{
-				this._Service_Robot_Uploads.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Message", Storage="_Service_Robot_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Message> Service_Robot_Messages
-		{
-			get
-			{
-				return this._Service_Robot_Messages;
-			}
-			set
-			{
-				this._Service_Robot_Messages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Send_Advertising", Storage="_Service_Robot_Send_Advertisings", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Send_Advertising> Service_Robot_Send_Advertisings
-		{
-			get
-			{
-				return this._Service_Robot_Send_Advertisings;
-			}
-			set
-			{
-				this._Service_Robot_Send_Advertisings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Order", Storage="_Orders", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Order> Orders
-		{
-			get
-			{
-				return this._Orders;
-			}
-			set
-			{
-				this._Orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Personal_Robot_Job_Service_Robot", Storage="_Personal_Robot_Job_Service_Robots", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Personal_Robot_Job_Service_Robot> Personal_Robot_Job_Service_Robots
-		{
-			get
-			{
-				return this._Personal_Robot_Job_Service_Robots;
-			}
-			set
-			{
-				this._Personal_Robot_Job_Service_Robots.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Robot_Spy_Group_Message", Storage="_Robot_Spy_Group_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,RSPG_ROBO_RBID")]
-		public EntitySet<Robot_Spy_Group_Message> Robot_Spy_Group_Messages
-		{
-			get
-			{
-				return this._Robot_Spy_Group_Messages;
-			}
-			set
-			{
-				this._Robot_Spy_Group_Messages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Replay_Message", Storage="_Service_Robot_Replay_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Replay_Message> Service_Robot_Replay_Messages
-		{
-			get
-			{
-				return this._Service_Robot_Replay_Messages;
-			}
-			set
-			{
-				this._Service_Robot_Replay_Messages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Service_Robot", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
-		public Region Region
-		{
-			get
-			{
-				return this._Region.Entity;
-			}
-			set
-			{
-				Region previousValue = this._Region.Entity;
-				if (((previousValue != value) 
-							|| (this._Region.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Region.Entity = null;
-						previousValue.Service_Robots.Remove(this);
-					}
-					this._Region.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robots.Add(this);
-						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
-						this._REGN_PRVN_CODE = value.PRVN_CODE;
-						this._REGN_CODE = value.CODE;
-					}
-					else
-					{
-						this._REGN_PRVN_CNTY_CODE = default(string);
-						this._REGN_PRVN_CODE = default(string);
-						this._REGN_CODE = default(string);
-					}
-					this.SendPropertyChanged("Region");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Service_Robot", Storage="_Group_Header", ThisKey="GRPH_GHID", OtherKey="GHID", IsForeignKey=true)]
-		public Group_Header Group_Header
-		{
-			get
-			{
-				return this._Group_Header.Entity;
-			}
-			set
-			{
-				Group_Header previousValue = this._Group_Header.Entity;
-				if (((previousValue != value) 
-							|| (this._Group_Header.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group_Header.Entity = null;
-						previousValue.Service_Robots.Remove(this);
-					}
-					this._Group_Header.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robots.Add(this);
-						this._GRPH_GHID = value.GHID;
-					}
-					else
-					{
-						this._GRPH_GHID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Group_Header");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Service_Robot", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Service Service
-		{
-			get
-			{
-				return this._Service.Entity;
-			}
-			set
-			{
-				Service previousValue = this._Service.Entity;
-				if (((previousValue != value) 
-							|| (this._Service.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service.Entity = null;
-						previousValue.Service_Robots.Remove(this);
-					}
-					this._Service.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robots.Add(this);
-						this._SERV_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._SERV_FILE_NO = default(long);
-					}
-					this.SendPropertyChanged("Service");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Service_Robot", Storage="_Robot", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
-		public Robot Robot
-		{
-			get
-			{
-				return this._Robot.Entity;
-			}
-			set
-			{
-				Robot previousValue = this._Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Robot.Entity = null;
-						previousValue.Service_Robots.Remove(this);
-					}
-					this._Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robots.Add(this);
-						this._ROBO_RBID = value.RBID;
-					}
-					else
-					{
-						this._ROBO_RBID = default(long);
-					}
-					this.SendPropertyChanged("Robot");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Service_Robot_Publics(Service_Robot_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Publics(Service_Robot_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Visits(Service_Robot_Visit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Visits(Service_Robot_Visit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Groups(Service_Robot_Group entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Groups(Service_Robot_Group entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Uploads(Service_Robot_Upload entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Uploads(Service_Robot_Upload entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Messages(Service_Robot_Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Messages(Service_Robot_Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Send_Advertisings(Service_Robot_Send_Advertising entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Send_Advertisings(Service_Robot_Send_Advertising entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Personal_Robot_Job_Service_Robots(Personal_Robot_Job_Service_Robot entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Personal_Robot_Job_Service_Robots(Personal_Robot_Job_Service_Robot entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Robot_Spy_Group_Messages(Robot_Spy_Group_Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Robot_Spy_Group_Messages(Robot_Spy_Group_Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Replay_Messages(Service_Robot_Replay_Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Replay_Messages(Service_Robot_Replay_Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Header")]
 	public partial class Group_Header : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -15006,9 +14062,9 @@ namespace System.RoboTech.Data
 		
 		private EntityRef<Order> _Order1;
 		
-		private EntityRef<Service_Robot> _Service_Robot;
-		
 		private EntityRef<Robot> _Robot;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -15064,8 +14120,8 @@ namespace System.RoboTech.Data
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
 			this._Order1 = default(EntityRef<Order>);
-			this._Service_Robot = default(EntityRef<Service_Robot>);
 			this._Robot = default(EntityRef<Robot>);
+			this._Service_Robot = default(EntityRef<Service_Robot>);
 			OnCreated();
 		}
 		
@@ -15104,7 +14160,7 @@ namespace System.RoboTech.Data
 			{
 				if ((this._SRBT_ROBO_RBID != value))
 				{
-					if ((this._Service_Robot.HasLoadedOrAssignedValue || this._Robot.HasLoadedOrAssignedValue))
+					if ((this._Robot.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -15574,6 +14630,40 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Order", Storage="_Robot", ThisKey="SRBT_ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
+		public Robot Robot
+		{
+			get
+			{
+				return this._Robot.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot.Entity = null;
+						previousValue.Orders.Remove(this);
+					}
+					this._Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Orders.Add(this);
+						this._SRBT_ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._SRBT_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Order", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
 		public Service_Robot Service_Robot
 		{
@@ -15606,40 +14696,6 @@ namespace System.RoboTech.Data
 						this._SRBT_ROBO_RBID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service_Robot");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Order", Storage="_Robot", ThisKey="SRBT_ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
-		public Robot Robot
-		{
-			get
-			{
-				return this._Robot.Entity;
-			}
-			set
-			{
-				Robot previousValue = this._Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Robot.Entity = null;
-						previousValue.Orders.Remove(this);
-					}
-					this._Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Orders.Add(this);
-						this._SRBT_ROBO_RBID = value.RBID;
-					}
-					else
-					{
-						this._SRBT_ROBO_RBID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Robot");
 				}
 			}
 		}
@@ -15986,7 +15042,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Personal_Robot_Job_Service_Robot", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Personal_Robot_Job_Service_Robot", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Service_Robot Service_Robot
 		{
 			get
@@ -17049,9 +16105,9 @@ namespace System.RoboTech.Data
 		
 		private EntityRef<Robot_Spy_Group> _Robot_Spy_Group;
 		
-		private EntityRef<Service_Robot> _Service_Robot;
-		
 		private EntityRef<Robot> _Robot;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -17103,8 +16159,8 @@ namespace System.RoboTech.Data
 		{
 			this._Robot_Spy_Group_Message_Details = new EntitySet<Robot_Spy_Group_Message_Detail>(new Action<Robot_Spy_Group_Message_Detail>(this.attach_Robot_Spy_Group_Message_Details), new Action<Robot_Spy_Group_Message_Detail>(this.detach_Robot_Spy_Group_Message_Details));
 			this._Robot_Spy_Group = default(EntityRef<Robot_Spy_Group>);
-			this._Service_Robot = default(EntityRef<Service_Robot>);
 			this._Robot = default(EntityRef<Robot>);
+			this._Service_Robot = default(EntityRef<Service_Robot>);
 			OnCreated();
 		}
 		
@@ -17119,8 +16175,8 @@ namespace System.RoboTech.Data
 			{
 				if ((this._RSPG_ROBO_RBID != value))
 				{
-					if (((this._Robot_Spy_Group.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue) 
-								|| this._Robot.HasLoadedOrAssignedValue))
+					if (((this._Robot_Spy_Group.HasLoadedOrAssignedValue || this._Robot.HasLoadedOrAssignedValue) 
+								|| this._Service_Robot.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -17570,6 +16626,40 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Robot_Spy_Group_Message", Storage="_Robot", ThisKey="RSPG_ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
+		public Robot Robot
+		{
+			get
+			{
+				return this._Robot.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot.Entity = null;
+						previousValue.Robot_Spy_Group_Messages.Remove(this);
+					}
+					this._Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Robot_Spy_Group_Messages.Add(this);
+						this._RSPG_ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._RSPG_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Robot_Spy_Group_Message", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,RSPG_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
 		public Service_Robot Service_Robot
 		{
@@ -17602,40 +16692,6 @@ namespace System.RoboTech.Data
 						this._RSPG_ROBO_RBID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service_Robot");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Robot_Spy_Group_Message", Storage="_Robot", ThisKey="RSPG_ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
-		public Robot Robot
-		{
-			get
-			{
-				return this._Robot.Entity;
-			}
-			set
-			{
-				Robot previousValue = this._Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Robot.Entity = null;
-						previousValue.Robot_Spy_Group_Messages.Remove(this);
-					}
-					this._Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Robot_Spy_Group_Messages.Add(this);
-						this._RSPG_ROBO_RBID = value.RBID;
-					}
-					else
-					{
-						this._RSPG_ROBO_RBID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Robot");
 				}
 			}
 		}
@@ -17729,13 +16785,13 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Send_Advertising> _Send_Advertisings;
 		
-		private EntitySet<Service_Robot> _Service_Robots;
-		
 		private EntitySet<Order> _Orders;
 		
 		private EntitySet<Robot_Spy_Group> _Robot_Spy_Groups;
 		
 		private EntitySet<Robot_Spy_Group_Message> _Robot_Spy_Group_Messages;
+		
+		private EntitySet<Service_Robot> _Service_Robots;
 		
 		private EntityRef<Organ> _Organ;
 		
@@ -17788,10 +16844,10 @@ namespace System.RoboTech.Data
 			this._Organ_Descriptions = new EntitySet<Organ_Description>(new Action<Organ_Description>(this.attach_Organ_Descriptions), new Action<Organ_Description>(this.detach_Organ_Descriptions));
 			this._Robot_Imports = new EntitySet<Robot_Import>(new Action<Robot_Import>(this.attach_Robot_Imports), new Action<Robot_Import>(this.detach_Robot_Imports));
 			this._Send_Advertisings = new EntitySet<Send_Advertising>(new Action<Send_Advertising>(this.attach_Send_Advertisings), new Action<Send_Advertising>(this.detach_Send_Advertisings));
-			this._Service_Robots = new EntitySet<Service_Robot>(new Action<Service_Robot>(this.attach_Service_Robots), new Action<Service_Robot>(this.detach_Service_Robots));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Robot_Spy_Groups = new EntitySet<Robot_Spy_Group>(new Action<Robot_Spy_Group>(this.attach_Robot_Spy_Groups), new Action<Robot_Spy_Group>(this.detach_Robot_Spy_Groups));
 			this._Robot_Spy_Group_Messages = new EntitySet<Robot_Spy_Group_Message>(new Action<Robot_Spy_Group_Message>(this.attach_Robot_Spy_Group_Messages), new Action<Robot_Spy_Group_Message>(this.detach_Robot_Spy_Group_Messages));
+			this._Service_Robots = new EntitySet<Service_Robot>(new Action<Service_Robot>(this.attach_Service_Robots), new Action<Service_Robot>(this.detach_Service_Robots));
 			this._Organ = default(EntityRef<Organ>);
 			OnCreated();
 		}
@@ -18237,19 +17293,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Service_Robot", Storage="_Service_Robots", ThisKey="RBID", OtherKey="ROBO_RBID")]
-		public EntitySet<Service_Robot> Service_Robots
-		{
-			get
-			{
-				return this._Service_Robots;
-			}
-			set
-			{
-				this._Service_Robots.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Order", Storage="_Orders", ThisKey="RBID", OtherKey="SRBT_ROBO_RBID")]
 		public EntitySet<Order> Orders
 		{
@@ -18286,6 +17329,19 @@ namespace System.RoboTech.Data
 			set
 			{
 				this._Robot_Spy_Group_Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Service_Robot", Storage="_Service_Robots", ThisKey="RBID", OtherKey="ROBO_RBID")]
+		public EntitySet<Service_Robot> Service_Robots
+		{
+			get
+			{
+				return this._Service_Robots;
+			}
+			set
+			{
+				this._Service_Robots.Assign(value);
 			}
 		}
 		
@@ -18451,18 +17507,6 @@ namespace System.RoboTech.Data
 			entity.Robot = null;
 		}
 		
-		private void attach_Service_Robots(Service_Robot entity)
-		{
-			this.SendPropertyChanging();
-			entity.Robot = this;
-		}
-		
-		private void detach_Service_Robots(Service_Robot entity)
-		{
-			this.SendPropertyChanging();
-			entity.Robot = null;
-		}
-		
 		private void attach_Orders(Order entity)
 		{
 			this.SendPropertyChanging();
@@ -18494,6 +17538,18 @@ namespace System.RoboTech.Data
 		}
 		
 		private void detach_Robot_Spy_Group_Messages(Robot_Spy_Group_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = null;
+		}
+		
+		private void attach_Service_Robots(Service_Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = this;
+		}
+		
+		private void detach_Service_Robots(Service_Robot entity)
 		{
 			this.SendPropertyChanging();
 			entity.Robot = null;
@@ -18550,9 +17606,9 @@ namespace System.RoboTech.Data
 		
 		private EntityRef<Order_Detail> _Order_Detail;
 		
-		private EntityRef<Service_Robot> _Service_Robot;
-		
 		private EntityRef<Service_Robot_Message> _Service_Robot_Message;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -18605,8 +17661,8 @@ namespace System.RoboTech.Data
 		public Service_Robot_Replay_Message()
 		{
 			this._Order_Detail = default(EntityRef<Order_Detail>);
-			this._Service_Robot = default(EntityRef<Service_Robot>);
 			this._Service_Robot_Message = default(EntityRef<Service_Robot_Message>);
+			this._Service_Robot = default(EntityRef<Service_Robot>);
 			OnCreated();
 		}
 		
@@ -18621,7 +17677,7 @@ namespace System.RoboTech.Data
 			{
 				if ((this._SRBT_SERV_FILE_NO != value))
 				{
-					if ((this._Service_Robot.HasLoadedOrAssignedValue || this._Service_Robot_Message.HasLoadedOrAssignedValue))
+					if ((this._Service_Robot_Message.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -18645,7 +17701,7 @@ namespace System.RoboTech.Data
 			{
 				if ((this._SRBT_ROBO_RBID != value))
 				{
-					if ((this._Service_Robot.HasLoadedOrAssignedValue || this._Service_Robot_Message.HasLoadedOrAssignedValue))
+					if ((this._Service_Robot_Message.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -19086,42 +18142,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Replay_Message", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
-		public Service_Robot Service_Robot
-		{
-			get
-			{
-				return this._Service_Robot.Entity;
-			}
-			set
-			{
-				Service_Robot previousValue = this._Service_Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service_Robot.Entity = null;
-						previousValue.Service_Robot_Replay_Messages.Remove(this);
-					}
-					this._Service_Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robot_Replay_Messages.Add(this);
-						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
-						this._SRBT_ROBO_RBID = value.ROBO_RBID;
-					}
-					else
-					{
-						this._SRBT_SERV_FILE_NO = default(Nullable<long>);
-						this._SRBT_ROBO_RBID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Service_Robot");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Message_Service_Robot_Replay_Message", Storage="_Service_Robot_Message", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID,SRMG_RWNO", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID,RWNO", IsForeignKey=true)]
 		public Service_Robot_Message Service_Robot_Message
 		{
@@ -19160,6 +18180,42 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Replay_Message", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
+		public Service_Robot Service_Robot
+		{
+			get
+			{
+				return this._Service_Robot.Entity;
+			}
+			set
+			{
+				Service_Robot previousValue = this._Service_Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service_Robot.Entity = null;
+						previousValue.Service_Robot_Replay_Messages.Remove(this);
+					}
+					this._Service_Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robot_Replay_Messages.Add(this);
+						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
+						this._SRBT_ROBO_RBID = value.ROBO_RBID;
+					}
+					else
+					{
+						this._SRBT_SERV_FILE_NO = default(Nullable<long>);
+						this._SRBT_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Service_Robot");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -19178,6 +18234,1100 @@ namespace System.RoboTech.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Robot")]
+	public partial class Service_Robot : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _SERV_FILE_NO;
+		
+		private long _ROBO_RBID;
+		
+		private System.Nullable<long> _GRPH_GHID;
+		
+		private System.Nullable<int> _SRPB_RWNO;
+		
+		private string _STAT;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private string _CELL_PHON;
+		
+		private System.Nullable<double> _CORD_X;
+		
+		private System.Nullable<double> _CORD_Y;
+		
+		private string _SERV_ADRS;
+		
+		private string _NATL_CODE;
+		
+		private string _NAME;
+		
+		private System.Nullable<System.DateTime> _JOIN_DATE;
+		
+		private string _REGN_PRVN_CNTY_CODE;
+		
+		private string _REGN_PRVN_CODE;
+		
+		private string _REGN_CODE;
+		
+		private System.Nullable<long> _RDUS_SRCH;
+		
+		private System.Nullable<long> _REF_CHAT_ID;
+		
+		private System.Nullable<System.DateTime> _EXPR_DATE;
+		
+		private string _REAL_FRST_NAME;
+		
+		private string _REAL_LAST_NAME;
+		
+		private string _COMP_NAME;
+		
+		private string _OTHR_CELL_PHON;
+		
+		private string _OTHR_SERV_ADDR;
+		
+		private string _SRBT_DESC;
+		
+		private EntitySet<Service_Robot_Public> _Service_Robot_Publics;
+		
+		private EntitySet<Service_Robot_Visit> _Service_Robot_Visits;
+		
+		private EntitySet<Service_Robot_Group> _Service_Robot_Groups;
+		
+		private EntitySet<Service_Robot_Upload> _Service_Robot_Uploads;
+		
+		private EntitySet<Service_Robot_Message> _Service_Robot_Messages;
+		
+		private EntitySet<Service_Robot_Send_Advertising> _Service_Robot_Send_Advertisings;
+		
+		private EntitySet<Order> _Orders;
+		
+		private EntitySet<Personal_Robot_Job_Service_Robot> _Personal_Robot_Job_Service_Robots;
+		
+		private EntitySet<Robot_Spy_Group_Message> _Robot_Spy_Group_Messages;
+		
+		private EntitySet<Service_Robot_Replay_Message> _Service_Robot_Replay_Messages;
+		
+		private EntityRef<Group_Header> _Group_Header;
+		
+		private EntityRef<Region> _Region;
+		
+		private EntityRef<Robot> _Robot;
+		
+		private EntityRef<Service> _Service;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSERV_FILE_NOChanging(long value);
+    partial void OnSERV_FILE_NOChanged();
+    partial void OnROBO_RBIDChanging(long value);
+    partial void OnROBO_RBIDChanged();
+    partial void OnGRPH_GHIDChanging(System.Nullable<long> value);
+    partial void OnGRPH_GHIDChanged();
+    partial void OnSRPB_RWNOChanging(System.Nullable<int> value);
+    partial void OnSRPB_RWNOChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnCELL_PHONChanging(string value);
+    partial void OnCELL_PHONChanged();
+    partial void OnCORD_XChanging(System.Nullable<double> value);
+    partial void OnCORD_XChanged();
+    partial void OnCORD_YChanging(System.Nullable<double> value);
+    partial void OnCORD_YChanged();
+    partial void OnSERV_ADRSChanging(string value);
+    partial void OnSERV_ADRSChanged();
+    partial void OnNATL_CODEChanging(string value);
+    partial void OnNATL_CODEChanged();
+    partial void OnNAMEChanging(string value);
+    partial void OnNAMEChanged();
+    partial void OnJOIN_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnJOIN_DATEChanged();
+    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
+    partial void OnREGN_PRVN_CNTY_CODEChanged();
+    partial void OnREGN_PRVN_CODEChanging(string value);
+    partial void OnREGN_PRVN_CODEChanged();
+    partial void OnREGN_CODEChanging(string value);
+    partial void OnREGN_CODEChanged();
+    partial void OnRDUS_SRCHChanging(System.Nullable<long> value);
+    partial void OnRDUS_SRCHChanged();
+    partial void OnREF_CHAT_IDChanging(System.Nullable<long> value);
+    partial void OnREF_CHAT_IDChanged();
+    partial void OnEXPR_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnEXPR_DATEChanged();
+    partial void OnREAL_FRST_NAMEChanging(string value);
+    partial void OnREAL_FRST_NAMEChanged();
+    partial void OnREAL_LAST_NAMEChanging(string value);
+    partial void OnREAL_LAST_NAMEChanged();
+    partial void OnCOMP_NAMEChanging(string value);
+    partial void OnCOMP_NAMEChanged();
+    partial void OnOTHR_CELL_PHONChanging(string value);
+    partial void OnOTHR_CELL_PHONChanged();
+    partial void OnOTHR_SERV_ADDRChanging(string value);
+    partial void OnOTHR_SERV_ADDRChanged();
+    partial void OnSRBT_DESCChanging(string value);
+    partial void OnSRBT_DESCChanged();
+    #endregion
+		
+		public Service_Robot()
+		{
+			this._Service_Robot_Publics = new EntitySet<Service_Robot_Public>(new Action<Service_Robot_Public>(this.attach_Service_Robot_Publics), new Action<Service_Robot_Public>(this.detach_Service_Robot_Publics));
+			this._Service_Robot_Visits = new EntitySet<Service_Robot_Visit>(new Action<Service_Robot_Visit>(this.attach_Service_Robot_Visits), new Action<Service_Robot_Visit>(this.detach_Service_Robot_Visits));
+			this._Service_Robot_Groups = new EntitySet<Service_Robot_Group>(new Action<Service_Robot_Group>(this.attach_Service_Robot_Groups), new Action<Service_Robot_Group>(this.detach_Service_Robot_Groups));
+			this._Service_Robot_Uploads = new EntitySet<Service_Robot_Upload>(new Action<Service_Robot_Upload>(this.attach_Service_Robot_Uploads), new Action<Service_Robot_Upload>(this.detach_Service_Robot_Uploads));
+			this._Service_Robot_Messages = new EntitySet<Service_Robot_Message>(new Action<Service_Robot_Message>(this.attach_Service_Robot_Messages), new Action<Service_Robot_Message>(this.detach_Service_Robot_Messages));
+			this._Service_Robot_Send_Advertisings = new EntitySet<Service_Robot_Send_Advertising>(new Action<Service_Robot_Send_Advertising>(this.attach_Service_Robot_Send_Advertisings), new Action<Service_Robot_Send_Advertising>(this.detach_Service_Robot_Send_Advertisings));
+			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Personal_Robot_Job_Service_Robots = new EntitySet<Personal_Robot_Job_Service_Robot>(new Action<Personal_Robot_Job_Service_Robot>(this.attach_Personal_Robot_Job_Service_Robots), new Action<Personal_Robot_Job_Service_Robot>(this.detach_Personal_Robot_Job_Service_Robots));
+			this._Robot_Spy_Group_Messages = new EntitySet<Robot_Spy_Group_Message>(new Action<Robot_Spy_Group_Message>(this.attach_Robot_Spy_Group_Messages), new Action<Robot_Spy_Group_Message>(this.detach_Robot_Spy_Group_Messages));
+			this._Service_Robot_Replay_Messages = new EntitySet<Service_Robot_Replay_Message>(new Action<Service_Robot_Replay_Message>(this.attach_Service_Robot_Replay_Messages), new Action<Service_Robot_Replay_Message>(this.detach_Service_Robot_Replay_Messages));
+			this._Group_Header = default(EntityRef<Group_Header>);
+			this._Region = default(EntityRef<Region>);
+			this._Robot = default(EntityRef<Robot>);
+			this._Service = default(EntityRef<Service>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long SERV_FILE_NO
+		{
+			get
+			{
+				return this._SERV_FILE_NO;
+			}
+			set
+			{
+				if ((this._SERV_FILE_NO != value))
+				{
+					if (this._Service.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSERV_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_FILE_NO = value;
+					this.SendPropertyChanged("SERV_FILE_NO");
+					this.OnSERV_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long ROBO_RBID
+		{
+			get
+			{
+				return this._ROBO_RBID;
+			}
+			set
+			{
+				if ((this._ROBO_RBID != value))
+				{
+					if (this._Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._ROBO_RBID = value;
+					this.SendPropertyChanged("ROBO_RBID");
+					this.OnROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRPH_GHID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> GRPH_GHID
+		{
+			get
+			{
+				return this._GRPH_GHID;
+			}
+			set
+			{
+				if ((this._GRPH_GHID != value))
+				{
+					if (this._Group_Header.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGRPH_GHIDChanging(value);
+					this.SendPropertyChanging();
+					this._GRPH_GHID = value;
+					this.SendPropertyChanged("GRPH_GHID");
+					this.OnGRPH_GHIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRPB_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> SRPB_RWNO
+		{
+			get
+			{
+				return this._SRPB_RWNO;
+			}
+			set
+			{
+				if ((this._SRPB_RWNO != value))
+				{
+					this.OnSRPB_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._SRPB_RWNO = value;
+					this.SendPropertyChanged("SRPB_RWNO");
+					this.OnSRPB_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(13)", UpdateCheck=UpdateCheck.Never)]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this.OnCELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._CELL_PHON = value;
+					this.SendPropertyChanged("CELL_PHON");
+					this.OnCELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> CORD_X
+		{
+			get
+			{
+				return this._CORD_X;
+			}
+			set
+			{
+				if ((this._CORD_X != value))
+				{
+					this.OnCORD_XChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_X = value;
+					this.SendPropertyChanged("CORD_X");
+					this.OnCORD_XChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> CORD_Y
+		{
+			get
+			{
+				return this._CORD_Y;
+			}
+			set
+			{
+				if ((this._CORD_Y != value))
+				{
+					this.OnCORD_YChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_Y = value;
+					this.SendPropertyChanged("CORD_Y");
+					this.OnCORD_YChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_ADRS", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string SERV_ADRS
+		{
+			get
+			{
+				return this._SERV_ADRS;
+			}
+			set
+			{
+				if ((this._SERV_ADRS != value))
+				{
+					this.OnSERV_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_ADRS = value;
+					this.SendPropertyChanged("SERV_ADRS");
+					this.OnSERV_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string NATL_CODE
+		{
+			get
+			{
+				return this._NATL_CODE;
+			}
+			set
+			{
+				if ((this._NATL_CODE != value))
+				{
+					this.OnNATL_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._NATL_CODE = value;
+					this.SendPropertyChanged("NATL_CODE");
+					this.OnNATL_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this.OnNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._NAME = value;
+					this.SendPropertyChanged("NAME");
+					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JOIN_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> JOIN_DATE
+		{
+			get
+			{
+				return this._JOIN_DATE;
+			}
+			set
+			{
+				if ((this._JOIN_DATE != value))
+				{
+					this.OnJOIN_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._JOIN_DATE = value;
+					this.SendPropertyChanged("JOIN_DATE");
+					this.OnJOIN_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string REGN_PRVN_CNTY_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CNTY_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CNTY_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CNTY_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CNTY_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
+					this.OnREGN_PRVN_CNTY_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string REGN_PRVN_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CODE");
+					this.OnREGN_PRVN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string REGN_CODE
+		{
+			get
+			{
+				return this._REGN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_CODE = value;
+					this.SendPropertyChanged("REGN_CODE");
+					this.OnREGN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RDUS_SRCH", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> RDUS_SRCH
+		{
+			get
+			{
+				return this._RDUS_SRCH;
+			}
+			set
+			{
+				if ((this._RDUS_SRCH != value))
+				{
+					this.OnRDUS_SRCHChanging(value);
+					this.SendPropertyChanging();
+					this._RDUS_SRCH = value;
+					this.SendPropertyChanged("RDUS_SRCH");
+					this.OnRDUS_SRCHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> REF_CHAT_ID
+		{
+			get
+			{
+				return this._REF_CHAT_ID;
+			}
+			set
+			{
+				if ((this._REF_CHAT_ID != value))
+				{
+					this.OnREF_CHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._REF_CHAT_ID = value;
+					this.SendPropertyChanged("REF_CHAT_ID");
+					this.OnREF_CHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EXPR_DATE
+		{
+			get
+			{
+				return this._EXPR_DATE;
+			}
+			set
+			{
+				if ((this._EXPR_DATE != value))
+				{
+					this.OnEXPR_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPR_DATE = value;
+					this.SendPropertyChanged("EXPR_DATE");
+					this.OnEXPR_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REAL_FRST_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string REAL_FRST_NAME
+		{
+			get
+			{
+				return this._REAL_FRST_NAME;
+			}
+			set
+			{
+				if ((this._REAL_FRST_NAME != value))
+				{
+					this.OnREAL_FRST_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._REAL_FRST_NAME = value;
+					this.SendPropertyChanged("REAL_FRST_NAME");
+					this.OnREAL_FRST_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REAL_LAST_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string REAL_LAST_NAME
+		{
+			get
+			{
+				return this._REAL_LAST_NAME;
+			}
+			set
+			{
+				if ((this._REAL_LAST_NAME != value))
+				{
+					this.OnREAL_LAST_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._REAL_LAST_NAME = value;
+					this.SendPropertyChanged("REAL_LAST_NAME");
+					this.OnREAL_LAST_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string COMP_NAME
+		{
+			get
+			{
+				return this._COMP_NAME;
+			}
+			set
+			{
+				if ((this._COMP_NAME != value))
+				{
+					this.OnCOMP_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_NAME = value;
+					this.SendPropertyChanged("COMP_NAME");
+					this.OnCOMP_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTHR_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string OTHR_CELL_PHON
+		{
+			get
+			{
+				return this._OTHR_CELL_PHON;
+			}
+			set
+			{
+				if ((this._OTHR_CELL_PHON != value))
+				{
+					this.OnOTHR_CELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._OTHR_CELL_PHON = value;
+					this.SendPropertyChanged("OTHR_CELL_PHON");
+					this.OnOTHR_CELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTHR_SERV_ADDR", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string OTHR_SERV_ADDR
+		{
+			get
+			{
+				return this._OTHR_SERV_ADDR;
+			}
+			set
+			{
+				if ((this._OTHR_SERV_ADDR != value))
+				{
+					this.OnOTHR_SERV_ADDRChanging(value);
+					this.SendPropertyChanging();
+					this._OTHR_SERV_ADDR = value;
+					this.SendPropertyChanged("OTHR_SERV_ADDR");
+					this.OnOTHR_SERV_ADDRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_DESC", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string SRBT_DESC
+		{
+			get
+			{
+				return this._SRBT_DESC;
+			}
+			set
+			{
+				if ((this._SRBT_DESC != value))
+				{
+					this.OnSRBT_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_DESC = value;
+					this.SendPropertyChanged("SRBT_DESC");
+					this.OnSRBT_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Public", Storage="_Service_Robot_Publics", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Public> Service_Robot_Publics
+		{
+			get
+			{
+				return this._Service_Robot_Publics;
+			}
+			set
+			{
+				this._Service_Robot_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Visit", Storage="_Service_Robot_Visits", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRRB_SERV_FILE_NO,SRRB_ROBO_RBID")]
+		public EntitySet<Service_Robot_Visit> Service_Robot_Visits
+		{
+			get
+			{
+				return this._Service_Robot_Visits;
+			}
+			set
+			{
+				this._Service_Robot_Visits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Group", Storage="_Service_Robot_Groups", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Group> Service_Robot_Groups
+		{
+			get
+			{
+				return this._Service_Robot_Groups;
+			}
+			set
+			{
+				this._Service_Robot_Groups.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Upload", Storage="_Service_Robot_Uploads", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Upload> Service_Robot_Uploads
+		{
+			get
+			{
+				return this._Service_Robot_Uploads;
+			}
+			set
+			{
+				this._Service_Robot_Uploads.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Message", Storage="_Service_Robot_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Message> Service_Robot_Messages
+		{
+			get
+			{
+				return this._Service_Robot_Messages;
+			}
+			set
+			{
+				this._Service_Robot_Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Send_Advertising", Storage="_Service_Robot_Send_Advertisings", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Send_Advertising> Service_Robot_Send_Advertisings
+		{
+			get
+			{
+				return this._Service_Robot_Send_Advertisings;
+			}
+			set
+			{
+				this._Service_Robot_Send_Advertisings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Order", Storage="_Orders", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Order> Orders
+		{
+			get
+			{
+				return this._Orders;
+			}
+			set
+			{
+				this._Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Personal_Robot_Job_Service_Robot", Storage="_Personal_Robot_Job_Service_Robots", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Personal_Robot_Job_Service_Robot> Personal_Robot_Job_Service_Robots
+		{
+			get
+			{
+				return this._Personal_Robot_Job_Service_Robots;
+			}
+			set
+			{
+				this._Personal_Robot_Job_Service_Robots.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Robot_Spy_Group_Message", Storage="_Robot_Spy_Group_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,RSPG_ROBO_RBID")]
+		public EntitySet<Robot_Spy_Group_Message> Robot_Spy_Group_Messages
+		{
+			get
+			{
+				return this._Robot_Spy_Group_Messages;
+			}
+			set
+			{
+				this._Robot_Spy_Group_Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Replay_Message", Storage="_Service_Robot_Replay_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Replay_Message> Service_Robot_Replay_Messages
+		{
+			get
+			{
+				return this._Service_Robot_Replay_Messages;
+			}
+			set
+			{
+				this._Service_Robot_Replay_Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Service_Robot", Storage="_Group_Header", ThisKey="GRPH_GHID", OtherKey="GHID", IsForeignKey=true)]
+		public Group_Header Group_Header
+		{
+			get
+			{
+				return this._Group_Header.Entity;
+			}
+			set
+			{
+				Group_Header previousValue = this._Group_Header.Entity;
+				if (((previousValue != value) 
+							|| (this._Group_Header.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group_Header.Entity = null;
+						previousValue.Service_Robots.Remove(this);
+					}
+					this._Group_Header.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robots.Add(this);
+						this._GRPH_GHID = value.GHID;
+					}
+					else
+					{
+						this._GRPH_GHID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Group_Header");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Service_Robot", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
+		public Region Region
+		{
+			get
+			{
+				return this._Region.Entity;
+			}
+			set
+			{
+				Region previousValue = this._Region.Entity;
+				if (((previousValue != value) 
+							|| (this._Region.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Region.Entity = null;
+						previousValue.Service_Robots.Remove(this);
+					}
+					this._Region.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robots.Add(this);
+						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
+						this._REGN_PRVN_CODE = value.PRVN_CODE;
+						this._REGN_CODE = value.CODE;
+					}
+					else
+					{
+						this._REGN_PRVN_CNTY_CODE = default(string);
+						this._REGN_PRVN_CODE = default(string);
+						this._REGN_CODE = default(string);
+					}
+					this.SendPropertyChanged("Region");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Service_Robot", Storage="_Robot", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
+		public Robot Robot
+		{
+			get
+			{
+				return this._Robot.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot.Entity = null;
+						previousValue.Service_Robots.Remove(this);
+					}
+					this._Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robots.Add(this);
+						this._ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._ROBO_RBID = default(long);
+					}
+					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Service_Robot", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Service Service
+		{
+			get
+			{
+				return this._Service.Entity;
+			}
+			set
+			{
+				Service previousValue = this._Service.Entity;
+				if (((previousValue != value) 
+							|| (this._Service.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service.Entity = null;
+						previousValue.Service_Robots.Remove(this);
+					}
+					this._Service.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robots.Add(this);
+						this._SERV_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._SERV_FILE_NO = default(long);
+					}
+					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Service_Robot_Publics(Service_Robot_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Publics(Service_Robot_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Service_Robot_Visits(Service_Robot_Visit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Visits(Service_Robot_Visit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Service_Robot_Groups(Service_Robot_Group entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Groups(Service_Robot_Group entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Service_Robot_Uploads(Service_Robot_Upload entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Uploads(Service_Robot_Upload entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Service_Robot_Messages(Service_Robot_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Messages(Service_Robot_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Service_Robot_Send_Advertisings(Service_Robot_Send_Advertising entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Send_Advertisings(Service_Robot_Send_Advertising entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Personal_Robot_Job_Service_Robots(Personal_Robot_Job_Service_Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Personal_Robot_Job_Service_Robots(Personal_Robot_Job_Service_Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Robot_Spy_Group_Messages(Robot_Spy_Group_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Robot_Spy_Group_Messages(Robot_Spy_Group_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Service_Robot_Replay_Messages(Service_Robot_Replay_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Service_Robot_Replay_Messages(Service_Robot_Replay_Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
 		}
 	}
 	

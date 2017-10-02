@@ -93,7 +93,7 @@ namespace System.Emis.Sas.View
             access_entity.Run_Blok_U(string.Format(@"
             BEGIN
                INSERT INTO Expense (Pric, Extr_Prct, Rgro_Regl_Cycl_Year, Rgro_Regl_Code, Rgro_Row_No, Extp_Code, Actv)
-               VALUES              ({0} , {1}      , {2}                , {3}           , {4}        , {5}      , 1);
+               VALUES              ({0} , {1}      , {2}                , {3}           , {4}        , {5}      , 3);
    
                IF SQL%ROWCOUNT = 1 THEN
                   COMMIT;
@@ -115,7 +115,7 @@ namespace System.Emis.Sas.View
                UPDATE Expense
                   SET Pric = {0}
                      ,Extr_Prct = {1}
-                     ,Actv = 1
+                     ,Actv = {7}
                   WHERE
                         RGRO_REGL_CYCL_YEAR = {2}
                   AND RGRO_REGL_CODE = {3}
@@ -133,7 +133,7 @@ namespace System.Emis.Sas.View
                   WHEN OTHERS THEN
                      ROLLBACK;
             END;
-            ", pRICTextBox.Text, eXTR_PRCTTextBox.Text, RGRO["REGL_CYCL_YEAR"], RGRO["REGL_CODE"], RGRO["ROW_NO"], EXTP["CODE"], EXPN["CODE"]));
+            ", pRICTextBox.Text, eXTR_PRCTTextBox.Text, RGRO["REGL_CYCL_YEAR"], RGRO["REGL_CODE"], RGRO["ROW_NO"], EXTP["CODE"], EXPN["CODE"], EXPN["ACTV"]));
          }
 
          Totl_Expn_Txt.Text = (Convert.ToInt64(pRICTextBox.Text) + Convert.ToInt64(eXTR_PRCTTextBox.Text)).ToString("n0");

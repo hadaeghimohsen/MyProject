@@ -376,11 +376,20 @@
     <Compile Include="Ui\BaseDefination\RQRQ_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\BaseDefination\CMPH_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefination\CMPH_DFIN_F.Designer.cs">
+      <DependentUpon>CMPH_DFIN_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\BaseDefination\TMPL_DFIN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefination\TMPL_DFIN_F.Designer.cs">
       <DependentUpon>TMPL_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefination\CMPH_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefination\TMPL_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -2132,6 +2141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefination\JOBP_DFIN_F.resx">
       <DependentUpon>JOBP_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefination\CMPH_DFIN_F.resx">
+      <DependentUpon>CMPH_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefination\TMPL_DFIN_F.resx">
       <DependentUpon>TMPL_DFIN_F.cs</DependentUpon>

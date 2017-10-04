@@ -2006,12 +2006,12 @@ namespace System.CRM.Data
 		
 		private void InsertCompany(Company obj)
 		{
-			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
+			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
 		}
 		
 		private void UpdateCompany(Company obj)
 		{
-			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
+			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
 		}
 		
 		private void DeleteCompany(Company obj)
@@ -3050,6 +3050,8 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Code", DbType="VarChar(2)")] string iscp_Isca_Code, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Code", DbType="VarChar(6)")] string iscp_Code, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
@@ -3066,9 +3068,11 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_X", DbType="Float")] System.Nullable<double> bill_Addr_X, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Y", DbType="Float")] System.Nullable<double> bill_Addr_Y, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Zoom", DbType="Float")] System.Nullable<double> bill_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr", DbType="NVarChar(1000)")] string bill_Addr, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_X", DbType="Float")] System.Nullable<double> ship_Addr_X, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Y", DbType="Float")] System.Nullable<double> ship_Addr_Y, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Zoom", DbType="Float")] System.Nullable<double> ship_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr", DbType="NVarChar(1000)")] string ship_Addr, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Face_Book_Url", DbType="NVarChar(1000)")] string face_Book_Url, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Link_In_Url", DbType="NVarChar(1000)")] string link_In_Url, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Twtr_Url", DbType="NVarChar(1000)")] string twtr_Url, 
@@ -3077,7 +3081,7 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -3091,6 +3095,8 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Code", DbType="VarChar(2)")] string iscp_Isca_Code, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Code", DbType="VarChar(6)")] string iscp_Code, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
@@ -3107,9 +3113,11 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_X", DbType="Float")] System.Nullable<double> bill_Addr_X, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Y", DbType="Float")] System.Nullable<double> bill_Addr_Y, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Zoom", DbType="Float")] System.Nullable<double> bill_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr", DbType="NVarChar(1000)")] string bill_Addr, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_X", DbType="Float")] System.Nullable<double> ship_Addr_X, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Y", DbType="Float")] System.Nullable<double> ship_Addr_Y, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Zoom", DbType="Float")] System.Nullable<double> ship_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr", DbType="NVarChar(1000)")] string ship_Addr, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Face_Book_Url", DbType="NVarChar(1000)")] string face_Book_Url, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Link_In_Url", DbType="NVarChar(1000)")] string link_In_Url, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Twtr_Url", DbType="NVarChar(1000)")] string twtr_Url, 
@@ -3118,7 +3126,7 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -51604,6 +51612,10 @@ namespace System.CRM.Data
 		
 		private string _NAME;
 		
+		private System.Nullable<double> _CORD_X;
+		
+		private System.Nullable<double> _CORD_Y;
+		
 		private string _POST_ADRS;
 		
 		private string _EMAL_ADRS;
@@ -51636,11 +51648,15 @@ namespace System.CRM.Data
 		
 		private System.Nullable<double> _BILL_ADDR_ZOOM;
 		
+		private string _BILL_ADDR;
+		
 		private System.Nullable<double> _SHIP_ADDR_X;
 		
 		private System.Nullable<double> _SHIP_ADDR_Y;
 		
 		private System.Nullable<double> _SHIP_ADDR_ZOOM;
+		
+		private string _SHIP_ADDR;
 		
 		private string _DFLT_STAT;
 		
@@ -51748,6 +51764,10 @@ namespace System.CRM.Data
     partial void OnDEBT_DNRMChanged();
     partial void OnNAMEChanging(string value);
     partial void OnNAMEChanged();
+    partial void OnCORD_XChanging(System.Nullable<double> value);
+    partial void OnCORD_XChanged();
+    partial void OnCORD_YChanging(System.Nullable<double> value);
+    partial void OnCORD_YChanged();
     partial void OnPOST_ADRSChanging(string value);
     partial void OnPOST_ADRSChanged();
     partial void OnEMAL_ADRSChanging(string value);
@@ -51780,12 +51800,16 @@ namespace System.CRM.Data
     partial void OnBILL_ADDR_YChanged();
     partial void OnBILL_ADDR_ZOOMChanging(System.Nullable<double> value);
     partial void OnBILL_ADDR_ZOOMChanged();
+    partial void OnBILL_ADDRChanging(string value);
+    partial void OnBILL_ADDRChanged();
     partial void OnSHIP_ADDR_XChanging(System.Nullable<double> value);
     partial void OnSHIP_ADDR_XChanged();
     partial void OnSHIP_ADDR_YChanging(System.Nullable<double> value);
     partial void OnSHIP_ADDR_YChanged();
     partial void OnSHIP_ADDR_ZOOMChanging(System.Nullable<double> value);
     partial void OnSHIP_ADDR_ZOOMChanged();
+    partial void OnSHIP_ADDRChanging(string value);
+    partial void OnSHIP_ADDRChanged();
     partial void OnDFLT_STATChanging(string value);
     partial void OnDFLT_STATChanged();
     partial void OnFACE_BOOK_URLChanging(string value);
@@ -52049,6 +52073,46 @@ namespace System.CRM.Data
 					this._NAME = value;
 					this.SendPropertyChanged("NAME");
 					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> CORD_X
+		{
+			get
+			{
+				return this._CORD_X;
+			}
+			set
+			{
+				if ((this._CORD_X != value))
+				{
+					this.OnCORD_XChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_X = value;
+					this.SendPropertyChanged("CORD_X");
+					this.OnCORD_XChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> CORD_Y
+		{
+			get
+			{
+				return this._CORD_Y;
+			}
+			set
+			{
+				if ((this._CORD_Y != value))
+				{
+					this.OnCORD_YChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_Y = value;
+					this.SendPropertyChanged("CORD_Y");
+					this.OnCORD_YChanged();
 				}
 			}
 		}
@@ -52377,6 +52441,26 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string BILL_ADDR
+		{
+			get
+			{
+				return this._BILL_ADDR;
+			}
+			set
+			{
+				if ((this._BILL_ADDR != value))
+				{
+					this.OnBILL_ADDRChanging(value);
+					this.SendPropertyChanging();
+					this._BILL_ADDR = value;
+					this.SendPropertyChanged("BILL_ADDR");
+					this.OnBILL_ADDRChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> SHIP_ADDR_X
 		{
@@ -52433,6 +52517,26 @@ namespace System.CRM.Data
 					this._SHIP_ADDR_ZOOM = value;
 					this.SendPropertyChanged("SHIP_ADDR_ZOOM");
 					this.OnSHIP_ADDR_ZOOMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string SHIP_ADDR
+		{
+			get
+			{
+				return this._SHIP_ADDR;
+			}
+			set
+			{
+				if ((this._SHIP_ADDR != value))
+				{
+					this.OnSHIP_ADDRChanging(value);
+					this.SendPropertyChanging();
+					this._SHIP_ADDR = value;
+					this.SendPropertyChanged("SHIP_ADDR");
+					this.OnSHIP_ADDRChanged();
 				}
 			}
 		}

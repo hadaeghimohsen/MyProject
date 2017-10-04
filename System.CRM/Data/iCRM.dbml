@@ -2794,6 +2794,8 @@
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
@@ -2810,9 +2812,11 @@
       <Column Name="BILL_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="BILL_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="BILL_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="SHIP_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="SHIP_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="SHIP_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="FACE_BOOK_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LINK_IN_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
@@ -2864,6 +2868,8 @@
       <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
       <Argument Parameter="iscp_Code" Member="ISCP_CODE" />
       <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
       <Argument Parameter="post_Adrs" Member="POST_ADRS" />
       <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
       <Argument Parameter="web_Site" Member="WEB_SITE" />
@@ -2879,9 +2885,11 @@
       <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
       <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
       <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
+      <Argument Parameter="bill_Addr" Member="BILL_ADDR" />
       <Argument Parameter="ship_Addr_X" Member="SHIP_ADDR_X" />
       <Argument Parameter="ship_Addr_Y" Member="SHIP_ADDR_Y" />
       <Argument Parameter="ship_Addr_Zoom" Member="SHIP_ADDR_ZOOM" />
+      <Argument Parameter="ship_Addr" Member="SHIP_ADDR" />
       <Argument Parameter="face_Book_Url" Member="FACE_BOOK_URL" />
       <Argument Parameter="link_In_Url" Member="LINK_IN_URL" />
       <Argument Parameter="twtr_Url" Member="TWTR_URL" />
@@ -2899,6 +2907,8 @@
       <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
       <Argument Parameter="iscp_Code" Member="ISCP_CODE" />
       <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
       <Argument Parameter="post_Adrs" Member="POST_ADRS" />
       <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
       <Argument Parameter="web_Site" Member="WEB_SITE" />
@@ -2914,9 +2924,11 @@
       <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
       <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
       <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
+      <Argument Parameter="bill_Addr" Member="BILL_ADDR" />
       <Argument Parameter="ship_Addr_X" Member="SHIP_ADDR_X" />
       <Argument Parameter="ship_Addr_Y" Member="SHIP_ADDR_Y" />
       <Argument Parameter="ship_Addr_Zoom" Member="SHIP_ADDR_ZOOM" />
+      <Argument Parameter="ship_Addr" Member="SHIP_ADDR" />
       <Argument Parameter="face_Book_Url" Member="FACE_BOOK_URL" />
       <Argument Parameter="link_In_Url" Member="LINK_IN_URL" />
       <Argument Parameter="twtr_Url" Member="TWTR_URL" />
@@ -4184,6 +4196,8 @@
     <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="Iscp_Code" Parameter="iscp_Code" Type="System.String" DbType="VarChar(6)" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
     <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
@@ -4200,9 +4214,11 @@
     <Parameter Name="Bill_Addr_X" Parameter="bill_Addr_X" Type="System.Double" DbType="Float" />
     <Parameter Name="Bill_Addr_Y" Parameter="bill_Addr_Y" Type="System.Double" DbType="Float" />
     <Parameter Name="Bill_Addr_Zoom" Parameter="bill_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr" Parameter="bill_Addr" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Ship_Addr_X" Parameter="ship_Addr_X" Type="System.Double" DbType="Float" />
     <Parameter Name="Ship_Addr_Y" Parameter="ship_Addr_Y" Type="System.Double" DbType="Float" />
     <Parameter Name="Ship_Addr_Zoom" Parameter="ship_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr" Parameter="ship_Addr" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Face_Book_Url" Parameter="face_Book_Url" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Link_In_Url" Parameter="link_In_Url" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Twtr_Url" Parameter="twtr_Url" Type="System.String" DbType="NVarChar(1000)" />
@@ -4221,6 +4237,8 @@
     <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="Iscp_Code" Parameter="iscp_Code" Type="System.String" DbType="VarChar(6)" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
     <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
@@ -4237,9 +4255,11 @@
     <Parameter Name="Bill_Addr_X" Parameter="bill_Addr_X" Type="System.Double" DbType="Float" />
     <Parameter Name="Bill_Addr_Y" Parameter="bill_Addr_Y" Type="System.Double" DbType="Float" />
     <Parameter Name="Bill_Addr_Zoom" Parameter="bill_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr" Parameter="bill_Addr" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Ship_Addr_X" Parameter="ship_Addr_X" Type="System.Double" DbType="Float" />
     <Parameter Name="Ship_Addr_Y" Parameter="ship_Addr_Y" Type="System.Double" DbType="Float" />
     <Parameter Name="Ship_Addr_Zoom" Parameter="ship_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr" Parameter="ship_Addr" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Face_Book_Url" Parameter="face_Book_Url" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Link_In_Url" Parameter="link_In_Url" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Twtr_Url" Parameter="twtr_Url" Type="System.String" DbType="NVarChar(1000)" />

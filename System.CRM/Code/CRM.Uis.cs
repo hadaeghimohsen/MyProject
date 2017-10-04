@@ -93,5 +93,6 @@ namespace System.CRM.Code
       internal Ui.HistoryAction.HST_SSID_F _Hst_Ssid_f { get; set; }
       internal Ui.PublicInformation.RLAT_SINF_F _Rlat_Sinf_F { get; set; }
       internal Ui.PublicInformation.RLAT_CINF_F _Rlat_Cinf_F { get; set; }
+      internal Ui.BaseDefination.CMPH_DFIN_F _Cmph_Dfin_F { get; set; }
    }
 }

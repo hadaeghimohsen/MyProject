@@ -426,6 +426,11 @@ namespace System.CRM.Code
             if (_Rlat_Cinf_F == null)
                _Rlat_Cinf_F = new Ui.PublicInformation.RLAT_CINF_F { _DefaultGateway = this };
          }
+         else if (value == "cmph_dfin_f")
+         {
+            if (_Cmph_Dfin_F == null)
+               _Cmph_Dfin_F = new Ui.BaseDefination.CMPH_DFIN_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -2477,6 +2482,31 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "RLAT_CINF_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "RLAT_CINF_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "RLAT_CINF_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 86
+      /// </summary>
+      /// <param name="job"></param>
+      private void Cmph_Dfin_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "cmph_dfin_f"},
+                  //new Job(SendType.SelfToUserInterface, "TOL_DEAL_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "CMPH_DFIN_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "CMPH_DFIN_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "CMPH_DFIN_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

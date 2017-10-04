@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -98,7 +99,7 @@
          this.Lb_Notification = new System.Windows.Forms.Label();
          this.Notification_Butn = new System.MaxUi.RoundedButton();
          this.Serv_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.ServBs = new System.Windows.Forms.BindingSource();
+         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -169,7 +170,7 @@
          this.Mention_Butn = new System.MaxUi.RoundedButton();
          this.SendMail_Butn = new System.MaxUi.RoundedButton();
          this.User_Butn = new System.MaxUi.RoundedButton();
-         this.ToolTipInfo = new System.Windows.Forms.ToolTip();
+         this.ToolTipInfo = new System.Windows.Forms.ToolTip(this.components);
          this.InfoServ_Rm = new DevExpress.XtraBars.Ribbon.RadialMenu();
          this.HistLogc_Butn = new DevExpress.XtraBars.BarButtonItem();
          this.HistMesg_Butn = new DevExpress.XtraBars.BarButtonItem();
@@ -185,7 +186,7 @@
          this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
          this.HistFinr_Butn = new DevExpress.XtraBars.BarButtonItem();
-         this.InfoServ_Bm = new DevExpress.XtraBars.BarManager();
+         this.InfoServ_Bm = new DevExpress.XtraBars.BarManager(this.components);
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -193,6 +194,7 @@
          this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+         this.rb_cmphdfin = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Lov.Properties)).BeginInit();
@@ -301,6 +303,7 @@
          this.ribbonGroup1.Items.Add(this.rb_jobpdfin);
          this.ribbonGroup1.Items.Add(this.rb_isicdfin);
          this.ribbonGroup1.Items.Add(this.rb_tmpldfin);
+         this.ribbonGroup1.Items.Add(this.rb_cmphdfin);
          this.ribbonGroup1.Name = "ribbonGroup1";
          this.ribbonGroup1.Text = "تعاریف پایه";
          // 
@@ -1535,6 +1538,15 @@
          this.barButtonItem6.Id = 6;
          this.barButtonItem6.Name = "barButtonItem6";
          // 
+         // rb_cmphdfin
+         // 
+         this.rb_cmphdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_cmphdfin.LargeImage")));
+         this.rb_cmphdfin.Name = "rb_cmphdfin";
+         this.rb_cmphdfin.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_cmphdfin.SmallImage")));
+         this.rb_cmphdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
+         this.rb_cmphdfin.ToolTip = "شرکت ها و شعبه ها";
+         this.rb_cmphdfin.Click += new System.EventHandler(this.rb_cmphdfin_Click);
+         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1724,6 +1736,7 @@
       private C1.Win.C1Ribbon.RibbonButton rb_listdeals;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup10;
       private C1.Win.C1Ribbon.RibbonButton rb_taskappointment;
+      private C1.Win.C1Ribbon.RibbonButton rb_cmphdfin;
 
    }
 }

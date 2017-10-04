@@ -2103,6 +2103,16 @@ namespace System.CRM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1224 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1224", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGE_1243 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1243", resourceCulture);
@@ -4106,6 +4116,16 @@ namespace System.CRM.Properties {
         internal static System.Drawing.Bitmap IMAGE_1603 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1603", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1604 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1604", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

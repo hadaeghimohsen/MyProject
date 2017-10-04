@@ -232,8 +232,6 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-
-         Execute_Query();
          job.Status = StatusType.Successful;
       }      
 
@@ -246,10 +244,11 @@ namespace System.CRM.Ui.BaseDefination
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            formcaller = xinput.Attribute("formcaller").Value;
-            if (xinput.Attribute("fileno") != null)
-               fileno = xinput.Attribute("fileno").Value;
+            formcaller = xinput.Attribute("formcaller").Value;            
          }
+
+         SwitchButtonsTabPage(WellCome_Butn);
+         Execute_Query();
 
          job.Status = StatusType.Successful;
       }

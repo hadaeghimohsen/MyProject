@@ -31,7 +31,6 @@ namespace System.CRM.Ui.MasterPage
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
          ServBs.DataSource = iCRM.Services.Where(s => Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.CONF_STAT == "002");
-
       }
 
       #region basedefinition
@@ -157,6 +156,18 @@ namespace System.CRM.Ui.MasterPage
               new List<Job>
               {                  
                 new Job(SendType.Self, 69 /* Execute Tmpl_Dfin_F */),
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void rb_cmphdfin_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 86 /* Execute Cmph_Dfin_F */),
+                new Job(SendType.SelfToUserInterface, "CMPH_DFIN_F", 10 /* Execute Actn_CalF_P */)
               });
          _DefaultGateway.Gateway(_InteractWithCRM);
       }
@@ -690,5 +701,7 @@ namespace System.CRM.Ui.MasterPage
               });
          _DefaultGateway.Gateway(_InteractWithCRM);
       }
+
+      
    }
 }

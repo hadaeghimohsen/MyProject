@@ -281,6 +281,9 @@ namespace System.CRM.Code
             case 85:
                Rlat_Cinf_F(job);
                break;
+            case 86:
+               Cmph_Dfin_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -539,6 +542,9 @@ namespace System.CRM.Code
                break;
             case "RLAT_CINF_F":
                _Rlat_Cinf_F.SendRequest(job);
+               break;
+            case "CMPH_DFIN_F":
+               _Cmph_Dfin_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

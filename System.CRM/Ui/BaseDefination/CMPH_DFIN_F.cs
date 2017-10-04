@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using DevExpress.XtraEditors.Controls;
 using System.CRM.ExceptionHandlings;
 using System.IO;
+using DevExpress.XtraEditors;
 
 namespace System.CRM.Ui.BaseDefination
 {
@@ -20,6 +21,8 @@ namespace System.CRM.Ui.BaseDefination
       public CMPH_DFIN_F()
       {
          InitializeComponent();
+         Img_001.ImageVisiable = Img_002.ImageVisiable = Img_003.ImageVisiable = Img_004.ImageVisiable = Img_005.ImageVisiable =
+         Img_006.ImageVisiable = true;
       }
 
       private bool requery = false;
@@ -33,10 +36,58 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
+      List<TabPage> listTabPages;
+      private void SwitchButtonsTabPage(object sender)
+      {
+         try
+         {
+            #region Action on Buttons
+            SimpleButton butn = sender as SimpleButton;
+            var flowlayout = butn.Parent as FlowLayoutPanel;
+            foreach (SimpleButton b in flowlayout.Controls)
+            {
+               b.ForeColor = Color.FromArgb(64, 64, 64);
+            }
+            butn.ForeColor = Color.DodgerBlue;
+            #endregion
+            #region Action on TabControl
+            if (listTabPages == null)
+               listTabPages = Tb_Master.TabPages.OfType<TabPage>().ToList();
+
+            var selectedtabpage = listTabPages.Where(t => t.Tag == butn.Tag).First();
+            Tb_Master.TabPages.Clear();
+            Tb_Master.TabPages.Add(selectedtabpage);
+            #endregion
+         }
+         catch { }
+         finally { Execute_Query(); }
+      }
+
+      private void RightButns_Click(object sender, EventArgs e)
+      {
+         SwitchButtonsTabPage(sender);
+      }
+
       private void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         CmphBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.HOST_STAT == "002");
          requery = false;
+      }
+
+      private void CmphBs_ListChanged(object sender, ListChangedEventArgs e)
+      {
+         try
+         {
+            if (CmphBs.List.Count > 0)
+               CompListWelCome_Pnl.Visible = true;
+            else
+               CompListWelCome_Pnl.Visible = false;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }    
    }
 }

@@ -1476,6 +1476,9 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1205.png">
       <Link>Resources\IMAGE_1205.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1224.png">
+      <Link>Resources\IMAGE_1224.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1243.png">
       <Link>Resources\IMAGE_1243.png</Link>
     </Content>
@@ -2075,6 +2078,9 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1603.png">
       <Link>Resources\IMAGE_1603.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1604.png">
+      <Link>Resources\IMAGE_1604.png</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>

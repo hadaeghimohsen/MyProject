@@ -1408,14 +1408,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Company> Companies
-		{
-			get
-			{
-				return this.GetTable<Company>();
-			}
-		}
-		
 		public System.Data.Linq.Table<D_SDRC> D_SDRCs
 		{
 			get
@@ -1712,6 +1704,14 @@ namespace System.CRM.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Company> Companies
+		{
+			get
+			{
+				return this.GetTable<Company>();
+			}
+		}
+		
 		private void InsertIsic_Activity(Isic_Activity obj)
 		{
 			this.INS_ISCA_P(obj.FRSI_DESC, obj.ISCG_CODE, obj.CODE);
@@ -1879,21 +1879,6 @@ namespace System.CRM.Data
 			this.DEL_PYDT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)));
 		}
 		
-		private void InsertCompany(Company obj)
-		{
-			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.DFLT_STAT);
-		}
-		
-		private void UpdateCompany(Company obj)
-		{
-			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.DFLT_STAT);
-		}
-		
-		private void DeleteCompany(Company obj)
-		{
-			this.DEL_COMP_P(((System.Nullable<long>)(obj.CODE)));
-		}
-		
 		private void InsertCheck_List(Check_List obj)
 		{
 			this.INS_CKLS_P(((System.Nullable<long>)(obj.COLB_CLID)), obj.CKLS_DESC, obj.STAT, ((System.Nullable<int>)(obj.PRCT_VALU)));
@@ -2017,6 +2002,21 @@ namespace System.CRM.Data
 		private void DeleteContact_Info(Contact_Info obj)
 		{
 			this.DEL_CTIF_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertCompany(Company obj)
+		{
+			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
+		}
+		
+		private void UpdateCompany(Company obj)
+		{
+			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
+		}
+		
+		private void DeleteCompany(Company obj)
+		{
+			this.DEL_COMP_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CNCL_RQST_P")]
@@ -2732,81 +2732,6 @@ namespace System.CRM.Data
 			return ((ISingleResult<CLON_COMP_PResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_COMP_P")]
-		public int INS_COMP_P(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Iscg_Code", DbType="VarChar(2)")] string iscp_Isca_Iscg_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Code", DbType="VarChar(2)")] string iscp_Isca_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Code", DbType="VarChar(6)")] string iscp_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Desc", DbType="NVarChar(MAX)")] string comp_Desc, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regs_Date", DbType="Date")] System.Nullable<System.DateTime> regs_Date, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zip_Code", DbType="VarChar(20)")] string zip_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Logo", DbType="Image")] System.Data.Linq.Binary logo, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Econ_Code", DbType="VarChar(20)")] string econ_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strt_Time", DbType="DateTime")] System.Nullable<System.DateTime> strt_Time, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="End_Time", DbType="DateTime")] System.Nullable<System.DateTime> end_Time, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Empy_Numb", DbType="Int")] System.Nullable<int> empy_Numb, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_X", DbType="Float")] System.Nullable<double> bill_Addr_X, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Y", DbType="Float")] System.Nullable<double> bill_Addr_Y, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Zoom", DbType="Float")] System.Nullable<double> bill_Addr_Zoom, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_X", DbType="Float")] System.Nullable<double> ship_Addr_X, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Y", DbType="Float")] System.Nullable<double> ship_Addr_Y, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Zoom", DbType="Float")] System.Nullable<double> ship_Addr_Zoom, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Face_Book_Url", DbType="NVarChar(1000)")] string face_Book_Url, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Link_In_Url", DbType="NVarChar(1000)")] string link_In_Url, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Twtr_Url", DbType="NVarChar(1000)")] string twtr_Url, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, face_Book_Url, link_In_Url, twtr_Url, dflt_Stat);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_COMP_P")]
-		public int UPD_COMP_P(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Iscg_Code", DbType="VarChar(2)")] string iscp_Isca_Iscg_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Code", DbType="VarChar(2)")] string iscp_Isca_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Code", DbType="VarChar(6)")] string iscp_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Desc", DbType="NVarChar(MAX)")] string comp_Desc, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regs_Date", DbType="Date")] System.Nullable<System.DateTime> regs_Date, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zip_Code", DbType="VarChar(20)")] string zip_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Logo", DbType="Image")] System.Data.Linq.Binary logo, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Econ_Code", DbType="VarChar(20)")] string econ_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strt_Time", DbType="DateTime")] System.Nullable<System.DateTime> strt_Time, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="End_Time", DbType="DateTime")] System.Nullable<System.DateTime> end_Time, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Empy_Numb", DbType="Int")] System.Nullable<int> empy_Numb, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_X", DbType="Float")] System.Nullable<double> bill_Addr_X, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Y", DbType="Float")] System.Nullable<double> bill_Addr_Y, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Zoom", DbType="Float")] System.Nullable<double> bill_Addr_Zoom, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_X", DbType="Float")] System.Nullable<double> ship_Addr_X, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Y", DbType="Float")] System.Nullable<double> ship_Addr_Y, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Zoom", DbType="Float")] System.Nullable<double> ship_Addr_Zoom, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Face_Book_Url", DbType="NVarChar(1000)")] string face_Book_Url, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Link_In_Url", DbType="NVarChar(1000)")] string link_In_Url, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Twtr_Url", DbType="NVarChar(1000)")] string twtr_Url, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, face_Book_Url, link_In_Url, twtr_Url, dflt_Stat);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.COMP_CHNG_P")]
 		public int COMP_CHNG_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -3113,6 +3038,87 @@ namespace System.CRM.Data
 		public int INS_RLAT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Serv_File_No", DbType="BigInt")] System.Nullable<long> serv_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rlat_Serv_File_No", DbType="BigInt")] System.Nullable<long> rlat_Serv_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rlat_Comp_Code", DbType="BigInt")] System.Nullable<long> rlat_Comp_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rlt1_Apbs_Code", DbType="BigInt")] System.Nullable<long> rlt1_Apbs_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rlt2_Apbs_Code", DbType="BigInt")] System.Nullable<long> rlt2_Apbs_Code)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), serv_File_No, comp_Code, rlat_Serv_File_No, rlat_Comp_Code, rlt1_Apbs_Code, rlt2_Apbs_Code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_COMP_P")]
+		public int INS_COMP_P(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Iscg_Code", DbType="VarChar(2)")] string iscp_Isca_Iscg_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Code", DbType="VarChar(2)")] string iscp_Isca_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Code", DbType="VarChar(6)")] string iscp_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Desc", DbType="NVarChar(MAX)")] string comp_Desc, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regs_Date", DbType="Date")] System.Nullable<System.DateTime> regs_Date, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zip_Code", DbType="VarChar(20)")] string zip_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Logo", DbType="Image")] System.Data.Linq.Binary logo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Econ_Code", DbType="VarChar(20)")] string econ_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strt_Time", DbType="DateTime")] System.Nullable<System.DateTime> strt_Time, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="End_Time", DbType="DateTime")] System.Nullable<System.DateTime> end_Time, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Empy_Numb", DbType="Int")] System.Nullable<int> empy_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_X", DbType="Float")] System.Nullable<double> bill_Addr_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Y", DbType="Float")] System.Nullable<double> bill_Addr_Y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Zoom", DbType="Float")] System.Nullable<double> bill_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_X", DbType="Float")] System.Nullable<double> ship_Addr_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Y", DbType="Float")] System.Nullable<double> ship_Addr_Y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Zoom", DbType="Float")] System.Nullable<double> ship_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Face_Book_Url", DbType="NVarChar(1000)")] string face_Book_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Link_In_Url", DbType="NVarChar(1000)")] string link_In_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Twtr_Url", DbType="NVarChar(1000)")] string twtr_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cell_Phon", DbType="VarChar(11)")] string cell_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tell_Phon", DbType="VarChar(11)")] string tell_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_COMP_P")]
+		public int UPD_COMP_P(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Iscg_Code", DbType="VarChar(2)")] string iscp_Isca_Iscg_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Isca_Code", DbType="VarChar(2)")] string iscp_Isca_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Iscp_Code", DbType="VarChar(6)")] string iscp_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Desc", DbType="NVarChar(MAX)")] string comp_Desc, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regs_Date", DbType="Date")] System.Nullable<System.DateTime> regs_Date, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zip_Code", DbType="VarChar(20)")] string zip_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Logo", DbType="Image")] System.Data.Linq.Binary logo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Econ_Code", DbType="VarChar(20)")] string econ_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strt_Time", DbType="DateTime")] System.Nullable<System.DateTime> strt_Time, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="End_Time", DbType="DateTime")] System.Nullable<System.DateTime> end_Time, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Empy_Numb", DbType="Int")] System.Nullable<int> empy_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_X", DbType="Float")] System.Nullable<double> bill_Addr_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Y", DbType="Float")] System.Nullable<double> bill_Addr_Y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Addr_Zoom", DbType="Float")] System.Nullable<double> bill_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_X", DbType="Float")] System.Nullable<double> ship_Addr_X, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Y", DbType="Float")] System.Nullable<double> ship_Addr_Y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Addr_Zoom", DbType="Float")] System.Nullable<double> ship_Addr_Zoom, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Face_Book_Url", DbType="NVarChar(1000)")] string face_Book_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Link_In_Url", DbType="NVarChar(1000)")] string link_In_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Twtr_Url", DbType="NVarChar(1000)")] string twtr_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cell_Phon", DbType="VarChar(11)")] string cell_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tell_Phon", DbType="VarChar(11)")] string tell_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -3674,11 +3680,11 @@ namespace System.CRM.Data
 		
 		private EntitySet<Company_Activity> _Company_Activities;
 		
-		private EntitySet<Company> _Companies;
-		
 		private EntitySet<Service> _Services;
 		
 		private EntitySet<Service_Public> _Service_Publics;
+		
+		private EntitySet<Company> _Companies;
 		
 		private EntityRef<Isic_Activity> _Isic_Activity;
 		
@@ -3707,9 +3713,9 @@ namespace System.CRM.Data
 		public Isic_Product()
 		{
 			this._Company_Activities = new EntitySet<Company_Activity>(new Action<Company_Activity>(this.attach_Company_Activities), new Action<Company_Activity>(this.detach_Company_Activities));
-			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Services = new EntitySet<Service>(new Action<Service>(this.attach_Services), new Action<Service>(this.detach_Services));
 			this._Service_Publics = new EntitySet<Service_Public>(new Action<Service_Public>(this.attach_Service_Publics), new Action<Service_Public>(this.detach_Service_Publics));
+			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Isic_Activity = default(EntityRef<Isic_Activity>);
 			OnCreated();
 		}
@@ -3895,19 +3901,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Isic_Product_Company", Storage="_Companies", ThisKey="ISCA_ISCG_CODE,ISCA_CODE,CODE", OtherKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE")]
-		public EntitySet<Company> Companies
-		{
-			get
-			{
-				return this._Companies;
-			}
-			set
-			{
-				this._Companies.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Isic_Product_Service", Storage="_Services", ThisKey="ISCA_ISCG_CODE,ISCA_CODE,CODE", OtherKey="ISCP_ISCA_ISCG_CODE_DNRM,ISCP_ISCA_CODE_DNRM,ISCP_CODE_DNRM")]
 		public EntitySet<Service> Services
 		{
@@ -3931,6 +3924,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Service_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Isic_Product_Company", Storage="_Companies", ThisKey="ISCA_ISCG_CODE,ISCA_CODE,CODE", OtherKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE")]
+		public EntitySet<Company> Companies
+		{
+			get
+			{
+				return this._Companies;
+			}
+			set
+			{
+				this._Companies.Assign(value);
 			}
 		}
 		
@@ -4002,18 +4008,6 @@ namespace System.CRM.Data
 			entity.Isic_Product = null;
 		}
 		
-		private void attach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Isic_Product = this;
-		}
-		
-		private void detach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Isic_Product = null;
-		}
-		
 		private void attach_Services(Service entity)
 		{
 			this.SendPropertyChanging();
@@ -4033,6 +4027,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Service_Publics(Service_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Isic_Product = null;
+		}
+		
+		private void attach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Isic_Product = this;
+		}
+		
+		private void detach_Companies(Company entity)
 		{
 			this.SendPropertyChanging();
 			entity.Isic_Product = null;
@@ -4556,11 +4562,11 @@ namespace System.CRM.Data
 		
 		private EntitySet<Request_Row> _Request_Rows;
 		
-		private EntitySet<Company> _Companies;
-		
 		private EntitySet<Service> _Services;
 		
 		private EntitySet<Service_Public> _Service_Publics;
+		
+		private EntitySet<Company> _Companies;
 		
 		private EntityRef<Province> _Province;
 		
@@ -4596,9 +4602,9 @@ namespace System.CRM.Data
 			this._Expense_Cashes = new EntitySet<Expense_Cash>(new Action<Expense_Cash>(this.attach_Expense_Cashes), new Action<Expense_Cash>(this.detach_Expense_Cashes));
 			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
 			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
-			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Services = new EntitySet<Service>(new Action<Service>(this.attach_Services), new Action<Service>(this.detach_Services));
 			this._Service_Publics = new EntitySet<Service_Public>(new Action<Service_Public>(this.attach_Service_Publics), new Action<Service_Public>(this.detach_Service_Publics));
+			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Province = default(EntityRef<Province>);
 			this._Region1 = default(EntityRef<Region>);
 			OnCreated();
@@ -4848,19 +4854,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Company", Storage="_Companies", ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE")]
-		public EntitySet<Company> Companies
-		{
-			get
-			{
-				return this._Companies;
-			}
-			set
-			{
-				this._Companies.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Service", Storage="_Services", ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE")]
 		public EntitySet<Service> Services
 		{
@@ -4884,6 +4877,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Service_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Company", Storage="_Companies", ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE")]
+		public EntitySet<Company> Companies
+		{
+			get
+			{
+				return this._Companies;
+			}
+			set
+			{
+				this._Companies.Assign(value);
 			}
 		}
 		
@@ -5029,18 +5035,6 @@ namespace System.CRM.Data
 			entity.Region = null;
 		}
 		
-		private void attach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Region = this;
-		}
-		
-		private void detach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Region = null;
-		}
-		
 		private void attach_Services(Service entity)
 		{
 			this.SendPropertyChanging();
@@ -5060,6 +5054,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Service_Publics(Service_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Region = null;
+		}
+		
+		private void attach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Region = this;
+		}
+		
+		private void detach_Companies(Company entity)
 		{
 			this.SendPropertyChanging();
 			entity.Region = null;
@@ -18808,8 +18814,6 @@ namespace System.CRM.Data
 		
 		private EntitySet<Reminder> _Reminders;
 		
-		private EntitySet<Company> _Companies;
-		
 		private EntitySet<Payment> _Payments;
 		
 		private EntitySet<Mention> _Mentions;
@@ -18817,6 +18821,8 @@ namespace System.CRM.Data
 		private EntitySet<Service> _Services;
 		
 		private EntitySet<Service> _Services1;
+		
+		private EntitySet<Company> _Companies;
 		
 		private EntityRef<Region> _Region;
 		
@@ -18908,11 +18914,11 @@ namespace System.CRM.Data
 			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
 			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
 			this._Reminders = new EntitySet<Reminder>(new Action<Reminder>(this.attach_Reminders), new Action<Reminder>(this.detach_Reminders));
-			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Mentions = new EntitySet<Mention>(new Action<Mention>(this.attach_Mentions), new Action<Mention>(this.detach_Mentions));
 			this._Services = new EntitySet<Service>(new Action<Service>(this.attach_Services), new Action<Service>(this.detach_Services));
 			this._Services1 = new EntitySet<Service>(new Action<Service>(this.attach_Services1), new Action<Service>(this.detach_Services1));
+			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Region = default(EntityRef<Region>);
 			this._Request1 = default(EntityRef<Request>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
@@ -19665,19 +19671,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Company", Storage="_Companies", ThisKey="RQID", OtherKey="LAST_RQST_RQID_DNRM")]
-		public EntitySet<Company> Companies
-		{
-			get
-			{
-				return this._Companies;
-			}
-			set
-			{
-				this._Companies.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Payment", Storage="_Payments", ThisKey="RQID", OtherKey="RQST_RQID")]
 		public EntitySet<Payment> Payments
 		{
@@ -19727,6 +19720,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Services1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Company", Storage="_Companies", ThisKey="RQID", OtherKey="LAST_RQST_RQID_DNRM")]
+		public EntitySet<Company> Companies
+		{
+			get
+			{
+				return this._Companies;
+			}
+			set
+			{
+				this._Companies.Assign(value);
 			}
 		}
 		
@@ -20068,18 +20074,6 @@ namespace System.CRM.Data
 			entity.Request = null;
 		}
 		
-		private void attach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request = this;
-		}
-		
-		private void detach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request = null;
-		}
-		
 		private void attach_Payments(Payment entity)
 		{
 			this.SendPropertyChanging();
@@ -20126,6 +20120,18 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Request1 = null;
+		}
+		
+		private void attach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = this;
+		}
+		
+		private void detach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = null;
 		}
 	}
 	
@@ -29189,9 +29195,9 @@ namespace System.CRM.Data
 		
 		private EntityRef<Request_Type> _Request_Type;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Service> _Service;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -29255,8 +29261,8 @@ namespace System.CRM.Data
 			this._Request = default(EntityRef<Request>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
 			this._Request_Type = default(EntityRef<Request_Type>);
-			this._Company = default(EntityRef<Company>);
 			this._Service = default(EntityRef<Service>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -29998,40 +30004,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Request_Row", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Request_Rows.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Request_Rows.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Request_Row", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="SET NULL")]
 		public Service Service
 		{
@@ -30062,6 +30034,40 @@ namespace System.CRM.Data
 						this._SERV_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Request_Row", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Request_Rows.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Request_Rows.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -31418,1853 +31424,6 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Request_Type = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Company")]
-	public partial class Company : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _REGN_PRVN_CNTY_CODE;
-		
-		private string _REGN_PRVN_CODE;
-		
-		private string _REGN_CODE;
-		
-		private string _ISCP_ISCA_ISCG_CODE;
-		
-		private string _ISCP_ISCA_CODE;
-		
-		private string _ISCP_CODE;
-		
-		private long _CODE;
-		
-		private System.Nullable<long> _DEBT_DNRM;
-		
-		private string _NAME;
-		
-		private string _POST_ADRS;
-		
-		private string _EMAL_ADRS;
-		
-		private string _WEB_SITE;
-		
-		private System.Nullable<long> _COMP_CODE;
-		
-		private string _COMP_DESC;
-		
-		private System.Nullable<System.DateTime> _REGS_DATE;
-		
-		private string _ZIP_CODE;
-		
-		private System.Data.Linq.Binary _LOGO;
-		
-		private string _ECON_CODE;
-		
-		private System.Nullable<System.DateTime> _STRT_TIME;
-		
-		private System.Nullable<System.DateTime> _END_TIME;
-		
-		private string _TYPE;
-		
-		private System.Nullable<int> _EMPY_NUMB_DNRM;
-		
-		private System.Nullable<double> _BILL_ADDR_X;
-		
-		private System.Nullable<double> _BILL_ADDR_Y;
-		
-		private System.Nullable<double> _BILL_ADDR_ZOOM;
-		
-		private System.Nullable<double> _SHIP_ADDR_X;
-		
-		private System.Nullable<double> _SHIP_ADDR_Y;
-		
-		private System.Nullable<double> _SHIP_ADDR_ZOOM;
-		
-		private string _DFLT_STAT;
-		
-		private string _FACE_BOOK_URL;
-		
-		private string _LINK_IN_URL;
-		
-		private string _TWTR_URL;
-		
-		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
-		
-		private System.Nullable<long> _LAST_RQST_RQID_DNRM;
-		
-		private string _RECD_STAT;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Message_Broadcast> _Message_Broadcasts;
-		
-		private EntitySet<Company_Activity> _Company_Activities;
-		
-		private EntitySet<Request_Row> _Request_Rows;
-		
-		private EntitySet<Company> _Companies;
-		
-		private EntitySet<Appointment> _Appointments;
-		
-		private EntitySet<Event> _Events;
-		
-		private EntitySet<Note> _Notes;
-		
-		private EntitySet<Payment> _Payments;
-		
-		private EntitySet<Payment> _Payments1;
-		
-		private EntitySet<Send_File> _Send_Files;
-		
-		private EntitySet<Task> _Tasks;
-		
-		private EntitySet<Log_Call> _Log_Calls;
-		
-		private EntitySet<Final_Result> _Final_Results;
-		
-		private EntitySet<Tag> _Tags;
-		
-		private EntitySet<Extra_Info> _Extra_Infos;
-		
-		private EntitySet<Contact_Info> _Contact_Infos;
-		
-		private EntitySet<Weekday_Info> _Weekday_Infos;
-		
-		private EntitySet<Service> _Services;
-		
-		private EntitySet<Service_Public> _Service_Publics;
-		
-		private EntitySet<Message> _Messages;
-		
-		private EntitySet<Email> _Emails;
-		
-		private EntitySet<Relation_Info> _Relation_Infos;
-		
-		private EntitySet<Relation_Info> _Relation_Infos1;
-		
-		private EntityRef<Company> _Company1;
-		
-		private EntityRef<Isic_Product> _Isic_Product;
-		
-		private EntityRef<Region> _Region;
-		
-		private EntityRef<Request> _Request;
-		
-		private EntityRef<Service> _Service;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
-    partial void OnREGN_PRVN_CNTY_CODEChanged();
-    partial void OnREGN_PRVN_CODEChanging(string value);
-    partial void OnREGN_PRVN_CODEChanged();
-    partial void OnREGN_CODEChanging(string value);
-    partial void OnREGN_CODEChanged();
-    partial void OnISCP_ISCA_ISCG_CODEChanging(string value);
-    partial void OnISCP_ISCA_ISCG_CODEChanged();
-    partial void OnISCP_ISCA_CODEChanging(string value);
-    partial void OnISCP_ISCA_CODEChanged();
-    partial void OnISCP_CODEChanging(string value);
-    partial void OnISCP_CODEChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnDEBT_DNRMChanging(System.Nullable<long> value);
-    partial void OnDEBT_DNRMChanged();
-    partial void OnNAMEChanging(string value);
-    partial void OnNAMEChanged();
-    partial void OnPOST_ADRSChanging(string value);
-    partial void OnPOST_ADRSChanged();
-    partial void OnEMAL_ADRSChanging(string value);
-    partial void OnEMAL_ADRSChanged();
-    partial void OnWEB_SITEChanging(string value);
-    partial void OnWEB_SITEChanged();
-    partial void OnCOMP_CODEChanging(System.Nullable<long> value);
-    partial void OnCOMP_CODEChanged();
-    partial void OnCOMP_DESCChanging(string value);
-    partial void OnCOMP_DESCChanged();
-    partial void OnREGS_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnREGS_DATEChanged();
-    partial void OnZIP_CODEChanging(string value);
-    partial void OnZIP_CODEChanged();
-    partial void OnLOGOChanging(System.Data.Linq.Binary value);
-    partial void OnLOGOChanged();
-    partial void OnECON_CODEChanging(string value);
-    partial void OnECON_CODEChanged();
-    partial void OnSTRT_TIMEChanging(System.Nullable<System.DateTime> value);
-    partial void OnSTRT_TIMEChanged();
-    partial void OnEND_TIMEChanging(System.Nullable<System.DateTime> value);
-    partial void OnEND_TIMEChanged();
-    partial void OnTYPEChanging(string value);
-    partial void OnTYPEChanged();
-    partial void OnEMPY_NUMB_DNRMChanging(System.Nullable<int> value);
-    partial void OnEMPY_NUMB_DNRMChanged();
-    partial void OnBILL_ADDR_XChanging(System.Nullable<double> value);
-    partial void OnBILL_ADDR_XChanged();
-    partial void OnBILL_ADDR_YChanging(System.Nullable<double> value);
-    partial void OnBILL_ADDR_YChanged();
-    partial void OnBILL_ADDR_ZOOMChanging(System.Nullable<double> value);
-    partial void OnBILL_ADDR_ZOOMChanged();
-    partial void OnSHIP_ADDR_XChanging(System.Nullable<double> value);
-    partial void OnSHIP_ADDR_XChanged();
-    partial void OnSHIP_ADDR_YChanging(System.Nullable<double> value);
-    partial void OnSHIP_ADDR_YChanged();
-    partial void OnSHIP_ADDR_ZOOMChanging(System.Nullable<double> value);
-    partial void OnSHIP_ADDR_ZOOMChanged();
-    partial void OnDFLT_STATChanging(string value);
-    partial void OnDFLT_STATChanged();
-    partial void OnFACE_BOOK_URLChanging(string value);
-    partial void OnFACE_BOOK_URLChanged();
-    partial void OnLINK_IN_URLChanging(string value);
-    partial void OnLINK_IN_URLChanged();
-    partial void OnTWTR_URLChanging(string value);
-    partial void OnTWTR_URLChanged();
-    partial void OnLAST_SERV_FILE_NO_DNRMChanging(System.Nullable<long> value);
-    partial void OnLAST_SERV_FILE_NO_DNRMChanged();
-    partial void OnLAST_RQST_RQID_DNRMChanging(System.Nullable<long> value);
-    partial void OnLAST_RQST_RQID_DNRMChanged();
-    partial void OnRECD_STATChanging(string value);
-    partial void OnRECD_STATChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Company()
-		{
-			this._Message_Broadcasts = new EntitySet<Message_Broadcast>(new Action<Message_Broadcast>(this.attach_Message_Broadcasts), new Action<Message_Broadcast>(this.detach_Message_Broadcasts));
-			this._Company_Activities = new EntitySet<Company_Activity>(new Action<Company_Activity>(this.attach_Company_Activities), new Action<Company_Activity>(this.detach_Company_Activities));
-			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
-			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
-			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
-			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
-			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
-			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
-			this._Payments1 = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments1), new Action<Payment>(this.detach_Payments1));
-			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
-			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
-			this._Log_Calls = new EntitySet<Log_Call>(new Action<Log_Call>(this.attach_Log_Calls), new Action<Log_Call>(this.detach_Log_Calls));
-			this._Final_Results = new EntitySet<Final_Result>(new Action<Final_Result>(this.attach_Final_Results), new Action<Final_Result>(this.detach_Final_Results));
-			this._Tags = new EntitySet<Tag>(new Action<Tag>(this.attach_Tags), new Action<Tag>(this.detach_Tags));
-			this._Extra_Infos = new EntitySet<Extra_Info>(new Action<Extra_Info>(this.attach_Extra_Infos), new Action<Extra_Info>(this.detach_Extra_Infos));
-			this._Contact_Infos = new EntitySet<Contact_Info>(new Action<Contact_Info>(this.attach_Contact_Infos), new Action<Contact_Info>(this.detach_Contact_Infos));
-			this._Weekday_Infos = new EntitySet<Weekday_Info>(new Action<Weekday_Info>(this.attach_Weekday_Infos), new Action<Weekday_Info>(this.detach_Weekday_Infos));
-			this._Services = new EntitySet<Service>(new Action<Service>(this.attach_Services), new Action<Service>(this.detach_Services));
-			this._Service_Publics = new EntitySet<Service_Public>(new Action<Service_Public>(this.attach_Service_Publics), new Action<Service_Public>(this.detach_Service_Publics));
-			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
-			this._Emails = new EntitySet<Email>(new Action<Email>(this.attach_Emails), new Action<Email>(this.detach_Emails));
-			this._Relation_Infos = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos), new Action<Relation_Info>(this.detach_Relation_Infos));
-			this._Relation_Infos1 = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos1), new Action<Relation_Info>(this.detach_Relation_Infos1));
-			this._Company1 = default(EntityRef<Company>);
-			this._Isic_Product = default(EntityRef<Isic_Product>);
-			this._Region = default(EntityRef<Region>);
-			this._Request = default(EntityRef<Request>);
-			this._Service = default(EntityRef<Service>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_PRVN_CNTY_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CNTY_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CNTY_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CNTY_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CNTY_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
-					this.OnREGN_PRVN_CNTY_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_PRVN_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CODE");
-					this.OnREGN_PRVN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_CODE
-		{
-			get
-			{
-				return this._REGN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_CODE = value;
-					this.SendPropertyChanged("REGN_CODE");
-					this.OnREGN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_ISCG_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string ISCP_ISCA_ISCG_CODE
-		{
-			get
-			{
-				return this._ISCP_ISCA_ISCG_CODE;
-			}
-			set
-			{
-				if ((this._ISCP_ISCA_ISCG_CODE != value))
-				{
-					if (this._Isic_Product.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnISCP_ISCA_ISCG_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ISCP_ISCA_ISCG_CODE = value;
-					this.SendPropertyChanged("ISCP_ISCA_ISCG_CODE");
-					this.OnISCP_ISCA_ISCG_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string ISCP_ISCA_CODE
-		{
-			get
-			{
-				return this._ISCP_ISCA_CODE;
-			}
-			set
-			{
-				if ((this._ISCP_ISCA_CODE != value))
-				{
-					if (this._Isic_Product.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnISCP_ISCA_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ISCP_ISCA_CODE = value;
-					this.SendPropertyChanged("ISCP_ISCA_CODE");
-					this.OnISCP_ISCA_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_CODE", DbType="VarChar(6)", UpdateCheck=UpdateCheck.Never)]
-		public string ISCP_CODE
-		{
-			get
-			{
-				return this._ISCP_CODE;
-			}
-			set
-			{
-				if ((this._ISCP_CODE != value))
-				{
-					if (this._Isic_Product.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnISCP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ISCP_CODE = value;
-					this.SendPropertyChanged("ISCP_CODE");
-					this.OnISCP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DEBT_DNRM
-		{
-			get
-			{
-				return this._DEBT_DNRM;
-			}
-			set
-			{
-				if ((this._DEBT_DNRM != value))
-				{
-					this.OnDEBT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DEBT_DNRM = value;
-					this.SendPropertyChanged("DEBT_DNRM");
-					this.OnDEBT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this.OnNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._NAME = value;
-					this.SendPropertyChanged("NAME");
-					this.OnNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string POST_ADRS
-		{
-			get
-			{
-				return this._POST_ADRS;
-			}
-			set
-			{
-				if ((this._POST_ADRS != value))
-				{
-					this.OnPOST_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._POST_ADRS = value;
-					this.SendPropertyChanged("POST_ADRS");
-					this.OnPOST_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this.OnEMAL_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._EMAL_ADRS = value;
-					this.SendPropertyChanged("EMAL_ADRS");
-					this.OnEMAL_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string WEB_SITE
-		{
-			get
-			{
-				return this._WEB_SITE;
-			}
-			set
-			{
-				if ((this._WEB_SITE != value))
-				{
-					this.OnWEB_SITEChanging(value);
-					this.SendPropertyChanging();
-					this._WEB_SITE = value;
-					this.SendPropertyChanged("WEB_SITE");
-					this.OnWEB_SITEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> COMP_CODE
-		{
-			get
-			{
-				return this._COMP_CODE;
-			}
-			set
-			{
-				if ((this._COMP_CODE != value))
-				{
-					if (this._Company1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCOMP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._COMP_CODE = value;
-					this.SendPropertyChanged("COMP_CODE");
-					this.OnCOMP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_DESC", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string COMP_DESC
-		{
-			get
-			{
-				return this._COMP_DESC;
-			}
-			set
-			{
-				if ((this._COMP_DESC != value))
-				{
-					this.OnCOMP_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._COMP_DESC = value;
-					this.SendPropertyChanged("COMP_DESC");
-					this.OnCOMP_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGS_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> REGS_DATE
-		{
-			get
-			{
-				return this._REGS_DATE;
-			}
-			set
-			{
-				if ((this._REGS_DATE != value))
-				{
-					this.OnREGS_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._REGS_DATE = value;
-					this.SendPropertyChanged("REGS_DATE");
-					this.OnREGS_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP_CODE", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string ZIP_CODE
-		{
-			get
-			{
-				return this._ZIP_CODE;
-			}
-			set
-			{
-				if ((this._ZIP_CODE != value))
-				{
-					this.OnZIP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ZIP_CODE = value;
-					this.SendPropertyChanged("ZIP_CODE");
-					this.OnZIP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary LOGO
-		{
-			get
-			{
-				return this._LOGO;
-			}
-			set
-			{
-				if ((this._LOGO != value))
-				{
-					this.OnLOGOChanging(value);
-					this.SendPropertyChanging();
-					this._LOGO = value;
-					this.SendPropertyChanged("LOGO");
-					this.OnLOGOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ECON_CODE", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string ECON_CODE
-		{
-			get
-			{
-				return this._ECON_CODE;
-			}
-			set
-			{
-				if ((this._ECON_CODE != value))
-				{
-					this.OnECON_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ECON_CODE = value;
-					this.SendPropertyChanged("ECON_CODE");
-					this.OnECON_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> STRT_TIME
-		{
-			get
-			{
-				return this._STRT_TIME;
-			}
-			set
-			{
-				if ((this._STRT_TIME != value))
-				{
-					this.OnSTRT_TIMEChanging(value);
-					this.SendPropertyChanging();
-					this._STRT_TIME = value;
-					this.SendPropertyChanged("STRT_TIME");
-					this.OnSTRT_TIMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> END_TIME
-		{
-			get
-			{
-				return this._END_TIME;
-			}
-			set
-			{
-				if ((this._END_TIME != value))
-				{
-					this.OnEND_TIMEChanging(value);
-					this.SendPropertyChanging();
-					this._END_TIME = value;
-					this.SendPropertyChanged("END_TIME");
-					this.OnEND_TIMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string TYPE
-		{
-			get
-			{
-				return this._TYPE;
-			}
-			set
-			{
-				if ((this._TYPE != value))
-				{
-					this.OnTYPEChanging(value);
-					this.SendPropertyChanging();
-					this._TYPE = value;
-					this.SendPropertyChanged("TYPE");
-					this.OnTYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPY_NUMB_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> EMPY_NUMB_DNRM
-		{
-			get
-			{
-				return this._EMPY_NUMB_DNRM;
-			}
-			set
-			{
-				if ((this._EMPY_NUMB_DNRM != value))
-				{
-					this.OnEMPY_NUMB_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._EMPY_NUMB_DNRM = value;
-					this.SendPropertyChanged("EMPY_NUMB_DNRM");
-					this.OnEMPY_NUMB_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<double> BILL_ADDR_X
-		{
-			get
-			{
-				return this._BILL_ADDR_X;
-			}
-			set
-			{
-				if ((this._BILL_ADDR_X != value))
-				{
-					this.OnBILL_ADDR_XChanging(value);
-					this.SendPropertyChanging();
-					this._BILL_ADDR_X = value;
-					this.SendPropertyChanged("BILL_ADDR_X");
-					this.OnBILL_ADDR_XChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<double> BILL_ADDR_Y
-		{
-			get
-			{
-				return this._BILL_ADDR_Y;
-			}
-			set
-			{
-				if ((this._BILL_ADDR_Y != value))
-				{
-					this.OnBILL_ADDR_YChanging(value);
-					this.SendPropertyChanging();
-					this._BILL_ADDR_Y = value;
-					this.SendPropertyChanged("BILL_ADDR_Y");
-					this.OnBILL_ADDR_YChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<double> BILL_ADDR_ZOOM
-		{
-			get
-			{
-				return this._BILL_ADDR_ZOOM;
-			}
-			set
-			{
-				if ((this._BILL_ADDR_ZOOM != value))
-				{
-					this.OnBILL_ADDR_ZOOMChanging(value);
-					this.SendPropertyChanging();
-					this._BILL_ADDR_ZOOM = value;
-					this.SendPropertyChanged("BILL_ADDR_ZOOM");
-					this.OnBILL_ADDR_ZOOMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<double> SHIP_ADDR_X
-		{
-			get
-			{
-				return this._SHIP_ADDR_X;
-			}
-			set
-			{
-				if ((this._SHIP_ADDR_X != value))
-				{
-					this.OnSHIP_ADDR_XChanging(value);
-					this.SendPropertyChanging();
-					this._SHIP_ADDR_X = value;
-					this.SendPropertyChanged("SHIP_ADDR_X");
-					this.OnSHIP_ADDR_XChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<double> SHIP_ADDR_Y
-		{
-			get
-			{
-				return this._SHIP_ADDR_Y;
-			}
-			set
-			{
-				if ((this._SHIP_ADDR_Y != value))
-				{
-					this.OnSHIP_ADDR_YChanging(value);
-					this.SendPropertyChanging();
-					this._SHIP_ADDR_Y = value;
-					this.SendPropertyChanged("SHIP_ADDR_Y");
-					this.OnSHIP_ADDR_YChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<double> SHIP_ADDR_ZOOM
-		{
-			get
-			{
-				return this._SHIP_ADDR_ZOOM;
-			}
-			set
-			{
-				if ((this._SHIP_ADDR_ZOOM != value))
-				{
-					this.OnSHIP_ADDR_ZOOMChanging(value);
-					this.SendPropertyChanging();
-					this._SHIP_ADDR_ZOOM = value;
-					this.SendPropertyChanged("SHIP_ADDR_ZOOM");
-					this.OnSHIP_ADDR_ZOOMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DFLT_STAT
-		{
-			get
-			{
-				return this._DFLT_STAT;
-			}
-			set
-			{
-				if ((this._DFLT_STAT != value))
-				{
-					this.OnDFLT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DFLT_STAT = value;
-					this.SendPropertyChanged("DFLT_STAT");
-					this.OnDFLT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FACE_BOOK_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
-		public string FACE_BOOK_URL
-		{
-			get
-			{
-				return this._FACE_BOOK_URL;
-			}
-			set
-			{
-				if ((this._FACE_BOOK_URL != value))
-				{
-					this.OnFACE_BOOK_URLChanging(value);
-					this.SendPropertyChanging();
-					this._FACE_BOOK_URL = value;
-					this.SendPropertyChanged("FACE_BOOK_URL");
-					this.OnFACE_BOOK_URLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINK_IN_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
-		public string LINK_IN_URL
-		{
-			get
-			{
-				return this._LINK_IN_URL;
-			}
-			set
-			{
-				if ((this._LINK_IN_URL != value))
-				{
-					this.OnLINK_IN_URLChanging(value);
-					this.SendPropertyChanging();
-					this._LINK_IN_URL = value;
-					this.SendPropertyChanged("LINK_IN_URL");
-					this.OnLINK_IN_URLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TWTR_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
-		public string TWTR_URL
-		{
-			get
-			{
-				return this._TWTR_URL;
-			}
-			set
-			{
-				if ((this._TWTR_URL != value))
-				{
-					this.OnTWTR_URLChanging(value);
-					this.SendPropertyChanging();
-					this._TWTR_URL = value;
-					this.SendPropertyChanged("TWTR_URL");
-					this.OnTWTR_URLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._LAST_SERV_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_SERV_FILE_NO_DNRM != value))
-				{
-					if (this._Service.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLAST_SERV_FILE_NO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_SERV_FILE_NO_DNRM = value;
-					this.SendPropertyChanged("LAST_SERV_FILE_NO_DNRM");
-					this.OnLAST_SERV_FILE_NO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_RQST_RQID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> LAST_RQST_RQID_DNRM
-		{
-			get
-			{
-				return this._LAST_RQST_RQID_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_RQST_RQID_DNRM != value))
-				{
-					if (this._Request.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLAST_RQST_RQID_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_RQST_RQID_DNRM = value;
-					this.SendPropertyChanged("LAST_RQST_RQID_DNRM");
-					this.OnLAST_RQST_RQID_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string RECD_STAT
-		{
-			get
-			{
-				return this._RECD_STAT;
-			}
-			set
-			{
-				if ((this._RECD_STAT != value))
-				{
-					this.OnRECD_STATChanging(value);
-					this.SendPropertyChanging();
-					this._RECD_STAT = value;
-					this.SendPropertyChanged("RECD_STAT");
-					this.OnRECD_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Message_Broadcast", Storage="_Message_Broadcasts", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Message_Broadcast> Message_Broadcasts
-		{
-			get
-			{
-				return this._Message_Broadcasts;
-			}
-			set
-			{
-				this._Message_Broadcasts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Company_Activity", Storage="_Company_Activities", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Company_Activity> Company_Activities
-		{
-			get
-			{
-				return this._Company_Activities;
-			}
-			set
-			{
-				this._Company_Activities.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Request_Row", Storage="_Request_Rows", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Request_Row> Request_Rows
-		{
-			get
-			{
-				return this._Request_Rows;
-			}
-			set
-			{
-				this._Request_Rows.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Company", Storage="_Companies", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Company> Companies
-		{
-			get
-			{
-				return this._Companies;
-			}
-			set
-			{
-				this._Companies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Appointment", Storage="_Appointments", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Appointment> Appointments
-		{
-			get
-			{
-				return this._Appointments;
-			}
-			set
-			{
-				this._Appointments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Event", Storage="_Events", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Event> Events
-		{
-			get
-			{
-				return this._Events;
-			}
-			set
-			{
-				this._Events.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Note", Storage="_Notes", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Note> Notes
-		{
-			get
-			{
-				return this._Notes;
-			}
-			set
-			{
-				this._Notes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment", Storage="_Payments", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Payment> Payments
-		{
-			get
-			{
-				return this._Payments;
-			}
-			set
-			{
-				this._Payments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment1", Storage="_Payments1", ThisKey="CODE", OtherKey="REF_COMP_CODE")]
-		public EntitySet<Payment> Payments1
-		{
-			get
-			{
-				return this._Payments1;
-			}
-			set
-			{
-				this._Payments1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Send_Files", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Send_File> Send_Files
-		{
-			get
-			{
-				return this._Send_Files;
-			}
-			set
-			{
-				this._Send_Files.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Task", Storage="_Tasks", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Task> Tasks
-		{
-			get
-			{
-				return this._Tasks;
-			}
-			set
-			{
-				this._Tasks.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Log_Call", Storage="_Log_Calls", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Log_Call> Log_Calls
-		{
-			get
-			{
-				return this._Log_Calls;
-			}
-			set
-			{
-				this._Log_Calls.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Final_Result", Storage="_Final_Results", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Final_Result> Final_Results
-		{
-			get
-			{
-				return this._Final_Results;
-			}
-			set
-			{
-				this._Final_Results.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Tag", Storage="_Tags", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Tag> Tags
-		{
-			get
-			{
-				return this._Tags;
-			}
-			set
-			{
-				this._Tags.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Extra_Info", Storage="_Extra_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Extra_Info> Extra_Infos
-		{
-			get
-			{
-				return this._Extra_Infos;
-			}
-			set
-			{
-				this._Extra_Infos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Contact_Info", Storage="_Contact_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Contact_Info> Contact_Infos
-		{
-			get
-			{
-				return this._Contact_Infos;
-			}
-			set
-			{
-				this._Contact_Infos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Weekday_Info", Storage="_Weekday_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Weekday_Info> Weekday_Infos
-		{
-			get
-			{
-				return this._Weekday_Infos;
-			}
-			set
-			{
-				this._Weekday_Infos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service", Storage="_Services", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Service> Services
-		{
-			get
-			{
-				return this._Services;
-			}
-			set
-			{
-				this._Services.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service_Public", Storage="_Service_Publics", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Service_Public> Service_Publics
-		{
-			get
-			{
-				return this._Service_Publics;
-			}
-			set
-			{
-				this._Service_Publics.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Message", Storage="_Messages", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Message> Messages
-		{
-			get
-			{
-				return this._Messages;
-			}
-			set
-			{
-				this._Messages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Email", Storage="_Emails", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Email> Emails
-		{
-			get
-			{
-				return this._Emails;
-			}
-			set
-			{
-				this._Emails.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info", Storage="_Relation_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
-		public EntitySet<Relation_Info> Relation_Infos
-		{
-			get
-			{
-				return this._Relation_Infos;
-			}
-			set
-			{
-				this._Relation_Infos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info1", Storage="_Relation_Infos1", ThisKey="CODE", OtherKey="RLAT_COMP_CODE")]
-		public EntitySet<Relation_Info> Relation_Infos1
-		{
-			get
-			{
-				return this._Relation_Infos1;
-			}
-			set
-			{
-				this._Relation_Infos1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Company", Storage="_Company1", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company1
-		{
-			get
-			{
-				return this._Company1.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company1.Entity;
-				if (((previousValue != value) 
-							|| (this._Company1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company1.Entity = null;
-						previousValue.Companies.Remove(this);
-					}
-					this._Company1.Entity = value;
-					if ((value != null))
-					{
-						value.Companies.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Isic_Product_Company", Storage="_Isic_Product", ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE", OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Isic_Product Isic_Product
-		{
-			get
-			{
-				return this._Isic_Product.Entity;
-			}
-			set
-			{
-				Isic_Product previousValue = this._Isic_Product.Entity;
-				if (((previousValue != value) 
-							|| (this._Isic_Product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Isic_Product.Entity = null;
-						previousValue.Companies.Remove(this);
-					}
-					this._Isic_Product.Entity = value;
-					if ((value != null))
-					{
-						value.Companies.Add(this);
-						this._ISCP_ISCA_ISCG_CODE = value.ISCA_ISCG_CODE;
-						this._ISCP_ISCA_CODE = value.ISCA_CODE;
-						this._ISCP_CODE = value.CODE;
-					}
-					else
-					{
-						this._ISCP_ISCA_ISCG_CODE = default(string);
-						this._ISCP_ISCA_CODE = default(string);
-						this._ISCP_CODE = default(string);
-					}
-					this.SendPropertyChanged("Isic_Product");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Company", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Region Region
-		{
-			get
-			{
-				return this._Region.Entity;
-			}
-			set
-			{
-				Region previousValue = this._Region.Entity;
-				if (((previousValue != value) 
-							|| (this._Region.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Region.Entity = null;
-						previousValue.Companies.Remove(this);
-					}
-					this._Region.Entity = value;
-					if ((value != null))
-					{
-						value.Companies.Add(this);
-						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
-						this._REGN_PRVN_CODE = value.PRVN_CODE;
-						this._REGN_CODE = value.CODE;
-					}
-					else
-					{
-						this._REGN_PRVN_CNTY_CODE = default(string);
-						this._REGN_PRVN_CODE = default(string);
-						this._REGN_CODE = default(string);
-					}
-					this.SendPropertyChanged("Region");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Company", Storage="_Request", ThisKey="LAST_RQST_RQID_DNRM", OtherKey="RQID", IsForeignKey=true)]
-		public Request Request
-		{
-			get
-			{
-				return this._Request.Entity;
-			}
-			set
-			{
-				Request previousValue = this._Request.Entity;
-				if (((previousValue != value) 
-							|| (this._Request.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request.Entity = null;
-						previousValue.Companies.Remove(this);
-					}
-					this._Request.Entity = value;
-					if ((value != null))
-					{
-						value.Companies.Add(this);
-						this._LAST_RQST_RQID_DNRM = value.RQID;
-					}
-					else
-					{
-						this._LAST_RQST_RQID_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Request");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Company", Storage="_Service", ThisKey="LAST_SERV_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Service Service
-		{
-			get
-			{
-				return this._Service.Entity;
-			}
-			set
-			{
-				Service previousValue = this._Service.Entity;
-				if (((previousValue != value) 
-							|| (this._Service.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service.Entity = null;
-						previousValue.Companies.Remove(this);
-					}
-					this._Service.Entity = value;
-					if ((value != null))
-					{
-						value.Companies.Add(this);
-						this._LAST_SERV_FILE_NO_DNRM = value.FILE_NO;
-					}
-					else
-					{
-						this._LAST_SERV_FILE_NO_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Service");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Message_Broadcasts(Message_Broadcast entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Message_Broadcasts(Message_Broadcast entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Company_Activities(Company_Activity entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Company_Activities(Company_Activity entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Request_Rows(Request_Row entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Request_Rows(Request_Row entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company1 = this;
-		}
-		
-		private void detach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company1 = null;
-		}
-		
-		private void attach_Appointments(Appointment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Appointments(Appointment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Events(Event entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Events(Event entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Notes(Note entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Notes(Note entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Payments1(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company1 = this;
-		}
-		
-		private void detach_Payments1(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company1 = null;
-		}
-		
-		private void attach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Tasks(Task entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Tasks(Task entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Log_Calls(Log_Call entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Log_Calls(Log_Call entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Final_Results(Final_Result entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Final_Results(Final_Result entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Tags(Tag entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Tags(Tag entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Extra_Infos(Extra_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Extra_Infos(Extra_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Contact_Infos(Contact_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Contact_Infos(Contact_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Weekday_Infos(Weekday_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Weekday_Infos(Weekday_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Services(Service entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Services(Service entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Service_Publics(Service_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Service_Publics(Service_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Emails(Email entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Emails(Email entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Relation_Infos(Relation_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Relation_Infos(Relation_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
-		private void attach_Relation_Infos1(Relation_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company1 = this;
-		}
-		
-		private void detach_Relation_Infos1(Relation_Info entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company1 = null;
 		}
 	}
 	
@@ -35347,13 +33506,13 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -35401,10 +33560,10 @@ namespace System.CRM.Data
 		
 		public Appointment()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -35812,40 +33971,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Appointment", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Appointments.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Appointments.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Appointment", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -35954,6 +34079,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Appointment", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Appointments.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Appointments.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -36013,13 +34172,13 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -36061,10 +34220,10 @@ namespace System.CRM.Data
 		
 		public Event()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -36412,40 +34571,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Event", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Events.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Events.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Event", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -36554,6 +34679,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Event", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Events.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Events.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -36607,13 +34766,13 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -36649,10 +34808,10 @@ namespace System.CRM.Data
 		
 		public Note()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -36940,40 +35099,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Note", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Notes.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Notes.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Note", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -37078,6 +35203,40 @@ namespace System.CRM.Data
 						this._SRPB_RECT_CODE_DNRM = default(string);
 					}
 					this.SendPropertyChanged("Service_Public");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Note", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Notes.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Notes.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -37199,10 +35358,6 @@ namespace System.CRM.Data
 		
 		private EntityRef<Cash> _Cash;
 		
-		private EntityRef<Company> _Company;
-		
-		private EntityRef<Company> _Company1;
-		
 		private EntityRef<Request> _Request;
 		
 		private EntityRef<Service> _Service;
@@ -37210,6 +35365,10 @@ namespace System.CRM.Data
 		private EntityRef<Service> _Service1;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
+		
+		private EntityRef<Company> _Company1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -37304,12 +35463,12 @@ namespace System.CRM.Data
 			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
 			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Cash = default(EntityRef<Cash>);
-			this._Company = default(EntityRef<Company>);
-			this._Company1 = default(EntityRef<Company>);
 			this._Request = default(EntityRef<Request>);
 			this._Service = default(EntityRef<Service>);
 			this._Service1 = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
+			this._Company1 = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -38231,74 +36390,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Payments.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Payments.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment1", Storage="_Company1", ThisKey="REF_COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company1
-		{
-			get
-			{
-				return this._Company1.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company1.Entity;
-				if (((previousValue != value) 
-							|| (this._Company1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company1.Entity = null;
-						previousValue.Payments1.Remove(this);
-					}
-					this._Company1.Entity = value;
-					if ((value != null))
-					{
-						value.Payments1.Add(this);
-						this._REF_COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._REF_COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company1");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Payment", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true)]
 		public Request Request
 		{
@@ -38439,6 +36530,74 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Payments.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Payments.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment1", Storage="_Company1", ThisKey="REF_COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company1
+		{
+			get
+			{
+				return this._Company1.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company1.Entity;
+				if (((previousValue != value) 
+							|| (this._Company1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company1.Entity = null;
+						previousValue.Payments1.Remove(this);
+					}
+					this._Company1.Entity = value;
+					if ((value != null))
+					{
+						value.Payments1.Add(this);
+						this._REF_COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._REF_COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company1");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -38562,13 +36721,13 @@ namespace System.CRM.Data
 		
 		private EntityRef<Comment> _Comment;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -38625,10 +36784,10 @@ namespace System.CRM.Data
 		public Send_File()
 		{
 			this._Comment = default(EntityRef<Comment>);
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -39154,40 +37313,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Send_Files.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Send_Files.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Send_File", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -39296,6 +37421,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Send_Files.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Send_Files.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -39363,13 +37522,13 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -39419,10 +37578,10 @@ namespace System.CRM.Data
 		
 		public Task()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -39850,40 +38009,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Task", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Tasks.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Tasks.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Task", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -39992,6 +38117,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Task", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Tasks.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Tasks.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -40096,13 +38255,13 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -40144,10 +38303,10 @@ namespace System.CRM.Data
 		
 		public Log_Call()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -40495,40 +38654,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Log_Call", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Log_Calls.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Log_Calls.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Log_Call", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -40637,6 +38762,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Log_Call", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Log_Calls.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Log_Calls.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -40694,13 +38853,13 @@ namespace System.CRM.Data
 		
 		private string _FINR_TYPE_STAT;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -40740,10 +38899,10 @@ namespace System.CRM.Data
 		
 		public Final_Result()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -41071,40 +39230,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Final_Result", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Final_Results.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Final_Results.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Final_Result", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -41209,6 +39334,40 @@ namespace System.CRM.Data
 						this._SRPB_RECT_CODE_DNRM = default(string);
 					}
 					this.SendPropertyChanged("Service_Public");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Final_Result", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Final_Results.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Final_Results.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -42358,8 +40517,6 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
@@ -42367,6 +40524,8 @@ namespace System.CRM.Data
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -42402,11 +40561,11 @@ namespace System.CRM.Data
 		
 		public Tag()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -42698,40 +40857,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Tag", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Tags.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Tags.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Tag", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -42870,6 +40995,40 @@ namespace System.CRM.Data
 						this._SRPB_RECT_CODE_DNRM = default(string);
 					}
 					this.SendPropertyChanged("Service_Public");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Tag", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Tags.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Tags.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -43362,9 +41521,9 @@ namespace System.CRM.Data
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Service> _Service;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -43397,8 +41556,8 @@ namespace System.CRM.Data
 			this._Extra_Infos = new EntitySet<Extra_Info>(new Action<Extra_Info>(this.attach_Extra_Infos), new Action<Extra_Info>(this.detach_Extra_Infos));
 			this._Extra_Info1 = default(EntityRef<Extra_Info>);
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
-			this._Company = default(EntityRef<Company>);
 			this._Service = default(EntityRef<Service>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -43699,40 +41858,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Extra_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Extra_Infos.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Extra_Infos.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Extra_Info", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Service Service
 		{
@@ -43763,6 +41888,40 @@ namespace System.CRM.Data
 						this._SERV_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Extra_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Extra_Infos.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Extra_Infos.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -43826,9 +41985,9 @@ namespace System.CRM.Data
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Service> _Service;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -43857,8 +42016,8 @@ namespace System.CRM.Data
 		public Contact_Info()
 		{
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
-			this._Company = default(EntityRef<Company>);
 			this._Service = default(EntityRef<Service>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -44088,40 +42247,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Contact_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Contact_Infos.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Contact_Infos.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Contact_Info", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Service Service
 		{
@@ -44152,6 +42277,40 @@ namespace System.CRM.Data
 						this._SERV_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Contact_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Contact_Infos.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Contact_Infos.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -44205,9 +42364,9 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Service> _Service;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -44239,8 +42398,8 @@ namespace System.CRM.Data
 		
 		public Weekday_Info()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Service = default(EntityRef<Service>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -44472,40 +42631,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Weekday_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Weekday_Infos.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Weekday_Infos.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Weekday_Info", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Service Service
 		{
@@ -44536,6 +42661,40 @@ namespace System.CRM.Data
 						this._SERV_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Weekday_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Weekday_Infos.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Weekday_Infos.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -44695,8 +42854,6 @@ namespace System.CRM.Data
 		
 		private EntitySet<Reminder> _Reminders;
 		
-		private EntitySet<Company> _Companies;
-		
 		private EntitySet<Collaborator> _Collaborators;
 		
 		private EntitySet<Comment> _Comments;
@@ -44747,9 +42904,9 @@ namespace System.CRM.Data
 		
 		private EntitySet<Job_Personnel> _Job_Personnels;
 		
-		private EntityRef<Base_Tariff> _Base_Tariff;
+		private EntitySet<Company> _Companies;
 		
-		private EntityRef<Company> _Company;
+		private EntityRef<Base_Tariff> _Base_Tariff;
 		
 		private EntityRef<Isic_Product> _Isic_Product;
 		
@@ -44764,6 +42921,8 @@ namespace System.CRM.Data
 		private EntityRef<Sub_Unit> _Sub_Unit;
 		
 		private EntityRef<Base_Tariff_Detail> _Base_Tariff_Detail;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -44895,7 +43054,6 @@ namespace System.CRM.Data
 			this._Email_To_Emails = new EntitySet<Email_To_Email>(new Action<Email_To_Email>(this.attach_Email_To_Emails), new Action<Email_To_Email>(this.detach_Email_To_Emails));
 			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
 			this._Reminders = new EntitySet<Reminder>(new Action<Reminder>(this.attach_Reminders), new Action<Reminder>(this.detach_Reminders));
-			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Collaborators = new EntitySet<Collaborator>(new Action<Collaborator>(this.attach_Collaborators), new Action<Collaborator>(this.detach_Collaborators));
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
 			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
@@ -44921,8 +43079,8 @@ namespace System.CRM.Data
 			this._Service_Join_Service_Types = new EntitySet<Service_Join_Service_Type>(new Action<Service_Join_Service_Type>(this.attach_Service_Join_Service_Types), new Action<Service_Join_Service_Type>(this.detach_Service_Join_Service_Types));
 			this._Personnel_Access_Service_Types = new EntitySet<Personnel_Access_Service_Type>(new Action<Personnel_Access_Service_Type>(this.attach_Personnel_Access_Service_Types), new Action<Personnel_Access_Service_Type>(this.detach_Personnel_Access_Service_Types));
 			this._Job_Personnels = new EntitySet<Job_Personnel>(new Action<Job_Personnel>(this.attach_Job_Personnels), new Action<Job_Personnel>(this.detach_Job_Personnels));
+			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Base_Tariff = default(EntityRef<Base_Tariff>);
-			this._Company = default(EntityRef<Company>);
 			this._Isic_Product = default(EntityRef<Isic_Product>);
 			this._Request = default(EntityRef<Request>);
 			this._Region = default(EntityRef<Region>);
@@ -44930,6 +43088,7 @@ namespace System.CRM.Data
 			this._Service1 = default(EntityRef<Service>);
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
 			this._Base_Tariff_Detail = default(EntityRef<Base_Tariff_Detail>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -46235,19 +44394,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Company", Storage="_Companies", ThisKey="FILE_NO", OtherKey="LAST_SERV_FILE_NO_DNRM")]
-		public EntitySet<Company> Companies
-		{
-			get
-			{
-				return this._Companies;
-			}
-			set
-			{
-				this._Companies.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Collaborator", Storage="_Collaborators", ThisKey="FILE_NO", OtherKey="SERV_FILE_NO")]
 		public EntitySet<Collaborator> Collaborators
 		{
@@ -46573,6 +44719,19 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Company", Storage="_Companies", ThisKey="FILE_NO", OtherKey="LAST_SERV_FILE_NO_DNRM")]
+		public EntitySet<Company> Companies
+		{
+			get
+			{
+				return this._Companies;
+			}
+			set
+			{
+				this._Companies.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Base_Tariff_Service", Storage="_Base_Tariff", ThisKey="BTRF_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
 		public Base_Tariff Base_Tariff
 		{
@@ -46603,40 +44762,6 @@ namespace System.CRM.Data
 						this._BTRF_CODE_DNRM = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Base_Tariff");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Services.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Services.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
 				}
 			}
 		}
@@ -46894,6 +45019,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Services.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Services.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -46981,18 +45140,6 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Reminders(Reminder entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service = null;
-		}
-		
-		private void attach_Companies(Company entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service = this;
-		}
-		
-		private void detach_Companies(Company entity)
 		{
 			this.SendPropertyChanging();
 			entity.Service = null;
@@ -47297,6 +45444,18 @@ namespace System.CRM.Data
 			this.SendPropertyChanging();
 			entity.Service = null;
 		}
+		
+		private void attach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service = this;
+		}
+		
+		private void detach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Public")]
@@ -47445,8 +45604,6 @@ namespace System.CRM.Data
 		
 		private EntityRef<Base_Tariff> _Base_Tariff;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Expense> _Expense;
 		
 		private EntityRef<Isic_Product> _Isic_Product;
@@ -47460,6 +45617,8 @@ namespace System.CRM.Data
 		private EntityRef<Sub_Unit> _Sub_Unit;
 		
 		private EntityRef<Base_Tariff_Detail> _Base_Tariff_Detail;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -47597,7 +45756,6 @@ namespace System.CRM.Data
 			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Emails = new EntitySet<Email>(new Action<Email>(this.attach_Emails), new Action<Email>(this.detach_Emails));
 			this._Base_Tariff = default(EntityRef<Base_Tariff>);
-			this._Company = default(EntityRef<Company>);
 			this._Expense = default(EntityRef<Expense>);
 			this._Isic_Product = default(EntityRef<Isic_Product>);
 			this._Region = default(EntityRef<Region>);
@@ -47605,6 +45763,7 @@ namespace System.CRM.Data
 			this._Service = default(EntityRef<Service>);
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
 			this._Base_Tariff_Detail = default(EntityRef<Base_Tariff_Detail>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -49013,40 +47172,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service_Public", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Service_Publics.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Publics.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Service_Public", Storage="_Expense", ThisKey="EXPN_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Expense Expense
 		{
@@ -49301,6 +47426,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service_Public", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Service_Publics.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Publics.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -49494,13 +47653,13 @@ namespace System.CRM.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -49544,10 +47703,10 @@ namespace System.CRM.Data
 		
 		public Message()
 		{
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -49915,40 +48074,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Message", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Messages.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Messages.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Message", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -50057,6 +48182,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Message", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Messages.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Messages.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -50120,13 +48279,13 @@ namespace System.CRM.Data
 		
 		private EntitySet<Email_To_Email> _Email_To_Emails;
 		
-		private EntityRef<Company> _Company;
-		
 		private EntityRef<Request_Row> _Request_Row;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service_Public> _Service_Public;
+		
+		private EntityRef<Company> _Company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -50171,10 +48330,10 @@ namespace System.CRM.Data
 		public Email()
 		{
 			this._Email_To_Emails = new EntitySet<Email_To_Email>(new Action<Email_To_Email>(this.attach_Email_To_Emails), new Action<Email_To_Email>(this.detach_Email_To_Emails));
-			this._Company = default(EntityRef<Company>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Service = default(EntityRef<Service>);
 			this._Service_Public = default(EntityRef<Service_Public>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -50555,40 +48714,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Email", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Emails.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Emails.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Email", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
 		public Request_Row Request_Row
 		{
@@ -50697,6 +48822,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Email", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Emails.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Emails.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -50766,15 +48925,15 @@ namespace System.CRM.Data
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
 		
-		private EntityRef<Company> _Company;
-		
-		private EntityRef<Company> _Company1;
-		
 		private EntityRef<Relation_Info> _Relation_Info1;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Service> _Service1;
+		
+		private EntityRef<Company> _Company;
+		
+		private EntityRef<Company> _Company1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -50812,11 +48971,11 @@ namespace System.CRM.Data
 		{
 			this._Relation_Infos = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos), new Action<Relation_Info>(this.detach_Relation_Infos));
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
-			this._Company = default(EntityRef<Company>);
-			this._Company1 = default(EntityRef<Company>);
 			this._Relation_Info1 = default(EntityRef<Relation_Info>);
 			this._Service = default(EntityRef<Service>);
 			this._Service1 = default(EntityRef<Service>);
+			this._Company = default(EntityRef<Company>);
+			this._Company1 = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -51151,74 +49310,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Relation_Infos.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Relation_Infos.Add(this);
-						this._COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info1", Storage="_Company1", ThisKey="RLAT_COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company1
-		{
-			get
-			{
-				return this._Company1.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company1.Entity;
-				if (((previousValue != value) 
-							|| (this._Company1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company1.Entity = null;
-						previousValue.Relation_Infos1.Remove(this);
-					}
-					this._Company1.Entity = value;
-					if ((value != null))
-					{
-						value.Relation_Infos1.Add(this);
-						this._RLAT_COMP_CODE = value.CODE;
-					}
-					else
-					{
-						this._RLAT_COMP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company1");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Relation_Info_Relation_Info", Storage="_Relation_Info1", ThisKey="REF_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Relation_Info Relation_Info1
 		{
@@ -51317,6 +49408,74 @@ namespace System.CRM.Data
 						this._SERV_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Relation_Infos.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Relation_Infos.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info1", Storage="_Company1", ThisKey="RLAT_COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company1
+		{
+			get
+			{
+				return this._Company1.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company1.Entity;
+				if (((previousValue != value) 
+							|| (this._Company1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company1.Entity = null;
+						previousValue.Relation_Infos1.Remove(this);
+					}
+					this._Company1.Entity = value;
+					if ((value != null))
+					{
+						value.Relation_Infos1.Add(this);
+						this._RLAT_COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._RLAT_COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company1");
 				}
 			}
 		}
@@ -53418,6 +51577,1925 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Job_Personnel = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Company")]
+	public partial class Company : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _REGN_PRVN_CNTY_CODE;
+		
+		private string _REGN_PRVN_CODE;
+		
+		private string _REGN_CODE;
+		
+		private string _ISCP_ISCA_ISCG_CODE;
+		
+		private string _ISCP_ISCA_CODE;
+		
+		private string _ISCP_CODE;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _DEBT_DNRM;
+		
+		private string _NAME;
+		
+		private string _POST_ADRS;
+		
+		private string _EMAL_ADRS;
+		
+		private string _WEB_SITE;
+		
+		private System.Nullable<long> _COMP_CODE;
+		
+		private string _COMP_DESC;
+		
+		private System.Nullable<System.DateTime> _REGS_DATE;
+		
+		private string _ZIP_CODE;
+		
+		private System.Data.Linq.Binary _LOGO;
+		
+		private string _ECON_CODE;
+		
+		private System.Nullable<System.DateTime> _STRT_TIME;
+		
+		private System.Nullable<System.DateTime> _END_TIME;
+		
+		private string _TYPE;
+		
+		private System.Nullable<int> _EMPY_NUMB_DNRM;
+		
+		private System.Nullable<double> _BILL_ADDR_X;
+		
+		private System.Nullable<double> _BILL_ADDR_Y;
+		
+		private System.Nullable<double> _BILL_ADDR_ZOOM;
+		
+		private System.Nullable<double> _SHIP_ADDR_X;
+		
+		private System.Nullable<double> _SHIP_ADDR_Y;
+		
+		private System.Nullable<double> _SHIP_ADDR_ZOOM;
+		
+		private string _DFLT_STAT;
+		
+		private string _FACE_BOOK_URL;
+		
+		private string _LINK_IN_URL;
+		
+		private string _TWTR_URL;
+		
+		private string _CELL_PHON;
+		
+		private string _TELL_PHON;
+		
+		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
+		
+		private System.Nullable<long> _LAST_RQST_RQID_DNRM;
+		
+		private string _RECD_STAT;
+		
+		private string _HOST_STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Message_Broadcast> _Message_Broadcasts;
+		
+		private EntitySet<Company_Activity> _Company_Activities;
+		
+		private EntitySet<Request_Row> _Request_Rows;
+		
+		private EntitySet<Appointment> _Appointments;
+		
+		private EntitySet<Event> _Events;
+		
+		private EntitySet<Note> _Notes;
+		
+		private EntitySet<Payment> _Payments;
+		
+		private EntitySet<Payment> _Payments1;
+		
+		private EntitySet<Send_File> _Send_Files;
+		
+		private EntitySet<Task> _Tasks;
+		
+		private EntitySet<Log_Call> _Log_Calls;
+		
+		private EntitySet<Final_Result> _Final_Results;
+		
+		private EntitySet<Tag> _Tags;
+		
+		private EntitySet<Extra_Info> _Extra_Infos;
+		
+		private EntitySet<Contact_Info> _Contact_Infos;
+		
+		private EntitySet<Weekday_Info> _Weekday_Infos;
+		
+		private EntitySet<Service> _Services;
+		
+		private EntitySet<Service_Public> _Service_Publics;
+		
+		private EntitySet<Message> _Messages;
+		
+		private EntitySet<Email> _Emails;
+		
+		private EntitySet<Relation_Info> _Relation_Infos;
+		
+		private EntitySet<Relation_Info> _Relation_Infos1;
+		
+		private EntitySet<Company> _Companies;
+		
+		private EntityRef<Company> _Company1;
+		
+		private EntityRef<Isic_Product> _Isic_Product;
+		
+		private EntityRef<Region> _Region;
+		
+		private EntityRef<Request> _Request;
+		
+		private EntityRef<Service> _Service;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
+    partial void OnREGN_PRVN_CNTY_CODEChanged();
+    partial void OnREGN_PRVN_CODEChanging(string value);
+    partial void OnREGN_PRVN_CODEChanged();
+    partial void OnREGN_CODEChanging(string value);
+    partial void OnREGN_CODEChanged();
+    partial void OnISCP_ISCA_ISCG_CODEChanging(string value);
+    partial void OnISCP_ISCA_ISCG_CODEChanged();
+    partial void OnISCP_ISCA_CODEChanging(string value);
+    partial void OnISCP_ISCA_CODEChanged();
+    partial void OnISCP_CODEChanging(string value);
+    partial void OnISCP_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnDEBT_DNRMChanging(System.Nullable<long> value);
+    partial void OnDEBT_DNRMChanged();
+    partial void OnNAMEChanging(string value);
+    partial void OnNAMEChanged();
+    partial void OnPOST_ADRSChanging(string value);
+    partial void OnPOST_ADRSChanged();
+    partial void OnEMAL_ADRSChanging(string value);
+    partial void OnEMAL_ADRSChanged();
+    partial void OnWEB_SITEChanging(string value);
+    partial void OnWEB_SITEChanged();
+    partial void OnCOMP_CODEChanging(System.Nullable<long> value);
+    partial void OnCOMP_CODEChanged();
+    partial void OnCOMP_DESCChanging(string value);
+    partial void OnCOMP_DESCChanged();
+    partial void OnREGS_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnREGS_DATEChanged();
+    partial void OnZIP_CODEChanging(string value);
+    partial void OnZIP_CODEChanged();
+    partial void OnLOGOChanging(System.Data.Linq.Binary value);
+    partial void OnLOGOChanged();
+    partial void OnECON_CODEChanging(string value);
+    partial void OnECON_CODEChanged();
+    partial void OnSTRT_TIMEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSTRT_TIMEChanged();
+    partial void OnEND_TIMEChanging(System.Nullable<System.DateTime> value);
+    partial void OnEND_TIMEChanged();
+    partial void OnTYPEChanging(string value);
+    partial void OnTYPEChanged();
+    partial void OnEMPY_NUMB_DNRMChanging(System.Nullable<int> value);
+    partial void OnEMPY_NUMB_DNRMChanged();
+    partial void OnBILL_ADDR_XChanging(System.Nullable<double> value);
+    partial void OnBILL_ADDR_XChanged();
+    partial void OnBILL_ADDR_YChanging(System.Nullable<double> value);
+    partial void OnBILL_ADDR_YChanged();
+    partial void OnBILL_ADDR_ZOOMChanging(System.Nullable<double> value);
+    partial void OnBILL_ADDR_ZOOMChanged();
+    partial void OnSHIP_ADDR_XChanging(System.Nullable<double> value);
+    partial void OnSHIP_ADDR_XChanged();
+    partial void OnSHIP_ADDR_YChanging(System.Nullable<double> value);
+    partial void OnSHIP_ADDR_YChanged();
+    partial void OnSHIP_ADDR_ZOOMChanging(System.Nullable<double> value);
+    partial void OnSHIP_ADDR_ZOOMChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnFACE_BOOK_URLChanging(string value);
+    partial void OnFACE_BOOK_URLChanged();
+    partial void OnLINK_IN_URLChanging(string value);
+    partial void OnLINK_IN_URLChanged();
+    partial void OnTWTR_URLChanging(string value);
+    partial void OnTWTR_URLChanged();
+    partial void OnCELL_PHONChanging(string value);
+    partial void OnCELL_PHONChanged();
+    partial void OnTELL_PHONChanging(string value);
+    partial void OnTELL_PHONChanged();
+    partial void OnLAST_SERV_FILE_NO_DNRMChanging(System.Nullable<long> value);
+    partial void OnLAST_SERV_FILE_NO_DNRMChanged();
+    partial void OnLAST_RQST_RQID_DNRMChanging(System.Nullable<long> value);
+    partial void OnLAST_RQST_RQID_DNRMChanged();
+    partial void OnRECD_STATChanging(string value);
+    partial void OnRECD_STATChanged();
+    partial void OnHOST_STATChanging(string value);
+    partial void OnHOST_STATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Company()
+		{
+			this._Message_Broadcasts = new EntitySet<Message_Broadcast>(new Action<Message_Broadcast>(this.attach_Message_Broadcasts), new Action<Message_Broadcast>(this.detach_Message_Broadcasts));
+			this._Company_Activities = new EntitySet<Company_Activity>(new Action<Company_Activity>(this.attach_Company_Activities), new Action<Company_Activity>(this.detach_Company_Activities));
+			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
+			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
+			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
+			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
+			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
+			this._Payments1 = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments1), new Action<Payment>(this.detach_Payments1));
+			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
+			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
+			this._Log_Calls = new EntitySet<Log_Call>(new Action<Log_Call>(this.attach_Log_Calls), new Action<Log_Call>(this.detach_Log_Calls));
+			this._Final_Results = new EntitySet<Final_Result>(new Action<Final_Result>(this.attach_Final_Results), new Action<Final_Result>(this.detach_Final_Results));
+			this._Tags = new EntitySet<Tag>(new Action<Tag>(this.attach_Tags), new Action<Tag>(this.detach_Tags));
+			this._Extra_Infos = new EntitySet<Extra_Info>(new Action<Extra_Info>(this.attach_Extra_Infos), new Action<Extra_Info>(this.detach_Extra_Infos));
+			this._Contact_Infos = new EntitySet<Contact_Info>(new Action<Contact_Info>(this.attach_Contact_Infos), new Action<Contact_Info>(this.detach_Contact_Infos));
+			this._Weekday_Infos = new EntitySet<Weekday_Info>(new Action<Weekday_Info>(this.attach_Weekday_Infos), new Action<Weekday_Info>(this.detach_Weekday_Infos));
+			this._Services = new EntitySet<Service>(new Action<Service>(this.attach_Services), new Action<Service>(this.detach_Services));
+			this._Service_Publics = new EntitySet<Service_Public>(new Action<Service_Public>(this.attach_Service_Publics), new Action<Service_Public>(this.detach_Service_Publics));
+			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
+			this._Emails = new EntitySet<Email>(new Action<Email>(this.attach_Emails), new Action<Email>(this.detach_Emails));
+			this._Relation_Infos = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos), new Action<Relation_Info>(this.detach_Relation_Infos));
+			this._Relation_Infos1 = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos1), new Action<Relation_Info>(this.detach_Relation_Infos1));
+			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
+			this._Company1 = default(EntityRef<Company>);
+			this._Isic_Product = default(EntityRef<Isic_Product>);
+			this._Region = default(EntityRef<Region>);
+			this._Request = default(EntityRef<Request>);
+			this._Service = default(EntityRef<Service>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string REGN_PRVN_CNTY_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CNTY_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CNTY_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CNTY_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CNTY_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
+					this.OnREGN_PRVN_CNTY_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string REGN_PRVN_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CODE");
+					this.OnREGN_PRVN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string REGN_CODE
+		{
+			get
+			{
+				return this._REGN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_CODE = value;
+					this.SendPropertyChanged("REGN_CODE");
+					this.OnREGN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_ISCG_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
+		public string ISCP_ISCA_ISCG_CODE
+		{
+			get
+			{
+				return this._ISCP_ISCA_ISCG_CODE;
+			}
+			set
+			{
+				if ((this._ISCP_ISCA_ISCG_CODE != value))
+				{
+					if (this._Isic_Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnISCP_ISCA_ISCG_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ISCP_ISCA_ISCG_CODE = value;
+					this.SendPropertyChanged("ISCP_ISCA_ISCG_CODE");
+					this.OnISCP_ISCA_ISCG_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
+		public string ISCP_ISCA_CODE
+		{
+			get
+			{
+				return this._ISCP_ISCA_CODE;
+			}
+			set
+			{
+				if ((this._ISCP_ISCA_CODE != value))
+				{
+					if (this._Isic_Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnISCP_ISCA_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ISCP_ISCA_CODE = value;
+					this.SendPropertyChanged("ISCP_ISCA_CODE");
+					this.OnISCP_ISCA_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_CODE", DbType="VarChar(6)", UpdateCheck=UpdateCheck.Never)]
+		public string ISCP_CODE
+		{
+			get
+			{
+				return this._ISCP_CODE;
+			}
+			set
+			{
+				if ((this._ISCP_CODE != value))
+				{
+					if (this._Isic_Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnISCP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ISCP_CODE = value;
+					this.SendPropertyChanged("ISCP_CODE");
+					this.OnISCP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> DEBT_DNRM
+		{
+			get
+			{
+				return this._DEBT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_DNRM != value))
+				{
+					this.OnDEBT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DEBT_DNRM = value;
+					this.SendPropertyChanged("DEBT_DNRM");
+					this.OnDEBT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this.OnNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._NAME = value;
+					this.SendPropertyChanged("NAME");
+					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string POST_ADRS
+		{
+			get
+			{
+				return this._POST_ADRS;
+			}
+			set
+			{
+				if ((this._POST_ADRS != value))
+				{
+					this.OnPOST_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._POST_ADRS = value;
+					this.SendPropertyChanged("POST_ADRS");
+					this.OnPOST_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this.OnEMAL_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._EMAL_ADRS = value;
+					this.SendPropertyChanged("EMAL_ADRS");
+					this.OnEMAL_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string WEB_SITE
+		{
+			get
+			{
+				return this._WEB_SITE;
+			}
+			set
+			{
+				if ((this._WEB_SITE != value))
+				{
+					this.OnWEB_SITEChanging(value);
+					this.SendPropertyChanging();
+					this._WEB_SITE = value;
+					this.SendPropertyChanged("WEB_SITE");
+					this.OnWEB_SITEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> COMP_CODE
+		{
+			get
+			{
+				return this._COMP_CODE;
+			}
+			set
+			{
+				if ((this._COMP_CODE != value))
+				{
+					if (this._Company1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCOMP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_CODE = value;
+					this.SendPropertyChanged("COMP_CODE");
+					this.OnCOMP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_DESC", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string COMP_DESC
+		{
+			get
+			{
+				return this._COMP_DESC;
+			}
+			set
+			{
+				if ((this._COMP_DESC != value))
+				{
+					this.OnCOMP_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_DESC = value;
+					this.SendPropertyChanged("COMP_DESC");
+					this.OnCOMP_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGS_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> REGS_DATE
+		{
+			get
+			{
+				return this._REGS_DATE;
+			}
+			set
+			{
+				if ((this._REGS_DATE != value))
+				{
+					this.OnREGS_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._REGS_DATE = value;
+					this.SendPropertyChanged("REGS_DATE");
+					this.OnREGS_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP_CODE", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string ZIP_CODE
+		{
+			get
+			{
+				return this._ZIP_CODE;
+			}
+			set
+			{
+				if ((this._ZIP_CODE != value))
+				{
+					this.OnZIP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ZIP_CODE = value;
+					this.SendPropertyChanged("ZIP_CODE");
+					this.OnZIP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary LOGO
+		{
+			get
+			{
+				return this._LOGO;
+			}
+			set
+			{
+				if ((this._LOGO != value))
+				{
+					this.OnLOGOChanging(value);
+					this.SendPropertyChanging();
+					this._LOGO = value;
+					this.SendPropertyChanged("LOGO");
+					this.OnLOGOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ECON_CODE", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string ECON_CODE
+		{
+			get
+			{
+				return this._ECON_CODE;
+			}
+			set
+			{
+				if ((this._ECON_CODE != value))
+				{
+					this.OnECON_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ECON_CODE = value;
+					this.SendPropertyChanged("ECON_CODE");
+					this.OnECON_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> STRT_TIME
+		{
+			get
+			{
+				return this._STRT_TIME;
+			}
+			set
+			{
+				if ((this._STRT_TIME != value))
+				{
+					this.OnSTRT_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._STRT_TIME = value;
+					this.SendPropertyChanged("STRT_TIME");
+					this.OnSTRT_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> END_TIME
+		{
+			get
+			{
+				return this._END_TIME;
+			}
+			set
+			{
+				if ((this._END_TIME != value))
+				{
+					this.OnEND_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._END_TIME = value;
+					this.SendPropertyChanged("END_TIME");
+					this.OnEND_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this.OnTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TYPE = value;
+					this.SendPropertyChanged("TYPE");
+					this.OnTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPY_NUMB_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> EMPY_NUMB_DNRM
+		{
+			get
+			{
+				return this._EMPY_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._EMPY_NUMB_DNRM != value))
+				{
+					this.OnEMPY_NUMB_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._EMPY_NUMB_DNRM = value;
+					this.SendPropertyChanged("EMPY_NUMB_DNRM");
+					this.OnEMPY_NUMB_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> BILL_ADDR_X
+		{
+			get
+			{
+				return this._BILL_ADDR_X;
+			}
+			set
+			{
+				if ((this._BILL_ADDR_X != value))
+				{
+					this.OnBILL_ADDR_XChanging(value);
+					this.SendPropertyChanging();
+					this._BILL_ADDR_X = value;
+					this.SendPropertyChanged("BILL_ADDR_X");
+					this.OnBILL_ADDR_XChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> BILL_ADDR_Y
+		{
+			get
+			{
+				return this._BILL_ADDR_Y;
+			}
+			set
+			{
+				if ((this._BILL_ADDR_Y != value))
+				{
+					this.OnBILL_ADDR_YChanging(value);
+					this.SendPropertyChanging();
+					this._BILL_ADDR_Y = value;
+					this.SendPropertyChanged("BILL_ADDR_Y");
+					this.OnBILL_ADDR_YChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> BILL_ADDR_ZOOM
+		{
+			get
+			{
+				return this._BILL_ADDR_ZOOM;
+			}
+			set
+			{
+				if ((this._BILL_ADDR_ZOOM != value))
+				{
+					this.OnBILL_ADDR_ZOOMChanging(value);
+					this.SendPropertyChanging();
+					this._BILL_ADDR_ZOOM = value;
+					this.SendPropertyChanged("BILL_ADDR_ZOOM");
+					this.OnBILL_ADDR_ZOOMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> SHIP_ADDR_X
+		{
+			get
+			{
+				return this._SHIP_ADDR_X;
+			}
+			set
+			{
+				if ((this._SHIP_ADDR_X != value))
+				{
+					this.OnSHIP_ADDR_XChanging(value);
+					this.SendPropertyChanging();
+					this._SHIP_ADDR_X = value;
+					this.SendPropertyChanged("SHIP_ADDR_X");
+					this.OnSHIP_ADDR_XChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> SHIP_ADDR_Y
+		{
+			get
+			{
+				return this._SHIP_ADDR_Y;
+			}
+			set
+			{
+				if ((this._SHIP_ADDR_Y != value))
+				{
+					this.OnSHIP_ADDR_YChanging(value);
+					this.SendPropertyChanging();
+					this._SHIP_ADDR_Y = value;
+					this.SendPropertyChanged("SHIP_ADDR_Y");
+					this.OnSHIP_ADDR_YChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> SHIP_ADDR_ZOOM
+		{
+			get
+			{
+				return this._SHIP_ADDR_ZOOM;
+			}
+			set
+			{
+				if ((this._SHIP_ADDR_ZOOM != value))
+				{
+					this.OnSHIP_ADDR_ZOOMChanging(value);
+					this.SendPropertyChanging();
+					this._SHIP_ADDR_ZOOM = value;
+					this.SendPropertyChanged("SHIP_ADDR_ZOOM");
+					this.OnSHIP_ADDR_ZOOMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FACE_BOOK_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string FACE_BOOK_URL
+		{
+			get
+			{
+				return this._FACE_BOOK_URL;
+			}
+			set
+			{
+				if ((this._FACE_BOOK_URL != value))
+				{
+					this.OnFACE_BOOK_URLChanging(value);
+					this.SendPropertyChanging();
+					this._FACE_BOOK_URL = value;
+					this.SendPropertyChanged("FACE_BOOK_URL");
+					this.OnFACE_BOOK_URLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINK_IN_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string LINK_IN_URL
+		{
+			get
+			{
+				return this._LINK_IN_URL;
+			}
+			set
+			{
+				if ((this._LINK_IN_URL != value))
+				{
+					this.OnLINK_IN_URLChanging(value);
+					this.SendPropertyChanging();
+					this._LINK_IN_URL = value;
+					this.SendPropertyChanged("LINK_IN_URL");
+					this.OnLINK_IN_URLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TWTR_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string TWTR_URL
+		{
+			get
+			{
+				return this._TWTR_URL;
+			}
+			set
+			{
+				if ((this._TWTR_URL != value))
+				{
+					this.OnTWTR_URLChanging(value);
+					this.SendPropertyChanging();
+					this._TWTR_URL = value;
+					this.SendPropertyChanged("TWTR_URL");
+					this.OnTWTR_URLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this.OnCELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._CELL_PHON = value;
+					this.SendPropertyChanged("CELL_PHON");
+					this.OnCELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string TELL_PHON
+		{
+			get
+			{
+				return this._TELL_PHON;
+			}
+			set
+			{
+				if ((this._TELL_PHON != value))
+				{
+					this.OnTELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._TELL_PHON = value;
+					this.SendPropertyChanged("TELL_PHON");
+					this.OnTELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._LAST_SERV_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_SERV_FILE_NO_DNRM != value))
+				{
+					if (this._Service.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLAST_SERV_FILE_NO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_SERV_FILE_NO_DNRM = value;
+					this.SendPropertyChanged("LAST_SERV_FILE_NO_DNRM");
+					this.OnLAST_SERV_FILE_NO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_RQST_RQID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> LAST_RQST_RQID_DNRM
+		{
+			get
+			{
+				return this._LAST_RQST_RQID_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_RQST_RQID_DNRM != value))
+				{
+					if (this._Request.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLAST_RQST_RQID_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_RQST_RQID_DNRM = value;
+					this.SendPropertyChanged("LAST_RQST_RQID_DNRM");
+					this.OnLAST_RQST_RQID_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string RECD_STAT
+		{
+			get
+			{
+				return this._RECD_STAT;
+			}
+			set
+			{
+				if ((this._RECD_STAT != value))
+				{
+					this.OnRECD_STATChanging(value);
+					this.SendPropertyChanging();
+					this._RECD_STAT = value;
+					this.SendPropertyChanged("RECD_STAT");
+					this.OnRECD_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string HOST_STAT
+		{
+			get
+			{
+				return this._HOST_STAT;
+			}
+			set
+			{
+				if ((this._HOST_STAT != value))
+				{
+					this.OnHOST_STATChanging(value);
+					this.SendPropertyChanging();
+					this._HOST_STAT = value;
+					this.SendPropertyChanged("HOST_STAT");
+					this.OnHOST_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Message_Broadcast", Storage="_Message_Broadcasts", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Message_Broadcast> Message_Broadcasts
+		{
+			get
+			{
+				return this._Message_Broadcasts;
+			}
+			set
+			{
+				this._Message_Broadcasts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Company_Activity", Storage="_Company_Activities", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Company_Activity> Company_Activities
+		{
+			get
+			{
+				return this._Company_Activities;
+			}
+			set
+			{
+				this._Company_Activities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Request_Row", Storage="_Request_Rows", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Request_Row> Request_Rows
+		{
+			get
+			{
+				return this._Request_Rows;
+			}
+			set
+			{
+				this._Request_Rows.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Appointment", Storage="_Appointments", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Appointment> Appointments
+		{
+			get
+			{
+				return this._Appointments;
+			}
+			set
+			{
+				this._Appointments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Event", Storage="_Events", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Event> Events
+		{
+			get
+			{
+				return this._Events;
+			}
+			set
+			{
+				this._Events.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Note", Storage="_Notes", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Note> Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				this._Notes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment", Storage="_Payments", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Payment> Payments
+		{
+			get
+			{
+				return this._Payments;
+			}
+			set
+			{
+				this._Payments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Payment1", Storage="_Payments1", ThisKey="CODE", OtherKey="REF_COMP_CODE")]
+		public EntitySet<Payment> Payments1
+		{
+			get
+			{
+				return this._Payments1;
+			}
+			set
+			{
+				this._Payments1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Send_Files", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Send_File> Send_Files
+		{
+			get
+			{
+				return this._Send_Files;
+			}
+			set
+			{
+				this._Send_Files.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Task", Storage="_Tasks", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Task> Tasks
+		{
+			get
+			{
+				return this._Tasks;
+			}
+			set
+			{
+				this._Tasks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Log_Call", Storage="_Log_Calls", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Log_Call> Log_Calls
+		{
+			get
+			{
+				return this._Log_Calls;
+			}
+			set
+			{
+				this._Log_Calls.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Final_Result", Storage="_Final_Results", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Final_Result> Final_Results
+		{
+			get
+			{
+				return this._Final_Results;
+			}
+			set
+			{
+				this._Final_Results.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Tag", Storage="_Tags", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Tag> Tags
+		{
+			get
+			{
+				return this._Tags;
+			}
+			set
+			{
+				this._Tags.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Extra_Info", Storage="_Extra_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Extra_Info> Extra_Infos
+		{
+			get
+			{
+				return this._Extra_Infos;
+			}
+			set
+			{
+				this._Extra_Infos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Contact_Info", Storage="_Contact_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Contact_Info> Contact_Infos
+		{
+			get
+			{
+				return this._Contact_Infos;
+			}
+			set
+			{
+				this._Contact_Infos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Weekday_Info", Storage="_Weekday_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Weekday_Info> Weekday_Infos
+		{
+			get
+			{
+				return this._Weekday_Infos;
+			}
+			set
+			{
+				this._Weekday_Infos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service", Storage="_Services", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Service> Services
+		{
+			get
+			{
+				return this._Services;
+			}
+			set
+			{
+				this._Services.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Service_Public", Storage="_Service_Publics", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Service_Public> Service_Publics
+		{
+			get
+			{
+				return this._Service_Publics;
+			}
+			set
+			{
+				this._Service_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Message", Storage="_Messages", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Message> Messages
+		{
+			get
+			{
+				return this._Messages;
+			}
+			set
+			{
+				this._Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Email", Storage="_Emails", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Email> Emails
+		{
+			get
+			{
+				return this._Emails;
+			}
+			set
+			{
+				this._Emails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info", Storage="_Relation_Infos", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Relation_Info> Relation_Infos
+		{
+			get
+			{
+				return this._Relation_Infos;
+			}
+			set
+			{
+				this._Relation_Infos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Relation_Info1", Storage="_Relation_Infos1", ThisKey="CODE", OtherKey="RLAT_COMP_CODE")]
+		public EntitySet<Relation_Info> Relation_Infos1
+		{
+			get
+			{
+				return this._Relation_Infos1;
+			}
+			set
+			{
+				this._Relation_Infos1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Company", Storage="_Companies", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Company> Companies
+		{
+			get
+			{
+				return this._Companies;
+			}
+			set
+			{
+				this._Companies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Company", Storage="_Company1", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company1
+		{
+			get
+			{
+				return this._Company1.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company1.Entity;
+				if (((previousValue != value) 
+							|| (this._Company1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company1.Entity = null;
+						previousValue.Companies.Remove(this);
+					}
+					this._Company1.Entity = value;
+					if ((value != null))
+					{
+						value.Companies.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Isic_Product_Company", Storage="_Isic_Product", ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE", OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Isic_Product Isic_Product
+		{
+			get
+			{
+				return this._Isic_Product.Entity;
+			}
+			set
+			{
+				Isic_Product previousValue = this._Isic_Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Isic_Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Isic_Product.Entity = null;
+						previousValue.Companies.Remove(this);
+					}
+					this._Isic_Product.Entity = value;
+					if ((value != null))
+					{
+						value.Companies.Add(this);
+						this._ISCP_ISCA_ISCG_CODE = value.ISCA_ISCG_CODE;
+						this._ISCP_ISCA_CODE = value.ISCA_CODE;
+						this._ISCP_CODE = value.CODE;
+					}
+					else
+					{
+						this._ISCP_ISCA_ISCG_CODE = default(string);
+						this._ISCP_ISCA_CODE = default(string);
+						this._ISCP_CODE = default(string);
+					}
+					this.SendPropertyChanged("Isic_Product");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Company", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Region Region
+		{
+			get
+			{
+				return this._Region.Entity;
+			}
+			set
+			{
+				Region previousValue = this._Region.Entity;
+				if (((previousValue != value) 
+							|| (this._Region.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Region.Entity = null;
+						previousValue.Companies.Remove(this);
+					}
+					this._Region.Entity = value;
+					if ((value != null))
+					{
+						value.Companies.Add(this);
+						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
+						this._REGN_PRVN_CODE = value.PRVN_CODE;
+						this._REGN_CODE = value.CODE;
+					}
+					else
+					{
+						this._REGN_PRVN_CNTY_CODE = default(string);
+						this._REGN_PRVN_CODE = default(string);
+						this._REGN_CODE = default(string);
+					}
+					this.SendPropertyChanged("Region");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Company", Storage="_Request", ThisKey="LAST_RQST_RQID_DNRM", OtherKey="RQID", IsForeignKey=true)]
+		public Request Request
+		{
+			get
+			{
+				return this._Request.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request.Entity;
+				if (((previousValue != value) 
+							|| (this._Request.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request.Entity = null;
+						previousValue.Companies.Remove(this);
+					}
+					this._Request.Entity = value;
+					if ((value != null))
+					{
+						value.Companies.Add(this);
+						this._LAST_RQST_RQID_DNRM = value.RQID;
+					}
+					else
+					{
+						this._LAST_RQST_RQID_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Request");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Company", Storage="_Service", ThisKey="LAST_SERV_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Service Service
+		{
+			get
+			{
+				return this._Service.Entity;
+			}
+			set
+			{
+				Service previousValue = this._Service.Entity;
+				if (((previousValue != value) 
+							|| (this._Service.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service.Entity = null;
+						previousValue.Companies.Remove(this);
+					}
+					this._Service.Entity = value;
+					if ((value != null))
+					{
+						value.Companies.Add(this);
+						this._LAST_SERV_FILE_NO_DNRM = value.FILE_NO;
+					}
+					else
+					{
+						this._LAST_SERV_FILE_NO_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Message_Broadcasts(Message_Broadcast entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Message_Broadcasts(Message_Broadcast entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Company_Activities(Company_Activity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Company_Activities(Company_Activity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Request_Rows(Request_Row entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Request_Rows(Request_Row entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Appointments(Appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Appointments(Appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Events(Event entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Events(Event entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Notes(Note entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Notes(Note entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Payments1(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company1 = this;
+		}
+		
+		private void detach_Payments1(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company1 = null;
+		}
+		
+		private void attach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Tasks(Task entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Tasks(Task entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Log_Calls(Log_Call entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Log_Calls(Log_Call entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Final_Results(Final_Result entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Final_Results(Final_Result entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Tags(Tag entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Tags(Tag entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Extra_Infos(Extra_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Extra_Infos(Extra_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Contact_Infos(Contact_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Contact_Infos(Contact_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Weekday_Infos(Weekday_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Weekday_Infos(Weekday_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Services(Service entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Services(Service entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Service_Publics(Service_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Service_Publics(Service_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Emails(Email entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Emails(Email entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Relation_Infos(Relation_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Relation_Infos(Relation_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Relation_Infos1(Relation_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company1 = this;
+		}
+		
+		private void detach_Relation_Infos1(Relation_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company1 = null;
+		}
+		
+		private void attach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company1 = this;
+		}
+		
+		private void detach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company1 = null;
 		}
 	}
 	

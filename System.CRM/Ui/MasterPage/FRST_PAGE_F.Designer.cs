@@ -56,6 +56,7 @@
          this.rb_jobpdfin = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_isicdfin = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_tmpldfin = new C1.Win.C1Ribbon.RibbonButton();
+         this.rb_cmphdfin = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab1 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_crgldfin = new C1.Win.C1Ribbon.RibbonButton();
@@ -194,7 +195,6 @@
          this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-         this.rb_cmphdfin = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Lov.Properties)).BeginInit();
@@ -386,6 +386,16 @@
          this.rb_tmpldfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_tmpldfin.ToolTip = "قالب های آماده";
          this.rb_tmpldfin.Click += new System.EventHandler(this.rb_tmpldfin_Click);
+         // 
+         // rb_cmphdfin
+         // 
+         this.rb_cmphdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_cmphdfin.LargeImage")));
+         this.rb_cmphdfin.Name = "rb_cmphdfin";
+         this.rb_cmphdfin.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_cmphdfin.SmallImage")));
+         this.rb_cmphdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
+         this.rb_cmphdfin.ToolTip = "شرکت ها و شعبه ها";
+         this.rb_cmphdfin.Visible = false;
+         this.rb_cmphdfin.Click += new System.EventHandler(this.rb_cmphdfin_Click);
          // 
          // ribbonTab1
          // 
@@ -1537,15 +1547,6 @@
          this.barButtonItem6.Caption = "barButtonItem6";
          this.barButtonItem6.Id = 6;
          this.barButtonItem6.Name = "barButtonItem6";
-         // 
-         // rb_cmphdfin
-         // 
-         this.rb_cmphdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_cmphdfin.LargeImage")));
-         this.rb_cmphdfin.Name = "rb_cmphdfin";
-         this.rb_cmphdfin.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_cmphdfin.SmallImage")));
-         this.rb_cmphdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
-         this.rb_cmphdfin.ToolTip = "شرکت ها و شعبه ها";
-         this.rb_cmphdfin.Click += new System.EventHandler(this.rb_cmphdfin_Click);
          // 
          // FRST_PAGE_F
          // 

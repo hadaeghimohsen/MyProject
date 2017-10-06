@@ -2796,6 +2796,7 @@
       <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POST_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
@@ -2870,6 +2871,7 @@
       <Argument Parameter="name" Member="NAME" />
       <Argument Parameter="cord_X" Member="CORD_X" />
       <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="post_Addr_Zoom" Member="POST_ADDR_ZOOM" />
       <Argument Parameter="post_Adrs" Member="POST_ADRS" />
       <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
       <Argument Parameter="web_Site" Member="WEB_SITE" />
@@ -2909,6 +2911,7 @@
       <Argument Parameter="name" Member="NAME" />
       <Argument Parameter="cord_X" Member="CORD_X" />
       <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="post_Addr_Zoom" Member="POST_ADDR_ZOOM" />
       <Argument Parameter="post_Adrs" Member="POST_ADRS" />
       <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
       <Argument Parameter="web_Site" Member="WEB_SITE" />
@@ -4126,24 +4129,6 @@
     <Parameter Name="Cont_Desc" Parameter="cont_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.VF$Companies" Method="VF_Companies" IsComposable="true">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
-    <ElementType Name="VF_CompaniesResult">
-      <Column Name="CNTY_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="PRVN_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="REGN_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SERV_NAME" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.OPT_AEML_P" Method="OPT_AEML_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
@@ -4198,6 +4183,7 @@
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
     <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Addr_Zoom" Parameter="post_Addr_Zoom" Type="System.Double" DbType="Float" />
     <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
@@ -4239,6 +4225,7 @@
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
     <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Addr_Zoom" Parameter="post_Addr_Zoom" Type="System.Double" DbType="Float" />
     <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
     <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
@@ -4268,5 +4255,24 @@
     <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VF$Companies" Method="VF_Companies" IsComposable="true">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="VF_CompaniesResult">
+      <Column Name="CNTY_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PRVN_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="REGN_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SERV_NAME" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

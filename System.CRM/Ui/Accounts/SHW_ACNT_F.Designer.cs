@@ -29,14 +29,16 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_ACNT_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.colHOST_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.Lb_FilterCount = new System.Windows.Forms.Label();
          this.Filter_Butn = new System.MaxUi.RoundedButton();
@@ -62,6 +64,8 @@
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CompActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.ServInfoSearch_Pikb = new System.MaxUi.NewPickBtn();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.roundedButton29 = new System.MaxUi.RoundedButton();
          this.CompanyLogo_Butn = new System.MaxUi.RoundedButton();
          this.panel2 = new System.Windows.Forms.Panel();
@@ -74,8 +78,6 @@
          this.rb_1st = new System.MaxUi.RoundedButton();
          this.lb_1st = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.ServInfoSearch_Pikb = new System.MaxUi.NewPickBtn();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.AcntsSearch_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DclonBs)).BeginInit();
@@ -87,6 +89,12 @@
          this.splitContainerControl1.SuspendLayout();
          this.panel2.SuspendLayout();
          this.SuspendLayout();
+         // 
+         // colHOST_STAT
+         // 
+         this.colHOST_STAT.Caption = "gridColumn2";
+         this.colHOST_STAT.FieldName = "HOST_STAT";
+         this.colHOST_STAT.Name = "colHOST_STAT";
          // 
          // panel1
          // 
@@ -243,7 +251,7 @@
          this.AcntsSearch_Lov.Properties.AppearanceFocused.Options.UseFont = true;
          this.AcntsSearch_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.AcntsSearch_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.AcntsSearch_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 53, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع مشتریان", 83, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -322,7 +330,16 @@
             this.colCRET_BY,
             this.colCODE,
             this.colLAST_SERV_FILE_NO_DNRM,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.colHOST_STAT});
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colHOST_STAT;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "002";
+         this.Comp_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1});
          this.Comp_Gv.GridControl = this.Acnt_Gc;
          this.Comp_Gv.Name = "Comp_Gv";
          this.Comp_Gv.OptionsFind.AlwaysVisible = true;
@@ -450,12 +467,12 @@
          // 
          this.CompActn_Butn.AutoHeight = false;
          this.CompActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "ثبت تماس تلفنی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1566, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "ایجاد شرکت زیر مجموعه", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "حذف", "001", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "بازیابی", "002", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "ویرایش", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "ارسال ایمیل", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "ثبت تماس تلفنی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1566, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "ایجاد شرکت زیر مجموعه", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "حذف", "001", null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "بازیابی", "002", null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "ویرایش", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "ارسال ایمیل", null, null, true)});
          this.CompActn_Butn.Name = "CompActn_Butn";
          this.CompActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.CompActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LeadActn_Butn_ButtonClick);
@@ -477,6 +494,41 @@
          this.splitContainerControl1.SplitterPosition = 165;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
+         // ServInfoSearch_Pikb
+         // 
+         this.ServInfoSearch_Pikb.BackColor = System.Drawing.Color.Transparent;
+         this.ServInfoSearch_Pikb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ServInfoSearch_Pikb.Disabled = false;
+         this.ServInfoSearch_Pikb.First = null;
+         this.ServInfoSearch_Pikb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ServInfoSearch_Pikb.ForceSelect = false;
+         this.ServInfoSearch_Pikb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ServInfoSearch_Pikb.ImageIndexPickDown = 1;
+         this.ServInfoSearch_Pikb.ImageIndexPickUp = 0;
+         this.ServInfoSearch_Pikb.ImageList = this.imageList1;
+         this.ServInfoSearch_Pikb.Location = new System.Drawing.Point(130, 6);
+         this.ServInfoSearch_Pikb.Name = "ServInfoSearch_Pikb";
+         this.ServInfoSearch_Pikb.Next = null;
+         this.ServInfoSearch_Pikb.PickChecked = true;
+         this.ServInfoSearch_Pikb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ServInfoSearch_Pikb.PickDownText = null;
+         this.ServInfoSearch_Pikb.PickDownTextColor = System.Drawing.Color.Empty;
+         this.ServInfoSearch_Pikb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ServInfoSearch_Pikb.PickUpText = null;
+         this.ServInfoSearch_Pikb.PickUpTextColor = System.Drawing.Color.Empty;
+         this.ServInfoSearch_Pikb.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.ServInfoSearch_Pikb.Size = new System.Drawing.Size(28, 25);
+         this.ServInfoSearch_Pikb.TabIndex = 37;
+         this.ServInfoSearch_Pikb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ServInfoSearch_Pikb.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ServInfoSearch_Pikb_PickCheckedChange);
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1037.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1009.png");
          // 
          // roundedButton29
          // 
@@ -717,41 +769,6 @@
          this.labelControl2.Size = new System.Drawing.Size(159, 18);
          this.labelControl2.TabIndex = 2;
          // 
-         // imageList1
-         // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1037.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1009.png");
-         // 
-         // ServInfoSearch_Pikb
-         // 
-         this.ServInfoSearch_Pikb.BackColor = System.Drawing.Color.Transparent;
-         this.ServInfoSearch_Pikb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.ServInfoSearch_Pikb.Disabled = false;
-         this.ServInfoSearch_Pikb.First = null;
-         this.ServInfoSearch_Pikb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServInfoSearch_Pikb.ForceSelect = false;
-         this.ServInfoSearch_Pikb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ServInfoSearch_Pikb.ImageIndexPickDown = 1;
-         this.ServInfoSearch_Pikb.ImageIndexPickUp = 0;
-         this.ServInfoSearch_Pikb.ImageList = this.imageList1;
-         this.ServInfoSearch_Pikb.Location = new System.Drawing.Point(130, 6);
-         this.ServInfoSearch_Pikb.Name = "ServInfoSearch_Pikb";
-         this.ServInfoSearch_Pikb.Next = null;
-         this.ServInfoSearch_Pikb.PickChecked = true;
-         this.ServInfoSearch_Pikb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServInfoSearch_Pikb.PickDownText = null;
-         this.ServInfoSearch_Pikb.PickDownTextColor = System.Drawing.Color.Empty;
-         this.ServInfoSearch_Pikb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServInfoSearch_Pikb.PickUpText = null;
-         this.ServInfoSearch_Pikb.PickUpTextColor = System.Drawing.Color.Empty;
-         this.ServInfoSearch_Pikb.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.ServInfoSearch_Pikb.Size = new System.Drawing.Size(28, 25);
-         this.ServInfoSearch_Pikb.TabIndex = 37;
-         this.ServInfoSearch_Pikb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ServInfoSearch_Pikb.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ServInfoSearch_Pikb_PickCheckedChange);
-         // 
          // SHW_ACNT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -817,5 +834,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
       private MaxUi.NewPickBtn ServInfoSearch_Pikb;
       private Windows.Forms.ImageList imageList1;
+      private DevExpress.XtraGrid.Columns.GridColumn colHOST_STAT;
    }
 }

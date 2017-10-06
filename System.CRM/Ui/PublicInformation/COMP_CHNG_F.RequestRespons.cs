@@ -286,6 +286,12 @@ namespace System.CRM.Ui.PublicInformation
                ShipYCord_Txt.Text = xinput.Attribute("cordy").Value;
                ShipAddrZoom_Txt.Text = xinput.Attribute("zoom").Value;
             }
+            else if (xinput.Attribute("outputtype").Value == "postaddress")
+            {
+               CordX_Txt.Text = xinput.Attribute("cordx").Value;
+               CordY_Txt.Text = xinput.Attribute("cordy").Value;
+               PostAddrZoom_Txt.Text = xinput.Attribute("zoom").Value;
+            }
          }
 
          job.Status = StatusType.Successful;

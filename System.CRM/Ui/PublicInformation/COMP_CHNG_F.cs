@@ -68,6 +68,9 @@ namespace System.CRM.Ui.PublicInformation
                   new XAttribute("iscpcode", Iscp_Lov.EditValue ?? ""),
 
                   new XAttribute("name", Name_Txt.EditValue ?? ""),
+                  new XAttribute("cordx", CordX_Txt.EditValue ?? ""),
+                  new XAttribute("cordy", CordY_Txt.EditValue ?? ""),
+                  new XAttribute("postaddrzoom", PostAddrZoom_Txt.EditValue ?? ""),
                   new XAttribute("postadrs", PostAddr_Txt.EditValue ?? ""),
                   new XAttribute("emaladrs", EmalAddr_Txt.EditValue ?? ""),
                   new XAttribute("website", WebSite_Txt.EditValue ?? ""),                  
@@ -79,13 +82,18 @@ namespace System.CRM.Ui.PublicInformation
                   new XAttribute("billaddrx", BillXCord_Txt.EditValue ?? ""),
                   new XAttribute("billaddry", BillYCord_Txt.EditValue ?? ""),
                   new XAttribute("billaddrzoom", BillAddrZoom_Txt.EditValue ?? ""),
+                  new XAttribute("billaddr", BillAddr_Txt.EditValue ?? ""),
                   new XAttribute("shipaddrx", ShipXCord_Txt.EditValue ?? ""),
                   new XAttribute("shipaddry", ShipYCord_Txt.EditValue ?? ""),
                   new XAttribute("shipaddrzoom", ShipAddrZoom_Txt.EditValue ?? ""),
+                  new XAttribute("shipaddr", ShipAddr_Txt.EditValue ?? ""),
                   new XAttribute("dfltstat", DfltStat_Butn.Tag ?? ""),
+                  new XAttribute("hoststat", HostStat_Butn.Tag ?? ""),
                   new XAttribute("facebookurl", Facebook_Txt.EditValue ?? ""),
                   new XAttribute("linkinurl", LinkedIn_Txt.EditValue ?? ""),
                   new XAttribute("twtrurl", Twiter_Txt.EditValue ?? ""),
+                  new XAttribute("cellphon", CellPhon_Txt.EditValue ?? ""),
+                  new XAttribute("tellphon", TellPhon_Txt.EditValue ?? ""),
                   new XAttribute("recdstat", "002"),
                   new XElement("WeekDays",
                      Weekdays_Flp.Controls.OfType<SimpleButton>().
@@ -306,6 +314,42 @@ namespace System.CRM.Ui.PublicInformation
             PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == comp.REGN_PRVN_CNTY_CODE);
          if(comp.REGN_CODE != null)
             RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CODE == comp.REGN_PRVN_CODE);
+      }
+
+      private void PostAddr_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 31 /* Execute DoWork4GMapNets */, SendType.Self)
+            {
+               Input =
+                  new XElement("GMapNets",
+                     new XAttribute("requesttype", "get"),
+                     new XAttribute("formcaller", "Program:CRM:" + GetType().Name),
+                     new XAttribute("callback", 40 /* CordinateGetSet */),
+                     new XAttribute("outputtype", "postaddress"),
+                     new XAttribute("initalset", true),
+                     new XAttribute("cordx", string.IsNullOrEmpty(CordX_Txt.Text) ? "29.622045" : CordX_Txt.Text),
+                     new XAttribute("cordy", string.IsNullOrEmpty(CordY_Txt.Text) ? "52.522728" : CordY_Txt.Text),
+                     new XAttribute("zoom", string.IsNullOrEmpty(PostAddrZoom_Txt.Text) ? "1800" : PostAddrZoom_Txt.Text)
+                  )
+            }
+         );
+      }
+
+      private void HostStat_Butn_Click(object sender, EventArgs e)
+      {
+         if (HostStat_Butn.Appearance.BackColor == Color.Gainsboro)
+         {
+            HostStat_Butn.Appearance.BackColor = Color.YellowGreen;
+            HostStat_Butn.Text = "بلی";
+            HostStat_Butn.Tag = "002";
+         }
+         else
+         {
+            HostStat_Butn.Appearance.BackColor = Color.Gainsboro;
+            HostStat_Butn.Text = "خیر";
+            HostStat_Butn.Tag = "001";
+         }
       }      
    }
 }

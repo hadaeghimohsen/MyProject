@@ -21,7 +21,7 @@ namespace System.CRM.Ui.BaseDefination
       public CMPH_DFIN_F()
       {
          InitializeComponent();
-         Img_001.ImageVisiable = Img_002.ImageVisiable = Img_003.ImageVisiable = Img_004.ImageVisiable = Img_005.ImageVisiable =
+         Img_001.ImageVisiable = Img_002.ImageVisiable = Img_004.ImageVisiable = Img_005.ImageVisiable =
          Img_006.ImageVisiable = true;
       }
 
@@ -87,6 +87,42 @@ namespace System.CRM.Ui.BaseDefination
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NewCmph_Butn_Click(object sender, EventArgs e)
+      {
+         if (CmphBs.List.Count == 0 || !CmphBs.List.OfType<Data.Company>().Any(c => c.CODE == 0))
+            CmphBs.AddNew();
+         else if(CmphBs.List.OfType<Data.Company>().Any(c => c.CODE == 0))
+            CmphBs.Position = CmphBs.IndexOf(CmphBs.List.OfType<Data.Company>().FirstOrDefault(c => c.CODE == 0));
+         var cmph = CmphBs.Current as Data.Company;
+         
+         cmph.HOST_STAT = "002";
+         cmph.RECD_STAT = "002";
+
+         RightButns_Click(CompInfo_Butn, null);
+      }
+
+      private void SubmitChange_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CmphBs.EndEdit();
+
+            iCRM.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
          }
       }    
    }

@@ -498,31 +498,35 @@ namespace System.CRM.Ui.Contacts
 
       private void ShowServiceDetail_Butn_Click(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 83 /* Execute Hst_Ssid_F */),
-                  new Job(SendType.SelfToUserInterface, "HST_SSID_F", 10 /* Execute Actn_CalF_F */)
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
                   {
-                     Input = 
-                        new XElement("Services",
-                           new XAttribute("formcaller", GetType().Name),
-                           ServBs.List.OfType<Data.VF_ServicesResult>()
-                           .Select(s =>
-                              new XElement("Service", 
-                                 new XAttribute("fileno", s.FILE_NO),
-                                 new XAttribute("namednrm", s.NAME_DNRM),
-                                 new XAttribute("cordx", s.CORD_X_DNRM),
-                                 new XAttribute("cordy", s.CORD_Y_DNRM)
+                     new Job(SendType.Self, 83 /* Execute Hst_Ssid_F */),
+                     new Job(SendType.SelfToUserInterface, "HST_SSID_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Services",
+                              new XAttribute("formcaller", GetType().Name),
+                              ServBs.List.OfType<Data.VF_ServicesResult>()
+                              .Select(s =>
+                                 new XElement("Service", 
+                                    new XAttribute("fileno", s.FILE_NO),
+                                    new XAttribute("namednrm", s.NAME_DNRM),
+                                    new XAttribute("cordx", s.CORD_X_DNRM ?? 0),
+                                    new XAttribute("cordy", s.CORD_Y_DNRM ?? 0)
+                                 )
                               )
                            )
-                        )
-                  }
+                     }
                
-               }
-            )
-         );
+                  }
+               )
+            );
+         }
+         catch { }
       }
    }
 }

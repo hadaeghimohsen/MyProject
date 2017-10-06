@@ -2006,12 +2006,12 @@ namespace System.CRM.Data
 		
 		private void InsertCompany(Company obj)
 		{
-			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
+			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
 		}
 		
 		private void UpdateCompany(Company obj)
 		{
-			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
+			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT);
 		}
 		
 		private void DeleteCompany(Company obj)
@@ -3001,12 +3001,6 @@ namespace System.CRM.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Companies", IsComposable=true)]
-		public IQueryable<VF_CompaniesResult> VF_Companies([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
-		{
-			return this.CreateMethodCallQuery<VF_CompaniesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OPT_AEML_P")]
 		public int OPT_AEML_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -3052,6 +3046,7 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Addr_Zoom", DbType="Float")] System.Nullable<double> post_Addr_Zoom, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
@@ -3081,7 +3076,7 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -3097,6 +3092,7 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Addr_Zoom", DbType="Float")] System.Nullable<double> post_Addr_Zoom, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(1000)")] string post_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Emal_Adrs", DbType="VarChar(250)")] string emal_Adrs, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Web_Site", DbType="VarChar(500)")] string web_Site, 
@@ -3126,8 +3122,14 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Companies", IsComposable=true)]
+		public IQueryable<VF_CompaniesResult> VF_Companies([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			return this.CreateMethodCallQuery<VF_CompaniesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 		}
 	}
 	
@@ -51616,6 +51618,8 @@ namespace System.CRM.Data
 		
 		private System.Nullable<double> _CORD_Y;
 		
+		private System.Nullable<double> _POST_ADDR_ZOOM;
+		
 		private string _POST_ADRS;
 		
 		private string _EMAL_ADRS;
@@ -51768,6 +51772,8 @@ namespace System.CRM.Data
     partial void OnCORD_XChanged();
     partial void OnCORD_YChanging(System.Nullable<double> value);
     partial void OnCORD_YChanged();
+    partial void OnPOST_ADDR_ZOOMChanging(System.Nullable<double> value);
+    partial void OnPOST_ADDR_ZOOMChanged();
     partial void OnPOST_ADRSChanging(string value);
     partial void OnPOST_ADRSChanged();
     partial void OnEMAL_ADRSChanging(string value);
@@ -52113,6 +52119,26 @@ namespace System.CRM.Data
 					this._CORD_Y = value;
 					this.SendPropertyChanged("CORD_Y");
 					this.OnCORD_YChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<double> POST_ADDR_ZOOM
+		{
+			get
+			{
+				return this._POST_ADDR_ZOOM;
+			}
+			set
+			{
+				if ((this._POST_ADDR_ZOOM != value))
+				{
+					this.OnPOST_ADDR_ZOOMChanging(value);
+					this.SendPropertyChanging();
+					this._POST_ADDR_ZOOM = value;
+					this.SendPropertyChanged("POST_ADDR_ZOOM");
+					this.OnPOST_ADDR_ZOOMChanged();
 				}
 			}
 		}
@@ -60393,248 +60419,6 @@ namespace System.CRM.Data
 		}
 	}
 	
-	public partial class VF_CompaniesResult
-	{
-		
-		private string _CNTY_NAME;
-		
-		private string _PRVN_NAME;
-		
-		private string _REGN_NAME;
-		
-		private string _COMP_NAME;
-		
-		private System.Nullable<long> _DEBT_DNRM;
-		
-		private string _RQTP_DESC;
-		
-		private string _SERV_NAME;
-		
-		private string _CRET_BY;
-		
-		private long _CODE;
-		
-		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
-		
-		private string _RECD_STAT;
-		
-		private string _EMAL_ADRS;
-		
-		private System.Data.Linq.Binary _LOGO;
-		
-		public VF_CompaniesResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTY_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string CNTY_NAME
-		{
-			get
-			{
-				return this._CNTY_NAME;
-			}
-			set
-			{
-				if ((this._CNTY_NAME != value))
-				{
-					this._CNTY_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
-		public string PRVN_NAME
-		{
-			get
-			{
-				return this._PRVN_NAME;
-			}
-			set
-			{
-				if ((this._PRVN_NAME != value))
-				{
-					this._PRVN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string REGN_NAME
-		{
-			get
-			{
-				return this._REGN_NAME;
-			}
-			set
-			{
-				if ((this._REGN_NAME != value))
-				{
-					this._REGN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string COMP_NAME
-		{
-			get
-			{
-				return this._COMP_NAME;
-			}
-			set
-			{
-				if ((this._COMP_NAME != value))
-				{
-					this._COMP_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
-		public System.Nullable<long> DEBT_DNRM
-		{
-			get
-			{
-				return this._DEBT_DNRM;
-			}
-			set
-			{
-				if ((this._DEBT_DNRM != value))
-				{
-					this._DEBT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
-		public string RQTP_DESC
-		{
-			get
-			{
-				return this._RQTP_DESC;
-			}
-			set
-			{
-				if ((this._RQTP_DESC != value))
-				{
-					this._RQTP_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME", DbType="NVarChar(500)")]
-		public string SERV_NAME
-		{
-			get
-			{
-				return this._SERV_NAME;
-			}
-			set
-			{
-				if ((this._SERV_NAME != value))
-				{
-					this._SERV_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this._CRET_BY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this._CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
-		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._LAST_SERV_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_SERV_FILE_NO_DNRM != value))
-				{
-					this._LAST_SERV_FILE_NO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
-		public string RECD_STAT
-		{
-			get
-			{
-				return this._RECD_STAT;
-			}
-			set
-			{
-				if ((this._RECD_STAT != value))
-				{
-					this._RECD_STAT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
-		public string EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this._EMAL_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary LOGO
-		{
-			get
-			{
-				return this._LOGO;
-			}
-			set
-			{
-				if ((this._LOGO != value))
-				{
-					this._LOGO = value;
-				}
-			}
-		}
-	}
-	
 	public partial class VF_ServicesResult
 	{
 		
@@ -60962,6 +60746,266 @@ namespace System.CRM.Data
 				if ((this._CORD_Y_DNRM != value))
 				{
 					this._CORD_Y_DNRM = value;
+				}
+			}
+		}
+	}
+	
+	public partial class VF_CompaniesResult
+	{
+		
+		private string _CNTY_NAME;
+		
+		private string _PRVN_NAME;
+		
+		private string _REGN_NAME;
+		
+		private string _COMP_NAME;
+		
+		private System.Nullable<long> _DEBT_DNRM;
+		
+		private string _RQTP_DESC;
+		
+		private string _SERV_NAME;
+		
+		private string _CRET_BY;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
+		
+		private string _RECD_STAT;
+		
+		private string _EMAL_ADRS;
+		
+		private System.Data.Linq.Binary _LOGO;
+		
+		private string _HOST_STAT;
+		
+		public VF_CompaniesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTY_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string CNTY_NAME
+		{
+			get
+			{
+				return this._CNTY_NAME;
+			}
+			set
+			{
+				if ((this._CNTY_NAME != value))
+				{
+					this._CNTY_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
+		public string PRVN_NAME
+		{
+			get
+			{
+				return this._PRVN_NAME;
+			}
+			set
+			{
+				if ((this._PRVN_NAME != value))
+				{
+					this._PRVN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string REGN_NAME
+		{
+			get
+			{
+				return this._REGN_NAME;
+			}
+			set
+			{
+				if ((this._REGN_NAME != value))
+				{
+					this._REGN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string COMP_NAME
+		{
+			get
+			{
+				return this._COMP_NAME;
+			}
+			set
+			{
+				if ((this._COMP_NAME != value))
+				{
+					this._COMP_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DEBT_DNRM
+		{
+			get
+			{
+				return this._DEBT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_DNRM != value))
+				{
+					this._DEBT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
+		public string RQTP_DESC
+		{
+			get
+			{
+				return this._RQTP_DESC;
+			}
+			set
+			{
+				if ((this._RQTP_DESC != value))
+				{
+					this._RQTP_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME", DbType="NVarChar(500)")]
+		public string SERV_NAME
+		{
+			get
+			{
+				return this._SERV_NAME;
+			}
+			set
+			{
+				if ((this._SERV_NAME != value))
+				{
+					this._SERV_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this._CRET_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
+		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._LAST_SERV_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_SERV_FILE_NO_DNRM != value))
+				{
+					this._LAST_SERV_FILE_NO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
+		public string RECD_STAT
+		{
+			get
+			{
+				return this._RECD_STAT;
+			}
+			set
+			{
+				if ((this._RECD_STAT != value))
+				{
+					this._RECD_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this._EMAL_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary LOGO
+		{
+			get
+			{
+				return this._LOGO;
+			}
+			set
+			{
+				if ((this._LOGO != value))
+				{
+					this._LOGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)")]
+		public string HOST_STAT
+		{
+			get
+			{
+				return this._HOST_STAT;
+			}
+			set
+			{
+				if ((this._HOST_STAT != value))
+				{
+					this._HOST_STAT = value;
 				}
 			}
 		}

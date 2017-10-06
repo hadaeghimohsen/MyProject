@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label22;
          System.Windows.Forms.Label label23;
          System.Windows.Forms.Label label24;
@@ -79,10 +80,10 @@
          System.Windows.Forms.Label label37;
          System.Windows.Forms.Label label38;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_CUST_F));
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState9 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState10 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState11 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState12 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState1 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState2 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState3 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState4 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.panel1 = new System.Windows.Forms.Panel();
@@ -90,13 +91,13 @@
          this.tp_0011 = new C1.Win.C1Command.C1DockingTabPage();
          this.Gb_Rqst = new System.Windows.Forms.GroupBox();
          this.Rqtp_Lov = new System.Windows.Forms.ComboBox();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
-         this.RqtpBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.comboBox3 = new System.Windows.Forms.ComboBox();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.comboBox1 = new System.Windows.Forms.ComboBox();
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector4 = new Atf.UI.DateTimeSelector();
          this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
@@ -104,21 +105,21 @@
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.ServInfo_Pikb = new System.MaxUi.NewPickBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.CntyCode_Lov = new System.Windows.Forms.ComboBox();
-         this.SrpbBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
-         this.CntyBs = new System.Windows.Forms.BindingSource();
+         this.SrpbBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CntyBs = new System.Windows.Forms.BindingSource(this.components);
          this.FindGoogleMap_Butn = new C1.Win.C1Input.C1Button();
          this.SrpbType_Lov = new System.Windows.Forms.ComboBox();
-         this.DsrtpBs = new System.Windows.Forms.BindingSource();
+         this.DsrtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.Regn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Comp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RegnCode_Lov = new System.Windows.Forms.ComboBox();
-         this.RegnBs1 = new System.Windows.Forms.BindingSource();
-         this.PrvnBs1 = new System.Windows.Forms.BindingSource();
+         this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CompCode_Lov = new System.Windows.Forms.ComboBox();
-         this.CompBs1 = new System.Windows.Forms.BindingSource();
+         this.CompBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PrvnCode_Lov = new System.Windows.Forms.ComboBox();
          this.EmalAdrs_Txt = new DevExpress.XtraEditors.TextEdit();
          this.TellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -138,29 +139,29 @@
          this.Isic_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Orgn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SuntCode_Lov = new System.Windows.Forms.ComboBox();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
-         this.BuntBs1 = new System.Windows.Forms.BindingSource();
-         this.DeptBs1 = new System.Windows.Forms.BindingSource();
-         this.OrgnBs1 = new System.Windows.Forms.BindingSource();
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CustType_Lov = new System.Windows.Forms.ComboBox();
-         this.DcttpBs1 = new System.Windows.Forms.BindingSource();
+         this.DcttpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.IscpCode_Lov = new System.Windows.Forms.ComboBox();
-         this.IscpBs1 = new System.Windows.Forms.BindingSource();
-         this.IscaBs1 = new System.Windows.Forms.BindingSource();
-         this.IscgBs1 = new System.Windows.Forms.BindingSource();
+         this.IscpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.IscaBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.IscgBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.BuntCode_Lov = new System.Windows.Forms.ComboBox();
          this.IscaCode_Lov = new System.Windows.Forms.ComboBox();
          this.DeptCode_Lov = new System.Windows.Forms.ComboBox();
          this.EthnCity_Lov = new System.Windows.Forms.ComboBox();
-         this.DectpBs1 = new System.Windows.Forms.BindingSource();
+         this.DectpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.JobTitl_Lov = new System.Windows.Forms.ComboBox();
-         this.DjbtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DjbtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.IscgCode_Lov = new System.Windows.Forms.ComboBox();
          this.OrgnCode_Lov = new System.Windows.Forms.ComboBox();
          this.RlgnType_Lov = new System.Windows.Forms.ComboBox();
-         this.DrltpBs1 = new System.Windows.Forms.BindingSource();
+         this.DrltpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MridType_Lov = new System.Windows.Forms.ComboBox();
-         this.DmrtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DmrtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.CordY_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ShowGoogleMap_Butn = new C1.Win.C1Input.C1Button();
@@ -168,7 +169,7 @@
          this.TwitterUrl_Txt = new DevExpress.XtraEditors.TextEdit();
          this.LinkedIn_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FacebookUrl_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -193,8 +194,8 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.ServBs1 = new System.Windows.Forms.BindingSource();
-         this.DsstgBs = new System.Windows.Forms.BindingSource();
+         this.ServBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.StatusSaving_Gc = new DevExpress.XtraGauges.Win.GaugeControl();
          this.stateIndicatorGauge1 = new DevExpress.XtraGauges.Win.Gauges.State.StateIndicatorGauge();
          this.StatusSaving_Sic = new DevExpress.XtraGauges.Win.Gauges.State.StateIndicatorComponent();
@@ -212,7 +213,7 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.toolTip1 = new System.Windows.Forms.ToolTip();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          label22 = new System.Windows.Forms.Label();
          label23 = new System.Windows.Forms.Label();
          label24 = new System.Windows.Forms.Label();
@@ -335,7 +336,7 @@
          label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label22.AutoSize = true;
          label22.Enabled = false;
-         label22.Location = new System.Drawing.Point(218, 244);
+         label22.Location = new System.Drawing.Point(316, 244);
          label22.Name = "label22";
          label22.Size = new System.Drawing.Size(31, 14);
          label22.TabIndex = 31;
@@ -346,7 +347,7 @@
          label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label23.AutoSize = true;
          label23.Enabled = false;
-         label23.Location = new System.Drawing.Point(217, 216);
+         label23.Location = new System.Drawing.Point(315, 216);
          label23.Name = "label23";
          label23.Size = new System.Drawing.Size(39, 14);
          label23.TabIndex = 28;
@@ -357,7 +358,7 @@
          label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label24.AutoSize = true;
          label24.Enabled = false;
-         label24.Location = new System.Drawing.Point(217, 75);
+         label24.Location = new System.Drawing.Point(315, 75);
          label24.Name = "label24";
          label24.Size = new System.Drawing.Size(107, 14);
          label24.TabIndex = 24;
@@ -368,7 +369,7 @@
          label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label25.AutoSize = true;
          label25.Enabled = false;
-         label25.Location = new System.Drawing.Point(217, 159);
+         label25.Location = new System.Drawing.Point(315, 159);
          label25.Name = "label25";
          label25.Size = new System.Drawing.Size(76, 14);
          label25.TabIndex = 27;
@@ -379,7 +380,7 @@
          label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label26.AutoSize = true;
          label26.Enabled = false;
-         label26.Location = new System.Drawing.Point(219, 189);
+         label26.Location = new System.Drawing.Point(317, 189);
          label26.Name = "label26";
          label26.Size = new System.Drawing.Size(75, 14);
          label26.TabIndex = 22;
@@ -390,7 +391,7 @@
          label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label20.AutoSize = true;
          label20.Enabled = false;
-         label20.Location = new System.Drawing.Point(217, 47);
+         label20.Location = new System.Drawing.Point(315, 47);
          label20.Name = "label20";
          label20.Size = new System.Drawing.Size(96, 14);
          label20.TabIndex = 1;
@@ -401,7 +402,7 @@
          label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label28.AutoSize = true;
          label28.Enabled = false;
-         label28.Location = new System.Drawing.Point(217, 103);
+         label28.Location = new System.Drawing.Point(315, 103);
          label28.Name = "label28";
          label28.Size = new System.Drawing.Size(83, 14);
          label28.TabIndex = 1;
@@ -411,7 +412,7 @@
          // 
          label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label29.AutoSize = true;
-         label29.Location = new System.Drawing.Point(217, 20);
+         label29.Location = new System.Drawing.Point(315, 20);
          label29.Name = "label29";
          label29.Size = new System.Drawing.Size(101, 14);
          label29.TabIndex = 21;
@@ -422,7 +423,7 @@
          label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label30.AutoSize = true;
          label30.Enabled = false;
-         label30.Location = new System.Drawing.Point(217, 131);
+         label30.Location = new System.Drawing.Point(315, 131);
          label30.Name = "label30";
          label30.Size = new System.Drawing.Size(65, 14);
          label30.TabIndex = 14;
@@ -938,9 +939,9 @@
          this.Gb_Rqst.Controls.Add(label29);
          this.Gb_Rqst.Controls.Add(this.dateTimeSelector3);
          this.Gb_Rqst.Controls.Add(label30);
-         this.Gb_Rqst.Location = new System.Drawing.Point(243, 3);
+         this.Gb_Rqst.Location = new System.Drawing.Point(145, 3);
          this.Gb_Rqst.Name = "Gb_Rqst";
-         this.Gb_Rqst.Size = new System.Drawing.Size(333, 337);
+         this.Gb_Rqst.Size = new System.Drawing.Size(431, 337);
          this.Gb_Rqst.TabIndex = 1;
          this.Gb_Rqst.TabStop = false;
          this.Gb_Rqst.Text = "اطلاعات درخواست";
@@ -954,7 +955,7 @@
          this.Rqtp_Lov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.Rqtp_Lov.Enabled = false;
          this.Rqtp_Lov.FormattingEnabled = true;
-         this.Rqtp_Lov.Location = new System.Drawing.Point(11, 100);
+         this.Rqtp_Lov.Location = new System.Drawing.Point(109, 100);
          this.Rqtp_Lov.Name = "Rqtp_Lov";
          this.Rqtp_Lov.Size = new System.Drawing.Size(200, 22);
          this.Rqtp_Lov.TabIndex = 32;
@@ -977,7 +978,7 @@
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "YEAR", true));
          this.textEdit1.EditValue = "";
          this.textEdit1.Enabled = false;
-         this.textEdit1.Location = new System.Drawing.Point(171, 213);
+         this.textEdit1.Location = new System.Drawing.Point(269, 213);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -999,7 +1000,7 @@
          this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.comboBox3.Enabled = false;
          this.comboBox3.FormattingEnabled = true;
-         this.comboBox3.Location = new System.Drawing.Point(101, 185);
+         this.comboBox3.Location = new System.Drawing.Point(199, 185);
          this.comboBox3.Name = "comboBox3";
          this.comboBox3.Size = new System.Drawing.Size(110, 22);
          this.comboBox3.TabIndex = 0;
@@ -1018,7 +1019,7 @@
          this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.comboBox1.Enabled = false;
          this.comboBox1.FormattingEnabled = true;
-         this.comboBox1.Location = new System.Drawing.Point(101, 241);
+         this.comboBox1.Location = new System.Drawing.Point(199, 241);
          this.comboBox1.Name = "comboBox1";
          this.comboBox1.Size = new System.Drawing.Size(110, 22);
          this.comboBox1.TabIndex = 0;
@@ -1033,7 +1034,7 @@
          this.textEdit6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit6.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "MDFY_BY", true));
          this.textEdit6.Enabled = false;
-         this.textEdit6.Location = new System.Drawing.Point(101, 72);
+         this.textEdit6.Location = new System.Drawing.Point(199, 72);
          this.textEdit6.Name = "textEdit6";
          this.textEdit6.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
          this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1053,7 +1054,7 @@
          this.dateTimeSelector4.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs1, "MDFY_DATE", true));
          this.dateTimeSelector4.Enabled = false;
          this.dateTimeSelector4.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector4.Location = new System.Drawing.Point(111, 156);
+         this.dateTimeSelector4.Location = new System.Drawing.Point(209, 156);
          this.dateTimeSelector4.Name = "dateTimeSelector4";
          this.dateTimeSelector4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector4.Size = new System.Drawing.Size(100, 23);
@@ -1065,7 +1066,7 @@
          this.textEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "CRET_BY", true));
          this.textEdit8.Enabled = false;
-         this.textEdit8.Location = new System.Drawing.Point(101, 44);
+         this.textEdit8.Location = new System.Drawing.Point(199, 44);
          this.textEdit8.Name = "textEdit8";
          this.textEdit8.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
          this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1082,7 +1083,7 @@
          // 
          this.textEdit10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit10.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "RQID", true));
-         this.textEdit10.Location = new System.Drawing.Point(101, 16);
+         this.textEdit10.Location = new System.Drawing.Point(199, 16);
          this.textEdit10.Name = "textEdit10";
          this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit10.Properties.Appearance.Options.UseFont = true;
@@ -1101,7 +1102,7 @@
          this.dateTimeSelector3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs1, "CRET_DATE", true));
          this.dateTimeSelector3.Enabled = false;
          this.dateTimeSelector3.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector3.Location = new System.Drawing.Point(111, 128);
+         this.dateTimeSelector3.Location = new System.Drawing.Point(209, 128);
          this.dateTimeSelector3.Name = "dateTimeSelector3";
          this.dateTimeSelector3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector3.Size = new System.Drawing.Size(100, 23);
@@ -2223,19 +2224,19 @@
          this.StatusSaving_Sic.Name = "stateIndicatorComponent1";
          this.StatusSaving_Sic.Size = new System.Drawing.SizeF(200F, 200F);
          this.StatusSaving_Sic.StateIndex = 0;
-         indicatorState9.Name = "New Request";
-         indicatorState9.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight1;
-         indicatorState10.Name = "Error On Saving";
-         indicatorState10.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight2;
-         indicatorState11.Name = "Wait For Saving";
-         indicatorState11.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight3;
-         indicatorState12.Name = "Successfull Saving";
-         indicatorState12.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight4;
+         indicatorState1.Name = "New Request";
+         indicatorState1.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight1;
+         indicatorState2.Name = "Error On Saving";
+         indicatorState2.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight2;
+         indicatorState3.Name = "Wait For Saving";
+         indicatorState3.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight3;
+         indicatorState4.Name = "Successfull Saving";
+         indicatorState4.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight4;
          this.StatusSaving_Sic.States.AddRange(new DevExpress.XtraGauges.Core.Model.IIndicatorState[] {
-            indicatorState9,
-            indicatorState10,
-            indicatorState11,
-            indicatorState12});
+            indicatorState1,
+            indicatorState2,
+            indicatorState3,
+            indicatorState4});
          // 
          // Btn_Back
          // 

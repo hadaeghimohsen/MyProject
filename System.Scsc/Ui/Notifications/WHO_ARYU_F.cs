@@ -184,7 +184,7 @@ namespace System.Scsc.Ui.Notifications
          //if (attn.Fighter1.FGPB_TYPE_DNRM == "002" || attn.Fighter1.FGPB_TYPE_DNRM == "003")
          if (attn.FGPB_TYPE_DNRM == "002" || attn.FGPB_TYPE_DNRM == "003")
          {
-            FighterType_Lab.ImageKey = "IMAGE_1126.png";
+            //***FighterType_Lab.ImageKey = "IMAGE_1126.png";
             //Figh00156.Visible = false;
             //Sesn_Pn.Visible = false;
             PrivSesn_Pn.Visible = false;
@@ -193,10 +193,10 @@ namespace System.Scsc.Ui.Notifications
             panel1.Visible = false;
             return;
          }
-         else if (attn.Fighter1.FGPB_TYPE_DNRM == "008")
-            FighterType_Lab.ImageKey = "IMAGE_1087.png";
-         else
-            FighterType_Lab.ImageKey = "IMAGE_1115.png";
+         //***else if (attn.Fighter1.FGPB_TYPE_DNRM == "008")
+         //***   FighterType_Lab.ImageKey = "IMAGE_1087.png";
+         //***else
+         //***   FighterType_Lab.ImageKey = "IMAGE_1115.png";
          panel1.Visible = true;
          //Figh00156.Visible = true;
          //Sesn_Pn.Visible = false;
@@ -374,6 +374,39 @@ namespace System.Scsc.Ui.Notifications
          if(e.KeyCode == Keys.Enter)
          {
             DresNumb_Butn_Click(null, null);
+         }
+      }
+
+      private void AttnPartner_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaveAttnDesc_Txt_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            AttnBs1.EndEdit();
+
+            var attn = AttnBs1.Current as Data.Attendance;
+
+            if (attn == null) return;
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MsgBox.Show(exc.Message, "برای ثبت اطلاعات توضیحات با خطا مواجه شد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query(true);
+               requery = false;
+            }
          }
       }
 

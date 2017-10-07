@@ -75,7 +75,7 @@ namespace System.Scsc.Ui.Settings
                      new XAttribute("notfstat", Stng.NOTF_STAT ?? "001"),
                      new XAttribute("notfexpday", Stng.NOTF_EXP_DAY ?? 3),
                      new XAttribute("attnsysttype", Stng.ATTN_SYST_TYPE ?? "000"),
-                     new XAttribute("commportname", AttnComPortName_Lov.Text ?? ""),
+                     new XAttribute("commportname", /*AttnComPortName_Lov.Text*/Stng.COMM_PORT_NAME ?? ""),
                      new XAttribute("bandrate", Stng.BAND_RATE ?? 0),
                      new XAttribute("barcodedatatype", Stng.BAR_CODE_DATA_TYPE ?? "000"),
                      new XAttribute("ipaddr", Stng.IP_ADDR ?? ""),
@@ -96,7 +96,7 @@ namespace System.Scsc.Ui.Settings
                      new XAttribute("debtchckstat", Stng.DEBT_CHCK_STAT ?? "002"),
 
                      new XAttribute("gateattnstat", Stng.GATE_ATTN_STAT ?? "001"),
-                     new XAttribute("gatecommportname", GateComPortName_Lov.Text ?? ""),
+                     new XAttribute("gatecommportname", /*GateComPortName_Lov.Text*/Stng.GATE_COMM_PORT_NAME ?? ""),
                      new XAttribute("gatebandrate", Stng.GATE_BAND_RATE ?? 9600),
                      new XAttribute("gatetimeclos", Stng.GATE_TIME_CLOS ?? 5),
                      new XAttribute("gateentropen", Stng.GATE_ENTR_OPEN ?? "002"),
@@ -411,6 +411,16 @@ namespace System.Scsc.Ui.Settings
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void AttnComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         AttnComPortName_Txt.Text = AttnComPortName_Lov.Text;
+      }
+
+      private void GateComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         GateComPortName_Txt.Text = GateComPortName_Lov.Text;
       }
    }
 }

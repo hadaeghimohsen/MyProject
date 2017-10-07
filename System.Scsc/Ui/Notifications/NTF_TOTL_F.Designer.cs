@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label fILE_NOLabel1;
          System.Windows.Forms.Label label1;
          System.Windows.Forms.Label label2;
@@ -122,7 +123,7 @@
          this.colEXIT_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAttpBs = new System.Windows.Forms.BindingSource();
+         this.DAttpBs = new System.Windows.Forms.BindingSource(this.components);
          this.colDRAT_ATTN_FIGH_CELL_PHON = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDRAT_ATTN_FIGH_TELL_PHON = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn205 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -136,19 +137,19 @@
          this.persianRepositoryItemDateEdit10 = new dxExample.PersianRepositoryItemDateEdit();
          this.colSESN_MEET_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit17 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DsmtpBs = new System.Windows.Forms.BindingSource();
+         this.DsmtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.tb_master = new Telerik.WinControls.UI.RadPageView();
          this.tp_001 = new Telerik.WinControls.UI.RadPageViewPage();
          this.Dt_CrntDate1R = new Atf.UI.DateTimeSelector();
          this.Dt_ExpDate1R = new Atf.UI.DateTimeSelector();
          this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
          this.Btn_PrintSetting1 = new System.MaxUi.NewMaxBtn();
-         this.img_butn = new System.Windows.Forms.ImageList();
+         this.img_butn = new System.Windows.Forms.ImageList(this.components);
          this.Btn_Print1 = new System.MaxUi.NewMaxBtn();
          this.Btn_PrintDefault1 = new System.MaxUi.NewMaxBtn();
          this.Pb_ExpSession1 = new System.MaxUi.NewPickBtn();
          this.Pb_ExpDate1 = new System.MaxUi.NewPickBtn();
-         this.img_form = new System.Windows.Forms.ImageList();
+         this.img_form = new System.Windows.Forms.ImageList(this.components);
          this.Pb_ExpDay1 = new System.MaxUi.NewPickBtn();
          this.Nud_ExpSession1 = new DevExpress.XtraEditors.SpinEdit();
          this.Btn_Search = new System.MaxUi.NewMaxBtn();
@@ -157,7 +158,7 @@
          this.Nud_ExpSession1R = new DevExpress.XtraEditors.SpinEdit();
          this.Nud_ExpDay1R = new DevExpress.XtraEditors.SpinEdit();
          this.fighterGridControl = new DevExpress.XtraGrid.GridControl();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -180,14 +181,14 @@
          this.colFATH_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSEX_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colBRTH_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFGPB_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DFgtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DFgtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colINSR_NUMB_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colINSR_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTEST_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -218,10 +219,8 @@
          this.Nud_ExpDay2R = new DevExpress.XtraEditors.SpinEdit();
          this.tc_sub = new System.Windows.Forms.TabControl();
          this.tp_002001 = new System.Windows.Forms.TabPage();
-         this.DratBs2 = new System.Windows.Forms.BindingSource();
-         this.DresBs2 = new System.Windows.Forms.BindingSource();
          this.attendanceGridControl = new DevExpress.XtraGrid.GridControl();
-         this.AttnBs2 = new System.Windows.Forms.BindingSource();
+         this.AttnBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFIGH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -242,7 +241,7 @@
          this.gridColumn198 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn199 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit12 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DActvBs2 = new System.Windows.Forms.BindingSource();
+         this.DActvBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridColumn222 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tp_002002 = new System.Windows.Forms.TabPage();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -253,10 +252,11 @@
          this.Tb_SetPently = new System.MaxUi.NewToolBtn();
          this.Tpb_HasPently = new System.MaxUi.NewToolPickBnt();
          this.dresser_AttendanceGridControl = new DevExpress.XtraGrid.GridControl();
-         this.Drat2Bs2 = new System.Windows.Forms.BindingSource();
+         this.Drat2Bs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colDRES_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DresBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.colATTN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLEND_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -270,7 +270,7 @@
          this.colDresser = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTN_FIGH_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.FighBs2 = new System.Windows.Forms.BindingSource();
+         this.FighBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.colDRES_CLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tp_002003 = new System.Windows.Forms.TabPage();
          this.AttnGridControl = new DevExpress.XtraGrid.GridControl();
@@ -310,7 +310,7 @@
          this.Btn_PrintDefault2 = new System.MaxUi.NewMaxBtn();
          this.Btn_Search2 = new System.MaxUi.NewMaxBtn();
          this.Lov_CochName2 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CochBs2 = new System.Windows.Forms.BindingSource();
+         this.CochBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.persianRepositoryItemDateEdit8 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn136 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -436,7 +436,7 @@
          this.colRegion1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.img_grid = new System.Windows.Forms.ImageList();
+         this.img_grid = new System.Windows.Forms.ImageList(this.components);
          this.Nud_FileNo2 = new DevExpress.XtraEditors.TextEdit();
          this.tp_003 = new Telerik.WinControls.UI.RadPageViewPage();
          this.Dt_CrntDate3R = new Atf.UI.DateTimeSelector();
@@ -452,7 +452,7 @@
          this.Dt_ExpDate2 = new Atf.UI.DateTimeSelector();
          this.Nud_ExpDay3R = new DevExpress.XtraEditors.SpinEdit();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.FighBs3 = new System.Windows.Forms.BindingSource();
+         this.FighBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -517,7 +517,7 @@
          this.Dt_ExpDate4 = new Atf.UI.DateTimeSelector();
          this.Nud_ExpDay4R = new DevExpress.XtraEditors.SpinEdit();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.FighBs4 = new System.Windows.Forms.BindingSource();
+         this.FighBs4 = new System.Windows.Forms.BindingSource(this.components);
          this.INSR = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -581,7 +581,7 @@
          this.Dt_ExpDate5 = new Atf.UI.DateTimeSelector();
          this.Nud_ExpDay5R = new DevExpress.XtraEditors.SpinEdit();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.FighBs5 = new System.Windows.Forms.BindingSource();
+         this.FighBs5 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn91 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn92 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -633,7 +633,7 @@
          this.gridColumn135 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tp_006 = new Telerik.WinControls.UI.RadPageViewPage();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.PmtcBs6 = new System.Windows.Forms.BindingSource();
+         this.PmtcBs6 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -647,7 +647,7 @@
          this.colRCPT_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCHEK_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit15 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DcktpBs = new System.Windows.Forms.BindingSource();
+         this.DcktpBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -667,7 +667,7 @@
          this.newMaxBtn4 = new System.MaxUi.NewMaxBtn();
          this.tp_007 = new Telerik.WinControls.UI.RadPageViewPage();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.MbsnBs7 = new System.Windows.Forms.BindingSource();
+         this.MbsnBs7 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colRQRO_RQST_RQID1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -690,7 +690,7 @@
          this.persianRepositoryItemDateEdit11 = new dxExample.PersianRepositoryItemDateEdit();
          this.colSMS_SEND = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit18 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource();
+         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -712,6 +712,7 @@
          this.newMaxBtn6 = new System.MaxUi.NewMaxBtn();
          this.newMaxBtn7 = new System.MaxUi.NewMaxBtn();
          this.newMaxBtn8 = new System.MaxUi.NewMaxBtn();
+         this.DratBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
          this.office2013DarkTheme1 = new Telerik.WinControls.Themes.Office2013DarkTheme();
          fILE_NOLabel1 = new System.Windows.Forms.Label();
@@ -783,8 +784,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Nud_ExpDay2R.Properties)).BeginInit();
          this.tc_sub.SuspendLayout();
          this.tp_002001.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.DratBs2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DresBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
@@ -798,6 +797,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Drat2Bs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DresBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit5.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit8)).BeginInit();
@@ -878,6 +878,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Snmt_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.radGroupBox7)).BeginInit();
          this.radGroupBox7.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.DratBs2)).BeginInit();
          this.SuspendLayout();
          // 
          // fILE_NOLabel1
@@ -1475,7 +1476,7 @@
          this.tb_master.Location = new System.Drawing.Point(19, 17);
          this.tb_master.Name = "tb_master";
          this.tb_master.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.tb_master.SelectedPage = this.tp_005;
+         this.tb_master.SelectedPage = this.tp_002;
          this.tb_master.Size = new System.Drawing.Size(1153, 498);
          this.tb_master.TabIndex = 1;
          this.tb_master.ThemeName = "Office2013Dark";
@@ -2398,10 +2399,6 @@
          this.tp_002001.TabIndex = 0;
          this.tp_002001.Text = "ساعات حضور غیاب";
          // 
-         // DresBs2
-         // 
-         this.DresBs2.DataSource = typeof(System.Scsc.Data.Dresser);
-         // 
          // attendanceGridControl
          // 
          this.attendanceGridControl.DataSource = this.AttnBs2;
@@ -2929,6 +2926,10 @@
          this.repositoryItemLookUpEdit7.DisplayMember = "DESC";
          this.repositoryItemLookUpEdit7.Name = "repositoryItemLookUpEdit7";
          this.repositoryItemLookUpEdit7.ValueMember = "CODE";
+         // 
+         // DresBs2
+         // 
+         this.DresBs2.DataSource = typeof(System.Scsc.Data.Dresser);
          // 
          // colATTN_CODE
          // 
@@ -7610,8 +7611,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Nud_ExpDay2R.Properties)).EndInit();
          this.tc_sub.ResumeLayout(false);
          this.tp_002001.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.DratBs2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DresBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
@@ -7625,6 +7624,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Drat2Bs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DresBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit5.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit8)).EndInit();
@@ -7714,6 +7714,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.radGroupBox7)).EndInit();
          this.radGroupBox7.ResumeLayout(false);
          this.radGroupBox7.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.DratBs2)).EndInit();
          this.ResumeLayout(false);
 
       }

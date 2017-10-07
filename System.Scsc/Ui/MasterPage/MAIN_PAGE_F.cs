@@ -261,7 +261,7 @@ namespace System.Scsc.Ui.MasterPage
             if (gateAttnStng == null) return;
 
             if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
-            Sp_GateAttn.Write("relay");
+            Sp_GateAttn.Write("in");
             //MessageBox.Show("Gate is Open");
          }catch(Exception exc){}
       }
@@ -275,7 +275,7 @@ namespace System.Scsc.Ui.MasterPage
             if (gateAttnStng == null) return;
 
             if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
-            Sp_GateAttn.Write("relay");
+            Sp_GateAttn.Write("out");
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception exc) { }

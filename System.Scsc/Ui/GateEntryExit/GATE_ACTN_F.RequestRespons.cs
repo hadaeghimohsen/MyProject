@@ -117,6 +117,7 @@ namespace System.Scsc.Ui.GateEntryExit
                new List<Job>
                {
                   //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                   new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}", this.GetType().Name), this }  },
                   new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "cntrhrz:normal"} }               
                });
@@ -142,9 +143,13 @@ namespace System.Scsc.Ui.GateEntryExit
          //      })
          //   );
 
+         //job.Next =
+         //   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+         //      new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */) { Input = this });
          job.Next =
-            new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
-               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */) { Input = this });
+               new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+                  new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */,
+                     new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)) { Input = this });
 
          job.Status = StatusType.Successful;
       }

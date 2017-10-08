@@ -47,6 +47,7 @@
          this.Lbl_AmntType = new System.Windows.Forms.Label();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
+         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Brth_Date_PersianDateEdit2 = new Atf.UI.DateTimeSelector();
          this.AttnDate_Date = new Atf.UI.DateTimeSelector();
          this.ENTR_TIMETextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -76,6 +77,7 @@
          this.DRES_NUMB_Txt = new DevExpress.XtraEditors.TextEdit();
          this.Lbl_DebtStatDesc = new DevExpress.XtraEditors.LabelControl();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.AttnDesc_Txt = new System.Windows.Forms.RichTextBox();
          this.Pb_FighImg = new System.Windows.Forms.PictureBox();
          this.DresNumb_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AttnType_Lab = new System.Windows.Forms.Label();
@@ -86,12 +88,10 @@
          this.panel2 = new System.Windows.Forms.Panel();
          this.panel3 = new System.Windows.Forms.Panel();
          this.panel4 = new System.Windows.Forms.Panel();
+         this.AttnPartner_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.MoreInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel5 = new System.Windows.Forms.Panel();
-         this.AttnPartner_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.AttnDesc_Txt = new System.Windows.Forms.RichTextBox();
          this.SaveAttnDesc_Txt = new DevExpress.XtraEditors.SimpleButton();
-         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          eXIT_TIMELabel = new System.Windows.Forms.Label();
          eNTR_TIMELabel = new System.Windows.Forms.Label();
          label13 = new System.Windows.Forms.Label();
@@ -101,6 +101,7 @@
          label4 = new System.Windows.Forms.Label();
          label5 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EXIT_TIMETextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dEBT_DNRMTextEdit.Properties)).BeginInit();
@@ -119,7 +120,6 @@
          this.panel3.SuspendLayout();
          this.panel4.SuspendLayout();
          this.panel5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // eXIT_TIMELabel
@@ -247,6 +247,11 @@
          this.nAME_DNRMTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.nAME_DNRMTextEdit.Size = new System.Drawing.Size(250, 44);
          this.nAME_DNRMTextEdit.TabIndex = 24;
+         // 
+         // AttnBs1
+         // 
+         this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
+         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
          // 
          // Brth_Date_PersianDateEdit2
          // 
@@ -660,6 +665,19 @@
          this.panel1.Size = new System.Drawing.Size(400, 163);
          this.panel1.TabIndex = 84;
          // 
+         // AttnDesc_Txt
+         // 
+         this.AttnDesc_Txt.BackColor = System.Drawing.SystemColors.Window;
+         this.AttnDesc_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+         this.AttnDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "ATTN_DESC", true));
+         this.AttnDesc_Txt.Dock = System.Windows.Forms.DockStyle.Top;
+         this.AttnDesc_Txt.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AttnDesc_Txt.Location = new System.Drawing.Point(0, 0);
+         this.AttnDesc_Txt.Name = "AttnDesc_Txt";
+         this.AttnDesc_Txt.Size = new System.Drawing.Size(400, 88);
+         this.AttnDesc_Txt.TabIndex = 29;
+         this.AttnDesc_Txt.Text = "توضیحات";
+         // 
          // Pb_FighImg
          // 
          this.Pb_FighImg.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -776,6 +794,28 @@
          this.panel4.Size = new System.Drawing.Size(92, 501);
          this.panel4.TabIndex = 87;
          // 
+         // AttnPartner_Butn
+         // 
+         this.AttnPartner_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.AttnPartner_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.AttnPartner_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AttnPartner_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.AttnPartner_Butn.Appearance.Options.UseBackColor = true;
+         this.AttnPartner_Butn.Appearance.Options.UseFont = true;
+         this.AttnPartner_Butn.Appearance.Options.UseForeColor = true;
+         this.AttnPartner_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
+         this.AttnPartner_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.AttnPartner_Butn.Location = new System.Drawing.Point(8, 277);
+         this.AttnPartner_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.AttnPartner_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AttnPartner_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AttnPartner_Butn.Name = "AttnPartner_Butn";
+         this.AttnPartner_Butn.Size = new System.Drawing.Size(76, 74);
+         this.AttnPartner_Butn.TabIndex = 88;
+         this.AttnPartner_Butn.ToolTip = "ثبت همراه عضو";
+         this.AttnPartner_Butn.Click += new System.EventHandler(this.AttnPartner_Butn_Click);
+         // 
          // MoreInfo_Butn
          // 
          this.MoreInfo_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -809,41 +849,6 @@
          this.panel5.Size = new System.Drawing.Size(200, 100);
          this.panel5.TabIndex = 88;
          // 
-         // AttnPartner_Butn
-         // 
-         this.AttnPartner_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.AttnPartner_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.AttnPartner_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AttnPartner_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
-         this.AttnPartner_Butn.Appearance.Options.UseBackColor = true;
-         this.AttnPartner_Butn.Appearance.Options.UseFont = true;
-         this.AttnPartner_Butn.Appearance.Options.UseForeColor = true;
-         this.AttnPartner_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
-         this.AttnPartner_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AttnPartner_Butn.Location = new System.Drawing.Point(8, 277);
-         this.AttnPartner_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.AttnPartner_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AttnPartner_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.AttnPartner_Butn.Name = "AttnPartner_Butn";
-         this.AttnPartner_Butn.Size = new System.Drawing.Size(76, 74);
-         this.AttnPartner_Butn.TabIndex = 88;
-         this.AttnPartner_Butn.ToolTip = "ثبت همراه عضو";
-         this.AttnPartner_Butn.Click += new System.EventHandler(this.AttnPartner_Butn_Click);
-         // 
-         // AttnDesc_Txt
-         // 
-         this.AttnDesc_Txt.BackColor = System.Drawing.SystemColors.Window;
-         this.AttnDesc_Txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-         this.AttnDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "ATTN_DESC", true));
-         this.AttnDesc_Txt.Dock = System.Windows.Forms.DockStyle.Top;
-         this.AttnDesc_Txt.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AttnDesc_Txt.Location = new System.Drawing.Point(0, 0);
-         this.AttnDesc_Txt.Name = "AttnDesc_Txt";
-         this.AttnDesc_Txt.Size = new System.Drawing.Size(400, 88);
-         this.AttnDesc_Txt.TabIndex = 29;
-         this.AttnDesc_Txt.Text = "توضیحات";
-         // 
          // SaveAttnDesc_Txt
          // 
          this.SaveAttnDesc_Txt.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -868,11 +873,6 @@
          this.SaveAttnDesc_Txt.SuperTip = superToolTip2;
          this.SaveAttnDesc_Txt.TabIndex = 81;
          this.SaveAttnDesc_Txt.Click += new System.EventHandler(this.SaveAttnDesc_Txt_Click);
-         // 
-         // AttnBs1
-         // 
-         this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
-         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
          // 
          // WHO_ARYU_F
          // 
@@ -901,6 +901,7 @@
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(906, 548);
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EXIT_TIMETextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dEBT_DNRMTextEdit.Properties)).EndInit();
@@ -923,7 +924,6 @@
          this.panel3.ResumeLayout(false);
          this.panel4.ResumeLayout(false);
          this.panel5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 

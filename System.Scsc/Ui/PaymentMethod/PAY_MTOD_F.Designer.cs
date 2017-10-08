@@ -52,11 +52,11 @@
          System.Windows.Forms.Label label12;
          System.Windows.Forms.Label label10;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PAY_MTOD_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -64,10 +64,13 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DActvBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DPydsBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -93,9 +96,6 @@
          this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXPN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DPydsBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.colPYDS_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -105,6 +105,7 @@
          this.colPayment1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.SaveDifferenceAmnt_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveDiscountAmnt_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.cASH_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.CashBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -246,7 +247,6 @@
          this.colPayment3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.SaveDifferenceAmnt_Butn = new DevExpress.XtraEditors.SimpleButton();
          cASH_CODELabel = new System.Windows.Forms.Label();
          rCPT_MTODLabel = new System.Windows.Forms.Label();
          aMNTLabel = new System.Windows.Forms.Label();
@@ -271,6 +271,8 @@
          label10 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs2)).BeginInit();
          this.tabControl1.SuspendLayout();
          this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -283,8 +285,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DEBT_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.payment_DiscountsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs2)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cASH_CODELookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CashBs1)).BeginInit();
@@ -497,11 +497,6 @@
          label17.TabIndex = 32;
          label17.Text = "تاریخ چک :";
          // 
-         // colCODE
-         // 
-         this.colCODE.FieldName = "CODE";
-         this.colCODE.Name = "colCODE";
-         // 
          // label13
          // 
          label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -579,6 +574,41 @@
          // DActvBs2
          // 
          this.DActvBs2.DataSource = typeof(System.Scsc.Data.D_ACTV);
+         // 
+         // colAMNT_TYPE
+         // 
+         this.colAMNT_TYPE.Caption = "نوع مبلغ تخفیف";
+         this.colAMNT_TYPE.ColumnEdit = this.repositoryItemLookUpEdit2;
+         this.colAMNT_TYPE.FieldName = "AMNT_TYPE";
+         this.colAMNT_TYPE.Name = "colAMNT_TYPE";
+         this.colAMNT_TYPE.OptionsColumn.AllowEdit = false;
+         this.colAMNT_TYPE.OptionsColumn.ReadOnly = true;
+         this.colAMNT_TYPE.Visible = true;
+         this.colAMNT_TYPE.VisibleIndex = 1;
+         this.colAMNT_TYPE.Width = 96;
+         // 
+         // repositoryItemLookUpEdit2
+         // 
+         this.repositoryItemLookUpEdit2.AutoHeight = false;
+         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+         this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit2.DataSource = this.DPydsBs2;
+         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
+         this.repositoryItemLookUpEdit2.NullText = "";
+         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
+         // 
+         // DPydsBs2
+         // 
+         this.DPydsBs2.DataSource = typeof(System.Scsc.Data.D_PYDS);
+         // 
+         // colCODE
+         // 
+         this.colCODE.FieldName = "CODE";
+         this.colCODE.Name = "colCODE";
          // 
          // tabControl1
          // 
@@ -966,36 +996,6 @@
          this.colAMNT1.VisibleIndex = 2;
          this.colAMNT1.Width = 96;
          // 
-         // colAMNT_TYPE
-         // 
-         this.colAMNT_TYPE.Caption = "نوع مبلغ تخفیف";
-         this.colAMNT_TYPE.ColumnEdit = this.repositoryItemLookUpEdit2;
-         this.colAMNT_TYPE.FieldName = "AMNT_TYPE";
-         this.colAMNT_TYPE.Name = "colAMNT_TYPE";
-         this.colAMNT_TYPE.OptionsColumn.AllowEdit = false;
-         this.colAMNT_TYPE.OptionsColumn.ReadOnly = true;
-         this.colAMNT_TYPE.Visible = true;
-         this.colAMNT_TYPE.VisibleIndex = 1;
-         this.colAMNT_TYPE.Width = 96;
-         // 
-         // repositoryItemLookUpEdit2
-         // 
-         this.repositoryItemLookUpEdit2.AutoHeight = false;
-         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-         this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.repositoryItemLookUpEdit2.DataSource = this.DPydsBs2;
-         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
-         this.repositoryItemLookUpEdit2.NullText = "";
-         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
-         // 
-         // DPydsBs2
-         // 
-         this.DPydsBs2.DataSource = typeof(System.Scsc.Data.D_PYDS);
-         // 
          // colPYDS_DESC
          // 
          this.colPYDS_DESC.Caption = "شرح تخفیف";
@@ -1057,6 +1057,21 @@
          this.groupBox1.TabIndex = 0;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "بدهی هنرجو";
+         // 
+         // SaveDifferenceAmnt_Butn
+         // 
+         this.SaveDifferenceAmnt_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.SaveDifferenceAmnt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.SaveDifferenceAmnt_Butn.Appearance.Options.UseBackColor = true;
+         this.SaveDifferenceAmnt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1199;
+         this.SaveDifferenceAmnt_Butn.Location = new System.Drawing.Point(19, 59);
+         this.SaveDifferenceAmnt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SaveDifferenceAmnt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SaveDifferenceAmnt_Butn.Name = "SaveDifferenceAmnt_Butn";
+         this.SaveDifferenceAmnt_Butn.Size = new System.Drawing.Size(146, 23);
+         this.SaveDifferenceAmnt_Butn.TabIndex = 2;
+         this.SaveDifferenceAmnt_Butn.Text = "کسر مبلغ مابه التفاوت";
+         this.SaveDifferenceAmnt_Butn.Click += new System.EventHandler(this.SaveDifferenceAmnt_Butn_Click);
          // 
          // SaveDiscountAmnt_Butn
          // 
@@ -2597,21 +2612,6 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // SaveDifferenceAmnt_Butn
-         // 
-         this.SaveDifferenceAmnt_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.SaveDifferenceAmnt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.SaveDifferenceAmnt_Butn.Appearance.Options.UseBackColor = true;
-         this.SaveDifferenceAmnt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1199;
-         this.SaveDifferenceAmnt_Butn.Location = new System.Drawing.Point(19, 59);
-         this.SaveDifferenceAmnt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.SaveDifferenceAmnt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.SaveDifferenceAmnt_Butn.Name = "SaveDifferenceAmnt_Butn";
-         this.SaveDifferenceAmnt_Butn.Size = new System.Drawing.Size(146, 23);
-         this.SaveDifferenceAmnt_Butn.TabIndex = 2;
-         this.SaveDifferenceAmnt_Butn.Text = "کسر مبلغ مابه التفاوت";
-         this.SaveDifferenceAmnt_Butn.Click += new System.EventHandler(this.SaveDifferenceAmnt_Butn_Click);
-         // 
          // PAY_MTOD_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2625,6 +2625,8 @@
          this.Size = new System.Drawing.Size(1186, 669);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs2)).EndInit();
          this.tabControl1.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -2638,8 +2640,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DEBT_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.payment_DiscountsGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs2)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cASH_CODELookUpEdit.Properties)).EndInit();

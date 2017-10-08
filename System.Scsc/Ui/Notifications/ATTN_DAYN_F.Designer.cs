@@ -29,14 +29,14 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ATTN_DAYN_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colEXIT_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -66,6 +66,10 @@
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.PrintSetting_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.Print_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PrintDefault_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AttnDate_Date = new Atf.UI.DateTimeSelector();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
@@ -95,7 +99,7 @@
          // 
          this.repositoryItemTimeEdit1.AutoHeight = false;
          this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
          this.repositoryItemTimeEdit1.Mask.EditMask = "HH:mm:ss";
          this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
@@ -133,7 +137,7 @@
          this.attendanceGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1,
             this.Actn_Butn});
-         this.attendanceGridControl.Size = new System.Drawing.Size(482, 305);
+         this.attendanceGridControl.Size = new System.Drawing.Size(482, 260);
          this.attendanceGridControl.TabIndex = 2;
          this.attendanceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -332,10 +336,10 @@
          // 
          this.Actn_Butn.AutoHeight = false;
          this.Actn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "نمایش اطلاعات ورود / خروج ", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1222, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "ثبت شماره کمد", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "نمایش اطلاعات اعضا", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "خروج دستی", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "نمایش اطلاعات ورود / خروج ", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1222, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "ثبت شماره کمد", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "نمایش اطلاعات اعضا", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "خروج دستی", null, null, true)});
          this.Actn_Butn.Name = "Actn_Butn";
          this.Actn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Actn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Actn_Butn_ButtonClick);
@@ -347,6 +351,9 @@
          this.splitContainerControl1.IsSplitterFixed = true;
          this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.PrintSetting_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Print_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.PrintDefault_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.AttnDate_Date);
          this.splitContainerControl1.Panel1.Controls.Add(this.labelControl1);
          this.splitContainerControl1.Panel1.Controls.Add(this.Btn_AutoExitAttn);
@@ -356,9 +363,81 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.attendanceGridControl);
          this.splitContainerControl1.Panel2.Text = "Panel2";
          this.splitContainerControl1.Size = new System.Drawing.Size(482, 364);
-         this.splitContainerControl1.SplitterPosition = 54;
+         this.splitContainerControl1.SplitterPosition = 99;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
+         // PrintSetting_Butn
+         // 
+         this.PrintSetting_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.PrintSetting_Butn.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.PrintSetting_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PrintSetting_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.PrintSetting_Butn.Appearance.Options.UseBackColor = true;
+         this.PrintSetting_Butn.Appearance.Options.UseFont = true;
+         this.PrintSetting_Butn.Appearance.Options.UseForeColor = true;
+         this.PrintSetting_Butn.ImageIndex = 2;
+         this.PrintSetting_Butn.ImageList = this.imageList1;
+         this.PrintSetting_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.PrintSetting_Butn.Location = new System.Drawing.Point(347, 51);
+         this.PrintSetting_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PrintSetting_Butn.Name = "PrintSetting_Butn";
+         this.PrintSetting_Butn.Size = new System.Drawing.Size(40, 42);
+         this.PrintSetting_Butn.TabIndex = 36;
+         this.PrintSetting_Butn.ToolTip = "انتخاب گزارش";
+         this.PrintSetting_Butn.Click += new System.EventHandler(this.PrintSetting_Butn_Click);
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1059.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1090.png");
+         this.imageList1.Images.SetKeyName(2, "IMAGE_1091.png");
+         // 
+         // Print_Butn
+         // 
+         this.Print_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.Print_Butn.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.Print_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Print_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.Print_Butn.Appearance.Options.UseBackColor = true;
+         this.Print_Butn.Appearance.Options.UseFont = true;
+         this.Print_Butn.Appearance.Options.UseForeColor = true;
+         this.Print_Butn.ImageIndex = 1;
+         this.Print_Butn.ImageList = this.imageList1;
+         this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Print_Butn.Location = new System.Drawing.Point(393, 51);
+         this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Print_Butn.Name = "Print_Butn";
+         this.Print_Butn.Size = new System.Drawing.Size(40, 42);
+         this.Print_Butn.TabIndex = 35;
+         this.Print_Butn.ToolTip = "انتخاب گزارش";
+         this.Print_Butn.Click += new System.EventHandler(this.Print_Butn_Click);
+         // 
+         // PrintDefault_Butn
+         // 
+         this.PrintDefault_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.PrintDefault_Butn.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.PrintDefault_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PrintDefault_Butn.Appearance.Options.UseBackColor = true;
+         this.PrintDefault_Butn.Appearance.Options.UseFont = true;
+         this.PrintDefault_Butn.ImageIndex = 0;
+         this.PrintDefault_Butn.ImageList = this.imageList1;
+         this.PrintDefault_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.PrintDefault_Butn.Location = new System.Drawing.Point(439, 51);
+         this.PrintDefault_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PrintDefault_Butn.Name = "PrintDefault_Butn";
+         this.PrintDefault_Butn.Size = new System.Drawing.Size(40, 42);
+         this.PrintDefault_Butn.TabIndex = 34;
+         this.PrintDefault_Butn.ToolTip = "انتخاب گزارش پیش فرض";
+         this.PrintDefault_Butn.Click += new System.EventHandler(this.PrintDefault_Butn_Click);
          // 
          // AttnDate_Date
          // 
@@ -474,5 +553,9 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit Actn_Butn;
       private Atf.UI.DateTimeSelector AttnDate_Date;
       private DevExpress.XtraEditors.SimpleButton Btn_AutoExitAttn;
+      private DevExpress.XtraEditors.SimpleButton PrintSetting_Butn;
+      private Windows.Forms.ImageList imageList1;
+      private DevExpress.XtraEditors.SimpleButton Print_Butn;
+      private DevExpress.XtraEditors.SimpleButton PrintDefault_Butn;
    }
 }

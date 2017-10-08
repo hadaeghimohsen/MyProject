@@ -131,5 +131,45 @@ namespace System.Scsc.Ui.Notifications
             }
          }
       }
+
+      private void PrintDefault_Butn_Click(object sender, EventArgs e)
+      {
+         if(!AttnDate_Date.Value.HasValue)
+         {
+            AttnDate_Date.Focus();
+            return;
+         }
+
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date))}
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void Print_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date))}
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void PrintSetting_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

@@ -380,7 +380,7 @@
          this.PrintSetting_Butn.ImageIndex = 2;
          this.PrintSetting_Butn.ImageList = this.imageList1;
          this.PrintSetting_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintSetting_Butn.Location = new System.Drawing.Point(347, 51);
+         this.PrintSetting_Butn.Location = new System.Drawing.Point(341, 51);
          this.PrintSetting_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintSetting_Butn.Name = "PrintSetting_Butn";
@@ -410,7 +410,7 @@
          this.Print_Butn.ImageIndex = 1;
          this.Print_Butn.ImageList = this.imageList1;
          this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Print_Butn.Location = new System.Drawing.Point(393, 51);
+         this.Print_Butn.Location = new System.Drawing.Point(387, 51);
          this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Print_Butn.Name = "Print_Butn";
@@ -430,7 +430,7 @@
          this.PrintDefault_Butn.ImageIndex = 0;
          this.PrintDefault_Butn.ImageList = this.imageList1;
          this.PrintDefault_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintDefault_Butn.Location = new System.Drawing.Point(439, 51);
+         this.PrintDefault_Butn.Location = new System.Drawing.Point(433, 51);
          this.PrintDefault_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintDefault_Butn.Name = "PrintDefault_Butn";

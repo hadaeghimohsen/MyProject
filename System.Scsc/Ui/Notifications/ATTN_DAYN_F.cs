@@ -151,6 +151,7 @@ namespace System.Scsc.Ui.Notifications
 
       private void Print_Butn_Click(object sender, EventArgs e)
       {
+         Back_Butn_Click(null, null);
          Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -162,6 +163,7 @@ namespace System.Scsc.Ui.Notifications
 
       private void PrintSetting_Butn_Click(object sender, EventArgs e)
       {
+         Back_Butn_Click(null, null);
          Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
                  new List<Job>

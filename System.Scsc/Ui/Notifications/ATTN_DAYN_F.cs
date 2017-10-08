@@ -37,6 +37,7 @@ namespace System.Scsc.Ui.Notifications
             iScsc.Attendances
             .Where(a => 
                a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date &&
+               a.ATTN_STAT == "002" &&
                Fga_Uclb_U.Contains(a.CLUB_CODE)
             );
       }
@@ -64,7 +65,8 @@ namespace System.Scsc.Ui.Notifications
                               Input = 
                               new XElement("Fighter",
                                  new XAttribute("fileno", attn.FIGH_FILE_NO),
-                                 new XAttribute("attndate",attn.ATTN_DATE.Date)
+                                 new XAttribute("attndate",attn.ATTN_DATE.Date),
+                                 new XAttribute("attncode", attn.CODE)
                               )
                            }
                         })

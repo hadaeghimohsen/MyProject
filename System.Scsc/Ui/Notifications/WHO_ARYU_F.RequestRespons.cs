@@ -23,6 +23,7 @@ namespace System.Scsc.Ui.Notifications
       int step = 15;
       bool isPainted = false;
       string fileno;
+      long? attncode = 0;
       bool gateControl = false;
 
       public void SendRequest(Job job)
@@ -264,6 +265,12 @@ namespace System.Scsc.Ui.Notifications
             Lbl_Dresser.BackColor = SystemColors.Control;
             fileno = xinput.Attribute("fileno").Value;
             AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+            // 1396/07/16 * اضافه شدن 
+            if (xinput.Attribute("attncode") != null)
+               attncode = Convert.ToInt64(xinput.Attribute("attncode").Value);
+            else
+               attncode = null;
+
             if (xinput.Attribute("gatecontrol") != null)
                gateControl = true;
             else

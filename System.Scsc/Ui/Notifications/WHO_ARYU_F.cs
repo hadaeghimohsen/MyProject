@@ -50,6 +50,14 @@ namespace System.Scsc.Ui.Notifications
             Lbl_AmntType.Tag = "Set Amnt Type From Regulation";
          }
          
+         // 1396/07/16 * برای اینکه به حضوری مورد نظر دسترسی پیدا کنیم
+         if(attncode != null)
+         {
+            AttnBs1.DataSource =
+                  iScsc.Attendances.FirstOrDefault(a => a.CODE == attncode);
+            return;
+         }
+
          if (fileno != null)
          {
             if(AttnDate_Date.Value.HasValue)
@@ -60,7 +68,7 @@ namespace System.Scsc.Ui.Notifications
                      && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
                      && a.EXIT_TIME == null
                    )
-                  .OrderByDescending(a => a.CODE).FirstOrDefault();
+                  .OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
 
                if (result == null)
                   AttnBs1.DataSource =
@@ -379,7 +387,43 @@ namespace System.Scsc.Ui.Notifications
 
       private void AttnPartner_Butn_Click(object sender, EventArgs e)
       {
+         try
+         {
+            AttnBs1.EndEdit();
 
+            var attn = AttnBs1.Current as Data.Attendance;
+            if (attn == null) return;
+
+            // ذخیره کردن شماره کمد و توضیحات ورودی
+            iScsc.SubmitChanges();
+
+            var chosbutn = MessageBox.Show(this, "حضوری همراه به صورت هزینه دار با کسر جلسه برای عضو ثبت شود؟", "ثبت حضوری همراه", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading);
+            switch (chosbutn)
+	         {
+		         case DialogResult.Cancel:
+                  return;
+               case DialogResult.No:
+                  iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, attn.ATTN_DATE, attn.COCH_FILE_NO, "008");
+                  break;
+               case DialogResult.Yes:
+                  iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, attn.ATTN_DATE, attn.COCH_FILE_NO, "007");
+                  break;               
+	         }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               attncode = null;
+               Execute_Query(true);
+               requery = false;
+            }
+         }
       }
 
       private void SaveAttnDesc_Txt_Click(object sender, EventArgs e)

@@ -134,31 +134,40 @@ namespace System.Scsc.Ui.Notifications
 
       private void PrintDefault_Butn_Click(object sender, EventArgs e)
       {
-         if(!AttnDate_Date.Value.HasValue)
+         try
          {
-            AttnDate_Date.Focus();
-            return;
-         }
+            if (!AttnDate_Date.Value.HasValue)
+            {
+               AttnDate_Date.Focus();
+               return;
+            }
 
-         Job _InteractWithScsc =
-           new Job(SendType.External, "Localhost",
-              new List<Job>
+            Back_Butn_Click(null, null);
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date))}
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
                   });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void Print_Butn_Click(object sender, EventArgs e)
       {
-         Back_Butn_Click(null, null);
-         Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
+         try
+         {
+            Back_Butn_Click(null, null);
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date))}
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
                   });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void PrintSetting_Butn_Click(object sender, EventArgs e)

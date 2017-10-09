@@ -138,6 +138,7 @@ namespace System.Scsc.Ui.ReportManager
             new List<Job>
             {
                //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}", this.GetType().Name), this }  },
                new Job(SendType.SelfToUserInterface, "Wall", 00 /* Execute PastManualOnWall */) {Input = new List<object> { this, "cntrhrz:default" }}
             });
@@ -159,6 +160,7 @@ namespace System.Scsc.Ui.ReportManager
                {
                   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
                   new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */){Input = this},
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
                })
             );
 

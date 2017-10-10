@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.RoboTech.Ui.BaseDefinition
+namespace System.RoboTech.Ui.DevelopmentApplication
 {
-   partial class ISIC_DFIN_F : ISendRequest
+   partial class SALE_DVLP_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
+      private List<long?> Fga_Ugov_U;
 
       public void SendRequest(Job job)
       {
@@ -68,23 +69,6 @@ namespace System.RoboTech.Ui.BaseDefinition
          {
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
-
-            switch (formcaller)
-            {
-               case "SALE_DVLP_F":
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", formcaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
-                     {
-                        Input =
-                           new XElement("Action",
-                              new XAttribute("type", "refresh")
-                           )
-                     }
-                  );
-                  break;
-               default:
-                  break;
-            }
          }
 
          job.Status = StatusType.Successful;
@@ -114,6 +98,8 @@ namespace System.RoboTech.Ui.BaseDefinition
          ConnectionString = GetConnectionString.Output.ToString();
          iRoboTech = new Data.iRoboTechDataContext(GetConnectionString.Output.ToString());
 
+         Fga_Ugov_U = (iRoboTech.FGA_UGOV_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+
          //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          //_DefaultGateway.Gateway(GetHostInfo);
 
@@ -140,7 +126,6 @@ namespace System.RoboTech.Ui.BaseDefinition
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
-
          job.Status = StatusType.Successful;
       }
 
@@ -179,13 +164,13 @@ namespace System.RoboTech.Ui.BaseDefinition
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>12</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>73</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 12 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 73 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
@@ -201,7 +186,16 @@ namespace System.RoboTech.Ui.BaseDefinition
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DactvBs.DataSource = iRoboTech.D_ACTVs;
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            switch (xinput.Attribute("type").Value)
+            {
+               case "refresh":
+                  Execute_Query();
+                  break;
+            }
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -213,22 +207,7 @@ namespace System.RoboTech.Ui.BaseDefinition
       {
          try
          {
-            var xinput = job.Input as XElement;
-            if(xinput != null)
-            {
-               if (xinput.Attribute("tablename") != null)
-                  entityname = xinput.Attribute("tablename").Value;
-               else
-                  entityname = "";
-
-               if (xinput.Attribute("formcaller") != null)
-                  formcaller = xinput.Attribute("formcaller").Value;
-               else
-                  formcaller = "";
-
-               if (entityname != "")
-                  tb_master.SelectedTab = tp_003;
-            }
+            var xinput = job.Input as XElement;            
 
             Execute_Query();
          }

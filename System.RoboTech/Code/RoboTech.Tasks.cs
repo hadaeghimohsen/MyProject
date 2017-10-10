@@ -96,6 +96,11 @@ namespace System.RoboTech.Code
             if (_Srbt_Info_F == null)
                _Srbt_Info_F = new Ui.DevelopmentApplication.SRBT_INFO_F { _DefaultGateway = this };
          }
+         else if(value == "sale_dvlp_f")
+         {
+            if (_Sale_Dvlp_F == null)
+               _Sale_Dvlp_F = new Ui.DevelopmentApplication.SALE_DVLP_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -589,6 +594,31 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "SRBT_INFO_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "SRBT_INFO_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "SRBT_INFO_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 21
+      /// </summary>
+      /// <param name="job"></param>
+      private void Sale_Dvlp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "sale_dvlp_f"},
+                  //new Job(SendType.SelfToUserInterface, "RBOD_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SALE_DVLP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SALE_DVLP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "SALE_DVLP_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

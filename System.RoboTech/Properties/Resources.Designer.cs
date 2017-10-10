@@ -3693,6 +3693,16 @@ namespace System.RoboTech.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1564 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1564", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGE_1566 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1566", resourceCulture);

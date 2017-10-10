@@ -7,4 +7,29 @@
 -->
 <GenericObjectDataSource DisplayName="Order" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
    <TypeInfo>System.RoboTech.Data.Order, Data.iRoboTech.designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeUISetting>
+      <PropertyUISettings>
+         <PropertyUISetting Name="ORDR_NUMB">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="TextEdit" Type="DevExpress.XtraEditors.TextEdit" AssemblyName="DevExpress.XtraEditors.v13.1" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="SERV_INTR_APBS_CODE">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="LookUpEdit" Type="DevExpress.XtraEditors.LookUpEdit" AssemblyName="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Frameworks=".NETFramework,Version=v4.0;.NETFramework,Version=v4.5" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="SERV_JOB_APBS_CODE">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="LookUpEdit" Type="DevExpress.XtraEditors.LookUpEdit" AssemblyName="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Frameworks=".NETFramework,Version=v4.0;.NETFramework,Version=v4.5" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+      </PropertyUISettings>
+   </TypeUISetting>
 </GenericObjectDataSource>

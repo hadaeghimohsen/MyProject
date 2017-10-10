@@ -53,6 +53,7 @@ namespace System.RoboTech.Ui.MasterPage
               new List<Job>
               {                  
                 new Job(SendType.Self, 04 /* Execute Isic_Dfin_F */),                
+                new Job(SendType.SelfToUserInterface, "ISIC_DFIN_F", 10 /* Execute Actn_Calf_F */)
               })
          );
       }
@@ -153,6 +154,18 @@ namespace System.RoboTech.Ui.MasterPage
               new List<Job>
               {                  
                 new Job(SendType.Self, 19 /* Execute Rbod_Dvlp_F */),
+              })
+         );
+      }
+
+      private void Sale_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 21 /* Execute Sale_Dvlp_F */),
+                new Job(SendType.SelfToUserInterface, "SALE_DVLP_F", 10 /* Execute Actn_CalF_F */)
               })
          );
       }

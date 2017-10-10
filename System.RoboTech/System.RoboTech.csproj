@@ -242,6 +242,15 @@
     <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\SALE_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\SALE_DVLP_F.Designer.cs">
+      <DependentUpon>SALE_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\SALE_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -354,6 +363,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Admin.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.App_Base_Define.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.App_Domain.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTP.datasource" />
@@ -363,6 +373,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CNTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ELMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_GMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_MDFR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ODST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
@@ -373,6 +384,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_YSNO.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group_Header.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Group_Header_Item.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group_Menu_Ussd.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.iRoboTechDataContext.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Isic_Category.datasource" />
@@ -465,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\REGN_DFIN_F.resx">
       <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\SALE_DVLP_F.resx">
+      <DependentUpon>SALE_DVLP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\SRBT_INFO_F.resx">
       <DependentUpon>SRBT_INFO_F.cs</DependentUpon>
@@ -1589,6 +1604,9 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1525.png">
       <Link>Resources\IMAGE_1525.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1564.png">
+      <Link>Resources\IMAGE_1564.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1566.png">
       <Link>Resources\IMAGE_1566.png</Link>

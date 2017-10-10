@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -67,7 +66,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DactvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DactvBs = new System.Windows.Forms.BindingSource();
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colSTAT5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,17 +79,17 @@
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cnty_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CntyBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CntyBs = new System.Windows.Forms.BindingSource();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Prvn_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.PrvnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs = new System.Windows.Forms.BindingSource();
          this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Regn_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.RegnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RegnBs = new System.Windows.Forms.BindingSource();
          this.colOGID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORGN_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -103,7 +102,7 @@
          this.OrgnActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-         this.OrgnBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.OrgnBn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -120,7 +119,7 @@
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORGN_OGID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRBID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -129,7 +128,7 @@
          this.colCHCK_INTR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBULD_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Buld_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DbuldBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DbuldBs = new System.Windows.Forms.BindingSource();
          this.colBULD_FILE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrgan = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -139,18 +138,18 @@
          this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Spyt_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DspytBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DspytBs = new System.Windows.Forms.BindingSource();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox6 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.PrjbBs = new System.Windows.Forms.BindingSource(this.components);
-         this.JobBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PrjbBs = new System.Windows.Forms.BindingSource();
+         this.JobBs = new System.Windows.Forms.BindingSource();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPRBT_SERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-         this.ServPrjbBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ServPrjbBs = new System.Windows.Forms.BindingSource();
          this.persianRepositoryItemDateEdit4 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -176,12 +175,12 @@
          this.persianRepositoryItemDateEdit5 = new dxExample.PersianRepositoryItemDateEdit();
          this.groupBox7 = new System.Windows.Forms.GroupBox();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.PjsrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PjsrBs = new System.Windows.Forms.BindingSource();
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPRJB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_SERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-         this.ServPrbtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ServPrbtBs = new System.Windows.Forms.BindingSource();
          this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -201,9 +200,9 @@
          this.colPersonal_Robot_Job = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colService_Robot = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit7 = new dxExample.PersianRepositoryItemDateEdit();
-         this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator();
          this.AddPjsr_Butn = new System.Windows.Forms.ToolStripButton();
-         this.PrbtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PrbtBs = new System.Windows.Forms.BindingSource();
          this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton22 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton28 = new System.Windows.Forms.ToolStripButton();
@@ -215,7 +214,7 @@
          this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
          this.DeltPjsr_Butn = new System.Windows.Forms.ToolStripButton();
          this.SavePjsr_Butn = new System.Windows.Forms.ToolStripButton();
-         this.PrjbBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.PrjbBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton23 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton24 = new System.Windows.Forms.ToolStripButton();
@@ -236,13 +235,13 @@
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORDR_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Job_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DordtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DordtBs = new System.Windows.Forms.BindingSource();
          this.colJOB_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIS_FRST_FIRE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colRobot = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
-         this.JobBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.JobBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
@@ -279,7 +278,7 @@
          this.persianRepositoryItemDateEdit3 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.PrbtBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.PrbtBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
@@ -294,13 +293,13 @@
          this.Tsb_SubmitPrbt = new System.Windows.Forms.ToolStripButton();
          this.groupBox3 = new System.Windows.Forms.GroupBox();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.UserOrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.UserOrgnBs = new System.Windows.Forms.BindingSource();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFGA_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORGN_OGID1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSYS_USER = new DevExpress.XtraGrid.Columns.GridColumn();
          this.User_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.vUserBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vUserBs = new System.Windows.Forms.BindingSource();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -308,7 +307,7 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrgan1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.UserOrgnBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.UserOrgnBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -321,7 +320,7 @@
          this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
          this.Tsb_DelUofg = new System.Windows.Forms.ToolStripButton();
          this.Tsb_SubmitChangeUserOrgn = new System.Windows.Forms.ToolStripButton();
-         this.RoboBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RoboBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -335,6 +334,10 @@
          this.Tsb_DelRobo = new System.Windows.Forms.ToolStripButton();
          this.Tsb_SubmitChangeRobo = new System.Windows.Forms.ToolStripButton();
          this.Btn_Back = new C1.Win.C1Input.C1Button();
+         this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DactvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
@@ -2503,7 +2506,11 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn18,
+            this.gridColumn19,
+            this.gridColumn20,
+            this.gridColumn21});
          styleFormatCondition17.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition17.Appearance.Options.UseBackColor = true;
          styleFormatCondition17.ApplyToRow = true;
@@ -2698,8 +2705,6 @@
          this.gridColumn1.Name = "gridColumn1";
          this.gridColumn1.OptionsColumn.AllowEdit = false;
          this.gridColumn1.OptionsColumn.ReadOnly = true;
-         this.gridColumn1.Visible = true;
-         this.gridColumn1.VisibleIndex = 3;
          // 
          // gridColumn2
          // 
@@ -2709,8 +2714,6 @@
          this.gridColumn2.Name = "gridColumn2";
          this.gridColumn2.OptionsColumn.AllowEdit = false;
          this.gridColumn2.OptionsColumn.ReadOnly = true;
-         this.gridColumn2.Visible = true;
-         this.gridColumn2.VisibleIndex = 2;
          // 
          // persianRepositoryItemDateEdit3
          // 
@@ -2730,8 +2733,6 @@
          this.gridColumn3.Name = "gridColumn3";
          this.gridColumn3.OptionsColumn.AllowEdit = false;
          this.gridColumn3.OptionsColumn.ReadOnly = true;
-         this.gridColumn3.Visible = true;
-         this.gridColumn3.VisibleIndex = 1;
          // 
          // gridColumn4
          // 
@@ -2741,8 +2742,6 @@
          this.gridColumn4.Name = "gridColumn4";
          this.gridColumn4.OptionsColumn.AllowEdit = false;
          this.gridColumn4.OptionsColumn.ReadOnly = true;
-         this.gridColumn4.Visible = true;
-         this.gridColumn4.VisibleIndex = 0;
          // 
          // PrbtBn
          // 
@@ -3317,6 +3316,38 @@
          this.Btn_Back.UseVisualStyleBackColor = true;
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // gridColumn18
+         // 
+         this.gridColumn18.Caption = "نام پرسنل";
+         this.gridColumn18.FieldName = "NAME";
+         this.gridColumn18.Name = "gridColumn18";
+         this.gridColumn18.Visible = true;
+         this.gridColumn18.VisibleIndex = 3;
+         // 
+         // gridColumn19
+         // 
+         this.gridColumn19.Caption = "شماره همراه";
+         this.gridColumn19.FieldName = "CELL_PHON";
+         this.gridColumn19.Name = "gridColumn19";
+         this.gridColumn19.Visible = true;
+         this.gridColumn19.VisibleIndex = 2;
+         // 
+         // gridColumn20
+         // 
+         this.gridColumn20.Caption = "تلفن داخلی";
+         this.gridColumn20.FieldName = "TELL_PHON";
+         this.gridColumn20.Name = "gridColumn20";
+         this.gridColumn20.Visible = true;
+         this.gridColumn20.VisibleIndex = 1;
+         // 
+         // gridColumn21
+         // 
+         this.gridColumn21.Caption = "نام کاربری";
+         this.gridColumn21.FieldName = "USER_NAME";
+         this.gridColumn21.Name = "gridColumn21";
+         this.gridColumn21.Visible = true;
+         this.gridColumn21.VisibleIndex = 0;
+         // 
          // ORGN_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -3716,5 +3747,9 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Spyt_Lov;
       private Windows.Forms.BindingSource DspytBs;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
    }
 }

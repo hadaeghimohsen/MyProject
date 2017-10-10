@@ -28,12 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -61,7 +60,8 @@
          this.Pnl_Desktop = new DevExpress.XtraEditors.SplitContainerControl();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sale_Butn = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -161,6 +161,7 @@
          this.ribbonGroup2.Items.Add(this.RoboService_Butn);
          this.ribbonGroup2.Items.Add(this.ServiceRobotSendAdvertising_Butn);
          this.ribbonGroup2.Items.Add(this.Order_Butn);
+         this.ribbonGroup2.Items.Add(this.Sale_Butn);
          this.ribbonGroup2.Name = "ribbonGroup2";
          this.ribbonGroup2.Text = "ربات عادی";
          // 
@@ -301,23 +302,23 @@
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sb_logout.Name = "sb_logout";
          this.sb_logout.Size = new System.Drawing.Size(48, 42);
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
-         toolTipTitleItem1.Text = "خروج از حساب کاربری";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
+         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
+         toolTipTitleItem3.Text = "خروج از حساب کاربری";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
     "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
     "تی وارد شوید.";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "Logout";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.sb_logout.SuperTip = superToolTip1;
+         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "Logout";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.sb_logout.SuperTip = superToolTip2;
          this.sb_logout.TabIndex = 3;
          // 
          // Tm_ShowTime
@@ -325,6 +326,14 @@
          this.Tm_ShowTime.Enabled = true;
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
+         // 
+         // Sale_Butn
+         // 
+         this.Sale_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Sale_Butn.LargeImage")));
+         this.Sale_Butn.Name = "Sale_Butn";
+         this.Sale_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Sale_Butn.SmallImage")));
+         this.Sale_Butn.Text = "ثبت سفارش";
+         this.Sale_Butn.Click += new System.EventHandler(this.Sale_Butn_Click);
          // 
          // FRST_PAGE_F
          // 
@@ -374,5 +383,6 @@
       private C1.Win.C1Ribbon.RibbonButton StrtRobo_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup4;
       private C1.Win.C1Ribbon.RibbonButton SpyMesg_Butn;
+      private C1.Win.C1Ribbon.RibbonButton Sale_Butn;
    }
 }

@@ -84,12 +84,6 @@ namespace System.RoboTech.Data
     partial void DeleteRobot(Robot instance);
     partial void InsertService_Robot(Service_Robot instance);
     partial void DeleteService_Robot(Service_Robot instance);
-    partial void InsertGroup_Header_Item(Group_Header_Item instance);
-    partial void UpdateGroup_Header_Item(Group_Header_Item instance);
-    partial void DeleteGroup_Header_Item(Group_Header_Item instance);
-    partial void InsertOrder_Detail(Order_Detail instance);
-    partial void UpdateOrder_Detail(Order_Detail instance);
-    partial void DeleteOrder_Detail(Order_Detail instance);
     #endregion
 		
 		public iRoboTechDataContext() : 
@@ -658,6 +652,14 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Order_State> Order_States
+		{
+			get
+			{
+				return this.GetTable<Order_State>();
+			}
+		}
+		
 		private void InsertCountry(Country obj)
 		{
 			this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -988,6 +990,36 @@ namespace System.RoboTech.Data
 			this.DEL_PRBT_P(((System.Nullable<long>)(obj.SERV_FILE_NO)), ((System.Nullable<long>)(obj.ROBO_RBID)));
 		}
 		
+		private void InsertGroup_Header_Item(Group_Header_Item obj)
+		{
+			this.INS_GHIT_P(((System.Nullable<long>)(obj.GPHD_GHID)), obj.GHDT_DESC, ((System.Nullable<long>)(obj.PRIC)), ((System.Nullable<short>)(obj.SCND_NUMB)), ((System.Nullable<short>)(obj.MINT_NUMB)), ((System.Nullable<short>)(obj.HORS_NUMB)), ((System.Nullable<short>)(obj.DAYS_NUMB)), ((System.Nullable<short>)(obj.MONT_NUMB)), ((System.Nullable<short>)(obj.YEAR_NUMB)), obj.STAT, obj.COEF_STAT);
+		}
+		
+		private void UpdateGroup_Header_Item(Group_Header_Item obj)
+		{
+			this.UPD_GHIT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.GPHD_GHID)), obj.GHDT_DESC, ((System.Nullable<long>)(obj.PRIC)), ((System.Nullable<short>)(obj.SCND_NUMB)), ((System.Nullable<short>)(obj.MINT_NUMB)), ((System.Nullable<short>)(obj.HORS_NUMB)), ((System.Nullable<short>)(obj.DAYS_NUMB)), ((System.Nullable<short>)(obj.MONT_NUMB)), ((System.Nullable<short>)(obj.YEAR_NUMB)), obj.STAT, obj.COEF_STAT);
+		}
+		
+		private void DeleteGroup_Header_Item(Group_Header_Item obj)
+		{
+			this.DEL_GHIT_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertOrder_Detail(Order_Detail obj)
+		{
+			this.INS_ODRT_P(((System.Nullable<long>)(obj.ORDR_CODE)), obj.ELMN_TYPE, obj.ORDR_DESC, ((System.Nullable<int>)(obj.NUMB)), obj.BASE_USSD_CODE, obj.SUB_USSD_CODE, obj.ORDR_CMNT, obj.ORDR_IMAG, obj.IMAG_PATH, obj.MIME_TYPE, ((System.Nullable<long>)(obj.GHIT_CODE)), ((System.Nullable<System.DateTime>)(obj.GHIT_MIN_DATE)), ((System.Nullable<System.DateTime>)(obj.GHIT_MAX_DATE)));
+		}
+		
+		private void UpdateOrder_Detail(Order_Detail obj)
+		{
+			this.UPD_ODRT_P(((System.Nullable<long>)(obj.ORDR_CODE)), ((System.Nullable<long>)(obj.RWNO)), obj.ELMN_TYPE, obj.ORDR_DESC, ((System.Nullable<int>)(obj.NUMB)), obj.BASE_USSD_CODE, obj.SUB_USSD_CODE, obj.ORDR_CMNT, obj.ORDR_IMAG, obj.IMAG_PATH, obj.MIME_TYPE, ((System.Nullable<long>)(obj.GHIT_CODE)), ((System.Nullable<System.DateTime>)(obj.GHIT_MIN_DATE)), ((System.Nullable<System.DateTime>)(obj.GHIT_MAX_DATE)));
+		}
+		
+		private void DeleteOrder_Detail(Order_Detail obj)
+		{
+			this.DEL_ODRT_P(((System.Nullable<long>)(obj.ORDR_CODE)), ((System.Nullable<long>)(obj.RWNO)));
+		}
+		
 		private void InsertApp_Base_Define(App_Base_Define obj)
 		{
 			this.INS_APBS_P(obj.TITL_DESC, obj.ENTY_NAME, ((System.Nullable<long>)(obj.REF_CODE)), ((System.Nullable<int>)(obj.RWNO)));
@@ -1016,6 +1048,21 @@ namespace System.RoboTech.Data
 		private void DeleteOrder(Order obj)
 		{
 			this.DEL_ORDR_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertOrder_State(Order_State obj)
+		{
+			this.INS_ODST_P(((System.Nullable<long>)(obj.ORDR_CODE)), ((System.Nullable<long>)(obj.APBS_CODE)), ((System.Nullable<System.DateTime>)(obj.STAT_DATE)), obj.STAT_DESC);
+		}
+		
+		private void UpdateOrder_State(Order_State obj)
+		{
+			this.UPD_ODST_P(((System.Nullable<long>)(obj.APBS_CODE)), ((System.Nullable<long>)(obj.CODE)), ((System.Nullable<System.DateTime>)(obj.STAT_DATE)), obj.STAT_DESC);
+		}
+		
+		private void DeleteOrder_State(Order_State obj)
+		{
+			this.DEL_ODST_P(((System.Nullable<long>)(obj.ORDR_CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CNTY_P")]
@@ -1706,6 +1753,69 @@ namespace System.RoboTech.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mdfr_Stat", DbType="VarChar(3)")] string mdfr_Stat)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, srbt_Serv_File_No, srbt_Robo_Rbid, srbt_Srpb_Rwno, prob_Serv_File_No, prob_Robo_Rbid, chat_Id, ordr_Code, ordr_Numb, serv_Ordr_Rwno, ownr_Name, ordr_Type, strt_Date, end_Date, ordr_Stat, cord_X, cord_Y, cell_Phon, serv_Adrs, arch_Stat, serv_Job_Apbs_Code, serv_Intr_Apbs_Code, mdfr_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_GHIT_P")]
+		public int DEL_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GHIT_P")]
+		public int INS_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPHD_GHID", DbType="BigInt")] System.Nullable<long> gPHD_GHID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GHDT_DESC", DbType="NVarChar(100)")] string gHDT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pric", DbType="BigInt")] System.Nullable<long> pric, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Scnd_Numb", DbType="SmallInt")] System.Nullable<short> scnd_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mint_Numb", DbType="SmallInt")] System.Nullable<short> mint_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hors_Numb", DbType="SmallInt")] System.Nullable<short> hors_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Days_Numb", DbType="SmallInt")] System.Nullable<short> days_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mont_Numb", DbType="SmallInt")] System.Nullable<short> mont_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year_Numb", DbType="SmallInt")] System.Nullable<short> year_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Coef_Stat", DbType="VarChar(3)")] string coef_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gPHD_GHID, gHDT_DESC, pric, scnd_Numb, mint_Numb, hors_Numb, days_Numb, mont_Numb, year_Numb, stat, coef_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GHIT_P")]
+		public int UPD_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPHD_GHID", DbType="BigInt")] System.Nullable<long> gPHD_GHID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GHDT_DESC", DbType="NVarChar(100)")] string gHDT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pric", DbType="BigInt")] System.Nullable<long> pric, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Scnd_Numb", DbType="SmallInt")] System.Nullable<short> scnd_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mint_Numb", DbType="SmallInt")] System.Nullable<short> mint_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hors_Numb", DbType="SmallInt")] System.Nullable<short> hors_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Days_Numb", DbType="SmallInt")] System.Nullable<short> days_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mont_Numb", DbType="SmallInt")] System.Nullable<short> mont_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year_Numb", DbType="SmallInt")] System.Nullable<short> year_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Coef_Stat", DbType="VarChar(3)")] string coef_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, gPHD_GHID, gHDT_DESC, pric, scnd_Numb, mint_Numb, hors_Numb, days_Numb, mont_Numb, year_Numb, stat, coef_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_ODRT_P")]
+		public int DEL_ODRT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="BigInt")] System.Nullable<long> rwno)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code, rwno);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ODRT_P")]
+		public int INS_ODRT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Elmn_Type", DbType="VarChar(3)")] string elmn_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Desc", DbType="NVarChar(MAX)")] string ordr_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Numb", DbType="Int")] System.Nullable<int> numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Base_Ussd_Code", DbType="VarChar(250)")] string base_Ussd_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Ussd_Code", DbType="VarChar(250)")] string sub_Ussd_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Cmnt", DbType="NVarChar(4000)")] string ordr_Cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Imag", DbType="Image")] System.Data.Linq.Binary ordr_Imag, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imag_Path", DbType="VarChar(4000)")] string imag_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mime_Type", DbType="VarChar(100)")] string mime_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghit_Code", DbType="BigInt")] System.Nullable<long> ghit_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghit_Min_Date", DbType="DateTime")] System.Nullable<System.DateTime> ghit_Min_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghit_Max_Date", DbType="DateTime")] System.Nullable<System.DateTime> ghit_Max_Date)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code, elmn_Type, ordr_Desc, numb, base_Ussd_Code, sub_Ussd_Code, ordr_Cmnt, ordr_Imag, imag_Path, mime_Type, ghit_Code, ghit_Min_Date, ghit_Max_Date);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_ODRT_P")]
+		public int UPD_ODRT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="BigInt")] System.Nullable<long> rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Elmn_Type", DbType="VarChar(3)")] string elmn_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Desc", DbType="NVarChar(MAX)")] string ordr_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Numb", DbType="Int")] System.Nullable<int> numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Base_Ussd_Code", DbType="VarChar(250)")] string base_Ussd_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Ussd_Code", DbType="VarChar(250)")] string sub_Ussd_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Cmnt", DbType="NVarChar(4000)")] string ordr_Cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Imag", DbType="Image")] System.Data.Linq.Binary ordr_Imag, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imag_Path", DbType="VarChar(4000)")] string imag_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mime_Type", DbType="VarChar(100)")] string mime_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghit_Code", DbType="BigInt")] System.Nullable<long> ghit_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghit_Min_Date", DbType="DateTime")] System.Nullable<System.DateTime> ghit_Min_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghit_Max_Date", DbType="DateTime")] System.Nullable<System.DateTime> ghit_Max_Date)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code, rwno, elmn_Type, ordr_Desc, numb, base_Ussd_Code, sub_Ussd_Code, ordr_Cmnt, ordr_Imag, imag_Path, mime_Type, ghit_Code, ghit_Min_Date, ghit_Max_Date);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_ODST_P")]
+		public int DEL_ODST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ODST_P")]
+		public int INS_ODST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apbs_Code", DbType="BigInt")] System.Nullable<long> apbs_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat_Date", DbType="DateTime")] System.Nullable<System.DateTime> stat_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat_Desc", DbType="NVarChar(MAX)")] string stat_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code, apbs_Code, stat_Date, stat_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_ODST_P")]
+		public int UPD_ODST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apbs_Code", DbType="BigInt")] System.Nullable<long> apbs_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat_Date", DbType="DateTime")] System.Nullable<System.DateTime> stat_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat_Desc", DbType="NVarChar(MAX)")] string stat_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), apbs_Code, code, stat_Date, stat_Desc);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -19603,6 +19713,8 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Order> _Orders1;
 		
+		private EntitySet<Order_State> _Order_States;
+		
 		private EntityRef<App_Base_Define> _App_Base_Define1;
 		
     #region Extensibility Method Definitions
@@ -19634,6 +19746,7 @@ namespace System.RoboTech.Data
 			this._App_Base_Defines = new EntitySet<App_Base_Define>(new Action<App_Base_Define>(this.attach_App_Base_Defines), new Action<App_Base_Define>(this.detach_App_Base_Defines));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Orders1 = new EntitySet<Order>(new Action<Order>(this.attach_Orders1), new Action<Order>(this.detach_Orders1));
+			this._Order_States = new EntitySet<Order_State>(new Action<Order_State>(this.attach_Order_States), new Action<Order_State>(this.detach_Order_States));
 			this._App_Base_Define1 = default(EntityRef<App_Base_Define>);
 			OnCreated();
 		}
@@ -19861,6 +19974,19 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Order_State", Storage="_Order_States", ThisKey="CODE", OtherKey="APBS_CODE")]
+		public EntitySet<Order_State> Order_States
+		{
+			get
+			{
+				return this._Order_States;
+			}
+			set
+			{
+				this._Order_States.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_App_Base_Define", Storage="_App_Base_Define1", ThisKey="REF_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public App_Base_Define App_Base_Define1
 		{
@@ -19949,6 +20075,18 @@ namespace System.RoboTech.Data
 		{
 			this.SendPropertyChanging();
 			entity.App_Base_Define1 = null;
+		}
+		
+		private void attach_Order_States(Order_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.App_Base_Define = this;
+		}
+		
+		private void detach_Order_States(Order_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.App_Base_Define = null;
 		}
 	}
 	
@@ -20063,6 +20201,8 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Order> _Orders;
 		
+		private EntitySet<Order_State> _Order_States;
+		
 		private EntityRef<App_Base_Define> _App_Base_Define;
 		
 		private EntityRef<App_Base_Define> _App_Base_Define1;
@@ -20140,6 +20280,7 @@ namespace System.RoboTech.Data
 			this._Personal_Robot_Job_Orders = new EntitySet<Personal_Robot_Job_Order>(new Action<Personal_Robot_Job_Order>(this.attach_Personal_Robot_Job_Orders), new Action<Personal_Robot_Job_Order>(this.detach_Personal_Robot_Job_Orders));
 			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Order_States = new EntitySet<Order_State>(new Action<Order_State>(this.attach_Order_States), new Action<Order_State>(this.detach_Order_States));
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
 			this._App_Base_Define1 = default(EntityRef<App_Base_Define>);
 			this._Order1 = default(EntityRef<Order>);
@@ -20756,6 +20897,19 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_State", Storage="_Order_States", ThisKey="CODE", OtherKey="ORDR_CODE")]
+		public EntitySet<Order_State> Order_States
+		{
+			get
+			{
+				return this._Order_States;
+			}
+			set
+			{
+				this._Order_States.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Order", Storage="_App_Base_Define", ThisKey="SERV_INTR_APBS_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public App_Base_Define App_Base_Define
 		{
@@ -21018,6 +21172,354 @@ namespace System.RoboTech.Data
 		{
 			this.SendPropertyChanging();
 			entity.Order1 = null;
+		}
+		
+		private void attach_Order_States(Order_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = this;
+		}
+		
+		private void detach_Order_States(Order_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_State")]
+	public partial class Order_State : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _ORDR_CODE;
+		
+		private System.Nullable<long> _APBS_CODE;
+		
+		private long _CODE;
+		
+		private System.Nullable<System.DateTime> _STAT_DATE;
+		
+		private string _STAT_DESC;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<App_Base_Define> _App_Base_Define;
+		
+		private EntityRef<Order> _Order;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnORDR_CODEChanging(System.Nullable<long> value);
+    partial void OnORDR_CODEChanged();
+    partial void OnAPBS_CODEChanging(System.Nullable<long> value);
+    partial void OnAPBS_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnSTAT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSTAT_DATEChanged();
+    partial void OnSTAT_DESCChanging(string value);
+    partial void OnSTAT_DESCChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Order_State()
+		{
+			this._App_Base_Define = default(EntityRef<App_Base_Define>);
+			this._Order = default(EntityRef<Order>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ORDR_CODE
+		{
+			get
+			{
+				return this._ORDR_CODE;
+			}
+			set
+			{
+				if ((this._ORDR_CODE != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnORDR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ORDR_CODE = value;
+					this.SendPropertyChanged("ORDR_CODE");
+					this.OnORDR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APBS_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> APBS_CODE
+		{
+			get
+			{
+				return this._APBS_CODE;
+			}
+			set
+			{
+				if ((this._APBS_CODE != value))
+				{
+					if (this._App_Base_Define.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAPBS_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._APBS_CODE = value;
+					this.SendPropertyChanged("APBS_CODE");
+					this.OnAPBS_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> STAT_DATE
+		{
+			get
+			{
+				return this._STAT_DATE;
+			}
+			set
+			{
+				if ((this._STAT_DATE != value))
+				{
+					this.OnSTAT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._STAT_DATE = value;
+					this.SendPropertyChanged("STAT_DATE");
+					this.OnSTAT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT_DESC", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT_DESC
+		{
+			get
+			{
+				return this._STAT_DESC;
+			}
+			set
+			{
+				if ((this._STAT_DESC != value))
+				{
+					this.OnSTAT_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._STAT_DESC = value;
+					this.SendPropertyChanged("STAT_DESC");
+					this.OnSTAT_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Order_State", Storage="_App_Base_Define", ThisKey="APBS_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public App_Base_Define App_Base_Define
+		{
+			get
+			{
+				return this._App_Base_Define.Entity;
+			}
+			set
+			{
+				App_Base_Define previousValue = this._App_Base_Define.Entity;
+				if (((previousValue != value) 
+							|| (this._App_Base_Define.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._App_Base_Define.Entity = null;
+						previousValue.Order_States.Remove(this);
+					}
+					this._App_Base_Define.Entity = value;
+					if ((value != null))
+					{
+						value.Order_States.Add(this);
+						this._APBS_CODE = value.CODE;
+					}
+					else
+					{
+						this._APBS_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("App_Base_Define");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_State", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.Order_States.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.Order_States.Add(this);
+						this._ORDR_CODE = value.CODE;
+					}
+					else
+					{
+						this._ORDR_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

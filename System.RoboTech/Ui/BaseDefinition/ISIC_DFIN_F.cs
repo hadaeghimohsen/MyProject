@@ -35,6 +35,7 @@ namespace System.RoboTech.Ui.BaseDefinition
 
          int isic = IsicBs.Position;
          int grph = GrphBs.Position;
+         int ghit = GhitBs.Position;
          int apbs = ApbsBs.Position;
 
          IsicBs.DataSource = iRoboTech.Isic_Categories;
@@ -46,6 +47,7 @@ namespace System.RoboTech.Ui.BaseDefinition
 
          IsicBs.Position = isic;
          GrphBs.Position = grph;
+         GhitBs.Position = ghit;
          ApbsBs.Position = apbs;
 
          requery = false;
@@ -84,10 +86,13 @@ namespace System.RoboTech.Ui.BaseDefinition
 
             Isic_gv.PostEditor();
             Grph_gv.PostEditor();
+            Ghit_gv.PostEditor();
             Apbs_gv.PostEditor();
+
 
             IsicBs.EndEdit();
             GrphBs.EndEdit();
+            GhitBs.EndEdit();
             ApbsBs.EndEdit();
 
             iRoboTech.SubmitChanges();
@@ -176,6 +181,51 @@ namespace System.RoboTech.Ui.BaseDefinition
             if (requery)
             {
                Execute_Query();               
+            }
+         }
+      }
+
+      private void AddGroupHeaderItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (GhitBs.List.OfType<Data.Group_Header_Item>().Any(a => a.CODE == 0)) return;
+            if (GrphBs.Current == null) return;
+
+            GhitBs.AddNew();
+
+            var ghit = GhitBs.Current as Data.Group_Header_Item;
+            ghit.STAT = "002";
+            ghit.COEF_STAT = "001";
+            ghit.SCND_NUMB = ghit.MINT_NUMB = ghit.HORS_NUMB = ghit.MONT_NUMB = ghit.YEAR_NUMB = 0;
+            ghit.DAYS_NUMB = 1;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DeleteGroupHeaderItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var ghit = GhitBs.Current as Data.Group_Header_Item;
+
+            iRoboTech.DEL_GHIT_P(ghit.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
             }
          }
       }

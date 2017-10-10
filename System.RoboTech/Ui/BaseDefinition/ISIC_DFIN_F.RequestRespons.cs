@@ -227,9 +227,16 @@ namespace System.RoboTech.Ui.BaseDefinition
                   formcaller = "";
 
                if (entityname != "")
-                  tb_master.SelectedTab = tp_003;
+               {
+                  if (entityname == "groupheaderitem")
+                  {
+                     tb_master.SelectedTab = tp_002;
+                     entityname = "";
+                  }
+                  else
+                     tb_master.SelectedTab = tp_003;
+               }
             }
-
             Execute_Query();
          }
          catch { }

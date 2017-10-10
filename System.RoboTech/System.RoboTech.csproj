@@ -394,6 +394,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Modual_Report.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Detail.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_State.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Category.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Description.datasource" />

@@ -40,6 +40,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int robo = RoboBs.Position;
          int prsn = PrsnBs.Position;
          int ordr = OrdrBs.Position;
+         int ordt = OrdtBs.Position;
+         int odst = OdstBs.Position;
         
          OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
 
@@ -47,9 +49,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          RoboBs.Position = robo;
          PrsnBs.Position = prsn;
          OrdrBs.Position = ordr;
+         OrdtBs.Position = ordt;
+         OdstBs.Position = odst;
 
          IntrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "INTRODUCTION_INFO");
          JobApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "JOBS_INFO");
+         OrdrStatApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDERSTATS_INFO");
+         GhitBs.DataSource = iRoboTech.Group_Header_Items;
 
          requery = false;
       }
@@ -169,7 +175,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
+            Odst_gv.PostEditor();
             OrdrBs.EndEdit();
+            OdstBs.EndEdit();
 
             iRoboTech.SubmitChanges();
 
@@ -246,6 +254,171 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Ghit_LookupEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 04 /* Execute Isig_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "ISIC_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("Lookup",
+                                 new XAttribute("tablename", "groupheaderitem"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     }
+                  )
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddOrderDetail_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Ghit_LookupEdit.EditValue == null || Ghit_LookupEdit.EditValue.ToString() == "") return;
+
+            if (OrdrBs.Current == null) return;
+
+            OrdtBs.AddNew();
+            var ordt = OrdtBs.Current as Data.Order_Detail;
+            
+            ordt.GHIT_CODE = (long)Ghit_LookupEdit.EditValue;
+
+            var ghit = GhitBs.List.OfType<Data.Group_Header_Item>().FirstOrDefault(g => g.CODE == ordt.GHIT_CODE);
+
+            ordt.NUMB = 1;
+            ordt.GHIT_MIN_DATE = ordt.GHIT_MAX_DATE = DateTime.Now.AddSeconds((int)ghit.SCND_NUMB).AddMinutes((int)ghit.MINT_NUMB).AddHours((int)ghit.HORS_NUMB).AddDays((int)ghit.DAYS_NUMB).AddMonths((int)ghit.MONT_NUMB).AddYears((int)ghit.YEAR_NUMB);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Actn_butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var ordt = OrdtBs.Current as Data.Order_Detail;
+            if (ordt == null) return;
+
+            switch(e.Button.Index)
+            {
+               case 0:
+                  Ordt_gv.PostEditor();
+                  OrdtBs.EndEdit();
+                  iRoboTech.SubmitChanges();
+                  break;
+               case 1:
+                  if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  iRoboTech.DEL_ODRT_P(ordt.ORDR_CODE, ordt.RWNO);
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void OrdrStat_Lookup_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 04 /* Execute Isig_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "ISIC_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("App_Base",
+                                 new XAttribute("tablename", "ORDERSTATS_INFO"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     }
+                  )
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddOrderStat_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (OrdrStat_Lookup.EditValue == null || OrdrStat_Lookup.EditValue.ToString() == "") return;
+
+            if (OrdrBs.Current == null) return;
+
+            OdstBs.AddNew();
+            var odst = OdstBs.Current as Data.Order_State;
+
+            odst.APBS_CODE = (long)OrdrStat_Lookup.EditValue;
+            odst.ORDR_CODE = (OrdrBs.Current as Data.Order).CODE;
+
+            odst.STAT_DATE = DateTime.Now;            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DeleteOrdrStat_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var odst = OdstBs.Current as Data.Order_State;
+            if (odst == null) return;
+            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iRoboTech.DEL_ODST_P(odst.ORDR_CODE);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
          }
       }      
    }  

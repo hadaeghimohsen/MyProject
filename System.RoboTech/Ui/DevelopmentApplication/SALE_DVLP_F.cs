@@ -104,6 +104,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             //ordr.ORDR_NUMB = iRoboTech.Orders.Where(o => o.Robot == prob.Robot).Count() + 1;
             ordr.CHAT_ID = prob.CHAT_ID;
             ordr.ORDR_TYPE = "004";
+            ordr.MDFR_STAT = "001";
          }
          catch (Exception exc)
          {
@@ -295,14 +296,21 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (OrdrBs.Current == null) return;
 
-            OrdtBs.AddNew();
+            if (OrdtBs.List.OfType<Data.Order_Detail>().Any(od => od.CRET_BY == null)) return;
+
+            if (OrdtBs.List.Count == 0 || OrdtBs.List.OfType<Data.Order_Detail>().Any(od => od.GHIT_CODE != (long)Ghit_LookupEdit.EditValue))
+               OrdtBs.AddNew();
+            else
+               OrdtBs.Position = OrdtBs.IndexOf(OrdtBs.List.OfType<Data.Order_Detail>().FirstOrDefault(od => od.GHIT_CODE != (long)Ghit_LookupEdit.EditValue));
+            
             var ordt = OrdtBs.Current as Data.Order_Detail;
             
             ordt.GHIT_CODE = (long)Ghit_LookupEdit.EditValue;
 
             var ghit = GhitBs.List.OfType<Data.Group_Header_Item>().FirstOrDefault(g => g.CODE == ordt.GHIT_CODE);
 
-            ordt.NUMB = 1;
+            ordt.NUMB = ordt.NUMB == null ? 1 : ++ordt.NUMB;
+
             ordt.GHIT_MIN_DATE = ordt.GHIT_MAX_DATE = DateTime.Now.AddSeconds((int)ghit.SCND_NUMB).AddMinutes((int)ghit.MINT_NUMB).AddHours((int)ghit.HORS_NUMB).AddDays((int)ghit.DAYS_NUMB).AddMonths((int)ghit.MONT_NUMB).AddYears((int)ghit.YEAR_NUMB);
          }
          catch (Exception exc)
@@ -382,6 +390,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (OrdrStat_Lookup.EditValue == null || OrdrStat_Lookup.EditValue.ToString() == "") return;
 
             if (OrdrBs.Current == null) return;
+
+            if (OdstBs.List.OfType<Data.Order_State>().Any(od => od.CODE == 0)) return;
 
             OdstBs.AddNew();
             var odst = OdstBs.Current as Data.Order_State;

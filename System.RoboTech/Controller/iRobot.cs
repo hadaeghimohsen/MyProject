@@ -356,7 +356,7 @@ namespace System.RoboTech.Controller
 
             #region Developer Monitor
             if ((chat.Message.Caption != null && (chat.Message.Caption == "*#" || chat.Message.Caption.Substring(0, 2) == "*#")) ||
-               (chat.Message.Text != null && (chat.Message.Text == "*#" || chat.Message.Text.Substring(0, 2) == "*#")))
+               (chat.Message.Text != null && chat.Message.Text.Length >= 2 && (chat.Message.Text == "*#" || chat.Message.Text.Substring(0, 2) == "*#")))
             {
                string fileid = "";
                string filetype = "";
@@ -2090,7 +2090,7 @@ namespace System.RoboTech.Controller
                }
                else if (menucmndtype.CMND_TYPE == "018")
                {
-                  #region Show Image & Text Uploaded
+                  #region Upload
                   // 002 - Image & Text
                   chat.Runed = false;
                   var files = (from o in iRobotTech.Organs
@@ -2121,7 +2121,7 @@ namespace System.RoboTech.Controller
                }
                else if (menucmndtype.CMND_TYPE == "019")
                {
-                  #region Show Image & Text Uploaded
+                  #region Show Upload
                   // 002 - Image & Text
                   chat.Runed = false;
                   var pics = (from o in iRobotTech.Organs
@@ -2184,8 +2184,7 @@ namespace System.RoboTech.Controller
                }
                else if (menucmndtype.CMND_TYPE == "020")
                {
-                  #region Show Image & Text Uploaded
-                  // 002 - Image & Text
+                  #region Invite Friend                  
                   chat.Runed = false;
                   Bot.SendTextMessage(e.Message.Chat.Id, 
                            string.Format("{0}\n\rhttps://telegram.me/{1}?start={2}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان", robot.NAME, e.Message.Chat.Id),

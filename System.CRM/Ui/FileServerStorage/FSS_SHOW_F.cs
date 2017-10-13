@@ -152,7 +152,7 @@ namespace System.CRM.Ui.FileServerStorage
                         new XAttribute("rqstrqid", rqstrqid),
                         new XAttribute("cmid", cmid),
                         new XAttribute("sendfiletype", "new"),
-                        new XAttribute("sendtype", "001"),
+                        //new XAttribute("sendtype", "001"),
                         new XAttribute("formcaller", GetType().Name)
                      )
                   },

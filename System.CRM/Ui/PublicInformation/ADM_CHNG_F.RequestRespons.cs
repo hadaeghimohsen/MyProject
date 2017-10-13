@@ -233,6 +233,7 @@ namespace System.CRM.Ui.PublicInformation
             IscgBs1.DataSource = iCRM.Isic_Groups;
             DjbtpBs1.DataSource = iCRM.D_JBTPs;
             DsrtpBs.DataSource = iCRM.D_SRTPs;
+            DsxtpBs.DataSource = iCRM.D_SXTPs;
             RqttBs1.DataSource = iCRM.Requester_Types;
 
             isFirstLoaded = true;

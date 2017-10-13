@@ -78,6 +78,7 @@ namespace System.CRM.Ui.BaseDefination
                case "TSK_TAG_F":
                case "RLAT_SINF_F":
                case "RLAT_CINF_F":
+               case "OPT_SNDF_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
                      {

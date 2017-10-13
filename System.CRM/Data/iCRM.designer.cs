@@ -174,9 +174,6 @@ namespace System.CRM.Data
     partial void InsertPayment(Payment instance);
     partial void UpdatePayment(Payment instance);
     partial void DeletePayment(Payment instance);
-    partial void InsertSend_File(Send_File instance);
-    partial void UpdateSend_File(Send_File instance);
-    partial void DeleteSend_File(Send_File instance);
     partial void InsertTask(Task instance);
     partial void UpdateTask(Task instance);
     partial void DeleteTask(Task instance);
@@ -212,9 +209,6 @@ namespace System.CRM.Data
     partial void InsertRelation_Info(Relation_Info instance);
     partial void UpdateRelation_Info(Relation_Info instance);
     partial void DeleteRelation_Info(Relation_Info instance);
-    partial void InsertService_Type(Service_Type instance);
-    partial void UpdateService_Type(Service_Type instance);
-    partial void DeleteService_Type(Service_Type instance);
     partial void InsertService_Join_Service_Type(Service_Join_Service_Type instance);
     partial void UpdateService_Join_Service_Type(Service_Join_Service_Type instance);
     partial void DeleteService_Join_Service_Type(Service_Join_Service_Type instance);
@@ -224,6 +218,9 @@ namespace System.CRM.Data
     partial void InsertJob_Personnel(Job_Personnel instance);
     partial void UpdateJob_Personnel(Job_Personnel instance);
     partial void DeleteJob_Personnel(Job_Personnel instance);
+    partial void InsertSend_File(Send_File instance);
+    partial void UpdateSend_File(Send_File instance);
+    partial void DeleteSend_File(Send_File instance);
     #endregion
 		
 		public iCRMDataContext() : 
@@ -1504,14 +1501,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Send_File> Send_Files
-		{
-			get
-			{
-				return this.GetTable<Send_File>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Task> Tasks
 		{
 			get
@@ -1709,6 +1698,14 @@ namespace System.CRM.Data
 			get
 			{
 				return this.GetTable<Company>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Send_File> Send_Files
+		{
+			get
+			{
+				return this.GetTable<Send_File>();
 			}
 		}
 		
@@ -2002,6 +1999,21 @@ namespace System.CRM.Data
 		private void DeleteContact_Info(Contact_Info obj)
 		{
 			this.DEL_CTIF_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertService_Type(Service_Type obj)
+		{
+			this.INS_SRTP_P(obj.CODE, obj.SRTP_DESC);
+		}
+		
+		private void UpdateService_Type(Service_Type obj)
+		{
+			this.UPD_SRTP_P(obj.CODE, obj.SRTP_DESC);
+		}
+		
+		private void DeleteService_Type(Service_Type obj)
+		{
+			this.DEL_SRTP_P(obj.CODE);
 		}
 		
 		private void InsertCompany(Company obj)
@@ -3130,6 +3142,27 @@ namespace System.CRM.Data
 		public IQueryable<VF_CompaniesResult> VF_Companies([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			return this.CreateMethodCallQuery<VF_CompaniesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SRTP_P")]
+		public int INS_SRTP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srtp_Desc", DbType="NVarChar(50)")] string srtp_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, srtp_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_SRTP_P")]
+		public int DEL_SRTP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SRTP_P")]
+		public int UPD_SRTP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srtp_Desc", DbType="NVarChar(50)")] string srtp_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, srtp_Desc);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -29181,8 +29214,6 @@ namespace System.CRM.Data
 		
 		private EntitySet<Note> _Notes;
 		
-		private EntitySet<Send_File> _Send_Files;
-		
 		private EntitySet<Task> _Tasks;
 		
 		private EntitySet<Log_Call> _Log_Calls;
@@ -29196,6 +29227,8 @@ namespace System.CRM.Data
 		private EntitySet<Message> _Messages;
 		
 		private EntitySet<Email> _Emails;
+		
+		private EntitySet<Send_File> _Send_Files;
 		
 		private EntityRef<Region> _Region;
 		
@@ -29259,7 +29292,6 @@ namespace System.CRM.Data
 			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
-			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
 			this._Log_Calls = new EntitySet<Log_Call>(new Action<Log_Call>(this.attach_Log_Calls), new Action<Log_Call>(this.detach_Log_Calls));
 			this._Final_Results = new EntitySet<Final_Result>(new Action<Final_Result>(this.attach_Final_Results), new Action<Final_Result>(this.detach_Final_Results));
@@ -29267,6 +29299,7 @@ namespace System.CRM.Data
 			this._Service_Publics = new EntitySet<Service_Public>(new Action<Service_Public>(this.attach_Service_Publics), new Action<Service_Public>(this.detach_Service_Publics));
 			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Emails = new EntitySet<Email>(new Action<Email>(this.attach_Emails), new Action<Email>(this.detach_Emails));
+			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Region = default(EntityRef<Region>);
 			this._Request = default(EntityRef<Request>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
@@ -29770,19 +29803,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Send_File", Storage="_Send_Files", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
-		public EntitySet<Send_File> Send_Files
-		{
-			get
-			{
-				return this._Send_Files;
-			}
-			set
-			{
-				this._Send_Files.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Task", Storage="_Tasks", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
 		public EntitySet<Task> Tasks
 		{
@@ -29871,6 +29891,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Emails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Send_File", Storage="_Send_Files", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
+		public EntitySet<Send_File> Send_Files
+		{
+			get
+			{
+				return this._Send_Files;
+			}
+			set
+			{
+				this._Send_Files.Assign(value);
 			}
 		}
 		
@@ -30270,18 +30303,6 @@ namespace System.CRM.Data
 			entity.Request_Row = null;
 		}
 		
-		private void attach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = this;
-		}
-		
-		private void detach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = null;
-		}
-		
 		private void attach_Tasks(Task entity)
 		{
 			this.SendPropertyChanging();
@@ -30361,6 +30382,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Emails(Email entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = null;
+		}
+		
+		private void attach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = this;
+		}
+		
+		private void detach_Send_Files(Send_File entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request_Row = null;
@@ -36677,815 +36710,6 @@ namespace System.CRM.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Send_File")]
-	public partial class Send_File : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _RQRO_RQST_RQID;
-		
-		private System.Nullable<short> _RQRO_RWNO;
-		
-		private System.Nullable<long> _SERV_FILE_NO;
-		
-		private System.Nullable<int> _SRPB_RWNO_DNRM;
-		
-		private string _SRPB_RECT_CODE_DNRM;
-		
-		private System.Nullable<long> _COMP_CODE_DNRM;
-		
-		private System.Nullable<long> _CMNT_CMID;
-		
-		private long _SFID;
-		
-		private string _SUBJ_DESC;
-		
-		private System.Nullable<System.DateTime> _SEND_DATE;
-		
-		private string _SEND_STAT;
-		
-		private string _SEND_TYPE;
-		
-		private string _SDRC_TYPE;
-		
-		private string _FILE_PATH;
-		
-		private string _SHER_TEAM;
-		
-		private string _UPLD_TYPE;
-		
-		private string _FILE_SRVR_LINK;
-		
-		private string _URL_LINK;
-		
-		private string _URL_NAME;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Comment> _Comment;
-		
-		private EntityRef<Request_Row> _Request_Row;
-		
-		private EntityRef<Service> _Service;
-		
-		private EntityRef<Service_Public> _Service_Public;
-		
-		private EntityRef<Company> _Company;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRQRO_RQST_RQIDChanging(System.Nullable<long> value);
-    partial void OnRQRO_RQST_RQIDChanged();
-    partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
-    partial void OnRQRO_RWNOChanged();
-    partial void OnSERV_FILE_NOChanging(System.Nullable<long> value);
-    partial void OnSERV_FILE_NOChanged();
-    partial void OnSRPB_RWNO_DNRMChanging(System.Nullable<int> value);
-    partial void OnSRPB_RWNO_DNRMChanged();
-    partial void OnSRPB_RECT_CODE_DNRMChanging(string value);
-    partial void OnSRPB_RECT_CODE_DNRMChanged();
-    partial void OnCOMP_CODE_DNRMChanging(System.Nullable<long> value);
-    partial void OnCOMP_CODE_DNRMChanged();
-    partial void OnCMNT_CMIDChanging(System.Nullable<long> value);
-    partial void OnCMNT_CMIDChanged();
-    partial void OnSFIDChanging(long value);
-    partial void OnSFIDChanged();
-    partial void OnSUBJ_DESCChanging(string value);
-    partial void OnSUBJ_DESCChanged();
-    partial void OnSEND_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnSEND_DATEChanged();
-    partial void OnSEND_STATChanging(string value);
-    partial void OnSEND_STATChanged();
-    partial void OnSEND_TYPEChanging(string value);
-    partial void OnSEND_TYPEChanged();
-    partial void OnSDRC_TYPEChanging(string value);
-    partial void OnSDRC_TYPEChanged();
-    partial void OnFILE_PATHChanging(string value);
-    partial void OnFILE_PATHChanged();
-    partial void OnSHER_TEAMChanging(string value);
-    partial void OnSHER_TEAMChanged();
-    partial void OnUPLD_TYPEChanging(string value);
-    partial void OnUPLD_TYPEChanged();
-    partial void OnFILE_SRVR_LINKChanging(string value);
-    partial void OnFILE_SRVR_LINKChanged();
-    partial void OnURL_LINKChanging(string value);
-    partial void OnURL_LINKChanged();
-    partial void OnURL_NAMEChanging(string value);
-    partial void OnURL_NAMEChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Send_File()
-		{
-			this._Comment = default(EntityRef<Comment>);
-			this._Request_Row = default(EntityRef<Request_Row>);
-			this._Service = default(EntityRef<Service>);
-			this._Service_Public = default(EntityRef<Service_Public>);
-			this._Company = default(EntityRef<Company>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt")]
-		public System.Nullable<long> RQRO_RQST_RQID
-		{
-			get
-			{
-				return this._RQRO_RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQRO_RQST_RQID != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RQST_RQID = value;
-					this.SendPropertyChanged("RQRO_RQST_RQID");
-					this.OnRQRO_RQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt")]
-		public System.Nullable<short> RQRO_RWNO
-		{
-			get
-			{
-				return this._RQRO_RWNO;
-			}
-			set
-			{
-				if ((this._RQRO_RWNO != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RWNO = value;
-					this.SendPropertyChanged("RQRO_RWNO");
-					this.OnRQRO_RWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_FILE_NO", DbType="BigInt")]
-		public System.Nullable<long> SERV_FILE_NO
-		{
-			get
-			{
-				return this._SERV_FILE_NO;
-			}
-			set
-			{
-				if ((this._SERV_FILE_NO != value))
-				{
-					if ((this._Service.HasLoadedOrAssignedValue || this._Service_Public.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSERV_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_FILE_NO = value;
-					this.SendPropertyChanged("SERV_FILE_NO");
-					this.OnSERV_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRPB_RWNO_DNRM", DbType="Int")]
-		public System.Nullable<int> SRPB_RWNO_DNRM
-		{
-			get
-			{
-				return this._SRPB_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._SRPB_RWNO_DNRM != value))
-				{
-					if (this._Service_Public.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSRPB_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SRPB_RWNO_DNRM = value;
-					this.SendPropertyChanged("SRPB_RWNO_DNRM");
-					this.OnSRPB_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRPB_RECT_CODE_DNRM", DbType="VarChar(3)")]
-		public string SRPB_RECT_CODE_DNRM
-		{
-			get
-			{
-				return this._SRPB_RECT_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._SRPB_RECT_CODE_DNRM != value))
-				{
-					if (this._Service_Public.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSRPB_RECT_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SRPB_RECT_CODE_DNRM = value;
-					this.SendPropertyChanged("SRPB_RECT_CODE_DNRM");
-					this.OnSRPB_RECT_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE_DNRM", DbType="BigInt")]
-		public System.Nullable<long> COMP_CODE_DNRM
-		{
-			get
-			{
-				return this._COMP_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._COMP_CODE_DNRM != value))
-				{
-					if (this._Company.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCOMP_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._COMP_CODE_DNRM = value;
-					this.SendPropertyChanged("COMP_CODE_DNRM");
-					this.OnCOMP_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT_CMID", DbType="BigInt")]
-		public System.Nullable<long> CMNT_CMID
-		{
-			get
-			{
-				return this._CMNT_CMID;
-			}
-			set
-			{
-				if ((this._CMNT_CMID != value))
-				{
-					if (this._Comment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCMNT_CMIDChanging(value);
-					this.SendPropertyChanging();
-					this._CMNT_CMID = value;
-					this.SendPropertyChanged("CMNT_CMID");
-					this.OnCMNT_CMIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SFID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long SFID
-		{
-			get
-			{
-				return this._SFID;
-			}
-			set
-			{
-				if ((this._SFID != value))
-				{
-					this.OnSFIDChanging(value);
-					this.SendPropertyChanging();
-					this._SFID = value;
-					this.SendPropertyChanged("SFID");
-					this.OnSFIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBJ_DESC", DbType="NVarChar(250)")]
-		public string SUBJ_DESC
-		{
-			get
-			{
-				return this._SUBJ_DESC;
-			}
-			set
-			{
-				if ((this._SUBJ_DESC != value))
-				{
-					this.OnSUBJ_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._SUBJ_DESC = value;
-					this.SendPropertyChanged("SUBJ_DESC");
-					this.OnSUBJ_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> SEND_DATE
-		{
-			get
-			{
-				return this._SEND_DATE;
-			}
-			set
-			{
-				if ((this._SEND_DATE != value))
-				{
-					this.OnSEND_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._SEND_DATE = value;
-					this.SendPropertyChanged("SEND_DATE");
-					this.OnSEND_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_STAT", DbType="VarChar(3)")]
-		public string SEND_STAT
-		{
-			get
-			{
-				return this._SEND_STAT;
-			}
-			set
-			{
-				if ((this._SEND_STAT != value))
-				{
-					this.OnSEND_STATChanging(value);
-					this.SendPropertyChanging();
-					this._SEND_STAT = value;
-					this.SendPropertyChanged("SEND_STAT");
-					this.OnSEND_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_TYPE", DbType="VarChar(3)")]
-		public string SEND_TYPE
-		{
-			get
-			{
-				return this._SEND_TYPE;
-			}
-			set
-			{
-				if ((this._SEND_TYPE != value))
-				{
-					this.OnSEND_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._SEND_TYPE = value;
-					this.SendPropertyChanged("SEND_TYPE");
-					this.OnSEND_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDRC_TYPE", DbType="VarChar(3)")]
-		public string SDRC_TYPE
-		{
-			get
-			{
-				return this._SDRC_TYPE;
-			}
-			set
-			{
-				if ((this._SDRC_TYPE != value))
-				{
-					this.OnSDRC_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._SDRC_TYPE = value;
-					this.SendPropertyChanged("SDRC_TYPE");
-					this.OnSDRC_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_PATH", DbType="NVarChar(4000)")]
-		public string FILE_PATH
-		{
-			get
-			{
-				return this._FILE_PATH;
-			}
-			set
-			{
-				if ((this._FILE_PATH != value))
-				{
-					this.OnFILE_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._FILE_PATH = value;
-					this.SendPropertyChanged("FILE_PATH");
-					this.OnFILE_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHER_TEAM", DbType="VarChar(3)")]
-		public string SHER_TEAM
-		{
-			get
-			{
-				return this._SHER_TEAM;
-			}
-			set
-			{
-				if ((this._SHER_TEAM != value))
-				{
-					this.OnSHER_TEAMChanging(value);
-					this.SendPropertyChanging();
-					this._SHER_TEAM = value;
-					this.SendPropertyChanged("SHER_TEAM");
-					this.OnSHER_TEAMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLD_TYPE", DbType="VarChar(3)")]
-		public string UPLD_TYPE
-		{
-			get
-			{
-				return this._UPLD_TYPE;
-			}
-			set
-			{
-				if ((this._UPLD_TYPE != value))
-				{
-					this.OnUPLD_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._UPLD_TYPE = value;
-					this.SendPropertyChanged("UPLD_TYPE");
-					this.OnUPLD_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_SRVR_LINK", DbType="NVarChar(4000)")]
-		public string FILE_SRVR_LINK
-		{
-			get
-			{
-				return this._FILE_SRVR_LINK;
-			}
-			set
-			{
-				if ((this._FILE_SRVR_LINK != value))
-				{
-					this.OnFILE_SRVR_LINKChanging(value);
-					this.SendPropertyChanging();
-					this._FILE_SRVR_LINK = value;
-					this.SendPropertyChanged("FILE_SRVR_LINK");
-					this.OnFILE_SRVR_LINKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL_LINK", DbType="NVarChar(4000)")]
-		public string URL_LINK
-		{
-			get
-			{
-				return this._URL_LINK;
-			}
-			set
-			{
-				if ((this._URL_LINK != value))
-				{
-					this.OnURL_LINKChanging(value);
-					this.SendPropertyChanging();
-					this._URL_LINK = value;
-					this.SendPropertyChanged("URL_LINK");
-					this.OnURL_LINKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL_NAME", DbType="NVarChar(250)")]
-		public string URL_NAME
-		{
-			get
-			{
-				return this._URL_NAME;
-			}
-			set
-			{
-				if ((this._URL_NAME != value))
-				{
-					this.OnURL_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._URL_NAME = value;
-					this.SendPropertyChanged("URL_NAME");
-					this.OnURL_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_Send_File", Storage="_Comment", ThisKey="CMNT_CMID", OtherKey="CMID", IsForeignKey=true)]
-		public Comment Comment
-		{
-			get
-			{
-				return this._Comment.Entity;
-			}
-			set
-			{
-				Comment previousValue = this._Comment.Entity;
-				if (((previousValue != value) 
-							|| (this._Comment.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Comment.Entity = null;
-						previousValue.Send_Files.Remove(this);
-					}
-					this._Comment.Entity = value;
-					if ((value != null))
-					{
-						value.Send_Files.Add(this);
-						this._CMNT_CMID = value.CMID;
-					}
-					else
-					{
-						this._CMNT_CMID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Comment");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Send_File", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
-		public Request_Row Request_Row
-		{
-			get
-			{
-				return this._Request_Row.Entity;
-			}
-			set
-			{
-				Request_Row previousValue = this._Request_Row.Entity;
-				if (((previousValue != value) 
-							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request_Row.Entity = null;
-						previousValue.Send_Files.Remove(this);
-					}
-					this._Request_Row.Entity = value;
-					if ((value != null))
-					{
-						value.Send_Files.Add(this);
-						this._RQRO_RQST_RQID = value.RQST_RQID;
-						this._RQRO_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._RQRO_RQST_RQID = default(Nullable<long>);
-						this._RQRO_RWNO = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Request_Row");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Send_File", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Service Service
-		{
-			get
-			{
-				return this._Service.Entity;
-			}
-			set
-			{
-				Service previousValue = this._Service.Entity;
-				if (((previousValue != value) 
-							|| (this._Service.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service.Entity = null;
-						previousValue.Send_Files.Remove(this);
-					}
-					this._Service.Entity = value;
-					if ((value != null))
-					{
-						value.Send_Files.Add(this);
-						this._SERV_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._SERV_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Service");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Public_Send_File", Storage="_Service_Public", ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM", OtherKey="SERV_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true)]
-		public Service_Public Service_Public
-		{
-			get
-			{
-				return this._Service_Public.Entity;
-			}
-			set
-			{
-				Service_Public previousValue = this._Service_Public.Entity;
-				if (((previousValue != value) 
-							|| (this._Service_Public.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service_Public.Entity = null;
-						previousValue.Send_Files.Remove(this);
-					}
-					this._Service_Public.Entity = value;
-					if ((value != null))
-					{
-						value.Send_Files.Add(this);
-						this._SERV_FILE_NO = value.SERV_FILE_NO;
-						this._SRPB_RWNO_DNRM = value.RWNO;
-						this._SRPB_RECT_CODE_DNRM = value.RECT_CODE;
-					}
-					else
-					{
-						this._SERV_FILE_NO = default(Nullable<long>);
-						this._SRPB_RWNO_DNRM = default(Nullable<int>);
-						this._SRPB_RECT_CODE_DNRM = default(string);
-					}
-					this.SendPropertyChanged("Service_Public");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Send_Files.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Send_Files.Add(this);
-						this._COMP_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._COMP_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Task")]
 	public partial class Task : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -42878,8 +42102,6 @@ namespace System.CRM.Data
 		
 		private EntitySet<Payment> _Payments1;
 		
-		private EntitySet<Send_File> _Send_Files;
-		
 		private EntitySet<Task> _Tasks;
 		
 		private EntitySet<Log_Call> _Log_Calls;
@@ -42915,6 +42137,8 @@ namespace System.CRM.Data
 		private EntitySet<Job_Personnel> _Job_Personnels;
 		
 		private EntitySet<Company> _Companies;
+		
+		private EntitySet<Send_File> _Send_Files;
 		
 		private EntityRef<Base_Tariff> _Base_Tariff;
 		
@@ -43071,7 +42295,6 @@ namespace System.CRM.Data
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Payments1 = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments1), new Action<Payment>(this.detach_Payments1));
-			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
 			this._Log_Calls = new EntitySet<Log_Call>(new Action<Log_Call>(this.attach_Log_Calls), new Action<Log_Call>(this.detach_Log_Calls));
 			this._Final_Results = new EntitySet<Final_Result>(new Action<Final_Result>(this.attach_Final_Results), new Action<Final_Result>(this.detach_Final_Results));
@@ -43090,6 +42313,7 @@ namespace System.CRM.Data
 			this._Personnel_Access_Service_Types = new EntitySet<Personnel_Access_Service_Type>(new Action<Personnel_Access_Service_Type>(this.attach_Personnel_Access_Service_Types), new Action<Personnel_Access_Service_Type>(this.detach_Personnel_Access_Service_Types));
 			this._Job_Personnels = new EntitySet<Job_Personnel>(new Action<Job_Personnel>(this.attach_Job_Personnels), new Action<Job_Personnel>(this.detach_Job_Personnels));
 			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
+			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Base_Tariff = default(EntityRef<Base_Tariff>);
 			this._Isic_Product = default(EntityRef<Isic_Product>);
 			this._Request = default(EntityRef<Request>);
@@ -44495,19 +43719,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Send_File", Storage="_Send_Files", ThisKey="FILE_NO", OtherKey="SERV_FILE_NO")]
-		public EntitySet<Send_File> Send_Files
-		{
-			get
-			{
-				return this._Send_Files;
-			}
-			set
-			{
-				this._Send_Files.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Task", Storage="_Tasks", ThisKey="FILE_NO", OtherKey="SERV_FILE_NO")]
 		public EntitySet<Task> Tasks
 		{
@@ -44739,6 +43950,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Companies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Send_File", Storage="_Send_Files", ThisKey="FILE_NO", OtherKey="SERV_FILE_NO")]
+		public EntitySet<Send_File> Send_Files
+		{
+			get
+			{
+				return this._Send_Files;
+			}
+			set
+			{
+				this._Send_Files.Assign(value);
 			}
 		}
 		
@@ -45239,18 +44463,6 @@ namespace System.CRM.Data
 			entity.Service1 = null;
 		}
 		
-		private void attach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service = this;
-		}
-		
-		private void detach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service = null;
-		}
-		
 		private void attach_Tasks(Task entity)
 		{
 			this.SendPropertyChanging();
@@ -45466,6 +44678,18 @@ namespace System.CRM.Data
 			this.SendPropertyChanging();
 			entity.Service = null;
 		}
+		
+		private void attach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service = this;
+		}
+		
+		private void detach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Public")]
@@ -45598,8 +44822,6 @@ namespace System.CRM.Data
 		
 		private EntitySet<Payment> _Payments;
 		
-		private EntitySet<Send_File> _Send_Files;
-		
 		private EntitySet<Task> _Tasks;
 		
 		private EntitySet<Log_Call> _Log_Calls;
@@ -45611,6 +44833,8 @@ namespace System.CRM.Data
 		private EntitySet<Message> _Messages;
 		
 		private EntitySet<Email> _Emails;
+		
+		private EntitySet<Send_File> _Send_Files;
 		
 		private EntityRef<Base_Tariff> _Base_Tariff;
 		
@@ -45758,13 +44982,13 @@ namespace System.CRM.Data
 			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
-			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
 			this._Log_Calls = new EntitySet<Log_Call>(new Action<Log_Call>(this.attach_Log_Calls), new Action<Log_Call>(this.detach_Log_Calls));
 			this._Final_Results = new EntitySet<Final_Result>(new Action<Final_Result>(this.attach_Final_Results), new Action<Final_Result>(this.detach_Final_Results));
 			this._Tags = new EntitySet<Tag>(new Action<Tag>(this.attach_Tags), new Action<Tag>(this.detach_Tags));
 			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Emails = new EntitySet<Email>(new Action<Email>(this.attach_Emails), new Action<Email>(this.detach_Emails));
+			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Base_Tariff = default(EntityRef<Base_Tariff>);
 			this._Expense = default(EntityRef<Expense>);
 			this._Isic_Product = default(EntityRef<Isic_Product>);
@@ -47057,19 +46281,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Public_Send_File", Storage="_Send_Files", ThisKey="SERV_FILE_NO,RWNO,RECT_CODE", OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM")]
-		public EntitySet<Send_File> Send_Files
-		{
-			get
-			{
-				return this._Send_Files;
-			}
-			set
-			{
-				this._Send_Files.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Public_Task", Storage="_Tasks", ThisKey="SERV_FILE_NO,RWNO,RECT_CODE", OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM")]
 		public EntitySet<Task> Tasks
 		{
@@ -47145,6 +46356,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Emails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Public_Send_File", Storage="_Send_Files", ThisKey="SERV_FILE_NO,RWNO,RECT_CODE", OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM")]
+		public EntitySet<Send_File> Send_Files
+		{
+			get
+			{
+				return this._Send_Files;
+			}
+			set
+			{
+				this._Send_Files.Assign(value);
 			}
 		}
 		
@@ -47538,18 +46762,6 @@ namespace System.CRM.Data
 			entity.Service_Public = null;
 		}
 		
-		private void attach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Public = this;
-		}
-		
-		private void detach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Public = null;
-		}
-		
 		private void attach_Tasks(Task entity)
 		{
 			this.SendPropertyChanging();
@@ -47617,6 +46829,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Emails(Email entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Public = null;
+		}
+		
+		private void attach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Public = this;
+		}
+		
+		private void detach_Send_Files(Send_File entity)
 		{
 			this.SendPropertyChanging();
 			entity.Service_Public = null;
@@ -51706,8 +50930,6 @@ namespace System.CRM.Data
 		
 		private EntitySet<Payment> _Payments1;
 		
-		private EntitySet<Send_File> _Send_Files;
-		
 		private EntitySet<Task> _Tasks;
 		
 		private EntitySet<Log_Call> _Log_Calls;
@@ -51735,6 +50957,8 @@ namespace System.CRM.Data
 		private EntitySet<Relation_Info> _Relation_Infos1;
 		
 		private EntitySet<Company> _Companies;
+		
+		private EntitySet<Send_File> _Send_Files;
 		
 		private EntityRef<Company> _Company1;
 		
@@ -51856,7 +51080,6 @@ namespace System.CRM.Data
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Payments1 = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments1), new Action<Payment>(this.detach_Payments1));
-			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
 			this._Log_Calls = new EntitySet<Log_Call>(new Action<Log_Call>(this.attach_Log_Calls), new Action<Log_Call>(this.detach_Log_Calls));
 			this._Final_Results = new EntitySet<Final_Result>(new Action<Final_Result>(this.attach_Final_Results), new Action<Final_Result>(this.detach_Final_Results));
@@ -51871,6 +51094,7 @@ namespace System.CRM.Data
 			this._Relation_Infos = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos), new Action<Relation_Info>(this.detach_Relation_Infos));
 			this._Relation_Infos1 = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos1), new Action<Relation_Info>(this.detach_Relation_Infos1));
 			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
+			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
 			this._Company1 = default(EntityRef<Company>);
 			this._Isic_Product = default(EntityRef<Isic_Product>);
 			this._Region = default(EntityRef<Region>);
@@ -52959,19 +52183,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Send_Files", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
-		public EntitySet<Send_File> Send_Files
-		{
-			get
-			{
-				return this._Send_Files;
-			}
-			set
-			{
-				this._Send_Files.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Task", Storage="_Tasks", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
 		public EntitySet<Task> Tasks
 		{
@@ -53151,6 +52362,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Companies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Send_Files", ThisKey="CODE", OtherKey="COMP_CODE_DNRM")]
+		public EntitySet<Send_File> Send_Files
+		{
+			get
+			{
+				return this._Send_Files;
+			}
+			set
+			{
+				this._Send_Files.Assign(value);
 			}
 		}
 		
@@ -53448,18 +52672,6 @@ namespace System.CRM.Data
 			entity.Company1 = null;
 		}
 		
-		private void attach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Send_Files(Send_File entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
-		}
-		
 		private void attach_Tasks(Task entity)
 		{
 			this.SendPropertyChanging();
@@ -53626,6 +52838,827 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Company1 = null;
+		}
+		
+		private void attach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Send_Files(Send_File entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Send_File")]
+	public partial class Send_File : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _RQRO_RQST_RQID;
+		
+		private System.Nullable<short> _RQRO_RWNO;
+		
+		private System.Nullable<long> _SERV_FILE_NO;
+		
+		private System.Nullable<int> _SRPB_RWNO_DNRM;
+		
+		private string _SRPB_RECT_CODE_DNRM;
+		
+		private System.Nullable<long> _COMP_CODE_DNRM;
+		
+		private System.Nullable<long> _CMNT_CMID;
+		
+		private long _SFID;
+		
+		private string _SUBJ_DESC;
+		
+		private System.Nullable<System.DateTime> _SEND_DATE;
+		
+		private string _SEND_STAT;
+		
+		private System.Nullable<long> _SEND_TYPE;
+		
+		private string _SDRC_TYPE;
+		
+		private string _FILE_PATH;
+		
+		private string _SHER_TEAM;
+		
+		private string _UPLD_TYPE;
+		
+		private string _FILE_SRVR_LINK;
+		
+		private string _URL_LINK;
+		
+		private string _URL_NAME;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Comment> _Comment;
+		
+		private EntityRef<Company> _Company;
+		
+		private EntityRef<Request_Row> _Request_Row;
+		
+		private EntityRef<Service> _Service;
+		
+		private EntityRef<Service_Public> _Service_Public;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRQRO_RQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQRO_RQST_RQIDChanged();
+    partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
+    partial void OnRQRO_RWNOChanged();
+    partial void OnSERV_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnSERV_FILE_NOChanged();
+    partial void OnSRPB_RWNO_DNRMChanging(System.Nullable<int> value);
+    partial void OnSRPB_RWNO_DNRMChanged();
+    partial void OnSRPB_RECT_CODE_DNRMChanging(string value);
+    partial void OnSRPB_RECT_CODE_DNRMChanged();
+    partial void OnCOMP_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnCOMP_CODE_DNRMChanged();
+    partial void OnCMNT_CMIDChanging(System.Nullable<long> value);
+    partial void OnCMNT_CMIDChanged();
+    partial void OnSFIDChanging(long value);
+    partial void OnSFIDChanged();
+    partial void OnSUBJ_DESCChanging(string value);
+    partial void OnSUBJ_DESCChanged();
+    partial void OnSEND_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSEND_DATEChanged();
+    partial void OnSEND_STATChanging(string value);
+    partial void OnSEND_STATChanged();
+    partial void OnSEND_TYPEChanging(System.Nullable<long> value);
+    partial void OnSEND_TYPEChanged();
+    partial void OnSDRC_TYPEChanging(string value);
+    partial void OnSDRC_TYPEChanged();
+    partial void OnFILE_PATHChanging(string value);
+    partial void OnFILE_PATHChanged();
+    partial void OnSHER_TEAMChanging(string value);
+    partial void OnSHER_TEAMChanged();
+    partial void OnUPLD_TYPEChanging(string value);
+    partial void OnUPLD_TYPEChanged();
+    partial void OnFILE_SRVR_LINKChanging(string value);
+    partial void OnFILE_SRVR_LINKChanged();
+    partial void OnURL_LINKChanging(string value);
+    partial void OnURL_LINKChanged();
+    partial void OnURL_NAMEChanging(string value);
+    partial void OnURL_NAMEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Send_File()
+		{
+			this._Comment = default(EntityRef<Comment>);
+			this._Company = default(EntityRef<Company>);
+			this._Request_Row = default(EntityRef<Request_Row>);
+			this._Service = default(EntityRef<Service>);
+			this._Service_Public = default(EntityRef<Service_Public>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> RQRO_RQST_RQID
+		{
+			get
+			{
+				return this._RQRO_RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQRO_RQST_RQID != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RQST_RQID = value;
+					this.SendPropertyChanged("RQRO_RQST_RQID");
+					this.OnRQRO_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt")]
+		public System.Nullable<short> RQRO_RWNO
+		{
+			get
+			{
+				return this._RQRO_RWNO;
+			}
+			set
+			{
+				if ((this._RQRO_RWNO != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RWNO = value;
+					this.SendPropertyChanged("RQRO_RWNO");
+					this.OnRQRO_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_FILE_NO", DbType="BigInt")]
+		public System.Nullable<long> SERV_FILE_NO
+		{
+			get
+			{
+				return this._SERV_FILE_NO;
+			}
+			set
+			{
+				if ((this._SERV_FILE_NO != value))
+				{
+					if ((this._Service.HasLoadedOrAssignedValue || this._Service_Public.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSERV_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_FILE_NO = value;
+					this.SendPropertyChanged("SERV_FILE_NO");
+					this.OnSERV_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRPB_RWNO_DNRM", DbType="Int")]
+		public System.Nullable<int> SRPB_RWNO_DNRM
+		{
+			get
+			{
+				return this._SRPB_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._SRPB_RWNO_DNRM != value))
+				{
+					if (this._Service_Public.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRPB_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SRPB_RWNO_DNRM = value;
+					this.SendPropertyChanged("SRPB_RWNO_DNRM");
+					this.OnSRPB_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRPB_RECT_CODE_DNRM", DbType="VarChar(3)")]
+		public string SRPB_RECT_CODE_DNRM
+		{
+			get
+			{
+				return this._SRPB_RECT_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._SRPB_RECT_CODE_DNRM != value))
+				{
+					if (this._Service_Public.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRPB_RECT_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SRPB_RECT_CODE_DNRM = value;
+					this.SendPropertyChanged("SRPB_RECT_CODE_DNRM");
+					this.OnSRPB_RECT_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> COMP_CODE_DNRM
+		{
+			get
+			{
+				return this._COMP_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._COMP_CODE_DNRM != value))
+				{
+					if (this._Company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCOMP_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_CODE_DNRM = value;
+					this.SendPropertyChanged("COMP_CODE_DNRM");
+					this.OnCOMP_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT_CMID", DbType="BigInt")]
+		public System.Nullable<long> CMNT_CMID
+		{
+			get
+			{
+				return this._CMNT_CMID;
+			}
+			set
+			{
+				if ((this._CMNT_CMID != value))
+				{
+					if (this._Comment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCMNT_CMIDChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT_CMID = value;
+					this.SendPropertyChanged("CMNT_CMID");
+					this.OnCMNT_CMIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SFID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long SFID
+		{
+			get
+			{
+				return this._SFID;
+			}
+			set
+			{
+				if ((this._SFID != value))
+				{
+					this.OnSFIDChanging(value);
+					this.SendPropertyChanging();
+					this._SFID = value;
+					this.SendPropertyChanged("SFID");
+					this.OnSFIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBJ_DESC", DbType="NVarChar(250)")]
+		public string SUBJ_DESC
+		{
+			get
+			{
+				return this._SUBJ_DESC;
+			}
+			set
+			{
+				if ((this._SUBJ_DESC != value))
+				{
+					this.OnSUBJ_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SUBJ_DESC = value;
+					this.SendPropertyChanged("SUBJ_DESC");
+					this.OnSUBJ_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SEND_DATE
+		{
+			get
+			{
+				return this._SEND_DATE;
+			}
+			set
+			{
+				if ((this._SEND_DATE != value))
+				{
+					this.OnSEND_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_DATE = value;
+					this.SendPropertyChanged("SEND_DATE");
+					this.OnSEND_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_STAT", DbType="VarChar(3)")]
+		public string SEND_STAT
+		{
+			get
+			{
+				return this._SEND_STAT;
+			}
+			set
+			{
+				if ((this._SEND_STAT != value))
+				{
+					this.OnSEND_STATChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_STAT = value;
+					this.SendPropertyChanged("SEND_STAT");
+					this.OnSEND_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_TYPE", DbType="BigInt")]
+		public System.Nullable<long> SEND_TYPE
+		{
+			get
+			{
+				return this._SEND_TYPE;
+			}
+			set
+			{
+				if ((this._SEND_TYPE != value))
+				{
+					this.OnSEND_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_TYPE = value;
+					this.SendPropertyChanged("SEND_TYPE");
+					this.OnSEND_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDRC_TYPE", DbType="VarChar(3)")]
+		public string SDRC_TYPE
+		{
+			get
+			{
+				return this._SDRC_TYPE;
+			}
+			set
+			{
+				if ((this._SDRC_TYPE != value))
+				{
+					this.OnSDRC_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._SDRC_TYPE = value;
+					this.SendPropertyChanged("SDRC_TYPE");
+					this.OnSDRC_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_PATH", DbType="NVarChar(4000)")]
+		public string FILE_PATH
+		{
+			get
+			{
+				return this._FILE_PATH;
+			}
+			set
+			{
+				if ((this._FILE_PATH != value))
+				{
+					this.OnFILE_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._FILE_PATH = value;
+					this.SendPropertyChanged("FILE_PATH");
+					this.OnFILE_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHER_TEAM", DbType="VarChar(3)")]
+		public string SHER_TEAM
+		{
+			get
+			{
+				return this._SHER_TEAM;
+			}
+			set
+			{
+				if ((this._SHER_TEAM != value))
+				{
+					this.OnSHER_TEAMChanging(value);
+					this.SendPropertyChanging();
+					this._SHER_TEAM = value;
+					this.SendPropertyChanged("SHER_TEAM");
+					this.OnSHER_TEAMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLD_TYPE", DbType="VarChar(3)")]
+		public string UPLD_TYPE
+		{
+			get
+			{
+				return this._UPLD_TYPE;
+			}
+			set
+			{
+				if ((this._UPLD_TYPE != value))
+				{
+					this.OnUPLD_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._UPLD_TYPE = value;
+					this.SendPropertyChanged("UPLD_TYPE");
+					this.OnUPLD_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_SRVR_LINK", DbType="NVarChar(4000)")]
+		public string FILE_SRVR_LINK
+		{
+			get
+			{
+				return this._FILE_SRVR_LINK;
+			}
+			set
+			{
+				if ((this._FILE_SRVR_LINK != value))
+				{
+					this.OnFILE_SRVR_LINKChanging(value);
+					this.SendPropertyChanging();
+					this._FILE_SRVR_LINK = value;
+					this.SendPropertyChanged("FILE_SRVR_LINK");
+					this.OnFILE_SRVR_LINKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL_LINK", DbType="NVarChar(4000)")]
+		public string URL_LINK
+		{
+			get
+			{
+				return this._URL_LINK;
+			}
+			set
+			{
+				if ((this._URL_LINK != value))
+				{
+					this.OnURL_LINKChanging(value);
+					this.SendPropertyChanging();
+					this._URL_LINK = value;
+					this.SendPropertyChanged("URL_LINK");
+					this.OnURL_LINKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL_NAME", DbType="NVarChar(250)")]
+		public string URL_NAME
+		{
+			get
+			{
+				return this._URL_NAME;
+			}
+			set
+			{
+				if ((this._URL_NAME != value))
+				{
+					this.OnURL_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._URL_NAME = value;
+					this.SendPropertyChanged("URL_NAME");
+					this.OnURL_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comment_Send_File", Storage="_Comment", ThisKey="CMNT_CMID", OtherKey="CMID", IsForeignKey=true)]
+		public Comment Comment
+		{
+			get
+			{
+				return this._Comment.Entity;
+			}
+			set
+			{
+				Comment previousValue = this._Comment.Entity;
+				if (((previousValue != value) 
+							|| (this._Comment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Comment.Entity = null;
+						previousValue.Send_Files.Remove(this);
+					}
+					this._Comment.Entity = value;
+					if ((value != null))
+					{
+						value.Send_Files.Add(this);
+						this._CMNT_CMID = value.CMID;
+					}
+					else
+					{
+						this._CMNT_CMID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Comment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Send_File", Storage="_Company", ThisKey="COMP_CODE_DNRM", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Send_Files.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Send_Files.Add(this);
+						this._COMP_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Send_File", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Request_Row Request_Row
+		{
+			get
+			{
+				return this._Request_Row.Entity;
+			}
+			set
+			{
+				Request_Row previousValue = this._Request_Row.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Row.Entity = null;
+						previousValue.Send_Files.Remove(this);
+					}
+					this._Request_Row.Entity = value;
+					if ((value != null))
+					{
+						value.Send_Files.Add(this);
+						this._RQRO_RQST_RQID = value.RQST_RQID;
+						this._RQRO_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._RQRO_RQST_RQID = default(Nullable<long>);
+						this._RQRO_RWNO = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Send_File", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Service Service
+		{
+			get
+			{
+				return this._Service.Entity;
+			}
+			set
+			{
+				Service previousValue = this._Service.Entity;
+				if (((previousValue != value) 
+							|| (this._Service.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service.Entity = null;
+						previousValue.Send_Files.Remove(this);
+					}
+					this._Service.Entity = value;
+					if ((value != null))
+					{
+						value.Send_Files.Add(this);
+						this._SERV_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._SERV_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Public_Send_File", Storage="_Service_Public", ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM", OtherKey="SERV_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true)]
+		public Service_Public Service_Public
+		{
+			get
+			{
+				return this._Service_Public.Entity;
+			}
+			set
+			{
+				Service_Public previousValue = this._Service_Public.Entity;
+				if (((previousValue != value) 
+							|| (this._Service_Public.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service_Public.Entity = null;
+						previousValue.Send_Files.Remove(this);
+					}
+					this._Service_Public.Entity = value;
+					if ((value != null))
+					{
+						value.Send_Files.Add(this);
+						this._SERV_FILE_NO = value.SERV_FILE_NO;
+						this._SRPB_RWNO_DNRM = value.RWNO;
+						this._SRPB_RECT_CODE_DNRM = value.RECT_CODE;
+					}
+					else
+					{
+						this._SERV_FILE_NO = default(Nullable<long>);
+						this._SRPB_RWNO_DNRM = default(Nullable<int>);
+						this._SRPB_RECT_CODE_DNRM = default(string);
+					}
+					this.SendPropertyChanged("Service_Public");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

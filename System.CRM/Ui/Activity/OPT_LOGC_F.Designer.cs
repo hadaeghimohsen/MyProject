@@ -48,9 +48,11 @@
          this.Comment_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.LogcBs = new System.Windows.Forms.BindingSource(this.components);
          this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+         this.TemplateText_Butn = new System.MaxUi.RoundedButton();
          this.UserMentioned_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+         this.FileAttachment_Butn = new System.MaxUi.RoundedButton();
          this.Answer_Butn = new System.MaxUi.RoundedButton();
          this.InfoServ_Butn = new System.MaxUi.RoundedButton();
          this.NoAnswer_Butn = new System.MaxUi.RoundedButton();
@@ -131,7 +133,7 @@
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.Subject_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.TemplateText_Butn = new System.MaxUi.RoundedButton();
+         this.RqstFolw_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -155,6 +157,7 @@
          // 
          this.panelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl5.Appearance.Options.UseBackColor = true;
+         this.panelControl5.Controls.Add(this.RqstFolw_Butn);
          this.panelControl5.Controls.Add(this.Finr_Butn);
          this.panelControl5.Controls.Add(this.RequestOtherService_Butn);
          this.panelControl5.Controls.Add(this.SubRequest_Butn);
@@ -355,6 +358,33 @@
          this.panelControl1.Size = new System.Drawing.Size(533, 40);
          this.panelControl1.TabIndex = 0;
          // 
+         // TemplateText_Butn
+         // 
+         this.TemplateText_Butn.Active = true;
+         this.TemplateText_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TemplateText_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.TemplateText_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.TemplateText_Butn.Caption = "";
+         this.TemplateText_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.TemplateText_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.TemplateText_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.TemplateText_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.TemplateText_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.TemplateText_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1594;
+         this.TemplateText_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.TemplateText_Butn.ImageVisiable = true;
+         this.TemplateText_Butn.Location = new System.Drawing.Point(6, 3);
+         this.TemplateText_Butn.Name = "TemplateText_Butn";
+         this.TemplateText_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.TemplateText_Butn.NormalColorA = System.Drawing.Color.White;
+         this.TemplateText_Butn.NormalColorB = System.Drawing.Color.White;
+         this.TemplateText_Butn.Size = new System.Drawing.Size(35, 35);
+         this.TemplateText_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.TemplateText_Butn.TabIndex = 17;
+         this.TemplateText_Butn.Tag = "001";
+         this.TemplateText_Butn.Tooltip = null;
+         this.TemplateText_Butn.Click += new System.EventHandler(this.TemplateText_Butn_Click);
+         // 
          // UserMentioned_Butn
          // 
          this.UserMentioned_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UserMentioned_Butn.Image")));
@@ -386,6 +416,7 @@
          // 
          this.panelControl8.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panelControl8.Appearance.Options.UseBackColor = true;
+         this.panelControl8.Controls.Add(this.FileAttachment_Butn);
          this.panelControl8.Controls.Add(this.Answer_Butn);
          this.panelControl8.Controls.Add(this.InfoServ_Butn);
          this.panelControl8.Controls.Add(this.NoAnswer_Butn);
@@ -405,6 +436,31 @@
          this.panelControl8.Name = "panelControl8";
          this.panelControl8.Size = new System.Drawing.Size(533, 162);
          this.panelControl8.TabIndex = 10;
+         // 
+         // FileAttachment_Butn
+         // 
+         this.FileAttachment_Butn.Active = true;
+         this.FileAttachment_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.FileAttachment_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.FileAttachment_Butn.Caption = "";
+         this.FileAttachment_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.FileAttachment_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.FileAttachment_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.FileAttachment_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.FileAttachment_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.FileAttachment_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1540;
+         this.FileAttachment_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.FileAttachment_Butn.ImageVisiable = true;
+         this.FileAttachment_Butn.Location = new System.Drawing.Point(88, 18);
+         this.FileAttachment_Butn.Name = "FileAttachment_Butn";
+         this.FileAttachment_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.FileAttachment_Butn.NormalColorA = System.Drawing.Color.WhiteSmoke;
+         this.FileAttachment_Butn.NormalColorB = System.Drawing.Color.WhiteSmoke;
+         this.FileAttachment_Butn.Size = new System.Drawing.Size(30, 30);
+         this.FileAttachment_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.FileAttachment_Butn.TabIndex = 12;
+         this.FileAttachment_Butn.Tooltip = null;
+         this.FileAttachment_Butn.Click += new System.EventHandler(this.FileAttachment_Butn_Click);
          // 
          // Answer_Butn
          // 
@@ -1105,32 +1161,31 @@
          this.panel3.Size = new System.Drawing.Size(18, 451);
          this.panel3.TabIndex = 8;
          // 
-         // TemplateText_Butn
+         // RqstFolw_Butn
          // 
-         this.TemplateText_Butn.Active = true;
-         this.TemplateText_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.TemplateText_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-         this.TemplateText_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.TemplateText_Butn.Caption = "";
-         this.TemplateText_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.TemplateText_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.TemplateText_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.TemplateText_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.TemplateText_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.TemplateText_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1594;
-         this.TemplateText_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.TemplateText_Butn.ImageVisiable = true;
-         this.TemplateText_Butn.Location = new System.Drawing.Point(6, 3);
-         this.TemplateText_Butn.Name = "TemplateText_Butn";
-         this.TemplateText_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.TemplateText_Butn.NormalColorA = System.Drawing.Color.White;
-         this.TemplateText_Butn.NormalColorB = System.Drawing.Color.White;
-         this.TemplateText_Butn.Size = new System.Drawing.Size(35, 35);
-         this.TemplateText_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.TemplateText_Butn.TabIndex = 17;
-         this.TemplateText_Butn.Tag = "001";
-         this.TemplateText_Butn.Tooltip = null;
-         this.TemplateText_Butn.Click += new System.EventHandler(this.TemplateText_Butn_Click);
+         this.RqstFolw_Butn.Active = true;
+         this.RqstFolw_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.RqstFolw_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.RqstFolw_Butn.Caption = "";
+         this.RqstFolw_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.RqstFolw_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.RqstFolw_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.RqstFolw_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1192;
+         this.RqstFolw_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.RqstFolw_Butn.ImageVisiable = true;
+         this.RqstFolw_Butn.Location = new System.Drawing.Point(126, 6);
+         this.RqstFolw_Butn.Name = "RqstFolw_Butn";
+         this.RqstFolw_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.NormalColorA = System.Drawing.Color.WhiteSmoke;
+         this.RqstFolw_Butn.NormalColorB = System.Drawing.Color.WhiteSmoke;
+         this.RqstFolw_Butn.Size = new System.Drawing.Size(30, 30);
+         this.RqstFolw_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.RqstFolw_Butn.TabIndex = 15;
+         this.RqstFolw_Butn.Tag = "001";
+         this.RqstFolw_Butn.Tooltip = null;
+         this.RqstFolw_Butn.Click += new System.EventHandler(this.RqstFolw_Butn_Click);
          // 
          // OPT_LOGC_F
          // 
@@ -1265,6 +1320,8 @@
       private MaxUi.RoundedButton InfoServ_Butn;
       private DevExpress.XtraEditors.SimpleButton UserMentioned_Butn;
       private MaxUi.RoundedButton TemplateText_Butn;
+      private MaxUi.RoundedButton FileAttachment_Butn;
+      private MaxUi.RoundedButton RqstFolw_Butn;
 
    }
 }

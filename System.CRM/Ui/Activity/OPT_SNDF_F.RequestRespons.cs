@@ -226,8 +226,18 @@ namespace System.CRM.Ui.Activity
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DsdtpBs.DataSource = iCRM.D_SDTPs;
+         //DsdtpBs.DataSource = iCRM.D_SDTPs;
          DsdrcBs.DataSource = iCRM.D_SDRCs;
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            switch (xinput.Attribute("type").Value)
+            {
+               case "refresh":
+                  Execute_Query();
+                  break;
+            }
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -272,7 +282,7 @@ namespace System.CRM.Ui.Activity
                sndf.SHER_TEAM = "001";
                if (sendtype == "001" && rqstrqid > 0)
                {
-                  sndf.SEND_TYPE = "001";
+                  //sndf.SEND_TYPE = "001";
                   SendType_Lov.Enabled = false;
                }
                else

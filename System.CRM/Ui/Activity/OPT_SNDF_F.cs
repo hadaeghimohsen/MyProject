@@ -36,6 +36,7 @@ namespace System.CRM.Ui.Activity
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
          ServBs.DataSource = iCRM.Services.Where(s => s.FILE_NO == fileno);
+         DsdtpBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "SENDFILE_INFO");
          requery = false;
       }
 
@@ -88,7 +89,7 @@ namespace System.CRM.Ui.Activity
             if (sndf.SEND_DATE == null) { Send_Date.Focus(); throw new Exception("خطا * تاریخ ارسال فایل خالی می باشد"); }
             if (sndf.SHER_TEAM == null) { ShareTeam_Tg.Focus(); throw new Exception("خطا * وضعیت اشتراک ارسال فایل خالی می باشد"); }
             if (sndf.SUBJ_DESC == null || sndf.SUBJ_DESC == "") { Subject_Txt.Focus(); throw new Exception("خطا * موضوع ارسال فایل خالی می باشد"); }
-            if (sndf.SEND_TYPE == null || sndf.SEND_TYPE == "") { SendType_Lov.Focus(); throw new Exception("خطا * نوع ارسال فایل خالی می باشد"); }
+            if (sndf.SEND_TYPE == null || sndf.SEND_TYPE == 0) { SendType_Lov.Focus(); throw new Exception("خطا * نوع ارسال فایل خالی می باشد"); }
             if (sndf.UPLD_TYPE == null || sndf.UPLD_TYPE == "") { LocalComputer_Rb.Focus(); throw new Exception("خطا * نوع بارگذاری ارسال فایل خالی می باشد"); }
             if (sndf.SDRC_TYPE == null || sndf.SDRC_TYPE == "") { Sdrc_Lov.Focus(); throw new Exception("خطا * نوع منبغ ارسال فایل خالی می باشد"); }
             
@@ -112,7 +113,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorwno", sndf.RQRO_RWNO ?? 0),
                   new XAttribute("sfid", sndf.SFID),
                   new XAttribute("subject", sndf.SUBJ_DESC),
-                  new XAttribute("sendtype", sndf.SEND_TYPE),
+                  new XAttribute("sendtype", sndf.SEND_TYPE ?? 0),
                   new XAttribute("sdrctype", sndf.SDRC_TYPE),
                   new XAttribute("upldtype", sndf.UPLD_TYPE),
                   new XAttribute("filepath", sndf.FILE_PATH ?? ""),
@@ -161,11 +162,24 @@ namespace System.CRM.Ui.Activity
       {
          try
          {
-            var sndf = SndfBs.Current as Data.Send_File;
-            if (sndf == null) return;
+            var rqst = SndfBs.Current as Data.Send_File;           
 
-            sndf.SHER_TEAM = sndf.SHER_TEAM == null ? "001" : sndf.SHER_TEAM;
-            switch (sndf.SHER_TEAM)
+            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+
+            if (rqst.Request_Row.Request.RQST_RQID != null)
+            {
+               RqstFolw_Butn.Visible = true;
+               RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);
+               RqstFolw_Butn.Tag =
+                  new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request1.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request1.RQID));
+            }
+            else
+            {
+               RqstFolw_Butn.Visible = false;
+            }
+
+            rqst.SHER_TEAM = rqst.SHER_TEAM == null ? "001" : rqst.SHER_TEAM;
+            switch (rqst.SHER_TEAM)
             {
                case "001":
                   ShareTeam_Tg.IsOn = false;
@@ -176,8 +190,8 @@ namespace System.CRM.Ui.Activity
                default:
                   break;
             }
-            sndf.UPLD_TYPE = sndf.UPLD_TYPE == null ? "002" : sndf.UPLD_TYPE;
-            switch (sndf.UPLD_TYPE)
+            rqst.UPLD_TYPE = rqst.UPLD_TYPE == null ? "002" : rqst.UPLD_TYPE;
+            switch (rqst.UPLD_TYPE)
             {
                case "001":
                   LocalComputer_Rb.Checked = true;
@@ -210,7 +224,7 @@ namespace System.CRM.Ui.Activity
             var send = SndfBs.Current as Data.Send_File;
             if (send == null) return;
 
-            if(send.SEND_TYPE == null || send.SEND_TYPE == ""){SendType_Lov.Focus(); return;}
+            if(send.SEND_TYPE == null || send.SEND_TYPE == 0){SendType_Lov.Focus(); return;}
 
             if (OpenFile_Ofd.ShowDialog() != DialogResult.OK) return;
 
@@ -229,7 +243,7 @@ namespace System.CRM.Ui.Activity
                      CurrentUser, 
                      "Send", 
                      GetPersianDate(DateTime.Now), 
-                     DsdtpBs.List.OfType<Data.D_SDTP>().FirstOrDefault(s => s.VALU == send.SEND_TYPE).DOMN_DESC,
+                     DsdtpBs.List.OfType<Data.App_Base_Define>().FirstOrDefault(s => s.CODE == send.SEND_TYPE).TITL_DESC,
                      OpenFile_Ofd.SafeFileName.Substring(0, OpenFile_Ofd.SafeFileName.LastIndexOf('.')) + "_" + Guid.NewGuid() + OpenFile_Ofd.SafeFileName.Substring(OpenFile_Ofd.SafeFileName.LastIndexOf('.'))
                   )
                );
@@ -418,6 +432,72 @@ namespace System.CRM.Ui.Activity
                   }
                }
             )
+         );
+      }
+
+      private void ShowFileServer_TextButn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var sndf = SndfBs.Current as Data.Send_File;
+            if (sndf == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  OpenFile_Ofd.InitialDirectory = sndf.FILE_SRVR_LINK.Substring(0,sndf.FILE_SRVR_LINK.LastIndexOf('\\'));
+                  OpenFile_Ofd.ShowDialog();
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+
+         }
+      }
+
+      private void SendTypeAppBase_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 79 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "SENDFILE_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqstFolw_Butn_Click(object sender, EventArgs e)
+      {
+         var xinput = (sender as RoundedButton).Tag as XElement;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "FRST_PAGE_F", 100 /* ShowRequest */, SendType.SelfToUserInterface)
+            {
+               Input =
+                  new XElement("Request",
+                     new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                  )
+            }
          );
       }
    }

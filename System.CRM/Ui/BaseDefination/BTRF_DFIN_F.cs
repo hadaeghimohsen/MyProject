@@ -38,6 +38,14 @@ namespace System.CRM.Ui.BaseDefination
             BtrfBs.Position = b;
             TrfdBs.Position = t;
          }
+         else if (tb_master.SelectedTab == tp_002)
+         {
+            int a = SrtpBs.Position;
+            
+            SrtpBs.DataSource = iCRM.Service_Types;
+            
+            SrtpBs.Position = a;
+         }
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)
@@ -50,10 +58,13 @@ namespace System.CRM.Ui.BaseDefination
       {
          try
          {
-            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            //if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
+            SrtpBs.EndEdit();
             BtrfBs.EndEdit();
             TrfdBs.EndEdit();
+
+            Srtp_gv.PostEditor();
 
             iCRM.SubmitChanges();
             requery = true;
@@ -106,6 +117,31 @@ namespace System.CRM.Ui.BaseDefination
             var trfd = TrfdBs.Current as Data.Base_Tariff_Detail;
 
             iCRM.DEL_TRFD_P(trfd.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               requery = false;
+            }
+         }
+      }
+
+      private void DelSrtp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var srtp = SrtpBs.Current as Data.Service_Type;
+
+            iCRM.DEL_SRTP_P(srtp.CODE);
             requery = true;
          }
          catch (Exception exc)

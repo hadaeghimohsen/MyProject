@@ -258,6 +258,7 @@ namespace System.CRM.Ui.Admission
             DjbtpBs1.DataSource = iCRM.D_JBTPs;
             DsrtpBs.DataSource = iCRM.D_SRTPs;
             DsstgBs.DataSource = iCRM.D_SSTGs;
+            DsxtpBs.DataSource = iCRM.D_SXTPs;
             RqttBs1.DataSource = iCRM.Requester_Types;
             isFirstLoaded = true;
          }

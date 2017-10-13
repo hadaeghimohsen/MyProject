@@ -85,8 +85,44 @@
          this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
          this.Tsb_DelBtrf = new System.Windows.Forms.ToolStripButton();
          this.countryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+         this.tp_002 = new C1.Win.C1Command.C1DockingTabPage();
+         this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+         this.SrtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Srtp_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colCODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSRTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SrtpBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+         this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+         this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+         this.DelSrtp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
          this.Btn_Back = new C1.Win.C1Input.C1Button();
          this.base_Tariff_DetailsGridControl = new DevExpress.XtraGrid.GridControl();
+         this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colBTRF_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNAME1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTRFD_DESC1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colORDR1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNATL_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBase_Tariff2 = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -101,8 +137,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BtrfBn)).BeginInit();
          this.BtrfBn.SuspendLayout();
+         this.tp_002.SuspendLayout();
+         this.groupBox2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SrtpBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Srtp_gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SrtpBn)).BeginInit();
+         this.SrtpBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
          this.SuspendLayout();
          // 
          // tb_master
@@ -111,9 +155,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.tb_master.Controls.Add(this.tp_001);
+         this.tb_master.Controls.Add(this.tp_002);
          this.tb_master.Location = new System.Drawing.Point(0, 0);
          this.tb_master.Name = "tb_master";
          this.tb_master.RightToLeftLayout = true;
+         this.tb_master.SelectedIndex = 1;
          this.tb_master.Size = new System.Drawing.Size(686, 557);
          this.tb_master.TabIndex = 0;
          this.tb_master.TabsSpacing = 0;
@@ -614,6 +660,236 @@
          this.countryBindingNavigatorSaveItem.Text = "Save Data";
          this.countryBindingNavigatorSaveItem.Click += new System.EventHandler(this.SubmitChanged_Clicked);
          // 
+         // tp_002
+         // 
+         this.tp_002.Controls.Add(this.groupBox2);
+         this.tp_002.Location = new System.Drawing.Point(2, 27);
+         this.tp_002.Name = "tp_002";
+         this.tp_002.Size = new System.Drawing.Size(680, 526);
+         this.tp_002.TabIndex = 1;
+         this.tp_002.Text = "تعریف ماهیت مشتریان و افراد";
+         // 
+         // groupBox2
+         // 
+         this.groupBox2.Controls.Add(this.gridControl2);
+         this.groupBox2.Controls.Add(this.SrtpBn);
+         this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.groupBox2.Location = new System.Drawing.Point(0, 0);
+         this.groupBox2.Name = "groupBox2";
+         this.groupBox2.Size = new System.Drawing.Size(680, 526);
+         this.groupBox2.TabIndex = 1;
+         this.groupBox2.TabStop = false;
+         this.groupBox2.Text = "تعریف ماهیت ها";
+         // 
+         // gridControl2
+         // 
+         this.gridControl2.DataSource = this.SrtpBs;
+         this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl2.Location = new System.Drawing.Point(3, 43);
+         this.gridControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl2.MainView = this.Srtp_gv;
+         this.gridControl2.Name = "gridControl2";
+         this.gridControl2.Size = new System.Drawing.Size(674, 480);
+         this.gridControl2.TabIndex = 3;
+         this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Srtp_gv});
+         // 
+         // SrtpBs
+         // 
+         this.SrtpBs.DataSource = typeof(System.CRM.Data.Service_Type);
+         // 
+         // Srtp_gv
+         // 
+         this.Srtp_gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Srtp_gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Srtp_gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Srtp_gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Srtp_gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Srtp_gv.Appearance.Row.Options.UseFont = true;
+         this.Srtp_gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Srtp_gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Srtp_gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCODE3,
+            this.colSRTP_DESC,
+            this.colCRET_BY3,
+            this.colCRET_DATE3,
+            this.colMDFY_BY3,
+            this.colMDFY_DATE3});
+         this.Srtp_gv.GridControl = this.gridControl2;
+         this.Srtp_gv.Name = "Srtp_gv";
+         this.Srtp_gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Srtp_gv.OptionsView.ShowDetailButtons = false;
+         this.Srtp_gv.OptionsView.ShowGroupPanel = false;
+         this.Srtp_gv.OptionsView.ShowIndicator = false;
+         // 
+         // colCODE3
+         // 
+         this.colCODE3.Caption = "کد";
+         this.colCODE3.FieldName = "CODE";
+         this.colCODE3.Name = "colCODE3";
+         this.colCODE3.OptionsColumn.FixedWidth = true;
+         this.colCODE3.Visible = true;
+         this.colCODE3.VisibleIndex = 1;
+         this.colCODE3.Width = 57;
+         // 
+         // colSRTP_DESC
+         // 
+         this.colSRTP_DESC.Caption = "شرح";
+         this.colSRTP_DESC.FieldName = "SRTP_DESC";
+         this.colSRTP_DESC.Name = "colSRTP_DESC";
+         this.colSRTP_DESC.Visible = true;
+         this.colSRTP_DESC.VisibleIndex = 0;
+         this.colSRTP_DESC.Width = 613;
+         // 
+         // colCRET_BY3
+         // 
+         this.colCRET_BY3.FieldName = "CRET_BY";
+         this.colCRET_BY3.Name = "colCRET_BY3";
+         // 
+         // colCRET_DATE3
+         // 
+         this.colCRET_DATE3.FieldName = "CRET_DATE";
+         this.colCRET_DATE3.Name = "colCRET_DATE3";
+         // 
+         // colMDFY_BY3
+         // 
+         this.colMDFY_BY3.FieldName = "MDFY_BY";
+         this.colMDFY_BY3.Name = "colMDFY_BY3";
+         // 
+         // colMDFY_DATE3
+         // 
+         this.colMDFY_DATE3.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE3.Name = "colMDFY_DATE3";
+         // 
+         // SrtpBn
+         // 
+         this.SrtpBn.AddNewItem = this.toolStripButton6;
+         this.SrtpBn.AutoSize = false;
+         this.SrtpBn.BindingSource = this.SrtpBs;
+         this.SrtpBn.CountItem = this.toolStripLabel2;
+         this.SrtpBn.DeleteItem = null;
+         this.SrtpBn.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+         this.SrtpBn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripSeparator4,
+            this.toolStripTextBox2,
+            this.toolStripLabel2,
+            this.toolStripSeparator5,
+            this.toolStripButton10,
+            this.toolStripButton11,
+            this.toolStripSeparator6,
+            this.toolStripButton6,
+            this.DelSrtp_Butn,
+            this.toolStripButton13});
+         this.SrtpBn.Location = new System.Drawing.Point(3, 18);
+         this.SrtpBn.MoveFirstItem = this.toolStripButton8;
+         this.SrtpBn.MoveLastItem = this.toolStripButton11;
+         this.SrtpBn.MoveNextItem = this.toolStripButton10;
+         this.SrtpBn.MovePreviousItem = this.toolStripButton9;
+         this.SrtpBn.Name = "SrtpBn";
+         this.SrtpBn.PositionItem = this.toolStripTextBox2;
+         this.SrtpBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+         this.SrtpBn.Size = new System.Drawing.Size(674, 25);
+         this.SrtpBn.TabIndex = 2;
+         this.SrtpBn.Text = "bindingNavigator1";
+         // 
+         // toolStripButton6
+         // 
+         this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+         this.toolStripButton6.Name = "toolStripButton6";
+         this.toolStripButton6.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton6.Text = "Add new";
+         // 
+         // toolStripLabel2
+         // 
+         this.toolStripLabel2.Name = "toolStripLabel2";
+         this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel2.Text = "of {0}";
+         this.toolStripLabel2.ToolTipText = "Total number of items";
+         // 
+         // toolStripButton8
+         // 
+         this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+         this.toolStripButton8.Name = "toolStripButton8";
+         this.toolStripButton8.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton8.Text = "Move first";
+         // 
+         // toolStripButton9
+         // 
+         this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+         this.toolStripButton9.Name = "toolStripButton9";
+         this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton9.Text = "Move previous";
+         // 
+         // toolStripSeparator4
+         // 
+         this.toolStripSeparator4.Name = "toolStripSeparator4";
+         this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+         // 
+         // toolStripTextBox2
+         // 
+         this.toolStripTextBox2.AccessibleName = "Position";
+         this.toolStripTextBox2.AutoSize = false;
+         this.toolStripTextBox2.Name = "toolStripTextBox2";
+         this.toolStripTextBox2.Size = new System.Drawing.Size(50, 23);
+         this.toolStripTextBox2.Text = "0";
+         this.toolStripTextBox2.ToolTipText = "Current position";
+         // 
+         // toolStripSeparator5
+         // 
+         this.toolStripSeparator5.Name = "toolStripSeparator5";
+         this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+         // 
+         // toolStripButton10
+         // 
+         this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+         this.toolStripButton10.Name = "toolStripButton10";
+         this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton10.Text = "Move next";
+         // 
+         // toolStripButton11
+         // 
+         this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+         this.toolStripButton11.Name = "toolStripButton11";
+         this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton11.Text = "Move last";
+         // 
+         // toolStripSeparator6
+         // 
+         this.toolStripSeparator6.Name = "toolStripSeparator6";
+         this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+         // 
+         // DelSrtp_Butn
+         // 
+         this.DelSrtp_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.DelSrtp_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DelSrtp_Butn.Image")));
+         this.DelSrtp_Butn.Name = "DelSrtp_Butn";
+         this.DelSrtp_Butn.RightToLeftAutoMirrorImage = true;
+         this.DelSrtp_Butn.Size = new System.Drawing.Size(23, 22);
+         this.DelSrtp_Butn.Text = "Delete";
+         this.DelSrtp_Butn.Click += new System.EventHandler(this.DelSrtp_Butn_Click);
+         // 
+         // toolStripButton13
+         // 
+         this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
+         this.toolStripButton13.Name = "toolStripButton13";
+         this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton13.Text = "Save Data";
+         this.toolStripButton13.Click += new System.EventHandler(this.SubmitChanged_Clicked);
+         // 
          // Btn_Back
          // 
          this.Btn_Back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -629,10 +905,106 @@
          // 
          this.base_Tariff_DetailsGridControl.DataSource = this.TrfdBs;
          this.base_Tariff_DetailsGridControl.Location = new System.Drawing.Point(30, 7);
-         this.base_Tariff_DetailsGridControl.MainView = null;
+         this.base_Tariff_DetailsGridControl.MainView = this.gridView3;
          this.base_Tariff_DetailsGridControl.Name = "base_Tariff_DetailsGridControl";
          this.base_Tariff_DetailsGridControl.Size = new System.Drawing.Size(300, 220);
          this.base_Tariff_DetailsGridControl.TabIndex = 1;
+         this.base_Tariff_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3});
+         // 
+         // gridView3
+         // 
+         this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBTRF_CODE2,
+            this.colCODE2,
+            this.colNAME1,
+            this.colTRFD_DESC1,
+            this.colORDR1,
+            this.colNATL_CODE2,
+            this.colCRET_BY2,
+            this.colCRET_DATE2,
+            this.colMDFY_BY2,
+            this.colMDFY_DATE2,
+            this.colBase_Tariff2});
+         this.gridView3.GridControl = this.base_Tariff_DetailsGridControl;
+         this.gridView3.Name = "gridView3";
+         // 
+         // colBTRF_CODE2
+         // 
+         this.colBTRF_CODE2.FieldName = "BTRF_CODE";
+         this.colBTRF_CODE2.Name = "colBTRF_CODE2";
+         this.colBTRF_CODE2.Visible = true;
+         this.colBTRF_CODE2.VisibleIndex = 0;
+         // 
+         // colCODE2
+         // 
+         this.colCODE2.FieldName = "CODE";
+         this.colCODE2.Name = "colCODE2";
+         this.colCODE2.Visible = true;
+         this.colCODE2.VisibleIndex = 1;
+         // 
+         // colNAME1
+         // 
+         this.colNAME1.FieldName = "NAME";
+         this.colNAME1.Name = "colNAME1";
+         this.colNAME1.Visible = true;
+         this.colNAME1.VisibleIndex = 2;
+         // 
+         // colTRFD_DESC1
+         // 
+         this.colTRFD_DESC1.FieldName = "TRFD_DESC";
+         this.colTRFD_DESC1.Name = "colTRFD_DESC1";
+         this.colTRFD_DESC1.Visible = true;
+         this.colTRFD_DESC1.VisibleIndex = 3;
+         // 
+         // colORDR1
+         // 
+         this.colORDR1.FieldName = "ORDR";
+         this.colORDR1.Name = "colORDR1";
+         this.colORDR1.Visible = true;
+         this.colORDR1.VisibleIndex = 4;
+         // 
+         // colNATL_CODE2
+         // 
+         this.colNATL_CODE2.FieldName = "NATL_CODE";
+         this.colNATL_CODE2.Name = "colNATL_CODE2";
+         this.colNATL_CODE2.Visible = true;
+         this.colNATL_CODE2.VisibleIndex = 5;
+         // 
+         // colCRET_BY2
+         // 
+         this.colCRET_BY2.FieldName = "CRET_BY";
+         this.colCRET_BY2.Name = "colCRET_BY2";
+         this.colCRET_BY2.Visible = true;
+         this.colCRET_BY2.VisibleIndex = 6;
+         // 
+         // colCRET_DATE2
+         // 
+         this.colCRET_DATE2.FieldName = "CRET_DATE";
+         this.colCRET_DATE2.Name = "colCRET_DATE2";
+         this.colCRET_DATE2.Visible = true;
+         this.colCRET_DATE2.VisibleIndex = 7;
+         // 
+         // colMDFY_BY2
+         // 
+         this.colMDFY_BY2.FieldName = "MDFY_BY";
+         this.colMDFY_BY2.Name = "colMDFY_BY2";
+         this.colMDFY_BY2.Visible = true;
+         this.colMDFY_BY2.VisibleIndex = 8;
+         // 
+         // colMDFY_DATE2
+         // 
+         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
+         this.colMDFY_DATE2.Visible = true;
+         this.colMDFY_DATE2.VisibleIndex = 9;
+         // 
+         // colBase_Tariff2
+         // 
+         this.colBase_Tariff2.FieldName = "Base_Tariff";
+         this.colBase_Tariff2.Name = "colBase_Tariff2";
+         this.colBase_Tariff2.Visible = true;
+         this.colBase_Tariff2.VisibleIndex = 10;
          // 
          // BTRF_DFIN_F
          // 
@@ -660,8 +1032,17 @@
          ((System.ComponentModel.ISupportInitialize)(this.BtrfBn)).EndInit();
          this.BtrfBn.ResumeLayout(false);
          this.BtrfBn.PerformLayout();
+         this.tp_002.ResumeLayout(false);
+         this.groupBox2.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SrtpBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Srtp_gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SrtpBn)).EndInit();
+         this.SrtpBn.ResumeLayout(false);
+         this.SrtpBn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -725,5 +1106,41 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colBase_Tariff1;
       private DevExpress.XtraGrid.GridControl base_Tariff_DetailsGridControl;
+      private C1.Win.C1Command.C1DockingTabPage tp_002;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+      private DevExpress.XtraGrid.Columns.GridColumn colBTRF_CODE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colCODE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colNAME1;
+      private DevExpress.XtraGrid.Columns.GridColumn colTRFD_DESC1;
+      private DevExpress.XtraGrid.Columns.GridColumn colORDR1;
+      private DevExpress.XtraGrid.Columns.GridColumn colNATL_CODE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY2;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY2;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colBase_Tariff2;
+      private Windows.Forms.GroupBox groupBox2;
+      private DevExpress.XtraGrid.GridControl gridControl2;
+      private Windows.Forms.BindingSource SrtpBs;
+      private DevExpress.XtraGrid.Views.Grid.GridView Srtp_gv;
+      private DevExpress.XtraGrid.Columns.GridColumn colCODE3;
+      private DevExpress.XtraGrid.Columns.GridColumn colSRTP_DESC;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY3;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE3;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY3;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE3;
+      private Windows.Forms.BindingNavigator SrtpBn;
+      private Windows.Forms.ToolStripButton toolStripButton6;
+      private Windows.Forms.ToolStripLabel toolStripLabel2;
+      private Windows.Forms.ToolStripButton toolStripButton8;
+      private Windows.Forms.ToolStripButton toolStripButton9;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator4;
+      private Windows.Forms.ToolStripTextBox toolStripTextBox2;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator5;
+      private Windows.Forms.ToolStripButton toolStripButton10;
+      private Windows.Forms.ToolStripButton toolStripButton11;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator6;
+      private Windows.Forms.ToolStripButton DelSrtp_Butn;
+      private Windows.Forms.ToolStripButton toolStripButton13;
    }
 }

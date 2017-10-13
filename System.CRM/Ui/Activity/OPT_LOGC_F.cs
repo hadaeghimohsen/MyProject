@@ -205,12 +205,25 @@ namespace System.CRM.Ui.Activity
       {
          try
          {
-            var logc = LogcBs.Current as Data.Log_Call;
-            if (logc == null) return;
+            var rqst = LogcBs.Current as Data.Log_Call;           
+
+            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+
+            if (rqst.Request_Row.Request.RQST_RQID != null)
+            {
+               RqstFolw_Butn.Visible = true;
+               RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);
+               RqstFolw_Butn.Tag =
+                  new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request1.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request1.RQID));
+            }
+            else
+            {
+               RqstFolw_Butn.Visible = false;
+            }
 
             // Set Rslt_Stat
-            logc.RSLT_STAT = logc.RSLT_STAT == null ? "002" : logc.RSLT_STAT;
-            switch(logc.RSLT_STAT)
+            rqst.RSLT_STAT = rqst.RSLT_STAT == null ? "002" : rqst.RSLT_STAT;
+            switch(rqst.RSLT_STAT)
             {
                case "001":
                   NoAnswer_Butn.NormalColorA = NoAnswer_Butn.NormalColorB = Color.PeachPuff;
@@ -225,7 +238,7 @@ namespace System.CRM.Ui.Activity
          catch (Exception exc)
          {
             iCRM.SaveException(exc);
-         }
+         }         
       }
 
       private void AnswerStat_Butn_Click(object sender, EventArgs e)
@@ -389,6 +402,58 @@ namespace System.CRM.Ui.Activity
             );
          }
          catch { }
+      }
+
+      private void FileAttachment_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            requery = Apply();
+
+         }
+         catch (Exception exc)
+         { }
+         finally
+         {
+            if (requery)
+            {
+               var logc = LogcBs.Current as Data.Log_Call;
+
+               Job _InteractWithCRM =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                       {                  
+                         new Job(SendType.Self, 32 /* Execute Fss_Show_F */),
+                         new Job(SendType.SelfToUserInterface, "FSS_SHOW_F", 10 /* Execute ACTN_CALF_P */)
+                         {
+                            Input = 
+                              new XElement("Service", 
+                                 new XAttribute("fileno", logc.SERV_FILE_NO), 
+                                 new XAttribute("rqstrqid", logc.RQRO_RQST_RQID),
+                                 //new XAttribute("tasktype", "new"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                         },
+                       });
+               _DefaultGateway.Gateway(_InteractWithCRM);
+            }
+         }
+      }
+
+      private void RqstFolw_Butn_Click(object sender, EventArgs e)
+      {
+         var xinput = (sender as RoundedButton).Tag as XElement;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "FRST_PAGE_F", 100 /* ShowRequest */, SendType.SelfToUserInterface)
+            {
+               Input =
+                  new XElement("Request",
+                     new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                  )
+            }
+         );
       }
    }
 }

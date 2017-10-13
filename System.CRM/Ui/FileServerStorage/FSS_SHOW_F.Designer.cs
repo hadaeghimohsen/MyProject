@@ -244,6 +244,8 @@
             this.colService});
          this.gridView1.GridControl = this.gridControl1;
          this.gridView1.Name = "gridView1";
+         this.gridView1.OptionsBehavior.Editable = false;
+         this.gridView1.OptionsBehavior.ReadOnly = true;
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
          // 
@@ -732,6 +734,7 @@
          this.ShareFile_Butn.TabIndex = 2;
          this.ShareFile_Butn.Tag = "2";
          this.ShareFile_Butn.Text = "فایل های اشتراکی";
+         this.ShareFile_Butn.Visible = false;
          this.ShareFile_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
          // panel3

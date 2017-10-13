@@ -146,6 +146,7 @@
          this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CellPhon_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.panel3 = new System.Windows.Forms.Panel();
+         this.RqstFolw_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -172,6 +173,7 @@
          // 
          this.panelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl5.Appearance.Options.UseBackColor = true;
+         this.panelControl5.Controls.Add(this.RqstFolw_Butn);
          this.panelControl5.Controls.Add(this.Finr_Butn);
          this.panelControl5.Controls.Add(this.RequestOtherService_Butn);
          this.panelControl5.Controls.Add(this.SubRequest_Butn);
@@ -370,6 +372,7 @@
          // MesgBs
          // 
          this.MesgBs.DataSource = typeof(System.CRM.Data.Message);
+         this.MesgBs.CurrentChanged += new System.EventHandler(this.MesgBs_CurrentChanged);
          // 
          // panel4
          // 
@@ -1332,6 +1335,32 @@
          this.panel3.Size = new System.Drawing.Size(18, 500);
          this.panel3.TabIndex = 8;
          // 
+         // RqstFolw_Butn
+         // 
+         this.RqstFolw_Butn.Active = true;
+         this.RqstFolw_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.RqstFolw_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.RqstFolw_Butn.Caption = "";
+         this.RqstFolw_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.RqstFolw_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.RqstFolw_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.RqstFolw_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1192;
+         this.RqstFolw_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.RqstFolw_Butn.ImageVisiable = true;
+         this.RqstFolw_Butn.Location = new System.Drawing.Point(127, 6);
+         this.RqstFolw_Butn.Name = "RqstFolw_Butn";
+         this.RqstFolw_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.NormalColorA = System.Drawing.Color.WhiteSmoke;
+         this.RqstFolw_Butn.NormalColorB = System.Drawing.Color.WhiteSmoke;
+         this.RqstFolw_Butn.Size = new System.Drawing.Size(30, 30);
+         this.RqstFolw_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.RqstFolw_Butn.TabIndex = 16;
+         this.RqstFolw_Butn.Tag = "001";
+         this.RqstFolw_Butn.Tooltip = null;
+         this.RqstFolw_Butn.Click += new System.EventHandler(this.RqstFolw_Butn_Click);
+         // 
          // OPT_MESG_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1481,6 +1510,7 @@
       private MaxUi.RoundedButton MessageCheckStat_Butn;
       private MaxUi.RoundedButton MessageRecieve_Butn;
       private MaxUi.RoundedButton roundedButton1;
+      private MaxUi.RoundedButton RqstFolw_Butn;
 
    }
 }

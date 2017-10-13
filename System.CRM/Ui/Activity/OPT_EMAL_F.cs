@@ -447,5 +447,46 @@ namespace System.CRM.Ui.Activity
             )
          );
       }
+
+      private void EmalBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = EmalBs.Current as Data.Email;
+            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+
+            if(rqst.Request_Row.Request.RQST_RQID != null)
+            {
+               RqstFolw_Butn.Visible = true;
+               RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);
+               RqstFolw_Butn.Tag =
+                  new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request1.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request1.RQID));
+            }
+            else
+            {
+               RqstFolw_Butn.Visible = false;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqstFolw_Butn_Click(object sender, EventArgs e)
+      {
+         var xinput = (sender as RoundedButton).Tag as XElement;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "FRST_PAGE_F", 100 /* ShowRequest */, SendType.SelfToUserInterface)
+            {
+               Input =
+                  new XElement("Request",
+                     new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                  )
+            }
+         );
+      }
    }
 }

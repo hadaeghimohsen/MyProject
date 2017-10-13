@@ -40,6 +40,7 @@
          this.SubRequest_Butn = new System.MaxUi.RoundedButton();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.Cancel_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Save_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel2 = new System.Windows.Forms.Panel();
          this.Comment_Txt = new System.Windows.Forms.RichTextBox();
@@ -123,7 +124,7 @@
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.Cancel_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.RqstFolw_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -143,6 +144,7 @@
          // 
          this.panelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl5.Appearance.Options.UseBackColor = true;
+         this.panelControl5.Controls.Add(this.RqstFolw_Butn);
          this.panelControl5.Controls.Add(this.Finr_Butn);
          this.panelControl5.Controls.Add(this.RequestOtherService_Butn);
          this.panelControl5.Controls.Add(this.SubRequest_Butn);
@@ -177,6 +179,7 @@
          this.Finr_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.Finr_Butn.TabIndex = 14;
          this.Finr_Butn.Tag = "003";
+         this.Finr_Butn.Tooltip = null;
          this.Finr_Butn.Click += new System.EventHandler(this.Finr_Butn_Click);
          // 
          // RequestOtherService_Butn
@@ -202,6 +205,7 @@
          this.RequestOtherService_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.RequestOtherService_Butn.TabIndex = 12;
          this.RequestOtherService_Butn.Tag = "001";
+         this.RequestOtherService_Butn.Tooltip = null;
          this.RequestOtherService_Butn.Click += new System.EventHandler(this.CallRequest_Butn_Click);
          // 
          // SubRequest_Butn
@@ -227,6 +231,7 @@
          this.SubRequest_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.SubRequest_Butn.TabIndex = 13;
          this.SubRequest_Butn.Tag = "002";
+         this.SubRequest_Butn.Tooltip = null;
          this.SubRequest_Butn.Click += new System.EventHandler(this.CallRequest_Butn_Click);
          // 
          // labelControl15
@@ -252,6 +257,24 @@
          this.panel1.Name = "panel1";
          this.panel1.Size = new System.Drawing.Size(533, 46);
          this.panel1.TabIndex = 8;
+         // 
+         // Cancel_Butn
+         // 
+         this.Cancel_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.Cancel_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cancel_Butn.Appearance.Options.UseBackColor = true;
+         this.Cancel_Butn.Appearance.Options.UseFont = true;
+         this.Cancel_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1196;
+         this.Cancel_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.Cancel_Butn.Location = new System.Drawing.Point(112, 5);
+         this.Cancel_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Cancel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Cancel_Butn.Name = "Cancel_Butn";
+         this.Cancel_Butn.Size = new System.Drawing.Size(103, 36);
+         this.Cancel_Butn.TabIndex = 4;
+         this.Cancel_Butn.Text = "انصراف";
+         this.Cancel_Butn.ToolTip = "اضافه کردن یادداشت جدید";
+         this.Cancel_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // Save_Butn
          // 
@@ -298,6 +321,7 @@
          // NoteBs
          // 
          this.NoteBs.DataSource = typeof(System.CRM.Data.Note);
+         this.NoteBs.CurrentChanged += new System.EventHandler(this.NoteBs_CurrentChanged);
          // 
          // panelControl1
          // 
@@ -350,6 +374,7 @@
          this.TemplateText_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.TemplateText_Butn.TabIndex = 13;
          this.TemplateText_Butn.Tag = "001";
+         this.TemplateText_Butn.Tooltip = null;
          this.TemplateText_Butn.Click += new System.EventHandler(this.TemplateText_Butn_Click);
          // 
          // labelControl2
@@ -409,6 +434,7 @@
          this.InfoServ_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.InfoServ_Butn.TabIndex = 13;
          this.InfoServ_Butn.Tag = "001";
+         this.InfoServ_Butn.Tooltip = null;
          this.InfoServ_Butn.Click += new System.EventHandler(this.InfoServ_Butn_Click);
          // 
          // Mesg_Date
@@ -947,23 +973,31 @@
          this.panel3.Size = new System.Drawing.Size(18, 422);
          this.panel3.TabIndex = 8;
          // 
-         // Cancel_Butn
+         // RqstFolw_Butn
          // 
-         this.Cancel_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Cancel_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Cancel_Butn.Appearance.Options.UseBackColor = true;
-         this.Cancel_Butn.Appearance.Options.UseFont = true;
-         this.Cancel_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1196;
-         this.Cancel_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Cancel_Butn.Location = new System.Drawing.Point(112, 5);
-         this.Cancel_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Cancel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Cancel_Butn.Name = "Cancel_Butn";
-         this.Cancel_Butn.Size = new System.Drawing.Size(103, 36);
-         this.Cancel_Butn.TabIndex = 4;
-         this.Cancel_Butn.Text = "انصراف";
-         this.Cancel_Butn.ToolTip = "اضافه کردن یادداشت جدید";
-         this.Cancel_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
+         this.RqstFolw_Butn.Active = true;
+         this.RqstFolw_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.RqstFolw_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.RqstFolw_Butn.Caption = "";
+         this.RqstFolw_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.RqstFolw_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.RqstFolw_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.RqstFolw_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1192;
+         this.RqstFolw_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.RqstFolw_Butn.ImageVisiable = true;
+         this.RqstFolw_Butn.Location = new System.Drawing.Point(126, 6);
+         this.RqstFolw_Butn.Name = "RqstFolw_Butn";
+         this.RqstFolw_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.RqstFolw_Butn.NormalColorA = System.Drawing.Color.WhiteSmoke;
+         this.RqstFolw_Butn.NormalColorB = System.Drawing.Color.WhiteSmoke;
+         this.RqstFolw_Butn.Size = new System.Drawing.Size(30, 30);
+         this.RqstFolw_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.RqstFolw_Butn.TabIndex = 17;
+         this.RqstFolw_Butn.Tag = "001";
+         this.RqstFolw_Butn.Tooltip = null;
+         this.RqstFolw_Butn.Click += new System.EventHandler(this.RqstFolw_Butn_Click);
          // 
          // OPT_NOTE_F
          // 
@@ -1088,6 +1122,7 @@
       private Windows.Forms.RichTextBox Comment_Txt;
       private DevExpress.XtraEditors.SimpleButton UserMentioned_Butn;
       private DevExpress.XtraEditors.SimpleButton Cancel_Butn;
+      private MaxUi.RoundedButton RqstFolw_Butn;
 
    }
 }

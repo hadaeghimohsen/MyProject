@@ -2082,6 +2082,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1604.png">
       <Link>Resources\IMAGE_1604.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1605.png">
+      <Link>Resources\IMAGE_1605.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1606.png">
+      <Link>Resources\IMAGE_1606.png</Link>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
@@ -2404,6 +2410,8 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_SLON.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SRTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SSTG.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SXDC.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SXTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TMTP1.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TSKT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TSTP.datasource" />

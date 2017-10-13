@@ -241,11 +241,24 @@ namespace System.CRM.Ui.Activity
       {
          try
          {
-            var task = TaskBs.Current as Data.Task;
-            if (task == null) return;
+            var rqst = TaskBs.Current as Data.Task;            
 
-            task.DEAD_LINE_STAT = task.DEAD_LINE_STAT == null ? "001" : task.DEAD_LINE_STAT;
-            switch (task.DEAD_LINE_STAT)
+            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+
+            if (rqst.Request_Row.Request.RQST_RQID != null)
+            {
+               RqstFolw_Butn.Visible = true;
+               RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);
+               RqstFolw_Butn.Tag =
+                  new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request1.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request1.RQID));
+            }
+            else
+            {
+               RqstFolw_Butn.Visible = false;
+            }
+
+            rqst.DEAD_LINE_STAT = rqst.DEAD_LINE_STAT == null ? "001" : rqst.DEAD_LINE_STAT;
+            switch (rqst.DEAD_LINE_STAT)
             {
                case "001":
                   DeadLine_Dt.Visible = DeadLine_Tim.Visible = false;
@@ -257,12 +270,12 @@ namespace System.CRM.Ui.Activity
                   break;
             }
 
-            task.ARCH_STAT = task.ARCH_STAT == null ? "001" : task.ARCH_STAT;
+            rqst.ARCH_STAT = rqst.ARCH_STAT == null ? "001" : rqst.ARCH_STAT;
 
-            task.TASK_STAT = task.TASK_STAT == null ? "001" : task.TASK_STAT;
+            rqst.TASK_STAT = rqst.TASK_STAT == null ? "001" : rqst.TASK_STAT;
 
-            task.COLR = task.COLR == null ? "#ADFF2F" : task.COLR;
-            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(task.COLR);
+            rqst.COLR = rqst.COLR == null ? "#ADFF2F" : rqst.COLR;
+            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.COLR);
          }
          catch { }
       }
@@ -637,6 +650,22 @@ namespace System.CRM.Ui.Activity
                   }
                }
             )
+         );
+      }
+
+      private void RqstFolw_Butn_Click(object sender, EventArgs e)
+      {
+         var xinput = (sender as RoundedButton).Tag as XElement;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "FRST_PAGE_F", 100 /* ShowRequest */, SendType.SelfToUserInterface)
+            {
+               Input =
+                  new XElement("Request",
+                     new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                  )
+            }
          );
       }
    }

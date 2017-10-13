@@ -137,7 +137,7 @@
          this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
          this.Gis_Butn = new System.MaxUi.RoundedButton();
          this.ChangeServiceType_Butn = new System.MaxUi.RoundedButton();
-         this.roundedButton29 = new System.MaxUi.RoundedButton();
+         this.ServJoinType_Butn = new System.MaxUi.RoundedButton();
          this.ImageProfile_Butn = new System.MaxUi.RoundedButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.PymtNotEnd_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -545,7 +545,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1251, 53);
+         this.panel1.Size = new System.Drawing.Size(1269, 53);
          this.panel1.TabIndex = 0;
          // 
          // Previous_Butn
@@ -562,7 +562,7 @@
          this.Previous_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1189;
          this.Previous_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Previous_Butn.ImageVisiable = true;
-         this.Previous_Butn.Location = new System.Drawing.Point(1210, 7);
+         this.Previous_Butn.Location = new System.Drawing.Point(1228, 7);
          this.Previous_Butn.Name = "Previous_Butn";
          this.Previous_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Previous_Butn.NormalColorA = System.Drawing.Color.White;
@@ -587,7 +587,7 @@
          this.Next_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1190;
          this.Next_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Next_Butn.ImageVisiable = true;
-         this.Next_Butn.Location = new System.Drawing.Point(1040, 7);
+         this.Next_Butn.Location = new System.Drawing.Point(1058, 7);
          this.Next_Butn.Name = "Next_Butn";
          this.Next_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Next_Butn.NormalColorA = System.Drawing.Color.White;
@@ -653,7 +653,7 @@
          this.labelControl8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "SERV_NO_DNRM", true));
          this.labelControl8.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl8.Location = new System.Drawing.Point(345, 0);
+         this.labelControl8.Location = new System.Drawing.Point(363, 0);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(692, 53);
          this.labelControl8.TabIndex = 2;
@@ -672,7 +672,7 @@
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.labelControl1.Location = new System.Drawing.Point(1037, 0);
+         this.labelControl1.Location = new System.Drawing.Point(1055, 0);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(214, 53);
          this.labelControl1.TabIndex = 1;
@@ -727,7 +727,7 @@
          this.panelControl4.LookAndFeel.SkinName = "Seven Classic";
          this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl4.Name = "panelControl4";
-         this.panelControl4.Size = new System.Drawing.Size(698, 383);
+         this.panelControl4.Size = new System.Drawing.Size(699, 383);
          this.panelControl4.TabIndex = 3;
          // 
          // RelationShip_Butn
@@ -744,7 +744,7 @@
          this.RelationShip_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1601;
          this.RelationShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.RelationShip_Butn.ImageVisiable = true;
-         this.RelationShip_Butn.Location = new System.Drawing.Point(177, 72);
+         this.RelationShip_Butn.Location = new System.Drawing.Point(178, 72);
          this.RelationShip_Butn.Name = "RelationShip_Butn";
          this.RelationShip_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.RelationShip_Butn.NormalColorA = System.Drawing.Color.White;
@@ -761,7 +761,7 @@
          this.linkLabel6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "NATL_CODE_DNRM", true));
          this.linkLabel6.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.linkLabel6.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel6.Location = new System.Drawing.Point(74, 140);
+         this.linkLabel6.Location = new System.Drawing.Point(75, 140);
          this.linkLabel6.Name = "linkLabel6";
          this.linkLabel6.Size = new System.Drawing.Size(223, 27);
          this.linkLabel6.TabIndex = 27;
@@ -773,7 +773,7 @@
          this.linkLabel5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "FILE_NO", true));
          this.linkLabel5.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel5.Location = new System.Drawing.Point(74, 9);
+         this.linkLabel5.Location = new System.Drawing.Point(75, 9);
          this.linkLabel5.Name = "linkLabel5";
          this.linkLabel5.Size = new System.Drawing.Size(185, 27);
          this.linkLabel5.TabIndex = 24;
@@ -785,7 +785,7 @@
          this.RqstRqid_Lbl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "RQST_RQID", true));
          this.RqstRqid_Lbl.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RqstRqid_Lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.RqstRqid_Lbl.Location = new System.Drawing.Point(66, 280);
+         this.RqstRqid_Lbl.Location = new System.Drawing.Point(67, 280);
          this.RqstRqid_Lbl.Name = "RqstRqid_Lbl";
          this.RqstRqid_Lbl.Size = new System.Drawing.Size(193, 27);
          this.RqstRqid_Lbl.TabIndex = 25;
@@ -797,7 +797,7 @@
          this.linkLabel4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "TELL_PHON_DNRM", true));
          this.linkLabel4.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel4.Location = new System.Drawing.Point(380, 167);
+         this.linkLabel4.Location = new System.Drawing.Point(381, 167);
          this.linkLabel4.Name = "linkLabel4";
          this.linkLabel4.Size = new System.Drawing.Size(193, 27);
          this.linkLabel4.TabIndex = 26;
@@ -810,7 +810,7 @@
          this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl36.Location = new System.Drawing.Point(579, 267);
+         this.labelControl36.Location = new System.Drawing.Point(580, 267);
          this.labelControl36.Name = "labelControl36";
          this.labelControl36.Size = new System.Drawing.Size(109, 27);
          this.labelControl36.TabIndex = 18;
@@ -823,7 +823,7 @@
          this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(579, 234);
+         this.labelControl4.Location = new System.Drawing.Point(580, 234);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(109, 27);
          this.labelControl4.TabIndex = 19;
@@ -841,7 +841,7 @@
          this.labelControl37.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl37.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "Region.NAME", true));
          this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl37.Location = new System.Drawing.Point(380, 267);
+         this.labelControl37.Location = new System.Drawing.Point(381, 267);
          this.labelControl37.Name = "labelControl37";
          this.labelControl37.Size = new System.Drawing.Size(193, 27);
          this.labelControl37.TabIndex = 20;
@@ -858,7 +858,7 @@
          this.labelControl40.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl40.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "Region.Province.NAME", true));
          this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl40.Location = new System.Drawing.Point(380, 234);
+         this.labelControl40.Location = new System.Drawing.Point(381, 234);
          this.labelControl40.Name = "labelControl40";
          this.labelControl40.Size = new System.Drawing.Size(193, 27);
          this.labelControl40.TabIndex = 21;
@@ -875,7 +875,7 @@
          this.labelControl41.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl41.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "Region.Province.Country.NAME", true));
          this.labelControl41.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl41.Location = new System.Drawing.Point(380, 201);
+         this.labelControl41.Location = new System.Drawing.Point(381, 201);
          this.labelControl41.Name = "labelControl41";
          this.labelControl41.Size = new System.Drawing.Size(193, 27);
          this.labelControl41.TabIndex = 22;
@@ -887,7 +887,7 @@
          this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl42.Location = new System.Drawing.Point(579, 200);
+         this.labelControl42.Location = new System.Drawing.Point(580, 200);
          this.labelControl42.Name = "labelControl42";
          this.labelControl42.Size = new System.Drawing.Size(109, 27);
          this.labelControl42.TabIndex = 23;
@@ -907,7 +907,7 @@
          this.AddInfo_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1580;
          this.AddInfo_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AddInfo_Butn.ImageVisiable = true;
-         this.AddInfo_Butn.Location = new System.Drawing.Point(33, 239);
+         this.AddInfo_Butn.Location = new System.Drawing.Point(34, 239);
          this.AddInfo_Butn.Name = "AddInfo_Butn";
          this.AddInfo_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AddInfo_Butn.NormalColorA = System.Drawing.Color.White;
@@ -925,7 +925,7 @@
          this.labelControl39.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(74, 244);
+         this.labelControl39.Location = new System.Drawing.Point(75, 244);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(223, 27);
          this.labelControl39.TabIndex = 15;
@@ -945,7 +945,7 @@
          this.Tag_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1567;
          this.Tag_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Tag_Butn.ImageVisiable = true;
-         this.Tag_Butn.Location = new System.Drawing.Point(33, 5);
+         this.Tag_Butn.Location = new System.Drawing.Point(34, 5);
          this.Tag_Butn.Name = "Tag_Butn";
          this.Tag_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Tag_Butn.NormalColorA = System.Drawing.Color.White;
@@ -970,7 +970,7 @@
          this.ChangeTarf_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.ChangeTarf_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1550;
          this.ChangeTarf_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ChangeTarf_Butn.Location = new System.Drawing.Point(33, 173);
+         this.ChangeTarf_Butn.Location = new System.Drawing.Point(34, 173);
          this.ChangeTarf_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
          this.ChangeTarf_Butn.Name = "ChangeTarf_Butn";
          this.ChangeTarf_Butn.Size = new System.Drawing.Size(35, 60);
@@ -992,7 +992,7 @@
          this.Rb_RequestDocument.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1554;
          this.Rb_RequestDocument.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Rb_RequestDocument.ImageVisiable = true;
-         this.Rb_RequestDocument.Location = new System.Drawing.Point(33, 72);
+         this.Rb_RequestDocument.Location = new System.Drawing.Point(34, 72);
          this.Rb_RequestDocument.Name = "Rb_RequestDocument";
          this.Rb_RequestDocument.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Rb_RequestDocument.NormalColorA = System.Drawing.Color.White;
@@ -1010,7 +1010,7 @@
          this.labelControl11.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl11.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl11.Location = new System.Drawing.Point(74, 76);
+         this.labelControl11.Location = new System.Drawing.Point(75, 76);
          this.labelControl11.Name = "labelControl11";
          this.labelControl11.Size = new System.Drawing.Size(80, 27);
          this.labelControl11.TabIndex = 12;
@@ -1023,7 +1023,7 @@
          this.BrthDate_Dat.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ServBs, "BRTH_DATE_DNRM", true));
          this.BrthDate_Dat.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.BrthDate_Dat.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.BrthDate_Dat.Location = new System.Drawing.Point(473, 140);
+         this.BrthDate_Dat.Location = new System.Drawing.Point(474, 140);
          this.BrthDate_Dat.Name = "BrthDate_Dat";
          this.BrthDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.BrthDate_Dat.Size = new System.Drawing.Size(100, 23);
@@ -1036,7 +1036,7 @@
          this.linkLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "CELL_PHON_DNRM", true));
          this.linkLabel1.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel1.Location = new System.Drawing.Point(380, 43);
+         this.linkLabel1.Location = new System.Drawing.Point(381, 43);
          this.linkLabel1.Name = "linkLabel1";
          this.linkLabel1.Size = new System.Drawing.Size(193, 27);
          this.linkLabel1.TabIndex = 4;
@@ -1048,7 +1048,7 @@
          this.linkLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "EMAL_ADRS_DNRM", true));
          this.linkLabel2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel2.Location = new System.Drawing.Point(33, 42);
+         this.linkLabel2.Location = new System.Drawing.Point(34, 42);
          this.linkLabel2.Name = "linkLabel2";
          this.linkLabel2.Size = new System.Drawing.Size(264, 27);
          this.linkLabel2.TabIndex = 4;
@@ -1069,7 +1069,7 @@
          this.ServCont_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1529;
          this.ServCont_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.ServCont_Butn.ImageVisiable = true;
-         this.ServCont_Butn.Location = new System.Drawing.Point(219, 72);
+         this.ServCont_Butn.Location = new System.Drawing.Point(220, 72);
          this.ServCont_Butn.Name = "ServCont_Butn";
          this.ServCont_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.ServCont_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1091,7 +1091,7 @@
          this.labelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl13.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "CRET_BY", true));
          this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl13.Location = new System.Drawing.Point(380, 75);
+         this.labelControl13.Location = new System.Drawing.Point(381, 75);
          this.labelControl13.Name = "labelControl13";
          this.labelControl13.Size = new System.Drawing.Size(193, 27);
          this.labelControl13.TabIndex = 2;
@@ -1103,7 +1103,7 @@
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(579, 75);
+         this.labelControl7.Location = new System.Drawing.Point(580, 75);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(109, 27);
          this.labelControl7.TabIndex = 2;
@@ -1116,7 +1116,7 @@
          this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(579, 107);
+         this.labelControl10.Location = new System.Drawing.Point(580, 107);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(109, 27);
          this.labelControl10.TabIndex = 2;
@@ -1129,7 +1129,7 @@
          this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(265, 75);
+         this.labelControl6.Location = new System.Drawing.Point(266, 75);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(93, 27);
          this.labelControl6.TabIndex = 2;
@@ -1142,7 +1142,7 @@
          this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl9.Location = new System.Drawing.Point(303, 43);
+         this.labelControl9.Location = new System.Drawing.Point(304, 43);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(55, 27);
          this.labelControl9.TabIndex = 2;
@@ -1160,7 +1160,7 @@
          this.labelControl14.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl14.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "POST_ADRS_DNRM", true));
          this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(33, 107);
+         this.labelControl14.Location = new System.Drawing.Point(34, 107);
          this.labelControl14.Name = "labelControl14";
          this.labelControl14.Size = new System.Drawing.Size(540, 27);
          this.labelControl14.TabIndex = 2;
@@ -1179,7 +1179,7 @@
          this.CnclRqst_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1518;
          this.CnclRqst_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.CnclRqst_Butn.ImageVisiable = true;
-         this.CnclRqst_Butn.Location = new System.Drawing.Point(33, 280);
+         this.CnclRqst_Butn.Location = new System.Drawing.Point(34, 280);
          this.CnclRqst_Butn.Name = "CnclRqst_Butn";
          this.CnclRqst_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.CnclRqst_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1197,7 +1197,7 @@
          this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(579, 140);
+         this.labelControl3.Location = new System.Drawing.Point(580, 140);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(109, 27);
          this.labelControl3.TabIndex = 2;
@@ -1214,7 +1214,7 @@
          this.labelControl31.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl31.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "Request1.Request_Type.RQTP_DESC", true));
          this.labelControl31.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl31.Location = new System.Drawing.Point(33, 313);
+         this.labelControl31.Location = new System.Drawing.Point(34, 313);
          this.labelControl31.Name = "labelControl31";
          this.labelControl31.Size = new System.Drawing.Size(226, 27);
          this.labelControl31.TabIndex = 2;
@@ -1226,7 +1226,7 @@
          this.labelControl30.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl30.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl30.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl30.Location = new System.Drawing.Point(265, 313);
+         this.labelControl30.Location = new System.Drawing.Point(266, 313);
          this.labelControl30.Name = "labelControl30";
          this.labelControl30.Size = new System.Drawing.Size(93, 27);
          this.labelControl30.TabIndex = 2;
@@ -1239,7 +1239,7 @@
          this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl28.Location = new System.Drawing.Point(265, 280);
+         this.labelControl28.Location = new System.Drawing.Point(266, 280);
          this.labelControl28.Name = "labelControl28";
          this.labelControl28.Size = new System.Drawing.Size(93, 27);
          this.labelControl28.TabIndex = 2;
@@ -1256,7 +1256,7 @@
          this.labelControl34.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl34.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "Base_Tariff_Detail.TRFD_DESC", true));
          this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl34.Location = new System.Drawing.Point(74, 206);
+         this.labelControl34.Location = new System.Drawing.Point(75, 206);
          this.labelControl34.Name = "labelControl34";
          this.labelControl34.Size = new System.Drawing.Size(223, 27);
          this.labelControl34.TabIndex = 2;
@@ -1268,7 +1268,7 @@
          this.labelControl33.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl33.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl33.Location = new System.Drawing.Point(303, 206);
+         this.labelControl33.Location = new System.Drawing.Point(304, 206);
          this.labelControl33.Name = "labelControl33";
          this.labelControl33.Size = new System.Drawing.Size(55, 27);
          this.labelControl33.TabIndex = 2;
@@ -1285,7 +1285,7 @@
          this.labelControl32.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl32.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "Base_Tariff.BTRF_DESC", true));
          this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl32.Location = new System.Drawing.Point(74, 173);
+         this.labelControl32.Location = new System.Drawing.Point(75, 173);
          this.labelControl32.Name = "labelControl32";
          this.labelControl32.Size = new System.Drawing.Size(223, 27);
          this.labelControl32.TabIndex = 2;
@@ -1297,7 +1297,7 @@
          this.labelControl29.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl29.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl29.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl29.Location = new System.Drawing.Point(303, 173);
+         this.labelControl29.Location = new System.Drawing.Point(304, 173);
          this.labelControl29.Name = "labelControl29";
          this.labelControl29.Size = new System.Drawing.Size(55, 27);
          this.labelControl29.TabIndex = 2;
@@ -1310,7 +1310,7 @@
          this.labelControl18.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl18.Location = new System.Drawing.Point(303, 140);
+         this.labelControl18.Location = new System.Drawing.Point(304, 140);
          this.labelControl18.Name = "labelControl18";
          this.labelControl18.Size = new System.Drawing.Size(55, 27);
          this.labelControl18.TabIndex = 2;
@@ -1323,7 +1323,7 @@
          this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl16.Location = new System.Drawing.Point(579, 168);
+         this.labelControl16.Location = new System.Drawing.Point(580, 168);
          this.labelControl16.Name = "labelControl16";
          this.labelControl16.Size = new System.Drawing.Size(109, 27);
          this.labelControl16.TabIndex = 2;
@@ -1336,7 +1336,7 @@
          this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.Location = new System.Drawing.Point(275, 9);
+         this.labelControl26.Location = new System.Drawing.Point(276, 9);
          this.labelControl26.Name = "labelControl26";
          this.labelControl26.Size = new System.Drawing.Size(83, 27);
          this.labelControl26.TabIndex = 2;
@@ -1353,7 +1353,7 @@
          this.labelControl21.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl21.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ServBs, "NAME_DNRM", true));
          this.labelControl21.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl21.Location = new System.Drawing.Point(380, 9);
+         this.labelControl21.Location = new System.Drawing.Point(381, 9);
          this.labelControl21.Name = "labelControl21";
          this.labelControl21.Size = new System.Drawing.Size(193, 27);
          this.labelControl21.TabIndex = 2;
@@ -1365,7 +1365,7 @@
          this.labelControl20.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(579, 9);
+         this.labelControl20.Location = new System.Drawing.Point(580, 9);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(109, 27);
          this.labelControl20.TabIndex = 2;
@@ -1378,7 +1378,7 @@
          this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(579, 42);
+         this.labelControl5.Location = new System.Drawing.Point(580, 42);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(109, 27);
          this.labelControl5.TabIndex = 2;
@@ -1602,7 +1602,7 @@
          this.panelControl1.Controls.Add(this.ChangeServiceType_Butn);
          this.panelControl1.Controls.Add(this.AddLogCall_Butn);
          this.panelControl1.Controls.Add(this.TwitterUrl_Butn);
-         this.panelControl1.Controls.Add(this.roundedButton29);
+         this.panelControl1.Controls.Add(this.ServJoinType_Butn);
          this.panelControl1.Controls.Add(this.CloneService_Butn);
          this.panelControl1.Controls.Add(this.ImageProfile_Butn);
          this.panelControl1.Controls.Add(this.SendEmail_Butn);
@@ -1614,7 +1614,7 @@
          this.panelControl1.Controls.Add(this.LinkedInUrl_Butn);
          this.panelControl1.Controls.Add(this.FacebookUrl_Butn);
          this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.panelControl1.Location = new System.Drawing.Point(698, 0);
+         this.panelControl1.Location = new System.Drawing.Point(699, 0);
          this.panelControl1.LookAndFeel.SkinName = "Seven Classic";
          this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl1.Name = "panelControl1";
@@ -1669,29 +1669,29 @@
          this.ChangeServiceType_Butn.Tooltip = "تبدیل به مشتری احتمالی";
          this.ChangeServiceType_Butn.Click += new System.EventHandler(this.ChangeServiceType_Butn_Click);
          // 
-         // roundedButton29
+         // ServJoinType_Butn
          // 
-         this.roundedButton29.Active = true;
-         this.roundedButton29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.roundedButton29.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton29.Caption = "10";
-         this.roundedButton29.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.roundedButton29.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton29.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton29.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton29.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton29.ImageProfile = null;
-         this.roundedButton29.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton29.ImageVisiable = false;
-         this.roundedButton29.Location = new System.Drawing.Point(163, 6);
-         this.roundedButton29.Name = "roundedButton29";
-         this.roundedButton29.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.roundedButton29.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton29.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton29.Size = new System.Drawing.Size(35, 35);
-         this.roundedButton29.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton29.TabIndex = 4;
-         this.roundedButton29.Tooltip = null;
+         this.ServJoinType_Butn.Active = true;
+         this.ServJoinType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ServJoinType_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.ServJoinType_Butn.Caption = "";
+         this.ServJoinType_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ServJoinType_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.ServJoinType_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.ServJoinType_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.ServJoinType_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.ServJoinType_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1606;
+         this.ServJoinType_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.ServJoinType_Butn.ImageVisiable = true;
+         this.ServJoinType_Butn.Location = new System.Drawing.Point(163, 9);
+         this.ServJoinType_Butn.Name = "ServJoinType_Butn";
+         this.ServJoinType_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.ServJoinType_Butn.NormalColorA = System.Drawing.Color.White;
+         this.ServJoinType_Butn.NormalColorB = System.Drawing.Color.White;
+         this.ServJoinType_Butn.Size = new System.Drawing.Size(35, 35);
+         this.ServJoinType_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.ServJoinType_Butn.TabIndex = 4;
+         this.ServJoinType_Butn.Tooltip = "مشخص کردن نوع مشتری";
          // 
          // ImageProfile_Butn
          // 
@@ -3485,7 +3485,7 @@
          this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
          this.panel4.Location = new System.Drawing.Point(339, 53);
          this.panel4.Name = "panel4";
-         this.panel4.Size = new System.Drawing.Size(912, 596);
+         this.panel4.Size = new System.Drawing.Size(930, 596);
          this.panel4.TabIndex = 4;
          // 
          // splitContainerControl2
@@ -3500,7 +3500,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(819, 1608);
+         this.splitContainerControl2.Size = new System.Drawing.Size(904, 1608);
          this.splitContainerControl2.SplitterPosition = 531;
          this.splitContainerControl2.TabIndex = 6;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -3515,7 +3515,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.gridControl2);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(819, 491);
+         this.splitContainerControl4.Size = new System.Drawing.Size(904, 491);
          this.splitContainerControl4.SplitterPosition = 260;
          this.splitContainerControl4.TabIndex = 6;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -3533,7 +3533,7 @@
             this.LeadActn_Butn,
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemTimeEdit1});
-         this.gridControl1.Size = new System.Drawing.Size(819, 260);
+         this.gridControl1.Size = new System.Drawing.Size(904, 260);
          this.gridControl1.TabIndex = 5;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CallLog_Gv});
@@ -3773,7 +3773,7 @@
             this.EmalActn_Butn,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemTimeEdit6});
-         this.gridControl2.Size = new System.Drawing.Size(819, 226);
+         this.gridControl2.Size = new System.Drawing.Size(904, 226);
          this.gridControl2.TabIndex = 6;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Email_Gv});
@@ -3912,7 +3912,7 @@
          this.panelControl5.Location = new System.Drawing.Point(0, 0);
          this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(819, 40);
+         this.panelControl5.Size = new System.Drawing.Size(904, 40);
          this.panelControl5.TabIndex = 4;
          // 
          // labelControl15
@@ -3923,7 +3923,7 @@
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(553, 2);
+         this.labelControl15.Location = new System.Drawing.Point(638, 2);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(264, 36);
          this.labelControl15.TabIndex = 2;
@@ -3956,7 +3956,7 @@
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl7);
          this.splitContainerControl5.Panel2.Controls.Add(this.panelControl2);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(819, 1072);
+         this.splitContainerControl5.Size = new System.Drawing.Size(904, 1072);
          this.splitContainerControl5.SplitterPosition = 557;
          this.splitContainerControl5.TabIndex = 12;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -3975,7 +3975,7 @@
          this.AllActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1524;
          this.AllActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AllActivity_Butn.ImageVisiable = true;
-         this.AllActivity_Butn.Location = new System.Drawing.Point(748, 488);
+         this.AllActivity_Butn.Location = new System.Drawing.Point(833, 488);
          this.AllActivity_Butn.Name = "AllActivity_Butn";
          this.AllActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AllActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -3999,7 +3999,7 @@
          this.TodayActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1523;
          this.TodayActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.TodayActivity_Butn.ImageVisiable = true;
-         this.TodayActivity_Butn.Location = new System.Drawing.Point(748, 46);
+         this.TodayActivity_Butn.Location = new System.Drawing.Point(833, 46);
          this.TodayActivity_Butn.Name = "TodayActivity_Butn";
          this.TodayActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.TodayActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4023,7 +4023,7 @@
          this.Activity2_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1527;
          this.Activity2_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity2_Butn.ImageVisiable = true;
-         this.Activity2_Butn.Location = new System.Drawing.Point(749, 262);
+         this.Activity2_Butn.Location = new System.Drawing.Point(834, 262);
          this.Activity2_Butn.Name = "Activity2_Butn";
          this.Activity2_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity2_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4048,7 +4048,7 @@
          this.Activity1_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1528;
          this.Activity1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity1_Butn.ImageVisiable = true;
-         this.Activity1_Butn.Location = new System.Drawing.Point(748, 338);
+         this.Activity1_Butn.Location = new System.Drawing.Point(833, 338);
          this.Activity1_Butn.Name = "Activity1_Butn";
          this.Activity1_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4073,7 +4073,7 @@
          this.Activity0_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1530;
          this.Activity0_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity0_Butn.ImageVisiable = true;
-         this.Activity0_Butn.Location = new System.Drawing.Point(749, 413);
+         this.Activity0_Butn.Location = new System.Drawing.Point(834, 413);
          this.Activity0_Butn.Name = "Activity0_Butn";
          this.Activity0_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity0_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4098,7 +4098,7 @@
          this.Activity3_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity3_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity3_Butn.ImageVisiable = true;
-         this.Activity3_Butn.Location = new System.Drawing.Point(748, 190);
+         this.Activity3_Butn.Location = new System.Drawing.Point(833, 190);
          this.Activity3_Butn.Name = "Activity3_Butn";
          this.Activity3_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity3_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4123,7 +4123,7 @@
          this.Activity4_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity4_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity4_Butn.ImageVisiable = true;
-         this.Activity4_Butn.Location = new System.Drawing.Point(748, 116);
+         this.Activity4_Butn.Location = new System.Drawing.Point(833, 116);
          this.Activity4_Butn.Name = "Activity4_Butn";
          this.Activity4_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity4_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4253,7 +4253,7 @@
          this.AllActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AllActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.AllActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AllActivity_Txt.Location = new System.Drawing.Point(471, 488);
+         this.AllActivity_Txt.Location = new System.Drawing.Point(556, 488);
          this.AllActivity_Txt.Name = "AllActivity_Txt";
          this.AllActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.AllActivity_Txt.TabIndex = 11;
@@ -4269,7 +4269,7 @@
          this.panelControl6.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl6.Name = "panelControl6";
-         this.panelControl6.Size = new System.Drawing.Size(819, 40);
+         this.panelControl6.Size = new System.Drawing.Size(904, 40);
          this.panelControl6.TabIndex = 6;
          // 
          // labelControl12
@@ -4281,7 +4281,7 @@
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(553, 2);
+         this.labelControl12.Location = new System.Drawing.Point(638, 2);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(264, 36);
          this.labelControl12.TabIndex = 2;
@@ -4295,7 +4295,7 @@
          this.TodayActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TodayActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.TodayActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TodayActivity_Txt.Location = new System.Drawing.Point(471, 46);
+         this.TodayActivity_Txt.Location = new System.Drawing.Point(556, 46);
          this.TodayActivity_Txt.Name = "TodayActivity_Txt";
          this.TodayActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.TodayActivity_Txt.TabIndex = 8;
@@ -4309,7 +4309,7 @@
          this.Activity1_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity1_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity1_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity1_Txt.Location = new System.Drawing.Point(471, 338);
+         this.Activity1_Txt.Location = new System.Drawing.Point(556, 338);
          this.Activity1_Txt.Name = "Activity1_Txt";
          this.Activity1_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity1_Txt.TabIndex = 8;
@@ -4321,7 +4321,7 @@
          this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.panelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl7.Appearance.Options.UseBackColor = true;
-         this.panelControl7.Location = new System.Drawing.Point(769, 94);
+         this.panelControl7.Location = new System.Drawing.Point(854, 94);
          this.panelControl7.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl7.Name = "panelControl7";
@@ -4336,7 +4336,7 @@
          this.Activity2_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity2_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity2_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity2_Txt.Location = new System.Drawing.Point(471, 262);
+         this.Activity2_Txt.Location = new System.Drawing.Point(556, 262);
          this.Activity2_Txt.Name = "Activity2_Txt";
          this.Activity2_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity2_Txt.TabIndex = 8;
@@ -4351,7 +4351,7 @@
          this.Activity3_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity3_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity3_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity3_Txt.Location = new System.Drawing.Point(471, 190);
+         this.Activity3_Txt.Location = new System.Drawing.Point(556, 190);
          this.Activity3_Txt.Name = "Activity3_Txt";
          this.Activity3_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity3_Txt.TabIndex = 8;
@@ -4366,7 +4366,7 @@
          this.Activity0_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity0_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity0_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity0_Txt.Location = new System.Drawing.Point(471, 413);
+         this.Activity0_Txt.Location = new System.Drawing.Point(556, 413);
          this.Activity0_Txt.Name = "Activity0_Txt";
          this.Activity0_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity0_Txt.TabIndex = 8;
@@ -4381,7 +4381,7 @@
          this.Activity4_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity4_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity4_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity4_Txt.Location = new System.Drawing.Point(471, 116);
+         this.Activity4_Txt.Location = new System.Drawing.Point(556, 116);
          this.Activity4_Txt.Name = "Activity4_Txt";
          this.Activity4_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity4_Txt.TabIndex = 8;
@@ -4403,7 +4403,7 @@
             this.repositoryItemTimeEdit7,
             this.Atyp_Lov,
             this.Pstg_Lov});
-         this.gridControl7.Size = new System.Drawing.Size(819, 470);
+         this.gridControl7.Size = new System.Drawing.Size(904, 470);
          this.gridControl7.TabIndex = 8;
          this.gridControl7.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView5});
@@ -4836,7 +4836,7 @@
          this.panelControl2.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(819, 40);
+         this.panelControl2.Size = new System.Drawing.Size(904, 40);
          this.panelControl2.TabIndex = 7;
          // 
          // labelControl35
@@ -4848,7 +4848,7 @@
          this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl35.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(553, 2);
+         this.labelControl35.Location = new System.Drawing.Point(638, 2);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(264, 36);
          this.labelControl35.TabIndex = 2;
@@ -4861,7 +4861,7 @@
          this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel6.Location = new System.Drawing.Point(0, 0);
          this.panel6.Name = "panel6";
-         this.panel6.Size = new System.Drawing.Size(912, 383);
+         this.panel6.Size = new System.Drawing.Size(913, 383);
          this.panel6.TabIndex = 5;
          // 
          // DsdstBs
@@ -4957,7 +4957,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "INF_CONT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1251, 649);
+         this.Size = new System.Drawing.Size(1269, 649);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
@@ -5168,7 +5168,7 @@
       private Windows.Forms.Panel panel10;
       private Windows.Forms.BindingSource AponBs;
       private Windows.Forms.BindingSource FileBs;
-      private MaxUi.RoundedButton roundedButton29;
+      private MaxUi.RoundedButton ServJoinType_Butn;
       private MaxUi.RoundedButton ServCont_Butn;
       private MaxUi.RoundedButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton AddNote_Butn;

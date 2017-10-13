@@ -43,7 +43,6 @@
          System.Windows.Forms.Label fATH_NAMELabel;
          System.Windows.Forms.Label label1;
          System.Windows.Forms.Label nATL_CODELabel;
-         System.Windows.Forms.Label iDTY_CODELabel;
          System.Windows.Forms.Label label2;
          System.Windows.Forms.Label cELL_PHONLabel;
          System.Windows.Forms.Label tELL_PHONLabel;
@@ -79,11 +78,13 @@
          System.Windows.Forms.Label label36;
          System.Windows.Forms.Label label37;
          System.Windows.Forms.Label label38;
+         System.Windows.Forms.Label iDTY_CODELabel;
+         System.Windows.Forms.Label label39;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_CUST_F));
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState1 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState2 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState3 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState4 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState5 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState6 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState7 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState8 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.panel1 = new System.Windows.Forms.Panel();
@@ -104,11 +105,13 @@
          this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.SexType_Lov = new System.Windows.Forms.ComboBox();
+         this.SrpbBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DsxtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.ServInfo_Pikb = new System.MaxUi.NewPickBtn();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.CntyCode_Lov = new System.Windows.Forms.ComboBox();
-         this.SrpbBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CntyBs = new System.Windows.Forms.BindingSource(this.components);
          this.FindGoogleMap_Butn = new C1.Win.C1Input.C1Button();
          this.SrpbType_Lov = new System.Windows.Forms.ComboBox();
@@ -125,7 +128,6 @@
          this.TellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.CellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.PostAdrs_Txt = new System.Windows.Forms.RichTextBox();
-         this.IdtyCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.NatlCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FathName_Txt = new DevExpress.XtraEditors.TextEdit();
          this.LastName_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -135,6 +137,7 @@
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox3 = new System.Windows.Forms.GroupBox();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+         this.IdtyCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Isic_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Orgn_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -228,7 +231,6 @@
          fATH_NAMELabel = new System.Windows.Forms.Label();
          label1 = new System.Windows.Forms.Label();
          nATL_CODELabel = new System.Windows.Forms.Label();
-         iDTY_CODELabel = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          cELL_PHONLabel = new System.Windows.Forms.Label();
          tELL_PHONLabel = new System.Windows.Forms.Label();
@@ -264,6 +266,8 @@
          label36 = new System.Windows.Forms.Label();
          label37 = new System.Windows.Forms.Label();
          label38 = new System.Windows.Forms.Label();
+         iDTY_CODELabel = new System.Windows.Forms.Label();
+         label39 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -283,6 +287,7 @@
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SrpbBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DsxtpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CntyBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FindGoogleMap_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsrtpBs)).BeginInit();
@@ -292,7 +297,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.EmalAdrs_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.IdtyCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NatlCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FathName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Txt.Properties)).BeginInit();
@@ -301,6 +305,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
          this.groupBox3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.IdtyCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
@@ -479,16 +484,6 @@
          nATL_CODELabel.TabIndex = 27;
          nATL_CODELabel.Text = "کد ملی :";
          // 
-         // iDTY_CODELabel
-         // 
-         iDTY_CODELabel.AutoSize = true;
-         iDTY_CODELabel.ForeColor = System.Drawing.Color.Brown;
-         iDTY_CODELabel.Location = new System.Drawing.Point(150, 137);
-         iDTY_CODELabel.Name = "iDTY_CODELabel";
-         iDTY_CODELabel.Size = new System.Drawing.Size(49, 14);
-         iDTY_CODELabel.TabIndex = 28;
-         iDTY_CODELabel.Text = "ش.ش :";
-         // 
          // label2
          // 
          label2.AutoSize = true;
@@ -658,7 +653,7 @@
          // 
          sUNT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sUNT_CODELabel.AutoSize = true;
-         sUNT_CODELabel.Location = new System.Drawing.Point(270, 136);
+         sUNT_CODELabel.Location = new System.Drawing.Point(270, 161);
          sUNT_CODELabel.Name = "sUNT_CODELabel";
          sUNT_CODELabel.Size = new System.Drawing.Size(61, 14);
          sUNT_CODELabel.TabIndex = 46;
@@ -669,7 +664,7 @@
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
          label6.ForeColor = System.Drawing.Color.Black;
-         label6.Location = new System.Drawing.Point(270, 56);
+         label6.Location = new System.Drawing.Point(270, 81);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(72, 14);
          label6.TabIndex = 0;
@@ -679,7 +674,7 @@
          // 
          label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label27.AutoSize = true;
-         label27.Location = new System.Drawing.Point(502, 214);
+         label27.Location = new System.Drawing.Point(502, 239);
          label27.Name = "label27";
          label27.Size = new System.Drawing.Size(51, 14);
          label27.TabIndex = 45;
@@ -689,7 +684,7 @@
          // 
          sUNT_BUNT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sUNT_BUNT_CODELabel.AutoSize = true;
-         sUNT_BUNT_CODELabel.Location = new System.Drawing.Point(502, 136);
+         sUNT_BUNT_CODELabel.Location = new System.Drawing.Point(502, 161);
          sUNT_BUNT_CODELabel.Name = "sUNT_BUNT_CODELabel";
          sUNT_BUNT_CODELabel.Size = new System.Drawing.Size(60, 14);
          sUNT_BUNT_CODELabel.TabIndex = 45;
@@ -699,7 +694,7 @@
          // 
          label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label21.AutoSize = true;
-         label21.Location = new System.Drawing.Point(269, 186);
+         label21.Location = new System.Drawing.Point(269, 211);
          label21.Name = "label21";
          label21.Size = new System.Drawing.Size(48, 14);
          label21.TabIndex = 44;
@@ -709,7 +704,7 @@
          // 
          sUNT_BUNT_DEPT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sUNT_BUNT_DEPT_CODELabel.AutoSize = true;
-         sUNT_BUNT_DEPT_CODELabel.Location = new System.Drawing.Point(269, 108);
+         sUNT_BUNT_DEPT_CODELabel.Location = new System.Drawing.Point(269, 133);
          sUNT_BUNT_DEPT_CODELabel.Name = "sUNT_BUNT_DEPT_CODELabel";
          sUNT_BUNT_DEPT_CODELabel.Size = new System.Drawing.Size(55, 14);
          sUNT_BUNT_DEPT_CODELabel.TabIndex = 44;
@@ -720,7 +715,7 @@
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
          label5.ForeColor = System.Drawing.Color.Black;
-         label5.Location = new System.Drawing.Point(503, 56);
+         label5.Location = new System.Drawing.Point(503, 81);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(46, 14);
          label5.TabIndex = 0;
@@ -730,7 +725,7 @@
          // 
          label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label31.AutoSize = true;
-         label31.Location = new System.Drawing.Point(502, 242);
+         label31.Location = new System.Drawing.Point(502, 267);
          label31.Name = "label31";
          label31.Size = new System.Drawing.Size(45, 14);
          label31.TabIndex = 43;
@@ -741,7 +736,7 @@
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
          label4.ForeColor = System.Drawing.Color.Black;
-         label4.Location = new System.Drawing.Point(270, 28);
+         label4.Location = new System.Drawing.Point(270, 53);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(78, 14);
          label4.TabIndex = 0;
@@ -751,7 +746,7 @@
          // 
          label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label7.AutoSize = true;
-         label7.Location = new System.Drawing.Point(502, 186);
+         label7.Location = new System.Drawing.Point(502, 211);
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(37, 14);
          label7.TabIndex = 43;
@@ -761,7 +756,7 @@
          // 
          sUNT_BUNT_DEPT_ORGN_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sUNT_BUNT_DEPT_ORGN_CODELabel.AutoSize = true;
-         sUNT_BUNT_DEPT_ORGN_CODELabel.Location = new System.Drawing.Point(502, 108);
+         sUNT_BUNT_DEPT_ORGN_CODELabel.Location = new System.Drawing.Point(502, 133);
          sUNT_BUNT_DEPT_ORGN_CODELabel.Name = "sUNT_BUNT_DEPT_ORGN_CODELabel";
          sUNT_BUNT_DEPT_ORGN_CODELabel.Size = new System.Drawing.Size(57, 14);
          sUNT_BUNT_DEPT_ORGN_CODELabel.TabIndex = 43;
@@ -772,7 +767,7 @@
          label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label3.AutoSize = true;
          label3.ForeColor = System.Drawing.Color.Black;
-         label3.Location = new System.Drawing.Point(503, 28);
+         label3.Location = new System.Drawing.Point(503, 53);
          label3.Name = "label3";
          label3.Size = new System.Drawing.Size(46, 14);
          label3.TabIndex = 0;
@@ -853,6 +848,27 @@
          label38.Size = new System.Drawing.Size(91, 14);
          label38.TabIndex = 34;
          label38.Text = "موقعیت عمودی :";
+         // 
+         // iDTY_CODELabel
+         // 
+         iDTY_CODELabel.AutoSize = true;
+         iDTY_CODELabel.ForeColor = System.Drawing.Color.Brown;
+         iDTY_CODELabel.Location = new System.Drawing.Point(502, 24);
+         iDTY_CODELabel.Name = "iDTY_CODELabel";
+         iDTY_CODELabel.Size = new System.Drawing.Size(49, 14);
+         iDTY_CODELabel.TabIndex = 37;
+         iDTY_CODELabel.Text = "ش.ش :";
+         // 
+         // label39
+         // 
+         label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label39.AutoSize = true;
+         label39.ForeColor = System.Drawing.Color.Black;
+         label39.Location = new System.Drawing.Point(150, 139);
+         label39.Name = "label39";
+         label39.Size = new System.Drawing.Size(55, 14);
+         label39.TabIndex = 36;
+         label39.Text = "جنسیت :";
          // 
          // tb_master
          // 
@@ -1112,6 +1128,8 @@
          // groupBox1
          // 
          this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.Controls.Add(this.SexType_Lov);
+         this.groupBox1.Controls.Add(label39);
          this.groupBox1.Controls.Add(this.ServInfo_Pikb);
          this.groupBox1.Controls.Add(this.CntyCode_Lov);
          this.groupBox1.Controls.Add(label33);
@@ -1130,8 +1148,6 @@
          this.groupBox1.Controls.Add(cELL_PHONLabel);
          this.groupBox1.Controls.Add(this.CellPhon_Txt);
          this.groupBox1.Controls.Add(this.PostAdrs_Txt);
-         this.groupBox1.Controls.Add(iDTY_CODELabel);
-         this.groupBox1.Controls.Add(this.IdtyCode_Txt);
          this.groupBox1.Controls.Add(nATL_CODELabel);
          this.groupBox1.Controls.Add(this.NatlCode_Txt);
          this.groupBox1.Controls.Add(label2);
@@ -1151,6 +1167,36 @@
          this.groupBox1.TabIndex = 0;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "مشخصات مشتری :";
+         // 
+         // SexType_Lov
+         // 
+         this.SexType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SexType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.SrpbBs1, "SEX_TYPE", true));
+         this.SexType_Lov.DataSource = this.DsxtpBs;
+         this.SexType_Lov.DisplayMember = "DOMN_DESC";
+         this.SexType_Lov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.SexType_Lov.DropDownWidth = 100;
+         this.SexType_Lov.FormattingEnabled = true;
+         this.SexType_Lov.Location = new System.Drawing.Point(44, 135);
+         this.SexType_Lov.Name = "SexType_Lov";
+         this.SexType_Lov.Size = new System.Drawing.Size(100, 22);
+         this.SexType_Lov.TabIndex = 10;
+         this.SexType_Lov.ValueMember = "VALU";
+         // 
+         // SrpbBs1
+         // 
+         this.SrpbBs1.DataMember = "Service_Publics";
+         this.SrpbBs1.DataSource = this.RqroBs1;
+         this.SrpbBs1.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.BindingSource_ListChanged);
+         // 
+         // RqroBs1
+         // 
+         this.RqroBs1.DataMember = "Request_Rows";
+         this.RqroBs1.DataSource = this.RqstBs1;
+         // 
+         // DsxtpBs
+         // 
+         this.DsxtpBs.DataSource = typeof(System.CRM.Data.D_SXTP);
          // 
          // ServInfo_Pikb
          // 
@@ -1197,19 +1243,8 @@
          this.CntyCode_Lov.Location = new System.Drawing.Point(293, 25);
          this.CntyCode_Lov.Name = "CntyCode_Lov";
          this.CntyCode_Lov.Size = new System.Drawing.Size(144, 22);
-         this.CntyCode_Lov.TabIndex = 32;
+         this.CntyCode_Lov.TabIndex = 0;
          this.CntyCode_Lov.ValueMember = "CODE";
-         // 
-         // SrpbBs1
-         // 
-         this.SrpbBs1.DataMember = "Service_Publics";
-         this.SrpbBs1.DataSource = this.RqroBs1;
-         this.SrpbBs1.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.BindingSource_ListChanged);
-         // 
-         // RqroBs1
-         // 
-         this.RqroBs1.DataMember = "Request_Rows";
-         this.RqroBs1.DataSource = this.RqstBs1;
          // 
          // CntyBs
          // 
@@ -1339,7 +1374,7 @@
          this.EmalAdrs_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.EmalAdrs_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.EmalAdrs_Txt.Size = new System.Drawing.Size(393, 22);
-         this.EmalAdrs_Txt.TabIndex = 12;
+         this.EmalAdrs_Txt.TabIndex = 8;
          // 
          // TellPhon_Txt
          // 
@@ -1355,7 +1390,7 @@
          this.TellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.TellPhon_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TellPhon_Txt.Size = new System.Drawing.Size(102, 22);
-         this.TellPhon_Txt.TabIndex = 11;
+         this.TellPhon_Txt.TabIndex = 12;
          // 
          // CellPhon_Txt
          // 
@@ -1382,20 +1417,6 @@
          this.PostAdrs_Txt.TabIndex = 13;
          this.PostAdrs_Txt.Text = "";
          // 
-         // IdtyCode_Txt
-         // 
-         this.IdtyCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs1, "IDTY_CODE", true));
-         this.IdtyCode_Txt.Location = new System.Drawing.Point(44, 135);
-         this.IdtyCode_Txt.Name = "IdtyCode_Txt";
-         this.IdtyCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.IdtyCode_Txt.Properties.Appearance.Options.UseFont = true;
-         this.IdtyCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.IdtyCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.IdtyCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.IdtyCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.IdtyCode_Txt.Size = new System.Drawing.Size(100, 22);
-         this.IdtyCode_Txt.TabIndex = 9;
-         // 
          // NatlCode_Txt
          // 
          this.NatlCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs1, "NATL_CODE", true));
@@ -1410,7 +1431,7 @@
          this.NatlCode_Txt.Properties.Mask.EditMask = "d";
          this.NatlCode_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.NatlCode_Txt.Size = new System.Drawing.Size(100, 22);
-         this.NatlCode_Txt.TabIndex = 8;
+         this.NatlCode_Txt.TabIndex = 9;
          // 
          // FathName_Txt
          // 
@@ -1463,7 +1484,7 @@
          this.BrthDate_Dat.Name = "BrthDate_Dat";
          this.BrthDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.BrthDate_Dat.Size = new System.Drawing.Size(100, 23);
-         this.BrthDate_Dat.TabIndex = 10;
+         this.BrthDate_Dat.TabIndex = 11;
          this.BrthDate_Dat.UsePersianFormat = true;
          // 
          // tp_0012
@@ -1491,7 +1512,9 @@
          // 
          // groupBox3
          // 
+         this.groupBox3.Controls.Add(iDTY_CODELabel);
          this.groupBox3.Controls.Add(this.labelControl2);
+         this.groupBox3.Controls.Add(this.IdtyCode_Txt);
          this.groupBox3.Controls.Add(this.labelControl1);
          this.groupBox3.Controls.Add(this.Isic_Butn);
          this.groupBox3.Controls.Add(this.Orgn_Butn);
@@ -1536,11 +1559,25 @@
          this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl2.LineStyle = System.Drawing.Drawing2D.DashStyle.Custom;
          this.labelControl2.LineVisible = true;
-         this.labelControl2.Location = new System.Drawing.Point(6, 161);
+         this.labelControl2.Location = new System.Drawing.Point(6, 186);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(557, 16);
          this.labelControl2.TabIndex = 47;
          this.labelControl2.Text = "اطلاعات شغلی";
+         // 
+         // IdtyCode_Txt
+         // 
+         this.IdtyCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs1, "IDTY_CODE", true));
+         this.IdtyCode_Txt.Location = new System.Drawing.Point(374, 22);
+         this.IdtyCode_Txt.Name = "IdtyCode_Txt";
+         this.IdtyCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.IdtyCode_Txt.Properties.Appearance.Options.UseFont = true;
+         this.IdtyCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.IdtyCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.IdtyCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.IdtyCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.IdtyCode_Txt.Size = new System.Drawing.Size(122, 22);
+         this.IdtyCode_Txt.TabIndex = 36;
          // 
          // labelControl1
          // 
@@ -1551,7 +1588,7 @@
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.LineStyle = System.Drawing.Drawing2D.DashStyle.Custom;
          this.labelControl1.LineVisible = true;
-         this.labelControl1.Location = new System.Drawing.Point(6, 81);
+         this.labelControl1.Location = new System.Drawing.Point(6, 106);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(557, 16);
          this.labelControl1.TabIndex = 47;
@@ -1560,7 +1597,7 @@
          // Isic_Butn
          // 
          this.Isic_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Isic_Butn.Location = new System.Drawing.Point(344, 182);
+         this.Isic_Butn.Location = new System.Drawing.Point(344, 207);
          this.Isic_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Isic_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Isic_Butn.Name = "Isic_Butn";
@@ -1571,7 +1608,7 @@
          // Orgn_Butn
          // 
          this.Orgn_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Orgn_Butn.Location = new System.Drawing.Point(344, 104);
+         this.Orgn_Butn.Location = new System.Drawing.Point(344, 129);
          this.Orgn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Orgn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Orgn_Butn.Name = "Orgn_Butn";
@@ -1587,7 +1624,7 @@
          this.SuntCode_Lov.DisplayMember = "SUNT_DESC";
          this.SuntCode_Lov.DropDownWidth = 400;
          this.SuntCode_Lov.FormattingEnabled = true;
-         this.SuntCode_Lov.Location = new System.Drawing.Point(141, 133);
+         this.SuntCode_Lov.Location = new System.Drawing.Point(141, 158);
          this.SuntCode_Lov.Name = "SuntCode_Lov";
          this.SuntCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.SuntCode_Lov.TabIndex = 3;
@@ -1620,7 +1657,7 @@
          this.CustType_Lov.DisplayMember = "DOMN_DESC";
          this.CustType_Lov.DropDownWidth = 400;
          this.CustType_Lov.FormattingEnabled = true;
-         this.CustType_Lov.Location = new System.Drawing.Point(141, 53);
+         this.CustType_Lov.Location = new System.Drawing.Point(141, 78);
          this.CustType_Lov.Name = "CustType_Lov";
          this.CustType_Lov.Size = new System.Drawing.Size(122, 22);
          this.CustType_Lov.TabIndex = 0;
@@ -1638,7 +1675,7 @@
          this.IscpCode_Lov.DisplayMember = "ISCP_DESC";
          this.IscpCode_Lov.DropDownWidth = 400;
          this.IscpCode_Lov.FormattingEnabled = true;
-         this.IscpCode_Lov.Location = new System.Drawing.Point(374, 211);
+         this.IscpCode_Lov.Location = new System.Drawing.Point(374, 236);
          this.IscpCode_Lov.Name = "IscpCode_Lov";
          this.IscpCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.IscpCode_Lov.TabIndex = 2;
@@ -1666,7 +1703,7 @@
          this.BuntCode_Lov.DisplayMember = "BUNT_DESC";
          this.BuntCode_Lov.DropDownWidth = 400;
          this.BuntCode_Lov.FormattingEnabled = true;
-         this.BuntCode_Lov.Location = new System.Drawing.Point(374, 133);
+         this.BuntCode_Lov.Location = new System.Drawing.Point(374, 158);
          this.BuntCode_Lov.Name = "BuntCode_Lov";
          this.BuntCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.BuntCode_Lov.TabIndex = 2;
@@ -1680,7 +1717,7 @@
          this.IscaCode_Lov.DisplayMember = "FRSI_DESC";
          this.IscaCode_Lov.DropDownWidth = 400;
          this.IscaCode_Lov.FormattingEnabled = true;
-         this.IscaCode_Lov.Location = new System.Drawing.Point(141, 183);
+         this.IscaCode_Lov.Location = new System.Drawing.Point(141, 208);
          this.IscaCode_Lov.Name = "IscaCode_Lov";
          this.IscaCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.IscaCode_Lov.TabIndex = 1;
@@ -1694,7 +1731,7 @@
          this.DeptCode_Lov.DisplayMember = "DEPT_DESC";
          this.DeptCode_Lov.DropDownWidth = 400;
          this.DeptCode_Lov.FormattingEnabled = true;
-         this.DeptCode_Lov.Location = new System.Drawing.Point(141, 105);
+         this.DeptCode_Lov.Location = new System.Drawing.Point(141, 130);
          this.DeptCode_Lov.Name = "DeptCode_Lov";
          this.DeptCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.DeptCode_Lov.TabIndex = 1;
@@ -1708,7 +1745,7 @@
          this.EthnCity_Lov.DisplayMember = "DOMN_DESC";
          this.EthnCity_Lov.DropDownWidth = 400;
          this.EthnCity_Lov.FormattingEnabled = true;
-         this.EthnCity_Lov.Location = new System.Drawing.Point(374, 53);
+         this.EthnCity_Lov.Location = new System.Drawing.Point(374, 78);
          this.EthnCity_Lov.Name = "EthnCity_Lov";
          this.EthnCity_Lov.Size = new System.Drawing.Size(122, 22);
          this.EthnCity_Lov.TabIndex = 0;
@@ -1726,7 +1763,7 @@
          this.JobTitl_Lov.DisplayMember = "DOMN_DESC";
          this.JobTitl_Lov.DropDownWidth = 400;
          this.JobTitl_Lov.FormattingEnabled = true;
-         this.JobTitl_Lov.Location = new System.Drawing.Point(374, 239);
+         this.JobTitl_Lov.Location = new System.Drawing.Point(374, 264);
          this.JobTitl_Lov.Name = "JobTitl_Lov";
          this.JobTitl_Lov.Size = new System.Drawing.Size(122, 22);
          this.JobTitl_Lov.TabIndex = 0;
@@ -1744,7 +1781,7 @@
          this.IscgCode_Lov.DisplayMember = "FRSI_DESC";
          this.IscgCode_Lov.DropDownWidth = 400;
          this.IscgCode_Lov.FormattingEnabled = true;
-         this.IscgCode_Lov.Location = new System.Drawing.Point(374, 183);
+         this.IscgCode_Lov.Location = new System.Drawing.Point(374, 208);
          this.IscgCode_Lov.Name = "IscgCode_Lov";
          this.IscgCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.IscgCode_Lov.TabIndex = 0;
@@ -1758,7 +1795,7 @@
          this.OrgnCode_Lov.DisplayMember = "ORGN_DESC";
          this.OrgnCode_Lov.DropDownWidth = 400;
          this.OrgnCode_Lov.FormattingEnabled = true;
-         this.OrgnCode_Lov.Location = new System.Drawing.Point(374, 105);
+         this.OrgnCode_Lov.Location = new System.Drawing.Point(374, 130);
          this.OrgnCode_Lov.Name = "OrgnCode_Lov";
          this.OrgnCode_Lov.Size = new System.Drawing.Size(122, 22);
          this.OrgnCode_Lov.TabIndex = 0;
@@ -1772,7 +1809,7 @@
          this.RlgnType_Lov.DisplayMember = "DOMN_DESC";
          this.RlgnType_Lov.DropDownWidth = 400;
          this.RlgnType_Lov.FormattingEnabled = true;
-         this.RlgnType_Lov.Location = new System.Drawing.Point(141, 25);
+         this.RlgnType_Lov.Location = new System.Drawing.Point(141, 50);
          this.RlgnType_Lov.Name = "RlgnType_Lov";
          this.RlgnType_Lov.Size = new System.Drawing.Size(122, 22);
          this.RlgnType_Lov.TabIndex = 0;
@@ -1790,7 +1827,7 @@
          this.MridType_Lov.DisplayMember = "DOMN_DESC";
          this.MridType_Lov.DropDownWidth = 400;
          this.MridType_Lov.FormattingEnabled = true;
-         this.MridType_Lov.Location = new System.Drawing.Point(374, 25);
+         this.MridType_Lov.Location = new System.Drawing.Point(374, 50);
          this.MridType_Lov.Name = "MridType_Lov";
          this.MridType_Lov.Size = new System.Drawing.Size(122, 22);
          this.MridType_Lov.TabIndex = 0;
@@ -2224,19 +2261,19 @@
          this.StatusSaving_Sic.Name = "stateIndicatorComponent1";
          this.StatusSaving_Sic.Size = new System.Drawing.SizeF(200F, 200F);
          this.StatusSaving_Sic.StateIndex = 0;
-         indicatorState1.Name = "New Request";
-         indicatorState1.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight1;
-         indicatorState2.Name = "Error On Saving";
-         indicatorState2.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight2;
-         indicatorState3.Name = "Wait For Saving";
-         indicatorState3.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight3;
-         indicatorState4.Name = "Successfull Saving";
-         indicatorState4.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight4;
+         indicatorState5.Name = "New Request";
+         indicatorState5.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight1;
+         indicatorState6.Name = "Error On Saving";
+         indicatorState6.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight2;
+         indicatorState7.Name = "Wait For Saving";
+         indicatorState7.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight3;
+         indicatorState8.Name = "Successfull Saving";
+         indicatorState8.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight4;
          this.StatusSaving_Sic.States.AddRange(new DevExpress.XtraGauges.Core.Model.IIndicatorState[] {
-            indicatorState1,
-            indicatorState2,
-            indicatorState3,
-            indicatorState4});
+            indicatorState5,
+            indicatorState6,
+            indicatorState7,
+            indicatorState8});
          // 
          // Btn_Back
          // 
@@ -2396,6 +2433,7 @@
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SrpbBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DsxtpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CntyBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FindGoogleMap_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsrtpBs)).EndInit();
@@ -2405,7 +2443,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.EmalAdrs_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.IdtyCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NatlCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FathName_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Txt.Properties)).EndInit();
@@ -2415,6 +2452,7 @@
          this.splitContainerControl1.ResumeLayout(false);
          this.groupBox3.ResumeLayout(false);
          this.groupBox3.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.IdtyCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
@@ -2513,7 +2551,6 @@
       private DevExpress.XtraEditors.TextEdit LastName_Txt;
       private DevExpress.XtraEditors.TextEdit FrstName_Txt;
       private Atf.UI.DateTimeSelector BrthDate_Dat;
-      private DevExpress.XtraEditors.TextEdit IdtyCode_Txt;
       private Windows.Forms.RichTextBox PostAdrs_Txt;
       private DevExpress.XtraEditors.TextEdit TellPhon_Txt;
       private DevExpress.XtraEditors.TextEdit CellPhon_Txt;
@@ -2582,5 +2619,8 @@
       private DevExpress.XtraEditors.TextEdit CordX_Txt;
       private C1.Win.C1Input.C1Button FindGoogleMap_Butn;
       private C1.Win.C1Input.C1Button ShowGoogleMap_Butn;
+      private DevExpress.XtraEditors.TextEdit IdtyCode_Txt;
+      private Windows.Forms.ComboBox SexType_Lov;
+      private Windows.Forms.BindingSource DsxtpBs;
    }
 }

@@ -1742,7 +1742,6 @@
       <Association Name="Request_Row_Appointment" Member="Appointments" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Appointment" />
       <Association Name="Request_Row_Event" Member="Events" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Event" />
       <Association Name="Request_Row_Note" Member="Notes" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Note" />
-      <Association Name="Request_Row_Send_File" Member="Send_Files" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Send_File" />
       <Association Name="Request_Row_Task" Member="Tasks" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Task" />
       <Association Name="Request_Row_Log_Call" Member="Log_Calls" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Log_Call" />
       <Association Name="Request_Row_Final_Result" Member="Final_Results" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Final_Result" />
@@ -1750,6 +1749,7 @@
       <Association Name="Request_Row_Service_Public" Member="Service_Publics" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Service_Public" />
       <Association Name="Request_Row_Message" Member="Messages" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Message" />
       <Association Name="Request_Row_Email" Member="Emails" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Email" />
+      <Association Name="Request_Row_Send_File" Member="Send_Files" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Send_File" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
@@ -2092,38 +2092,6 @@
       <Association Name="Service_Public_Payment" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
       <Association Name="Company_Payment" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Company_Payment1" Member="Company1" ThisKey="REF_COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Send_File" Member="Send_Files">
-    <Type Name="Send_File">
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SRPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SRPB_RECT_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="COMP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CMNT_CMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SFID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SUBJ_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SEND_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SDRC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SHER_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="UPLD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILE_SRVR_LINK" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="URL_LINK" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="URL_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Comment_Send_File" Member="Comment" ThisKey="CMNT_CMID" OtherKey="CMID" Type="Comment" IsForeignKey="true" />
-      <Association Name="Request_Row_Send_File" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Service_Send_File" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-      <Association Name="Service_Public_Send_File" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Send_File" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Task" Member="Tasks">
@@ -2507,7 +2475,6 @@
       <Association Name="Service_Note" Member="Notes" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Note" />
       <Association Name="Service_Payment" Member="Payments" ThisKey="FILE_NO" OtherKey="REF_SERV_FILE_NO" Type="Payment" />
       <Association Name="Service_Payment1" Member="Payments1" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Payment" />
-      <Association Name="Service_Send_File" Member="Send_Files" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Send_File" />
       <Association Name="Service_Task" Member="Tasks" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Task" />
       <Association Name="Service_Log_Call" Member="Log_Calls" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Log_Call" />
       <Association Name="Service_Final_Result" Member="Final_Results" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Final_Result" />
@@ -2526,6 +2493,7 @@
       <Association Name="Service_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO_DNRM" Type="Personnel_Access_Service_Type" />
       <Association Name="Service_Job_Personnel" Member="Job_Personnels" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Job_Personnel" />
       <Association Name="Service_Company" Member="Companies" ThisKey="FILE_NO" OtherKey="LAST_SERV_FILE_NO_DNRM" Type="Company" />
+      <Association Name="Service_Send_File" Member="Send_Files" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Send_File" />
       <Association Name="Base_Tariff_Service" Member="Base_Tariff" ThisKey="BTRF_CODE_DNRM" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" />
       <Association Name="Isic_Product_Service" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE_DNRM,ISCP_ISCA_CODE_DNRM,ISCP_CODE_DNRM" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
       <Association Name="Request_Service" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
@@ -2601,13 +2569,13 @@
       <Association Name="Service_Public_Event" Member="Events" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Event" />
       <Association Name="Service_Public_Note" Member="Notes" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Note" />
       <Association Name="Service_Public_Payment" Member="Payments" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Payment" />
-      <Association Name="Service_Public_Send_File" Member="Send_Files" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Send_File" />
       <Association Name="Service_Public_Task" Member="Tasks" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Task" />
       <Association Name="Service_Public_Log_Call" Member="Log_Calls" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPN_RECT_CODE_DNRM" Type="Log_Call" />
       <Association Name="Service_Public_Final_Result" Member="Final_Results" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Final_Result" />
       <Association Name="Service_Public_Tag" Member="Tags" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Tag" />
       <Association Name="Service_Public_Message" Member="Messages" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Message" />
       <Association Name="Service_Public_Email" Member="Emails" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Email" />
+      <Association Name="Service_Public_Send_File" Member="Send_Files" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Send_File" />
       <Association Name="Base_Tariff_Service_Public" Member="Base_Tariff" ThisKey="BTRF_CODE" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Expense_Service_Public" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Isic_Product_Service_Public" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
@@ -2705,6 +2673,17 @@
       <Association Name="Service_Type_Service_Join_Service_Type" Member="Service_Join_Service_Types" ThisKey="CODE" OtherKey="SRTP_CODE" Type="Service_Join_Service_Type" />
       <Association Name="Service_Type_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="CODE" OtherKey="SRTP_CODE" Type="Personnel_Access_Service_Type" />
     </Type>
+    <InsertFunction FunctionId="FunctionId58">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="srtp_Desc" Member="SRTP_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId59">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="srtp_Desc" Member="SRTP_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId60">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Table Name="dbo.Service_Join_Service_Type" Member="Service_Join_Service_Types">
     <Type Name="Service_Join_Service_Type">
@@ -2840,7 +2819,6 @@
       <Association Name="Company_Note" Member="Notes" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Note" />
       <Association Name="Company_Payment" Member="Payments" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Payment" />
       <Association Name="Company_Payment1" Member="Payments1" ThisKey="CODE" OtherKey="REF_COMP_CODE" Type="Payment" />
-      <Association Name="Company_Send_File" Member="Send_Files" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Send_File" />
       <Association Name="Company_Task" Member="Tasks" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Task" />
       <Association Name="Company_Log_Call" Member="Log_Calls" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Log_Call" />
       <Association Name="Company_Final_Result" Member="Final_Results" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Final_Result" />
@@ -2855,13 +2833,14 @@
       <Association Name="Company_Relation_Info" Member="Relation_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Relation_Info" />
       <Association Name="Company_Relation_Info1" Member="Relation_Infos1" ThisKey="CODE" OtherKey="RLAT_COMP_CODE" Type="Relation_Info" />
       <Association Name="Company_Company" Member="Companies" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company" />
+      <Association Name="Company_Send_File" Member="Send_Files" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Send_File" />
       <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Region_Company" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Company" Member="Service" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId58">
+    <InsertFunction FunctionId="FunctionId61">
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
       <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
       <Argument Parameter="regn_Code" Member="REGN_CODE" />
@@ -2900,7 +2879,7 @@
       <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
       <Argument Parameter="host_Stat" Member="HOST_STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId59">
+    <UpdateFunction FunctionId="FunctionId62">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
       <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
@@ -2940,9 +2919,41 @@
       <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
       <Argument Parameter="host_Stat" Member="HOST_STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId60">
+    <DeleteFunction FunctionId="FunctionId63">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Send_File" Member="Send_Files">
+    <Type Name="Send_File">
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SRPB_RECT_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="COMP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CMNT_CMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SFID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUBJ_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SEND_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_TYPE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SDRC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SHER_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="UPLD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILE_SRVR_LINK" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="URL_LINK" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="URL_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Comment_Send_File" Member="Comment" ThisKey="CMNT_CMID" OtherKey="CMID" Type="Comment" IsForeignKey="true" />
+      <Association Name="Company_Send_File" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Row_Send_File" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Service_Send_File" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Service_Public_Send_File" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
+    </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
@@ -3644,7 +3655,7 @@
       <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId60" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
+  <Function Id="FunctionId63" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -4173,7 +4184,7 @@
     <Parameter Name="Rlt2_Apbs_Code" Parameter="rlt2_Apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId58" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
+  <Function Id="FunctionId61" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
     <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
@@ -4214,7 +4225,7 @@
     <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId59" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
+  <Function Id="FunctionId62" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
@@ -4274,5 +4285,19 @@
       <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Id="FunctionId58" Name="dbo.INS_SRTP_P" Method="INS_SRTP_P">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Srtp_Desc" Parameter="srtp_Desc" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId60" Name="dbo.DEL_SRTP_P" Method="DEL_SRTP_P">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId59" Name="dbo.UPD_SRTP_P" Method="UPD_SRTP_P">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Srtp_Desc" Parameter="srtp_Desc" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

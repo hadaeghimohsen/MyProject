@@ -195,7 +195,7 @@ namespace System.RoboTech.Controller
                   }
                   else
                   {
-                     photo = pic.FILE_ID;
+                     photo = new FileToSend(pic.FILE_ID);
                   }
                   try
                   {
@@ -306,7 +306,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
                      try
                      {
@@ -450,6 +450,16 @@ namespace System.RoboTech.Controller
                                     && m.USSD_CODE == ussdParentCode
                                     && m.CMND_TYPE == "018"
                                  select m).ToList().FirstOrDefault();
+
+               // 1396/07/22 * بدست آوردن مرجعی برای ذخیره سازی اطلاعات فایل های دریافتی برای ربات
+               var filestorage = "";
+               if (robot.DOWN_LOAD_FILE_PATH != "" && robot.DOWN_LOAD_FILE_PATH.Length >= 10)
+                  filestorage = robot.DOWN_LOAD_FILE_PATH;
+               else filestorage = null;
+
+               if (parentmenu != null && filestorage != null)
+                  parentmenu.UPLD_FILE_PATH = filestorage;
+
 
                if (parentmenu != null)
                {
@@ -894,7 +904,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -956,7 +966,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1016,7 +1026,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1113,7 +1123,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1170,7 +1180,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = video.FILE_ID;
+                        photo = new FileToSend(video.FILE_ID);
                      }
 
                      try
@@ -1230,7 +1240,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1286,7 +1296,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = video.FILE_ID;
+                        photo = new FileToSend(video.FILE_ID);
                      }
 
                      try
@@ -1426,7 +1436,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1518,7 +1528,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1725,7 +1735,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        document = doc.FILE_ID;
+                        document = new FileToSend(doc.FILE_ID);
                      }
 
                      try
@@ -1785,7 +1795,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1935,7 +1945,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -1992,7 +2002,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        document = doc.FILE_ID;
+                        document = new FileToSend(doc.FILE_ID);
                      }
 
                      try
@@ -2085,7 +2095,7 @@ namespace System.RoboTech.Controller
                      }
                      else
                      {
-                        photo = pic.FILE_ID;
+                        photo = new FileToSend(pic.FILE_ID);
                      }
 
                      try
@@ -2372,7 +2382,7 @@ namespace System.RoboTech.Controller
                }
                else
                {
-                  photo = pic.FILE_ID;
+                  photo = new FileToSend(pic.FILE_ID);
                }
                try
                {

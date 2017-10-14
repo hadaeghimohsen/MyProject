@@ -305,7 +305,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var ordrdtil = OrdtBs.Current as Data.Order_Detail;
             if (ordrdtil == null) return;
 
-            var result = MessageBox.Show(this, "فایل عکس را در هارد ذخیره شود یا پایگاه داده؟اگر موافق باشید فایل تنها در هارد شما ذخیره میشود. در غیر اینصورت اگر جواب خیر باشد عکس در پایگاه داده ذخیره میشود", "نوع ذخیره سازی", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            var result = MessageBox.Show(this, "فایل عکس را در هارد ذخیره شود یا پایگاه داده هم اضافه گردد؟اگر موافق باشید فایل تنها در هارد شما ذخیره میشود. در غیر اینصورت اگر جواب خیر باشد علاوه هارد عکس در پایگاه داده هم ذخیره میشود", "نوع ذخیره سازی", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Cancel) return;
 
@@ -314,10 +314,20 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var parentmenu = iRoboTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == ordrdtil.Order.SRBT_ROBO_RBID && m.USSD_CODE == ordrdtil.BASE_USSD_CODE);
             var datenow = iRoboTech.GET_MTOS_U(DateTime.Now).Replace("/", "_");
             var fileupload = "";
+
+            // 1396/07/22 * بدست آوردن مرجعی برای ذخیره سازی اطلاعات فایل های دریافتی برای ربات
+            var filestorage = "";
+            if (crnt.DOWN_LOAD_FILE_PATH != "" && crnt.DOWN_LOAD_FILE_PATH.Length >= 10)
+               filestorage = crnt.DOWN_LOAD_FILE_PATH;
+            else filestorage = null;
+
+            if (parentmenu != null && filestorage != null)
+               parentmenu.UPLD_FILE_PATH = filestorage;
+
             if(parentmenu != null)
                 fileupload = (parentmenu.UPLD_FILE_PATH ?? @"D:") + "\\" + bot.Me.Username + "\\" + datenow + "\\" + ordrdtil.Order.CHAT_ID + "\\" + parentmenu.MENU_TEXT;
             else
-               fileupload = @"D:" + "\\" + bot.Me.Username + "\\" + datenow + "\\" + ordrdtil.Order.CHAT_ID + "\\" + "OthersMessage";
+               fileupload = (filestorage == null ? @"D:" : filestorage) + "\\" + bot.Me.Username + "\\" + datenow + "\\" + ordrdtil.Order.CHAT_ID + "\\" + "OthersMessage";
 
             var filename = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             if (!Directory.Exists(fileupload))
@@ -352,7 +362,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             {
                // ذخیره کردن در هارد
                bot.GetFile("002", ordrdtil.ORDR_DESC, fileupload + "\\" + filename + "." + file_extension);
-               OrdrImag_Picbox.Image = Image.FromFile(fileupload + "\\" + filename + "." + file_extension);
+               //OrdrImag_Picbox.Image = Image.FromFile(fileupload + "\\" + filename + "." + file_extension);
             }
             else if (result == DialogResult.No)
             {

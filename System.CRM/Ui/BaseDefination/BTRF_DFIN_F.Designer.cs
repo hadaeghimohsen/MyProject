@@ -28,15 +28,14 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BTRF_DFIN_F));
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.TrfdBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.TrfdBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-         this.TrfdBs = new System.Windows.Forms.BindingSource(this.components);
-         this.BtrfBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TrfdBs = new System.Windows.Forms.BindingSource();
+         this.BtrfBs = new System.Windows.Forms.BindingSource();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -72,7 +71,7 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.BtrfBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.BtrfBn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -88,7 +87,7 @@
          this.tp_002 = new C1.Win.C1Command.C1DockingTabPage();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.SrtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrtpBs = new System.Windows.Forms.BindingSource();
          this.Srtp_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,7 +95,7 @@
          this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SrtpBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.SrtpBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();

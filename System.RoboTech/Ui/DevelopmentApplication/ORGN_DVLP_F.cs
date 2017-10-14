@@ -826,5 +826,21 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          else
             e.ImageIndex = 1;  // the reorder icon (a curved arrow)
       }
+
+      private void DownLoad_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (FilePath_Fbd.ShowDialog() != DialogResult.OK) return;
+
+            robo.DOWN_LOAD_FILE_PATH = FilePath_Fbd.SelectedPath;
+         }
+         catch (Exception exc)
+         { }
+         finally { RoboBs.EndEdit(); }
+      }
    }
 }

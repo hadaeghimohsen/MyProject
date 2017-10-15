@@ -34,37 +34,55 @@ namespace MyProject.Programs.Code
                if (_Scsc != null)
                   _Scsc.Gateway(jobs);
                else
-                  System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
                break;
             case "Sas":
                if(_Sas != null)
                   _Sas.Gateway(jobs);
                else
-                  System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
                break;
             case "Msgb":
                if (_Msgb != null)
                   _Msgb.Gateway(jobs);
                else
-                  System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
                break;
             case "ISP":
                if (_ISP != null)
                   _ISP.Gateway(jobs);
                else
-                  System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
                break;
             case "CRM":
                if (_CRM != null)
                   _CRM.Gateway(jobs);
                else
-                  System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
                break;
             case "RoboTech":
                if (_RoboTech != null)
                   _RoboTech.Gateway(jobs);
                else
-                  System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
                break;
             default:
                jobs.Status = StatusType.Failed;

@@ -92,7 +92,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorqstrqid", logc.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", logc.RQRO_RWNO ?? 0),
                   new XAttribute("lcid", logc.LCID),
-                  new XAttribute("rsltstat", logc.RSLT_STAT),
+                  new XAttribute("rsltstat", logc.RSLT_STAT ?? "001"),
                   new XAttribute("rqstrqid", rqstrqid),
                   new XElement("Comment",
                      new XAttribute("subject", logc.SUBJ_DESC),

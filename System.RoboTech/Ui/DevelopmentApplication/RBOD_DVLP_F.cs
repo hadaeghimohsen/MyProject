@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Net;
+using System.Globalization;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -693,23 +694,47 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            // Read file data
-            FileStream fs = new FileStream("D:\\Result.Xls", FileMode.Open, FileAccess.Read);
-            byte[] data = new byte[fs.Length];
-            fs.Read(data, 0, data.Length);
-            fs.Close();
+            var ordr = OrdrBs.Current as Data.Order;
+            if (ordr == null) return;
+            if (ordr.ORDR_STAT != "004") { MessageBox.Show(this, "درخواست هایی که پایانی نشده اند نمی توانید به کارتابل ارسال کنید", "عدم ارسال به کارتابل"); return; }
+
+            // بررسی اینکه آیا از فایل های ارسال شده فایلی هست که دانلود نشده و در جدول مسیر آن وجود نداشته باشد
+            if (ordr.Order_Details.Any(od => (od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004") && (od.IMAG_PATH == null || string.IsNullOrWhiteSpace(od.IMAG_PATH))) && MessageBox.Show(this, "برای تمامی فایل های نامه دانلود صورت نگرفته یا اینکه مسیر آن وجود ندارد!! آیا مراحل ارسال نامه به کارتابل انجام پذیرد؟", "عدم وجود فایل نامه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();
-            postParameters.Add("CustomerMobile", "2147483647");
-            postParameters.Add("MailDate", "1396/06/01");
-            postParameters.Add("MailNo", "123123");
-            postParameters.Add("MailText", "سلام ارادتمندم");
-            postParameters.Add("mail_files[0]", new FormUpload.FileParameter(data, "People.doc", "application/msword"));
-            postParameters.Add("mail_files[1]", new FormUpload.FileParameter(data, "People.doc", "application/msword"));
+            //postParameters.Add("CustomerMobile", "2147483647");
+            //postParameters.Add("MailDate", "1396/06/01");
+            //postParameters.Add("MailNo", "123123");
+            //postParameters.Add("MailText", "سلام ارادتمندم");
+            postParameters.Add("CustomerMobile", ordr.Service_Robot.OTHR_CELL_PHON);
+            postParameters.Add("MailDate", GetPersianDate((DateTime)ordr.STRT_DATE));
+            postParameters.Add("MailNo", ordr.CODE);
+            postParameters.Add("MailText", string.Join("\n\r*", ordr.Order_Details.Where(od => od.ELMN_TYPE == "001").Select(od => od.ORDR_DESC)));
+
+            int i = 0;
+            ordr.Order_Details.Where(od => od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004").ToList().ForEach(
+               od =>
+               {
+                  try
+                  {
+                     // Read file data
+                     FileStream fs = new FileStream(od.IMAG_PATH, FileMode.Open, FileAccess.Read);
+                     byte[] data = new byte[fs.Length];
+                     fs.Read(data, 0, data.Length);
+                     fs.Close();
+                     postParameters.Add(string.Format("mail_files[{0}]", i), new FormUpload.FileParameter(data, od.IMAG_PATH.Substring(od.IMAG_PATH.LastIndexOf('\\') + 1)/* FileName */, od.IMAG_PATH.Substring(od.IMAG_PATH.LastIndexOf('.') + 1 /* Extension File Type */)));
+                     ++i;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+               }
+            );
 
             // Create request and receive response
-            string postURL = "http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
+            string postURL = ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// "http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
             string userAgent = "Someone";
             HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(postURL, userAgent, postParameters);
 
@@ -717,9 +742,46 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
             string fullResponse = responseReader.ReadToEnd();
             webResponse.Close();
-            MessageBox.Show(fullResponse);
+            ordr.CRTB_SEND_STAT = "002";
+            MessageBox.Show("عملیات ارسال با موفقیت انجام شد");
+            iRoboTech.SubmitChanges();
+            requery = true;
          }
-      catch { }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         finally { if (requery) { Execute_Query(); } }
+
+      }
+
+      private string GetPersianDate(DateTime date)
+      {
+         PersianCalendar pc = new PersianCalendar();
+         return string.Format("{0}/{1}/{2}", pc.GetYear(date), pc.GetMonth(date), pc.GetDayOfMonth(date));
+      }
+
+      private void FilePath_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var od = OrdtBs.Current as Data.Order_Detail;
+            if (od == null) return;
+
+            if(od.IMAG_PATH != null && od.IMAG_PATH != "")
+            {
+               Dlg_OpenFile.InitialDirectory = od.IMAG_PATH.Substring(0, od.IMAG_PATH.LastIndexOf('\\'));
+            }
+            else
+            {
+               Dlg_OpenFile.InitialDirectory = "";
+            }
+
+            if (Dlg_OpenFile.ShowDialog() != DialogResult.OK) return;
+
+            od.IMAG_PATH = Dlg_OpenFile.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 

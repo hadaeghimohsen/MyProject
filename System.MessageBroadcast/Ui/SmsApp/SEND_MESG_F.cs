@@ -53,7 +53,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       private void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+         //UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
       }
    }
 }

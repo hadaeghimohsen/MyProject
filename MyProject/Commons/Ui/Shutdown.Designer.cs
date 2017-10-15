@@ -116,7 +116,7 @@
          toolTipTitleItem4.Appearance.Options.UseImage = true;
          toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
          toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "Logout";
+         toolTipTitleItem4.Text = "Logout\r\nCtrl + Backspace";
          superToolTip2.Items.Add(toolTipTitleItem3);
          superToolTip2.Items.Add(toolTipItem2);
          superToolTip2.Items.Add(toolTipTitleItem4);
@@ -152,7 +152,7 @@
          toolTipTitleItem6.Appearance.Options.UseImage = true;
          toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
          toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "Shutdown";
+         toolTipTitleItem6.Text = "Shutdown\r\nAlt + F4";
          superToolTip3.Items.Add(toolTipTitleItem5);
          superToolTip3.Items.Add(toolTipItem3);
          superToolTip3.Items.Add(toolTipTitleItem6);

@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label cHAT_IDLabel;
          System.Windows.Forms.Label fRST_NAMELabel;
          System.Windows.Forms.Label lAST_NAMELabel;
@@ -47,6 +46,8 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -55,28 +56,28 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colORDR_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Odst_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DodstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DodstBs = new System.Windows.Forms.BindingSource();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DactvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DactvBs = new System.Windows.Forms.BindingSource();
          this.Tb_master = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox8 = new System.Windows.Forms.GroupBox();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.OrdrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrdrBs = new System.Windows.Forms.BindingSource();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSRBT_SERV_FILE_NO2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_ROBO_RBID2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +88,7 @@
          this.colOWNR_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORDR_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Odtp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DordtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DordtBs = new System.Windows.Forms.BindingSource();
          this.colSTRT_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,7 +97,7 @@
          this.colCELL_PHON = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colARCH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Ysno_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DysnoBs = new System.Windows.Forms.BindingSource();
          this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,9 +111,9 @@
          this.panel1 = new System.Windows.Forms.Panel();
          this.OrdrDate_Dat = new Atf.UI.DateTimeSelector();
          this.Serv_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrbtBs = new System.Windows.Forms.BindingSource();
+         this.RoboBs = new System.Windows.Forms.BindingSource();
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colROBO_RBID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,7 +141,7 @@
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrdrType_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.OrdrCmnt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.OrdrBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.OrdrBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton35 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton36 = new System.Windows.Forms.ToolStripButton();
@@ -161,6 +162,8 @@
          this.SelectOtherReport_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.SettingReport_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.FinalOrder_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.SendToCartable_Butn = new System.Windows.Forms.ToolStripButton();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.GetUserProfilePhotos_Butn = new System.MaxUi.RoundedButton();
@@ -180,7 +183,7 @@
          this.Save_Butn = new C1.Win.C1Input.C1Button();
          this.Download_Butn = new C1.Win.C1Input.C1Button();
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-         this.OrdtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrdtBs = new System.Windows.Forms.BindingSource();
          this.groupBox5 = new System.Windows.Forms.GroupBox();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -188,7 +191,7 @@
          this.colRWNO2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colELMN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Elmt_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DelmtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DelmtBs = new System.Windows.Forms.BindingSource();
          this.colORDR_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNUMB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBASE_USSD_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -197,7 +200,7 @@
          this.colORDR_CMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrdr_Butn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Ordt_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.OrdtBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.OrdtBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton26 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton27 = new System.Windows.Forms.ToolStripButton();
@@ -212,6 +215,7 @@
          this.toolStripButton32 = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripButton33 = new System.Windows.Forms.ToolStripButton();
+         this.FilePath_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
@@ -251,12 +255,11 @@
          this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RobotTrace_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.Btn_Back = new C1.Win.C1Input.C1Button();
-         this.vUserBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vUserBs = new System.Windows.Forms.BindingSource();
          this.Dlg_SaveFile = new System.Windows.Forms.SaveFileDialog();
          this.Dlg_OpenFile = new System.Windows.Forms.OpenFileDialog();
          this.Dlg_FolderBrowse = new System.Windows.Forms.FolderBrowserDialog();
-         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-         this.SendToCartable_Butn = new System.Windows.Forms.ToolStripButton();
+         this.colCRTB_SEND_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          cHAT_IDLabel = new System.Windows.Forms.Label();
          fRST_NAMELabel = new System.Windows.Forms.Label();
          lAST_NAMELabel = new System.Windows.Forms.Label();
@@ -325,6 +328,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Ordt_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrdtBn)).BeginInit();
          this.OrdtBn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.FilePath_Txt.Properties)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
          this.splitContainerControl5.SuspendLayout();
@@ -454,7 +458,7 @@
          this.colORDR_STAT.Name = "colORDR_STAT";
          this.colORDR_STAT.Visible = true;
          this.colORDR_STAT.VisibleIndex = 3;
-         this.colORDR_STAT.Width = 127;
+         this.colORDR_STAT.Width = 121;
          // 
          // Odst_Lov
          // 
@@ -646,7 +650,8 @@
             this.colRobot,
             this.colService_Robot2,
             this.colORDR_NUMB,
-            this.colSERV_ORDR_RWNO});
+            this.colSERV_ORDR_RWNO,
+            this.colCRTB_SEND_STAT});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -677,12 +682,28 @@
          styleFormatCondition5.Column = this.colORDR_STAT;
          styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition5.Value1 = "005";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.Column = this.colCRTB_SEND_STAT;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition6.Value1 = "001";
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+         styleFormatCondition7.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         styleFormatCondition7.Appearance.ForeColor = System.Drawing.Color.White;
+         styleFormatCondition7.Appearance.Options.UseBackColor = true;
+         styleFormatCondition7.Appearance.Options.UseFont = true;
+         styleFormatCondition7.Appearance.Options.UseForeColor = true;
+         styleFormatCondition7.Column = this.colCRTB_SEND_STAT;
+         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition7.Value1 = "002";
          this.gridView3.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition1,
             styleFormatCondition2,
             styleFormatCondition3,
             styleFormatCondition4,
-            styleFormatCondition5});
+            styleFormatCondition5,
+            styleFormatCondition6,
+            styleFormatCondition7});
          this.gridView3.GridControl = this.gridControl2;
          this.gridView3.Name = "gridView3";
          this.gridView3.OptionsFind.FindDelay = 100;
@@ -733,7 +754,7 @@
          this.colOWNR_NAME.Name = "colOWNR_NAME";
          this.colOWNR_NAME.Visible = true;
          this.colOWNR_NAME.VisibleIndex = 1;
-         this.colOWNR_NAME.Width = 127;
+         this.colOWNR_NAME.Width = 91;
          // 
          // colORDR_TYPE
          // 
@@ -745,7 +766,7 @@
          this.colORDR_TYPE.OptionsColumn.ReadOnly = true;
          this.colORDR_TYPE.Visible = true;
          this.colORDR_TYPE.VisibleIndex = 4;
-         this.colORDR_TYPE.Width = 160;
+         this.colORDR_TYPE.Width = 167;
          // 
          // Odtp_Lov
          // 
@@ -775,7 +796,7 @@
          this.colSTRT_DATE.OptionsColumn.ReadOnly = true;
          this.colSTRT_DATE.Visible = true;
          this.colSTRT_DATE.VisibleIndex = 2;
-         this.colSTRT_DATE.Width = 127;
+         this.colSTRT_DATE.Width = 121;
          // 
          // persianRepositoryItemDateEdit1
          // 
@@ -821,8 +842,6 @@
          this.colARCH_STAT.ColumnEdit = this.Ysno_Lov;
          this.colARCH_STAT.FieldName = "ARCH_STAT";
          this.colARCH_STAT.Name = "colARCH_STAT";
-         this.colARCH_STAT.Visible = true;
-         this.colARCH_STAT.VisibleIndex = 0;
          this.colARCH_STAT.Width = 127;
          // 
          // Ysno_Lov
@@ -1403,11 +1422,26 @@
          // 
          // FinalOrder_Butn
          // 
+         this.FinalOrder_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1023;
          this.FinalOrder_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.FinalOrder_Butn.Name = "FinalOrder_Butn";
-         this.FinalOrder_Butn.Size = new System.Drawing.Size(130, 22);
+         this.FinalOrder_Butn.Size = new System.Drawing.Size(146, 22);
          this.FinalOrder_Butn.Text = "نهایی شدن درخواست ها";
          this.FinalOrder_Butn.Click += new System.EventHandler(this.FinalOrder_Butn_Click);
+         // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+         // 
+         // SendToCartable_Butn
+         // 
+         this.SendToCartable_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1247;
+         this.SendToCartable_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.SendToCartable_Butn.Name = "SendToCartable_Butn";
+         this.SendToCartable_Butn.Size = new System.Drawing.Size(103, 22);
+         this.SendToCartable_Butn.Text = "ارسال به کارتابل";
+         this.SendToCartable_Butn.Click += new System.EventHandler(this.SendToCartable_Butn_Click);
          // 
          // splitContainerControl2
          // 
@@ -1738,6 +1772,7 @@
          // 
          this.groupBox5.Controls.Add(this.gridControl6);
          this.groupBox5.Controls.Add(this.OrdtBn);
+         this.groupBox5.Controls.Add(this.FilePath_Txt);
          this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox5.Location = new System.Drawing.Point(0, 0);
          this.groupBox5.Name = "groupBox5";
@@ -1758,7 +1793,7 @@
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Elmt_Lov,
             this.Ordt_Butn});
-         this.gridControl6.Size = new System.Drawing.Size(366, 301);
+         this.gridControl6.Size = new System.Drawing.Size(366, 279);
          this.gridControl6.TabIndex = 4;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2036,6 +2071,24 @@
          this.toolStripButton33.Size = new System.Drawing.Size(23, 22);
          this.toolStripButton33.Text = "toolStripButton22";
          // 
+         // FilePath_Txt
+         // 
+         this.FilePath_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdtBs, "IMAG_PATH", true));
+         this.FilePath_Txt.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.FilePath_Txt.Location = new System.Drawing.Point(3, 322);
+         this.FilePath_Txt.Name = "FilePath_Txt";
+         this.FilePath_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FilePath_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FilePath_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FilePath_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FilePath_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+         this.FilePath_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.FilePath_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FilePath_Txt.Size = new System.Drawing.Size(366, 22);
+         this.FilePath_Txt.TabIndex = 1;
+         this.FilePath_Txt.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FilePath_Txt_ButtonClick);
+         // 
          // groupBox1
          // 
          this.groupBox1.Controls.Add(this.splitContainerControl5);
@@ -2106,21 +2159,21 @@
             this.colGOGL_MAP,
             this.colRegion,
             this.colActnButn});
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Column = this.colSTAT;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = "001";
-         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition7.Appearance.Options.UseBackColor = true;
-         styleFormatCondition7.ApplyToRow = true;
-         styleFormatCondition7.Column = this.colSTAT;
-         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition7.Value1 = "002";
+         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition8.Appearance.Options.UseBackColor = true;
+         styleFormatCondition8.ApplyToRow = true;
+         styleFormatCondition8.Column = this.colSTAT;
+         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition8.Value1 = "001";
+         styleFormatCondition9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition9.Appearance.Options.UseBackColor = true;
+         styleFormatCondition9.ApplyToRow = true;
+         styleFormatCondition9.Column = this.colSTAT;
+         styleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition9.Value1 = "002";
          this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition6,
-            styleFormatCondition7});
+            styleFormatCondition8,
+            styleFormatCondition9});
          this.gridView1.GridControl = this.countryGridControl;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsBehavior.Editable = false;
@@ -2343,21 +2396,21 @@
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8});
-         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition8.Appearance.Options.UseBackColor = true;
-         styleFormatCondition8.ApplyToRow = true;
-         styleFormatCondition8.Column = this.colSTAT1;
-         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition8.Value1 = "001";
-         styleFormatCondition9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition9.Appearance.Options.UseBackColor = true;
-         styleFormatCondition9.ApplyToRow = true;
-         styleFormatCondition9.Column = this.colSTAT1;
-         styleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition9.Value1 = "002";
+         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition10.Appearance.Options.UseBackColor = true;
+         styleFormatCondition10.ApplyToRow = true;
+         styleFormatCondition10.Column = this.colSTAT1;
+         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition10.Value1 = "001";
+         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition11.Appearance.Options.UseBackColor = true;
+         styleFormatCondition11.ApplyToRow = true;
+         styleFormatCondition11.Column = this.colSTAT1;
+         styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition11.Value1 = "002";
          this.gridView2.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition8,
-            styleFormatCondition9});
+            styleFormatCondition10,
+            styleFormatCondition11});
          this.gridView2.GridControl = this.gridControl1;
          this.gridView2.Name = "gridView2";
          this.gridView2.OptionsBehavior.Editable = false;
@@ -2516,19 +2569,16 @@
          // 
          this.Dlg_OpenFile.Filter = "All File | *.*";
          // 
-         // toolStripSeparator1
+         // colCRTB_SEND_STAT
          // 
-         this.toolStripSeparator1.Name = "toolStripSeparator1";
-         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-         // 
-         // SendToCartable_Butn
-         // 
-         this.SendToCartable_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1247;
-         this.SendToCartable_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
-         this.SendToCartable_Butn.Name = "SendToCartable_Butn";
-         this.SendToCartable_Butn.Size = new System.Drawing.Size(103, 22);
-         this.SendToCartable_Butn.Text = "ارسال به کارتابل";
-         this.SendToCartable_Butn.Click += new System.EventHandler(this.SendToCartable_Butn_Click);
+         this.colCRTB_SEND_STAT.Caption = "آیا ارسال به کارتابل انجام شده؟";
+         this.colCRTB_SEND_STAT.ColumnEdit = this.Ysno_Lov;
+         this.colCRTB_SEND_STAT.FieldName = "CRTB_SEND_STAT";
+         this.colCRTB_SEND_STAT.Name = "colCRTB_SEND_STAT";
+         this.colCRTB_SEND_STAT.OptionsColumn.FixedWidth = true;
+         this.colCRTB_SEND_STAT.Visible = true;
+         this.colCRTB_SEND_STAT.VisibleIndex = 0;
+         this.colCRTB_SEND_STAT.Width = 168;
          // 
          // RBOD_DVLP_F
          // 
@@ -2600,6 +2650,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.OrdtBn)).EndInit();
          this.OrdtBn.ResumeLayout(false);
          this.OrdtBn.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.FilePath_Txt.Properties)).EndInit();
          this.groupBox1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
          this.splitContainerControl5.ResumeLayout(false);
@@ -2820,5 +2871,7 @@
       private Windows.Forms.FolderBrowserDialog Dlg_FolderBrowse;
       private Windows.Forms.ToolStripSeparator toolStripSeparator1;
       private Windows.Forms.ToolStripButton SendToCartable_Butn;
+      private DevExpress.XtraEditors.ButtonEdit FilePath_Txt;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRTB_SEND_STAT;
    }
 }

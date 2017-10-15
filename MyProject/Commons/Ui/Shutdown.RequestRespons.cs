@@ -88,6 +88,14 @@ namespace MyProject.Commons.Ui
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
+         else if(keyData == (Keys.Control | Keys.Back))
+         {
+            Logout_Butn_Click(null, null);
+         }
+         else if(keyData == (Keys.Alt | Keys.F4))
+         {
+            Shutdown_Butn_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }

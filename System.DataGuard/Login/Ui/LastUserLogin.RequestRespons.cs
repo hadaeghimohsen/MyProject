@@ -78,6 +78,10 @@ namespace System.DataGuard.Login.Ui
             job.Next =
                new Job(SendType.SelfToUserInterface, "Login", 02 /* Execute Set */);
          }
+         else if(keyData == (Keys.Control | Keys.Back))
+         {
+            SwitchUser_RondButn_Click(null, null);
+         }
          //else if (keyData == Keys.Escape)
          //{
          //   job.Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);            

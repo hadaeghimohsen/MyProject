@@ -158,6 +158,7 @@ namespace System.DataGuard.Login.Ui
 
       private void LastUserLogin_RondButn_Click(object sender, EventArgs e)
       {
+         te_username.EditValue = "";
          Job _LastUserLogin = new Job(SendType.External, "Localhost",
              new List<Job>
              {

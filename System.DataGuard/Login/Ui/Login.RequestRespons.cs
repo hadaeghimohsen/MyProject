@@ -92,6 +92,10 @@ namespace System.DataGuard.Login.Ui
             job.Next =
                new Job(SendType.SelfToUserInterface, "Login", 02 /* Execute Set */);
          }
+         else if(keyData == (Keys.Control | Keys.Back))
+         {
+            LastUserLogin_RondButn_Click(null, null);
+         }
          job.Status = StatusType.Successful;
       }
       

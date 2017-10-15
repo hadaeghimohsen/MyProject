@@ -1438,9 +1438,9 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Defines" ThisKey="CODE" OtherKey="REF_CODE" Type="App_Base_Define" />
+      <Association Name="App_Base_Define_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order_State" />
       <Association Name="App_Base_Define_Order" Member="Orders" ThisKey="CODE" OtherKey="SERV_INTR_APBS_CODE" Type="Order" />
       <Association Name="App_Base_Define_Order1" Member="Orders1" ThisKey="CODE" OtherKey="SERV_JOB_APBS_CODE" Type="Order" />
-      <Association Name="App_Base_Define_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order_State" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId73">
@@ -1466,6 +1466,36 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Order_State" Member="Order_States">
+    <Type Name="Order_State">
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="App_Base_Define_Order_State" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="Order_Order_State" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId76">
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="apbs_Code" Member="APBS_CODE" />
+      <Argument Parameter="stat_Date" Member="STAT_DATE" />
+      <Argument Parameter="stat_Desc" Member="STAT_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId77">
+      <Argument Parameter="apbs_Code" Member="APBS_CODE" />
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="stat_Date" Member="STAT_DATE" />
+      <Argument Parameter="stat_Desc" Member="STAT_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId78">
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+    </DeleteFunction>
+  </Table>
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
       <Column Name="SRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -1490,6 +1520,7 @@
       <Column Name="ARCH_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="SERV_JOB_APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="SERV_INTR_APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRTB_SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
@@ -1497,8 +1528,8 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Order_Personal_Robot_Job_Order" Member="Personal_Robot_Job_Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Personal_Robot_Job_Order" />
       <Association Name="Order_Order_Detail" Member="Order_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Detail" />
-      <Association Name="Order_Order" Member="Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order" />
       <Association Name="Order_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_State" />
+      <Association Name="Order_Order" Member="Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order" />
       <Association Name="App_Base_Define_Order" Member="App_Base_Define" ThisKey="SERV_INTR_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="App_Base_Define_Order1" Member="App_Base_Define1" ThisKey="SERV_JOB_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Order_Order" Member="Order1" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
@@ -1506,87 +1537,59 @@
       <Association Name="Robot_Order" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
       <Association Name="Service_Robot_Order" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId76">
-      <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
-      <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
-      <Argument Parameter="srbt_Srpb_Rwno" Member="SRBT_SRPB_RWNO" />
-      <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
-      <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
-      <Argument Parameter="chat_Id" Member="CHAT_ID" />
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="ordr_Numb" Member="ORDR_NUMB" />
-      <Argument Parameter="serv_Ordr_Rwno" Member="SERV_ORDR_RWNO" />
-      <Argument Parameter="ownr_Name" Member="OWNR_NAME" />
-      <Argument Parameter="ordr_Type" Member="ORDR_TYPE" />
-      <Argument Parameter="strt_Date" Member="STRT_DATE" />
-      <Argument Parameter="end_Date" Member="END_DATE" />
-      <Argument Parameter="ordr_Stat" Member="ORDR_STAT" />
-      <Argument Parameter="cord_X" Member="CORD_X" />
-      <Argument Parameter="cord_Y" Member="CORD_Y" />
-      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
-      <Argument Parameter="serv_Adrs" Member="SERV_ADRS" />
-      <Argument Parameter="arch_Stat" Member="ARCH_STAT" />
-      <Argument Parameter="serv_Job_Apbs_Code" Member="SERV_JOB_APBS_CODE" />
-      <Argument Parameter="serv_Intr_Apbs_Code" Member="SERV_INTR_APBS_CODE" />
-      <Argument Parameter="mdfr_Stat" Member="MDFR_STAT" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId77">
-      <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
-      <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
-      <Argument Parameter="srbt_Srpb_Rwno" Member="SRBT_SRPB_RWNO" />
-      <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
-      <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
-      <Argument Parameter="chat_Id" Member="CHAT_ID" />
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="ordr_Numb" Member="ORDR_NUMB" />
-      <Argument Parameter="serv_Ordr_Rwno" Member="SERV_ORDR_RWNO" />
-      <Argument Parameter="ownr_Name" Member="OWNR_NAME" />
-      <Argument Parameter="ordr_Type" Member="ORDR_TYPE" />
-      <Argument Parameter="strt_Date" Member="STRT_DATE" />
-      <Argument Parameter="end_Date" Member="END_DATE" />
-      <Argument Parameter="ordr_Stat" Member="ORDR_STAT" />
-      <Argument Parameter="cord_X" Member="CORD_X" />
-      <Argument Parameter="cord_Y" Member="CORD_Y" />
-      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
-      <Argument Parameter="serv_Adrs" Member="SERV_ADRS" />
-      <Argument Parameter="arch_Stat" Member="ARCH_STAT" />
-      <Argument Parameter="serv_Job_Apbs_Code" Member="SERV_JOB_APBS_CODE" />
-      <Argument Parameter="serv_Intr_Apbs_Code" Member="SERV_INTR_APBS_CODE" />
-      <Argument Parameter="mdfr_Stat" Member="MDFR_STAT" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId78">
-      <Argument Parameter="code" Member="CODE" />
-    </DeleteFunction>
-  </Table>
-  <Table Name="dbo.Order_State" Member="Order_States">
-    <Type Name="Order_State">
-      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="STAT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="App_Base_Define_Order_State" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
-      <Association Name="Order_Order_State" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
-    </Type>
     <InsertFunction FunctionId="FunctionId79">
+      <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
+      <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
+      <Argument Parameter="srbt_Srpb_Rwno" Member="SRBT_SRPB_RWNO" />
+      <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
+      <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
+      <Argument Parameter="chat_Id" Member="CHAT_ID" />
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="apbs_Code" Member="APBS_CODE" />
-      <Argument Parameter="stat_Date" Member="STAT_DATE" />
-      <Argument Parameter="stat_Desc" Member="STAT_DESC" />
+      <Argument Parameter="ordr_Numb" Member="ORDR_NUMB" />
+      <Argument Parameter="serv_Ordr_Rwno" Member="SERV_ORDR_RWNO" />
+      <Argument Parameter="ownr_Name" Member="OWNR_NAME" />
+      <Argument Parameter="ordr_Type" Member="ORDR_TYPE" />
+      <Argument Parameter="strt_Date" Member="STRT_DATE" />
+      <Argument Parameter="end_Date" Member="END_DATE" />
+      <Argument Parameter="ordr_Stat" Member="ORDR_STAT" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="serv_Adrs" Member="SERV_ADRS" />
+      <Argument Parameter="arch_Stat" Member="ARCH_STAT" />
+      <Argument Parameter="serv_Job_Apbs_Code" Member="SERV_JOB_APBS_CODE" />
+      <Argument Parameter="serv_Intr_Apbs_Code" Member="SERV_INTR_APBS_CODE" />
+      <Argument Parameter="mdfr_Stat" Member="MDFR_STAT" />
+      <Argument Parameter="crtb_Send_Stat" Member="CRTB_SEND_STAT" />
     </InsertFunction>
     <UpdateFunction FunctionId="FunctionId80">
-      <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="stat_Date" Member="STAT_DATE" />
-      <Argument Parameter="stat_Desc" Member="STAT_DESC" />
+      <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
+      <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
+      <Argument Parameter="srbt_Srpb_Rwno" Member="SRBT_SRPB_RWNO" />
+      <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
+      <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
+      <Argument Parameter="chat_Id" Member="CHAT_ID" />
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="ordr_Numb" Member="ORDR_NUMB" />
+      <Argument Parameter="serv_Ordr_Rwno" Member="SERV_ORDR_RWNO" />
+      <Argument Parameter="ownr_Name" Member="OWNR_NAME" />
+      <Argument Parameter="ordr_Type" Member="ORDR_TYPE" />
+      <Argument Parameter="strt_Date" Member="STRT_DATE" />
+      <Argument Parameter="end_Date" Member="END_DATE" />
+      <Argument Parameter="ordr_Stat" Member="ORDR_STAT" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="serv_Adrs" Member="SERV_ADRS" />
+      <Argument Parameter="arch_Stat" Member="ARCH_STAT" />
+      <Argument Parameter="serv_Job_Apbs_Code" Member="SERV_JOB_APBS_CODE" />
+      <Argument Parameter="serv_Intr_Apbs_Code" Member="SERV_INTR_APBS_CODE" />
+      <Argument Parameter="mdfr_Stat" Member="MDFR_STAT" />
+      <Argument Parameter="crtb_Send_Stat" Member="CRTB_SEND_STAT" />
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId81">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
@@ -2212,59 +2215,8 @@
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId78" Name="dbo.DEL_ORDR_P" Method="DEL_ORDR_P">
+  <Function Id="FunctionId81" Name="dbo.DEL_ORDR_P" Method="DEL_ORDR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId76" Name="dbo.INS_ORDR_P" Method="INS_ORDR_P">
-    <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Srbt_Srpb_Rwno" Parameter="srbt_Srpb_Rwno" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Chat_Id" Parameter="chat_Id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ordr_Numb" Parameter="ordr_Numb" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Serv_Ordr_Rwno" Parameter="serv_Ordr_Rwno" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ownr_Name" Parameter="ownr_Name" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Ordr_Type" Parameter="ordr_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Strt_Date" Parameter="strt_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="End_Date" Parameter="end_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Ordr_Stat" Parameter="ordr_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(13)" />
-    <Parameter Name="Serv_Adrs" Parameter="serv_Adrs" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Arch_Stat" Parameter="arch_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Serv_Job_Apbs_Code" Parameter="serv_Job_Apbs_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Serv_Intr_Apbs_Code" Parameter="serv_Intr_Apbs_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mdfr_Stat" Parameter="mdfr_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId77" Name="dbo.UPD_ORDR_P" Method="UPD_ORDR_P">
-    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Srbt_Srpb_Rwno" Parameter="srbt_Srpb_Rwno" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Chat_Id" Parameter="chat_Id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ordr_Numb" Parameter="ordr_Numb" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Serv_Ordr_Rwno" Parameter="serv_Ordr_Rwno" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ownr_Name" Parameter="ownr_Name" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Ordr_Type" Parameter="ordr_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Strt_Date" Parameter="strt_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="End_Date" Parameter="end_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Ordr_Stat" Parameter="ordr_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(13)" />
-    <Parameter Name="Serv_Adrs" Parameter="serv_Adrs" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Arch_Stat" Parameter="arch_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Serv_Job_Apbs_Code" Parameter="serv_Job_Apbs_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Serv_Intr_Apbs_Code" Parameter="serv_Intr_Apbs_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mdfr_Stat" Parameter="mdfr_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId69" Name="dbo.DEL_GHIT_P" Method="DEL_GHIT_P">
@@ -2338,22 +2290,75 @@
     <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId81" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
+  <Function Id="FunctionId78" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId79" Name="dbo.INS_ODST_P" Method="INS_ODST_P">
+  <Function Id="FunctionId76" Name="dbo.INS_ODST_P" Method="INS_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat_Date" Parameter="stat_Date" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Stat_Desc" Parameter="stat_Desc" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId80" Name="dbo.UPD_ODST_P" Method="UPD_ODST_P">
+  <Function Id="FunctionId77" Name="dbo.UPD_ODST_P" Method="UPD_ODST_P">
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat_Date" Parameter="stat_Date" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Stat_Desc" Parameter="stat_Desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId79" Name="dbo.INS_ORDR_P" Method="INS_ORDR_P">
+    <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Srbt_Srpb_Rwno" Parameter="srbt_Srpb_Rwno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Chat_Id" Parameter="chat_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ordr_Numb" Parameter="ordr_Numb" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Serv_Ordr_Rwno" Parameter="serv_Ordr_Rwno" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ownr_Name" Parameter="ownr_Name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Ordr_Type" Parameter="ordr_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Strt_Date" Parameter="strt_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End_Date" Parameter="end_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ordr_Stat" Parameter="ordr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="Serv_Adrs" Parameter="serv_Adrs" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Arch_Stat" Parameter="arch_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Serv_Job_Apbs_Code" Parameter="serv_Job_Apbs_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Serv_Intr_Apbs_Code" Parameter="serv_Intr_Apbs_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Mdfr_Stat" Parameter="mdfr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crtb_Send_Stat" Parameter="crtb_Send_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId80" Name="dbo.UPD_ORDR_P" Method="UPD_ORDR_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Srbt_Srpb_Rwno" Parameter="srbt_Srpb_Rwno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Chat_Id" Parameter="chat_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ordr_Numb" Parameter="ordr_Numb" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Serv_Ordr_Rwno" Parameter="serv_Ordr_Rwno" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ownr_Name" Parameter="ownr_Name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Ordr_Type" Parameter="ordr_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Strt_Date" Parameter="strt_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End_Date" Parameter="end_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ordr_Stat" Parameter="ordr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="Serv_Adrs" Parameter="serv_Adrs" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Arch_Stat" Parameter="arch_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Serv_Job_Apbs_Code" Parameter="serv_Job_Apbs_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Serv_Intr_Apbs_Code" Parameter="serv_Intr_Apbs_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Mdfr_Stat" Parameter="mdfr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crtb_Send_Stat" Parameter="crtb_Send_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

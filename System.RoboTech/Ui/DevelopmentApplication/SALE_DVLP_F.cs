@@ -55,6 +55,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          IntrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "INTRODUCTION_INFO");
          JobApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "JOBS_INFO");
          OrdrStatApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDERSTATS_INFO");
+         OrdrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDER_INFO");
          GhitBs.DataSource = iRoboTech.Group_Header_Items;
 
          requery = false;
@@ -429,6 +430,103 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             {
                Execute_Query();
             }
+         }
+      }
+
+      private void AddOrac_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (PersOrac_Lov.EditValue == null || PersOrac_Lov.EditValue.ToString() == "") return;
+
+            if (OrdrBs.Current == null) return;
+
+            if (OracBs.List.OfType<Data.Order_Access>().Any(oa => oa.CODE == 0)) return;
+            if (OracBs.List.OfType<Data.Order_Access>().Any(oa => oa.PROB_SERV_FILE_NO == (long)PersOrac_Lov.EditValue)) return;
+
+            OracBs.AddNew();
+
+            var orac = OracBs.Current as Data.Order_Access;
+
+            orac.PROB_SERV_FILE_NO = (long)PersOrac_Lov.EditValue;
+            orac.PROB_ROBO_RBID = (OrdrBs.Current as Data.Order).PROB_ROBO_RBID;
+            orac.ORDR_CODE = (OrdrBs.Current as Data.Order).CODE;
+
+            orac.RECD_STAT = "002";
+
+            OracBs.EndEdit();
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void OracActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  var orac = OracBs.Current as Data.Order_Access;
+                  if (orac == null) return;
+                  if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+                  iRoboTech.DEL_ORAC_P(orac.CODE);
+
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void OrdrApbs_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 04 /* Execute Isig_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "ISIC_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("App_Base",
+                                 new XAttribute("tablename", "ORDER_INFO"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     }
+                  )
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }      
    }  

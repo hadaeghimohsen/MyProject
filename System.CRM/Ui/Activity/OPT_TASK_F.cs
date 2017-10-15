@@ -96,7 +96,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", task.RQRO_RWNO ?? 0),
                   new XAttribute("tkid", task.TKID),
-                  new XAttribute("colr", task.COLR),
+                  new XAttribute("colr", task.COLR ?? "001"),
                   new XAttribute("taskstat", task.TASK_STAT ?? "001"),
                   new XAttribute("deadlinestat", task.DEAD_LINE_STAT ?? "001"),
                   new XAttribute("deadline", GetDateTimeString(task.DEAD_LINE ?? DateTime.Now)),

@@ -397,6 +397,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Menu_Ussd.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Modual_Report.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Access.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_State.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ.datasource" />

@@ -144,7 +144,7 @@ namespace System.CRM.Ui.Admission
                      new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
                      new XAttribute("rqtpcode", "001"),
                      new XAttribute("rqstrqid", rqstrqid),
-                     new XAttribute("rqttcode", rqst == null ? "004" : rqst.RQTT_CODE),
+                     new XAttribute("rqttcode", rqst == null ? "004" : rqst.RQTT_CODE ?? "004"),
                      new XAttribute("cntycode", rqst == null || rqst.RQID == 0 ? CntyCode_Lov.SelectedValue : rqst.REGN_PRVN_CNTY_CODE),
                      new XAttribute("prvncode", rqst == null || rqst.RQID == 0 ? PrvnCode_Lov.SelectedValue : rqst.REGN_PRVN_CODE),
                      new XAttribute("regncode", rqst == null || rqst.RQID == 0 ? RegnCode_Lov.SelectedValue : rqst.REGN_CODE),
@@ -503,6 +503,18 @@ namespace System.CRM.Ui.Admission
 
       private void RqstBs1_AddingNew(object sender, AddingNewEventArgs e)
       {
+         if(cntycode == null || prvncode == null || regncode == null)
+         {
+            var prsn = iCRM.Job_Personnels.FirstOrDefault(p => p.USER_NAME == CurrentUser).Service;
+            cntycode = prsn.REGN_PRVN_CNTY_CODE;
+            prvncode = prsn.REGN_PRVN_CODE;
+            regncode = prsn.REGN_CODE;
+         }
+         if(compcode == 0)
+         {
+            compcode = iCRM.Companies.FirstOrDefault(c => c.REGN_PRVN_CNTY_CODE == cntycode && c.REGN_PRVN_CODE == prvncode && c.REGN_CODE == regncode && c.RECD_STAT == "002" && c.DFLT_STAT == "002").CODE;
+         }
+
          if (cntycode != null && cntycode.Length != 1)
             CntyCode_Lov.SelectedValue = cntycode;
 

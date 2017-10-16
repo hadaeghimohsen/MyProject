@@ -42,7 +42,7 @@ namespace System.CRM.Ui.PublicInformation
                .Where(rqst =>
                      rqst.RQTP_CODE == "002" &&
                      rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "001" &&
+                     rqst.RQTT_CODE == "004" &&
                      rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
             RqstBs1.DataSource =
@@ -148,7 +148,7 @@ namespace System.CRM.Ui.PublicInformation
                      new XElement("Request",
                         new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
                         new XAttribute("rqtpcode", "002"),
-                        new XAttribute("rqttcode", "001"),                        
+                        new XAttribute("rqttcode", "004"),                        
                         new XElement("Service",
                            new XAttribute("fileno", srpb == null ? fileno : srpb.SERV_FILE_NO)
                         )
@@ -163,7 +163,7 @@ namespace System.CRM.Ui.PublicInformation
                      new XElement("Request",
                         new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
                         new XAttribute("rqtpcode", "002"),
-                        new XAttribute("rqttcode", rqst == null ? "001" : rqst.RQTT_CODE),
+                        new XAttribute("rqttcode", rqst == null ? "004" : rqst.RQTT_CODE ?? "004"),
                         new XAttribute("cntycode", rqst == null || rqst.RQID == 0 ? CntyCode_Lov.SelectedValue : srpb.REGN_PRVN_CNTY_CODE),
                         new XAttribute("prvncode", rqst == null || rqst.RQID == 0 ? PrvnCode_Lov.SelectedValue : srpb.REGN_PRVN_CODE),
                         new XAttribute("regncode", rqst == null || rqst.RQID == 0 ? RegnCode_Lov.SelectedValue : srpb.REGN_CODE),

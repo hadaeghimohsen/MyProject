@@ -92,7 +92,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorqstrqid", logc.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", logc.RQRO_RWNO ?? 0),
                   new XAttribute("lcid", logc.LCID),
-                  new XAttribute("rsltstat", logc.RSLT_STAT ?? "001"),
+                  new XAttribute("rsltstat", logc.RSLT_STAT ?? "002"),
                   new XAttribute("rqstrqid", rqstrqid),
                   new XElement("Comment",
                      new XAttribute("subject", logc.SUBJ_DESC),
@@ -207,9 +207,9 @@ namespace System.CRM.Ui.Activity
          {
             var rqst = LogcBs.Current as Data.Log_Call;           
 
-            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+            if (rqst == null ) { RqstFolw_Butn.Visible = false; return; }
 
-            if (rqst.Request_Row.Request.RQST_RQID != null)
+            if (rqst.Request_Row != null && rqst.Request_Row.Request.RQST_RQID != null)
             {
                RqstFolw_Butn.Visible = true;
                RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);

@@ -702,6 +702,63 @@ namespace System.CRM.Ui.MasterPage
          _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
+      private void SendMessage_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Serv_Lov.EditValue == null && Serv_Lov.EditValue.ToString() == "") return;
+            var serv = ServBs.List.OfType<Data.Service>().FirstOrDefault(s => s.FILE_NO == Convert.ToInt64(Serv_Lov.EditValue));
+            if (serv == null) return;
+
+            Job _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+               {                  
+                  new Job(SendType.Self, 53 /* Execute Opt_Mesg_F */),
+                  new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 10 /* Execute ACTN_CALF_P */)
+                  {
+                     Input = 
+                     new XElement("Service", 
+                        new XAttribute("fileno", serv.FILE_NO), 
+                        new XAttribute("msid", 0), 
+                        new XAttribute("cellphon", serv.CELL_PHON_DNRM ?? ""),
+                        new XAttribute("formcaller", GetType().Name)
+                     )
+                  },
+               });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch { }
+      }
+
+      private void LogCall_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Serv_Lov.EditValue == null && Serv_Lov.EditValue.ToString() == "") return;
+            var serv = ServBs.List.OfType<Data.Service>().FirstOrDefault(s => s.FILE_NO == Convert.ToInt64(Serv_Lov.EditValue));
+            if (serv == null) return;
+
+            Job _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                   new Job(SendType.Self, 25 /* Execute Opt_Logc_F */),
+                   new Job(SendType.SelfToUserInterface, "OPT_LOGC_F", 10 /* Execute ACTN_CALF_P */)
+                   {
+                      Input = 
+                        new XElement("Service", 
+                           new XAttribute("fileno", serv.FILE_NO), 
+                           new XAttribute("lcid", 0),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                   },
+                 });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch { }
+      }
+
       
    }
 }

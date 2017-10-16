@@ -457,9 +457,9 @@ namespace System.CRM.Ui.Activity
          try
          {
             var rqst = MesgBs.Current as Data.Message;
-            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+            if (rqst == null ) { RqstFolw_Butn.Visible = false; return; }
 
-            if (rqst.Request_Row.Request.RQST_RQID != null)
+            if (rqst.Request_Row != null && rqst.Request_Row.Request.RQST_RQID != null)
             {
                RqstFolw_Butn.Visible = true;
                RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);

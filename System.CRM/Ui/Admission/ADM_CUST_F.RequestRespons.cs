@@ -17,6 +17,7 @@ namespace System.CRM.Ui.Admission
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uagc_U;
+      private string CurrentUser = "";
 
       private bool isFirstLoaded = false;
 
@@ -155,6 +156,7 @@ namespace System.CRM.Ui.Admission
          Fga_Uprv_U = iCRM.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iCRM.FGA_URGN_U() ?? "";
          Fga_Uagc_U = (iCRM.FGA_UAGC_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          //_DefaultGateway.Gateway(GetHostInfo);
@@ -326,6 +328,30 @@ namespace System.CRM.Ui.Admission
                CompCode_Lov.SelectedValue = compcode;
             }
 
+            // 1396/07/24 * اگر فرم جدید باز شود اطلاعات اولیه به صورت اتوماتیک لود شود
+            if (cntycode == null || prvncode == null || regncode == null)
+            {
+               var prsn = iCRM.Job_Personnels.FirstOrDefault(p => p.USER_NAME == CurrentUser).Service;
+               cntycode = prsn.REGN_PRVN_CNTY_CODE;
+               prvncode = prsn.REGN_PRVN_CODE;
+               regncode = prsn.REGN_CODE;
+            }
+            if (compcode == 0)
+            {
+               compcode = iCRM.Companies.FirstOrDefault(c => c.REGN_PRVN_CNTY_CODE == cntycode && c.REGN_PRVN_CODE == prvncode && c.REGN_CODE == regncode && c.RECD_STAT == "002" && c.DFLT_STAT == "002").CODE;
+            }
+
+            if (cntycode != null && cntycode.Length != 1)
+               CntyCode_Lov.SelectedValue = cntycode;
+
+            if (prvncode != null && prvncode.Length != 1)
+               PrvnCode_Lov.SelectedValue = prvncode;
+
+            if (regncode != null && regncode.Length != 1)
+               RegnCode_Lov.SelectedValue = regncode;
+
+            if (compcode != 0)
+               CompCode_Lov.SelectedValue = compcode;
          }
          job.Status = StatusType.Successful;
       }

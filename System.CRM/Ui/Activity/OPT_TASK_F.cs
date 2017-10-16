@@ -96,7 +96,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", task.RQRO_RWNO ?? 0),
                   new XAttribute("tkid", task.TKID),
-                  new XAttribute("colr", task.COLR ?? "001"),
+                  new XAttribute("colr", task.COLR ?? "#ADFF2F"),
                   new XAttribute("taskstat", task.TASK_STAT ?? "001"),
                   new XAttribute("deadlinestat", task.DEAD_LINE_STAT ?? "001"),
                   new XAttribute("deadline", GetDateTimeString(task.DEAD_LINE ?? DateTime.Now)),
@@ -243,9 +243,9 @@ namespace System.CRM.Ui.Activity
          {
             var rqst = TaskBs.Current as Data.Task;            
 
-            if (rqst == null || rqst.Request_Row == null) { RqstFolw_Butn.Visible = false; return; }
+            if (rqst == null) { RqstFolw_Butn.Visible = false; return; }
 
-            if (rqst.Request_Row.Request.RQST_RQID != null)
+            if (rqst.Request_Row != null && rqst.Request_Row.Request.RQST_RQID != null)
             {
                RqstFolw_Butn.Visible = true;
                RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);

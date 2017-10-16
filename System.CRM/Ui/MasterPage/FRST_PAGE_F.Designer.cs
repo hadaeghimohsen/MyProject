@@ -30,9 +30,9 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          this.colSRPB_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
@@ -61,6 +61,11 @@
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_crgldfin = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonButton7 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonTab5 = new C1.Win.C1Ribbon.RibbonTab();
+         this.ribbonGroup8 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.rb_AddAccountButn = new C1.Win.C1Ribbon.RibbonButton();
+         this.rb_listcomp = new C1.Win.C1Ribbon.RibbonButton();
+         this.rb_deltlistcomp = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_adslat = new C1.Win.C1Ribbon.RibbonButton();
@@ -77,11 +82,6 @@
          this.rb_lstc = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_admc = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_showdeletecontact = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonTab5 = new C1.Win.C1Ribbon.RibbonTab();
-         this.ribbonGroup8 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.rb_AddAccountButn = new C1.Win.C1Ribbon.RibbonButton();
-         this.rb_listcomp = new C1.Win.C1Ribbon.RibbonButton();
-         this.rb_deltlistcomp = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab3 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup4 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_taskflow = new C1.Win.C1Ribbon.RibbonButton();
@@ -195,6 +195,8 @@
          this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+         this.SendMessage_Butn = new System.MaxUi.RoundedButton();
+         this.LogCall_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Lov.Properties)).BeginInit();
@@ -426,6 +428,47 @@
          this.ribbonButton7.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.ribbonButton7.ToolTip = "افزایش / کاهش نرخ درآمد";
          // 
+         // ribbonTab5
+         // 
+         this.ribbonTab5.Groups.Add(this.ribbonGroup8);
+         this.ribbonTab5.Name = "ribbonTab5";
+         this.ribbonTab5.Text = "شرکتها";
+         // 
+         // ribbonGroup8
+         // 
+         this.ribbonGroup8.Items.Add(this.rb_AddAccountButn);
+         this.ribbonGroup8.Items.Add(this.rb_listcomp);
+         this.ribbonGroup8.Items.Add(this.rb_deltlistcomp);
+         this.ribbonGroup8.Name = "ribbonGroup8";
+         this.ribbonGroup8.Text = "شرکت ها";
+         // 
+         // rb_AddAccountButn
+         // 
+         this.rb_AddAccountButn.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1522;
+         this.rb_AddAccountButn.Name = "rb_AddAccountButn";
+         this.rb_AddAccountButn.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_AddAccountButn.SmallImage")));
+         this.rb_AddAccountButn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
+         this.rb_AddAccountButn.ToolTip = "اضافه کردن";
+         this.rb_AddAccountButn.Click += new System.EventHandler(this.rb_AddAccountButn_Click);
+         // 
+         // rb_listcomp
+         // 
+         this.rb_listcomp.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_listcomp.LargeImage")));
+         this.rb_listcomp.Name = "rb_listcomp";
+         this.rb_listcomp.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_listcomp.SmallImage")));
+         this.rb_listcomp.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
+         this.rb_listcomp.ToolTip = "شرکت های فعال";
+         this.rb_listcomp.Click += new System.EventHandler(this.rb_listcomp_Click);
+         // 
+         // rb_deltlistcomp
+         // 
+         this.rb_deltlistcomp.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_deltlistcomp.LargeImage")));
+         this.rb_deltlistcomp.Name = "rb_deltlistcomp";
+         this.rb_deltlistcomp.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_deltlistcomp.SmallImage")));
+         this.rb_deltlistcomp.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
+         this.rb_deltlistcomp.ToolTip = "شرکت های غیرفعال";
+         this.rb_deltlistcomp.Click += new System.EventHandler(this.rb_deltlistcomp_Click);
+         // 
          // ribbonTab2
          // 
          this.ribbonTab2.Groups.Add(this.ribbonGroup3);
@@ -555,47 +598,6 @@
          this.rb_showdeletecontact.ToolTip = "خریداران غیرفعال";
          this.rb_showdeletecontact.Click += new System.EventHandler(this.rb_showdeletecontact_Click);
          // 
-         // ribbonTab5
-         // 
-         this.ribbonTab5.Groups.Add(this.ribbonGroup8);
-         this.ribbonTab5.Name = "ribbonTab5";
-         this.ribbonTab5.Text = "شرکتها";
-         // 
-         // ribbonGroup8
-         // 
-         this.ribbonGroup8.Items.Add(this.rb_AddAccountButn);
-         this.ribbonGroup8.Items.Add(this.rb_listcomp);
-         this.ribbonGroup8.Items.Add(this.rb_deltlistcomp);
-         this.ribbonGroup8.Name = "ribbonGroup8";
-         this.ribbonGroup8.Text = "شرکت ها";
-         // 
-         // rb_AddAccountButn
-         // 
-         this.rb_AddAccountButn.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1522;
-         this.rb_AddAccountButn.Name = "rb_AddAccountButn";
-         this.rb_AddAccountButn.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_AddAccountButn.SmallImage")));
-         this.rb_AddAccountButn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
-         this.rb_AddAccountButn.ToolTip = "اضافه کردن";
-         this.rb_AddAccountButn.Click += new System.EventHandler(this.rb_AddAccountButn_Click);
-         // 
-         // rb_listcomp
-         // 
-         this.rb_listcomp.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_listcomp.LargeImage")));
-         this.rb_listcomp.Name = "rb_listcomp";
-         this.rb_listcomp.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_listcomp.SmallImage")));
-         this.rb_listcomp.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
-         this.rb_listcomp.ToolTip = "شرکت های فعال";
-         this.rb_listcomp.Click += new System.EventHandler(this.rb_listcomp_Click);
-         // 
-         // rb_deltlistcomp
-         // 
-         this.rb_deltlistcomp.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_deltlistcomp.LargeImage")));
-         this.rb_deltlistcomp.Name = "rb_deltlistcomp";
-         this.rb_deltlistcomp.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_deltlistcomp.SmallImage")));
-         this.rb_deltlistcomp.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
-         this.rb_deltlistcomp.ToolTip = "شرکت های غیرفعال";
-         this.rb_deltlistcomp.Click += new System.EventHandler(this.rb_deltlistcomp_Click);
-         // 
          // ribbonTab3
          // 
          this.ribbonTab3.Groups.Add(this.ribbonGroup4);
@@ -702,6 +704,8 @@
          this.panel1.Controls.Add(this.Serv_Lov);
          this.panel1.Controls.Add(this.FeedBack_Butn);
          this.panel1.Controls.Add(this.Mention_Butn);
+         this.panel1.Controls.Add(this.LogCall_Butn);
+         this.panel1.Controls.Add(this.SendMessage_Butn);
          this.panel1.Controls.Add(this.SendMail_Butn);
          this.panel1.Controls.Add(this.User_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -715,7 +719,7 @@
          this.Lb_Mention.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.Lb_Mention.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Lb_Mention.ForeColor = System.Drawing.Color.Black;
-         this.Lb_Mention.Location = new System.Drawing.Point(189, 2);
+         this.Lb_Mention.Location = new System.Drawing.Point(141, 4);
          this.Lb_Mention.Name = "Lb_Mention";
          this.Lb_Mention.Size = new System.Drawing.Size(24, 24);
          this.Lb_Mention.TabIndex = 7;
@@ -728,7 +732,7 @@
          this.Lb_Notification.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(30)))));
          this.Lb_Notification.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Lb_Notification.ForeColor = System.Drawing.Color.White;
-         this.Lb_Notification.Location = new System.Drawing.Point(86, 2);
+         this.Lb_Notification.Location = new System.Drawing.Point(86, 4);
          this.Lb_Notification.Name = "Lb_Notification";
          this.Lb_Notification.Size = new System.Drawing.Size(24, 24);
          this.Lb_Notification.TabIndex = 7;
@@ -751,7 +755,7 @@
          this.Notification_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1508;
          this.Notification_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Notification_Butn.ImageVisiable = true;
-         this.Notification_Butn.Location = new System.Drawing.Point(61, 7);
+         this.Notification_Butn.Location = new System.Drawing.Point(61, 9);
          this.Notification_Butn.Name = "Notification_Butn";
          this.Notification_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Notification_Butn.NormalColorA = System.Drawing.Color.White;
@@ -759,16 +763,15 @@
          this.Notification_Butn.Size = new System.Drawing.Size(35, 35);
          this.Notification_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.Notification_Butn.TabIndex = 0;
-         this.Notification_Butn.Tooltip = null;
+         this.Notification_Butn.Tooltip = "یادآوری";
          this.ToolTipInfo.SetToolTip(this.Notification_Butn, "پیغام ها");
          this.Notification_Butn.Click += new System.EventHandler(this.Notification_Butn_Click);
          // 
          // Serv_Lov
          // 
-         this.Serv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+         this.Serv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Serv_Lov.Location = new System.Drawing.Point(518, 11);
+         this.Serv_Lov.Location = new System.Drawing.Point(731, 11);
          this.Serv_Lov.Name = "Serv_Lov";
          this.Serv_Lov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Serv_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -783,7 +786,7 @@
          this.Serv_Lov.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
          this.Serv_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Serv_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Serv_Lov.Properties.DataSource = this.ServBs;
          this.Serv_Lov.Properties.DisplayMember = "NAME_DNRM";
          this.Serv_Lov.Properties.NullText = "جستجو بر اساس مشتریان احتمالی، خریدارانو شرکت ها";
@@ -794,7 +797,7 @@
          this.Serv_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Serv_Lov.Properties.ValueMember = "FILE_NO";
          this.Serv_Lov.Properties.View = this.gridLookUpEdit1View;
-         this.Serv_Lov.Size = new System.Drawing.Size(715, 32);
+         this.Serv_Lov.Size = new System.Drawing.Size(502, 32);
          this.Serv_Lov.TabIndex = 1;
          // 
          // ServBs
@@ -879,21 +882,21 @@
             this.colBase_Tariff_Detail,
             this.colCompany});
          this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         styleFormatCondition3.Appearance.Options.UseBackColor = true;
-         styleFormatCondition3.ApplyToRow = true;
-         styleFormatCondition3.Column = this.colSRPB_TYPE_DNRM;
-         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition3.Value1 = "001";
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colSRPB_TYPE_DNRM;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition4.Value1 = "002";
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colSRPB_TYPE_DNRM;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "001";
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colSRPB_TYPE_DNRM;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition2.Value1 = "002";
          this.gridLookUpEdit1View.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition1,
+            styleFormatCondition2});
          this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
          this.gridLookUpEdit1View.OptionsFind.AlwaysVisible = true;
          this.gridLookUpEdit1View.OptionsFind.FindDelay = 100;
@@ -1264,7 +1267,7 @@
          this.FeedBack_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1493;
          this.FeedBack_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.FeedBack_Butn.ImageVisiable = true;
-         this.FeedBack_Butn.Location = new System.Drawing.Point(217, 7);
+         this.FeedBack_Butn.Location = new System.Drawing.Point(169, 9);
          this.FeedBack_Butn.Name = "FeedBack_Butn";
          this.FeedBack_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.FeedBack_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1272,7 +1275,7 @@
          this.FeedBack_Butn.Size = new System.Drawing.Size(35, 35);
          this.FeedBack_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.FeedBack_Butn.TabIndex = 0;
-         this.FeedBack_Butn.Tooltip = null;
+         this.FeedBack_Butn.Tooltip = "تماس با پشتیبانی";
          this.FeedBack_Butn.Click += new System.EventHandler(this.FeedBack_Butn_Click);
          // 
          // Mention_Butn
@@ -1289,7 +1292,7 @@
          this.Mention_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1595;
          this.Mention_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Mention_Butn.ImageVisiable = true;
-         this.Mention_Butn.Location = new System.Drawing.Point(164, 7);
+         this.Mention_Butn.Location = new System.Drawing.Point(116, 9);
          this.Mention_Butn.Name = "Mention_Butn";
          this.Mention_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Mention_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1297,13 +1300,13 @@
          this.Mention_Butn.Size = new System.Drawing.Size(35, 35);
          this.Mention_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.Mention_Butn.TabIndex = 0;
-         this.Mention_Butn.Tooltip = null;
+         this.Mention_Butn.Tooltip = "خطاب قرار گرفتن";
          this.Mention_Butn.Click += new System.EventHandler(this.Mention_Butn_Click);
          // 
          // SendMail_Butn
          // 
          this.SendMail_Butn.Active = true;
-         this.SendMail_Butn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+         this.SendMail_Butn.Anchor = System.Windows.Forms.AnchorStyles.Right;
          this.SendMail_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
          this.SendMail_Butn.Caption = "";
          this.SendMail_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
@@ -1314,7 +1317,7 @@
          this.SendMail_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1510;
          this.SendMail_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.SendMail_Butn.ImageVisiable = true;
-         this.SendMail_Butn.Location = new System.Drawing.Point(114, 7);
+         this.SendMail_Butn.Location = new System.Drawing.Point(686, 9);
          this.SendMail_Butn.Name = "SendMail_Butn";
          this.SendMail_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.SendMail_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1322,7 +1325,7 @@
          this.SendMail_Butn.Size = new System.Drawing.Size(35, 35);
          this.SendMail_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.SendMail_Butn.TabIndex = 0;
-         this.SendMail_Butn.Tooltip = null;
+         this.SendMail_Butn.Tooltip = "ارسال ایمیل";
          this.SendMail_Butn.Click += new System.EventHandler(this.SendMail_Butn_Click);
          // 
          // User_Butn
@@ -1548,6 +1551,56 @@
          this.barButtonItem6.Id = 6;
          this.barButtonItem6.Name = "barButtonItem6";
          // 
+         // SendMessage_Butn
+         // 
+         this.SendMessage_Butn.Active = true;
+         this.SendMessage_Butn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.SendMessage_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SendMessage_Butn.Caption = "";
+         this.SendMessage_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SendMessage_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SendMessage_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SendMessage_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.SendMessage_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.SendMessage_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1569;
+         this.SendMessage_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SendMessage_Butn.ImageVisiable = true;
+         this.SendMessage_Butn.Location = new System.Drawing.Point(645, 9);
+         this.SendMessage_Butn.Name = "SendMessage_Butn";
+         this.SendMessage_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SendMessage_Butn.NormalColorA = System.Drawing.Color.White;
+         this.SendMessage_Butn.NormalColorB = System.Drawing.Color.White;
+         this.SendMessage_Butn.Size = new System.Drawing.Size(35, 35);
+         this.SendMessage_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SendMessage_Butn.TabIndex = 0;
+         this.SendMessage_Butn.Tooltip = "ارسال پیام";
+         this.SendMessage_Butn.Click += new System.EventHandler(this.SendMessage_Butn_Click);
+         // 
+         // LogCall_Butn
+         // 
+         this.LogCall_Butn.Active = true;
+         this.LogCall_Butn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.LogCall_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.LogCall_Butn.Caption = "";
+         this.LogCall_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.LogCall_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.LogCall_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.LogCall_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.LogCall_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.LogCall_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1512;
+         this.LogCall_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.LogCall_Butn.ImageVisiable = true;
+         this.LogCall_Butn.Location = new System.Drawing.Point(604, 10);
+         this.LogCall_Butn.Name = "LogCall_Butn";
+         this.LogCall_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.LogCall_Butn.NormalColorA = System.Drawing.Color.White;
+         this.LogCall_Butn.NormalColorB = System.Drawing.Color.White;
+         this.LogCall_Butn.Size = new System.Drawing.Size(35, 35);
+         this.LogCall_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.LogCall_Butn.TabIndex = 0;
+         this.LogCall_Butn.Tooltip = "ثبت تماس تلفنی";
+         this.LogCall_Butn.Click += new System.EventHandler(this.LogCall_Butn_Click);
+         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1738,6 +1791,8 @@
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup10;
       private C1.Win.C1Ribbon.RibbonButton rb_taskappointment;
       private C1.Win.C1Ribbon.RibbonButton rb_cmphdfin;
+      private MaxUi.RoundedButton LogCall_Butn;
+      private MaxUi.RoundedButton SendMessage_Butn;
 
    }
 }

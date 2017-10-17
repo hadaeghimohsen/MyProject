@@ -57,7 +57,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          OrdrStatApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDERSTATS_INFO");
          OrdrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDER_INFO");
          GhitBs.DataSource = iRoboTech.Group_Header_Items;
-
+         DamtpBs.DataSource = iRoboTech.D_AMTPs;
          requery = false;
       }
 
@@ -527,6 +527,22 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CalcExtrPrct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var ordr = OrdrBs.Current as Data.Order;
+            if (ordr == null) return;
+
+            if (ordr.EXPN_AMNT != null)
+               ordr.EXTR_PRCT = (ordr.EXPN_AMNT * Convert.ToInt64(Tax_Txt.Text)) / 100;
+         }
+         catch (Exception exc)
+         {
+
          }
       }      
    }  

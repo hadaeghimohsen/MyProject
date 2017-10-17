@@ -372,6 +372,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTV.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_AMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BULD.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CNTP.datasource" />

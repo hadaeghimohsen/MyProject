@@ -501,10 +501,10 @@ namespace System.RoboTech.Controller
                            }
 
                            await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل عکس شما با موفقیت ذخیره گردید 💾", ParseMode.Markdown, false, false, e.Message.MessageId, null);
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل عکس شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
                         catch(Exception ex) {
-                           Bot.SendTextMessageAsync(e.Message.Chat.Id, ex.Message, ParseMode.Markdown, false, false, e.Message.MessageId, null);
+                           Bot.SendTextMessageAsync(e.Message.Chat.Id, ex.Message, ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
 
                      }
@@ -532,7 +532,7 @@ namespace System.RoboTech.Controller
                            }
                            
                            await Bot.GetFileAsync(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", ParseMode.Markdown, false, false, e.Message.MessageId, null);
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
                         catch { }
                      }
@@ -558,7 +558,7 @@ namespace System.RoboTech.Controller
                               //Bot.GetFile(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
                            }
                            await Bot.GetFileAsync(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", ParseMode.Markdown, false, false, e.Message.MessageId, null);                           
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);                           
                         }
                         catch { }
                      }
@@ -585,7 +585,7 @@ namespace System.RoboTech.Controller
                               //Bot.GetFile(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
                            }                           
                            await Bot.GetFileAsync(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", ParseMode.Markdown, false, false, e.Message.MessageId, null);                                                      
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);                                                      
                         }
                         catch { }
                      }
@@ -612,7 +612,7 @@ namespace System.RoboTech.Controller
                               //Bot.GetFile(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
                            }
                            
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", ParseMode.Markdown, false, false, e.Message.MessageId, null);
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                            await Bot.GetFileAsync(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
                         }
                         catch { }
@@ -2053,7 +2053,7 @@ namespace System.RoboTech.Controller
                   await Bot.SendTextMessageAsync(
                      e.Message.Chat.Id,
                      string.Format("🗂 تعداد فایل های ذخیره شده : {0}", files.Count), 
-                     ParseMode.Markdown,
+                     ParseMode.Default,
                      false, false,
                      e.Message.MessageId, 
                      new ReplyKeyboardMarkup()
@@ -2133,7 +2133,7 @@ namespace System.RoboTech.Controller
                   chat.Runed = false;
                   await Bot.SendTextMessageAsync(e.Message.Chat.Id, 
                            string.Format("{0}\n\rhttps://telegram.me/{1}?start={2}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان", robot.NAME, e.Message.Chat.Id),
-                           ParseMode.Markdown,
+                           ParseMode.Default,
                            replyToMessageId:
                            e.Message.MessageId,
                            replyMarkup:
@@ -2852,7 +2852,7 @@ namespace System.RoboTech.Controller
             await Bot.SendTextMessageAsync(
             chat.Message.Chat.Id,
             m,
-            ParseMode.Markdown,
+            ParseMode.Default,
             false,
             false,
             chat.Message.MessageId,
@@ -2883,7 +2883,7 @@ namespace System.RoboTech.Controller
                      await Bot.SendTextMessageAsync(
                        chat.Message.Chat.Id,
                        xinnerelement.Value ?? "...",
-                       ParseMode.Markdown,
+                       ParseMode.Default,
                        false,
                        false,
                        chat.Message.MessageId,
@@ -2922,7 +2922,7 @@ namespace System.RoboTech.Controller
                      await Bot.SendTextMessageAsync(
                        chat.Message.Chat.Id,
                        xinnerelement.Attribute("cellphon").Value,
-                       ParseMode.Markdown,
+                       ParseMode.Default,
                        false,
                        false,
                        chat.Message.MessageId,
@@ -2953,7 +2953,7 @@ namespace System.RoboTech.Controller
                await Bot.SendTextMessageAsync(
                     chat.Message.Chat.Id,
                     xelement ?? "...",
-                    ParseMode.Markdown,
+                    ParseMode.Default,
                     false,
                     false,
                     chat.Message.MessageId,

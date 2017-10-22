@@ -134,7 +134,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                            new XElement("Service_Robot_Message",
                               new XAttribute("servfileno", mesg.SRBT_SERV_FILE_NO),
                               new XAttribute("roborbid", mesg.SRBT_ROBO_RBID),
-                              new XAttribute("srmgrwno", mesg.SRMG_RWNO),
+                              new XAttribute("srmgrwno", mesg.SRMG_RWNO ?? 0),
                               new XAttribute("srrmrwno", mesg.RWNO),
                               //new XAttribute("ordtordrcode", mesg.ORDT_ORDR_CODE ?? 0),
                               //new XAttribute("ordtrwno", mesg.ORDT_RWNO ?? 0),

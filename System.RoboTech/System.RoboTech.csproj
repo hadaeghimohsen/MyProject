@@ -424,6 +424,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Replay_Message.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Upload.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Visit.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Setting.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Organ_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Region_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Fgac.datasource" />

@@ -62,6 +62,9 @@ namespace System.Scsc.Ui.MasterPage
             case 41:
                SetCardinDevice(job);
                break;
+            case 42:
+               ShowMessageOnLCD(job);
+               break;
             default:
                break;
          }
@@ -389,6 +392,31 @@ namespace System.Scsc.Ui.MasterPage
          axCZKEM1.RefreshData(iMachineNumber);//the data in the device should be refreshed
          axCZKEM1.EnableDevice(iMachineNumber, true);
          Cursor = Cursors.Default;
+      }
+
+      /// <summary>
+      /// Code 42
+      /// </summary>
+      /// <param name="job"></param>
+      private void ShowMessageOnLCD(Job job)
+      {
+         var message = (job.Input as XElement).Value;
+         // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
+         if (bIsConnected)
+         {
+            axCZKEM1.WriteLCD(0, 0, message);
+            goto L_End;
+         }
+
+         // بررسی اینکه آیا دستگاه بارکد خوان متصل می باشد
+         if (Sp_Barcode.IsOpen)
+         {
+            Sp_Barcode.WriteLine(message);
+            goto L_End;
+         }
+
+         L_End:
+         job.Status = StatusType.Successful;
       }
    }
 }

@@ -583,9 +583,19 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception ex)
          {
+            // 1396/08/01 * 16:02
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                  }
+               )
+            );
+
             var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
 
-            //MessageBox.Show(ex.Message);
 
             if(Lov_FileName2.EditValue != null)
             {
@@ -711,8 +721,20 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception ex)
          {
+            // 1396/08/01 * 16:02
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                  }
+               )
+            );
+
             //MessageBox.Show(ex.Message);
             var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
@@ -827,6 +849,17 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception ex)
          {
+            // 1396/08/01 * 16:02
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                  }
+               )
+            );
+
             //MessageBox.Show(ex.Message);
             var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
@@ -942,6 +975,16 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception ex)
          {
+            // 1396/08/01 * 16:02
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                  }
+               )
+            );
             //MessageBox.Show(ex.Message);
             var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)

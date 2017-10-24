@@ -925,5 +925,23 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void Btn_Blok_Click(object sender, EventArgs e)
+      {
+         dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+         if (figh == null)
+            figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 133 /* Execute Adm_Mbfz_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_MBFZ_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "block"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+               })
+         );
+      }
    }
 }

@@ -722,14 +722,17 @@ namespace System.RoboTech.Controller
                         {
                            switch (ordt.Order.ORDR_TYPE)
                            {
-                              case "001": // پیشنهادات
+                              case "001": // پیشنهادات                              
                               case "002": // نظرسنجی
+                              case "003": // شکایات
                               case "004": // سفارشات
                               case "005": // Like
                               case "006": // پرسش
                               case "007": // پاسخ
                               case "008": // تجربیات
-                              case "003": // شکایات
+                              case "009": // Upload
+                              case "010": // معرفی
+                              case "011": // اخطار
                                  #region پیام های ارسالی
                                  switch (ordt.ELMN_TYPE)
                                  {

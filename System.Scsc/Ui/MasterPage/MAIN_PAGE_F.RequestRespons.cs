@@ -65,6 +65,9 @@ namespace System.Scsc.Ui.MasterPage
             case 42:
                ShowMessageOnLCD(job);
                break;
+            case 43:
+               DeviceControlFunction(job);
+               break;
             default:
                break;
          }
@@ -404,16 +407,46 @@ namespace System.Scsc.Ui.MasterPage
          // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
          if (bIsConnected)
          {
+            axCZKEM1.ClearLCD();
             axCZKEM1.WriteLCD(0, 0, message);
             goto L_End;
          }
 
          // بررسی اینکه آیا دستگاه بارکد خوان متصل می باشد
-         if (Sp_Barcode.IsOpen)
+         //if (Sp_Barcode.IsOpen)
+         //{
+         //   Sp_Barcode.WriteLine(message);
+         //   goto L_End;
+         //}
+
+         L_End:
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 43
+      /// </summary>
+      /// <param name="job"></param>
+      private void DeviceControlFunction(Job job)
+      {
+         var xinput = job.Input as XElement;
+         // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
+         if (bIsConnected)
          {
-            Sp_Barcode.WriteLine(message);
+            var result = false;
+            int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+            switch(xinput.Attribute("functype").Value)
+            {
+               case "5.5.1": // ClearAdministrators
+                  result = axCZKEM1.ClearAdministrators(iMachineNumber);
+                  break;
+            }
+
+            if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             goto L_End;
-         }
+         }         
 
          L_End:
          job.Status = StatusType.Successful;

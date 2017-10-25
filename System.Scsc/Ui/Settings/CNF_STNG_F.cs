@@ -78,13 +78,17 @@ namespace System.Scsc.Ui.Settings
                      new XAttribute("commportname", /*AttnComPortName_Lov.Text*/Stng.COMM_PORT_NAME ?? ""),
                      new XAttribute("bandrate", Stng.BAND_RATE ?? 0),
                      new XAttribute("barcodedatatype", Stng.BAR_CODE_DATA_TYPE ?? "000"),
+                     new XAttribute("atn3evntactntype", Stng.ATN3_EVNT_ACTN_TYPE ?? "001"),
+
                      new XAttribute("ipaddr", Stng.IP_ADDR ?? ""),
                      new XAttribute("portnumb", Stng.PORT_NUMB ?? 0),
                      new XAttribute("attncompconct", Stng.ATTN_COMP_CONCT ?? ""),
+                     new XAttribute("atn1evntactntype", Stng.ATN1_EVNT_ACTN_TYPE ?? "001"),
 
                      new XAttribute("ipadr2", Stng.IP_ADR2 ?? ""),
                      new XAttribute("portnum2", Stng.PORT_NUM2 ?? 0),
                      new XAttribute("attncompcnc2", Stng.ATTN_COMP_CNC2 ?? ""),
+                     new XAttribute("atn2evntactntype", Stng.ATN2_EVNT_ACTN_TYPE ?? "001"),
 
                      new XAttribute("attnnotfstat", Stng.ATTN_NOTF_STAT ?? "002"),
                      new XAttribute("attnnotfclostype", Stng.ATTN_NOTF_CLOS_TYPE ?? ""),
@@ -100,7 +104,11 @@ namespace System.Scsc.Ui.Settings
                      new XAttribute("gatebandrate", Stng.GATE_BAND_RATE ?? 9600),
                      new XAttribute("gatetimeclos", Stng.GATE_TIME_CLOS ?? 5),
                      new XAttribute("gateentropen", Stng.GATE_ENTR_OPEN ?? "002"),
-                     new XAttribute("gateexitopen", Stng.GATE_EXIT_OPEN ?? "002")
+                     new XAttribute("gateexitopen", Stng.GATE_EXIT_OPEN ?? "002"),
+
+                     new XAttribute("expnextrstat", Stng.EXPN_EXTR_STAT ?? "001"),
+                     new XAttribute("expncommportname", /*GateComPortName_Lov.Text*/Stng.EXPN_COMM_PORT_NAME ?? ""),
+                     new XAttribute("expnbandrate", Stng.EXPN_BAND_RATE ?? 9600)
                   )
                )
             );
@@ -421,6 +429,43 @@ namespace System.Scsc.Ui.Settings
       private void GateComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
       {
          GateComPortName_Txt.Text = GateComPortName_Lov.Text;
+      }
+
+      private void ExpnComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         ExpnComPortName_Txt.Text = ExpnComPortName_Lov.Text;
+      }
+
+      private void ATIP_REST_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.5.1"), new XAttribute("funcdesc", "ClearAdministrators"))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
    }
 }

@@ -1272,6 +1272,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Dresser_Attendance.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTG.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTV.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_AEAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_AMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ANTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_APST.datasource" />
@@ -3035,6 +3036,15 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1561.png">
       <Link>Resources\IMAGE_1561.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1607.png">
+      <Link>Resources\IMAGE_1607.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1608.png">
+      <Link>Resources\IMAGE_1608.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1609.png">
+      <Link>Resources\IMAGE_1609.png</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

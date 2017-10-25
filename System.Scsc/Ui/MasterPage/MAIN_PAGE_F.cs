@@ -89,6 +89,15 @@ namespace System.Scsc.Ui.MasterPage
             //SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
             //SuperToolTips.Items.Add(FooterAttnButn_Tooltip);
          }
+         else if (xdata.Attribute("device").Value == "ExpnExtr")
+         {
+            HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+            HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+            HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+            HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+
+            SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+         }
 
          
 
@@ -279,6 +288,63 @@ namespace System.Scsc.Ui.MasterPage
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception exc) { }
+      }
+      #endregion
+
+      #region ExpnExtr
+      private void Start_ExpnExtr()
+      {
+         var expnExtrSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+         try
+         {
+            if (expnExtrSetting == null) return;
+
+            if (expnExtrSetting.EXPN_EXTR_STAT == "001") { ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196; return; }
+
+            Sp_ExpnExtr.PortName = expnExtrSetting.EXPN_COMM_PORT_NAME;
+            Sp_ExpnExtr.BaudRate = (int)expnExtrSetting.EXPN_BAND_RATE;
+            ExpnExtr_Butn.Tag = expnExtrSetting;
+            Sp_ExpnExtr.Open();
+
+            if (Sp_ExpnExtr.IsOpen)
+            {
+               ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+            }
+            else
+            {
+               ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+            }
+         }
+         catch
+         {
+            ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         }
+         finally
+         {
+            ExpnExtr_Butn.SuperTip =
+               SuperToolTipAttnButn(
+                  new XElement("System",
+                     new XAttribute("device", "ExpnExtr"),
+                     new XAttribute("stat", expnExtrSetting.EXPN_EXTR_STAT == "002" ? true : false)
+                  )
+               );
+         }
+      }
+
+      private void Stop_ExpnExtr()
+      {
+         try
+         {
+            if (Sp_ExpnExtr.IsOpen)
+            {
+               Sp_ExpnExtr.Close();
+               ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+            }
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
       }
       #endregion
 
@@ -546,6 +612,7 @@ namespace System.Scsc.Ui.MasterPage
          Start_FingerPrint();
          Start_BarCode();
          Start_GateAttn();
+         Start_ExpnExtr();
          Tm_FingerPrintWorker.Enabled = false;
       }
       #endregion

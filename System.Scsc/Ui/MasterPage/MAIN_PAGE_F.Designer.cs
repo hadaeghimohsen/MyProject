@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -211,7 +210,7 @@
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FIGH_FILE_NOLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -280,15 +279,17 @@
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.More_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.ExpnExtr_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.GateAttn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
+         this.Sp_Barcode = new System.IO.Ports.SerialPort();
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          this.statusStrip1.SuspendLayout();
@@ -1617,6 +1618,7 @@
          this.spc_desktop.Panel2.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
          this.spc_desktop.Panel2.Controls.Add(this.StartMenu_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.More_Butn);
+         this.spc_desktop.Panel2.Controls.Add(this.ExpnExtr_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.GateAttn_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.AttendanceSystemAlert_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.ActionCenter_Butn);
@@ -1639,7 +1641,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(920, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(890, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -2283,13 +2285,30 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(1006, 5);
+         this.More_Butn.Location = new System.Drawing.Point(976, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
          this.More_Butn.Size = new System.Drawing.Size(30, 27);
          this.More_Butn.TabIndex = 9;
          this.More_Butn.Click += new System.EventHandler(this.More_Butn_Click);
+         // 
+         // ExpnExtr_Butn
+         // 
+         this.ExpnExtr_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ExpnExtr_Butn.Appearance.BorderColor = System.Drawing.Color.White;
+         this.ExpnExtr_Butn.Appearance.Options.UseBackColor = true;
+         this.ExpnExtr_Butn.Appearance.Options.UseBorderColor = true;
+         this.ExpnExtr_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.ExpnExtr_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+         this.ExpnExtr_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ExpnExtr_Butn.Location = new System.Drawing.Point(1006, 5);
+         this.ExpnExtr_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ExpnExtr_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ExpnExtr_Butn.Name = "ExpnExtr_Butn";
+         this.ExpnExtr_Butn.Size = new System.Drawing.Size(30, 27);
+         this.ExpnExtr_Butn.TabIndex = 14;
          // 
          // GateAttn_Butn
          // 
@@ -2640,5 +2659,7 @@
       private DevExpress.XtraBars.BarButtonItem bbi_mbsnbutn;
       private DevExpress.XtraEditors.SimpleButton GateAttn_Butn;
       private IO.Ports.SerialPort Sp_GateAttn;
+      private DevExpress.XtraEditors.SimpleButton ExpnExtr_Butn;
+      private IO.Ports.SerialPort Sp_ExpnExtr;
    }
 }

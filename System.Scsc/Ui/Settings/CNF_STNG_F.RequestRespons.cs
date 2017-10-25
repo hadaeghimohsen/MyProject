@@ -202,6 +202,7 @@ namespace System.Scsc.Ui.Settings
       {         
          DysnoBs1.DataSource = iScsc.D_YSNOs;
          DbcdtBs4.DataSource = iScsc.D_BCDTs;
+         DAeatBs.DataSource = iScsc.D_AEATs;
          vCompBs1.DataSource = iScsc.V_Computers;
          DatsmBs1.DataSource = iScsc.D_ATSMs;
          DActvBs1.DataSource = iScsc.D_ACTVs;
@@ -210,6 +211,7 @@ namespace System.Scsc.Ui.Settings
 
          AttnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
          GateComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
+         ExpnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
 
          RqtpBs1.DataSource = iScsc.Request_Types;
          RqttBs1.DataSource = iScsc.Requester_Types;

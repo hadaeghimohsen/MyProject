@@ -244,6 +244,7 @@
          this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.Regl_Butn = new System.Windows.Forms.Button();
          this.OpenDesk_Butn = new System.Windows.Forms.Button();
          this.EndRqst_Butn = new System.Windows.Forms.Button();
          this.Cncl_Butn = new System.Windows.Forms.Button();
@@ -784,6 +785,7 @@
          this.groupBox1.Controls.Add(this.FromDate_Dt);
          this.groupBox1.Controls.Add(label1);
          this.groupBox1.Controls.Add(this.AgopBn1);
+         this.groupBox1.Controls.Add(this.Regl_Butn);
          this.groupBox1.Controls.Add(this.OpenDesk_Butn);
          this.groupBox1.Controls.Add(this.EndRqst_Butn);
          this.groupBox1.Controls.Add(this.Cncl_Butn);
@@ -1779,15 +1781,29 @@
          this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
          this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
          // 
+         // Regl_Butn
+         // 
+         this.Regl_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.Regl_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1200;
+         this.Regl_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Regl_Butn.Location = new System.Drawing.Point(6, 303);
+         this.Regl_Butn.Name = "Regl_Butn";
+         this.Regl_Butn.Size = new System.Drawing.Size(126, 35);
+         this.Regl_Butn.TabIndex = 9;
+         this.Regl_Butn.Text = "هزینه های میز";
+         this.Regl_Butn.UseVisualStyleBackColor = true;
+         this.Regl_Butn.Click += new System.EventHandler(this.Regl_Butn_Click);
+         // 
          // OpenDesk_Butn
          // 
          this.OpenDesk_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.OpenDesk_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1108;
          this.OpenDesk_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.OpenDesk_Butn.Location = new System.Drawing.Point(6, 303);
+         this.OpenDesk_Butn.Location = new System.Drawing.Point(138, 303);
          this.OpenDesk_Butn.Name = "OpenDesk_Butn";
-         this.OpenDesk_Butn.Size = new System.Drawing.Size(267, 35);
+         this.OpenDesk_Butn.Size = new System.Drawing.Size(135, 35);
          this.OpenDesk_Butn.TabIndex = 9;
          this.OpenDesk_Butn.Text = "باز کردن میز";
          this.OpenDesk_Butn.UseVisualStyleBackColor = true;
@@ -4605,5 +4621,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colCASH_AMNT;
       private DevExpress.XtraGrid.Columns.GridColumn colPOS_AMNT;
       private DevExpress.XtraGrid.Columns.GridColumn colTOTL_DEBT;
+      private Windows.Forms.Button Regl_Butn;
    }
 }

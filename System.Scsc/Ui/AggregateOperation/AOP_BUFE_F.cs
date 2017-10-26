@@ -805,5 +805,20 @@ namespace System.Scsc.Ui.AggregateOperation
             }
          }
       }
+
+      private void Regl_Butn_Click(object sender, EventArgs e)
+      {
+         var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
+         if (Rg1 == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+                  {
+                     new Job(SendType.Self, 06 /* Execute Regl_Dcmt_F */){Input = new List<Data.Regulation>{Rg1, null}},
+                     new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "016")))}
+                  })
+            );
+      }
    }
 }

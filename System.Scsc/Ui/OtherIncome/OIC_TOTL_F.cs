@@ -176,7 +176,13 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("mdulname", GetType().Name),
                      new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
                      new XElement("Request_Row",
-                        new XAttribute("fileno", Figh == null ? FILE_NO_LookUpEdit.EditValue ?? "" : Figh.FILE_NO)                        
+                        new XAttribute("fileno", Figh == null ? FILE_NO_LookUpEdit.EditValue ?? "" : Figh.FILE_NO),
+                        new XElement("Fighter_Public", 
+                           new XAttribute("frstname", FrstName_Txt.Text),
+                           new XAttribute("lastname", LastName_Txt.Text),
+                           new XAttribute("natlcode", NatlCode_Txt.Text),
+                           new XAttribute("cellphon", CellPhon_Txt.Text)
+                        )
                      )
                   )
                )
@@ -962,6 +968,60 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ntb_POSPayment1_Click_1(object sender, EventArgs e)
+      {
+         try
+         {
+            if (tb_master.SelectedTab == tp_001)
+            {
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               var rqst = RqstBs1.Current as Data.Request;
+               if (rqst == null) return;
+
+               foreach (Data.Payment pymt in PymtsBs1)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithPOS"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                           )
+                        )
+                     )
+                  );
+               }
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void FgpbBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FgpbBs1.Current != null)
+               FreeAdm_Pn.Visible = true;
+            else
+               FreeAdm_Pn.Visible = false;
+         }
+         catch (Exception exc)
+         {
+
          }
       }
    }

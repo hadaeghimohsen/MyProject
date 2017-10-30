@@ -389,6 +389,7 @@
          this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCLAS_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
          this.panel12 = new System.Windows.Forms.Panel();
          this.PrintSettingClubMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -412,7 +413,6 @@
          this.Coach_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Club_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.colCLAS_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          sHBA_ACNTLabel = new System.Windows.Forms.Label();
@@ -1029,11 +1029,11 @@
          // 
          // gridView1
          // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView1.Appearance.Row.Options.UseFont = true;
          this.gridView1.Appearance.Row.Options.UseTextOptions = true;
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -1656,11 +1656,11 @@
          // 
          // gridView3
          // 
-         this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView3.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView3.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.gridView3.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView3.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView3.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView3.Appearance.Row.Options.UseFont = true;
          this.gridView3.Appearance.Row.Options.UseTextOptions = true;
          this.gridView3.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -2018,11 +2018,11 @@
          // 
          // gridView2
          // 
-         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView2.Appearance.Row.Options.UseFont = true;
          this.gridView2.Appearance.Row.Options.UseTextOptions = true;
          this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -2546,7 +2546,7 @@
          this.Mtod_Gv.OptionsView.ShowGroupPanel = false;
          this.Mtod_Gv.OptionsView.ShowIndicator = false;
          this.Mtod_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMTOD_STAT1, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMTOD_STAT1, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colCODE2
          // 
@@ -2898,7 +2898,7 @@
          this.Ctgy_Gv.OptionsView.ShowGroupPanel = false;
          this.Ctgy_Gv.OptionsView.ShowIndicator = false;
          this.Ctgy_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCTGY_STAT, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCTGY_STAT, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colMTOD_CODE1
          // 
@@ -4315,11 +4315,11 @@
          // 
          // gridView9
          // 
-         this.gridView9.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold);
+         this.gridView9.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView9.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView9.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.gridView9.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView9.Appearance.Row.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold);
+         this.gridView9.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView9.Appearance.Row.Options.UseFont = true;
          this.gridView9.Appearance.Row.Options.UseTextOptions = true;
          this.gridView9.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -5102,6 +5102,14 @@
          this.gridColumn37.Visible = true;
          this.gridColumn37.VisibleIndex = 0;
          // 
+         // colCLAS_TIME
+         // 
+         this.colCLAS_TIME.Caption = "مدت زمان کلاس";
+         this.colCLAS_TIME.FieldName = "CLAS_TIME";
+         this.colCLAS_TIME.Name = "colCLAS_TIME";
+         this.colCLAS_TIME.Visible = true;
+         this.colCLAS_TIME.VisibleIndex = 5;
+         // 
          // textEdit3
          // 
          this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CbmtBs1, "CBMT_DESC", true));
@@ -5543,14 +5551,6 @@
          // ClubBs1
          // 
          this.ClubBs1.DataSource = typeof(System.Scsc.Data.Club);
-         // 
-         // colCLAS_TIME
-         // 
-         this.colCLAS_TIME.Caption = "مدت زمان کلاس";
-         this.colCLAS_TIME.FieldName = "CLAS_TIME";
-         this.colCLAS_TIME.Name = "colCLAS_TIME";
-         this.colCLAS_TIME.Visible = true;
-         this.colCLAS_TIME.VisibleIndex = 5;
          // 
          // BAS_DFIN_F
          // 

@@ -1070,5 +1070,22 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
+      private void FgpbsBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (fgpb == null) return;
+
+            MaxAdm_Txt.Text = iScsc.Club_Methods.FirstOrDefault(cb => cb.CODE == fgpb.CBMT_CODE).CPCT_NUMB.ToString();
+            TotlAdm_Txt.Text = iScsc.Fighters.Where(f => f.CBMT_CODE_DNRM == fgpb.CBMT_CODE && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101 && f.MBSP_END_DATE.Value.Date >= DateTime.Now.Date).Count().ToString();
+            NewAdm_Txt.Text = (Convert.ToInt32(TotlAdm_Txt.Text) + 1).ToString();
+         }
+         catch (Exception exc)
+         {
+
+         }
+      }
+
    }
 }

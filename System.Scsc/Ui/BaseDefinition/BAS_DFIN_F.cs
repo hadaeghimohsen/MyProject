@@ -954,6 +954,11 @@ namespace System.Scsc.Ui.BaseDefinition
             newcbmt.DFLT_STAT = oldcbmt.DFLT_STAT;
             newcbmt.STRT_TIME = oldcbmt.STRT_TIME;
             newcbmt.END_TIME = oldcbmt.END_TIME;
+            newcbmt.CBMT_TIME = 0;
+            newcbmt.CBMT_TIME_STAT = "001";
+            newcbmt.CLAS_TIME = 90;
+            newcbmt.CPCT_NUMB = 0;
+            newcbmt.CPCT_STAT = "001";
          }
       }
 

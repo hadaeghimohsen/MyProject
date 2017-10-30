@@ -130,6 +130,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.Windows.Forms.Label label9;
+         System.Windows.Forms.Label label10;
+         System.Windows.Forms.Label label12;
          this.colDFLT_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMBSP_END_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -303,6 +306,7 @@
          this.colCBMT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Btn_Cbmt1 = new System.Windows.Forms.Button();
          this.Gb_Info = new System.Windows.Forms.GroupBox();
+         this.SaveAttn_PkBt = new System.MaxUi.NewPickBtn();
          this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.dateTimeSelector5 = new Atf.UI.DateTimeSelector();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
@@ -594,7 +598,10 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.SaveAttn_PkBt = new System.MaxUi.NewPickBtn();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.TotlAdm_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.MaxAdm_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.NewAdm_Txt = new DevExpress.XtraEditors.TextEdit();
          label49 = new System.Windows.Forms.Label();
          cBMT_CODELabel = new System.Windows.Forms.Label();
          label53 = new System.Windows.Forms.Label();
@@ -640,6 +647,9 @@
          label6 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
+         label9 = new System.Windows.Forms.Label();
+         label10 = new System.Windows.Forms.Label();
+         label12 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
@@ -748,6 +758,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.BTN_MBSP)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
+         this.panel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.TotlAdm_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MaxAdm_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NewAdm_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // label49
@@ -1347,6 +1361,7 @@
          // 
          this.FgpbsBs1.DataMember = "Fighter_Publics";
          this.FgpbsBs1.DataSource = this.RqroBs1;
+         this.FgpbsBs1.CurrentChanged += new System.EventHandler(this.FgpbsBs1_CurrentChanged);
          // 
          // miniToolStrip
          // 
@@ -1973,6 +1988,7 @@
          // 
          this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.groupBox3.Controls.Add(this.panel1);
          this.groupBox3.Controls.Add(this.groupBox5);
          this.groupBox3.Controls.Add(this.CtgyCode_LookupEdit001);
          this.groupBox3.Controls.Add(label53);
@@ -2007,7 +2023,7 @@
          this.groupBox5.Controls.Add(this.StrtDate_DateTime001);
          this.groupBox5.Controls.Add(this.EndDate_DateTime001);
          this.groupBox5.Controls.Add(this.EndDate_RB001);
-         this.groupBox5.Location = new System.Drawing.Point(15, 94);
+         this.groupBox5.Location = new System.Drawing.Point(15, 123);
          this.groupBox5.Name = "groupBox5";
          this.groupBox5.Size = new System.Drawing.Size(515, 143);
          this.groupBox5.TabIndex = 3;
@@ -2250,9 +2266,9 @@
          this.Btn_AutoCalcAttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Btn_AutoCalcAttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.Btn_AutoCalcAttn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.Btn_AutoCalcAttn.Location = new System.Drawing.Point(11, 47);
+         this.Btn_AutoCalcAttn.Location = new System.Drawing.Point(15, 47);
          this.Btn_AutoCalcAttn.Name = "Btn_AutoCalcAttn";
-         this.Btn_AutoCalcAttn.Size = new System.Drawing.Size(228, 25);
+         this.Btn_AutoCalcAttn.Size = new System.Drawing.Size(224, 25);
          this.Btn_AutoCalcAttn.TabIndex = 2;
          this.Btn_AutoCalcAttn.Text = "درج اتوماتیک تعداد جلسات";
          this.Btn_AutoCalcAttn.UseVisualStyleBackColor = true;
@@ -2515,6 +2531,33 @@
          this.Gb_Info.TabIndex = 0;
          this.Gb_Info.TabStop = false;
          this.Gb_Info.Text = "مشخصات عمومی";
+         // 
+         // SaveAttn_PkBt
+         // 
+         this.SaveAttn_PkBt.BackColor = System.Drawing.Color.LightGray;
+         this.SaveAttn_PkBt.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.SaveAttn_PkBt.Disabled = false;
+         this.SaveAttn_PkBt.First = null;
+         this.SaveAttn_PkBt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveAttn_PkBt.ForceSelect = false;
+         this.SaveAttn_PkBt.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SaveAttn_PkBt.ImageIndexPickDown = 0;
+         this.SaveAttn_PkBt.ImageIndexPickUp = 0;
+         this.SaveAttn_PkBt.ImageList = null;
+         this.SaveAttn_PkBt.Location = new System.Drawing.Point(13, 244);
+         this.SaveAttn_PkBt.Name = "SaveAttn_PkBt";
+         this.SaveAttn_PkBt.Next = null;
+         this.SaveAttn_PkBt.PickChecked = true;
+         this.SaveAttn_PkBt.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveAttn_PkBt.PickDownText = "ثبت اولین حضوری به صورت اتوماتیک";
+         this.SaveAttn_PkBt.PickDownTextColor = System.Drawing.Color.Empty;
+         this.SaveAttn_PkBt.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveAttn_PkBt.PickUpText = "ثبت حضوری دستی ";
+         this.SaveAttn_PkBt.PickUpTextColor = System.Drawing.Color.Empty;
+         this.SaveAttn_PkBt.Size = new System.Drawing.Size(198, 25);
+         this.SaveAttn_PkBt.TabIndex = 68;
+         this.SaveAttn_PkBt.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SaveAttn_PkBt.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
          // 
          // ShowRqst_PickButn
          // 
@@ -3989,7 +4032,7 @@
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
          this.Gb_Expense.Location = new System.Drawing.Point(6, 6);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(1231, 412);
+         this.Gb_Expense.Size = new System.Drawing.Size(1231, 413);
          this.Gb_Expense.TabIndex = 3;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
@@ -4245,7 +4288,7 @@
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(677, 228);
+         this.gridControl2.Size = new System.Drawing.Size(677, 229);
          this.gridControl2.TabIndex = 1;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -4641,7 +4684,7 @@
          this.payment_DetailsGridControl.Name = "payment_DetailsGridControl";
          this.payment_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_RCTP});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(536, 228);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(536, 229);
          this.payment_DetailsGridControl.TabIndex = 1;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -5671,32 +5714,104 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Btn_RqstExit1_Click);
          // 
-         // SaveAttn_PkBt
+         // panel1
          // 
-         this.SaveAttn_PkBt.BackColor = System.Drawing.Color.LightGray;
-         this.SaveAttn_PkBt.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.SaveAttn_PkBt.Disabled = false;
-         this.SaveAttn_PkBt.First = null;
-         this.SaveAttn_PkBt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SaveAttn_PkBt.ForceSelect = false;
-         this.SaveAttn_PkBt.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SaveAttn_PkBt.ImageIndexPickDown = 0;
-         this.SaveAttn_PkBt.ImageIndexPickUp = 0;
-         this.SaveAttn_PkBt.ImageList = null;
-         this.SaveAttn_PkBt.Location = new System.Drawing.Point(13, 244);
-         this.SaveAttn_PkBt.Name = "SaveAttn_PkBt";
-         this.SaveAttn_PkBt.Next = null;
-         this.SaveAttn_PkBt.PickChecked = true;
-         this.SaveAttn_PkBt.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SaveAttn_PkBt.PickDownText = "ثبت اولین حضوری به صورت اتوماتیک";
-         this.SaveAttn_PkBt.PickDownTextColor = System.Drawing.Color.Empty;
-         this.SaveAttn_PkBt.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SaveAttn_PkBt.PickUpText = "ثبت حضوری دستی ";
-         this.SaveAttn_PkBt.PickUpTextColor = System.Drawing.Color.Empty;
-         this.SaveAttn_PkBt.Size = new System.Drawing.Size(198, 25);
-         this.SaveAttn_PkBt.TabIndex = 68;
-         this.SaveAttn_PkBt.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SaveAttn_PkBt.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
+         this.panel1.BackColor = System.Drawing.Color.LightGray;
+         this.panel1.Controls.Add(this.NewAdm_Txt);
+         this.panel1.Controls.Add(this.MaxAdm_Txt);
+         this.panel1.Controls.Add(this.TotlAdm_Txt);
+         this.panel1.Controls.Add(label12);
+         this.panel1.Controls.Add(label10);
+         this.panel1.Controls.Add(label9);
+         this.panel1.Location = new System.Drawing.Point(15, 75);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(515, 42);
+         this.panel1.TabIndex = 20;
+         // 
+         // TotlAdm_Txt
+         // 
+         this.TotlAdm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TotlAdm_Txt.EditValue = "0";
+         this.TotlAdm_Txt.Location = new System.Drawing.Point(366, 10);
+         this.TotlAdm_Txt.Name = "TotlAdm_Txt";
+         this.TotlAdm_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.TotlAdm_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.TotlAdm_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.TotlAdm_Txt.Properties.Appearance.Options.UseFont = true;
+         this.TotlAdm_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.TotlAdm_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.TotlAdm_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.TotlAdm_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TotlAdm_Txt.Properties.Mask.EditMask = "n0";
+         this.TotlAdm_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.TotlAdm_Txt.Properties.ReadOnly = true;
+         this.TotlAdm_Txt.Size = new System.Drawing.Size(39, 22);
+         this.TotlAdm_Txt.TabIndex = 5;
+         // 
+         // label9
+         // 
+         label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label9.Location = new System.Drawing.Point(411, 7);
+         label9.Name = "label9";
+         label9.Size = new System.Drawing.Size(93, 30);
+         label9.TabIndex = 52;
+         label9.Text = "تعداد نفرات ثبت نامی کلاس";
+         // 
+         // label10
+         // 
+         label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label10.Location = new System.Drawing.Point(267, 6);
+         label10.Name = "label10";
+         label10.Size = new System.Drawing.Size(93, 30);
+         label10.TabIndex = 52;
+         label10.Text = "حداکثر تعداد ثبت نامی";
+         // 
+         // MaxAdm_Txt
+         // 
+         this.MaxAdm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MaxAdm_Txt.EditValue = "0";
+         this.MaxAdm_Txt.Location = new System.Drawing.Point(222, 9);
+         this.MaxAdm_Txt.Name = "MaxAdm_Txt";
+         this.MaxAdm_Txt.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
+         this.MaxAdm_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.MaxAdm_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.MaxAdm_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MaxAdm_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.MaxAdm_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.MaxAdm_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.MaxAdm_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MaxAdm_Txt.Properties.Mask.EditMask = "n0";
+         this.MaxAdm_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.MaxAdm_Txt.Size = new System.Drawing.Size(39, 22);
+         this.MaxAdm_Txt.TabIndex = 5;
+         // 
+         // label12
+         // 
+         label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label12.Location = new System.Drawing.Point(123, 6);
+         label12.Name = "label12";
+         label12.Size = new System.Drawing.Size(93, 30);
+         label12.TabIndex = 52;
+         label12.Text = "شما نفر ثبت نامی";
+         // 
+         // NewAdm_Txt
+         // 
+         this.NewAdm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NewAdm_Txt.EditValue = "0";
+         this.NewAdm_Txt.Location = new System.Drawing.Point(78, 9);
+         this.NewAdm_Txt.Name = "NewAdm_Txt";
+         this.NewAdm_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.NewAdm_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.NewAdm_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.NewAdm_Txt.Properties.Appearance.Options.UseFont = true;
+         this.NewAdm_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.NewAdm_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.NewAdm_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.NewAdm_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.NewAdm_Txt.Properties.Mask.EditMask = "n0";
+         this.NewAdm_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.NewAdm_Txt.Size = new System.Drawing.Size(39, 22);
+         this.NewAdm_Txt.TabIndex = 5;
          // 
          // ADM_FIGH_F
          // 
@@ -5824,6 +5939,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
+         this.panel1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.TotlAdm_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MaxAdm_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NewAdm_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -6295,5 +6414,9 @@
       private DevExpress.XtraGrid.Columns.GridColumn colDFLT_STAT;
       private DevExpress.XtraGrid.Columns.GridColumn colCBMT_DESC;
       private MaxUi.NewPickBtn SaveAttn_PkBt;
+      private Windows.Forms.Panel panel1;
+      private DevExpress.XtraEditors.TextEdit TotlAdm_Txt;
+      private DevExpress.XtraEditors.TextEdit NewAdm_Txt;
+      private DevExpress.XtraEditors.TextEdit MaxAdm_Txt;
    }
 }

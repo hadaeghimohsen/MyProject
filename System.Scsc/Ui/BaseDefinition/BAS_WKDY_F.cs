@@ -58,6 +58,13 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("endtime", c.END_TIME.ToString()),
                            new XAttribute("mtodstat", c.MTOD_STAT),
                            new XAttribute("sextype", c.SEX_TYPE),
+                           new XAttribute("cbmtdesc", c.CBMT_DESC ?? ""),
+                           new XAttribute("dfltstat", c.DFLT_STAT ?? "001"),
+                           new XAttribute("cpctnumb", c.CPCT_NUMB ?? 0),
+                           new XAttribute("cpctstat", c.CPCT_STAT ?? "001"),
+                           new XAttribute("cbmttime", c.CBMT_TIME ?? 0),
+                           new XAttribute("cbmttimestat", c.CBMT_TIME_STAT ?? "001"),
+                           new XAttribute("clastime", c.CLAS_TIME ?? 90) ,
                            new XElement("Club_Method_Weekdays",
                               CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().Select(cbmw =>
                                  new XElement("Club_Method_Weekday",

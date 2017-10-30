@@ -65,6 +65,7 @@
          this.Wkdy005_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Wkdy006_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          bANK_BRNC_CODELabel1 = new System.Windows.Forms.Label();
@@ -83,6 +84,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.CardNum_Txt.Properties)).BeginInit();
          this.WeekDays_Flp.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // cASH_STATLabel
@@ -616,6 +618,10 @@
          // 
          this.CbmtwkdyBs1.DataSource = typeof(System.Scsc.Data.Club_Method_Weekday);
          // 
+         // DActvBs1
+         // 
+         this.DActvBs1.DataSource = typeof(System.Scsc.Data.D_ACTV);
+         // 
          // BAS_WKDY_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,6 +659,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.CardNum_Txt.Properties)).EndInit();
          this.WeekDays_Flp.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -683,6 +690,7 @@
       private DevExpress.XtraEditors.SimpleButton Wkdy005_Butn;
       private DevExpress.XtraEditors.SimpleButton Wkdy006_Butn;
       private Windows.Forms.BindingSource CbmtwkdyBs1;
+      private Windows.Forms.BindingSource DActvBs1;
 
    }
 }

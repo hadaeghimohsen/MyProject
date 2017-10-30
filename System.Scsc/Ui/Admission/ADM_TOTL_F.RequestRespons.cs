@@ -118,17 +118,17 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_001)
-               Btn_RqstRqt1_Click(null, null);
-            else if (tb_master.SelectedTab == tp_002)
+            //if (tb_master.SelectedTab == tp_001)
+            //   Btn_RqstRqt1_Click(null, null);
+            if (tb_master.SelectedTab == tp_002)
                Btn_RqstSav1_Click(null, null);
             else if (tb_master.SelectedTab == tp_003) 
                Btn_RqstSav3_Click(null, null);
          }
          else if (keyData == Keys.Enter)
          {
-            if(!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_Cbmt1.Focused || Btn_Dise.Focused || Btn_NewRecord.Focused))
-               SendKeys.Send("{TAB}");
+            //if(!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_Cbmt1.Focused || Btn_Dise.Focused || Btn_NewRecord.Focused))
+            //   SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.F2)
          {
@@ -136,32 +136,32 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
-               Btn_RqstDelete1_Click(null, null);
-            else if (tb_master.SelectedTab == tp_002)
+            //if (tb_master.SelectedTab == tp_001)
+            //   Btn_RqstDelete1_Click(null, null);
+            if (tb_master.SelectedTab == tp_002)
                Btn_RqstDelete2_Click(null, null);
             else if (tb_master.SelectedTab == tp_003)
                Btn_RqstDelete3_Click(null, null);
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
-               Btn_RqstRqt1_Click(null, null);
-            else if (tb_master.SelectedTab == tp_003)
+            //if (tb_master.SelectedTab == tp_001)
+            //   Btn_RqstRqt1_Click(null, null);
+            if (tb_master.SelectedTab == tp_003)
                Btn_RqstRqt3_Click(null, null);
          }
          else if (keyData == Keys.F3)
          {
-            if (tb_master.SelectedTab == tp_001)
-               LL_MoreInfo_LinkClicked(null, null);
-            else if (tb_master.SelectedTab == tp_002)
+            //if (tb_master.SelectedTab == tp_001)
+            //   LL_MoreInfo_LinkClicked(null, null);
+            if (tb_master.SelectedTab == tp_002)
                LL_MoreInfo2_LinkClicked(null, null);
          }
          else if (keyData == Keys.F10)
          {
-            if (tb_master.SelectedTab == tp_001)
-               Btn_RqstSav1_Click(null, null);
-            else if (tb_master.SelectedTab == tp_002)
+            //if (tb_master.SelectedTab == tp_001)
+            //   Btn_RqstSav1_Click(null, null);
+            if (tb_master.SelectedTab == tp_002)
                Btn_RqstSav2_Click(null, null);
             else if (tb_master.SelectedTab == tp_003)
                Btn_RqstSav3_Click(null, null);
@@ -210,7 +210,7 @@ namespace System.Scsc.Ui.Admission
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
 
-         LL_MoreInfo_LinkClicked(null, null);
+         //LL_MoreInfo_LinkClicked(null, null);
          LL_MoreInfo2_LinkClicked(null, null);
          job.Status = StatusType.Successful;
       }
@@ -297,7 +297,7 @@ namespace System.Scsc.Ui.Admission
          #endregion
 
          finishcommand:
-         MtodBs2.DataSource = iScsc.Methods;
+         MtodBs2.DataSource = iScsc.Methods.Where(m=> m.MTOD_STAT == "002");
          job.Status = StatusType.Successful;
       }
 
@@ -309,7 +309,7 @@ namespace System.Scsc.Ui.Admission
          try
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
-            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32( cbmt.Fighter.ACTV_TAG_DNRM ?? "101" ) >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(REGN_PRVN_CODELookUpEdit.EditValue.ToString() + REGN_CODELookUpEdit.EditValue.ToString()))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32( cbmt.Fighter.ACTV_TAG_DNRM ?? "101" ) >= 101 )/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
             DstpBs1.DataSource = iScsc.Diseases_Types;
          }
          catch { }
@@ -329,7 +329,7 @@ namespace System.Scsc.Ui.Admission
             {
                case "fighter":
                   //tb_master.TabPages.Add(tp_001);
-                  tb_master.SelectedTab = tp_001;
+                  //tb_master.SelectedTab = tp_001;
                   break;
                case "coach":
                   tb_master.TabPages.Add(tp_002);
@@ -345,8 +345,8 @@ namespace System.Scsc.Ui.Admission
             {
                if ((job.Input as XElement).Attribute("type").Value == "fighter")
                {
-                  INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
-                  INSR_DATE_PersianDateEdit.Value = DateTime.Now;
+                  //INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
+                  //INSR_DATE_PersianDateEdit.Value = DateTime.Now;
                }
                if ((job.Input as XElement).Attribute("type").Value == "coach")
                {

@@ -107,13 +107,14 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          else if(Tb_Master.SelectedTab == tp_006)
          {
+            int cbmt = CbmtBs1.Position;
             ClubBs1.DataSource = iScsc.Clubs;
             CochBs2.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
             MtodBs1.DataSource = iScsc.Methods;
             CbmtBs1.List.Clear();
             if (CbmtGv1.Tag != null)
             {
-               int cbmt = CbmtBs1.Position;
+               
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cb => cb.CLUB_CODE == ((Data.Club)CbmtGv1.Tag).CODE);
                Cbmt_Gv.TopRowIndex = cbmt;
                CbmtBs1.Position = cbmt;
@@ -945,8 +946,8 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          else
          {
-            newcbmt.COCH_FILE_NO = oldcbmt.COCH_FILE_NO;
-            newcbmt.MTOD_CODE = oldcbmt.MTOD_CODE;
+            //newcbmt.COCH_FILE_NO = oldcbmt.COCH_FILE_NO;
+            //newcbmt.MTOD_CODE = oldcbmt.MTOD_CODE;
             newcbmt.DAY_TYPE = oldcbmt.DAY_TYPE;
             newcbmt.SEX_TYPE = oldcbmt.SEX_TYPE;
             newcbmt.MTOD_STAT = oldcbmt.MTOD_STAT;
@@ -985,7 +986,12 @@ namespace System.Scsc.Ui.BaseDefinition
                               new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
                               new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
                               new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
-                              new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001")
+                              new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
+                              new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
+                              new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
+                              new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
+                              new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
+                              new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)                              
                            )
                         )
                   )
@@ -1006,7 +1012,12 @@ namespace System.Scsc.Ui.BaseDefinition
                               new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
                               new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
                               new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
-                              new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001")
+                              new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
+                              new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
+                              new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
+                              new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
+                              new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
+                              new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)                              
                            )
                         )
                   )

@@ -404,5 +404,15 @@ namespace System.CRM.Ui.Activity
             }
          );
       }
+
+      private void Subject_Txt_TextChanged(object sender, EventArgs e)
+      {
+         var apon = AponBs.Current as Data.Appointment;
+
+         if (apon == null || !LinkText_Pk.PickChecked) return;
+
+         apon.SUBJ_DESC = Subject_Txt.Text;
+         apon.APON_CMNT = Subject_Txt.Text;
+      }
    }
 }

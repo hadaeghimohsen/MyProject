@@ -17,6 +17,9 @@ namespace System.CRM.Ui.Acounts
       private string ConnectionString;
       private string CurrentUser;
       private string onoftag;
+      private long? fileno;
+      private string actntype = "none";
+      private string formcaller = "none";
 
       public void SendRequest(Job job)
       {
@@ -207,6 +210,22 @@ namespace System.CRM.Ui.Acounts
          {
             if (xinput.Attribute("onoftag") != null)
                onoftag = xinput.Attribute("onoftag").Value;
+
+            if (xinput.Attribute("actntype") != null)
+               actntype = xinput.Attribute("actntype").Value;
+            else
+               actntype = "none";
+
+            if (xinput.Attribute("formcaller") != null)
+               formcaller = xinput.Attribute("formcaller").Value;
+            else
+               formcaller = "none";
+
+            if (xinput.Attribute("fileno") != null)
+               fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+            else
+               fileno = null;
+
          }
 
          if (InvokeRequired)

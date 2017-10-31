@@ -148,6 +148,8 @@
          this.ToMail_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.Subject_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.panel3 = new System.Windows.Forms.Panel();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.LinkText_Pk = new System.MaxUi.NewPickBtn();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -525,6 +527,7 @@
          // 
          this.panelControl8.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panelControl8.Appearance.Options.UseBackColor = true;
+         this.panelControl8.Controls.Add(this.LinkText_Pk);
          this.panelControl8.Controls.Add(this.MesgStat_Lov);
          this.panelControl8.Controls.Add(this.labelControl8);
          this.panelControl8.Controls.Add(this.labelControl7);
@@ -1316,7 +1319,7 @@
          this.Subject_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Subject_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.EmalBs, "SUBJ_DESC", true));
          this.Subject_Txt.EditValue = "";
-         this.Subject_Txt.Location = new System.Drawing.Point(18, 189);
+         this.Subject_Txt.Location = new System.Drawing.Point(59, 189);
          this.Subject_Txt.Name = "Subject_Txt";
          this.Subject_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Subject_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1335,8 +1338,9 @@
          this.Subject_Txt.Properties.NullText = "موضوع ایمیل";
          this.Subject_Txt.Properties.NullValuePrompt = "موضوع ایمیل";
          this.Subject_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.Subject_Txt.Size = new System.Drawing.Size(390, 32);
+         this.Subject_Txt.Size = new System.Drawing.Size(349, 32);
          this.Subject_Txt.TabIndex = 5;
+         this.Subject_Txt.TextChanged += new System.EventHandler(this.Subject_Txt_TextChanged);
          // 
          // panel3
          // 
@@ -1346,6 +1350,39 @@
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(18, 500);
          this.panel3.TabIndex = 8;
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1610.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1611.png");
+         // 
+         // LinkText_Pk
+         // 
+         this.LinkText_Pk.BackColor = System.Drawing.Color.Transparent;
+         this.LinkText_Pk.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.LinkText_Pk.Disabled = false;
+         this.LinkText_Pk.First = null;
+         this.LinkText_Pk.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.LinkText_Pk.ForceSelect = false;
+         this.LinkText_Pk.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.LinkText_Pk.ImageIndexPickDown = 0;
+         this.LinkText_Pk.ImageIndexPickUp = 1;
+         this.LinkText_Pk.ImageList = this.imageList1;
+         this.LinkText_Pk.Location = new System.Drawing.Point(18, 189);
+         this.LinkText_Pk.Name = "LinkText_Pk";
+         this.LinkText_Pk.Next = null;
+         this.LinkText_Pk.PickChecked = false;
+         this.LinkText_Pk.PickDownFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LinkText_Pk.PickDownText = null;
+         this.LinkText_Pk.PickDownTextColor = System.Drawing.Color.Empty;
+         this.LinkText_Pk.PickUpFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LinkText_Pk.PickUpText = null;
+         this.LinkText_Pk.PickUpTextColor = System.Drawing.Color.Empty;
+         this.LinkText_Pk.Size = new System.Drawing.Size(35, 32);
+         this.LinkText_Pk.TabIndex = 14;
+         this.LinkText_Pk.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // OPT_EMAL_F
          // 
@@ -1497,6 +1534,8 @@
       private DevExpress.XtraEditors.LabelControl labelControl8;
       private DevExpress.XtraEditors.LabelControl labelControl7;
       private MaxUi.RoundedButton RqstFolw_Butn;
+      private MaxUi.NewPickBtn LinkText_Pk;
+      private Windows.Forms.ImageList imageList1;
 
    }
 }

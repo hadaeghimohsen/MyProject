@@ -1784,5 +1784,34 @@ namespace System.CRM.Ui.Contacts
             )
          );
       }
+
+      private void JoinToComp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var serv = ServBs.Current as Data.Service;
+            if (serv == null) return;
+
+            Job _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                   new Job(SendType.Self, 38 /* Execute Shw_Cont_F */),
+                   new Job(SendType.SelfToUserInterface, "SHW_ACNT_F", 10 /* Execute Actn_CalF_P */)
+                   {
+                      Executive = ExecutiveType.Asynchronous,
+                      Input = 
+                        new XElement("Company", 
+                           new XAttribute("onoftag", "on"),
+                           new XAttribute("actntype", "join"),
+                           new XAttribute("fileno", serv.FILE_NO),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                   }
+                 });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch { }
+      }
    }
 }

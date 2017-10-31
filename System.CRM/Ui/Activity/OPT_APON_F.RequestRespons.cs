@@ -241,6 +241,7 @@ namespace System.CRM.Ui.Activity
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         ColbBs.List.Clear();
          var xinput = job.Input as XElement;
          if(xinput != null)
          {

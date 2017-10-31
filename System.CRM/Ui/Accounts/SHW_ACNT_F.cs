@@ -114,16 +114,44 @@ namespace System.CRM.Ui.Acounts
             var cont = CompBs.Current as Data.VF_CompaniesResult;
             if (cont == null) return;
 
-            Job _InteractWithCRM =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                 {                  
-                   new Job(SendType.Self, 39 /* Execute Inf_Acnt_F */),                
-                   new Job(SendType.SelfToUserInterface, "INF_ACNT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Company", new XAttribute("code", cont.CODE))},
-                 });
-            _DefaultGateway.Gateway(_InteractWithCRM);
+            if(actntype == "join")
+            {
+               if (MessageBox.Show(this, "آیا با انتقال مشتری به شرکت مربوطه موافق هستید؟", "انتقال به شرکت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               // مشتری انتقال داده شود
+               var serv = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno);
+               iCRM.CHNG_SRPB_P(
+                  new XElement("Service",
+                     new XAttribute("fileno", serv.FILE_NO),
+                     new XAttribute("actntype", "002"),
+                     new XAttribute("compcode", cont.CODE)
+                  )
+               );
+               // فرم بسته شود
+               Back_Butn_Click(null, null);
+               // اطلاعات مشتری بروز شود
+               Job _InteractWithCRM =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {                  
+                      new Job(SendType.Self, formcaller == "INF_LEAD_F" ? 24 : 34 /* Execute Inf_Lead_F */),                
+                      new Job(SendType.SelfToUserInterface, formcaller, 10 /* Execute ACTN_CALF_P */){Input = new XElement("Service", new XAttribute("fileno", fileno))},
+                    });
+               _DefaultGateway.Gateway(_InteractWithCRM);
+
+            }
+            else if (actntype == "none")
+            {
+               Job _InteractWithCRM =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {                  
+                      new Job(SendType.Self, 39 /* Execute Inf_Acnt_F */),                
+                      new Job(SendType.SelfToUserInterface, "INF_ACNT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Company", new XAttribute("code", cont.CODE))},
+                    });
+               _DefaultGateway.Gateway(_InteractWithCRM);
+            }
          }
-         catch { }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void LeadActn_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)

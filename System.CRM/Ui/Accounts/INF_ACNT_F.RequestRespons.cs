@@ -201,6 +201,7 @@ namespace System.CRM.Ui.Acounts
       {
          var xinput = job.Input as XElement;
          compcode = Convert.ToInt64(xinput.Attribute("code").Value);
+
          Execute_Query();
          job.Status = StatusType.Successful;
       }

@@ -668,5 +668,15 @@ namespace System.CRM.Ui.Activity
             }
          );
       }
+
+      private void Subject_Txt_TextChanged(object sender, EventArgs e)
+      {
+         var task = TaskBs.Current as Data.Task;
+
+         if (task == null || !LinkText_Pk.PickChecked) return;
+
+         task.SUBJ_DESC = Subject_Txt.Text;
+         task.TASK_CMNT = Subject_Txt.Text;
+      }
    }
 }

@@ -455,5 +455,15 @@ namespace System.CRM.Ui.Activity
             }
          );
       }
+
+      private void Subject_Txt_TextChanged(object sender, EventArgs e)
+      {
+         var logc = LogcBs.Current as Data.Log_Call;
+
+         if (logc == null || !LinkText_Pk.PickChecked) return;
+
+         logc.SUBJ_DESC = Subject_Txt.Text;
+         logc.LOG_CMNT = Subject_Txt.Text;
+      }
    }
 }

@@ -74,6 +74,7 @@
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.JoinToComp_Butn = new System.MaxUi.RoundedButton();
          this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
          this.linkLabel6 = new System.Windows.Forms.LinkLabel();
          this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
@@ -423,6 +424,7 @@
          this.panel1.Controls.Add(this.Back_Butn);
          this.panel1.Controls.Add(this.labelControl8);
          this.panel1.Controls.Add(this.labelControl1);
+         this.panel1.Controls.Add(this.JoinToComp_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
@@ -536,6 +538,30 @@
          this.labelControl1.Size = new System.Drawing.Size(214, 53);
          this.labelControl1.TabIndex = 1;
          this.labelControl1.Text = "مشتری احتمالی";
+         // 
+         // JoinToComp_Butn
+         // 
+         this.JoinToComp_Butn.Active = true;
+         this.JoinToComp_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.JoinToComp_Butn.Caption = "";
+         this.JoinToComp_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.JoinToComp_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.JoinToComp_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.JoinToComp_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.JoinToComp_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.JoinToComp_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1612;
+         this.JoinToComp_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.JoinToComp_Butn.ImageVisiable = true;
+         this.JoinToComp_Butn.Location = new System.Drawing.Point(60, 7);
+         this.JoinToComp_Butn.Name = "JoinToComp_Butn";
+         this.JoinToComp_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.JoinToComp_Butn.NormalColorA = System.Drawing.Color.White;
+         this.JoinToComp_Butn.NormalColorB = System.Drawing.Color.White;
+         this.JoinToComp_Butn.Size = new System.Drawing.Size(40, 40);
+         this.JoinToComp_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.JoinToComp_Butn.TabIndex = 4;
+         this.JoinToComp_Butn.Tooltip = "انتقال به شرکت";
+         this.JoinToComp_Butn.Click += new System.EventHandler(this.JoinToComp_Butn_Click);
          // 
          // panelControl4
          // 
@@ -1494,7 +1520,7 @@
          this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ServBs, "SRPB_TYPE_DNRM", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(28, 136);
+         this.lookUpEdit1.Location = new System.Drawing.Point(175, 135);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.lookUpEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1522,8 +1548,9 @@
          this.lookUpEdit1.Properties.NullValuePromptShowForEmptyValue = true;
          this.lookUpEdit1.Properties.ReadOnly = true;
          this.lookUpEdit1.Properties.ValueMember = "VALU";
-         this.lookUpEdit1.Size = new System.Drawing.Size(159, 32);
+         this.lookUpEdit1.Size = new System.Drawing.Size(34, 32);
          this.lookUpEdit1.TabIndex = 3;
+         this.lookUpEdit1.Visible = false;
          // 
          // DsrtpBs
          // 
@@ -4209,5 +4236,6 @@
       private MaxUi.RoundedButton RelationShip_Butn;
       private MaxUi.RoundedButton Previous_Butn;
       private MaxUi.RoundedButton Next_Butn;
+      private MaxUi.RoundedButton JoinToComp_Butn;
    }
 }

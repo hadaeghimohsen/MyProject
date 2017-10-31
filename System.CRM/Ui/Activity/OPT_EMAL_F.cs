@@ -488,5 +488,15 @@ namespace System.CRM.Ui.Activity
             }
          );
       }
+
+      private void Subject_Txt_TextChanged(object sender, EventArgs e)
+      {
+         var emal = EmalBs.Current as Data.Email;
+
+         if (emal == null || !LinkText_Pk.PickChecked) return;
+
+         emal.SUBJ_DESC = Subject_Txt.Text;
+         emal.EMAL_CMNT = Subject_Txt.Text;
+      }
    }
 }

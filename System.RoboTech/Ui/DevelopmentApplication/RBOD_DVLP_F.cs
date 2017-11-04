@@ -734,7 +734,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             );
 
             // Create request and receive response
-            string postURL = ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// "http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
+            string postURL = /*ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
             string userAgent = "Someone";
             HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(postURL, userAgent, postParameters);
 

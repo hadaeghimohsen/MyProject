@@ -226,5 +226,24 @@ namespace System.Scsc.Ui.Common
                break;
          }
       }
+
+      private void TrnsFngrPrnt_Butn_Click(object sender, EventArgs e)
+      {         
+         if (MessageBox.Show(this, "آیا با انتقال شناسایی کارت اعضا به دستگاه موافق هستید؟", "عملیات انتقال", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+         foreach (Data.VF_Last_Info_FighterResult figh in vF_Last_Info_FighterResultBindingSource.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.END_DATE < DateTime.Now))
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 41, SendType.SelfToUserInterface)
+               {
+                  Input =
+                  new XElement("User",
+                     new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM),
+                     new XAttribute("cardnumb", figh.FNGR_PRNT_DNRM),
+                     new XAttribute("namednrm", figh.FNGR_PRNT_DNRM)
+                  )
+               }
+            );
+         }
+      }
    }
 }

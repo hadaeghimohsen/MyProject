@@ -943,5 +943,24 @@ namespace System.Scsc.Ui.Common
                })
          );
       }
+
+      private void TrnsFngrPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         Data.VF_Last_Info_FighterResult figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+         if (figh == null)
+            return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 41, SendType.SelfToUserInterface)
+            {
+               Input =
+               new XElement("User",
+                  new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM),
+                  new XAttribute("cardnumb", figh.FNGR_PRNT_DNRM),
+                  new XAttribute("namednrm", figh.FNGR_PRNT_DNRM)
+               )
+            }
+         );
+      }
    }
 }

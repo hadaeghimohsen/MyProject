@@ -467,5 +467,21 @@ namespace System.Scsc.Ui.Settings
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
+
+      private void DeleteComputer1_Butn_Click(object sender, EventArgs e)
+      {
+         var stng = StngBs1.Current as Data.Setting;
+
+         stng.ATTN_COMP_CONCT = null;
+         lookUpEdit3.EditValue = null;
+      }
+
+      private void DeleteComputer2_Butn_Click(object sender, EventArgs e)
+      {
+         var stng = StngBs1.Current as Data.Setting;
+
+         stng.ATTN_COMP_CNC2 = null;
+         lookUpEdit4.EditValue = null;
+      }
    }
 }

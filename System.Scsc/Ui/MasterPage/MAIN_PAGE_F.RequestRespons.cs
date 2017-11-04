@@ -245,7 +245,8 @@ namespace System.Scsc.Ui.MasterPage
       {
          try { spc_desktop.Panel1.BackgroundImage = Image.FromFile(@".\Media\SubSys\Scsc\Desktop\Wallpaper\Wallpaper.jpg"); }
          catch { }
-         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         DaeatBs.DataSource = iScsc.D_AEATs;
          job.Status = StatusType.Successful;
       }
 
@@ -385,7 +386,11 @@ namespace System.Scsc.Ui.MasterPage
          axCZKEM1.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
          if (axCZKEM1.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
          {
-            MessageBox.Show("کارت شما در سیستم ثبت گردید");
+            //MessageBox.Show("کارت شما در سیستم ثبت گردید");
+            FngrPrnt_Txt.Text = EnrollNumber;
+            if (CardNumb_Text.Text == "") CardNumb_Text.Text = "0";
+            CardNumb_Text.Text = (Convert.ToInt64(CardNumb_Text.Text) + 1).ToString();
+            //MessageBox.Show(string.Format("FngrPrnt {0} CardNumb {1} NameDnrm {2}", EnrollNumber, CardNumber, NameDnrm));
          }
          else
          {

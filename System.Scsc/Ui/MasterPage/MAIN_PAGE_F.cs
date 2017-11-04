@@ -98,6 +98,15 @@ namespace System.Scsc.Ui.MasterPage
 
             SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
          }
+         else if (xdata.Attribute("device").Value == "AttnDvic")
+         {
+            HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+            HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+            HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+            HeaderAttnButn_Tooltip.Text = xdata.Attribute("desc").Value;
+
+            SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+         }
 
          
 
@@ -378,6 +387,7 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (!bIsConnected)
                            {
+                              AttnType_Lov.EditValue = "001";
                               bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
                               // fire event for fetch 
                               axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
@@ -428,6 +438,7 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (!bIsConnected)
                            {
+                              AttnType_Lov.EditValue = "001";
                               bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
                               // fire event for fetch 
                               axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
@@ -454,6 +465,58 @@ namespace System.Scsc.Ui.MasterPage
                                  new XElement("System",
                                     new XAttribute("device", "Attn"),
                                     new XAttribute("ip", fingerPrintSetting.IP_ADR2),
+                                    new XAttribute("stat", bIsConnected),
+                                    host
+                                 )
+                              );
+                        }
+                     }
+                     #endregion
+                     #region other wise
+                     else if(iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && (s.ATN1_EVNT_ACTN_TYPE == "002" || s.ATN2_EVNT_ACTN_TYPE == "002" || s.ATN3_EVNT_ACTN_TYPE == "003")))
+                     {
+                        var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_SYST_TYPE == "002").FirstOrDefault();
+
+                        if (fingerPrintSetting == null) return;
+
+                        if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                        if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
+                        {
+                           Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
+                           Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+
+                           if (!bIsConnected)
+                           {
+                              bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                              // fire event for fetch 
+                              axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                              // New code 
+                              axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                           }
+                           if (bIsConnected == true)
+                           {
+                              AttnType_Lov.EditValue = "002";
+                              Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                              Tsp_AttnSys.ForeColor = Color.Green;
+                              int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                              axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                           }
+                           else
+                           {
+                              AttnType_Lov.EditValue = null;
+                              Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                              Tsp_AttnSys.ForeColor = Color.Red;
+                           }
+
+                           AttendanceSystemAlert_Butn.SuperTip =
+                              SuperToolTipAttnButn(
+                                 new XElement("System",
+                                    new XAttribute("device", "Attn"),
+                                    new XAttribute("ip", fingerPrintSetting.IP_ADDR),
                                     new XAttribute("stat", bIsConnected),
                                     host
                                  )
@@ -508,6 +571,8 @@ namespace System.Scsc.Ui.MasterPage
 
       private void OnAttTransactionEx(string EnrollNumber)
       {
+         if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
+
          if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
             return;
          oldenrollnumber = EnrollNumber;
@@ -2032,6 +2097,35 @@ namespace System.Scsc.Ui.MasterPage
                {
                   new Job(SendType.Self, 148 /* Execute GATE_ACTN_F */)                  
                })
+         );
+      }
+
+      private void ShowInfo_Butn_Click(object sender, EventArgs e)
+      {
+         if (FngrPrnt_Txt.Text == "") return;
+
+         var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text || (FngrPrnt_Txt.Text.Length == 10 && f.NATL_CODE_DNRM == FngrPrnt_Txt.Text));
+         if (figh == null) {
+            ShowInfo_Butn.SuperTip = 
+               SuperToolTipAttnButn(
+                  new XElement("System",
+                     new XAttribute("device", "AttnDvic"),
+                     new XAttribute("desc", "با این شماره عضویی شناسایی نشد")
+                  )
+               );
+            return; 
+         }
+         else {
+            ShowInfo_Butn.SuperTip =
+               SuperToolTipAttnButn(
+                  new XElement("System",
+                     new XAttribute("device", "AttnDvic"),
+                     new XAttribute("desc", figh.NAME_DNRM)
+                  )
+               );
+         }
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
          );
       }
    }

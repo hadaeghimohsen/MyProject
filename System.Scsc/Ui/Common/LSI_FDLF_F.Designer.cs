@@ -213,7 +213,7 @@
          this.colDEBT_DNRM.OptionsColumn.FixedWidth = true;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDEBT_DNRM.Visible = true;
-         this.colDEBT_DNRM.VisibleIndex = 16;
+         this.colDEBT_DNRM.VisibleIndex = 15;
          this.colDEBT_DNRM.Width = 105;
          // 
          // colEND_DATE
@@ -228,7 +228,7 @@
          this.colEND_DATE.OptionsColumn.FixedWidth = true;
          this.colEND_DATE.OptionsColumn.ReadOnly = true;
          this.colEND_DATE.Visible = true;
-         this.colEND_DATE.VisibleIndex = 10;
+         this.colEND_DATE.VisibleIndex = 9;
          this.colEND_DATE.Width = 91;
          // 
          // persianRepositoryItemDateEdit1
@@ -670,8 +670,6 @@
          this.colCONF_DATE.OptionsColumn.FixedWidth = true;
          this.colCONF_DATE.OptionsColumn.ReadOnly = true;
          this.colCONF_DATE.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-         this.colCONF_DATE.Visible = true;
-         this.colCONF_DATE.VisibleIndex = 12;
          this.colCONF_DATE.Width = 77;
          // 
          // colRQST_RQID
@@ -723,7 +721,7 @@
          this.colCELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colCELL_PHON_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
          this.colCELL_PHON_DNRM.Visible = true;
-         this.colCELL_PHON_DNRM.VisibleIndex = 4;
+         this.colCELL_PHON_DNRM.VisibleIndex = 3;
          this.colCELL_PHON_DNRM.Width = 32;
          // 
          // colTELL_PHON_DNRM
@@ -735,7 +733,7 @@
          this.colTELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colTELL_PHON_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
          this.colTELL_PHON_DNRM.Visible = true;
-         this.colTELL_PHON_DNRM.VisibleIndex = 3;
+         this.colTELL_PHON_DNRM.VisibleIndex = 2;
          this.colTELL_PHON_DNRM.Width = 28;
          // 
          // colINSR_NUMB_DNRM
@@ -760,8 +758,12 @@
          // 
          // colNATL_CODE
          // 
+         this.colNATL_CODE.Caption = "کد ملی";
          this.colNATL_CODE.FieldName = "NATL_CODE";
          this.colNATL_CODE.Name = "colNATL_CODE";
+         this.colNATL_CODE.OptionsColumn.FixedWidth = true;
+         this.colNATL_CODE.Visible = true;
+         this.colNATL_CODE.VisibleIndex = 14;
          // 
          // colGLOB_CODE
          // 
@@ -791,7 +793,7 @@
          this.colCLUB_NAME.OptionsColumn.AllowEdit = false;
          this.colCLUB_NAME.OptionsColumn.ReadOnly = true;
          this.colCLUB_NAME.Visible = true;
-         this.colCLUB_NAME.VisibleIndex = 2;
+         this.colCLUB_NAME.VisibleIndex = 1;
          this.colCLUB_NAME.Width = 30;
          // 
          // colTYPE_DESC
@@ -838,7 +840,7 @@
          this.colMTOD_DESC.OptionsColumn.AllowEdit = false;
          this.colMTOD_DESC.OptionsColumn.ReadOnly = true;
          this.colMTOD_DESC.Visible = true;
-         this.colMTOD_DESC.VisibleIndex = 1;
+         this.colMTOD_DESC.VisibleIndex = 0;
          this.colMTOD_DESC.Width = 20;
          // 
          // colCTGY_DESC
@@ -848,8 +850,6 @@
          this.colCTGY_DESC.Name = "colCTGY_DESC";
          this.colCTGY_DESC.OptionsColumn.AllowEdit = false;
          this.colCTGY_DESC.OptionsColumn.ReadOnly = true;
-         this.colCTGY_DESC.Visible = true;
-         this.colCTGY_DESC.VisibleIndex = 0;
          this.colCTGY_DESC.Width = 20;
          // 
          // colInvsFileNo
@@ -860,7 +860,7 @@
          this.colInvsFileNo.OptionsColumn.FixedWidth = true;
          this.colInvsFileNo.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
          this.colInvsFileNo.Visible = true;
-         this.colInvsFileNo.VisibleIndex = 19;
+         this.colInvsFileNo.VisibleIndex = 18;
          this.colInvsFileNo.Width = 30;
          // 
          // HL_INVSFILENO
@@ -880,7 +880,7 @@
          this.colFNGR_PRNT_DNRM.OptionsColumn.FixedWidth = true;
          this.colFNGR_PRNT_DNRM.OptionsColumn.ReadOnly = true;
          this.colFNGR_PRNT_DNRM.Visible = true;
-         this.colFNGR_PRNT_DNRM.VisibleIndex = 14;
+         this.colFNGR_PRNT_DNRM.VisibleIndex = 12;
          this.colFNGR_PRNT_DNRM.Width = 73;
          // 
          // colCOCH_FILE_NO
@@ -892,7 +892,7 @@
          this.colCOCH_FILE_NO.OptionsColumn.AllowEdit = false;
          this.colCOCH_FILE_NO.OptionsColumn.ReadOnly = true;
          this.colCOCH_FILE_NO.Visible = true;
-         this.colCOCH_FILE_NO.VisibleIndex = 5;
+         this.colCOCH_FILE_NO.VisibleIndex = 4;
          this.colCOCH_FILE_NO.Width = 34;
          // 
          // COCH_LOV
@@ -913,7 +913,7 @@
          this.colActn.Name = "colActn";
          this.colActn.OptionsColumn.FixedWidth = true;
          this.colActn.Visible = true;
-         this.colActn.VisibleIndex = 15;
+         this.colActn.VisibleIndex = 13;
          this.colActn.Width = 32;
          // 
          // colActn_Butn
@@ -996,7 +996,7 @@
          this.colRemnDay.UnboundExpression = "DateDiffDay(Today(), GetDate([END_DATE]))";
          this.colRemnDay.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.colRemnDay.Visible = true;
-         this.colRemnDay.VisibleIndex = 9;
+         this.colRemnDay.VisibleIndex = 8;
          this.colRemnDay.Width = 30;
          // 
          // colFRST_NAME
@@ -1007,7 +1007,7 @@
          this.colFRST_NAME.OptionsColumn.AllowEdit = false;
          this.colFRST_NAME.OptionsColumn.ReadOnly = true;
          this.colFRST_NAME.Visible = true;
-         this.colFRST_NAME.VisibleIndex = 17;
+         this.colFRST_NAME.VisibleIndex = 16;
          this.colFRST_NAME.Width = 58;
          // 
          // colLAST_NAME
@@ -1018,7 +1018,7 @@
          this.colLAST_NAME.OptionsColumn.AllowEdit = false;
          this.colLAST_NAME.OptionsColumn.ReadOnly = true;
          this.colLAST_NAME.Visible = true;
-         this.colLAST_NAME.VisibleIndex = 18;
+         this.colLAST_NAME.VisibleIndex = 17;
          this.colLAST_NAME.Width = 101;
          // 
          // colSTRT_DATE
@@ -1033,7 +1033,7 @@
          this.colSTRT_DATE.OptionsColumn.FixedWidth = true;
          this.colSTRT_DATE.OptionsColumn.ReadOnly = true;
          this.colSTRT_DATE.Visible = true;
-         this.colSTRT_DATE.VisibleIndex = 11;
+         this.colSTRT_DATE.VisibleIndex = 10;
          this.colSTRT_DATE.Width = 85;
          // 
          // colSUM_ATTN_MONT_DNRM
@@ -1049,7 +1049,7 @@
          this.colSUM_ATTN_MONT_DNRM.ToolTip = "تعداد جلسات مصرف شده";
          this.colSUM_ATTN_MONT_DNRM.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.colSUM_ATTN_MONT_DNRM.Visible = true;
-         this.colSUM_ATTN_MONT_DNRM.VisibleIndex = 7;
+         this.colSUM_ATTN_MONT_DNRM.VisibleIndex = 6;
          this.colSUM_ATTN_MONT_DNRM.Width = 30;
          // 
          // colNUMB_OF_ATTN_MONT
@@ -1064,7 +1064,7 @@
          this.colNUMB_OF_ATTN_MONT.OptionsColumn.ReadOnly = true;
          this.colNUMB_OF_ATTN_MONT.ToolTip = "تعداد کل جلسات";
          this.colNUMB_OF_ATTN_MONT.Visible = true;
-         this.colNUMB_OF_ATTN_MONT.VisibleIndex = 8;
+         this.colNUMB_OF_ATTN_MONT.VisibleIndex = 7;
          this.colNUMB_OF_ATTN_MONT.Width = 30;
          // 
          // colREMN_ATTN_MONT_DNRM
@@ -1081,7 +1081,7 @@
          this.colREMN_ATTN_MONT_DNRM.UnboundExpression = "[NUMB_OF_ATTN_MONT] - [SUM_ATTN_MONT_DNRM]";
          this.colREMN_ATTN_MONT_DNRM.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.colREMN_ATTN_MONT_DNRM.Visible = true;
-         this.colREMN_ATTN_MONT_DNRM.VisibleIndex = 6;
+         this.colREMN_ATTN_MONT_DNRM.VisibleIndex = 5;
          this.colREMN_ATTN_MONT_DNRM.Width = 30;
          // 
          // colSUNT_DESC
@@ -1092,7 +1092,7 @@
          this.colSUNT_DESC.OptionsColumn.AllowEdit = false;
          this.colSUNT_DESC.OptionsColumn.ReadOnly = true;
          this.colSUNT_DESC.Visible = true;
-         this.colSUNT_DESC.VisibleIndex = 13;
+         this.colSUNT_DESC.VisibleIndex = 11;
          this.colSUNT_DESC.Width = 50;
          // 
          // gridColumn1

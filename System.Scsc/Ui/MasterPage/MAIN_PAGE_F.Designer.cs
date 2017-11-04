@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -206,11 +207,13 @@
          this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
+         this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FIGH_FILE_NOLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -277,6 +280,7 @@
          this.colRequest2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ShowInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.More_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ExpnExtr_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -284,12 +288,12 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Sp_Barcode = new System.IO.Ports.SerialPort();
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
+         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          this.statusStrip1.SuspendLayout();
@@ -297,6 +301,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
          this.spc_desktop.Panel2.SuspendLayout();
          this.spc_desktop.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DaeatBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrPrnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FIGH_FILE_NOLookUpEdit.Properties)).BeginInit();
@@ -476,7 +482,7 @@
             this.ribbonPageCategory5,
             this.ribbonPageCategory6,
             this.ribbonPageCategory1});
-         this.ribbonControl1.Size = new System.Drawing.Size(1176, 142);
+         this.ribbonControl1.Size = new System.Drawing.Size(1235, 142);
          // 
          // bbi_epitbutn
          // 
@@ -1125,6 +1131,7 @@
          this.bbi_aprsbutn.Id = 73;
          this.bbi_aprsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_aprsbutn.LargeGlyph")));
          this.bbi_aprsbutn.Name = "bbi_aprsbutn";
+         this.bbi_aprsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_aprsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_aprsbutn_ItemClick);
          // 
          // bbi_dprsbutn
@@ -1135,6 +1142,7 @@
          this.bbi_dprsbutn.Id = 74;
          this.bbi_dprsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_dprsbutn.LargeGlyph")));
          this.bbi_dprsbutn.Name = "bbi_dprsbutn";
+         this.bbi_dprsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_dprsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dprsbutn_ItemClick);
          // 
          // bbi_cprsbutn
@@ -1145,6 +1153,7 @@
          this.bbi_cprsbutn.Id = 75;
          this.bbi_cprsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cprsbutn.LargeGlyph")));
          this.bbi_cprsbutn.Name = "bbi_cprsbutn";
+         this.bbi_cprsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_cprsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cprsbutn_ItemClick);
          // 
          // bbi_cpaybutn
@@ -1194,6 +1203,7 @@
          this.bbi_hlstbutn.Id = 81;
          this.bbi_hlstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_hlstbutn.LargeGlyph")));
          this.bbi_hlstbutn.Name = "bbi_hlstbutn";
+         this.bbi_hlstbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_hlstbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_hlstbutn_ItemClick_1);
          // 
          // bbi_mbfzbutn
@@ -1612,10 +1622,12 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.spc_desktop.Panel2.Controls.Add(this.AttnType_Lov);
          this.spc_desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.CardNumb_Text);
          this.spc_desktop.Panel2.Controls.Add(this.FngrPrnt_Txt);
          this.spc_desktop.Panel2.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
+         this.spc_desktop.Panel2.Controls.Add(this.ShowInfo_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.StartMenu_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.More_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.ExpnExtr_Butn);
@@ -1625,9 +1637,33 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1176, 504);
+         this.spc_desktop.Size = new System.Drawing.Size(1235, 504);
          this.spc_desktop.SplitterDistance = 463;
          this.spc_desktop.TabIndex = 3;
+         // 
+         // AttnType_Lov
+         // 
+         this.AttnType_Lov.Dock = System.Windows.Forms.DockStyle.Left;
+         this.AttnType_Lov.Location = new System.Drawing.Point(720, 5);
+         this.AttnType_Lov.MenuManager = this.ribbonControl1;
+         this.AttnType_Lov.Name = "AttnType_Lov";
+         this.AttnType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.AttnType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع عملیات", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.AttnType_Lov.Properties.DataSource = this.DaeatBs;
+         this.AttnType_Lov.Properties.DisplayMember = "DOMN_DESC";
+         this.AttnType_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.AttnType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AttnType_Lov.Properties.NullText = "";
+         this.AttnType_Lov.Properties.ValueMember = "VALU";
+         this.AttnType_Lov.Size = new System.Drawing.Size(148, 22);
+         this.AttnType_Lov.TabIndex = 15;
+         // 
+         // DaeatBs
+         // 
+         this.DaeatBs.DataSource = typeof(System.Scsc.Data.D_AEAT);
          // 
          // AdjustDateTime_Butn
          // 
@@ -1641,7 +1677,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(890, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(949, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -1653,7 +1689,7 @@
          // CardNumb_Text
          // 
          this.CardNumb_Text.Dock = System.Windows.Forms.DockStyle.Left;
-         this.CardNumb_Text.Location = new System.Drawing.Point(504, 5);
+         this.CardNumb_Text.Location = new System.Drawing.Point(532, 5);
          this.CardNumb_Text.MenuManager = this.ribbonControl1;
          this.CardNumb_Text.Name = "CardNumb_Text";
          this.CardNumb_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1674,7 +1710,7 @@
          // FngrPrnt_Txt
          // 
          this.FngrPrnt_Txt.Dock = System.Windows.Forms.DockStyle.Left;
-         this.FngrPrnt_Txt.Location = new System.Drawing.Point(385, 5);
+         this.FngrPrnt_Txt.Location = new System.Drawing.Point(413, 5);
          this.FngrPrnt_Txt.MenuManager = this.ribbonControl1;
          this.FngrPrnt_Txt.Name = "FngrPrnt_Txt";
          this.FngrPrnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1683,7 +1719,7 @@
          this.FngrPrnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FngrPrnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FngrPrnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FngrPrnt_Txt.Properties.NullValuePrompt = "کد انگشتی یا کارت";
+         this.FngrPrnt_Txt.Properties.NullValuePrompt = "کد انگشتی یا کارت ملی";
          this.FngrPrnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.FngrPrnt_Txt.Size = new System.Drawing.Size(119, 22);
          this.FngrPrnt_Txt.TabIndex = 10;
@@ -1691,7 +1727,7 @@
          // FIGH_FILE_NOLookUpEdit
          // 
          this.FIGH_FILE_NOLookUpEdit.Dock = System.Windows.Forms.DockStyle.Left;
-         this.FIGH_FILE_NOLookUpEdit.Location = new System.Drawing.Point(33, 5);
+         this.FIGH_FILE_NOLookUpEdit.Location = new System.Drawing.Point(61, 5);
          this.FIGH_FILE_NOLookUpEdit.Name = "FIGH_FILE_NOLookUpEdit";
          this.FIGH_FILE_NOLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FIGH_FILE_NOLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1757,6 +1793,7 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.View = this.gridLookUpEdit1View;
          this.FIGH_FILE_NOLookUpEdit.Size = new System.Drawing.Size(352, 24);
          this.FIGH_FILE_NOLookUpEdit.TabIndex = 2;
+         this.FIGH_FILE_NOLookUpEdit.Visible = false;
          this.FIGH_FILE_NOLookUpEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FIGH_FILE_NOLookUpEdit_ButtonClick);
          // 
          // FighBs
@@ -2257,6 +2294,24 @@
          this.gridColumn1.Visible = true;
          this.gridColumn1.VisibleIndex = 2;
          // 
+         // ShowInfo_Butn
+         // 
+         this.ShowInfo_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ShowInfo_Butn.Appearance.BorderColor = System.Drawing.Color.White;
+         this.ShowInfo_Butn.Appearance.Options.UseBackColor = true;
+         this.ShowInfo_Butn.Appearance.Options.UseBorderColor = true;
+         this.ShowInfo_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.ShowInfo_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.ShowInfo_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1115;
+         this.ShowInfo_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ShowInfo_Butn.Location = new System.Drawing.Point(33, 5);
+         this.ShowInfo_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ShowInfo_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ShowInfo_Butn.Name = "ShowInfo_Butn";
+         this.ShowInfo_Butn.Size = new System.Drawing.Size(28, 27);
+         this.ShowInfo_Butn.TabIndex = 16;
+         this.ShowInfo_Butn.Click += new System.EventHandler(this.ShowInfo_Butn_Click);
+         // 
          // StartMenu_Butn
          // 
          this.StartMenu_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
@@ -2285,7 +2340,7 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(976, 5);
+         this.More_Butn.Location = new System.Drawing.Point(1035, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
@@ -2303,7 +2358,7 @@
          this.ExpnExtr_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
          this.ExpnExtr_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ExpnExtr_Butn.Location = new System.Drawing.Point(1006, 5);
+         this.ExpnExtr_Butn.Location = new System.Drawing.Point(1065, 5);
          this.ExpnExtr_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ExpnExtr_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ExpnExtr_Butn.Name = "ExpnExtr_Butn";
@@ -2320,7 +2375,7 @@
          this.GateAttn_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
          this.GateAttn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GateAttn_Butn.Location = new System.Drawing.Point(1036, 5);
+         this.GateAttn_Butn.Location = new System.Drawing.Point(1095, 5);
          this.GateAttn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GateAttn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GateAttn_Butn.Name = "GateAttn_Butn";
@@ -2338,7 +2393,7 @@
          this.AttendanceSystemAlert_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
          this.AttendanceSystemAlert_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1066, 5);
+         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1125, 5);
          this.AttendanceSystemAlert_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
@@ -2374,7 +2429,7 @@
          this.ActionCenter_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ActionCenter_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ActionCenter_Butn.Image")));
          this.ActionCenter_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ActionCenter_Butn.Location = new System.Drawing.Point(1105, 5);
+         this.ActionCenter_Butn.Location = new System.Drawing.Point(1164, 5);
          this.ActionCenter_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ActionCenter_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ActionCenter_Butn.Name = "ActionCenter_Butn";
@@ -2391,7 +2446,7 @@
          this.ShowDesktop_Butn.Appearance.Options.UseBorderColor = true;
          this.ShowDesktop_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.ShowDesktop_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1147, 5);
+         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1206, 5);
          this.ShowDesktop_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowDesktop_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowDesktop_Butn.Name = "ShowDesktop_Butn";
@@ -2432,7 +2487,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1176, 646);
+         this.Size = new System.Drawing.Size(1235, 646);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          this.statusStrip1.ResumeLayout(false);
@@ -2441,6 +2496,8 @@
          this.spc_desktop.Panel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).EndInit();
          this.spc_desktop.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DaeatBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrPrnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FIGH_FILE_NOLookUpEdit.Properties)).EndInit();
@@ -2661,5 +2718,8 @@
       private IO.Ports.SerialPort Sp_GateAttn;
       private DevExpress.XtraEditors.SimpleButton ExpnExtr_Butn;
       private IO.Ports.SerialPort Sp_ExpnExtr;
+      private DevExpress.XtraEditors.LookUpEdit AttnType_Lov;
+      private Windows.Forms.BindingSource DaeatBs;
+      private DevExpress.XtraEditors.SimpleButton ShowInfo_Butn;
    }
 }

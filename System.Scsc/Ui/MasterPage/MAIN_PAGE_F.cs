@@ -1557,7 +1557,14 @@ namespace System.Scsc.Ui.MasterPage
 
       private void bbi_cpaybutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 69 /* Execute Cal_Cexc_F */),
+                  new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void bbi_hlstbutn_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

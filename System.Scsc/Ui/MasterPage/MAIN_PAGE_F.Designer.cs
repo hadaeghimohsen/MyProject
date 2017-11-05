@@ -1455,6 +1455,7 @@
          // ribbonPageGroup12
          // 
          this.ribbonPageGroup12.ItemLinks.Add(this.bbi_oexpbutn);
+         this.ribbonPageGroup12.ItemLinks.Add(this.bbi_cpaybutn);
          this.ribbonPageGroup12.Name = "ribbonPageGroup12";
          this.ribbonPageGroup12.Text = "هزینه های باشگاه";
          // 
@@ -1463,7 +1464,6 @@
          this.ribbonPageGroup19.ItemLinks.Add(this.bbi_aprsbutn);
          this.ribbonPageGroup19.ItemLinks.Add(this.bbi_dprsbutn);
          this.ribbonPageGroup19.ItemLinks.Add(this.bbi_cprsbutn);
-         this.ribbonPageGroup19.ItemLinks.Add(this.bbi_cpaybutn);
          this.ribbonPageGroup19.ItemLinks.Add(this.bbi_hlstbutn);
          this.ribbonPageGroup19.Name = "ribbonPageGroup19";
          this.ribbonPageGroup19.Text = "پرسنل باشگاه";

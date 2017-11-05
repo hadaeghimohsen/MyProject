@@ -29,22 +29,22 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
          this.rmi_sys = new Telerik.WinControls.UI.RadMenuItem();
          this.radMenuHeaderItem1 = new Telerik.WinControls.UI.RadMenuHeaderItem();
          this.rmi_sys_settings = new Telerik.WinControls.UI.RadMenuItem();
@@ -464,7 +464,7 @@
          // 
          this.rd_mainmenu.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 21, 400, 108);
          this.rd_mainmenu.RootElement.StretchVertically = true;
-         this.rd_mainmenu.Size = new System.Drawing.Size(1220, 176);
+         this.rd_mainmenu.Size = new System.Drawing.Size(1209, 176);
          this.rd_mainmenu.TabIndex = 1;
          this.rd_mainmenu.Tag = "-1";
          this.rd_mainmenu.ThemeName = "Office2010Black";
@@ -547,23 +547,23 @@
          this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton2.Name = "simpleButton2";
          this.simpleButton2.Size = new System.Drawing.Size(331, 54);
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
-         toolTipTitleItem1.Text = "کاربر گرامی";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
+         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem7.Appearance.Options.UseImage = true;
+         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
+         toolTipTitleItem7.Text = "کاربر گرامی";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
     "داد";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "عملیات تمدید قرارداد هنرجویان";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipSeparatorItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.simpleButton2.SuperTip = superToolTip1;
+         toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem8.Appearance.Options.UseImage = true;
+         toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
+         toolTipTitleItem8.LeftIndent = 6;
+         toolTipTitleItem8.Text = "عملیات تمدید قرارداد هنرجویان";
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipSeparatorItem4);
+         superToolTip4.Items.Add(toolTipTitleItem8);
+         this.simpleButton2.SuperTip = superToolTip4;
          this.simpleButton2.TabIndex = 7;
          this.simpleButton2.Tag = "1";
          this.simpleButton2.Text = "تغییر برنامه کلاسی هنرجویان";
@@ -588,23 +588,23 @@
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
          this.simpleButton1.Size = new System.Drawing.Size(331, 54);
-         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "کاربر گرامی";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
+         toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem9.Appearance.Options.UseImage = true;
+         toolTipTitleItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem9.Image")));
+         toolTipTitleItem9.Text = "کاربر گرامی";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
     "داد";
-         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "عملیات تمدید قرارداد هنرجویان";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipSeparatorItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         this.simpleButton1.SuperTip = superToolTip2;
+         toolTipTitleItem10.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+         toolTipTitleItem10.Appearance.Options.UseImage = true;
+         toolTipTitleItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem10.Image")));
+         toolTipTitleItem10.LeftIndent = 6;
+         toolTipTitleItem10.Text = "عملیات تمدید قرارداد هنرجویان";
+         superToolTip5.Items.Add(toolTipTitleItem9);
+         superToolTip5.Items.Add(toolTipItem5);
+         superToolTip5.Items.Add(toolTipSeparatorItem5);
+         superToolTip5.Items.Add(toolTipTitleItem10);
+         this.simpleButton1.SuperTip = superToolTip5;
          this.simpleButton1.TabIndex = 7;
          this.simpleButton1.Tag = "1";
          this.simpleButton1.Text = "ایجاد لیست حضور غیاب";
@@ -629,23 +629,23 @@
          this.AopMbspF_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AopMbspF_Butn.Name = "AopMbspF_Butn";
          this.AopMbspF_Butn.Size = new System.Drawing.Size(331, 54);
-         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
-         toolTipTitleItem5.Text = "کاربر گرامی";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
+         toolTipTitleItem11.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem11.Appearance.Options.UseImage = true;
+         toolTipTitleItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem11.Image")));
+         toolTipTitleItem11.Text = "کاربر گرامی";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
     "داد";
-         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
-         toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "عملیات تمدید قرارداد هنرجویان";
-         superToolTip3.Items.Add(toolTipTitleItem5);
-         superToolTip3.Items.Add(toolTipItem3);
-         superToolTip3.Items.Add(toolTipSeparatorItem3);
-         superToolTip3.Items.Add(toolTipTitleItem6);
-         this.AopMbspF_Butn.SuperTip = superToolTip3;
+         toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem12.Appearance.Options.UseImage = true;
+         toolTipTitleItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem12.Image")));
+         toolTipTitleItem12.LeftIndent = 6;
+         toolTipTitleItem12.Text = "عملیات تمدید قرارداد هنرجویان";
+         superToolTip6.Items.Add(toolTipTitleItem11);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipSeparatorItem6);
+         superToolTip6.Items.Add(toolTipTitleItem12);
+         this.AopMbspF_Butn.SuperTip = superToolTip6;
          this.AopMbspF_Butn.TabIndex = 7;
          this.AopMbspF_Butn.Tag = "1";
          this.AopMbspF_Butn.Text = "تمدید قرارداد هنرجویان";
@@ -1196,7 +1196,7 @@
          this.rt_admhs.AutoFlipMargin = true;
          this.rt_admhs.AutoSize = true;
          this.rt_admhs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.rt_admhs.IsSelected = true;
+         this.rt_admhs.IsSelected = false;
          this.rt_admhs.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radRibbonBarGroup23,
             this.radRibbonBarGroup24,
@@ -1718,7 +1718,7 @@
          this.rt_exp.AccessibleDescription = "هزینه";
          this.rt_exp.AccessibleName = "هزینه";
          this.rt_exp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.rt_exp.IsSelected = false;
+         this.rt_exp.IsSelected = true;
          this.rt_exp.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radRibbonBarGroup6,
             this.radRibbonBarGroup20});
@@ -3057,7 +3057,7 @@
          this.spc_desktop.Panel2.BackgroundImage = global::System.Scsc.Properties.Resources.IMAGE_1120;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.spc_desktop.Size = new System.Drawing.Size(1220, 432);
+         this.spc_desktop.Size = new System.Drawing.Size(1209, 432);
          this.spc_desktop.SplitterDistance = 407;
          this.spc_desktop.TabIndex = 2;
          // 
@@ -3081,7 +3081,7 @@
          // 
          // 
          this.radMenu1.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 100, 24);
-         this.radMenu1.Size = new System.Drawing.Size(1220, 21);
+         this.radMenu1.Size = new System.Drawing.Size(1209, 21);
          this.radMenu1.TabIndex = 0;
          this.radMenu1.Text = "radMenu1";
          this.radMenu1.ThemeName = "Office2010Black";
@@ -3125,10 +3125,10 @@
             this.Lbs_CrntUser,
             this.Tsp_AttnSys,
             this.Lbs_Tooltip});
-         this.statusStrip1.Location = new System.Drawing.Point(0, 631);
+         this.statusStrip1.Location = new System.Drawing.Point(0, 630);
          this.statusStrip1.Name = "statusStrip1";
          this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.statusStrip1.Size = new System.Drawing.Size(1220, 23);
+         this.statusStrip1.Size = new System.Drawing.Size(1209, 24);
          this.statusStrip1.TabIndex = 0;
          this.statusStrip1.Text = "statusStrip1";
          // 
@@ -3140,7 +3140,7 @@
          this.Lbs_CrntUser.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
          this.Lbs_CrntUser.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Lbs_CrntUser.Name = "Lbs_CrntUser";
-         this.Lbs_CrntUser.Size = new System.Drawing.Size(63, 18);
+         this.Lbs_CrntUser.Size = new System.Drawing.Size(63, 19);
          this.Lbs_CrntUser.Text = "کاربر جاری";
          this.Lbs_CrntUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
@@ -3151,7 +3151,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
          this.Tsp_AttnSys.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
          this.Tsp_AttnSys.Name = "Tsp_AttnSys";
-         this.Tsp_AttnSys.Size = new System.Drawing.Size(183, 18);
+         this.Tsp_AttnSys.Size = new System.Drawing.Size(197, 19);
          this.Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
          // 
          // Lbs_Tooltip
@@ -3161,7 +3161,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
          this.Lbs_Tooltip.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
          this.Lbs_Tooltip.Name = "Lbs_Tooltip";
-         this.Lbs_Tooltip.Size = new System.Drawing.Size(51, 18);
+         this.Lbs_Tooltip.Size = new System.Drawing.Size(58, 19);
          this.Lbs_Tooltip.Text = "توضیحات";
          // 
          // Sp_Barcode
@@ -3186,7 +3186,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.Size = new System.Drawing.Size(1220, 654);
+         this.Size = new System.Drawing.Size(1209, 654);
          ((System.ComponentModel.ISupportInitialize)(this.rd_mainmenu)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MasterRbbv)).EndInit();
          this.MasterRbbv.ResumeLayout(false);

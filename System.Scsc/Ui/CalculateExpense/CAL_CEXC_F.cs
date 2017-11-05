@@ -292,5 +292,16 @@ namespace System.Scsc.Ui.CalculateExpense
          catch 
          {}
       }
+
+      private void BaseCalc_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 68 /* Execute Cal_Expn_F */)
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

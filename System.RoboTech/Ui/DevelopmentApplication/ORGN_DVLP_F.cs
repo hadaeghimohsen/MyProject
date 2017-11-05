@@ -71,8 +71,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            //if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
             Invalidate();
 
             OrgnBs.EndEdit();

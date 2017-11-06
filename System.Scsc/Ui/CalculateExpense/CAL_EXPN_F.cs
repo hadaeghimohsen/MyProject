@@ -34,6 +34,11 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
+            BCEX_BindingSource.EndEdit();
+            CEXC_BindingSource.EndEdit();
+            gridView1.PostEditor();
+            gridView2.PostEditor();
+
             iScsc.SubmitChanges();
             requery = true;
          }

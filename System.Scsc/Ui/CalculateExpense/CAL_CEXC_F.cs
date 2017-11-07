@@ -26,7 +26,7 @@ namespace System.Scsc.Ui.CalculateExpense
          iScsc = new Data.iScscDataContext(ConnectionString);
          if (tb_master.SelectedTab == tp_001)
          {
-            MSEX_BindingSource.DataSource = iScsc.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "001");
+            MsexBs.DataSource = iScsc.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "001");
          }
          else if (tb_master.SelectedTab == tp_002)
          {
@@ -39,7 +39,7 @@ namespace System.Scsc.Ui.CalculateExpense
          try
          {
             Validate();
-            MSEX_BindingSource.EndEdit();
+            MsexBs.EndEdit();
             MOSX_Bs2.EndEdit();
             iScsc.SubmitChanges();
             requery = true;
@@ -62,11 +62,14 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
+            if (!Pde_FromDate.Value.HasValue) { Pde_FromDate.Focus(); return; }
+            if (!Pde_ToDate.Value.HasValue) { Pde_ToDate.Focus(); return; }
+
             iScsc.CALC_EXPN_P(
                new XElement("Process",
                   new XElement("Payment",
-                     new XAttribute("fromdate", pde_fromdate.DateTime.ToString("yyyy-MM-dd")),
-                     new XAttribute("todate", pde_todate.DateTime.ToString("yyyy-MM-dd")),
+                     new XAttribute("fromdate", Pde_FromDate.Value.Value.Date.ToString("yyyy-MM-dd")),
+                     new XAttribute("todate", Pde_ToDate.Value.Value.Date.ToString("yyyy-MM-dd")),
                      new XAttribute("cochfileno", Coch_Lov.EditValue ?? ""),
                      new XAttribute("decrprct", DecrPrct_Te.EditValue ?? "") 
                   )
@@ -99,7 +102,7 @@ namespace System.Scsc.Ui.CalculateExpense
                   new XElement("Process",
                      new XElement("Misc_Expenses",
                         new XAttribute("calcexpntype", "001"),
-                        MSEX_BindingSource.List.OfType<Data.Misc_Expense>().ToList()
+                        MsexBs.List.OfType<Data.Misc_Expense>().ToList()
                         .Select(m =>
                            new XElement("Misc_Expense",
                               new XAttribute("code", m.CODE),
@@ -302,6 +305,34 @@ namespace System.Scsc.Ui.CalculateExpense
                   new Job(SendType.Self, 68 /* Execute Cal_Expn_F */)
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void ReportCalc_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 90 /* Execute Cal_Cexc_F */)
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void Actn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var pyde = PydeBs.Current as Data.Payment_Expense;
+            if (pyde == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", pyde.Payment_Detail.Request_Row.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+
+         }
       }
    }
 }

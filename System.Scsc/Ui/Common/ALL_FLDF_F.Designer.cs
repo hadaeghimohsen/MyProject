@@ -158,6 +158,10 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
@@ -194,10 +198,10 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         System.Windows.Forms.Label label54;
+         System.Windows.Forms.Label label56;
+         System.Windows.Forms.Label label57;
+         System.Windows.Forms.Label label58;
          this.colTOTL_DEBT_PYMT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAY_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -292,6 +296,7 @@
          this.cELL_PHON_DNRMTextBox = new System.Windows.Forms.TextBox();
          this.tELL_PHON_DNRMTextBox = new System.Windows.Forms.TextBox();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.TrnsFngrPrnt_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ClearFingerPrint_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Del_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.aCTV_TAGTextBox = new System.Windows.Forms.TextBox();
@@ -393,6 +398,7 @@
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.AmntUnitType_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DAtypBs = new System.Windows.Forms.BindingSource(this.components);
+         this.GustInfo_Pn = new System.Windows.Forms.Panel();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
@@ -756,7 +762,11 @@
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DCngrBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.TrnsFngrPrnt_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.FgpbBs = new System.Windows.Forms.BindingSource(this.components);
+         this.textBox6 = new System.Windows.Forms.TextBox();
+         this.textBox31 = new System.Windows.Forms.TextBox();
+         this.textBox33 = new System.Windows.Forms.TextBox();
+         this.textBox35 = new System.Windows.Forms.TextBox();
          fILE_NOLabel = new System.Windows.Forms.Label();
          nAME_DNRMLabel = new System.Windows.Forms.Label();
          fATH_NAME_DNRMLabel = new System.Windows.Forms.Label();
@@ -845,6 +855,10 @@
          label55 = new System.Windows.Forms.Label();
          label41 = new System.Windows.Forms.Label();
          label43 = new System.Windows.Forms.Label();
+         label54 = new System.Windows.Forms.Label();
+         label56 = new System.Windows.Forms.Label();
+         label57 = new System.Windows.Forms.Label();
+         label58 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.CHNT_LOV)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCngtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
@@ -917,6 +931,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pymt_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AmntUnitType_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAtypBs)).BeginInit();
+         this.GustInfo_Pn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
          this.splitContainerControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
@@ -1016,6 +1031,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit9.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCngrBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FgpbBs)).BeginInit();
          this.SuspendLayout();
          // 
          // fILE_NOLabel
@@ -3360,6 +3376,32 @@
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "مشخصات فردی مشترک";
          // 
+         // TrnsFngrPrnt_Butn
+         // 
+         this.TrnsFngrPrnt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.TrnsFngrPrnt_Butn.Appearance.Options.UseBackColor = true;
+         this.TrnsFngrPrnt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("TrnsFngrPrnt_Butn.Image")));
+         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(267, 130);
+         this.TrnsFngrPrnt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.TrnsFngrPrnt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.TrnsFngrPrnt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TrnsFngrPrnt_Butn.Name = "TrnsFngrPrnt_Butn";
+         this.TrnsFngrPrnt_Butn.Size = new System.Drawing.Size(25, 23);
+         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
+         toolTipTitleItem19.Appearance.Options.UseImage = true;
+         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
+         toolTipTitleItem19.Text = "انتقال کارت به دستگاه";
+         toolTipItem11.LeftIndent = 6;
+         toolTipItem11.Text = "برای ثبت اطلاعات کارت عضو جاری می توانید از دکمه استفاده کنید";
+         toolTipTitleItem20.LeftIndent = 6;
+         toolTipTitleItem20.Text = "واحد ثبت نام اعضا";
+         superToolTip11.Items.Add(toolTipTitleItem19);
+         superToolTip11.Items.Add(toolTipItem11);
+         superToolTip11.Items.Add(toolTipTitleItem20);
+         this.TrnsFngrPrnt_Butn.SuperTip = superToolTip11;
+         this.TrnsFngrPrnt_Butn.TabIndex = 33;
+         this.TrnsFngrPrnt_Butn.Click += new System.EventHandler(this.TrnsFngrPrnt_Butn_Click);
+         // 
          // ClearFingerPrint_Butn
          // 
          this.ClearFingerPrint_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -4401,6 +4443,7 @@
          this.splitContainerControl1.Location = new System.Drawing.Point(3, 28);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.vF_PaymentsResultGridControl);
+         this.splitContainerControl1.Panel1.Controls.Add(this.GustInfo_Pn);
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
@@ -4422,7 +4465,7 @@
             this.persianRepositoryItemDateEdit7,
             this.Pymt_Butn,
             this.AmntUnitType_Lov});
-         this.vF_PaymentsResultGridControl.Size = new System.Drawing.Size(1191, 272);
+         this.vF_PaymentsResultGridControl.Size = new System.Drawing.Size(1191, 239);
          this.vF_PaymentsResultGridControl.TabIndex = 0;
          this.vF_PaymentsResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SavePayment_Gv});
@@ -4729,6 +4772,23 @@
          // DAtypBs
          // 
          this.DAtypBs.DataSource = typeof(System.Scsc.Data.D_ATYP);
+         // 
+         // GustInfo_Pn
+         // 
+         this.GustInfo_Pn.BackColor = System.Drawing.Color.Khaki;
+         this.GustInfo_Pn.Controls.Add(label58);
+         this.GustInfo_Pn.Controls.Add(label57);
+         this.GustInfo_Pn.Controls.Add(label56);
+         this.GustInfo_Pn.Controls.Add(label54);
+         this.GustInfo_Pn.Controls.Add(this.textBox35);
+         this.GustInfo_Pn.Controls.Add(this.textBox33);
+         this.GustInfo_Pn.Controls.Add(this.textBox31);
+         this.GustInfo_Pn.Controls.Add(this.textBox6);
+         this.GustInfo_Pn.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.GustInfo_Pn.Location = new System.Drawing.Point(0, 239);
+         this.GustInfo_Pn.Name = "GustInfo_Pn";
+         this.GustInfo_Pn.Size = new System.Drawing.Size(1191, 33);
+         this.GustInfo_Pn.TabIndex = 1;
          // 
          // splitContainerControl2
          // 
@@ -8498,31 +8558,89 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // TrnsFngrPrnt_Butn
+         // FgpbBs
          // 
-         this.TrnsFngrPrnt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.TrnsFngrPrnt_Butn.Appearance.Options.UseBackColor = true;
-         this.TrnsFngrPrnt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("TrnsFngrPrnt_Butn.Image")));
-         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(267, 130);
-         this.TrnsFngrPrnt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.TrnsFngrPrnt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.TrnsFngrPrnt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.TrnsFngrPrnt_Butn.Name = "TrnsFngrPrnt_Butn";
-         this.TrnsFngrPrnt_Butn.Size = new System.Drawing.Size(25, 23);
-         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
-         toolTipTitleItem19.Appearance.Options.UseImage = true;
-         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
-         toolTipTitleItem19.Text = "انتقال کارت به دستگاه";
-         toolTipItem11.LeftIndent = 6;
-         toolTipItem11.Text = "برای ثبت اطلاعات کارت عضو جاری می توانید از دکمه استفاده کنید";
-         toolTipTitleItem20.LeftIndent = 6;
-         toolTipTitleItem20.Text = "واحد ثبت نام اعضا";
-         superToolTip11.Items.Add(toolTipTitleItem19);
-         superToolTip11.Items.Add(toolTipItem11);
-         superToolTip11.Items.Add(toolTipTitleItem20);
-         this.TrnsFngrPrnt_Butn.SuperTip = superToolTip11;
-         this.TrnsFngrPrnt_Butn.TabIndex = 33;
-         this.TrnsFngrPrnt_Butn.Click += new System.EventHandler(this.TrnsFngrPrnt_Butn_Click);
+         this.FgpbBs.DataSource = typeof(System.Scsc.Data.Fighter_Public);
+         // 
+         // label54
+         // 
+         label54.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         label54.AutoSize = true;
+         label54.Location = new System.Drawing.Point(1005, 9);
+         label54.Name = "label54";
+         label54.Size = new System.Drawing.Size(29, 14);
+         label54.TabIndex = 4;
+         label54.Text = "نام :";
+         // 
+         // textBox6
+         // 
+         this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FgpbBs, "FRST_NAME", true));
+         this.textBox6.Location = new System.Drawing.Point(852, 6);
+         this.textBox6.Name = "textBox6";
+         this.textBox6.ReadOnly = true;
+         this.textBox6.Size = new System.Drawing.Size(147, 22);
+         this.textBox6.TabIndex = 5;
+         // 
+         // textBox31
+         // 
+         this.textBox31.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textBox31.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FgpbBs, "LAST_NAME", true));
+         this.textBox31.Location = new System.Drawing.Point(641, 6);
+         this.textBox31.Name = "textBox31";
+         this.textBox31.ReadOnly = true;
+         this.textBox31.Size = new System.Drawing.Size(147, 22);
+         this.textBox31.TabIndex = 5;
+         // 
+         // label56
+         // 
+         label56.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         label56.AutoSize = true;
+         label56.Location = new System.Drawing.Point(794, 9);
+         label56.Name = "label56";
+         label56.Size = new System.Drawing.Size(50, 14);
+         label56.TabIndex = 4;
+         label56.Text = "فامیلی :";
+         // 
+         // textBox33
+         // 
+         this.textBox33.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textBox33.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FgpbBs, "CELL_PHON", true));
+         this.textBox33.Location = new System.Drawing.Point(371, 6);
+         this.textBox33.Name = "textBox33";
+         this.textBox33.ReadOnly = true;
+         this.textBox33.Size = new System.Drawing.Size(147, 22);
+         this.textBox33.TabIndex = 5;
+         // 
+         // label57
+         // 
+         label57.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         label57.AutoSize = true;
+         label57.Location = new System.Drawing.Point(524, 9);
+         label57.Name = "label57";
+         label57.Size = new System.Drawing.Size(107, 14);
+         label57.TabIndex = 4;
+         label57.Text = "شماره تلفن همراه :";
+         // 
+         // textBox35
+         // 
+         this.textBox35.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textBox35.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FgpbBs, "NATL_CODE", true));
+         this.textBox35.Location = new System.Drawing.Point(156, 6);
+         this.textBox35.Name = "textBox35";
+         this.textBox35.ReadOnly = true;
+         this.textBox35.Size = new System.Drawing.Size(147, 22);
+         this.textBox35.TabIndex = 5;
+         // 
+         // label58
+         // 
+         label58.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         label58.AutoSize = true;
+         label58.Location = new System.Drawing.Point(309, 9);
+         label58.Name = "label58";
+         label58.Size = new System.Drawing.Size(54, 14);
+         label58.TabIndex = 4;
+         label58.Text = "کد ملی :";
          // 
          // ALL_FLDF_F
          // 
@@ -8625,6 +8743,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pymt_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AmntUnitType_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAtypBs)).EndInit();
+         this.GustInfo_Pn.ResumeLayout(false);
+         this.GustInfo_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
          this.splitContainerControl2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
@@ -8742,6 +8862,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCngrBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FgpbBs)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -9307,5 +9428,11 @@
       private DevExpress.XtraEditors.MemoEdit memoEdit1;
       private DevExpress.XtraEditors.SimpleButton Btn_Blok;
       private DevExpress.XtraEditors.SimpleButton TrnsFngrPrnt_Butn;
+      private Windows.Forms.Panel GustInfo_Pn;
+      private Windows.Forms.BindingSource FgpbBs;
+      private Windows.Forms.TextBox textBox35;
+      private Windows.Forms.TextBox textBox33;
+      private Windows.Forms.TextBox textBox31;
+      private Windows.Forms.TextBox textBox6;
    }
 }

@@ -138,12 +138,14 @@ namespace System.Scsc.Ui.MasterPage
 
             if (Sp_Barcode.IsOpen)
             {
+               AttnType_Lov.EditValue = "001";
                this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
                Tsp_AttnSys.Text = "سیستم بارکد خوان فعال";
                Tsp_AttnSys.ForeColor = Color.Green;
             }
             else
             {
+               AttnType_Lov.EditValue = null;
                this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
                Tsp_AttnSys.ForeColor = Color.Red;

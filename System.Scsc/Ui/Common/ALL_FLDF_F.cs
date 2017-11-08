@@ -34,12 +34,12 @@ namespace System.Scsc.Ui.Common
          requery = false;
       }
 
-      private void button1_Click(object sender, EventArgs e)
-      {
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", "", 47, SendType.Self)
-         );
-      }
+      //private void button1_Click(object sender, EventArgs e)
+      //{
+      //   _DefaultGateway.Gateway(
+      //      new Job(SendType.External, "localhost", "", 47, SendType.Self)
+      //   );
+      //}
 
       private void HL_INVSDCMT_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
@@ -490,6 +490,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
+            GustInfo_Pn.Visible = false;
             var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
             if (pymt == null) { PydtsBs1.List.Clear(); PydsBs1.List.Clear(); PmmtBs1.List.Clear(); return; }
 
@@ -497,6 +498,19 @@ namespace System.Scsc.Ui.Common
             PydsBs1.DataSource = iScsc.Payment_Discounts.Where(pds => pds.PYMT_RQST_RQID == pymt.RQID && pds.PYMT_CASH_CODE == pymt.CASH_CODE);
             PmmtBs1.DataSource = iScsc.Payment_Methods.Where(pm => pm.PYMT_RQST_RQID == pymt.RQID && pm.PYMT_CASH_CODE == pymt.CASH_CODE);
 
+            dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null)
+               figh = vF_Last_Info_FighterBs.Current is Data.VF_Last_Info_Deleted_FighterResult;
+
+            if(figh.TYPE == "005")
+            {
+               GustInfo_Pn.Visible = true;
+               FgpbBs.DataSource = iScsc.Fighter_Publics.Where(fp => fp.RQRO_RQST_RQID == pymt.RQID);
+            }
+            else
+            {
+               GustInfo_Pn.Visible = false;
+            }
          }
          catch (Exception exc)
          {

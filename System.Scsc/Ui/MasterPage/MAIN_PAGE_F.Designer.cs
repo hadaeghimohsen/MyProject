@@ -884,6 +884,7 @@
          this.bbi_fcrlbutn.Id = 41;
          this.bbi_fcrlbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fcrlbutn.LargeGlyph")));
          this.bbi_fcrlbutn.Name = "bbi_fcrlbutn";
+         this.bbi_fcrlbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_fcrlbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fcrlbutn_ItemClick);
          // 
          // bbi_attnbutn
@@ -1222,6 +1223,7 @@
          this.bbi_cyclbutn.Id = 83;
          this.bbi_cyclbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1126;
          this.bbi_cyclbutn.Name = "bbi_cyclbutn";
+         this.bbi_cyclbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_cyclbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cyclbutn_ItemClick);
          // 
          // bbi_rptcbutn
@@ -1309,6 +1311,7 @@
          this.bbi_mbsnbutn.Id = 93;
          this.bbi_mbsnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbsnbutn.LargeGlyph")));
          this.bbi_mbsnbutn.Name = "bbi_mbsnbutn";
+         this.bbi_mbsnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_mbsnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbsnbutn_ItemClick);
          // 
          // ribbonPageCategory2

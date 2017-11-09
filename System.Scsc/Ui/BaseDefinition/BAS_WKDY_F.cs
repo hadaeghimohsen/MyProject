@@ -89,20 +89,20 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (requery)
             {
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Execute Actn_CalF_P */)
-                        {
-                           Input = 
-                              new XElement("TabPage",
-                                 new XAttribute("showtabpage", "tp_006")
-                              )
-                        }
-                     }
-                  )
-               );
+               //_DefaultGateway.Gateway(
+               //   new Job(SendType.External, "localhost",
+               //      new List<Job>
+               //      {
+               //         new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Execute Actn_CalF_P */)
+               //         {
+               //            Input = 
+               //               new XElement("TabPage",
+               //                  new XAttribute("showtabpage", "tp_006")
+               //               )
+               //         }
+               //      }
+               //   )
+               //);
                Back_Butn_Click(null, null);
                requery = false;
             }
@@ -137,6 +137,33 @@ namespace System.Scsc.Ui.BaseDefinition
             CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT = "001";
             sb.Appearance.BackColor = Color.LightGray;
          }
+      }
+
+      private void SelectDay_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().ToList()
+               .ForEach(wkdy => 
+                  {
+                     wkdy.STAT = "001";
+                     if (cbmt.DAY_TYPE == "001" && (wkdy.WEEK_DAY == "001" || wkdy.WEEK_DAY == "003" || wkdy.WEEK_DAY == "005"))
+                        wkdy.STAT = "002";
+                     else if (cbmt.DAY_TYPE == "002" && (wkdy.WEEK_DAY == "007" || wkdy.WEEK_DAY == "002" || wkdy.WEEK_DAY == "004"))
+                        wkdy.STAT = "002";
+                     else if (cbmt.DAY_TYPE == "003")
+                        wkdy.STAT = "002";
+
+                     var rslt = WeekDays_Flp.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag.ToString() == wkdy.WEEK_DAY);
+                     rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+                  }
+               );
+         }
+         catch (Exception exc)
+         {}
       }
    }
 }

@@ -128,7 +128,7 @@ namespace System.Scsc.Ui.Admission
          else if (keyData == Keys.Enter)
          {
             //if(!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_Cbmt1.Focused || Btn_Dise.Focused || Btn_NewRecord.Focused))
-            //   SendKeys.Send("{TAB}");
+               SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.F2)
          {
@@ -367,7 +367,11 @@ namespace System.Scsc.Ui.Admission
             else if ((job.Input as XElement).Attribute("type") != null)
             {
                if ((job.Input as XElement).Attribute("type").Value == "refresh" || (job.Input as XElement).Attribute("type").Value == "renewcontract")
+               {
                   Execute_Query();
+
+                  ReloadSelectedData();
+               }
             }
             else
                Execute_Query();

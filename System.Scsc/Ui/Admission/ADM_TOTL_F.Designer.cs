@@ -494,6 +494,7 @@
          this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          label1 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
@@ -652,6 +653,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
          this.SuspendLayout();
          // 
          // label1
@@ -1454,8 +1456,6 @@
          this.REGN_PRVN_CODELookUpEdit2.Size = new System.Drawing.Size(22, 22);
          this.REGN_PRVN_CODELookUpEdit2.TabIndex = 1;
          this.REGN_PRVN_CODELookUpEdit2.Visible = false;
-         //this.REGN_PRVN_CODELookUpEdit2.Popup += new System.EventHandler(this.REGN_PRVN_CODE_EditValueChanged);
-         //this.REGN_PRVN_CODELookUpEdit2.EditValueChanged += new System.EventHandler(this.REGN_PRVN_CODE_EditValueChanged);
          // 
          // PrvnBs1
          // 
@@ -3661,7 +3661,7 @@
          this.SaveAttn_PkBt.Location = new System.Drawing.Point(14, 86);
          this.SaveAttn_PkBt.Name = "SaveAttn_PkBt";
          this.SaveAttn_PkBt.Next = null;
-         this.SaveAttn_PkBt.PickChecked = true;
+         this.SaveAttn_PkBt.PickChecked = false;
          this.SaveAttn_PkBt.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAttn_PkBt.PickDownText = "ثبت اولین حضوری به صورت اتوماتیک";
          this.SaveAttn_PkBt.PickDownTextColor = System.Drawing.Color.Empty;
@@ -3814,6 +3814,8 @@
          this.CBMT_CODE_GridLookUpEdit003.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CBMT_CODE_GridLookUpEdit003.Properties.NullText = "";
          this.CBMT_CODE_GridLookUpEdit003.Properties.PopupFormMinSize = new System.Drawing.Size(529, 0);
+         this.CBMT_CODE_GridLookUpEdit003.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit4});
          this.CBMT_CODE_GridLookUpEdit003.Properties.ValueMember = "CODE";
          this.CBMT_CODE_GridLookUpEdit003.Properties.View = this.CbmtCode_GridView003;
          this.CBMT_CODE_GridLookUpEdit003.Size = new System.Drawing.Size(100, 22);
@@ -3892,6 +3894,7 @@
          // gridColumn53
          // 
          this.gridColumn53.Caption = "زوج / فرد";
+         this.gridColumn53.ColumnEdit = this.repositoryItemLookUpEdit4;
          this.gridColumn53.FieldName = "DAY_TYPE";
          this.gridColumn53.Name = "gridColumn53";
          this.gridColumn53.Visible = true;
@@ -4917,7 +4920,6 @@
          // RqstBs1
          // 
          this.RqstBs1.DataSource = typeof(System.Scsc.Data.Request);
-         //this.RqstBs1.CurrentChanged += new System.EventHandler(this.RqstBs1_CurrentChanged);
          // 
          // DCyclBs1
          // 
@@ -4975,6 +4977,17 @@
          // DDytpBs1
          // 
          this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
+         // 
+         // repositoryItemLookUpEdit4
+         // 
+         this.repositoryItemLookUpEdit4.AutoHeight = false;
+         this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit4.DataSource = this.DDytpBs1;
+         this.repositoryItemLookUpEdit4.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit4.Name = "repositoryItemLookUpEdit4";
+         this.repositoryItemLookUpEdit4.NullText = "";
+         this.repositoryItemLookUpEdit4.ValueMember = "VALU";
          // 
          // ADM_TOTL_F
          // 
@@ -5109,6 +5122,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -5496,5 +5510,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Row2;
       private Windows.Forms.Button Cbmt003_Butn;
       private MaxUi.NewPickBtn SaveAttn_PkBt;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit4;
    }
 }

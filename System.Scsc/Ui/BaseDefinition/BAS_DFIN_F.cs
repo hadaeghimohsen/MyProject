@@ -12,6 +12,8 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.IO;
 using System.Globalization;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors.Repository;
 
 namespace System.Scsc.Ui.BaseDefinition
 {
@@ -23,6 +25,7 @@ namespace System.Scsc.Ui.BaseDefinition
       }
 
       private bool requery = false;
+      private bool fetchagine = false;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -60,6 +63,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void RightButns_Click(object sender, EventArgs e)
       {
+         fetchagine = true;
          SwitchButtonsTabPage(sender);
       }
 
@@ -102,8 +106,16 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          else if(Tb_Master.SelectedTab == tp_005)
          {
-            CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
-            CreateCoachMenu();
+            if (fetchagine)
+            {
+               CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+               MtodBs1.DataSource = iScsc.Methods;
+               CreateCoachMenu();
+            }
+            else
+            {
+               CochCbmtInfo();
+            }
          }
          else if(Tb_Master.SelectedTab == tp_006)
          {
@@ -121,6 +133,8 @@ namespace System.Scsc.Ui.BaseDefinition
             }
             CreateClubMenu();
          }
+
+         requery = false;
       }
 
       #region TabPage001
@@ -580,6 +594,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY;
                   ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT;
                   ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
+                  ex.EXPN_STAT = ctgy.CTGY_STAT;
                });
                //MessageBox.Show(this, string.Format("تعداد رکورد ثبت شده {0} می باشد",  expn.Count()));
                iScsc.SubmitChanges();
@@ -798,9 +813,9 @@ namespace System.Scsc.Ui.BaseDefinition
       #region TabPage005
       private void CreateCoachMenu()
       {
-         NameDnrm_Lbl.Text = "";
-         SexType_Lbl.Text = "";
-         BrthDate_Lbl.Text = "";
+         //NameDnrm_Lbl.Text = "";
+         //SexType_Lbl.Text = "";
+         //BrthDate_Lbl.Text = "";
          CoachList_Flp.Controls.Clear();
          CbmtBs1.List.Clear();
          foreach (Data.Fighter coch in CochBs1.List.OfType<Data.Fighter>())
@@ -834,36 +849,47 @@ namespace System.Scsc.Ui.BaseDefinition
          }
       }
 
+      Data.Fighter coch;
       private void CochInfo_Click(object sender, EventArgs e)
       {
-         var coch = ((SimpleButton)sender).Tag as Data.Fighter;
+         coch = ((SimpleButton)sender).Tag as Data.Fighter;
 
-         try
-         {
-            ImageProfile_Pb.ImageProfile = null;
-            MemoryStream mStream = new MemoryStream();
-            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO))).ToArray();
-            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
+         CochCbmtInfo();
+      }
 
-            ImageProfile_Pb.Visible = true;
+      private void CochCbmtInfo()
+      {
+         //try
+         //{
+         //   ImageProfile_Pb.ImageProfile = null;
+         //   MemoryStream mStream = new MemoryStream();
+         //   byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO))).ToArray();
+         //   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+         //   Bitmap bm = new Bitmap(mStream, false);
+         //   mStream.Dispose();
 
-            if (InvokeRequired)
-               Invoke(new Action(() => ImageProfile_Pb.ImageProfile = bm));
-            else
-               ImageProfile_Pb.ImageProfile = bm;
-         }
-         catch {
-            ImageProfile_Pb.ImageProfile = coch.SEX_TYPE_DNRM == "001" ? global::System.Scsc.Properties.Resources.IMAGE_1076 : global::System.Scsc.Properties.Resources.IMAGE_1507;
-         }
+         //   ImageProfile_Pb.Visible = true;
 
-         NameDnrm_Lbl.Text = coch.NAME_DNRM;
-         SexType_Lbl.Text = coch.SEX_TYPE_DNRM == "001" ? "مربی آقایان" : "مربی خانم ها";
-         BrthDate_Lbl.Text = GetPersianDate(coch.BRTH_DATE_DNRM);
+         //   if (InvokeRequired)
+         //      Invoke(new Action(() => ImageProfile_Pb.ImageProfile = bm));
+         //   else
+         //      ImageProfile_Pb.ImageProfile = bm;
+         //}
+         //catch
+         //{
+         //   ImageProfile_Pb.ImageProfile = coch.SEX_TYPE_DNRM == "001" ? global::System.Scsc.Properties.Resources.IMAGE_1076 : global::System.Scsc.Properties.Resources.IMAGE_1507;
+         //}
 
+         //NameDnrm_Lbl.Text = coch.NAME_DNRM;
+         //SexType_Lbl.Text = coch.SEX_TYPE_DNRM == "001" ? "مربی آقایان" : "مربی خانم ها";
+         //BrthDate_Lbl.Text = GetPersianDate(coch.BRTH_DATE_DNRM);
+
+         var cbmt = CbmtBs1.Position;
          CbmtBs1.List.Clear();
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.COCH_FILE_NO == coch.FILE_NO);
+         gridView4.TopRowIndex = cbmt;
+         CbmtBs1.Position = cbmt;
+         
       }
 
       private string GetPersianDate(DateTime? datetime)
@@ -1028,6 +1054,11 @@ namespace System.Scsc.Ui.BaseDefinition
                   )
                );
             requery = true;
+
+            if (Tb_Master.SelectedTab == tp_005)
+               fetchagine = false;
+            else
+               fetchagine = true;
          }
          catch (Exception ex)
          {
@@ -1325,5 +1356,66 @@ namespace System.Scsc.Ui.BaseDefinition
       }
       #endregion
 
+      private void CbmtActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            CbmtGv1.Tag = cbmt.Club;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  cbmt.MTOD_STAT = cbmt.MTOD_STAT == "002" ? "001" : "002";
+                  SaveClubMethod_Butn_Click(null, null);
+                  break;
+               case 1:
+                  SaveClubMethod_Butn_Click(null, null);
+                  break;
+               case 2:
+                  WeekDay_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+
+         }
+      }
+
+      private void MtodActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var mtod = MtodBs1.Current as Data.Method;
+            if (mtod == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  mtod.MTOD_STAT = mtod.MTOD_STAT == "002" ? "001" : "002";
+                  SaveMethod_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
    }
 }

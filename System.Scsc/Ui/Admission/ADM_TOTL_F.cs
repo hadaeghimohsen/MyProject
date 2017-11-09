@@ -814,7 +814,10 @@ namespace System.Scsc.Ui.Admission
          {
             var Rqst = RqstBs3.Current as Data.Request;
             rqstindex = RqstBs3.Position;
-               
+
+            StrtDate_DateTime003.CommitChanges();
+            EndDate_DateTime003.CommitChanges();
+   
             iScsc.UCC_TRQT_P(
                new XElement("Process",
                   new XElement("Request",
@@ -880,12 +883,14 @@ namespace System.Scsc.Ui.Admission
                FIGH_FILE_NOLookUpEdit_EditValueChanged(null, null);
 
                Pn_MbspInfo.Visible = true;
+
+               ReloadSelectedData();
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
-               
+
                //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = true;
 
                RqstBnDelete3.Enabled = RqstBnASav3.Enabled = true;
@@ -893,11 +898,13 @@ namespace System.Scsc.Ui.Admission
                FIGH_FILE_NOLookUpEdit_EditValueChanged(null, null);
 
                Pn_MbspInfo.Visible = true;
+
+               ReloadSelectedData();
             }
             else if (Rqst.RQID == 0)
             {
                Gb_Expense3.Visible = false;
-               
+
                //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = false;
 
                RqstBnDelete3.Enabled = RqstBnASav3.Enabled = false;
@@ -1966,6 +1973,19 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void ReloadSelectedData()
+      {
+         // 1396/08/18 * برای بروز رسانی اطلاعات جدید مشترک * سبک و رسته و کلاس
+         var rqst = RqstBs3.Current as Data.Request;
+         if (rqst == null) return;
+
+         var figh = rqst.Request_Rows.FirstOrDefault().Fighter;
+         MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
+         CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
+         CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
+         CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
       }
    }
 }

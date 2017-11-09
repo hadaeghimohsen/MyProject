@@ -66,6 +66,7 @@
          this.Wkdy006_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.SelectDay_Butn = new DevExpress.XtraEditors.SimpleButton();
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          bANK_BRNC_CODELabel1 = new System.Windows.Forms.Label();
@@ -622,11 +623,36 @@
          // 
          this.DActvBs1.DataSource = typeof(System.Scsc.Data.D_ACTV);
          // 
+         // SelectDay_Butn
+         // 
+         this.SelectDay_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SelectDay_Butn.Appearance.BackColor = System.Drawing.Color.Orange;
+         this.SelectDay_Butn.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.SelectDay_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SelectDay_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.SelectDay_Butn.Appearance.Options.UseBackColor = true;
+         this.SelectDay_Butn.Appearance.Options.UseBorderColor = true;
+         this.SelectDay_Butn.Appearance.Options.UseFont = true;
+         this.SelectDay_Butn.Appearance.Options.UseForeColor = true;
+         this.SelectDay_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.SelectDay_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SelectDay_Butn.Location = new System.Drawing.Point(434, 316);
+         this.SelectDay_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SelectDay_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SelectDay_Butn.Name = "SelectDay_Butn";
+         this.SelectDay_Butn.Size = new System.Drawing.Size(91, 34);
+         this.SelectDay_Butn.TabIndex = 58;
+         this.SelectDay_Butn.Tag = "007";
+         this.SelectDay_Butn.Text = "انتخاب ایام";
+         this.SelectDay_Butn.ToolTip = "بازگشت";
+         this.SelectDay_Butn.Click += new System.EventHandler(this.SelectDay_Butn_Click);
+         // 
          // BAS_WKDY_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.Controls.Add(this.SelectDay_Butn);
          this.Controls.Add(this.WeekDays_Flp);
          this.Controls.Add(cASH_STATLabel);
          this.Controls.Add(tYPELabel);
@@ -691,6 +717,7 @@
       private DevExpress.XtraEditors.SimpleButton Wkdy006_Butn;
       private Windows.Forms.BindingSource CbmtwkdyBs1;
       private Windows.Forms.BindingSource DActvBs1;
+      private DevExpress.XtraEditors.SimpleButton SelectDay_Butn;
 
    }
 }

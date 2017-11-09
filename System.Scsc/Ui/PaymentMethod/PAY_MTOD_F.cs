@@ -610,14 +610,55 @@ namespace System.Scsc.Ui.PaymentMethod
          {
             if (Convert.ToInt32(Te_TotlRemnAmnt.EditValue) == 0) return;
 
-            PydsAdd_Butn_Click(null, null);
+            if (!CalcDiffAmnt_Cb.Checked)
+            {
+               PydsAdd_Butn_Click(null, null);
 
-            var pyds = PydsBs2.Current as Data.Payment_Discount;
-            pyds.AMNT = Convert.ToInt32(Te_TotlRemnAmnt.EditValue);
-            pyds.AMNT_TYPE = "004";
-            pyds.PYDS_DESC = "کسر مبلغ مابه التفاوت شهریه";
+               var pyds = PydsBs2.Current as Data.Payment_Discount;
+               pyds.AMNT = Convert.ToInt32(Te_TotlRemnAmnt.EditValue);
+               pyds.AMNT_TYPE = "004";
+               pyds.PYDS_DESC = "کسر مبلغ مابه التفاوت شهریه";
 
-            PydsBs2.EndEdit();
+               PydsBs2.EndEdit();
+            }
+            else
+            {
+               var pymt = PymtBs1.Current as Data.Payment;
+               if (pymt == null) return;
+
+               if(pymt.Request.RQTP_CODE == "009")
+               {
+                  // 1396/08/18 * اگر درخواست تمدید باشد و فرد بخواهد از کلاسی به کلاس دیگر تغییر جلسه بدهد می توانیم محاسبه مبلغ مابه التفاوت را مشخص کنیم
+                  var rqstchng = iScsc.VF_Request_Changing(pymt.Request.Request_Rows.FirstOrDefault().FIGH_FILE_NO).Where(r => r.RQTT_CODE != "004" && (r.RQTP_CODE == "001" || r.RQTP_CODE == "009")).OrderByDescending(r => r.SAVE_DATE).FirstOrDefault();
+                  if (rqstchng == null) return;
+
+                  var sumpric = rqstchng.TOTL_AMNT;
+                  var sumrcptpric = rqstchng.TOTL_RCPT_AMNT;
+                  var sumdsctpric = rqstchng.TOTL_DSCT_AMNT;
+
+                  if(rqstchng.RQTP_CODE == "001")
+                     rqstchng = iScsc.VF_Request_Changing(pymt.Request.Request_Rows.FirstOrDefault().FIGH_FILE_NO).FirstOrDefault(r => r.RQST_RQID == rqstchng.RQID);
+
+                  if (
+                     !iScsc.Member_Ships.Any(
+                        m => m.RQRO_RQST_RQID == rqstchng.RQID &&
+                             m.RECT_CODE == "004" &&
+                             m.STRT_DATE.Value.Date == iScsc.Member_Ships.FirstOrDefault(mt => mt.RQRO_RQST_RQID == pymt.RQST_RQID && mt.RECT_CODE == "001").STRT_DATE.Value.Date
+                     )
+                  ) return;
+
+                  if (sumrcptpric == 0) return;
+
+                  PydsAdd_Butn_Click(null, null);
+
+                  var pyds = PydsBs2.Current as Data.Payment_Discount;
+                  pyds.AMNT = Convert.ToInt32(sumrcptpric);
+                  pyds.AMNT_TYPE = "004";
+                  pyds.PYDS_DESC = "کسر مبلغ مابه التفاوت شهریه پرداختی از قبل بابت جابه جایی کلاس";
+
+                  PydsBs2.EndEdit();
+               }
+            }
 
             PydsSave_Butn_Click(null, null);
             requery = true;

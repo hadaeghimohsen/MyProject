@@ -255,6 +255,8 @@ namespace System.Scsc.Ui.OtherIncome
          DCyclBs1.DataSource = iScsc.D_CYCLs;
          //RQTT_CODE_LookUpEdit.EditValue = "001";
          DYsnoBs1.DataSource = iScsc.D_YSNOs;
+         DDytpBs.DataSource = iScsc.D_DYTPs;
+         CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
 
          Execute_Query();         
          #endregion

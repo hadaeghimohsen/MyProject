@@ -215,6 +215,9 @@ namespace System.Scsc.Ui.PaymentMethod
          PymtBs1.DataSource = job.Input as Data.Payment;
          var p = PymtBs1.Current as Data.Payment;
 
+         // 1396/08/19 * اگر درخواست به غسر از تمدید بود گزینه های تخفیف مبلغ مابه التفاوت باید خاموش باشد
+         SaveDifferenceAmnt_Butn.Enabled = CalcDiffAmnt_Cb.Enabled = p.Request.RQTP_CODE == "009";
+
          CashBs1.DataSource = iScsc.Cashes;
          ExpnBs3.DataSource = 
             iScsc.Expenses.Where(
@@ -243,6 +246,16 @@ namespace System.Scsc.Ui.PaymentMethod
             dEBT_DNRMLabel.Text = "مبلغ بستانکاری :";
             GB_DebtStat.Text = "مشترک بستانکار می باشد، می توانید از تخفیف سپرده استفاده کنید";
             AddDebtDiscount_Butn002.Enabled = true;
+         }
+
+         var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+         if(regl.AMNT_TYPE == "001")
+         {
+            AmntType1_Lb.Text = AmntType2_Lb.Text = AmntType3_Lb.Text = AmntType4_Lb.Text = AmntType5_Lb.Text = AmntType6_Lb.Text = "( ریال )";
+         }
+         else
+         {
+            AmntType1_Lb.Text = AmntType2_Lb.Text = AmntType3_Lb.Text = AmntType4_Lb.Text = AmntType5_Lb.Text = AmntType6_Lb.Text = "( تومان )";
          }
 
          Execute_Query();

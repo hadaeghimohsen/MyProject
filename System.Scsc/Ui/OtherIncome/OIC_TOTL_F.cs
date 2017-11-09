@@ -487,6 +487,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
+            gridView2.PostEditor();
             switch (e.Button.ButtonType)
             {
                case DevExpress.XtraEditors.NavigatorButtonType.Append:
@@ -531,7 +532,8 @@ namespace System.Scsc.Ui.OtherIncome
                                        new XAttribute("expnpric", pd.EXPN_PRIC),
                                        new XAttribute("pydtdesc", pd.PYDT_DESC ?? ""),
                                        new XAttribute("qnty", pd.QNTY ?? 1),
-                                       new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0)
+                                       new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
+                                       new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
                                     )
                                  )                                 
                               )
@@ -553,7 +555,8 @@ namespace System.Scsc.Ui.OtherIncome
                                     new XAttribute("expnpric", pd.EXPN_PRIC),
                                     new XAttribute("pydtdesc", pd.PYDT_DESC),
                                     new XAttribute("qnty", pd.QNTY ?? 1),
-                                    new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0)
+                                    new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
+                                    new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
                                  )
                               )
                            )

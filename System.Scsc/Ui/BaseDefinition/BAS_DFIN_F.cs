@@ -121,8 +121,8 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             int cbmt = CbmtBs1.Position;
             ClubBs1.DataSource = iScsc.Clubs;
-            CochBs2.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
-            MtodBs1.DataSource = iScsc.Methods;
+            CochBs2.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(c.ACTV_TAG_DNRM) >= 101);
+            MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
             CbmtBs1.List.Clear();
             if (CbmtGv1.Tag != null)
             {
@@ -951,6 +951,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          var club = ((SimpleButton)sender).Tag as Data.Club;
          CbmtGv1.Tag = club;
+         ClubMethod_Splt.Tag = club;
 
          CbmtBs1.List.Clear();
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.CLUB_CODE == club.CODE);
@@ -965,6 +966,7 @@ namespace System.Scsc.Ui.BaseDefinition
          CbmtBs1.AddNew();
 
          var newcbmt = CbmtBs1.Current as Data.Club_Method;
+         newcbmt.CLUB_CODE = (CbmtGv1.Tag as Data.Club).CODE;
          if(oldcbmt == null)
          {
             newcbmt.DFLT_STAT = "001";
@@ -996,7 +998,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cbmt == null) { return; }
 
             var club = CbmtGv1.Tag as Data.Club;
-            if (club == null) return;
+            if (club == null) { club = ClubMethod_Splt.Tag as Data.Club; if (club == null) { MessageBox.Show("Object is null"); return; } }
 
             if (cbmt.COCH_FILE_NO == null) return;
             if (cbmt.MTOD_CODE == null) return;
@@ -1363,7 +1365,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var cbmt = CbmtBs1.Current as Data.Club_Method;
             if (cbmt == null) return;
 
-            CbmtGv1.Tag = cbmt.Club;
+            //CbmtGv1.Tag = cbmt.Club;
 
             switch (e.Button.Index)
             {

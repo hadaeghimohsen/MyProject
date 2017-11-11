@@ -201,7 +201,7 @@ namespace System.Scsc.Ui.BaseDefinition
          SexType_Lov.EditValue = Mtod_Lov.EditValue = null;
 
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
-         MtodBs1.DataSource = iScsc.Methods;
+         MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
 
          job.Status = StatusType.Successful;
       }

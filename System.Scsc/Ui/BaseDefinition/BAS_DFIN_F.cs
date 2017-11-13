@@ -119,19 +119,24 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          else if(Tb_Master.SelectedTab == tp_006)
          {
-            int cbmt = CbmtBs1.Position;
+            int club = ClubBs1.Position;
+            int cbmt = CbmtBs2.Position;
             ClubBs1.DataSource = iScsc.Clubs;
             CochBs2.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(c.ACTV_TAG_DNRM) >= 101);
             MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
-            CbmtBs1.List.Clear();
-            if (CbmtGv1.Tag != null)
-            {
+            ClubBs1.Position = club;
+            Cbmt_Gv.TopRowIndex = cbmt;
+            CbmtBs2.Position = cbmt;
+
+            //CbmtBs1.List.Clear();
+            //if (CbmtGv1.Tag != null)
+            //{
                
-               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cb => cb.CLUB_CODE == ((Data.Club)CbmtGv1.Tag).CODE);
-               Cbmt_Gv.TopRowIndex = cbmt;
-               CbmtBs1.Position = cbmt;
-            }
-            CreateClubMenu();
+            //   CbmtBs1.DataSource = iScsc.Club_Methods.Where(cb => cb.CLUB_CODE == ((Data.Club)CbmtGv1.Tag).CODE);
+            //   Cbmt_Gv.TopRowIndex = cbmt;
+            //   CbmtBs1.Position = cbmt;
+            //}
+            //CreateClubMenu();
          }
 
          requery = false;
@@ -914,7 +919,7 @@ namespace System.Scsc.Ui.BaseDefinition
       #region TabPage006
       private void CreateClubMenu()
       {
-         Club_Flp.Controls.Clear();
+         //Club_Flp.Controls.Clear();
 
          foreach (Data.Club club in ClubBs1.List.OfType<Data.Club>())
          {
@@ -943,7 +948,7 @@ namespace System.Scsc.Ui.BaseDefinition
             simplebutton.Tag = club;
             simplebutton.Text = string.Format("<b>{0}</b><br>", club.NAME);
             simplebutton.Click += ClubInfo_Click;
-            Club_Flp.Controls.Add(simplebutton);
+            //Club_Flp.Controls.Add(simplebutton);
          }
       }
 
@@ -961,12 +966,15 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddClubMethod_Butn_Click(object sender, EventArgs e)
       {
-         var oldcbmt = CbmtBs1.Current as Data.Club_Method;
+         var club = ClubBs1.Current as Data.Club;
+         var oldcbmt = CbmtBs2.Current as Data.Club_Method;
 
-         CbmtBs1.AddNew();
+         CbmtBs2.AddNew();
 
-         var newcbmt = CbmtBs1.Current as Data.Club_Method;
-         newcbmt.CLUB_CODE = (CbmtGv1.Tag as Data.Club).CODE;
+         var newcbmt = CbmtBs2.Current as Data.Club_Method;
+         
+         newcbmt.CLUB_CODE = club.CODE;
+         
          if(oldcbmt == null)
          {
             newcbmt.DFLT_STAT = "001";
@@ -994,11 +1002,11 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
             if (cbmt == null) { return; }
 
-            var club = CbmtGv1.Tag as Data.Club;
-            if (club == null) { club = ClubMethod_Splt.Tag as Data.Club; if (club == null) { MessageBox.Show("Object is null"); return; } }
+            var club = ClubBs1.Current as Data.Club;
+            if (cbmt.CLUB_CODE == null) { cbmt.CLUB_CODE = club.CODE; }
 
             if (cbmt.COCH_FILE_NO == null) return;
             if (cbmt.MTOD_CODE == null) return;
@@ -1250,7 +1258,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
             if (cbmt == null) return;
             if (cbmt.CRET_BY == null) { MessageBox.Show("لطفا اطلاعات برنامه کلاسی رو ذخیره کنید"); return; }
 
@@ -1362,7 +1370,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
             if (cbmt == null) return;
 
             //CbmtGv1.Tag = cbmt.Club;

@@ -2330,39 +2330,6 @@
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId70" Name="dbo.INS_ODRT_P" Method="INS_ODRT_P">
-    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Ordr_Desc" Parameter="ordr_Desc" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Numb" Parameter="numb" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Base_Ussd_Code" Parameter="base_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Sub_Ussd_Code" Parameter="sub_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Ordr_Cmnt" Parameter="ordr_Cmnt" Type="System.String" DbType="NVarChar(4000)" />
-    <Parameter Name="Ordr_Imag" Parameter="ordr_Imag" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Parameter Name="Imag_Path" Parameter="imag_Path" Type="System.String" DbType="VarChar(4000)" />
-    <Parameter Name="Mime_Type" Parameter="mime_Type" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Ghit_Code" Parameter="ghit_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ghit_Min_Date" Parameter="ghit_Min_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId71" Name="dbo.UPD_ODRT_P" Method="UPD_ODRT_P">
-    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Ordr_Desc" Parameter="ordr_Desc" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Numb" Parameter="numb" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Base_Ussd_Code" Parameter="base_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Sub_Ussd_Code" Parameter="sub_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Ordr_Cmnt" Parameter="ordr_Cmnt" Type="System.String" DbType="NVarChar(4000)" />
-    <Parameter Name="Ordr_Imag" Parameter="ordr_Imag" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Parameter Name="Imag_Path" Parameter="imag_Path" Type="System.String" DbType="VarChar(4000)" />
-    <Parameter Name="Mime_Type" Parameter="mime_Type" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Ghit_Code" Parameter="ghit_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ghit_Min_Date" Parameter="ghit_Min_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Id="FunctionId84" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -2460,6 +2427,39 @@
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Expn_Amnt" Parameter="expn_Amnt" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Extr_Prct" Parameter="extr_Prct" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId70" Name="dbo.INS_ODRT_P" Method="INS_ODRT_P">
+    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ordr_Desc" Parameter="ordr_Desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Numb" Parameter="numb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Base_Ussd_Code" Parameter="base_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Sub_Ussd_Code" Parameter="sub_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Ordr_Cmnt" Parameter="ordr_Cmnt" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Ordr_Imag" Parameter="ordr_Imag" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="Imag_Path" Parameter="imag_Path" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Mime_Type" Parameter="mime_Type" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Ghit_Code" Parameter="ghit_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ghit_Min_Date" Parameter="ghit_Min_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId71" Name="dbo.UPD_ODRT_P" Method="UPD_ODRT_P">
+    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ordr_Desc" Parameter="ordr_Desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Numb" Parameter="numb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Base_Ussd_Code" Parameter="base_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Sub_Ussd_Code" Parameter="sub_Ussd_Code" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Ordr_Cmnt" Parameter="ordr_Cmnt" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Ordr_Imag" Parameter="ordr_Imag" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="Imag_Path" Parameter="imag_Path" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Mime_Type" Parameter="mime_Type" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Ghit_Code" Parameter="ghit_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ghit_Min_Date" Parameter="ghit_Min_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

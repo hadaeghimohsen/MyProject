@@ -402,10 +402,30 @@
          this.UpdateClub_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DeleteClub_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ClubMethod_Splt = new DevExpress.XtraEditors.SplitContainerControl();
-         this.Club_Flp = new System.Windows.Forms.FlowLayoutPanel();
-         this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+         this.gridControl9 = new DevExpress.XtraGrid.GridControl();
+         this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colREGN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNAME5 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPOST_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colEMAL_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colWEB_SITE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCORD_X = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCORD_Y = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTELL_PHON = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCELL_PHON = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colClub1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CbmtGv1 = new DevExpress.XtraGrid.GridControl();
+         this.CbmtBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.Cbmt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -456,7 +476,6 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.Coach_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Club_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          sHBA_ACNTLabel = new System.Windows.Forms.Label();
@@ -581,8 +600,11 @@
          this.tp_006.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ClubMethod_Splt)).BeginInit();
          this.ClubMethod_Splt.SuspendLayout();
-         this.Club_Flp.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtGv1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cbmt_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
@@ -592,7 +614,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
          this.panel12.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // cASH_STATLabel
@@ -5318,81 +5339,177 @@
          this.ClubMethod_Splt.Horizontal = false;
          this.ClubMethod_Splt.Location = new System.Drawing.Point(14, 116);
          this.ClubMethod_Splt.Name = "ClubMethod_Splt";
-         this.ClubMethod_Splt.Panel1.Controls.Add(this.Club_Flp);
+         this.ClubMethod_Splt.Panel1.Controls.Add(this.gridControl9);
          this.ClubMethod_Splt.Panel1.Text = "Panel1";
          this.ClubMethod_Splt.Panel2.Controls.Add(this.CbmtGv1);
          this.ClubMethod_Splt.Panel2.Controls.Add(this.textEdit3);
          this.ClubMethod_Splt.Panel2.Controls.Add(this.panel12);
          this.ClubMethod_Splt.Panel2.Text = "Panel2";
          this.ClubMethod_Splt.Size = new System.Drawing.Size(904, 510);
-         this.ClubMethod_Splt.SplitterPosition = 66;
+         this.ClubMethod_Splt.SplitterPosition = 84;
          this.ClubMethod_Splt.TabIndex = 21;
          this.ClubMethod_Splt.Text = "splitContainerControl10";
          // 
-         // Club_Flp
+         // gridControl9
          // 
-         this.Club_Flp.Controls.Add(this.simpleButton6);
-         this.Club_Flp.Controls.Add(this.simpleButton7);
-         this.Club_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Club_Flp.Location = new System.Drawing.Point(0, 0);
-         this.Club_Flp.Name = "Club_Flp";
-         this.Club_Flp.Size = new System.Drawing.Size(904, 66);
-         this.Club_Flp.TabIndex = 19;
+         this.gridControl9.DataSource = this.ClubBs1;
+         this.gridControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl9.Location = new System.Drawing.Point(0, 0);
+         this.gridControl9.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.gridControl9.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl9.MainView = this.gridView5;
+         this.gridControl9.Name = "gridControl9";
+         this.gridControl9.Size = new System.Drawing.Size(904, 84);
+         this.gridControl9.TabIndex = 11;
+         this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
          // 
-         // simpleButton6
+         // ClubBs1
          // 
-         this.simpleButton6.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
-         this.simpleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton6.Appearance.BackColor = System.Drawing.Color.SkyBlue;
-         this.simpleButton6.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton6.Appearance.Options.UseBackColor = true;
-         this.simpleButton6.Appearance.Options.UseFont = true;
-         this.simpleButton6.Appearance.Options.UseForeColor = true;
-         this.simpleButton6.Appearance.Options.UseTextOptions = true;
-         this.simpleButton6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.simpleButton6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.simpleButton6.Cursor = System.Windows.Forms.Cursors.Default;
-         this.simpleButton6.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
-         this.simpleButton6.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton6.Location = new System.Drawing.Point(732, 3);
-         this.simpleButton6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton6.Name = "simpleButton6";
-         this.simpleButton6.Size = new System.Drawing.Size(169, 57);
-         this.simpleButton6.TabIndex = 3;
-         this.simpleButton6.Tag = "1";
-         this.simpleButton6.Text = "<b>شبقت خانم ها</b><br>\r\n";
+         this.ClubBs1.DataSource = typeof(System.Scsc.Data.Club);
          // 
-         // simpleButton7
+         // gridView5
          // 
-         this.simpleButton7.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
-         this.simpleButton7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton7.Appearance.BackColor = System.Drawing.Color.SkyBlue;
-         this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton7.Appearance.Options.UseBackColor = true;
-         this.simpleButton7.Appearance.Options.UseFont = true;
-         this.simpleButton7.Appearance.Options.UseForeColor = true;
-         this.simpleButton7.Appearance.Options.UseTextOptions = true;
-         this.simpleButton7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.simpleButton7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.simpleButton7.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
-         this.simpleButton7.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton7.Location = new System.Drawing.Point(557, 3);
-         this.simpleButton7.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton7.Name = "simpleButton7";
-         this.simpleButton7.Size = new System.Drawing.Size(169, 57);
-         this.simpleButton7.TabIndex = 4;
-         this.simpleButton7.Tag = "1";
-         this.simpleButton7.Text = "<b>شبقت آقایان</b><br>";
+         this.gridView5.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView5.Appearance.FocusedRow.Options.UseFont = true;
+         this.gridView5.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView5.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView5.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView5.Appearance.Row.Options.UseFont = true;
+         this.gridView5.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView5.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colREGN_PRVN_CNTY_CODE,
+            this.colREGN_PRVN_CODE,
+            this.colREGN_CODE1,
+            this.colCODE7,
+            this.colNAME5,
+            this.colPOST_ADRS,
+            this.colEMAL_ADRS,
+            this.colWEB_SITE,
+            this.colCORD_X,
+            this.colCORD_Y,
+            this.colTELL_PHON,
+            this.colCELL_PHON,
+            this.colCLUB_CODE,
+            this.colCRET_BY7,
+            this.colCRET_DATE7,
+            this.colMDFY_BY7,
+            this.colMDFY_DATE7,
+            this.colClub1,
+            this.colRegion});
+         this.gridView5.GridControl = this.gridControl9;
+         this.gridView5.Name = "gridView5";
+         this.gridView5.OptionsBehavior.Editable = false;
+         this.gridView5.OptionsBehavior.ReadOnly = true;
+         this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView5.OptionsView.ShowDetailButtons = false;
+         this.gridView5.OptionsView.ShowGroupPanel = false;
+         this.gridView5.OptionsView.ShowIndicator = false;
+         // 
+         // colREGN_PRVN_CNTY_CODE
+         // 
+         this.colREGN_PRVN_CNTY_CODE.FieldName = "REGN_PRVN_CNTY_CODE";
+         this.colREGN_PRVN_CNTY_CODE.Name = "colREGN_PRVN_CNTY_CODE";
+         // 
+         // colREGN_PRVN_CODE
+         // 
+         this.colREGN_PRVN_CODE.FieldName = "REGN_PRVN_CODE";
+         this.colREGN_PRVN_CODE.Name = "colREGN_PRVN_CODE";
+         // 
+         // colREGN_CODE1
+         // 
+         this.colREGN_CODE1.FieldName = "REGN_CODE";
+         this.colREGN_CODE1.Name = "colREGN_CODE1";
+         // 
+         // colCODE7
+         // 
+         this.colCODE7.FieldName = "CODE";
+         this.colCODE7.Name = "colCODE7";
+         // 
+         // colNAME5
+         // 
+         this.colNAME5.Caption = "شیفت باشگاه";
+         this.colNAME5.FieldName = "NAME";
+         this.colNAME5.Name = "colNAME5";
+         this.colNAME5.Visible = true;
+         this.colNAME5.VisibleIndex = 0;
+         // 
+         // colPOST_ADRS
+         // 
+         this.colPOST_ADRS.FieldName = "POST_ADRS";
+         this.colPOST_ADRS.Name = "colPOST_ADRS";
+         // 
+         // colEMAL_ADRS
+         // 
+         this.colEMAL_ADRS.FieldName = "EMAL_ADRS";
+         this.colEMAL_ADRS.Name = "colEMAL_ADRS";
+         // 
+         // colWEB_SITE
+         // 
+         this.colWEB_SITE.FieldName = "WEB_SITE";
+         this.colWEB_SITE.Name = "colWEB_SITE";
+         // 
+         // colCORD_X
+         // 
+         this.colCORD_X.FieldName = "CORD_X";
+         this.colCORD_X.Name = "colCORD_X";
+         // 
+         // colCORD_Y
+         // 
+         this.colCORD_Y.FieldName = "CORD_Y";
+         this.colCORD_Y.Name = "colCORD_Y";
+         // 
+         // colTELL_PHON
+         // 
+         this.colTELL_PHON.FieldName = "TELL_PHON";
+         this.colTELL_PHON.Name = "colTELL_PHON";
+         // 
+         // colCELL_PHON
+         // 
+         this.colCELL_PHON.FieldName = "CELL_PHON";
+         this.colCELL_PHON.Name = "colCELL_PHON";
+         // 
+         // colCLUB_CODE
+         // 
+         this.colCLUB_CODE.FieldName = "CLUB_CODE";
+         this.colCLUB_CODE.Name = "colCLUB_CODE";
+         // 
+         // colCRET_BY7
+         // 
+         this.colCRET_BY7.FieldName = "CRET_BY";
+         this.colCRET_BY7.Name = "colCRET_BY7";
+         // 
+         // colCRET_DATE7
+         // 
+         this.colCRET_DATE7.FieldName = "CRET_DATE";
+         this.colCRET_DATE7.Name = "colCRET_DATE7";
+         // 
+         // colMDFY_BY7
+         // 
+         this.colMDFY_BY7.FieldName = "MDFY_BY";
+         this.colMDFY_BY7.Name = "colMDFY_BY7";
+         // 
+         // colMDFY_DATE7
+         // 
+         this.colMDFY_DATE7.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE7.Name = "colMDFY_DATE7";
+         // 
+         // colClub1
+         // 
+         this.colClub1.FieldName = "Club1";
+         this.colClub1.Name = "colClub1";
+         // 
+         // colRegion
+         // 
+         this.colRegion.FieldName = "Region";
+         this.colRegion.Name = "colRegion";
          // 
          // CbmtGv1
          // 
-         this.CbmtGv1.DataSource = this.CbmtBs1;
+         this.CbmtGv1.DataSource = this.CbmtBs2;
          this.CbmtGv1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.CbmtGv1.Location = new System.Drawing.Point(0, 0);
          this.CbmtGv1.LookAndFeel.SkinName = "Office 2013 Dark Gray";
@@ -5406,10 +5523,15 @@
             this.repositoryItemLookUpEdit6,
             this.repositoryItemLookUpEdit7,
             this.CbmtActn_Butn});
-         this.CbmtGv1.Size = new System.Drawing.Size(904, 357);
+         this.CbmtGv1.Size = new System.Drawing.Size(904, 339);
          this.CbmtGv1.TabIndex = 62;
          this.CbmtGv1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Cbmt_Gv});
+         // 
+         // CbmtBs2
+         // 
+         this.CbmtBs2.DataMember = "Club_Methods";
+         this.CbmtBs2.DataSource = this.ClubBs1;
          // 
          // Cbmt_Gv
          // 
@@ -5464,6 +5586,7 @@
             styleFormatCondition10});
          this.Cbmt_Gv.GridControl = this.CbmtGv1;
          this.Cbmt_Gv.Name = "Cbmt_Gv";
+         this.Cbmt_Gv.OptionsFind.AlwaysVisible = true;
          this.Cbmt_Gv.OptionsFind.FindDelay = 100;
          this.Cbmt_Gv.OptionsView.ShowDetailButtons = false;
          this.Cbmt_Gv.OptionsView.ShowGroupPanel = false;
@@ -5806,7 +5929,7 @@
          this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CbmtBs1, "CBMT_DESC", true));
          this.textEdit3.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.textEdit3.EditValue = "";
-         this.textEdit3.Location = new System.Drawing.Point(0, 357);
+         this.textEdit3.Location = new System.Drawing.Point(0, 339);
          this.textEdit3.Name = "textEdit3";
          this.textEdit3.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
          this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -5841,7 +5964,7 @@
          this.panel12.Controls.Add(this.PrintDefaultClubMethod_Butn);
          this.panel12.Controls.Add(this.AddClubMethod_Butn);
          this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.panel12.Location = new System.Drawing.Point(0, 391);
+         this.panel12.Location = new System.Drawing.Point(0, 373);
          this.panel12.Name = "panel12";
          this.panel12.Size = new System.Drawing.Size(904, 48);
          this.panel12.TabIndex = 63;
@@ -6239,10 +6362,6 @@
          this.Club_Butn.Text = "باشگاه و شیفت های باشگاه";
          this.Club_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // ClubBs1
-         // 
-         this.ClubBs1.DataSource = typeof(System.Scsc.Data.Club);
-         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6361,8 +6480,11 @@
          this.tp_006.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ClubMethod_Splt)).EndInit();
          this.ClubMethod_Splt.ResumeLayout(false);
-         this.Club_Flp.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtGv1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cbmt_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
@@ -6373,7 +6495,6 @@
          this.panel12.ResumeLayout(false);
          this.panel12.PerformLayout();
          this.flowLayoutPanel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -6609,9 +6730,6 @@
       private DevExpress.XtraEditors.SimpleButton AddClub_Butn;
       private DevExpress.XtraEditors.LabelControl labelControl16;
       private DevExpress.XtraEditors.SplitContainerControl ClubMethod_Splt;
-      private Windows.Forms.FlowLayoutPanel Club_Flp;
-      private DevExpress.XtraEditors.SimpleButton simpleButton6;
-      private DevExpress.XtraEditors.SimpleButton simpleButton7;
       private DevExpress.XtraGrid.GridControl CbmtGv1;
       private DevExpress.XtraGrid.Views.Grid.GridView Cbmt_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
@@ -6750,6 +6868,28 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton3;
       private DevExpress.XtraEditors.SimpleButton simpleButton2;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit MtodActn_Butn;
+      private DevExpress.XtraGrid.GridControl gridControl9;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE1;
+      private DevExpress.XtraGrid.Columns.GridColumn colCODE7;
+      private DevExpress.XtraGrid.Columns.GridColumn colNAME5;
+      private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS;
+      private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS;
+      private DevExpress.XtraGrid.Columns.GridColumn colWEB_SITE;
+      private DevExpress.XtraGrid.Columns.GridColumn colCORD_X;
+      private DevExpress.XtraGrid.Columns.GridColumn colCORD_Y;
+      private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON;
+      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON;
+      private DevExpress.XtraGrid.Columns.GridColumn colCLUB_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY7;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE7;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY7;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE7;
+      private DevExpress.XtraGrid.Columns.GridColumn colClub1;
+      private DevExpress.XtraGrid.Columns.GridColumn colRegion;
+      private Windows.Forms.BindingSource CbmtBs2;
 
    }
 }

@@ -701,6 +701,32 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             // بررسی اینکه آیا از فایل های ارسال شده فایلی هست که دانلود نشده و در جدول مسیر آن وجود نداشته باشد
             if (ordr.Order_Details.Any(od => (od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004") && (od.IMAG_PATH == null || string.IsNullOrWhiteSpace(od.IMAG_PATH))) && MessageBox.Show(this, "برای تمامی فایل های نامه دانلود صورت نگرفته یا اینکه مسیر آن وجود ندارد!! آیا مراحل ارسال نامه به کارتابل انجام پذیرد؟", "عدم وجود فایل نامه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
+            if(ordr.Service_Robot.REAL_FRST_NAME == null || ordr.Service_Robot.REAL_LAST_NAME == null || ordr.Service_Robot.OTHR_CELL_PHON == null || ordr.Service_Robot.COMP_NAME == null || ordr.Service_Robot.OTHR_SERV_ADDR == null)
+            {
+               MessageBox.Show("تمامی اطلاعات مشتری وارد نشده لطفا اطلاعاتی که با رنگ قرمز مشخص شده را برای مشتری تکمیل کنید");
+               var srbt = (OrdrBs.Current as Data.Order).Service_Robot;
+               if (srbt == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 20 /* Execue Srbt_Info_F */),
+                        new Job(SendType.SelfToUserInterface, "SRBT_INFO_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("Service_Robot",
+                                 new XAttribute("servfileno", srbt.SERV_FILE_NO),
+                                 new XAttribute("roborbid", srbt.ROBO_RBID)
+                              )
+                        }
+                     }
+                  )
+               );
+
+               return;
+            }
+
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();
             //postParameters.Add("CustomerMobile", "2147483647");
@@ -711,6 +737,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             postParameters.Add("MailDate", GetPersianDate((DateTime)ordr.STRT_DATE));
             postParameters.Add("MailNo", ordr.CODE);
             postParameters.Add("MailText", string.Join("\n\r*", ordr.Order_Details.Where(od => od.ELMN_TYPE == "001").Select(od => od.ORDR_DESC)));
+            postParameters.Add("RealFirstName", ordr.Service_Robot.REAL_FRST_NAME);
+            postParameters.Add("RealLastName", ordr.Service_Robot.REAL_LAST_NAME);
+            postParameters.Add("CompanyName", ordr.Service_Robot.COMP_NAME);
+            postParameters.Add("CellPhone", ordr.Service_Robot.OTHR_CELL_PHON);
+            postParameters.Add("CustomerAddress", ordr.Service_Robot.OTHR_SERV_ADDR);            
 
             int i = 0;
             ordr.Order_Details.Where(od => od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004").ToList().ForEach(
@@ -734,7 +765,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             );
 
             // Create request and receive response
-            string postURL = /*ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
+            string postURL = ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
             string userAgent = "Someone";
             HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(postURL, userAgent, postParameters);
 
@@ -743,6 +774,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             string fullResponse = responseReader.ReadToEnd();
             webResponse.Close();
             ordr.CRTB_SEND_STAT = "002";
+            MessageBox.Show(fullResponse);
             MessageBox.Show("عملیات ارسال با موفقیت انجام شد");
             iRoboTech.SubmitChanges();
             requery = true;
@@ -782,6 +814,29 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void ServProfilePhoto_Butn_Click(object sender, EventArgs e)
+      {
+         var srbt = (OrdrBs.Current as Data.Order).Service_Robot;
+         if (srbt == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 20 /* Execue Srbt_Info_F */),
+                  new Job(SendType.SelfToUserInterface, "SRBT_INFO_F", 10 /* Execute Actn_CalF_P */)
+                  {
+                     Input = 
+                        new XElement("Service_Robot",
+                           new XAttribute("servfileno", srbt.SERV_FILE_NO),
+                           new XAttribute("roborbid", srbt.ROBO_RBID)
+                        )
+                  }
+               }
+            )
+         );         
       }
    }
 

@@ -620,10 +620,10 @@
          // 
          cASH_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cASH_STATLabel.AutoSize = true;
-         cASH_STATLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         cASH_STATLabel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          cASH_STATLabel.Location = new System.Drawing.Point(794, 109);
          cASH_STATLabel.Name = "cASH_STATLabel";
-         cASH_STATLabel.Size = new System.Drawing.Size(96, 28);
+         cASH_STATLabel.Size = new System.Drawing.Size(110, 26);
          cASH_STATLabel.TabIndex = 52;
          cASH_STATLabel.Text = "وضعیت حساب :";
          // 
@@ -631,10 +631,10 @@
          // 
          tYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          tYPELabel.AutoSize = true;
-         tYPELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         tYPELabel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          tYPELabel.Location = new System.Drawing.Point(794, 63);
          tYPELabel.Name = "tYPELabel";
-         tYPELabel.Size = new System.Drawing.Size(74, 28);
+         tYPELabel.Size = new System.Drawing.Size(86, 26);
          tYPELabel.TabIndex = 50;
          tYPELabel.Text = "نوع حساب :";
          // 
@@ -642,10 +642,10 @@
          // 
          sHBA_ACNTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sHBA_ACNTLabel.AutoSize = true;
-         sHBA_ACNTLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         sHBA_ACNTLabel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          sHBA_ACNTLabel.Location = new System.Drawing.Point(485, 201);
          sHBA_ACNTLabel.Name = "sHBA_ACNTLabel";
-         sHBA_ACNTLabel.Size = new System.Drawing.Size(53, 28);
+         sHBA_ACNTLabel.Size = new System.Drawing.Size(59, 26);
          sHBA_ACNTLabel.TabIndex = 47;
          sHBA_ACNTLabel.Text = "کد شبا :";
          // 
@@ -653,10 +653,10 @@
          // 
          bANK_BRNC_CODELabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          bANK_BRNC_CODELabel1.AutoSize = true;
-         bANK_BRNC_CODELabel1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         bANK_BRNC_CODELabel1.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          bANK_BRNC_CODELabel1.Location = new System.Drawing.Point(794, 201);
          bANK_BRNC_CODELabel1.Name = "bANK_BRNC_CODELabel1";
-         bANK_BRNC_CODELabel1.Size = new System.Drawing.Size(63, 28);
+         bANK_BRNC_CODELabel1.Size = new System.Drawing.Size(69, 26);
          bANK_BRNC_CODELabel1.TabIndex = 45;
          bANK_BRNC_CODELabel1.Text = "کد شعبه :";
          // 
@@ -664,10 +664,10 @@
          // 
          cARD_NUMBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cARD_NUMBLabel.AutoSize = true;
-         cARD_NUMBLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         cARD_NUMBLabel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          cARD_NUMBLabel.Location = new System.Drawing.Point(485, 155);
          cARD_NUMBLabel.Name = "cARD_NUMBLabel";
-         cARD_NUMBLabel.Size = new System.Drawing.Size(83, 28);
+         cARD_NUMBLabel.Size = new System.Drawing.Size(86, 26);
          cARD_NUMBLabel.TabIndex = 44;
          cARD_NUMBLabel.Text = "شماره کارت :";
          // 
@@ -675,10 +675,10 @@
          // 
          bANK_ACNT_NUMBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          bANK_ACNT_NUMBLabel.AutoSize = true;
-         bANK_ACNT_NUMBLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         bANK_ACNT_NUMBLabel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          bANK_ACNT_NUMBLabel.Location = new System.Drawing.Point(485, 109);
          bANK_ACNT_NUMBLabel.Name = "bANK_ACNT_NUMBLabel";
-         bANK_ACNT_NUMBLabel.Size = new System.Drawing.Size(88, 28);
+         bANK_ACNT_NUMBLabel.Size = new System.Drawing.Size(98, 26);
          bANK_ACNT_NUMBLabel.TabIndex = 41;
          bANK_ACNT_NUMBLabel.Text = "شماره حساب :";
          // 
@@ -686,10 +686,10 @@
          // 
          bANK_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          bANK_NAMELabel.AutoSize = true;
-         bANK_NAMELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         bANK_NAMELabel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          bANK_NAMELabel.Location = new System.Drawing.Point(794, 155);
          bANK_NAMELabel.Name = "bANK_NAMELabel";
-         bANK_NAMELabel.Size = new System.Drawing.Size(61, 28);
+         bANK_NAMELabel.Size = new System.Drawing.Size(68, 26);
          bANK_NAMELabel.TabIndex = 40;
          bANK_NAMELabel.Text = "نام بانک :";
          // 
@@ -874,7 +874,6 @@
          // 
          // label18
          // 
-         label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label18.AutoSize = true;
          label18.Location = new System.Drawing.Point(111, 8);
          label18.Name = "label18";
@@ -4752,7 +4751,6 @@
          // 
          // simpleButton3
          // 
-         this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.simpleButton3.Appearance.Options.UseFont = true;
@@ -4773,7 +4771,6 @@
          // 
          // simpleButton2
          // 
-         this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.simpleButton2.Appearance.Options.UseFont = true;
@@ -4895,7 +4892,6 @@
          // 
          // dateTimeSelector13
          // 
-         this.dateTimeSelector13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dateTimeSelector13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.dateTimeSelector13.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector13.Format = Atf.UI.DateTimeSelectorFormat.Custom;
@@ -6234,7 +6230,7 @@
          // 
          this.Cash_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cash_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cash_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Cash_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.Cash_Butn.Appearance.Options.UseFont = true;
          this.Cash_Butn.Appearance.Options.UseForeColor = true;
@@ -6256,7 +6252,7 @@
          // 
          this.Amail_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Amail_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Amail_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Amail_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.Amail_Butn.Appearance.Options.UseFont = true;
          this.Amail_Butn.Appearance.Options.UseForeColor = true;
@@ -6278,7 +6274,7 @@
          // 
          this.LoginMethod_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.LoginMethod_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LoginMethod_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LoginMethod_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.LoginMethod_Butn.Appearance.Options.UseFont = true;
          this.LoginMethod_Butn.Appearance.Options.UseForeColor = true;
@@ -6300,7 +6296,7 @@
          // 
          this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton1.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.simpleButton1.Appearance.Options.UseFont = true;
          this.simpleButton1.Appearance.Options.UseForeColor = true;
@@ -6322,7 +6318,7 @@
          // 
          this.Coach_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Coach_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coach_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Coach_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.Coach_Butn.Appearance.Options.UseFont = true;
          this.Coach_Butn.Appearance.Options.UseForeColor = true;
@@ -6344,7 +6340,7 @@
          // 
          this.Club_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Club_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Club_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Club_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.Club_Butn.Appearance.Options.UseFont = true;
          this.Club_Butn.Appearance.Options.UseForeColor = true;

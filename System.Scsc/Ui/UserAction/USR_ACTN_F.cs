@@ -271,7 +271,7 @@ namespace System.Scsc.Ui.UserAction
                      }),
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("fromdate", AttnDate_Date.Value.Value.Date), new XAttribute("todate", AttnDate_Date.Value.Value.Date))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", AttnDate_Date.Value.Value.Date), new XAttribute("todate", AttnDate_Date.Value.Value.Date), new XAttribute("useraccount", "user"))}
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);

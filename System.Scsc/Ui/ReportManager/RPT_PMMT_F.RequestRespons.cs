@@ -180,6 +180,12 @@ namespace System.Scsc.Ui.ReportManager
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
+            if (xinput.Attribute("formname").Value != null)
+            {
+               formName = xinput.Attribute("formname").Value;
+            }
+            else
+               formName = "RPT_PMT2_F";
             if(xinput.Attribute("fromdate").Value != null)
             {
                FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);

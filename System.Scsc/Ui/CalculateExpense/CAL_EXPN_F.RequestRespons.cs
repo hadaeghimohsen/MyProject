@@ -180,11 +180,11 @@ namespace System.Scsc.Ui.CalculateExpense
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         EPIT_BindingSource.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "001");
-         RQTT_BindingSource.DataSource = iScsc.Requester_Types.Where(r =>  r.CODE != "002" && r.CODE !=  "003" && r.CODE != "004");
-         DEGR_BindingSource.DataSource = iScsc.D_DEGRs;
-         ACTV_BindingSource.DataSource = iScsc.D_ACTVs;
-         COCH_BindingSource.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003");
+         EpitBs.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "001");
+         RqttBs.DataSource = iScsc.Requester_Types.Where(r =>  r.CODE != "002" && r.CODE !=  "003" && r.CODE != "004");
+         DegrBs.DataSource = iScsc.D_DEGRs;
+         ActvBs.DataSource = iScsc.D_ACTVs;
+         CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003");
          DcetpBs.DataSource = iScsc.D_CETPs;
          ExtpBs.DataSource = iScsc.Expense_Types.Where(ex => ex.Request_Requester.Regulation.REGL_STAT == "002" && ex.Request_Requester.Regulation.TYPE == "001");
          Execute_Query();

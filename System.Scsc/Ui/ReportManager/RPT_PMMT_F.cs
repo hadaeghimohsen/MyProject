@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.ReportManager
       }
 
       private bool requery = false;
+      private string formName = "";
 
       private void Execute_Query()
       {
@@ -312,7 +313,7 @@ namespace System.Scsc.Ui.ReportManager
                         Input = 
                            new XElement("Print", 
                               new XAttribute("type", "Selection"), 
-                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("modual", /*GetType().Name*/formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
                               string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" />", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
                            )
@@ -337,7 +338,7 @@ namespace System.Scsc.Ui.ReportManager
                         Input = 
                            new XElement("Print", 
                               new XAttribute("type", "Default"), 
-                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("modual", /*GetType().Name*/ formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
                               string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" />", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
                            )
@@ -361,7 +362,7 @@ namespace System.Scsc.Ui.ReportManager
                         Input = 
                            new XElement("Request", 
                               new XAttribute("type", "ModualReport"), 
-                              new XAttribute("modul", GetType().Name), 
+                              new XAttribute("modul", /*GetType().Name*/ formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                            )
                      }

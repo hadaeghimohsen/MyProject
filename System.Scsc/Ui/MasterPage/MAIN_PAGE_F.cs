@@ -1796,7 +1796,7 @@ namespace System.Scsc.Ui.MasterPage
                      }),
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "manager"))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "manager"), new XAttribute("formname", "RPT_PYM1_F"))}
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
@@ -1839,7 +1839,7 @@ namespace System.Scsc.Ui.MasterPage
                      }),
                   #region DoWork
                   new Job(SendType.Self, 136 /* Execute Dap_Pivt_F */),
-                  new Job(SendType.SelfToUserInterface, "DAP_PIVT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+                  new Job(SendType.SelfToUserInterface, "DAP_PIVT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PMT1_F"))}
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
@@ -1860,7 +1860,7 @@ namespace System.Scsc.Ui.MasterPage
                {                  
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "user"))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "user"))}
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);

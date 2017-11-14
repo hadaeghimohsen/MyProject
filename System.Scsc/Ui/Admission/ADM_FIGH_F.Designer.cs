@@ -1228,30 +1228,6 @@
          label8.TabIndex = 66;
          label8.Text = "شماره کارت :";
          // 
-         // colDFLT_STAT
-         // 
-         this.colDFLT_STAT.Caption = "کلاس پیش فرض";
-         this.colDFLT_STAT.FieldName = "DFLT_STAT";
-         this.colDFLT_STAT.Name = "colDFLT_STAT";
-         // 
-         // gridColumn4
-         // 
-         this.gridColumn4.Caption = "بدهی / بستانکاری";
-         this.gridColumn4.FieldName = "DEBT_DNRM";
-         this.gridColumn4.Name = "gridColumn4";
-         this.gridColumn4.Visible = true;
-         this.gridColumn4.VisibleIndex = 7;
-         // 
-         // colMBSP_END_DATE
-         // 
-         this.colMBSP_END_DATE.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.colMBSP_END_DATE.AppearanceCell.Options.UseBackColor = true;
-         this.colMBSP_END_DATE.Caption = "تاریخ پایان";
-         this.colMBSP_END_DATE.FieldName = "MBSP_END_DATE";
-         this.colMBSP_END_DATE.Name = "colMBSP_END_DATE";
-         this.colMBSP_END_DATE.Visible = true;
-         this.colMBSP_END_DATE.VisibleIndex = 3;
-         // 
          // label9
          // 
          label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1278,6 +1254,30 @@
          label12.Size = new System.Drawing.Size(93, 30);
          label12.TabIndex = 52;
          label12.Text = "شما نفر ثبت نامی";
+         // 
+         // colDFLT_STAT
+         // 
+         this.colDFLT_STAT.Caption = "کلاس پیش فرض";
+         this.colDFLT_STAT.FieldName = "DFLT_STAT";
+         this.colDFLT_STAT.Name = "colDFLT_STAT";
+         // 
+         // gridColumn4
+         // 
+         this.gridColumn4.Caption = "بدهی / بستانکاری";
+         this.gridColumn4.FieldName = "DEBT_DNRM";
+         this.gridColumn4.Name = "gridColumn4";
+         this.gridColumn4.Visible = true;
+         this.gridColumn4.VisibleIndex = 7;
+         // 
+         // colMBSP_END_DATE
+         // 
+         this.colMBSP_END_DATE.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.colMBSP_END_DATE.AppearanceCell.Options.UseBackColor = true;
+         this.colMBSP_END_DATE.Caption = "تاریخ پایان";
+         this.colMBSP_END_DATE.FieldName = "MBSP_END_DATE";
+         this.colMBSP_END_DATE.Name = "colMBSP_END_DATE";
+         this.colMBSP_END_DATE.Visible = true;
+         this.colMBSP_END_DATE.VisibleIndex = 3;
          // 
          // PydtsBs1
          // 
@@ -2346,12 +2346,16 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDFY_BY", "MDFY_BY", 62, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDFY_DATE", "MDFY_DATE", 77, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Method", "Method", 50, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_DESC", "ORGN_DESC", 78, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_DESC", "ORGN_DESC", 78, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRIC", "مبلغ کلاس", 40, DevExpress.Utils.FormatType.Numeric, "n0", true, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NUMB_CYCL_DAY", "تعداد روز"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NUMB_OF_ATTN_MONT", "تعداد جلسات")});
          this.CtgyCode_LookupEdit001.Properties.DataSource = this.CtgyBs1;
          this.CtgyCode_LookupEdit001.Properties.DisplayMember = "CTGY_DESC";
          this.CtgyCode_LookupEdit001.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CtgyCode_LookupEdit001.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CtgyCode_LookupEdit001.Properties.NullText = "";
+         this.CtgyCode_LookupEdit001.Properties.PopupFormMinSize = new System.Drawing.Size(400, 0);
          this.CtgyCode_LookupEdit001.Properties.ValueMember = "CODE";
          this.CtgyCode_LookupEdit001.Size = new System.Drawing.Size(185, 22);
          this.CtgyCode_LookupEdit001.TabIndex = 1;
@@ -2415,11 +2419,11 @@
          // 
          // cBMT_CODEGridLookUpEditView
          // 
-         this.cBMT_CODEGridLookUpEditView.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.cBMT_CODEGridLookUpEditView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.cBMT_CODEGridLookUpEditView.Appearance.HeaderPanel.Options.UseFont = true;
          this.cBMT_CODEGridLookUpEditView.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.cBMT_CODEGridLookUpEditView.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.cBMT_CODEGridLookUpEditView.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.cBMT_CODEGridLookUpEditView.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.cBMT_CODEGridLookUpEditView.Appearance.Row.Options.UseFont = true;
          this.cBMT_CODEGridLookUpEditView.Appearance.Row.Options.UseTextOptions = true;
          this.cBMT_CODEGridLookUpEditView.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -4131,7 +4135,7 @@
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
          this.Gb_Expense.Location = new System.Drawing.Point(6, 6);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(1231, 414);
+         this.Gb_Expense.Size = new System.Drawing.Size(1231, 415);
          this.Gb_Expense.TabIndex = 3;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
@@ -4387,7 +4391,7 @@
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(677, 230);
+         this.gridControl2.Size = new System.Drawing.Size(677, 231);
          this.gridControl2.TabIndex = 1;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -4783,7 +4787,7 @@
          this.payment_DetailsGridControl.Name = "payment_DetailsGridControl";
          this.payment_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_RCTP});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(536, 230);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(536, 231);
          this.payment_DetailsGridControl.TabIndex = 1;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});

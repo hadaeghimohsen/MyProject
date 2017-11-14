@@ -360,6 +360,8 @@
          this.CBMT_CODE_GridLookUpEdit003 = new DevExpress.XtraEditors.GridLookUpEdit();
          this.FighBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CbmtCode_GridView003 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -493,8 +495,6 @@
          this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          label1 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
@@ -624,6 +624,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit003.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtCode_GridView003)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbMontOfer_TextEdit003.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbOfDays_TextEdit003.Properties)).BeginInit();
@@ -652,8 +654,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
          this.SuspendLayout();
          // 
          // label1
@@ -3829,6 +3829,21 @@
          // 
          this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
          // 
+         // repositoryItemLookUpEdit4
+         // 
+         this.repositoryItemLookUpEdit4.AutoHeight = false;
+         this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit4.DataSource = this.DDytpBs1;
+         this.repositoryItemLookUpEdit4.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit4.Name = "repositoryItemLookUpEdit4";
+         this.repositoryItemLookUpEdit4.NullText = "";
+         this.repositoryItemLookUpEdit4.ValueMember = "VALU";
+         // 
+         // DDytpBs1
+         // 
+         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
+         // 
          // CbmtCode_GridView003
          // 
          this.CbmtCode_GridView003.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -4059,12 +4074,16 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDFY_BY", "MDFY_BY", 62, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDFY_DATE", "MDFY_DATE", 77, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Method", "Method", 50, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_DESC", "ORGN_DESC", 78, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_DESC", "ORGN_DESC", 78, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRIC", "مبلغ", 40, DevExpress.Utils.FormatType.Numeric, "n0", true, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NUMB_CYCL_DAY", "تعداد روز"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NUMB_OF_ATTN_MONT", "تعداد جلسات")});
          this.CtgyCode_LookupEdit003.Properties.DataSource = this.CtgyBs2;
          this.CtgyCode_LookupEdit003.Properties.DisplayMember = "CTGY_DESC";
          this.CtgyCode_LookupEdit003.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CtgyCode_LookupEdit003.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CtgyCode_LookupEdit003.Properties.NullText = "";
+         this.CtgyCode_LookupEdit003.Properties.PopupFormMinSize = new System.Drawing.Size(400, 0);
          this.CtgyCode_LookupEdit003.Properties.ValueMember = "CODE";
          this.CtgyCode_LookupEdit003.Size = new System.Drawing.Size(194, 22);
          this.CtgyCode_LookupEdit003.TabIndex = 9;
@@ -4974,21 +4993,6 @@
          // 
          this.OrgnBs1.DataSource = typeof(System.Scsc.Data.Organ);
          // 
-         // DDytpBs1
-         // 
-         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
-         // 
-         // repositoryItemLookUpEdit4
-         // 
-         this.repositoryItemLookUpEdit4.AutoHeight = false;
-         this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit4.DataSource = this.DDytpBs1;
-         this.repositoryItemLookUpEdit4.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit4.Name = "repositoryItemLookUpEdit4";
-         this.repositoryItemLookUpEdit4.NullText = "";
-         this.repositoryItemLookUpEdit4.ValueMember = "VALU";
-         // 
          // ADM_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5092,6 +5096,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit003.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtCode_GridView003)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbMontOfer_TextEdit003.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbOfDays_TextEdit003.Properties)).EndInit();
@@ -5121,8 +5127,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
          this.ResumeLayout(false);
 
       }

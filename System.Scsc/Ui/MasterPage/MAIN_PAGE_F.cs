@@ -2111,31 +2111,37 @@ namespace System.Scsc.Ui.MasterPage
 
       private void ShowInfo_Butn_Click(object sender, EventArgs e)
       {
-         if (FngrPrnt_Txt.Text == "") return;
+         try
+         {
+            if (FngrPrnt_Txt.Text == "") return;
 
-         var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text || (FngrPrnt_Txt.Text.Length == 10 && f.NATL_CODE_DNRM == FngrPrnt_Txt.Text));
-         if (figh == null) {
-            ShowInfo_Butn.SuperTip = 
-               SuperToolTipAttnButn(
-                  new XElement("System",
-                     new XAttribute("device", "AttnDvic"),
-                     new XAttribute("desc", "با این شماره عضویی شناسایی نشد")
-                  )
-               );
-            return; 
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text || (FngrPrnt_Txt.Text.Length == 10 && f.NATL_CODE_DNRM == FngrPrnt_Txt.Text));
+            if (figh == null)
+            {
+               ShowInfo_Butn.SuperTip =
+                  SuperToolTipAttnButn(
+                     new XElement("System",
+                        new XAttribute("device", "AttnDvic"),
+                        new XAttribute("desc", "با این شماره عضویی شناسایی نشد")
+                     )
+                  );
+               return;
+            }
+            else
+            {
+               ShowInfo_Butn.SuperTip =
+                  SuperToolTipAttnButn(
+                     new XElement("System",
+                        new XAttribute("device", "AttnDvic"),
+                        new XAttribute("desc", figh.NAME_DNRM)
+                     )
+                  );
+            }
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
+            );
          }
-         else {
-            ShowInfo_Butn.SuperTip =
-               SuperToolTipAttnButn(
-                  new XElement("System",
-                     new XAttribute("device", "AttnDvic"),
-                     new XAttribute("desc", figh.NAME_DNRM)
-                  )
-               );
-         }
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
-         );
+         catch { }
       }
    }
 }

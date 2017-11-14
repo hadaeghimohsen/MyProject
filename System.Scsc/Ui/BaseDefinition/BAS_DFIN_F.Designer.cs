@@ -458,6 +458,7 @@
          this.panel12 = new System.Windows.Forms.Panel();
          this.PrintSettingClubMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ToDate006_Date = new Atf.UI.DateTimeSelector();
+         this.SetCbmtDesc_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RequeryClubMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.WeekDay_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.FromDate006_Date = new Atf.UI.DateTimeSelector();
@@ -5519,7 +5520,7 @@
             this.repositoryItemLookUpEdit6,
             this.repositoryItemLookUpEdit7,
             this.CbmtActn_Butn});
-         this.CbmtGv1.Size = new System.Drawing.Size(904, 339);
+         this.CbmtGv1.Size = new System.Drawing.Size(904, 351);
          this.CbmtGv1.TabIndex = 62;
          this.CbmtGv1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Cbmt_Gv});
@@ -5922,13 +5923,13 @@
          // 
          // textEdit3
          // 
-         this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CbmtBs1, "CBMT_DESC", true));
+         this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CbmtBs2, "CBMT_DESC", true));
          this.textEdit3.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.textEdit3.EditValue = "";
-         this.textEdit3.Location = new System.Drawing.Point(0, 339);
+         this.textEdit3.Location = new System.Drawing.Point(0, 351);
          this.textEdit3.Name = "textEdit3";
          this.textEdit3.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.textEdit3.Properties.Appearance.Options.UseBorderColor = true;
          this.textEdit3.Properties.Appearance.Options.UseFont = true;
          this.textEdit3.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -5941,7 +5942,7 @@
          this.textEdit3.Properties.NullText = "شرح کلاس";
          this.textEdit3.Properties.NullValuePrompt = "شرح کلاس";
          this.textEdit3.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit3.Size = new System.Drawing.Size(904, 34);
+         this.textEdit3.Size = new System.Drawing.Size(904, 22);
          this.textEdit3.TabIndex = 65;
          // 
          // panel12
@@ -5950,6 +5951,7 @@
          this.panel12.Controls.Add(this.PrintSettingClubMethod_Butn);
          this.panel12.Controls.Add(this.ToDate006_Date);
          this.panel12.Controls.Add(label10);
+         this.panel12.Controls.Add(this.SetCbmtDesc_Butn);
          this.panel12.Controls.Add(this.RequeryClubMethod_Butn);
          this.panel12.Controls.Add(this.WeekDay_Butn);
          this.panel12.Controls.Add(this.FromDate006_Date);
@@ -5998,6 +6000,28 @@
          this.ToDate006_Date.Size = new System.Drawing.Size(100, 22);
          this.ToDate006_Date.TabIndex = 24;
          this.ToDate006_Date.UsePersianFormat = true;
+         // 
+         // SetCbmtDesc_Butn
+         // 
+         this.SetCbmtDesc_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this.SetCbmtDesc_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.SetCbmtDesc_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SetCbmtDesc_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.SetCbmtDesc_Butn.Appearance.Options.UseBackColor = true;
+         this.SetCbmtDesc_Butn.Appearance.Options.UseFont = true;
+         this.SetCbmtDesc_Butn.Appearance.Options.UseForeColor = true;
+         this.SetCbmtDesc_Butn.Image = ((System.Drawing.Image)(resources.GetObject("SetCbmtDesc_Butn.Image")));
+         this.SetCbmtDesc_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SetCbmtDesc_Butn.Location = new System.Drawing.Point(46, 3);
+         this.SetCbmtDesc_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SetCbmtDesc_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SetCbmtDesc_Butn.Name = "SetCbmtDesc_Butn";
+         this.SetCbmtDesc_Butn.Size = new System.Drawing.Size(40, 42);
+         this.SetCbmtDesc_Butn.TabIndex = 2;
+         this.SetCbmtDesc_Butn.Text = "بازیابی مجدد";
+         this.SetCbmtDesc_Butn.ToolTip = "بازگشت";
+         this.SetCbmtDesc_Butn.Click += new System.EventHandler(this.SetCbmtDesc_Butn_Click);
          // 
          // RequeryClubMethod_Butn
          // 
@@ -6886,6 +6910,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colClub1;
       private DevExpress.XtraGrid.Columns.GridColumn colRegion;
       private Windows.Forms.BindingSource CbmtBs2;
+      private DevExpress.XtraEditors.SimpleButton SetCbmtDesc_Butn;
 
    }
 }

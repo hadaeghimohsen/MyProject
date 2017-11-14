@@ -427,6 +427,7 @@ namespace System.Scsc.Ui.BaseDefinition
          
          var mtod = MtodBs1.Current as Data.Method;
          mtod.DFLT_STAT = "001";
+         mtod.MTOD_STAT = "002";
       }
 
       private void SaveMethod_Butn_Click(object sender, EventArgs e)
@@ -506,6 +507,7 @@ namespace System.Scsc.Ui.BaseDefinition
             newctgy.CTGY_DESC = "دوره جدید";
             newctgy.DFLT_STAT = oldctgy.DFLT_STAT;
          }
+         newctgy.CTGY_STAT = "002";
       }
 
       private void SaveCategory_Butn_Click(object sender, EventArgs e)
@@ -1135,10 +1137,8 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if (CbmtGv1.Tag == null) return;
-
-            var club = CbmtGv1.Tag as Data.Club;
-            if (club != null && MessageBox.Show(this, "آیا با حذف شیفا باشگاه موافق هستید؟", "حذف شیفت باشگاه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)!= DialogResult.Yes) return;
+            var club = ClubBs1.Current as Data.Club;
+            if (club != null && MessageBox.Show(this, "آیا با حذف شیفت باشگاه موافق هستید؟", "حذف شیفت باشگاه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)!= DialogResult.Yes) return;
 
             iScsc.Clubs.DeleteOnSubmit(club);
             iScsc.SubmitChanges();
@@ -1164,9 +1164,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if (CbmtGv1.Tag == null) return;
-
-            var club = CbmtGv1.Tag as Data.Club;
+            var club = ClubBs1.Current as Data.Club;
             if (club == null) return;
 
             _DefaultGateway.Gateway(               
@@ -1187,9 +1185,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void GrantUserToClub_Butn_Click(object sender, EventArgs e)
       {
-         if (CbmtGv1.Tag == null) return;
-
-         var club = CbmtGv1.Tag as Data.Club;
+         var club = ClubBs1.Current as Data.Club;
          if (club == null) return;
 
          _DefaultGateway.Gateway(
@@ -1418,6 +1414,37 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc)
          {
 
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void SetCbmtDesc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CbmtBs2.List.OfType<Data.Club_Method>().ToList().ForEach(x =>
+               {
+                  x.CBMT_DESC = "";
+                  foreach (var item in (from w in x.Club_Method_Weekdays.Where(w => w.STAT == "002")
+                                 join d in iScsc.D_WKDies on w.WEEK_DAY equals d.VALU
+                                 select d.DOMN_DESC))
+	               {
+                     x.CBMT_DESC = x.CBMT_DESC + item + ", ";
+	               }                  
+               });
+            CbmtBs2.EndEdit();
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
          finally
          {

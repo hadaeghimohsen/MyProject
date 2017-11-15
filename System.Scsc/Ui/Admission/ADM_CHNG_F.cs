@@ -584,5 +584,11 @@ namespace System.Scsc.Ui.Admission
       {
          Execute_Query();
       }
+
+      private void FNGR_PRNT_TextEdit_TextChanged(object sender, EventArgs e)
+      {
+         if (AutoTrans_Cb.Checked)
+            CardNumb_Text.Text = FNGR_PRNT_TextEdit.Text;
+      }
    }
 }

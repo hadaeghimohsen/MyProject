@@ -76,7 +76,6 @@
          System.Windows.Forms.Label label2;
          System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label6;
-         System.Windows.Forms.Label label31;
          System.Windows.Forms.Label label21;
          System.Windows.Forms.Label label3;
          System.Windows.Forms.Label label8;
@@ -132,8 +131,8 @@
          this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
          this.Gb_Info = new System.Windows.Forms.GroupBox();
+         this.AutoTrans_Cb = new System.Windows.Forms.CheckBox();
          this.CardNumb_Text = new DevExpress.XtraEditors.TextEdit();
-         this.groupBox4 = new System.Windows.Forms.GroupBox();
          this.DpstAcntSlry_Text2 = new DevExpress.XtraEditors.TextEdit();
          this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -308,6 +307,7 @@
          this.RqstBnBDoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          dISE_CODELabel = new System.Windows.Forms.Label();
          iNSR_DATELabel = new System.Windows.Forms.Label();
          iNSR_NUMBLabel = new System.Windows.Forms.Label();
@@ -355,7 +355,6 @@
          label2 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
-         label31 = new System.Windows.Forms.Label();
          label21 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
@@ -374,7 +373,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
          this.Gb_Info.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
-         this.groupBox4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.DpstAcntSlry_Text2.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FgpbsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -896,25 +894,15 @@
          label6.TabIndex = 69;
          label6.Text = "سابقه ورزشی :";
          // 
-         // label31
-         // 
-         label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label31.AutoSize = true;
-         label31.Location = new System.Drawing.Point(296, 32);
-         label31.Name = "label31";
-         label31.Size = new System.Drawing.Size(87, 14);
-         label31.TabIndex = 8;
-         label31.Text = "شماره حساب :";
-         // 
          // label21
          // 
          label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label21.AutoSize = true;
-         label21.Location = new System.Drawing.Point(499, 32);
+         label21.Location = new System.Drawing.Point(429, 154);
          label21.Name = "label21";
-         label21.Size = new System.Drawing.Size(37, 14);
+         label21.Size = new System.Drawing.Size(122, 14);
          label21.TabIndex = 8;
-         label21.Text = "بانک :";
+         label21.Text = "بانک و شماره حساب :";
          // 
          // label3
          // 
@@ -925,6 +913,16 @@
          label3.Size = new System.Drawing.Size(77, 14);
          label3.TabIndex = 70;
          label3.Text = "کد سازمانی :";
+         // 
+         // label8
+         // 
+         label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label8.AutoSize = true;
+         label8.Location = new System.Drawing.Point(202, 47);
+         label8.Name = "label8";
+         label8.Size = new System.Drawing.Size(76, 14);
+         label8.TabIndex = 68;
+         label8.Text = "شماره کارت :";
          // 
          // gridColumn4
          // 
@@ -943,16 +941,6 @@
          this.colMBSP_END_DATE.Name = "colMBSP_END_DATE";
          this.colMBSP_END_DATE.Visible = true;
          this.colMBSP_END_DATE.VisibleIndex = 3;
-         // 
-         // label8
-         // 
-         label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label8.AutoSize = true;
-         label8.Location = new System.Drawing.Point(202, 47);
-         label8.Name = "label8";
-         label8.Size = new System.Drawing.Size(76, 14);
-         label8.TabIndex = 68;
-         label8.Text = "شماره کارت :";
          // 
          // tb_master
          // 
@@ -1019,7 +1007,7 @@
          this.Gb_Rqst.Location = new System.Drawing.Point(10, 3);
          this.Gb_Rqst.Name = "Gb_Rqst";
          this.Gb_Rqst.Size = new System.Drawing.Size(809, 101);
-         this.Gb_Rqst.TabIndex = 64;
+         this.Gb_Rqst.TabIndex = 0;
          this.Gb_Rqst.TabStop = false;
          this.Gb_Rqst.Text = "اطلاعات درخواست";
          // 
@@ -1211,9 +1199,12 @@
          // Gb_Info
          // 
          this.Gb_Info.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Gb_Info.Controls.Add(this.DpstAcntSlry_Text2);
+         this.Gb_Info.Controls.Add(this.AutoTrans_Cb);
+         this.Gb_Info.Controls.Add(this.DpstAcntSlryBank_Text2);
          this.Gb_Info.Controls.Add(label8);
+         this.Gb_Info.Controls.Add(label21);
          this.Gb_Info.Controls.Add(this.CardNumb_Text);
-         this.Gb_Info.Controls.Add(this.groupBox4);
          this.Gb_Info.Controls.Add(this.MaxF_Butn001);
          this.Gb_Info.Controls.Add(fNGR_PRNTLabel);
          this.Gb_Info.Controls.Add(this.FNGR_PRNT_TextEdit);
@@ -1242,9 +1233,21 @@
          this.Gb_Info.Location = new System.Drawing.Point(10, 110);
          this.Gb_Info.Name = "Gb_Info";
          this.Gb_Info.Size = new System.Drawing.Size(809, 577);
-         this.Gb_Info.TabIndex = 0;
+         this.Gb_Info.TabIndex = 1;
          this.Gb_Info.TabStop = false;
          this.Gb_Info.Text = "مشخصات عمومی";
+         // 
+         // AutoTrans_Cb
+         // 
+         this.AutoTrans_Cb.AutoSize = true;
+         this.AutoTrans_Cb.Checked = true;
+         this.AutoTrans_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.AutoTrans_Cb.Location = new System.Drawing.Point(75, 47);
+         this.AutoTrans_Cb.Name = "AutoTrans_Cb";
+         this.AutoTrans_Cb.Size = new System.Drawing.Size(15, 14);
+         this.AutoTrans_Cb.TabIndex = 4;
+         this.toolTip1.SetToolTip(this.AutoTrans_Cb, "ارسال اتوماتیک کارت به دستگاه حضور غیاب");
+         this.AutoTrans_Cb.UseVisualStyleBackColor = true;
          // 
          // CardNumb_Text
          // 
@@ -1259,26 +1262,13 @@
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Size = new System.Drawing.Size(100, 22);
-         this.CardNumb_Text.TabIndex = 67;
-         // 
-         // groupBox4
-         // 
-         this.groupBox4.Controls.Add(this.DpstAcntSlry_Text2);
-         this.groupBox4.Controls.Add(label31);
-         this.groupBox4.Controls.Add(this.DpstAcntSlryBank_Text2);
-         this.groupBox4.Controls.Add(label21);
-         this.groupBox4.Location = new System.Drawing.Point(12, 153);
-         this.groupBox4.Name = "groupBox4";
-         this.groupBox4.Size = new System.Drawing.Size(547, 68);
-         this.groupBox4.TabIndex = 40;
-         this.groupBox4.TabStop = false;
-         this.groupBox4.Text = "حقوق و دستمزد :";
+         this.CardNumb_Text.TabIndex = 3;
          // 
          // DpstAcntSlry_Text2
          // 
          this.DpstAcntSlry_Text2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DpstAcntSlry_Text2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPST_ACNT_SLRY", true));
-         this.DpstAcntSlry_Text2.Location = new System.Drawing.Point(6, 28);
+         this.DpstAcntSlry_Text2.Location = new System.Drawing.Point(33, 151);
          this.DpstAcntSlry_Text2.Name = "DpstAcntSlry_Text2";
          this.DpstAcntSlry_Text2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DpstAcntSlry_Text2.Properties.Appearance.Options.UseFont = true;
@@ -1287,7 +1277,7 @@
          this.DpstAcntSlry_Text2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.DpstAcntSlry_Text2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DpstAcntSlry_Text2.Size = new System.Drawing.Size(284, 22);
-         this.DpstAcntSlry_Text2.TabIndex = 0;
+         this.DpstAcntSlry_Text2.TabIndex = 13;
          // 
          // FgpbsBs1
          // 
@@ -1303,7 +1293,7 @@
          // 
          this.DpstAcntSlryBank_Text2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DpstAcntSlryBank_Text2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPST_ACNT_SLRY_BANK", true));
-         this.DpstAcntSlryBank_Text2.Location = new System.Drawing.Point(393, 28);
+         this.DpstAcntSlryBank_Text2.Location = new System.Drawing.Point(323, 151);
          this.DpstAcntSlryBank_Text2.Name = "DpstAcntSlryBank_Text2";
          this.DpstAcntSlryBank_Text2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DpstAcntSlryBank_Text2.Properties.Appearance.Options.UseFont = true;
@@ -1312,7 +1302,7 @@
          this.DpstAcntSlryBank_Text2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.DpstAcntSlryBank_Text2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DpstAcntSlryBank_Text2.Size = new System.Drawing.Size(100, 22);
-         this.DpstAcntSlryBank_Text2.TabIndex = 0;
+         this.DpstAcntSlryBank_Text2.TabIndex = 12;
          // 
          // MaxF_Butn001
          // 
@@ -1332,12 +1322,15 @@
          this.FNGR_PRNT_TextEdit.EditValue = "";
          this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(323, 44);
          this.FNGR_PRNT_TextEdit.Name = "FNGR_PRNT_TextEdit";
+         this.FNGR_PRNT_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseFont = true;
          this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FNGR_PRNT_TextEdit.Size = new System.Drawing.Size(100, 22);
-         this.FNGR_PRNT_TextEdit.TabIndex = 38;
+         this.FNGR_PRNT_TextEdit.TabIndex = 2;
+         this.FNGR_PRNT_TextEdit.TextChanged += new System.EventHandler(this.FNGR_PRNT_TextEdit_TextChanged);
          // 
          // BRTH_DATE_PersianDateEdit
          // 
@@ -1348,7 +1341,7 @@
          this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(565, 98);
          this.BRTH_DATE_PersianDateEdit.Name = "BRTH_DATE_PersianDateEdit";
          this.BRTH_DATE_PersianDateEdit.Size = new System.Drawing.Size(100, 23);
-         this.BRTH_DATE_PersianDateEdit.TabIndex = 4;
+         this.BRTH_DATE_PersianDateEdit.TabIndex = 7;
          this.BRTH_DATE_PersianDateEdit.UsePersianFormat = true;
          // 
          // CALC_EXPN_TYPE_LookUpEdit
@@ -1375,7 +1368,7 @@
          this.CALC_EXPN_TYPE_LookUpEdit.Properties.NullText = "";
          this.CALC_EXPN_TYPE_LookUpEdit.Properties.ValueMember = "VALU";
          this.CALC_EXPN_TYPE_LookUpEdit.Size = new System.Drawing.Size(100, 22);
-         this.CALC_EXPN_TYPE_LookUpEdit.TabIndex = 9;
+         this.CALC_EXPN_TYPE_LookUpEdit.TabIndex = 11;
          // 
          // DCetpBs1
          // 
@@ -1518,7 +1511,7 @@
          this.LAST_NAME_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.LAST_NAME_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.LAST_NAME_TextEdit.Size = new System.Drawing.Size(100, 22);
-         this.LAST_NAME_TextEdit.TabIndex = 3;
+         this.LAST_NAME_TextEdit.TabIndex = 6;
          // 
          // FRST_NAME_TextEdit
          // 
@@ -1533,7 +1526,7 @@
          this.FRST_NAME_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FRST_NAME_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FRST_NAME_TextEdit.Size = new System.Drawing.Size(148, 22);
-         this.FRST_NAME_TextEdit.TabIndex = 2;
+         this.FRST_NAME_TextEdit.TabIndex = 5;
          // 
          // LL_MoreInfo
          // 
@@ -1562,7 +1555,7 @@
          this.NATL_CODE_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.NATL_CODE_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.NATL_CODE_TextEdit.Size = new System.Drawing.Size(100, 22);
-         this.NATL_CODE_TextEdit.TabIndex = 8;
+         this.NATL_CODE_TextEdit.TabIndex = 10;
          // 
          // Pn_MoreInfo
          // 
@@ -1628,7 +1621,7 @@
          this.Pn_MoreInfo.Location = new System.Drawing.Point(6, 227);
          this.Pn_MoreInfo.Name = "Pn_MoreInfo";
          this.Pn_MoreInfo.Size = new System.Drawing.Size(797, 344);
-         this.Pn_MoreInfo.TabIndex = 15;
+         this.Pn_MoreInfo.TabIndex = 14;
          // 
          // INTR_FILE_NOLookUpEdit
          // 
@@ -2813,7 +2806,7 @@
          this.CBMT_CODE_GridLookUpEdit.Properties.ValueMember = "CODE";
          this.CBMT_CODE_GridLookUpEdit.Properties.View = this.cBMT_CODEGridLookUpEditView;
          this.CBMT_CODE_GridLookUpEdit.Size = new System.Drawing.Size(100, 22);
-         this.CBMT_CODE_GridLookUpEdit.TabIndex = 5;
+         this.CBMT_CODE_GridLookUpEdit.TabIndex = 8;
          // 
          // CbmtBs1
          // 
@@ -2995,7 +2988,7 @@
          this.SEX_TYPE_LookUpEdit.Properties.NullText = "";
          this.SEX_TYPE_LookUpEdit.Properties.ValueMember = "VALU";
          this.SEX_TYPE_LookUpEdit.Size = new System.Drawing.Size(100, 22);
-         this.SEX_TYPE_LookUpEdit.TabIndex = 7;
+         this.SEX_TYPE_LookUpEdit.TabIndex = 9;
          // 
          // DSxtpBs1
          // 
@@ -3219,7 +3212,7 @@
          this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
          this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(224, 46);
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
          this.RqstBnDefaultPrint1.Click += new System.EventHandler(this.RqstBnDefaultPrint_Click);
          // 
@@ -3229,20 +3222,20 @@
          this.RqstBnPrint1.Name = "RqstBnPrint1";
          this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-         this.RqstBnPrint1.Size = new System.Drawing.Size(224, 46);
+         this.RqstBnPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnPrint1.Text = "انتخاب چاپ";
          this.RqstBnPrint1.Click += new System.EventHandler(this.RqstBnPrint_Click);
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 6);
          // 
          // RqstBnSettingPrint1
          // 
          this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
          this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
-         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(224, 46);
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
          this.RqstBnSettingPrint1.Click += new System.EventHandler(this.RqstBnSettingPrint_Click);
          // 
@@ -3328,8 +3321,6 @@
          this.Gb_Info.ResumeLayout(false);
          this.Gb_Info.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
-         this.groupBox4.ResumeLayout(false);
-         this.groupBox4.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.DpstAcntSlry_Text2.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FgpbsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
@@ -3587,11 +3578,12 @@
       private DevExpress.XtraEditors.TextEdit IssuPlac_TextEdit;
       private DevExpress.XtraEditors.TextEdit BrthPlac_TextEdit;
       private DevExpress.XtraEditors.TextEdit HistDesc_TextEdit;
-      private Windows.Forms.GroupBox groupBox4;
       private DevExpress.XtraEditors.TextEdit DpstAcntSlry_Text2;
       private DevExpress.XtraEditors.TextEdit DpstAcntSlryBank_Text2;
       private DevExpress.XtraEditors.TextEdit ServNo_Text;
       private MaxUi.NewPickBtn ShowRqst_PickButn;
       private DevExpress.XtraEditors.TextEdit CardNumb_Text;
+      private Windows.Forms.CheckBox AutoTrans_Cb;
+      private Windows.Forms.ToolTip toolTip1;
    }
 }

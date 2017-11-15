@@ -976,5 +976,43 @@ namespace System.Scsc.Ui.Common
             }
          );
       }
+
+      private void Refresh_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null)
+               figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
+            );
+         }
+         catch { }
+      }
+
+      private void AttnActn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null)
+               figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

@@ -2057,17 +2057,30 @@ namespace System.Scsc.Ui.MasterPage
          {
             if (CardNumb_Text.Text == "") return;
 
-            var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
-            if (control == null) return;
-            if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F")
+            if (e.Button.Index == 0 || e.Button.Index == 1)
             {
-               Job _InteractWithScsc =
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
+               var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
+               if (control == null) return;
+               if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F")
+               {
+                  Job _InteractWithScsc =
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
                   {
                      new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
                   });
-               _DefaultGateway.Gateway(_InteractWithScsc);
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+               }
+            }
+            else if(e.Button.Index == 2)
+            {
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == CardNumb_Text.Text || (CardNumb_Text.Text.Length == 10 && f.NATL_CODE_DNRM == CardNumb_Text.Text));
+
+               if (figh == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
+               );
             }
          }
          catch (Exception exc)

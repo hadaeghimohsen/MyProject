@@ -553,7 +553,7 @@
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
          this.tabPage1.Size = new System.Drawing.Size(804, 452);
          this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "پارامتر عملیات تمدید قرارداد هنرجویان";
+         this.tabPage1.Text = "پارامتر عملیات حضور و غیاب هنرجویان";
          // 
          // splitContainer1
          // 

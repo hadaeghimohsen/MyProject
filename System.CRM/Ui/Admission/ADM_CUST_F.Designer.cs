@@ -85,6 +85,7 @@
          DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState6 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
          DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState7 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
          DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState8 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         System.Windows.Forms.Label label40;
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.panel1 = new System.Windows.Forms.Panel();
@@ -217,6 +218,7 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+         this.ServNo_Txt = new DevExpress.XtraEditors.TextEdit();
          label22 = new System.Windows.Forms.Label();
          label23 = new System.Windows.Forms.Label();
          label24 = new System.Windows.Forms.Label();
@@ -268,6 +270,7 @@
          label38 = new System.Windows.Forms.Label();
          iDTY_CODELabel = new System.Windows.Forms.Label();
          label39 = new System.Windows.Forms.Label();
+         label40 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -334,6 +337,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ServNo_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // label22
@@ -1512,8 +1516,10 @@
          // 
          // groupBox3
          // 
+         this.groupBox3.Controls.Add(label40);
          this.groupBox3.Controls.Add(iDTY_CODELabel);
          this.groupBox3.Controls.Add(this.labelControl2);
+         this.groupBox3.Controls.Add(this.ServNo_Txt);
          this.groupBox3.Controls.Add(this.IdtyCode_Txt);
          this.groupBox3.Controls.Add(this.labelControl1);
          this.groupBox3.Controls.Add(this.Isic_Butn);
@@ -2390,6 +2396,30 @@
          this.colBase_Tariff2.Visible = true;
          this.colBase_Tariff2.VisibleIndex = 10;
          // 
+         // ServNo_Txt
+         // 
+         this.ServNo_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs1, "SERV_NO", true));
+         this.ServNo_Txt.Location = new System.Drawing.Point(141, 20);
+         this.ServNo_Txt.Name = "ServNo_Txt";
+         this.ServNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ServNo_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ServNo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ServNo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ServNo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.ServNo_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ServNo_Txt.Size = new System.Drawing.Size(122, 22);
+         this.ServNo_Txt.TabIndex = 36;
+         // 
+         // label40
+         // 
+         label40.AutoSize = true;
+         label40.ForeColor = System.Drawing.Color.Brown;
+         label40.Location = new System.Drawing.Point(269, 22);
+         label40.Name = "label40";
+         label40.Size = new System.Drawing.Size(67, 14);
+         label40.TabIndex = 37;
+         label40.Text = "کد حساب :";
+         // 
          // ADM_CUST_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2483,6 +2513,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ServNo_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2622,5 +2653,6 @@
       private DevExpress.XtraEditors.TextEdit IdtyCode_Txt;
       private Windows.Forms.ComboBox SexType_Lov;
       private Windows.Forms.BindingSource DsxtpBs;
+      private DevExpress.XtraEditors.TextEdit ServNo_Txt;
    }
 }

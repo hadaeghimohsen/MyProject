@@ -315,7 +315,7 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Selection"), 
                               new XAttribute("modual", /*GetType().Name*/formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" />", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"/>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue )
                            )
                      }
                   });
@@ -340,7 +340,7 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Default"), 
                               new XAttribute("modual", /*GetType().Name*/ formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" />", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"/>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue )
                            )
                      }
                   });

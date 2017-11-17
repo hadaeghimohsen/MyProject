@@ -899,7 +899,7 @@ namespace System.Scsc.Ui.Admission
 
                Pn_MbspInfo.Visible = true;
 
-               ReloadSelectedData();
+               //ReloadSelectedData();
             }
             else if (Rqst.RQID == 0)
             {
@@ -1644,7 +1644,7 @@ namespace System.Scsc.Ui.Admission
             if(tb_master.SelectedTab == tp_003)
             {
                if (MtodCode_LookupEdit003.EditValue.ToString() == "") return;
-               MtodBs2.Position = MtodBs2.List.OfType<Data.Method>().ToList().FindIndex(m => m.CODE == Convert.ToInt64(MtodCode_LookupEdit003.EditValue));// MtodCode_LookupEdit003.Properties.GetDataSourceRowIndex(MtodCode_LookupEdit003.Properties.ValueMember, MtodCode_LookupEdit003.EditValue);
+               //MtodBs2.Position = MtodBs2.List.OfType<Data.Method>().ToList().FindIndex(m => m.CODE == Convert.ToInt64(MtodCode_LookupEdit003.EditValue));// MtodCode_LookupEdit003.Properties.GetDataSourceRowIndex(MtodCode_LookupEdit003.Properties.ValueMember, MtodCode_LookupEdit003.EditValue);
                CbmtCode_GridView003.ActiveFilterString = string.Format("[Method.CODE] = {0}", MtodCode_LookupEdit003.EditValue);
                CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == Convert.ToInt64(MtodCode_LookupEdit003.EditValue) && c.CTGY_STAT == "002");
             }
@@ -1903,7 +1903,7 @@ namespace System.Scsc.Ui.Admission
 
             MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
             CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
-            CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
+            //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
             CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
          }
          catch 
@@ -1921,7 +1921,7 @@ namespace System.Scsc.Ui.Admission
 
             MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE;
             CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE;
-            CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
+            //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
             CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE;
          }
          catch
@@ -1984,7 +1984,7 @@ namespace System.Scsc.Ui.Admission
          var figh = rqst.Request_Rows.FirstOrDefault().Fighter;
          MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
          CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
-         CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
+         //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
          CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
       }
    }

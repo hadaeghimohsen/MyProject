@@ -535,6 +535,15 @@
     <Compile Include="Ui\Campitition\CMP_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Cash\TRAN_EXPN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Cash\TRAN_EXPN_F.Designer.cs">
+      <DependentUpon>TRAN_EXPN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Cash\TRAN_EXPN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Cash\PAY_CASH_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1555,6 +1564,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Campitition\CMP_TOTL_F.resx">
       <DependentUpon>CMP_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Cash\TRAN_EXPN_F.resx">
+      <DependentUpon>TRAN_EXPN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Cash\PAY_CASH_F.resx">
       <DependentUpon>PAY_CASH_F.cs</DependentUpon>

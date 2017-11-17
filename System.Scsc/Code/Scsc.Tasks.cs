@@ -711,6 +711,11 @@ namespace System.Scsc.Code
             if (_Bas_Wkdy_F == null)
                _Bas_Wkdy_F = new Ui.BaseDefinition.BAS_WKDY_F { _DefaultGateway = this };
          }
+         else if (value == "tran_expn_f")
+         {
+            if (_Tran_Expn_F == null)
+               _Tran_Expn_F = new Ui.Cash.TRAN_EXPN_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4337,6 +4342,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "BAS_WKDY_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "BAS_WKDY_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "BAS_WKDY_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 150
+      /// </summary>
+      /// <param name="job"></param>
+      private void Tran_Expn_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "tran_expn_f"},
+                  new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

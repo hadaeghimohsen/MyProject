@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_CONT_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -50,10 +51,10 @@
          this.Back_Butn = new System.MaxUi.RoundedButton();
          this.ShowServiceDetail_Butn = new System.MaxUi.RoundedButton();
          this.LeadsSearch_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DslonBs = new System.Windows.Forms.BindingSource();
+         this.DslonBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.ServBs = new System.Windows.Forms.BindingSource();
+         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.Serv_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFRST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -73,13 +74,13 @@
          this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.ServInfoSearch_Pikb = new System.MaxUi.NewPickBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DsstgBs = new System.Windows.Forms.BindingSource();
+         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.roundedButton29 = new System.MaxUi.RoundedButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.ImageProfile_Butn = new System.MaxUi.RoundedButton();
-         this.Ballon_Tip = new System.Windows.Forms.ToolTip();
+         this.Ballon_Tip = new System.Windows.Forms.ToolTip(this.components);
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.LeadsSearch_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DslonBs)).BeginInit();
@@ -360,14 +361,14 @@
          // Serv_Gv
          // 
          this.Serv_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Serv_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Serv_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
          this.Serv_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Serv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Serv_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Serv_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Serv_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Serv_Gv.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Serv_Gv.Appearance.Row.Options.UseFont = true;
          this.Serv_Gv.Appearance.Row.Options.UseTextOptions = true;
          this.Serv_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;

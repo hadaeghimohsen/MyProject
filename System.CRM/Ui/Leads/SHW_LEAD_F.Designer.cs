@@ -352,14 +352,14 @@
          // Serv_Gv
          // 
          this.Serv_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Serv_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Serv_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
          this.Serv_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Serv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Serv_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Serv_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Serv_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Serv_Gv.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Serv_Gv.Appearance.Row.Options.UseFont = true;
          this.Serv_Gv.Appearance.Row.Options.UseTextOptions = true;
          this.Serv_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;

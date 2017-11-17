@@ -156,6 +156,7 @@ namespace System.CRM.Ui.Admission
                            new XElement("Last_Name", srpb == null ? LastName_Txt.Text : srpb.LAST_NAME),
                            new XElement("Fath_Name", srpb == null ? FathName_Txt.Text : srpb.FATH_NAME),
                            new XElement("Natl_Code", srpb == null ? NatlCode_Txt.Text : srpb.NATL_CODE),
+                           new XElement("Serv_No", srpb == null ? ServNo_Txt.Text : srpb.SERV_NO),
                            new XElement("Brth_Date", srpb == null ? (BrthDate_Dat.Value == null ? "" : BrthDate_Dat.Value.Value.ToString("yyyy-MM-dd")) : srpb.BRTH_DATE.Value.ToString("yyyy-MM-dd")),
                            new XElement("Cell_Phon", srpb == null ? CellPhon_Txt.Text : srpb.CELL_PHON),
                            new XElement("Tell_Phon", srpb == null ? TellPhon_Txt.Text : srpb.TELL_PHON),

@@ -477,6 +477,9 @@ namespace System.Scsc.Code
             case 149:
                Bas_Wkdy_F(job);
                break;
+            case 150:
+               Tran_Expn_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -906,6 +909,9 @@ namespace System.Scsc.Code
                break;
             case "BAS_WKDY_F":
                _Bas_Wkdy_F.SendRequest(job);
+               break;
+            case "TRAN_EXPN_F":
+               _Tran_Expn_F.SendRequest(job);
                break;
 
             /* Show Changed */

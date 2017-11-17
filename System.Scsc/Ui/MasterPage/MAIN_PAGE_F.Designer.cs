@@ -1532,7 +1532,7 @@
          this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agmbbutn);
          this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agcbbutn);
          this.ribbonPageGroup14.ItemLinks.Add(this.bbi_aglsbutn);
-         this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agcbbutn);
+         this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agmcbutn);
          this.ribbonPageGroup14.Name = "ribbonPageGroup14";
          this.ribbonPageGroup14.Text = "عملکرد تجمعی سیستم";
          // 

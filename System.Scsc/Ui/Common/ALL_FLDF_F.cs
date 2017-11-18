@@ -899,34 +899,34 @@ namespace System.Scsc.Ui.Common
                   break;
                case 2:
                   checkOK = true;
-                  #region Check Security
-                  _InteractWithScsc =
-                     new Job(SendType.External, "Desktop",
-                        new List<Job>
-                        {
-                           new Job(SendType.External, "Commons",
-                              new List<Job>
-                              {
-                                 #region Access Privilege
-                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
-                                 {
-                                    Input = new List<string> 
-                                    {
-                                       "<Privilege>226</Privilege><Sub_Sys>5</Sub_Sys>", 
-                                       "DataGuard"
-                                    },
-                                    AfterChangedOutput = new Action<object>((output) => {
-                                       if ((bool)output)
-                                          return;
-                                       checkOK = false;
-                                       MessageBox.Show(this, "عدم دسترسی به ردیف 226 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
-                                    })
-                                 }
-                                 #endregion                        
-                              })                     
-                           });
-                  _DefaultGateway.Gateway(_InteractWithScsc);
-                  #endregion
+                  //#region Check Security
+                  //_InteractWithScsc =
+                  //   new Job(SendType.External, "Desktop",
+                  //      new List<Job>
+                  //      {
+                  //         new Job(SendType.External, "Commons",
+                  //            new List<Job>
+                  //            {
+                  //               #region Access Privilege
+                  //               new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                  //               {
+                  //                  Input = new List<string> 
+                  //                  {
+                  //                     "<Privilege>226</Privilege><Sub_Sys>5</Sub_Sys>", 
+                  //                     "DataGuard"
+                  //                  },
+                  //                  AfterChangedOutput = new Action<object>((output) => {
+                  //                     if ((bool)output)
+                  //                        return;
+                  //                     checkOK = false;
+                  //                     MessageBox.Show(this, "عدم دسترسی به ردیف 226 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                  //                  })
+                  //               }
+                  //               #endregion                        
+                  //            })                     
+                  //         });
+                  //_DefaultGateway.Gateway(_InteractWithScsc);
+                  //#endregion
                   if(checkOK)
                   {
                      _DefaultGateway.Gateway(
@@ -934,7 +934,14 @@ namespace System.Scsc.Ui.Common
                            new List<Job>
                            {
                               new Job(SendType.Self, 150 /* Execute Tran_Expn_F */),
-                              new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 10 /* execute Actn_CalF_F */){Input = pydt}
+                              new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 10 /* execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Payment",
+                                       new XAttribute("pydtcode", pydt.CODE),
+                                       new XAttribute("fileno", fileno)
+                                    )
+                              }
                            }
                         )
                      );

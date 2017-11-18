@@ -20,6 +20,8 @@ namespace System.Scsc.Ui.Cash
       }
 
       bool requery = false;
+      long fileno, pydtcode;
+      bool checkOK = true;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -30,211 +32,227 @@ namespace System.Scsc.Ui.Cash
 
       private void Execute_Query(bool runAllQuery)
       {
-         SnmtBs1.List.Clear();
          iScsc = new Data.iScscDataContext(ConnectionString);
-         FighBs1.DataSource = iScsc.Fighters.First(f => f.FILE_NO == Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue));
+         FighBs.DataSource = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+         PydtBs.DataSource = iScsc.Payment_Details.FirstOrDefault(pd => pd.CODE == pydtcode);
+         requery = false;
       }
 
-      private void FighBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         var figh = FighBs1.Current as Data.Fighter;
-
-         if (figh == null)
-            return;
-
-         MbspBs1.DataSource = 
-            iScsc.Member_Ships
-               .FirstOrDefault( m => 
-                  m.FIGH_FILE_NO == figh.FILE_NO && 
-                  m.RWNO == figh.MBSP_RWNO_DNRM && 
-                  m.RECT_CODE == "004"
-               );
-      }
-
-      private void MbspBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         var mbsp = MbspBs1.Current as Data.Member_Ship;
-
-         if (mbsp == null)
-            return;
-
-         RemnDay_TextEdit.EditValue = (mbsp.END_DATE.Value - mbsp.STRT_DATE.Value).Days;
-
-         SesnBs1.DataSource = 
-            iScsc.Sessions
-            .Where( s => 
-               s.MBSP_FIGH_FILE_NO == mbsp.FIGH_FILE_NO &&
-               s.MBSP_RWNO == mbsp.RWNO &&
-               s.MBSP_RECT_CODE == mbsp.RECT_CODE &&
-               (
-                  s.TOTL_SESN - (s.SUM_MEET_HELD_DNRM ?? 0) > 0 ||
-                  s.Session_Meetings.Any(sm => sm.END_TIME == null)
-               )
-
-            );
-      }
-
-      private void SesnBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         var sesn = SesnBs1.Current as Data.Session;
-
-         if (sesn == null)
-            return;
-
-         CBMT_CODELookUpEdit.EditValue = sesn.CBMT_CODE;
-         SnmtBs1.DataSource = iScsc.Session_Meetings.Where(sm => sm.Session == sesn);
-      }
-
-      private void EntrAttn_Butn_Click(object sender, EventArgs e)
+      private void RqstTran_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            var sesn = SesnBs1.Current as Data.Session;
-            var cbmt = Convert.ToInt64(CBMT_CODELookUpEdit.EditValue);
-            // اگر حضوری قبلا ثبت شده است باید دکمه خروج را فشار دهد
-            if(iScsc.Session_Meetings
-               .Any(sm => 
-                  sm.Session == sesn && 
-                  sm.ACTN_DATE.Value.Date == DateTime.Now.Date &&
-                  sm.END_TIME == null   
-               ))
-            {
-               if (MessageBox.Show(this, "برای این فرد قبلا ورود برای امروز ثبت شده! آیا می خواهید خروج برایش ثبت کنم؟", "خطای ورود", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-               {
-                  ExitAttn_Butn_Click(null, null);
-               }
-               else
-                  return;
-            }
-            else
-            {
-               var snmt = new Data.Session_Meeting() 
-               { 
-                  SESN_SNID = sesn.SNID,
-                  RWNO = 0,
-                  MBSP_FIGH_FILE_NO = sesn.MBSP_FIGH_FILE_NO, 
-                  MBSP_RECT_CODE = sesn.MBSP_RECT_CODE, 
-                  MBSP_RWNO = sesn.MBSP_RWNO, 
-                  EXPN_CODE = (long)sesn.EXPN_CODE,
-                  VALD_TYPE = "002", 
-                  CBMT_CODE = cbmt ,
-                  NUMB_OF_GAYS = 1
-               };
-               iScsc.Session_Meetings.InsertOnSubmit(snmt);
+            PydtBs.EndEdit();
+            var pydt = PydtBs.Current as Data.Payment_Detail;
+            if (pydt == null) return;
 
-               iScsc.SubmitChanges();
-               requery = true;
-            }
+            if (pydt.TRAN_CBMT_CODE == null) { Cbmt_Lov.Focus(); return; }
+            if (pydt.TRAN_CTGY_CODE == null) { Ctgy_Lov.Focus(); return; }
+            if (pydt.TRAN_EXPN_CODE == null) { Expn_Lov.Focus(); return; }
+
+            iScsc.UPD_SEXP_P(
+                  new XElement("Request",
+                     new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                     new XElement("Payment",
+                        new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                        new XElement("Payment_Detail",
+                           new XAttribute("code", pydt.CODE),
+                           new XAttribute("expnpric", pydt.EXPN_CODE),
+                           new XAttribute("expnpric", pydt.EXPN_PRIC),
+                           new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
+                           new XAttribute("qnty", pydt.QNTY ?? 1),
+                           new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                           new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
+                           new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM ?? 0),
+                           new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM ?? 0),
+                           new XAttribute("tranby", pydt.TRAN_BY ?? CurrentUser),
+                           new XAttribute("transtat", "001"),
+                           new XAttribute("trandate", pydt.TRAN_DATE == null ? DateTime.Now.ToString("yyyy/MM/dd") : pydt.TRAN_DATE.Value.ToString("yyyy/MM/dd")),
+                           new XAttribute("trancbmtcode", pydt.TRAN_CBMT_CODE),
+                           //new XAttribute("tranmtodcode", pydt.TRAN_MTOD_CODE),
+                           new XAttribute("tranctgycode", pydt.TRAN_CTGY_CODE),
+                           new XAttribute("tranexpncode", pydt.TRAN_EXPN_CODE)
+                        )
+                     )
+                  )
+               );
+            requery = true;
          }
-         catch { requery = false; }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
          finally
          {
             if(requery)
             {
-               Attn_Oprt_P();
                Execute_Query(true);
-               requery = false;
             }
          }
       }
 
-      private void ExitAttn_Butn_Click(object sender, EventArgs e)
+      private void Back_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+         );
+      }
+
+      private void RqstSave_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            var snmt = 
-               iScsc.Session_Meetings
-               .FirstOrDefault(sm => 
-                  sm.Session.Member_Ship.Fighter.FILE_NO == Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue) &&
-                  sm.ACTN_DATE.Value.Date == DateTime.Now.Date &&
-                  sm.END_TIME == null 
-               );
-            // اگر حضوری قبلا ثبت شده است باید دکمه خروج را فشار دهد
-            if (snmt == null)
+            #region Check Security            
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Desktop",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>227</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 checkOK = false;
+                                 MessageBox.Show(this, "عدم دسترسی به ردیف 227 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                              })
+                           }
+                           #endregion                        
+                        })                     
+                  })
+            );
+            #endregion
+
+            if (checkOK)
             {
-               if (MessageBox.Show(this, "برای این فرد قبلا ورود برای امروز ثبت نشده! آیا می خواهید ورود برایش ثبت کنم؟", "خطای خروج", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-               {
-                  EntrAttn_Butn_Click(null, null);
-               }
-               else
-                  return;
-            }
-            else
-            {
-               snmt.END_TIME = DateTime.Now.TimeOfDay;
-               iScsc.SubmitChanges();
+               PydtBs.EndEdit();
+               var pydt = PydtBs.Current as Data.Payment_Detail;
+               if (pydt == null && MessageBox.Show(this, "آیا با انتقال هزینه موافق هستین؟", "انتقال هزینه کلاس", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               if (pydt.TRAN_CBMT_CODE == null) { Cbmt_Lov.Focus(); return; }
+               if (pydt.TRAN_CTGY_CODE == null) { Ctgy_Lov.Focus(); return; }
+               if (pydt.TRAN_EXPN_CODE == null) { Expn_Lov.Focus(); return; }
+
+               iScsc.UPD_SEXP_P(
+                     new XElement("Request",
+                        new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                        new XElement("Payment",
+                           new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                           new XElement("Payment_Detail",
+                              new XAttribute("code", pydt.CODE),
+                              new XAttribute("expnpric", pydt.EXPN_CODE),
+                              new XAttribute("expnpric", pydt.EXPN_PRIC),
+                              new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
+                              new XAttribute("qnty", pydt.QNTY ?? 1),
+                              new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                              new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
+                              new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM ?? 0),
+                              new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM ?? 0),
+                              new XAttribute("tranby", pydt.TRAN_BY ?? CurrentUser),
+                              new XAttribute("transtat", "002"),
+                              new XAttribute("trandate", pydt.TRAN_DATE == null ? DateTime.Now.ToString("yyyy/MM/dd") : pydt.TRAN_DATE.Value.ToString("yyyy/MM/dd")),
+                              new XAttribute("trancbmtcode", pydt.TRAN_CBMT_CODE),
+                              new XAttribute("tranmtodcode", pydt.TRAN_MTOD_CODE),
+                              new XAttribute("tranctgycode", pydt.TRAN_CTGY_CODE),
+                              new XAttribute("tranexpncode", pydt.TRAN_EXPN_CODE)
+                           )
+                        )
+                     )
+                  );
                requery = true;
             }
          }
-         catch { requery = false; }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
          finally
          {
             if (requery)
             {
-               Attn_Oprt_P();
                Execute_Query(true);
-               requery = false;
             }
          }
       }
 
-      private void Attn_Oprt_P()
+      private void RqstCncl_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            iScsc.INS_ATTN_P(null, Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue), null, null, "001");
+            PydtBs.EndEdit();
+            var pydt = PydtBs.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
+            iScsc.UPD_SEXP_P(
+                  new XElement("Request",
+                     new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                     new XElement("Payment",
+                        new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                        new XElement("Payment_Detail",
+                           new XAttribute("code", pydt.CODE),
+                           new XAttribute("expnpric", pydt.EXPN_CODE),
+                           new XAttribute("expnpric", pydt.EXPN_PRIC),
+                           new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
+                           new XAttribute("qnty", pydt.QNTY ?? 1),
+                           new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                           new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
+                           new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM ?? 0),
+                           new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM ?? 0),
+                           new XAttribute("transtat", "003")                           
+                        )
+                     )
+                  )
+               );
             requery = true;
          }
-         catch (Exception ex)
+         catch (Exception exc)
          {
-            MessageBox.Show(ex.Message);
-            if (fNGR_PRNT_DNRMTextEdit.EditValue != null)
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
-                        new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
-                        {
-                           Input = 
-                           new XElement("Fighter",
-                              new XAttribute("enrollnumber", fNGR_PRNT_DNRMTextEdit.EditValue),
-                              new XAttribute("isnewenroll", false)
-                           )
-                        }
-                     })
-               );
-            requery = false;
+            MessageBox.Show(exc.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
-               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
-               var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
-               if (attnNotfSetting.ATTN_NOTF_STAT == "002")
-               {
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost",
-                        new List<Job>
-                        {
-                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
-                           new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
-                           {
-                              Input = 
-                              new XElement("Fighter",
-                                 new XAttribute("fileno", FIGH_FILE_NOTextEdit.EditValue),
-                                 new XAttribute("attndate", AttnDate_Date.Value),
-                                 new XAttribute("gatecontrol", "true")
-                              )
-                           }
-                        }
-                     )
-                  );
-               }
+               Execute_Query(true);
             }
          }
       }
-         
+
+      private void Cbmt_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)e.NewValue);
+            CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002" && c.MTOD_CODE == cbmt.MTOD_CODE);
+         }
+         catch (Exception exc){}
+      }
+
+      private void Ctgy_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var pydt = PydtBs.Current as Data.Payment_Detail;
+            var rqst = iScsc.Requests.FirstOrDefault(r => r.RQID == pydt.PYMT_RQST_RQID);
+            var ctgy = CtgyBs.List.OfType<Data.Category_Belt>().FirstOrDefault(c => c.CODE == (long)e.NewValue);
+            ExpnBs.DataSource = 
+               iScsc.Expenses.Where(ex => 
+                  ex.Regulation.REGL_STAT == "002" && 
+                  ex.Regulation.TYPE == "001" && 
+                  ex.CTGY_CODE == ctgy.CODE &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == rqst.RQTP_CODE &&
+                  ex.Expense_Type.Request_Requester.RQTT_CODE == rqst.RQTT_CODE &&
+                  ex.EXPN_STAT == "002");
+         }
+         catch (Exception exc){}
+      }  
    }
 }

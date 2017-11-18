@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.Cash
       private List<long?> Fga_Uclb_U;
       int Sleeping = 1;
       int step = 15;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -104,6 +105,7 @@ namespace System.Scsc.Ui.Cash
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -233,8 +235,9 @@ namespace System.Scsc.Ui.Cash
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DDytpBs1.DataSource = iScsc.D_DYTPs;
-         CbmtBs1.DataSource = 
+         DdytpBs.DataSource = iScsc.D_DYTPs;
+         DsxtpBs.DataSource = iScsc.D_SXTPs;
+         CbmtBs.DataSource = 
             iScsc.Club_Methods
             .Where(cb =>
                Fga_Uclb_U.Contains(cb.CLUB_CODE) &&
@@ -249,8 +252,12 @@ namespace System.Scsc.Ui.Cash
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         FIGH_FILE_NOTextEdit.EditValue = (job.Input as XElement).Attribute("fileno").Value;
-         AttnDate_Date.Value = DateTime.Now.Date;
+         var xinput = job.Input as XElement;
+         if(xinput != null)
+         {
+            pydtcode = Convert.ToInt64(xinput.Attribute("pydtcode").Value);
+            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+         }
          Execute_Query(true);
          job.Status = StatusType.Successful;
       }

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label13;
          System.Windows.Forms.Label nAME_DNRMLabel;
          System.Windows.Forms.Label tELL_PHON_DNRMLabel;
@@ -46,14 +47,14 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Brth_Date_PersianDateEdit2 = new Atf.UI.DateTimeSelector();
-         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.tELL_PHON_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.fNGR_PRNT_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.roundedButton1 = new System.MaxUi.RoundedButton();
+         this.Pb_FighImg = new System.MaxUi.RoundedButton();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-         this.PydtBs = new System.Windows.Forms.BindingSource();
+         this.PydtBs = new System.Windows.Forms.BindingSource(this.components);
          this.CashBy_LookUpEdit = new DevExpress.XtraEditors.TextEdit();
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
@@ -63,15 +64,15 @@
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
          this.button1 = new System.Windows.Forms.Button();
          this.Expn_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.ExpnBs = new System.Windows.Forms.BindingSource();
+         this.ExpnBs = new System.Windows.Forms.BindingSource(this.components);
          this.Ctgy_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.CtgyBs = new System.Windows.Forms.BindingSource();
+         this.CtgyBs = new System.Windows.Forms.BindingSource(this.components);
          this.Cbmt_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CbmtBs = new System.Windows.Forms.BindingSource();
+         this.CbmtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Sex_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DsxtpBs = new System.Windows.Forms.BindingSource();
+         this.DsxtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.Day_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DdytpBs = new System.Windows.Forms.BindingSource();
+         this.DdytpBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -299,6 +300,7 @@
          // FighBs
          // 
          this.FighBs.DataSource = typeof(System.Scsc.Data.Fighter);
+         this.FighBs.CurrentChanged += new System.EventHandler(this.FighBs_CurrentChanged);
          // 
          // nAME_DNRMTextEdit
          // 
@@ -338,29 +340,29 @@
          this.fNGR_PRNT_DNRMTextEdit.Size = new System.Drawing.Size(100, 20);
          this.fNGR_PRNT_DNRMTextEdit.TabIndex = 3;
          // 
-         // roundedButton1
+         // Pb_FighImg
          // 
-         this.roundedButton1.Active = true;
-         this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.roundedButton1.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton1.Caption = "";
-         this.roundedButton1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.roundedButton1.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton1.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton1.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton1.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton1.ImageProfile = null;
-         this.roundedButton1.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.roundedButton1.ImageVisiable = true;
-         this.roundedButton1.Location = new System.Drawing.Point(270, 3);
-         this.roundedButton1.Name = "roundedButton1";
-         this.roundedButton1.NormalBorderColor = System.Drawing.Color.Black;
-         this.roundedButton1.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton1.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton1.Size = new System.Drawing.Size(112, 109);
-         this.roundedButton1.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton1.TabIndex = 62;
-         this.roundedButton1.Tooltip = null;
+         this.Pb_FighImg.Active = true;
+         this.Pb_FighImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Pb_FighImg.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Pb_FighImg.Caption = "";
+         this.Pb_FighImg.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Pb_FighImg.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Pb_FighImg.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Pb_FighImg.HoverColorA = System.Drawing.Color.LightGray;
+         this.Pb_FighImg.HoverColorB = System.Drawing.Color.LightGray;
+         this.Pb_FighImg.ImageProfile = null;
+         this.Pb_FighImg.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.Pb_FighImg.ImageVisiable = true;
+         this.Pb_FighImg.Location = new System.Drawing.Point(270, 3);
+         this.Pb_FighImg.Name = "Pb_FighImg";
+         this.Pb_FighImg.NormalBorderColor = System.Drawing.Color.Black;
+         this.Pb_FighImg.NormalColorA = System.Drawing.Color.White;
+         this.Pb_FighImg.NormalColorB = System.Drawing.Color.White;
+         this.Pb_FighImg.Size = new System.Drawing.Size(112, 109);
+         this.Pb_FighImg.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.Pb_FighImg.TabIndex = 62;
+         this.Pb_FighImg.Tooltip = null;
          // 
          // groupBox1
          // 
@@ -406,6 +408,7 @@
          // PydtBs
          // 
          this.PydtBs.DataSource = typeof(System.Scsc.Data.Payment_Detail);
+         this.PydtBs.CurrentChanged += new System.EventHandler(this.PydtBs_CurrentChanged);
          // 
          // CashBy_LookUpEdit
          // 
@@ -997,7 +1000,7 @@
          this.Controls.Add(this.RqstTran_Butn);
          this.Controls.Add(this.groupBox2);
          this.Controls.Add(this.groupBox1);
-         this.Controls.Add(this.roundedButton1);
+         this.Controls.Add(this.Pb_FighImg);
          this.Controls.Add(fNGR_PRNT_DNRMLabel);
          this.Controls.Add(this.fNGR_PRNT_DNRMTextEdit);
          this.Controls.Add(tELL_PHON_DNRMLabel);
@@ -1049,7 +1052,7 @@
       private DevExpress.XtraEditors.TextEdit nAME_DNRMTextEdit;
       private DevExpress.XtraEditors.TextEdit tELL_PHON_DNRMTextEdit;
       private DevExpress.XtraEditors.TextEdit fNGR_PRNT_DNRMTextEdit;
-      private MaxUi.RoundedButton roundedButton1;
+      private MaxUi.RoundedButton Pb_FighImg;
       private Windows.Forms.GroupBox groupBox1;
       private Windows.Forms.GroupBox groupBox2;
       private DevExpress.XtraEditors.LookUpEdit Expn_Lov;

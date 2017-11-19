@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
+using System.IO;
 
 namespace System.Scsc.Ui.Cash
 {
@@ -57,7 +58,7 @@ namespace System.Scsc.Ui.Cash
                         new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
                         new XElement("Payment_Detail",
                            new XAttribute("code", pydt.CODE),
-                           new XAttribute("expnpric", pydt.EXPN_CODE),
+                           new XAttribute("expncode", pydt.EXPN_CODE),
                            new XAttribute("expnpric", pydt.EXPN_PRIC),
                            new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
                            new XAttribute("qnty", pydt.QNTY ?? 1),
@@ -148,7 +149,7 @@ namespace System.Scsc.Ui.Cash
                            new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
                            new XElement("Payment_Detail",
                               new XAttribute("code", pydt.CODE),
-                              new XAttribute("expnpric", pydt.EXPN_CODE),
+                              new XAttribute("expncode", pydt.EXPN_CODE),
                               new XAttribute("expnpric", pydt.EXPN_PRIC),
                               new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
                               new XAttribute("qnty", pydt.QNTY ?? 1),
@@ -198,7 +199,7 @@ namespace System.Scsc.Ui.Cash
                         new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
                         new XElement("Payment_Detail",
                            new XAttribute("code", pydt.CODE),
-                           new XAttribute("expnpric", pydt.EXPN_CODE),
+                           new XAttribute("expncode", pydt.EXPN_CODE),
                            new XAttribute("expnpric", pydt.EXPN_PRIC),
                            new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
                            new XAttribute("qnty", pydt.QNTY ?? 1),
@@ -253,6 +254,62 @@ namespace System.Scsc.Ui.Cash
                   ex.EXPN_STAT == "002");
          }
          catch (Exception exc){}
+      }
+
+      private void FighBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            try
+            {
+               Pb_FighImg.ImageProfile = null;
+               Pb_FighImg.ImageVisiable = true;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
+
+               Pb_FighImg.Visible = true;
+
+               if (InvokeRequired)
+                  Invoke(new Action(() => Pb_FighImg.ImageProfile = bm));
+               else
+                  Pb_FighImg.ImageProfile = bm;
+            }
+            catch { Pb_FighImg.Visible = false; }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PydtBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var pydt = PydtBs.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
+            if(pydt.TRAN_BY != null)
+            {
+               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == iScsc.Category_Belts.FirstOrDefault(ct => ct.CODE == pydt.TRAN_CTGY_CODE).MTOD_CODE);
+               var rqst = iScsc.Requests.FirstOrDefault(r => r.RQID == pydt.PYMT_RQST_RQID);
+               ExpnBs.DataSource =
+                  iScsc.Expenses.Where(ex =>
+                     ex.Regulation.REGL_STAT == "002" &&
+                     ex.Regulation.TYPE == "001" &&
+                     ex.CTGY_CODE == pydt.TRAN_CTGY_CODE &&
+                     ex.Expense_Type.Request_Requester.RQTP_CODE == rqst.RQTP_CODE &&
+                     ex.Expense_Type.Request_Requester.RQTT_CODE == rqst.RQTT_CODE &&
+                     ex.EXPN_STAT == "002");
+            }
+         }
+         catch (Exception exc)
+         {
+
+         }
       }  
    }
 }

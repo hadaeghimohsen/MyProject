@@ -124,6 +124,10 @@ namespace System.Scsc.Ui.ReportManager
 
             FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate1_Date.Value;
             ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate1_Date.Value;
+
+            Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
+            Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
+            User_Lov2.EditValue = User_Lov3.EditValue = User_Lov.EditValue;
          }
          else if(tc_master.SelectedTab == tp_002)
          {
@@ -137,6 +141,10 @@ namespace System.Scsc.Ui.ReportManager
                FromTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
             if(ToTime2_Te.EditValue == null)
                ToTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 00);
+
+            Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov2.EditValue;
+            Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov2.EditValue;
+            User_Lov.EditValue = User_Lov3.EditValue = User_Lov2.EditValue;
          }
          else if (tc_master.SelectedTab == tp_003)
          {
@@ -145,6 +153,10 @@ namespace System.Scsc.Ui.ReportManager
 
             FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
             ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
+
+            Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
+            Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
+            User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue;
          }
          else if (tc_master.SelectedTab == tp_004)
          {
@@ -315,7 +327,7 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Selection"), 
                               new XAttribute("modual", /*GetType().Name*/formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"/>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue )
                            )
                      }
                   });
@@ -340,7 +352,7 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Default"), 
                               new XAttribute("modual", /*GetType().Name*/ formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"/>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue )
                            )
                      }
                   });

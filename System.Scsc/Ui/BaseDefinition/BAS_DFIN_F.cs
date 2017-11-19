@@ -1282,7 +1282,7 @@ namespace System.Scsc.Ui.BaseDefinition
             //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
             //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
-            var crnt = CbmtBs1.Current as Data.Club_Method;
+            var crnt = CbmtBs2.Current as Data.Club_Method;
             if (crnt == null) return;
 
             Job _InteractWithScsc =
@@ -1313,7 +1313,7 @@ namespace System.Scsc.Ui.BaseDefinition
             //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
             //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
-            var crnt = CbmtBs1.Current as Data.Club_Method;
+            var crnt = CbmtBs2.Current as Data.Club_Method;
             if (crnt == null) return;
 
             Job _InteractWithScsc =
@@ -1453,6 +1453,92 @@ namespace System.Scsc.Ui.BaseDefinition
                Execute_Query();
             }
          }
+      }
+
+      private void PrintDefaultCoch_But_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
+            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
+
+            var crnt = CbmtBs1.Current as Data.Club_Method;
+            if (crnt == null) return;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                  {
+                     Input = 
+                        new XElement("Print", 
+                           new XAttribute("type", "Default"), 
+                           new XAttribute("modual", GetType().Name), 
+                           new XAttribute("section", GetType().Name.Substring(0,3) + "_005_F"), 
+                           //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />", crnt.CODE, FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
+                           string.Format("<Club_Method cochfileno=\"{0}\" />",crnt.COCH_FILE_NO )
+                        )
+                  }
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void PrintCoch_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
+            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
+
+            var crnt = CbmtBs1.Current as Data.Club_Method;
+            if (crnt == null) return;
+
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     {
+                        Input = 
+                           new XElement("Print", 
+                              new XAttribute("type", "Selection"), 
+                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("section", GetType().Name.Substring(0,3) + "_005_F"),
+                              //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />",crnt.CODE , FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
+                              string.Format("<Club_Method cochfileno=\"{0}\" />",crnt.COCH_FILE_NO )
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void PrintSettingCoch_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request", 
+                              new XAttribute("type", "ModualReport"), 
+                              new XAttribute("modul", GetType().Name), 
+                              new XAttribute("section", GetType().Name.Substring(0,3) + "_005_F")
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
    }
 }

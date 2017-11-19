@@ -495,6 +495,7 @@
          this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.gridColumn106 = new DevExpress.XtraGrid.Columns.GridColumn();
          label1 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
@@ -3813,7 +3814,7 @@
          this.CBMT_CODE_GridLookUpEdit003.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CBMT_CODE_GridLookUpEdit003.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CBMT_CODE_GridLookUpEdit003.Properties.NullText = "";
-         this.CBMT_CODE_GridLookUpEdit003.Properties.PopupFormMinSize = new System.Drawing.Size(529, 0);
+         this.CBMT_CODE_GridLookUpEdit003.Properties.PopupFormMinSize = new System.Drawing.Size(800, 0);
          this.CBMT_CODE_GridLookUpEdit003.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit4});
          this.CBMT_CODE_GridLookUpEdit003.Properties.ValueMember = "CODE";
@@ -3862,11 +3863,11 @@
             this.gridColumn102,
             this.gridColumn103,
             this.gridColumn104,
-            this.gridColumn105});
+            this.gridColumn105,
+            this.gridColumn106});
          this.CbmtCode_GridView003.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
          this.CbmtCode_GridView003.Name = "CbmtCode_GridView003";
          this.CbmtCode_GridView003.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.CbmtCode_GridView003.OptionsView.ColumnAutoWidth = false;
          this.CbmtCode_GridView003.OptionsView.RowAutoHeight = true;
          this.CbmtCode_GridView003.OptionsView.ShowGroupPanel = false;
          this.CbmtCode_GridView003.OptionsView.ShowIndicator = false;
@@ -4993,6 +4994,14 @@
          // 
          this.OrgnBs1.DataSource = typeof(System.Scsc.Data.Organ);
          // 
+         // gridColumn106
+         // 
+         this.gridColumn106.Caption = "شرح کلاس";
+         this.gridColumn106.FieldName = "CBMT_DESC";
+         this.gridColumn106.Name = "gridColumn106";
+         this.gridColumn106.Visible = true;
+         this.gridColumn106.VisibleIndex = 7;
+         // 
          // ADM_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5515,5 +5524,6 @@
       private Windows.Forms.Button Cbmt003_Butn;
       private MaxUi.NewPickBtn SaveAttn_PkBt;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit4;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn106;
    }
 }

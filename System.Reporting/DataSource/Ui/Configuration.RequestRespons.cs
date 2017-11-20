@@ -133,6 +133,7 @@ namespace System.Reporting.DataSource.Ui
             });
          _DefaultGateway.Gateway(_Paint);
 
+         Enabled = true;
          job.Status = StatusType.Successful;
       }
 

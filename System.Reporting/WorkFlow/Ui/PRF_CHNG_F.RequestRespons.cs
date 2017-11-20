@@ -125,6 +125,7 @@ namespace System.Reporting.WorkFlow.Ui
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {Input = new List<object> {"Reporting:WorkFlow:PRF_CHNG_F", this}},
                new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "cntrhrz:default"} }               
             });
@@ -148,6 +149,7 @@ namespace System.Reporting.WorkFlow.Ui
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
                   new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFormWall */){Input = this}
                }));

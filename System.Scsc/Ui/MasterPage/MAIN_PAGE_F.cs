@@ -573,6 +573,7 @@ namespace System.Scsc.Ui.MasterPage
 
       private void OnAttTransactionEx(string EnrollNumber)
       {
+         if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "002"; }
          if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
 
          if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)

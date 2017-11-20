@@ -143,6 +143,8 @@ namespace System.Reporting.ReportViewers.Ui
             });
          _DefaultGateway.Gateway(_Paint);
 
+         Enabled = true;
+
          job.Status = StatusType.Successful;
       }
 

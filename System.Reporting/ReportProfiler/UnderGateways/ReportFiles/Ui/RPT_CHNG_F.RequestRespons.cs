@@ -128,6 +128,8 @@ namespace System.Reporting.ReportProfiler.UnderGateways.ReportFiles.Ui
                new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "cntrhrz:default"} }               
             });
          _DefaultGateway.Gateway(_Paint);
+
+         Enabled = true;
          job.Status = StatusType.Successful;
       }
 

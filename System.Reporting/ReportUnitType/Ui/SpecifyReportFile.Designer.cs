@@ -441,10 +441,10 @@
             this.columnHeader1});
          this.lv_reportfiles.FullRowSelect = true;
          this.lv_reportfiles.LargeImageList = this.il_icons;
-         this.lv_reportfiles.Location = new System.Drawing.Point(299, 384);
+         this.lv_reportfiles.Location = new System.Drawing.Point(40, 384);
          this.lv_reportfiles.Name = "lv_reportfiles";
          this.lv_reportfiles.RightToLeftLayout = true;
-         this.lv_reportfiles.Size = new System.Drawing.Size(139, 273);
+         this.lv_reportfiles.Size = new System.Drawing.Size(398, 273);
          this.lv_reportfiles.SmallImageList = this.il_icons;
          this.lv_reportfiles.TabIndex = 107;
          this.lv_reportfiles.UseCompatibleStateImageBehavior = false;
@@ -470,11 +470,11 @@
          // 
          this.txt_reportaddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.txt_reportaddress.Location = new System.Drawing.Point(299, 680);
+         this.txt_reportaddress.Location = new System.Drawing.Point(40, 680);
          this.txt_reportaddress.Name = "txt_reportaddress";
          this.txt_reportaddress.ReadOnly = true;
          this.txt_reportaddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.txt_reportaddress.Size = new System.Drawing.Size(139, 21);
+         this.txt_reportaddress.Size = new System.Drawing.Size(398, 21);
          this.txt_reportaddress.TabIndex = 109;
          // 
          // SpecifyReportFile

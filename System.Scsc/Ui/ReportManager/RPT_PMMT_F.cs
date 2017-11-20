@@ -111,6 +111,32 @@ namespace System.Scsc.Ui.ReportManager
                      (Fga_Uclb_U.Contains(me.CLUB_CODE))
                   );
             }
+            else if (tc_master.SelectedTab == tp_005)
+            {
+               var rqtps = Rqtp_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+               var users = User_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+
+               long? fileno = null, coch = null;
+
+               if (Figh_Lov5.EditValue != null && Figh_Lov5.EditValue.ToString() != "")
+                  fileno = (long?)Figh_Lov5.EditValue;
+
+               PydtBs5.DataSource =
+                  iScsc.Payment_Details
+                  .Where(pd =>
+                     pd.TRAN_DATE.Value.Date >= FromDate5_Date.Value.Value.Date &&
+                     pd.TRAN_DATE.Value.Date <= ToDate5_Date.Value.Value.Date &&
+
+                     /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
+                     pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
+
+                     pd.Request_Row.Request.RQST_STAT == "002" &&
+                     (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
+                     (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
+                     (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
+                  );
+            }
          }
          catch { }
       }
@@ -122,29 +148,29 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate1_Date.Focus(); return; }
             if (!ToDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate1_Date.Focus(); return; }
 
-            FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate1_Date.Value;
-            ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate1_Date.Value;
+            FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate1_Date.Value;
+            ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate1_Date.Value;
 
-            Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
-            Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
-            User_Lov2.EditValue = User_Lov3.EditValue = User_Lov.EditValue;
+            Rqtp_Lov5.EditValue = Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
+            Figh_Lov5.EditValue = Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
+            User_Lov5.EditValue = User_Lov2.EditValue = User_Lov3.EditValue = User_Lov.EditValue;
          }
          else if(tc_master.SelectedTab == tp_002)
          {
             if (!FromDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate2_Date.Focus(); return; }
             if (!ToDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate2_Date.Focus(); return; }
 
-            FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate2_Date.Value;
-            ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate2_Date.Value;
+            FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate2_Date.Value;
+            ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate2_Date.Value;
             
             if(FromTime2_Te.EditValue == null)
                FromTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
             if(ToTime2_Te.EditValue == null)
                ToTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 00);
 
-            Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov2.EditValue;
-            Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov2.EditValue;
-            User_Lov.EditValue = User_Lov3.EditValue = User_Lov2.EditValue;
+            Rqtp_Lov5.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov2.EditValue;
+            Figh_Lov5.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov2.EditValue;
+            User_Lov5.EditValue = User_Lov.EditValue = User_Lov3.EditValue = User_Lov2.EditValue;
          }
          else if (tc_master.SelectedTab == tp_003)
          {
@@ -154,17 +180,29 @@ namespace System.Scsc.Ui.ReportManager
             FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
             ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
 
-            Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
-            Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
-            User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue;
+            Rqtp_Lov5.EditValue = Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
+            Figh_Lov5.EditValue = Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
+            User_Lov5.EditValue = User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue;
          }
          else if (tc_master.SelectedTab == tp_004)
          {
             if (!FromDate4_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate4_Date.Focus(); return; }
             if (!ToDate4_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate4_Date.Focus(); return; }
 
-            FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value;
+            FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate4_Date.Value;
+            ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate4_Date.Value;
+         }
+         else if (tc_master.SelectedTab == tp_005)
+         {
+            if (!FromDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
+            if (!ToDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
+
+            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value;
+            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value;
+
+            Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov5.EditValue;
+            Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov5.EditValue;
+            User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue = User_Lov5.EditValue;
          }
          Execute_Query();
       }
@@ -415,6 +453,160 @@ namespace System.Scsc.Ui.ReportManager
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
             }
+         }
+      }
+
+      private void Pydt1_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            Pydtran_Gv.PostEditor();
+            var pydt = PydtBs5.Current as Data.Payment_Detail;
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", pydt.Request_Row.FIGH_FILE_NO)) }
+                  );
+                  break;
+               case 1:
+                  try
+                  {
+                     bool checkOK = true;
+                     Job _InteractWithScsc =
+                        new Job(SendType.External, "Desktop",
+                           new List<Job>
+                           {
+                              new Job(SendType.External, "Commons",
+                                 new List<Job>
+                                 {
+                                    #region Access Privilege
+                                    new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                    {
+                                       Input = new List<string> 
+                                       {
+                                          "<Privilege>221</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                          "DataGuard"
+                                       },
+                                       AfterChangedOutput = new Action<object>((output) => {
+                                          if ((bool)output)
+                                             return;
+                                          checkOK = false;
+                                          MessageBox.Show(this, "عدم دسترسی به ردیف 221 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                       })
+                                    }
+                                    #endregion                        
+                                 })                     
+                              });
+                              _DefaultGateway.Gateway(_InteractWithScsc);
+                              if (checkOK)
+                              {
+                                 _DefaultGateway.Gateway(
+                                    new Job(SendType.External, "localhost",
+                                       new List<Job>
+                                       {
+                                          new Job(SendType.Self, 86 /* Execute Pay_Mtod_F */){Input = pydt.Payment},
+                                          //new Job(SendType.SelfToUserInterface, "PAY_MTOD_F", 10 /* Execute Actn_CalF_F*/)
+                                          //{
+                                          //   Input = 
+                                          //      new XElement("Payment_Method",
+                                          //         new XAttribute("callerform", GetType().Name),
+                                          //         new XAttribute("tabfocued", "tp_003")
+                                          //      )
+                                          //}
+                                       }
+                                    )
+                                 );
+                              }
+                           }
+                           catch
+                           {
+                              requery = false;
+                           }
+                  
+                  break;
+               case 2:
+                  try
+                  {
+                     bool checkOK = true;
+                     #region Check Security
+                     Job _InteractWithScsc =
+                        new Job(SendType.External, "Desktop",
+                           new List<Job>
+                                 {
+                                    new Job(SendType.External, "Commons",
+                                       new List<Job>
+                                       {
+                                          #region Access Privilege
+                                          new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                          {
+                                             Input = new List<string> 
+                                             {
+                                                "<Privilege>224</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                                "DataGuard"
+                                             },
+                                             AfterChangedOutput = new Action<object>((output) => {
+                                                if ((bool)output)
+                                                   return;
+                                                checkOK = false;
+                                                MessageBox.Show(this, "عدم دسترسی به ردیف 224 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                             })
+                                          }
+                                          #endregion                        
+                                       })                     
+                                    });
+                     _DefaultGateway.Gateway(_InteractWithScsc);
+                     #endregion
+                     if (checkOK)
+                     {
+                        if (MessageBox.Show(this, "آیا با ویرایش کردن هزینه درخواست موافقید؟", "ویرایش هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                        iScsc.UPD_SEXP_P(
+                           new XElement("Request",
+                              new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                              new XElement("Payment",
+                                 new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                                 new XElement("Payment_Detail",
+                                    new XAttribute("code", pydt.CODE),
+                                    new XAttribute("expncode", pydt.EXPN_CODE),
+                                    new XAttribute("expnpric", pydt.EXPN_PRIC),
+                                    new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
+                                    new XAttribute("qnty", pydt.QNTY ?? 1),
+                                    new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                                    new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
+                                    new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM ?? 0),
+                                    new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM ?? 0),
+                                    new XAttribute("tranby", pydt.TRAN_BY),
+                                    new XAttribute("transtat", "002"),
+                                    new XAttribute("trandate", pydt.TRAN_DATE),
+                                    new XAttribute("trancbmtcode", pydt.TRAN_CBMT_CODE),
+                                    new XAttribute("tranmtodcode", pydt.TRAN_MTOD_CODE),
+                                    new XAttribute("tranctgycode", pydt.TRAN_CTGY_CODE),
+                                    new XAttribute("tranexpncode", pydt.TRAN_EXPN_CODE)
+                                 )
+                              )
+                           )
+                        );
+                        requery = true;
+                     }
+                  }
+                  catch (Exception exc)
+                  { }
+                  finally
+                  {
+                     if (requery)
+                     {
+                        Execute_Query();                        
+                     }
+                  }
+                  
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+
          }
       }
    }

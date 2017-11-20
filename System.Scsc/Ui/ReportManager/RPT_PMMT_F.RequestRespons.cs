@@ -17,6 +17,7 @@ namespace System.Scsc.Ui.ReportManager
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -100,6 +101,7 @@ namespace System.Scsc.Ui.ReportManager
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -188,11 +190,11 @@ namespace System.Scsc.Ui.ReportManager
                formName = "RPT_PMT2_F";
             if(xinput.Attribute("fromdate").Value != null)
             {
-               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
+               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
             }
             if (xinput.Attribute("todate").Value != null)
             {
-               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
+               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
             }
             if(xinput.Attribute("useraccount").Value != null)
             {

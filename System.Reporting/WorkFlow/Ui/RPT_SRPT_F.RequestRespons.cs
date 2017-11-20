@@ -152,6 +152,8 @@ namespace System.Reporting.WorkFlow.Ui
             });
          _DefaultGateway.Gateway(_Paint);
 
+         Enabled = true;
+
          job.Status = StatusType.Successful;
       }
 

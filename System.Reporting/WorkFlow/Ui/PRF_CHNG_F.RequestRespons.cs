@@ -129,7 +129,9 @@ namespace System.Reporting.WorkFlow.Ui
                new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "cntrhrz:default"} }               
             });
          _DefaultGateway.Gateway(_Paint);
-         
+
+         Enabled = true;
+
          Top = Top - 100;
          Height = 0;
 

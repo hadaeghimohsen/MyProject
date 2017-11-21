@@ -121,7 +121,7 @@ namespace System.Reporting.WorkFlow.Ui
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
-               //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { "Reporting:WorkFlow:RPT_SRCH_F", this }  },
                new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "right:off-screen:default:default"} }               
             });
@@ -138,9 +138,17 @@ namespace System.Reporting.WorkFlow.Ui
       /// <param name="job"></param>
       private void UnPaint(Job job)
       {
-         job.Next =
-            new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
-               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */) { Input = this });
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+                  new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
+                  new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFormWall */){Input = this}
+               }));
+         //job.Next =
+         //   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+         //      new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */) { Input = this });
 
          job.Status = StatusType.Successful;
       }

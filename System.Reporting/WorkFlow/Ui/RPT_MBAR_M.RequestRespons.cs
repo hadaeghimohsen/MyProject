@@ -125,6 +125,7 @@ namespace System.Reporting.WorkFlow.Ui
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { "Reporting:WorkFlow:RPT_MBAR_M", this }  },
                new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "bottom:off-screen:default:default"} }               
             });
@@ -141,9 +142,14 @@ namespace System.Reporting.WorkFlow.Ui
       private void UnPaint(Job job)
       {        
 
+         //job.Next =
+         //   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+         //      new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */) { Input = this });
+
          job.Next =
             new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
-               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */) { Input = this });
+               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */,
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)) { Input = this });
 
          job.Status = StatusType.Successful;
       }

@@ -552,6 +552,7 @@ namespace System.Scsc.Ui.OtherIncome
                                  new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
                                  new XElement("Payment_Detail",
                                     new XAttribute("code", pd.CODE),
+                                    new XAttribute("expncode", pd.EXPN_CODE),
                                     new XAttribute("expnpric", pd.EXPN_PRIC),
                                     new XAttribute("pydtdesc", pd.PYDT_DESC),
                                     new XAttribute("qnty", pd.QNTY ?? 1),

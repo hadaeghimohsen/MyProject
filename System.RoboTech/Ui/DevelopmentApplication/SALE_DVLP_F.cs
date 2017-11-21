@@ -58,6 +58,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          OrdrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDER_INFO");
          GhitBs.DataSource = iRoboTech.Group_Header_Items;
          DamtpBs.DataSource = iRoboTech.D_AMTPs;
+         DodstBs.DataSource = iRoboTech.D_ODSTs;
          requery = false;
       }
 

@@ -73,6 +73,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             Invalidate();
 
+            Menus_TreeList.PostEditor();
+
             OrgnBs.EndEdit();
             RoboBs.EndEdit();
             JobBs.EndEdit();

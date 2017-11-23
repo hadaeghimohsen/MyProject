@@ -14,6 +14,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Net;
 using System.Globalization;
+using Newtonsoft.Json;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -59,6 +60,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             Invalidate();
+            Ordr_Gv.PostEditor();
 
             OrdrBs.EndEdit();
             OrdtBs.EndEdit();
@@ -362,13 +364,19 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (result == DialogResult.Yes)
             {
                // ذخیره کردن در هارد
-               bot.GetFile("002", ordrdtil.ORDR_DESC, fileupload + "\\" + filename + "." + file_extension);
+               lock (bot)
+               {
+                  bot.GetFile("002", ordrdtil.ORDR_DESC, fileupload + "\\" + filename + "." + file_extension);
+               }
                //OrdrImag_Picbox.Image = Image.FromFile(fileupload + "\\" + filename + "." + file_extension);
             }
             else if (result == DialogResult.No)
             {
                // ذخیره سازی در پایگاه داده
-               bot.GetFile("002", ordrdtil.ORDR_DESC, fileupload + "\\" + filename + "." + file_extension);
+               lock (bot)
+               {
+                  bot.GetFile("002", ordrdtil.ORDR_DESC, fileupload + "\\" + filename + "." + file_extension);
+               }
                ordrdtil.IMAG_PATH = fileupload + "\\" + filename + "." + file_extension;
                /*OrdrImag_Picbox.Image = Image.FromFile(ordrdtil.ORDR_CMNT);
             
@@ -701,10 +709,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             // بررسی اینکه آیا از فایل های ارسال شده فایلی هست که دانلود نشده و در جدول مسیر آن وجود نداشته باشد
             if (ordr.Order_Details.Any(od => (od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004") && (od.IMAG_PATH == null || string.IsNullOrWhiteSpace(od.IMAG_PATH))) && MessageBox.Show(this, "برای تمامی فایل های نامه دانلود صورت نگرفته یا اینکه مسیر آن وجود ندارد!! آیا مراحل ارسال نامه به کارتابل انجام پذیرد؟", "عدم وجود فایل نامه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            if(ordr.Service_Robot.REAL_FRST_NAME == null || ordr.Service_Robot.REAL_LAST_NAME == null || ordr.Service_Robot.OTHR_CELL_PHON == null || ordr.Service_Robot.COMP_NAME == null || ordr.Service_Robot.OTHR_SERV_ADDR == null)
+            var srbt = iRoboTech.Service_Robots.Where(sr => sr == ordr.Service_Robot).ToList().FirstOrDefault();
+
+            if(srbt.REAL_FRST_NAME == null || srbt.REAL_LAST_NAME == null || srbt.OTHR_CELL_PHON == null || srbt.COMP_NAME == null || srbt.OTHR_SERV_ADDR == null)
             {
                MessageBox.Show("تمامی اطلاعات مشتری وارد نشده لطفا اطلاعاتی که با رنگ قرمز مشخص شده را برای مشتری تکمیل کنید");
-               var srbt = (OrdrBs.Current as Data.Order).Service_Robot;
+               //var srbt = (OrdrBs.Current as Data.Order).Service_Robot;
                if (srbt == null) return;
 
                _DefaultGateway.Gateway(
@@ -765,15 +775,17 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             );
 
             // Create request and receive response
-            string postURL = ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
+            string postURL = /*ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
             string userAgent = "Someone";
             HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(postURL, userAgent, postParameters);
 
             // Process response
             StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
             string fullResponse = responseReader.ReadToEnd();
+            dynamic result = JsonConvert.DeserializeObject(fullResponse);
             webResponse.Close();
             ordr.CRTB_SEND_STAT = "002";
+            ordr.CRTB_MAIL_NO = result.MailNo;
             MessageBox.Show(fullResponse);
             MessageBox.Show("عملیات ارسال با موفقیت انجام شد");
             iRoboTech.SubmitChanges();

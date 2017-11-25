@@ -8810,7 +8810,6 @@
             styleFormatCondition12,
             styleFormatCondition13});
          this.Attn_gv.GridControl = this.AttnGridControl;
-         this.Attn_gv.GroupCount = 2;
          this.Attn_gv.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "FIGH_FILE_NO", null, "")});
          this.Attn_gv.Name = "Attn_gv";
@@ -8821,8 +8820,6 @@
          this.Attn_gv.OptionsView.ShowGroupPanel = false;
          this.Attn_gv.OptionsView.ShowIndicator = false;
          this.Attn_gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCLUB_CODE, DevExpress.Data.ColumnSortOrder.Ascending),
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colACTN_DATE, DevExpress.Data.ColumnSortOrder.Descending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colENTR_TIME, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colCLUB_CODE
@@ -8835,8 +8832,6 @@
          this.colCLUB_CODE.OptionsColumn.ReadOnly = true;
          this.colCLUB_CODE.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
-         this.colCLUB_CODE.Visible = true;
-         this.colCLUB_CODE.VisibleIndex = 7;
          // 
          // colFIGH_FILE_NO2
          // 

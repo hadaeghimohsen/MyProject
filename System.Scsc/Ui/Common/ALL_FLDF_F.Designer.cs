@@ -159,11 +159,11 @@
          DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
@@ -184,16 +184,12 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -264,7 +260,6 @@
          this.MbfzRwno_Txt = new System.Windows.Forms.TextBox();
          this.MbfzDays_Txt = new System.Windows.Forms.TextBox();
          this.Refresh_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.AttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Mbco_Pn = new System.Windows.Forms.Panel();
          this.EndPrivSesn_Date = new Atf.UI.DateTimeSelector();
          this.Mbco_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -297,6 +292,7 @@
          this.groupBox3 = new System.Windows.Forms.GroupBox();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
          this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Btn_Insr = new DevExpress.XtraEditors.SimpleButton();
          this.UpdateDebt_Btn = new DevExpress.XtraEditors.SimpleButton();
          this.Pony_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -319,6 +315,7 @@
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.TrnsFngrPrnt_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ClearFingerPrint_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.AttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Del_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.aCTV_TAGTextBox = new System.Windows.Forms.TextBox();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
@@ -803,6 +800,7 @@
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DCngrBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
+         this.CbmtHistInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          fILE_NOLabel = new System.Windows.Forms.Label();
          nAME_DNRMLabel = new System.Windows.Forms.Label();
          fATH_NAME_DNRMLabel = new System.Windows.Forms.Label();
@@ -1793,7 +1791,7 @@
          // 
          label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label40.AutoSize = true;
-         label40.Location = new System.Drawing.Point(365, 119);
+         label40.Location = new System.Drawing.Point(353, 119);
          label40.Name = "label40";
          label40.Size = new System.Drawing.Size(102, 14);
          label40.TabIndex = 4;
@@ -2531,7 +2529,6 @@
          this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox6.Controls.Add(this.Mbfz_pn);
          this.groupBox6.Controls.Add(this.Refresh_Butn);
-         this.groupBox6.Controls.Add(this.AttnActn_Butn);
          this.groupBox6.Controls.Add(this.Mbco_Pn);
          this.groupBox6.Controls.Add(this.Btn_Blok);
          this.groupBox6.Controls.Add(this.Btn_Mbsp);
@@ -2696,35 +2693,6 @@
          this.Refresh_Butn.TabIndex = 33;
          this.Refresh_Butn.Click += new System.EventHandler(this.Refresh_Butn_Click);
          // 
-         // AttnActn_Butn
-         // 
-         this.AttnActn_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.AttnActn_Butn.Appearance.Options.UseBackColor = true;
-         this.AttnActn_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AttnActn_Butn.Image")));
-         this.AttnActn_Butn.Location = new System.Drawing.Point(290, 116);
-         this.AttnActn_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.AttnActn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AttnActn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.AttnActn_Butn.Name = "AttnActn_Butn";
-         this.AttnActn_Butn.Size = new System.Drawing.Size(25, 23);
-         toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
-         toolTipTitleItem8.Text = "ثبت حضوری";
-         toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "ثبت حضوری برای مشتریان";
-         toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
-         toolTipTitleItem9.Appearance.Options.UseImage = true;
-         toolTipTitleItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem9.Image")));
-         toolTipTitleItem9.LeftIndent = 6;
-         toolTipTitleItem9.Text = "واحد نظارت بر مشترکین";
-         superToolTip5.Items.Add(toolTipTitleItem8);
-         superToolTip5.Items.Add(toolTipItem5);
-         superToolTip5.Items.Add(toolTipTitleItem9);
-         this.AttnActn_Butn.SuperTip = superToolTip5;
-         this.AttnActn_Butn.TabIndex = 33;
-         this.AttnActn_Butn.Click += new System.EventHandler(this.AttnActn_Butn_Click);
-         // 
          // Mbco_Pn
          // 
          this.Mbco_Pn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2769,22 +2737,22 @@
          this.Mbco_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Mbco_Butn.Name = "Mbco_Butn";
          this.Mbco_Butn.Size = new System.Drawing.Size(50, 23);
-         toolTipTitleItem10.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
-         toolTipTitleItem10.Appearance.Options.UseImage = true;
-         toolTipTitleItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem10.Image")));
-         toolTipTitleItem10.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
+         toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+         toolTipTitleItem8.Appearance.Options.UseImage = true;
+         toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
+         toolTipTitleItem8.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
     " این مسیر به صورت ساده و آسان اقدام کنید";
-         toolTipTitleItem11.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem11.Appearance.Options.UseImage = true;
-         toolTipTitleItem11.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem11.LeftIndent = 6;
-         toolTipTitleItem11.Text = "واحد نظارت و قرارداد هنرجویان";
-         superToolTip6.Items.Add(toolTipTitleItem10);
-         superToolTip6.Items.Add(toolTipItem6);
-         superToolTip6.Items.Add(toolTipTitleItem11);
-         this.Mbco_Butn.SuperTip = superToolTip6;
+         toolTipTitleItem9.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem9.Appearance.Options.UseImage = true;
+         toolTipTitleItem9.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem9.LeftIndent = 6;
+         toolTipTitleItem9.Text = "واحد نظارت و قرارداد هنرجویان";
+         superToolTip5.Items.Add(toolTipTitleItem8);
+         superToolTip5.Items.Add(toolTipItem5);
+         superToolTip5.Items.Add(toolTipTitleItem9);
+         this.Mbco_Butn.SuperTip = superToolTip5;
          this.Mbco_Butn.TabIndex = 33;
          this.Mbco_Butn.Text = "تمدید";
          this.Mbco_Butn.Click += new System.EventHandler(this.Mbco_Butn_Click);
@@ -2858,21 +2826,21 @@
          this.Btn_Blok.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Btn_Blok.Name = "Btn_Blok";
          this.Btn_Blok.Size = new System.Drawing.Size(98, 23);
-         toolTipTitleItem12.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
-         toolTipTitleItem12.Appearance.Options.UseImage = true;
-         toolTipTitleItem12.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
-         toolTipTitleItem12.Text = "بلوکه کردن هنرجو";
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "برای بلوکه کردن هنرجو برای مدت محدود می توانید از این گزینه استفاده کنید";
-         toolTipTitleItem13.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem13.Appearance.Options.UseImage = true;
-         toolTipTitleItem13.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem13.LeftIndent = 6;
-         toolTipTitleItem13.Text = "واحد نظارت و قرارداد هنرجویان";
-         superToolTip7.Items.Add(toolTipTitleItem12);
-         superToolTip7.Items.Add(toolTipItem7);
-         superToolTip7.Items.Add(toolTipTitleItem13);
-         this.Btn_Blok.SuperTip = superToolTip7;
+         toolTipTitleItem10.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
+         toolTipTitleItem10.Appearance.Options.UseImage = true;
+         toolTipTitleItem10.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
+         toolTipTitleItem10.Text = "بلوکه کردن هنرجو";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "برای بلوکه کردن هنرجو برای مدت محدود می توانید از این گزینه استفاده کنید";
+         toolTipTitleItem11.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem11.Appearance.Options.UseImage = true;
+         toolTipTitleItem11.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem11.LeftIndent = 6;
+         toolTipTitleItem11.Text = "واحد نظارت و قرارداد هنرجویان";
+         superToolTip6.Items.Add(toolTipTitleItem10);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipTitleItem11);
+         this.Btn_Blok.SuperTip = superToolTip6;
          this.Btn_Blok.TabIndex = 33;
          this.Btn_Blok.Text = "بلوکه کردن";
          this.Btn_Blok.Click += new System.EventHandler(this.Btn_Blok_Click);
@@ -2888,22 +2856,22 @@
          this.Btn_Mbsp.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Btn_Mbsp.Name = "Btn_Mbsp";
          this.Btn_Mbsp.Size = new System.Drawing.Size(98, 23);
-         toolTipTitleItem14.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
-         toolTipTitleItem14.Appearance.Options.UseImage = true;
-         toolTipTitleItem14.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem14.Image")));
-         toolTipTitleItem14.Text = "تمدید قرارداد هنرجو";
-         toolTipItem8.LeftIndent = 6;
-         toolTipItem8.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد تمدید ماهیانه می توانید از این مسیر " +
+         toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+         toolTipTitleItem12.Appearance.Options.UseImage = true;
+         toolTipTitleItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem12.Image")));
+         toolTipTitleItem12.Text = "تمدید قرارداد هنرجو";
+         toolTipItem7.LeftIndent = 6;
+         toolTipItem7.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد تمدید ماهیانه می توانید از این مسیر " +
     "به صورت ساده و آسان اقدام کنید";
-         toolTipTitleItem15.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem15.Appearance.Options.UseImage = true;
-         toolTipTitleItem15.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem15.LeftIndent = 6;
-         toolTipTitleItem15.Text = "واحد نظارت و قرارداد هنرجویان";
-         superToolTip8.Items.Add(toolTipTitleItem14);
-         superToolTip8.Items.Add(toolTipItem8);
-         superToolTip8.Items.Add(toolTipTitleItem15);
-         this.Btn_Mbsp.SuperTip = superToolTip8;
+         toolTipTitleItem13.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem13.Appearance.Options.UseImage = true;
+         toolTipTitleItem13.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem13.LeftIndent = 6;
+         toolTipTitleItem13.Text = "واحد نظارت و قرارداد هنرجویان";
+         superToolTip7.Items.Add(toolTipTitleItem12);
+         superToolTip7.Items.Add(toolTipItem7);
+         superToolTip7.Items.Add(toolTipTitleItem13);
+         this.Btn_Mbsp.SuperTip = superToolTip7;
          this.Btn_Mbsp.TabIndex = 33;
          this.Btn_Mbsp.Text = "تمدید قرارداد";
          this.Btn_Mbsp.Click += new System.EventHandler(this.Btn_Mbsp_Click);
@@ -2985,7 +2953,7 @@
          this.textBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox30.BackColor = System.Drawing.Color.LawnGreen;
          this.textBox30.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "NUMB_OF_ATTN_MONT", true));
-         this.textBox30.Location = new System.Drawing.Point(318, 116);
+         this.textBox30.Location = new System.Drawing.Point(306, 116);
          this.textBox30.Name = "textBox30";
          this.textBox30.ReadOnly = true;
          this.textBox30.Size = new System.Drawing.Size(41, 22);
@@ -3098,15 +3066,15 @@
          this.CnclRqst_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CnclRqst_Butn.Name = "CnclRqst_Butn";
          this.CnclRqst_Butn.Size = new System.Drawing.Size(25, 25);
-         toolTipTitleItem16.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
-         toolTipTitleItem16.Appearance.Options.UseImage = true;
-         toolTipTitleItem16.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem16.Image")));
-         toolTipTitleItem16.Text = "انصراف درخواست";
-         toolTipItem9.LeftIndent = 6;
-         toolTipItem9.Text = "شما می توانید برای درخواست های ناتمام و بلاتکلیف از همینجا انصراف بزنید.";
-         superToolTip9.Items.Add(toolTipTitleItem16);
-         superToolTip9.Items.Add(toolTipItem9);
-         this.CnclRqst_Butn.SuperTip = superToolTip9;
+         toolTipTitleItem14.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+         toolTipTitleItem14.Appearance.Options.UseImage = true;
+         toolTipTitleItem14.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem14.Image")));
+         toolTipTitleItem14.Text = "انصراف درخواست";
+         toolTipItem8.LeftIndent = 6;
+         toolTipItem8.Text = "شما می توانید برای درخواست های ناتمام و بلاتکلیف از همینجا انصراف بزنید.";
+         superToolTip8.Items.Add(toolTipTitleItem14);
+         superToolTip8.Items.Add(toolTipItem8);
+         this.CnclRqst_Butn.SuperTip = superToolTip8;
          this.CnclRqst_Butn.TabIndex = 34;
          this.CnclRqst_Butn.Click += new System.EventHandler(this.CnclRqst_Butn_Click);
          // 
@@ -3144,6 +3112,7 @@
          // 
          this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox3.Controls.Add(this.lookUpEdit1);
+         this.groupBox3.Controls.Add(this.CbmtInfo_Butn);
          this.groupBox3.Controls.Add(this.Btn_Insr);
          this.groupBox3.Controls.Add(this.UpdateDebt_Btn);
          this.groupBox3.Controls.Add(this.Pony_Butn);
@@ -3180,7 +3149,7 @@
          // lookUpEdit1
          // 
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterBs, "COCH_FILE_NO", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(20, 111);
+         this.lookUpEdit1.Location = new System.Drawing.Point(51, 111);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
@@ -3266,12 +3235,27 @@
          this.lookUpEdit1.Properties.NullText = "";
          this.lookUpEdit1.Properties.ReadOnly = true;
          this.lookUpEdit1.Properties.ValueMember = "FILE_NO";
-         this.lookUpEdit1.Size = new System.Drawing.Size(145, 22);
+         this.lookUpEdit1.Size = new System.Drawing.Size(114, 22);
          this.lookUpEdit1.TabIndex = 34;
          // 
          // CochBs1
          // 
          this.CochBs1.DataSource = typeof(System.Scsc.Data.Fighter);
+         // 
+         // CbmtInfo_Butn
+         // 
+         this.CbmtInfo_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.CbmtInfo_Butn.Appearance.Options.UseBackColor = true;
+         this.CbmtInfo_Butn.Image = ((System.Drawing.Image)(resources.GetObject("CbmtInfo_Butn.Image")));
+         this.CbmtInfo_Butn.Location = new System.Drawing.Point(20, 111);
+         this.CbmtInfo_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.CbmtInfo_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.CbmtInfo_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CbmtInfo_Butn.Name = "CbmtInfo_Butn";
+         this.CbmtInfo_Butn.Size = new System.Drawing.Size(25, 23);
+         this.CbmtInfo_Butn.TabIndex = 33;
+         this.CbmtInfo_Butn.ToolTip = "اطلاعات ساعت کلاسی";
+         this.CbmtInfo_Butn.Click += new System.EventHandler(this.CbmtInfo_Butn_Click);
          // 
          // Btn_Insr
          // 
@@ -3284,21 +3268,21 @@
          this.Btn_Insr.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Btn_Insr.Name = "Btn_Insr";
          this.Btn_Insr.Size = new System.Drawing.Size(86, 23);
-         toolTipTitleItem17.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
-         toolTipTitleItem17.Appearance.Options.UseImage = true;
-         toolTipTitleItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem17.Image")));
-         toolTipTitleItem17.Text = "تمدید بیمه هنرجو";
-         toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "برای ثبت اطلاعات بیمه نامه هنرجو می توانید از دکمه استفاده کنید";
-         toolTipTitleItem18.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
-         toolTipTitleItem18.Appearance.Options.UseImage = true;
-         toolTipTitleItem18.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
-         toolTipTitleItem18.LeftIndent = 6;
-         toolTipTitleItem18.Text = "واحد بیمه و رفاه هنرجویان";
-         superToolTip10.Items.Add(toolTipTitleItem17);
-         superToolTip10.Items.Add(toolTipItem10);
-         superToolTip10.Items.Add(toolTipTitleItem18);
-         this.Btn_Insr.SuperTip = superToolTip10;
+         toolTipTitleItem15.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
+         toolTipTitleItem15.Appearance.Options.UseImage = true;
+         toolTipTitleItem15.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem15.Image")));
+         toolTipTitleItem15.Text = "تمدید بیمه هنرجو";
+         toolTipItem9.LeftIndent = 6;
+         toolTipItem9.Text = "برای ثبت اطلاعات بیمه نامه هنرجو می توانید از دکمه استفاده کنید";
+         toolTipTitleItem16.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
+         toolTipTitleItem16.Appearance.Options.UseImage = true;
+         toolTipTitleItem16.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
+         toolTipTitleItem16.LeftIndent = 6;
+         toolTipTitleItem16.Text = "واحد بیمه و رفاه هنرجویان";
+         superToolTip9.Items.Add(toolTipTitleItem15);
+         superToolTip9.Items.Add(toolTipItem9);
+         superToolTip9.Items.Add(toolTipTitleItem16);
+         this.Btn_Insr.SuperTip = superToolTip9;
          this.Btn_Insr.TabIndex = 33;
          this.Btn_Insr.Text = "تمدید بیمه";
          this.Btn_Insr.Click += new System.EventHandler(this.Btn_Insr_Click);
@@ -3314,21 +3298,21 @@
          this.UpdateDebt_Btn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UpdateDebt_Btn.Name = "UpdateDebt_Btn";
          this.UpdateDebt_Btn.Size = new System.Drawing.Size(25, 25);
-         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image12")));
-         toolTipTitleItem19.Appearance.Options.UseImage = true;
-         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
-         toolTipTitleItem19.Text = "بروز کردن مبلغ بدهی اعضا";
-         toolTipItem11.LeftIndent = 6;
-         toolTipItem11.Text = "برای محاسبه مجدد بدهی اعضا از این گزینه استفاده کنید";
-         toolTipTitleItem20.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem20.Appearance.Options.UseImage = true;
-         toolTipTitleItem20.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem20.LeftIndent = 6;
-         toolTipTitleItem20.Text = "واحد مالی";
-         superToolTip11.Items.Add(toolTipTitleItem19);
-         superToolTip11.Items.Add(toolTipItem11);
-         superToolTip11.Items.Add(toolTipTitleItem20);
-         this.UpdateDebt_Btn.SuperTip = superToolTip11;
+         toolTipTitleItem17.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
+         toolTipTitleItem17.Appearance.Options.UseImage = true;
+         toolTipTitleItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem17.Image")));
+         toolTipTitleItem17.Text = "بروز کردن مبلغ بدهی اعضا";
+         toolTipItem10.LeftIndent = 6;
+         toolTipItem10.Text = "برای محاسبه مجدد بدهی اعضا از این گزینه استفاده کنید";
+         toolTipTitleItem18.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem18.Appearance.Options.UseImage = true;
+         toolTipTitleItem18.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem18.LeftIndent = 6;
+         toolTipTitleItem18.Text = "واحد مالی";
+         superToolTip10.Items.Add(toolTipTitleItem17);
+         superToolTip10.Items.Add(toolTipItem10);
+         superToolTip10.Items.Add(toolTipTitleItem18);
+         this.UpdateDebt_Btn.SuperTip = superToolTip10;
          this.UpdateDebt_Btn.TabIndex = 33;
          this.UpdateDebt_Btn.Click += new System.EventHandler(this.UpdateDebt_Btn_Click);
          // 
@@ -3343,21 +3327,21 @@
          this.Pony_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Pony_Butn.Name = "Pony_Butn";
          this.Pony_Butn.Size = new System.Drawing.Size(25, 25);
-         toolTipTitleItem21.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
-         toolTipTitleItem21.Appearance.Options.UseImage = true;
-         toolTipTitleItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem21.Image")));
-         toolTipTitleItem21.Text = "نمایش لیست بدهی اعضا";
-         toolTipItem12.LeftIndent = 6;
-         toolTipItem12.Text = "برای تسویه حساب بدهی های اعضا می توانید از این گزینه استفاده کنید";
-         toolTipTitleItem22.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem22.Appearance.Options.UseImage = true;
-         toolTipTitleItem22.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem22.LeftIndent = 6;
-         toolTipTitleItem22.Text = "واحد مالی";
-         superToolTip12.Items.Add(toolTipTitleItem21);
-         superToolTip12.Items.Add(toolTipItem12);
-         superToolTip12.Items.Add(toolTipTitleItem22);
-         this.Pony_Butn.SuperTip = superToolTip12;
+         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
+         toolTipTitleItem19.Appearance.Options.UseImage = true;
+         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
+         toolTipTitleItem19.Text = "نمایش لیست بدهی اعضا";
+         toolTipItem11.LeftIndent = 6;
+         toolTipItem11.Text = "برای تسویه حساب بدهی های اعضا می توانید از این گزینه استفاده کنید";
+         toolTipTitleItem20.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem20.Appearance.Options.UseImage = true;
+         toolTipTitleItem20.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem20.LeftIndent = 6;
+         toolTipTitleItem20.Text = "واحد مالی";
+         superToolTip11.Items.Add(toolTipTitleItem19);
+         superToolTip11.Items.Add(toolTipItem11);
+         superToolTip11.Items.Add(toolTipTitleItem20);
+         this.Pony_Butn.SuperTip = superToolTip11;
          this.Pony_Butn.TabIndex = 33;
          this.Pony_Butn.Click += new System.EventHandler(this.Pony_Butn_Click);
          // 
@@ -3559,6 +3543,7 @@
          this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox1.Controls.Add(this.TrnsFngrPrnt_Butn);
          this.groupBox1.Controls.Add(this.ClearFingerPrint_Butn);
+         this.groupBox1.Controls.Add(this.AttnActn_Butn);
          this.groupBox1.Controls.Add(this.Del_Butn);
          this.groupBox1.Controls.Add(label6);
          this.groupBox1.Controls.Add(bLOD_GROPLabel);
@@ -3598,18 +3583,18 @@
          this.TrnsFngrPrnt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TrnsFngrPrnt_Butn.Name = "TrnsFngrPrnt_Butn";
          this.TrnsFngrPrnt_Butn.Size = new System.Drawing.Size(25, 23);
-         toolTipTitleItem23.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
-         toolTipTitleItem23.Appearance.Options.UseImage = true;
-         toolTipTitleItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem23.Image")));
-         toolTipTitleItem23.Text = "انتقال کارت به دستگاه";
-         toolTipItem13.LeftIndent = 6;
-         toolTipItem13.Text = "برای ثبت اطلاعات کارت عضو جاری می توانید از دکمه استفاده کنید";
-         toolTipTitleItem24.LeftIndent = 6;
-         toolTipTitleItem24.Text = "واحد ثبت نام اعضا";
-         superToolTip13.Items.Add(toolTipTitleItem23);
-         superToolTip13.Items.Add(toolTipItem13);
-         superToolTip13.Items.Add(toolTipTitleItem24);
-         this.TrnsFngrPrnt_Butn.SuperTip = superToolTip13;
+         toolTipTitleItem21.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image12")));
+         toolTipTitleItem21.Appearance.Options.UseImage = true;
+         toolTipTitleItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem21.Image")));
+         toolTipTitleItem21.Text = "انتقال کارت به دستگاه";
+         toolTipItem12.LeftIndent = 6;
+         toolTipItem12.Text = "برای ثبت اطلاعات کارت عضو جاری می توانید از دکمه استفاده کنید";
+         toolTipTitleItem22.LeftIndent = 6;
+         toolTipTitleItem22.Text = "واحد ثبت نام اعضا";
+         superToolTip12.Items.Add(toolTipTitleItem21);
+         superToolTip12.Items.Add(toolTipItem12);
+         superToolTip12.Items.Add(toolTipTitleItem22);
+         this.TrnsFngrPrnt_Butn.SuperTip = superToolTip12;
          this.TrnsFngrPrnt_Butn.TabIndex = 33;
          this.TrnsFngrPrnt_Butn.Click += new System.EventHandler(this.TrnsFngrPrnt_Butn_Click);
          // 
@@ -3624,24 +3609,38 @@
          this.ClearFingerPrint_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ClearFingerPrint_Butn.Name = "ClearFingerPrint_Butn";
          this.ClearFingerPrint_Butn.Size = new System.Drawing.Size(25, 23);
-         toolTipTitleItem25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
-         toolTipTitleItem25.Appearance.Options.UseImage = true;
-         toolTipTitleItem25.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem25.Image")));
-         toolTipTitleItem25.Text = "تمدید بیمه هنرجو";
-         toolTipItem14.LeftIndent = 6;
-         toolTipItem14.Text = "برای ثبت اطلاعات بیمه نامه هنرجو می توانید از دکمه استفاده کنید";
-         toolTipTitleItem26.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
-         toolTipTitleItem26.Appearance.Options.UseImage = true;
-         toolTipTitleItem26.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
-         toolTipTitleItem26.LeftIndent = 6;
-         toolTipTitleItem26.Text = "واحد بیمه و رفاه هنرجویان";
-         superToolTip14.Items.Add(toolTipTitleItem25);
-         superToolTip14.Items.Add(toolTipItem14);
-         superToolTip14.Items.Add(toolTipTitleItem26);
-         this.ClearFingerPrint_Butn.SuperTip = superToolTip14;
          this.ClearFingerPrint_Butn.TabIndex = 33;
          this.ClearFingerPrint_Butn.Text = "حذف کد انگشتی";
          this.ClearFingerPrint_Butn.Click += new System.EventHandler(this.ClearFingerPrint_Butn_Click);
+         // 
+         // AttnActn_Butn
+         // 
+         this.AttnActn_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.AttnActn_Butn.Appearance.Options.UseBackColor = true;
+         this.AttnActn_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AttnActn_Butn.Image")));
+         this.AttnActn_Butn.Location = new System.Drawing.Point(49, 130);
+         this.AttnActn_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.AttnActn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AttnActn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AttnActn_Butn.Name = "AttnActn_Butn";
+         this.AttnActn_Butn.Size = new System.Drawing.Size(25, 23);
+         toolTipTitleItem23.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
+         toolTipTitleItem23.Appearance.Options.UseImage = true;
+         toolTipTitleItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem23.Image")));
+         toolTipTitleItem23.Text = "ثبت حضوری";
+         toolTipItem13.LeftIndent = 6;
+         toolTipItem13.Text = "ثبت حضوری برای مشتریان";
+         toolTipTitleItem24.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
+         toolTipTitleItem24.Appearance.Options.UseImage = true;
+         toolTipTitleItem24.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem24.Image")));
+         toolTipTitleItem24.LeftIndent = 6;
+         toolTipTitleItem24.Text = "واحد نظارت بر مشترکین";
+         superToolTip13.Items.Add(toolTipTitleItem23);
+         superToolTip13.Items.Add(toolTipItem13);
+         superToolTip13.Items.Add(toolTipTitleItem24);
+         this.AttnActn_Butn.SuperTip = superToolTip13;
+         this.AttnActn_Butn.TabIndex = 33;
+         this.AttnActn_Butn.Click += new System.EventHandler(this.AttnActn_Butn_Click);
          // 
          // Del_Butn
          // 
@@ -3654,22 +3653,22 @@
          this.Del_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Del_Butn.Name = "Del_Butn";
          this.Del_Butn.Size = new System.Drawing.Size(25, 25);
-         toolTipTitleItem27.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
-         toolTipTitleItem27.Appearance.Options.UseImage = true;
-         toolTipTitleItem27.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem27.Image")));
-         toolTipTitleItem27.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
-         toolTipItem15.LeftIndent = 6;
-         toolTipItem15.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
+         toolTipTitleItem25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
+         toolTipTitleItem25.Appearance.Options.UseImage = true;
+         toolTipTitleItem25.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem25.Image")));
+         toolTipTitleItem25.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
+         toolTipItem14.LeftIndent = 6;
+         toolTipItem14.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
     " این مسیر به صورت ساده و آسان اقدام کنید";
-         toolTipTitleItem28.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem28.Appearance.Options.UseImage = true;
-         toolTipTitleItem28.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem28.LeftIndent = 6;
-         toolTipTitleItem28.Text = "واحد نظارت و قرارداد هنرجویان";
-         superToolTip15.Items.Add(toolTipTitleItem27);
-         superToolTip15.Items.Add(toolTipItem15);
-         superToolTip15.Items.Add(toolTipTitleItem28);
-         this.Del_Butn.SuperTip = superToolTip15;
+         toolTipTitleItem26.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem26.Appearance.Options.UseImage = true;
+         toolTipTitleItem26.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem26.LeftIndent = 6;
+         toolTipTitleItem26.Text = "واحد نظارت و قرارداد هنرجویان";
+         superToolTip14.Items.Add(toolTipTitleItem25);
+         superToolTip14.Items.Add(toolTipItem14);
+         superToolTip14.Items.Add(toolTipTitleItem26);
+         this.Del_Butn.SuperTip = superToolTip14;
          this.Del_Butn.TabIndex = 33;
          this.Del_Butn.Click += new System.EventHandler(this.Mbco_Butn_Click);
          // 
@@ -3685,7 +3684,7 @@
          // textEdit1
          // 
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterBs, "FNGR_PRNT_DNRM", true));
-         this.textEdit1.Location = new System.Drawing.Point(49, 130);
+         this.textEdit1.Location = new System.Drawing.Point(80, 130);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit1.Properties.Appearance.Options.UseFont = true;
@@ -3696,7 +3695,7 @@
          this.textEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.textEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.textEdit1.Properties.ReadOnly = true;
-         this.textEdit1.Size = new System.Drawing.Size(133, 22);
+         this.textEdit1.Size = new System.Drawing.Size(102, 22);
          this.textEdit1.TabIndex = 20;
          // 
          // dateTimeSelector3
@@ -4081,6 +4080,7 @@
          // groupBox10
          // 
          this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox10.Controls.Add(this.CbmtHistInfo_Butn);
          this.groupBox10.Controls.Add(this.lookUpEdit2);
          this.groupBox10.Controls.Add(label43);
          this.groupBox10.Controls.Add(label13);
@@ -4111,7 +4111,7 @@
          // lookUpEdit2
          // 
          this.lookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_All_Info_FightersBs, "COCH_FILE_NO", true));
-         this.lookUpEdit2.Location = new System.Drawing.Point(12, 33);
+         this.lookUpEdit2.Location = new System.Drawing.Point(43, 33);
          this.lookUpEdit2.Name = "lookUpEdit2";
          this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
@@ -4197,7 +4197,7 @@
          this.lookUpEdit2.Properties.NullText = "";
          this.lookUpEdit2.Properties.ReadOnly = true;
          this.lookUpEdit2.Properties.ValueMember = "FILE_NO";
-         this.lookUpEdit2.Size = new System.Drawing.Size(138, 22);
+         this.lookUpEdit2.Size = new System.Drawing.Size(107, 22);
          this.lookUpEdit2.TabIndex = 36;
          // 
          // textBox11
@@ -4355,18 +4355,18 @@
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
          this.simpleButton1.Size = new System.Drawing.Size(25, 23);
-         toolTipTitleItem29.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
-         toolTipTitleItem29.Appearance.Options.UseImage = true;
-         toolTipTitleItem29.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem29.Image")));
-         toolTipTitleItem29.Text = "انتقال کارت به دستگاه";
-         toolTipItem16.LeftIndent = 6;
-         toolTipItem16.Text = "برای ثبت اطلاعات کارت عضو جاری می توانید از دکمه استفاده کنید";
-         toolTipTitleItem30.LeftIndent = 6;
-         toolTipTitleItem30.Text = "واحد ثبت نام اعضا";
-         superToolTip16.Items.Add(toolTipTitleItem29);
-         superToolTip16.Items.Add(toolTipItem16);
-         superToolTip16.Items.Add(toolTipTitleItem30);
-         this.simpleButton1.SuperTip = superToolTip16;
+         toolTipTitleItem27.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
+         toolTipTitleItem27.Appearance.Options.UseImage = true;
+         toolTipTitleItem27.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem27.Image")));
+         toolTipTitleItem27.Text = "انتقال کارت به دستگاه";
+         toolTipItem15.LeftIndent = 6;
+         toolTipItem15.Text = "برای ثبت اطلاعات کارت عضو جاری می توانید از دکمه استفاده کنید";
+         toolTipTitleItem28.LeftIndent = 6;
+         toolTipTitleItem28.Text = "واحد ثبت نام اعضا";
+         superToolTip15.Items.Add(toolTipTitleItem27);
+         superToolTip15.Items.Add(toolTipItem15);
+         superToolTip15.Items.Add(toolTipTitleItem28);
+         this.simpleButton1.SuperTip = superToolTip15;
          this.simpleButton1.TabIndex = 34;
          // 
          // textBox41
@@ -9000,6 +9000,21 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // CbmtHistInfo_Butn
+         // 
+         this.CbmtHistInfo_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.CbmtHistInfo_Butn.Appearance.Options.UseBackColor = true;
+         this.CbmtHistInfo_Butn.Image = ((System.Drawing.Image)(resources.GetObject("CbmtHistInfo_Butn.Image")));
+         this.CbmtHistInfo_Butn.Location = new System.Drawing.Point(12, 33);
+         this.CbmtHistInfo_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.CbmtHistInfo_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.CbmtHistInfo_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CbmtHistInfo_Butn.Name = "CbmtHistInfo_Butn";
+         this.CbmtHistInfo_Butn.Size = new System.Drawing.Size(25, 23);
+         this.CbmtHistInfo_Butn.TabIndex = 37;
+         this.CbmtHistInfo_Butn.ToolTip = "اطلاعات ساعت کلاسی";
+         this.CbmtHistInfo_Butn.Click += new System.EventHandler(this.CbmtHistInfo_Butn_Click);
+         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9813,5 +9828,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colFIGH_FILE_NO3;
       private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colCTGY_CODE_DNRM;
+      private DevExpress.XtraEditors.SimpleButton CbmtInfo_Butn;
+      private DevExpress.XtraEditors.SimpleButton CbmtHistInfo_Butn;
    }
 }

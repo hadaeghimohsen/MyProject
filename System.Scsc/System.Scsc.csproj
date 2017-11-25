@@ -376,6 +376,15 @@
     <Compile Include="Ui\Admission\ShowChanges\SHOW_ATRQ_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Admission\MBSP_CHNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\MBSP_CHNG_F.Designer.cs">
+      <DependentUpon>MBSP_CHNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\MBSP_CHNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\AggregateOperation\AOP_BUFE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1510,6 +1519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Admission\ShowChanges\SHOW_ATRQ_F.resx">
       <DependentUpon>SHOW_ATRQ_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\MBSP_CHNG_F.resx">
+      <DependentUpon>MBSP_CHNG_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\AOP_BUFE_F.resx">
       <DependentUpon>AOP_BUFE_F.cs</DependentUpon>

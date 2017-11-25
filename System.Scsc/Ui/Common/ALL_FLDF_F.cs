@@ -1064,5 +1064,52 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void CbmtInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null)
+               figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 149 /* Execute Bas_Wkdy_F */),
+                     new Job(SendType.SelfToUserInterface,"BAS_WKDY_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("code", figh.CBMT_CODE), new XAttribute("showonly", "002"))}
+                  }
+               )
+            );
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         } 
+      }
+
+      private void CbmtHistInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_All_Info_FightersBs.Current as Data.VF_All_Info_FightersResult;
+            if (figh == null) return;            
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 149 /* Execute Bas_Wkdy_F */),
+                     new Job(SendType.SelfToUserInterface,"BAS_WKDY_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("code", figh.CBMT_CODE), new XAttribute("showonly", "002"))}
+                  }
+               )
+            );
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         } 
+      }
    }
 }

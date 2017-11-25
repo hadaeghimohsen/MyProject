@@ -1382,7 +1382,6 @@
          this.ribbonPageGroup4.ItemLinks.Add(this.bbi_senmbutn);
          this.ribbonPageGroup4.ItemLinks.Add(this.bbi_insrbutn);
          this.ribbonPageGroup4.ItemLinks.Add(this.bbi_fmdfbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_fdlsbutn);
          this.ribbonPageGroup4.ItemLinks.Add(this.bbi_fcrlbutn);
          this.ribbonPageGroup4.Name = "ribbonPageGroup4";
          this.ribbonPageGroup4.Text = "داوطلب";
@@ -1412,6 +1411,7 @@
          // 
          this.ribbonPageGroup7.ItemLinks.Add(this.bbi_flstbutn);
          this.ribbonPageGroup7.ItemLinks.Add(this.bbi_clstbutn);
+         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_fdlsbutn);
          this.ribbonPageGroup7.ItemLinks.Add(this.bbi_attnbutn);
          this.ribbonPageGroup7.ItemLinks.Add(this.bbi_rptcbutn);
          this.ribbonPageGroup7.ItemLinks.Add(this.bbi_rptsbutn);

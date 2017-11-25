@@ -110,11 +110,11 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
                MtodBs1.DataSource = iScsc.Methods;
-               CreateCoachMenu();
+               //CreateCoachMenu();
             }
             else
             {
-               CochCbmtInfo();
+               //CochCbmtInfo();
             }
          }
          else if(Tb_Master.SelectedTab == tp_006)
@@ -818,86 +818,86 @@ namespace System.Scsc.Ui.BaseDefinition
       #endregion
 
       #region TabPage005
-      private void CreateCoachMenu()
-      {
-         //NameDnrm_Lbl.Text = "";
-         //SexType_Lbl.Text = "";
-         //BrthDate_Lbl.Text = "";
-         CoachList_Flp.Controls.Clear();
-         CbmtBs1.List.Clear();
-         foreach (Data.Fighter coch in CochBs1.List.OfType<Data.Fighter>())
-         {
-            var simplebutton = new SimpleButton();
+      //private void CreateCoachMenu()
+      //{
+      //   //NameDnrm_Lbl.Text = "";
+      //   //SexType_Lbl.Text = "";
+      //   //BrthDate_Lbl.Text = "";
+      //   CoachList_Flp.Controls.Clear();
+      //   CbmtBs1.List.Clear();
+      //   foreach (Data.Fighter coch in CochBs1.List.OfType<Data.Fighter>())
+      //   {
+      //      var simplebutton = new SimpleButton();
 
-            simplebutton.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
-            simplebutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-               | System.Windows.Forms.AnchorStyles.Right)));
-            simplebutton.Appearance.BackColor = Convert.ToInt32(coch.ACTV_TAG_DNRM) <= 100 ? Color.Gainsboro : Color.SkyBlue;
-            simplebutton.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            simplebutton.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            simplebutton.Appearance.Options.UseBackColor = true;
-            simplebutton.Appearance.Options.UseFont = true;
-            simplebutton.Appearance.Options.UseForeColor = true;
-            simplebutton.Appearance.Options.UseTextOptions = true;
-            simplebutton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            simplebutton.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            simplebutton.Image = coch.SEX_TYPE_DNRM == "001" ? global::System.Scsc.Properties.Resources.IMAGE_1076 : global::System.Scsc.Properties.Resources.IMAGE_1507;
-            simplebutton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            simplebutton.Location = new System.Drawing.Point(530, 3);
-            simplebutton.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            simplebutton.LookAndFeel.UseDefaultLookAndFeel = false;
-            simplebutton.Name = "simpleButton2";
-            simplebutton.Size = new System.Drawing.Size(169, 57);
-            simplebutton.TabIndex = 3;
-            simplebutton.Tag = coch;
-            simplebutton.Text = string.Format("<b><u>{0}</u></b><br><color=DimGray><size=9>{1}</size></color><br><color=blue><size=10>{2}</size></color><br>", coch.NAME_DNRM, coch.Method.MTOD_DESC, coch.FNGR_PRNT_DNRM);
-            simplebutton.Click += CochInfo_Click;
-            CoachList_Flp.Controls.Add(simplebutton);
-         }
-      }
+      //      simplebutton.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
+      //      simplebutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      //         | System.Windows.Forms.AnchorStyles.Right)));
+      //      simplebutton.Appearance.BackColor = Convert.ToInt32(coch.ACTV_TAG_DNRM) <= 100 ? Color.Gainsboro : Color.SkyBlue;
+      //      simplebutton.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      //      simplebutton.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+      //      simplebutton.Appearance.Options.UseBackColor = true;
+      //      simplebutton.Appearance.Options.UseFont = true;
+      //      simplebutton.Appearance.Options.UseForeColor = true;
+      //      simplebutton.Appearance.Options.UseTextOptions = true;
+      //      simplebutton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+      //      simplebutton.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+      //      simplebutton.Image = coch.SEX_TYPE_DNRM == "001" ? global::System.Scsc.Properties.Resources.IMAGE_1076 : global::System.Scsc.Properties.Resources.IMAGE_1507;
+      //      simplebutton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+      //      simplebutton.Location = new System.Drawing.Point(530, 3);
+      //      simplebutton.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+      //      simplebutton.LookAndFeel.UseDefaultLookAndFeel = false;
+      //      simplebutton.Name = "simpleButton2";
+      //      simplebutton.Size = new System.Drawing.Size(169, 57);
+      //      simplebutton.TabIndex = 3;
+      //      simplebutton.Tag = coch;
+      //      simplebutton.Text = string.Format("<b><u>{0}</u></b><br><color=DimGray><size=9>{1}</size></color><br><color=blue><size=10>{2}</size></color><br>", coch.NAME_DNRM, coch.Method.MTOD_DESC, coch.FNGR_PRNT_DNRM);
+      //      simplebutton.Click += CochInfo_Click;
+      //      CoachList_Flp.Controls.Add(simplebutton);
+      //   }
+      //}
 
-      Data.Fighter coch;
-      private void CochInfo_Click(object sender, EventArgs e)
-      {
-         coch = ((SimpleButton)sender).Tag as Data.Fighter;
+      //Data.Fighter coch;
+      //private void CochInfo_Click(object sender, EventArgs e)
+      //{
+      //   coch = ((SimpleButton)sender).Tag as Data.Fighter;
 
-         CochCbmtInfo();
-      }
+      //   CochCbmtInfo();
+      //}
 
-      private void CochCbmtInfo()
-      {
-         //try
-         //{
-         //   ImageProfile_Pb.ImageProfile = null;
-         //   MemoryStream mStream = new MemoryStream();
-         //   byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO))).ToArray();
-         //   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-         //   Bitmap bm = new Bitmap(mStream, false);
-         //   mStream.Dispose();
+      //private void CochCbmtInfo()
+      //{
+      //   //try
+      //   //{
+      //   //   ImageProfile_Pb.ImageProfile = null;
+      //   //   MemoryStream mStream = new MemoryStream();
+      //   //   byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO))).ToArray();
+      //   //   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+      //   //   Bitmap bm = new Bitmap(mStream, false);
+      //   //   mStream.Dispose();
 
-         //   ImageProfile_Pb.Visible = true;
+      //   //   ImageProfile_Pb.Visible = true;
 
-         //   if (InvokeRequired)
-         //      Invoke(new Action(() => ImageProfile_Pb.ImageProfile = bm));
-         //   else
-         //      ImageProfile_Pb.ImageProfile = bm;
-         //}
-         //catch
-         //{
-         //   ImageProfile_Pb.ImageProfile = coch.SEX_TYPE_DNRM == "001" ? global::System.Scsc.Properties.Resources.IMAGE_1076 : global::System.Scsc.Properties.Resources.IMAGE_1507;
-         //}
+      //   //   if (InvokeRequired)
+      //   //      Invoke(new Action(() => ImageProfile_Pb.ImageProfile = bm));
+      //   //   else
+      //   //      ImageProfile_Pb.ImageProfile = bm;
+      //   //}
+      //   //catch
+      //   //{
+      //   //   ImageProfile_Pb.ImageProfile = coch.SEX_TYPE_DNRM == "001" ? global::System.Scsc.Properties.Resources.IMAGE_1076 : global::System.Scsc.Properties.Resources.IMAGE_1507;
+      //   //}
 
-         //NameDnrm_Lbl.Text = coch.NAME_DNRM;
-         //SexType_Lbl.Text = coch.SEX_TYPE_DNRM == "001" ? "مربی آقایان" : "مربی خانم ها";
-         //BrthDate_Lbl.Text = GetPersianDate(coch.BRTH_DATE_DNRM);
+      //   //NameDnrm_Lbl.Text = coch.NAME_DNRM;
+      //   //SexType_Lbl.Text = coch.SEX_TYPE_DNRM == "001" ? "مربی آقایان" : "مربی خانم ها";
+      //   //BrthDate_Lbl.Text = GetPersianDate(coch.BRTH_DATE_DNRM);
 
-         var cbmt = CbmtBs1.Position;
-         CbmtBs1.List.Clear();
-         CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.COCH_FILE_NO == coch.FILE_NO);
-         gridView4.TopRowIndex = cbmt;
-         CbmtBs1.Position = cbmt;
+      //   var cbmt = CbmtBs1.Position;
+      //   CbmtBs1.List.Clear();
+      //   CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.COCH_FILE_NO == coch.FILE_NO);
+      //   gridView4.TopRowIndex = cbmt;
+      //   CbmtBs1.Position = cbmt;
          
-      }
+      //}
 
       private string GetPersianDate(DateTime? datetime)
       {
@@ -1004,49 +1004,87 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
-            if (cbmt == null) { return; }
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) { return; }
 
-            var club = ClubBs1.Current as Data.Club;
-            if (cbmt.CLUB_CODE == null) { cbmt.CLUB_CODE = club.CODE; }
+               var club = ClubBs1.Current as Data.Club;
+               if (cbmt.CLUB_CODE == null) { cbmt.CLUB_CODE = club.CODE; }
 
-            if (cbmt.COCH_FILE_NO == null) return;
-            if (cbmt.MTOD_CODE == null) return;
-            if (cbmt.DAY_TYPE == null) return;
+               if (cbmt.COCH_FILE_NO == null) return;
+               if (cbmt.MTOD_CODE == null) return;
+               if (cbmt.DAY_TYPE == null) return;
 
-            if(cbmt.CODE == 0)
-               iScsc.STNG_SAVE_P(
-                  new XElement("Config",
-                     new XAttribute("type", "005"),
-                        new XElement("Insert",
-                           new XElement("Club_Method",
-                              new XAttribute("clubcode", club.CODE),
-                              new XAttribute("mtodcode", cbmt.MTOD_CODE),
-                              new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
-                              new XAttribute("daytype", cbmt.DAY_TYPE),
-                              new XAttribute("strttime", cbmt.STRT_TIME.ToString()),
-                              new XAttribute("endtime", cbmt.END_TIME.ToString()),
-                              new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
-                              new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
-                              new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
-                              new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
-                              new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
-                              new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
-                              new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
-                              new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
-                              new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)                              
+               if (cbmt.CODE == 0)
+                  iScsc.STNG_SAVE_P(
+                     new XElement("Config",
+                        new XAttribute("type", "005"),
+                           new XElement("Insert",
+                              new XElement("Club_Method",
+                                 new XAttribute("clubcode", club.CODE),
+                                 new XAttribute("mtodcode", cbmt.MTOD_CODE),
+                                 new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
+                                 new XAttribute("daytype", cbmt.DAY_TYPE),
+                                 new XAttribute("strttime", cbmt.STRT_TIME.ToString()),
+                                 new XAttribute("endtime", cbmt.END_TIME.ToString()),
+                                 new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
+                                 new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
+                                 new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
+                                 new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
+                                 new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
+                                 new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
+                                 new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
+                                 new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
+                                 new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)
+                              )
                            )
-                        )
-                  )
-               );
-            else
+                     )
+                  );
+               else
+                  iScsc.STNG_SAVE_P(
+                     new XElement("Config",
+                        new XAttribute("type", "005"),
+                           new XElement("Update",
+                              new XElement("Club_Method",
+                                 new XAttribute("code", cbmt.CODE),
+                                 new XAttribute("clubcode", club.CODE),
+                                 new XAttribute("mtodcode", cbmt.MTOD_CODE),
+                                 new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
+                                 new XAttribute("daytype", cbmt.DAY_TYPE),
+                                 new XAttribute("strttime", cbmt.STRT_TIME.ToString()),
+                                 new XAttribute("endtime", cbmt.END_TIME.ToString()),
+                                 new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
+                                 new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
+                                 new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
+                                 new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
+                                 new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
+                                 new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
+                                 new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
+                                 new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
+                                 new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)
+                              )
+                           )
+                     )
+                  );
+               requery = true;
+            }
+            else if(Tb_Master.SelectedTab == tp_005)
+            {
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) { return; }
+
+               if (cbmt.COCH_FILE_NO == null) return;
+               if (cbmt.MTOD_CODE == null) return;
+               if (cbmt.DAY_TYPE == null) return;
+
                iScsc.STNG_SAVE_P(
                   new XElement("Config",
                      new XAttribute("type", "005"),
                         new XElement("Update",
                            new XElement("Club_Method",
                               new XAttribute("code", cbmt.CODE),
-                              new XAttribute("clubcode", club.CODE),
+                              new XAttribute("clubcode", cbmt.CLUB_CODE),
                               new XAttribute("mtodcode", cbmt.MTOD_CODE),
                               new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
                               new XAttribute("daytype", cbmt.DAY_TYPE),
@@ -1060,17 +1098,18 @@ namespace System.Scsc.Ui.BaseDefinition
                               new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
                               new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
                               new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
-                              new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)                              
+                              new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)
                            )
                         )
                   )
                );
-            requery = true;
-
+               requery = true;
+            }
             if (Tb_Master.SelectedTab == tp_005)
                fetchagine = false;
             else
                fetchagine = true;
+            
          }
          catch (Exception ex)
          {
@@ -1366,25 +1405,51 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
-            if (cbmt == null) return;
-
-            //CbmtGv1.Tag = cbmt.Club;
-
-            switch (e.Button.Index)
+            if (Tb_Master.SelectedTab == tp_006)
             {
-               case 0:
-                  cbmt.MTOD_STAT = cbmt.MTOD_STAT == "002" ? "001" : "002";
-                  SaveClubMethod_Butn_Click(null, null);
-                  break;
-               case 1:
-                  SaveClubMethod_Butn_Click(null, null);
-                  break;
-               case 2:
-                  WeekDay_Butn_Click(null, null);
-                  break;
-               default:
-                  break;
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               //CbmtGv1.Tag = cbmt.Club;
+
+               switch (e.Button.Index)
+               {
+                  case 0:
+                     cbmt.MTOD_STAT = cbmt.MTOD_STAT == "002" ? "001" : "002";
+                     SaveClubMethod_Butn_Click(null, null);
+                     break;
+                  case 1:
+                     SaveClubMethod_Butn_Click(null, null);
+                     break;
+                  case 2:
+                     WeekDay_Butn_Click(null, null);
+                     break;
+                  default:
+                     break;
+               }
+            }
+            else if(Tb_Master.SelectedTab == tp_005)
+            {
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               //CbmtGv1.Tag = cbmt.Club;
+
+               switch (e.Button.Index)
+               {
+                  case 0:
+                     cbmt.MTOD_STAT = cbmt.MTOD_STAT == "002" ? "001" : "002";
+                     SaveClubMethod_Butn_Click(null, null);
+                     break;
+                  case 1:
+                     SaveClubMethod_Butn_Click(null, null);
+                     break;
+                  case 2:
+                     WeekDay_Butn_Click(null, null);
+                     break;
+                  default:
+                     break;
+               }
             }
          }
          catch (Exception exc)
@@ -1539,6 +1604,23 @@ namespace System.Scsc.Ui.BaseDefinition
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void CochInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO)) }
+            );
+         }
+         catch { }
+      }
+
+      private void CochInfo_Lnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+      {
+         CochInfo_Butn_Click(null, null);
       }
    }
 }

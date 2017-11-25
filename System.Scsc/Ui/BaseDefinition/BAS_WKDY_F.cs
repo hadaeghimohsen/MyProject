@@ -165,5 +165,19 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc)
          {}
       }
+
+      private void CochInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO)) }
+            );
+         }
+         catch { }
+      }
    }
 }

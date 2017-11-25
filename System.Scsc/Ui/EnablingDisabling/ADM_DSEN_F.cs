@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.EnablingDisabling
       }
 
       private bool requery = default(bool);
+      private string fngrprnt = "";
 
       private void Execute_Query()
       {
@@ -138,7 +139,8 @@ namespace System.Scsc.Ui.EnablingDisabling
                         new XElement("Request_Row",
                            new XAttribute("fileno", FILE_NO_LookUpEdit.EditValue),
                            new XElement("Fighter_Public",
-                              new XElement("Actv_Tag", ACTV_TAG_LookUpEdit.EditValue ?? "101")
+                              new XElement("Actv_Tag", ACTV_TAG_LookUpEdit.EditValue ?? "101"),
+                              new XElement("Fngr_Prnt", fngrprnt ?? "")
                            )
                         )
                      )

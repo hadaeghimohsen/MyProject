@@ -268,6 +268,11 @@ namespace System.Scsc.Ui.EnablingDisabling
             RqstBs1.AddNew();
          FILE_NO_LookUpEdit.EditValue = Convert.ToInt64(input.Attribute("fileno").Value);
 
+         if (input.Attribute("fngrprnt") != null)
+            fngrprnt = input.Attribute("fngrprnt").Value;
+         else
+            fngrprnt = "";
+
          if (input.Attribute("auto").Value == "true")
          {
             RqstBnARqt1_Click(null, null);

@@ -37,19 +37,19 @@
          System.Windows.Forms.Label label3;
          System.Windows.Forms.Label label4;
          System.Windows.Forms.Label label5;
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
-         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          System.Windows.Forms.Label label6;
          System.Windows.Forms.Label label7;
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Lbl_AmntType = new System.Windows.Forms.Label();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Brth_Date_PersianDateEdit2 = new Atf.UI.DateTimeSelector();
          this.AttnDate_Date = new Atf.UI.DateTimeSelector();
          this.ENTR_TIMETextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -104,8 +104,8 @@
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
-         ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EXIT_TIMETextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dEBT_DNRMTextEdit.Properties)).BeginInit();
@@ -204,6 +204,39 @@
          label5.Text = "جلسه خصوصی\r\n با مربی";
          label5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
          // 
+         // label6
+         // 
+         label6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Method.MTOD_DESC", true));
+         label6.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         label6.ForeColor = System.Drawing.Color.White;
+         label6.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
+         label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+         label6.Location = new System.Drawing.Point(12, 2);
+         label6.Name = "label6";
+         label6.Size = new System.Drawing.Size(382, 46);
+         label6.TabIndex = 26;
+         label6.Text = "بدن سازی";
+         label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // AttnBs1
+         // 
+         this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
+         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
+         // 
+         // label7
+         // 
+         label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Category_Belt.CTGY_DESC", true));
+         label7.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         label7.ForeColor = System.Drawing.Color.White;
+         label7.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
+         label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+         label7.Location = new System.Drawing.Point(12, 48);
+         label7.Name = "label7";
+         label7.Size = new System.Drawing.Size(382, 46);
+         label7.TabIndex = 26;
+         label7.Text = "12 جلسه ای";
+         label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
          // Lbl_AmntType
          // 
          this.Lbl_AmntType.BackColor = System.Drawing.Color.DimGray;
@@ -237,7 +270,7 @@
          this.nAME_DNRMTextEdit.Name = "nAME_DNRMTextEdit";
          this.nAME_DNRMTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.DimGray;
          this.nAME_DNRMTextEdit.Properties.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-         this.nAME_DNRMTextEdit.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.nAME_DNRMTextEdit.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.nAME_DNRMTextEdit.Properties.Appearance.ForeColor = System.Drawing.SystemColors.Window;
          this.nAME_DNRMTextEdit.Properties.Appearance.Options.UseBackColor = true;
          this.nAME_DNRMTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -249,13 +282,8 @@
          this.nAME_DNRMTextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.nAME_DNRMTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.nAME_DNRMTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.nAME_DNRMTextEdit.Size = new System.Drawing.Size(250, 44);
+         this.nAME_DNRMTextEdit.Size = new System.Drawing.Size(250, 36);
          this.nAME_DNRMTextEdit.TabIndex = 24;
-         // 
-         // AttnBs1
-         // 
-         this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
-         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
          // 
          // Brth_Date_PersianDateEdit2
          // 
@@ -333,7 +361,7 @@
          // 
          // dEBT_DNRMTextEdit
          // 
-         this.dEBT_DNRMTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AttnBs1, "Fighter1.DEBT_DNRM", true));
+         this.dEBT_DNRMTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AttnBs1, "DEBT_DNRM", true));
          this.dEBT_DNRMTextEdit.EditValue = "700,000";
          this.dEBT_DNRMTextEdit.Location = new System.Drawing.Point(67, 75);
          this.dEBT_DNRMTextEdit.Name = "dEBT_DNRMTextEdit";
@@ -708,16 +736,16 @@
          this.DresNumb_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DresNumb_Butn.Name = "DresNumb_Butn";
          this.DresNumb_Butn.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem5.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem5.Text = "تحویل کلید به اعضا";
-         toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
+         toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Text = "تحویل کلید به اعضا";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip5.Items.Add(toolTipTitleItem5);
-         superToolTip5.Items.Add(toolTipItem5);
-         this.DresNumb_Butn.SuperTip = superToolTip5;
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.DresNumb_Butn.SuperTip = superToolTip1;
          this.DresNumb_Butn.TabIndex = 81;
          this.DresNumb_Butn.Click += new System.EventHandler(this.DresNumb_Butn_Click);
          // 
@@ -866,46 +894,18 @@
          this.SaveAttnDesc_Txt.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveAttnDesc_Txt.Name = "SaveAttnDesc_Txt";
          this.SaveAttnDesc_Txt.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem6.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem6.Text = "تحویل کلید به اعضا";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
+         toolTipTitleItem2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem2.Text = "تحویل کلید به اعضا";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip6.Items.Add(toolTipTitleItem6);
-         superToolTip6.Items.Add(toolTipItem6);
-         this.SaveAttnDesc_Txt.SuperTip = superToolTip6;
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.SaveAttnDesc_Txt.SuperTip = superToolTip2;
          this.SaveAttnDesc_Txt.TabIndex = 81;
          this.SaveAttnDesc_Txt.Click += new System.EventHandler(this.SaveAttnDesc_Txt_Click);
-         // 
-         // label6
-         // 
-         label6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Method.MTOD_DESC", true));
-         label6.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label6.ForeColor = System.Drawing.Color.White;
-         label6.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
-         label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-         label6.Location = new System.Drawing.Point(12, 2);
-         label6.Name = "label6";
-         label6.Size = new System.Drawing.Size(382, 46);
-         label6.TabIndex = 26;
-         label6.Text = "بدن سازی";
-         label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label7
-         // 
-         label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Category_Belt.CTGY_DESC", true));
-         label7.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label7.ForeColor = System.Drawing.Color.White;
-         label7.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
-         label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-         label7.Location = new System.Drawing.Point(12, 48);
-         label7.Name = "label7";
-         label7.Size = new System.Drawing.Size(382, 46);
-         label7.TabIndex = 26;
-         label7.Text = "12 جلسه ای";
-         label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // WHO_ARYU_F
          // 
@@ -934,8 +934,8 @@
          this.Name = "WHO_ARYU_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(906, 548);
-         ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EXIT_TIMETextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dEBT_DNRMTextEdit.Properties)).EndInit();

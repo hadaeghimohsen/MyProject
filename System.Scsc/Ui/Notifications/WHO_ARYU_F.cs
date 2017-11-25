@@ -36,63 +36,67 @@ namespace System.Scsc.Ui.Notifications
       }
 
       private void Execute_Query(bool runAllQuery)
-      {         
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         DRES_NUMB_Txt.Focus();
-         // 1395/12/11 * مشخص کردن نوع مبلغ برای بدهی
-         if(Lbl_AmntType.Tag == null)
+      {
+         try
          {
-            Lbl_AmntType.Text = (from r in iScsc.Regulations
-                                 join a in iScsc.D_ATYPs on r.AMNT_TYPE ?? "001" equals a.VALU
-                                 where r.REGL_STAT == "002"
-                                    && r.TYPE == "001"
-                                 select a).FirstOrDefault().DOMN_DESC;
-            Lbl_AmntType.Tag = "Set Amnt Type From Regulation";
-         }
-         
-         // 1396/07/16 * برای اینکه به حضوری مورد نظر دسترسی پیدا کنیم
-         if(attncode != null)
-         {
-            AttnBs1.DataSource =
-                  iScsc.Attendances.FirstOrDefault(a => a.CODE == attncode);
-            return;
-         }
-
-         if (fileno != null)
-         {
-            if(AttnDate_Date.Value.HasValue)
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            //DRES_NUMB_Txt.Focus();
+            // 1395/12/11 * مشخص کردن نوع مبلغ برای بدهی
+            if (Lbl_AmntType.Tag == null)
             {
-               var result = 
-                  iScsc.Attendances
-                  .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno) 
-                     && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
-                     && a.EXIT_TIME == null
-                   )
-                  .OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
+               Lbl_AmntType.Text = (from r in iScsc.Regulations
+                                    join a in iScsc.D_ATYPs on r.AMNT_TYPE ?? "001" equals a.VALU
+                                    where r.REGL_STAT == "002"
+                                       && r.TYPE == "001"
+                                    select a).FirstOrDefault().DOMN_DESC;
+               Lbl_AmntType.Tag = "Set Amnt Type From Regulation";
+            }
 
-               if (result == null)
-                  AttnBs1.DataSource =
+            // 1396/07/16 * برای اینکه به حضوری مورد نظر دسترسی پیدا کنیم
+            if (attncode != null)
+            {
+               AttnBs1.DataSource =
+                     iScsc.Attendances.FirstOrDefault(a => a.CODE == attncode);
+               return;
+            }
+
+            if (fileno != null)
+            {
+               if (AttnDate_Date.Value.HasValue)
+               {
+                  var result =
                      iScsc.Attendances
                      .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)
                         && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
-                        && a.EXIT_TIME != null
+                        && a.EXIT_TIME == null
                       )
-                     .OrderByDescending(a => a.EXIT_TIME).FirstOrDefault();
+                     .OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
+
+                  if (result == null)
+                     AttnBs1.DataSource =
+                        iScsc.Attendances
+                        .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)
+                           && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
+                           && a.EXIT_TIME != null
+                         )
+                        .OrderByDescending(a => a.EXIT_TIME).FirstOrDefault();
+                  else
+                     AttnBs1.DataSource = result;
+               }
                else
-                  AttnBs1.DataSource = result;
+               {
+                  AttnBs1.DataSource =
+                     iScsc.Attendances
+                     .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)).OrderByDescending(a => a.EXIT_TIME);
+               }
             }
             else
             {
                AttnBs1.DataSource =
-                  iScsc.Attendances
-                  .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)).OrderByDescending(a => a.EXIT_TIME);
+                     iScsc.Attendances.OrderByDescending(a => a.EXIT_TIME);
             }
          }
-         else
-         {
-            AttnBs1.DataSource =
-                  iScsc.Attendances.OrderByDescending(a => a.EXIT_TIME);
-         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void AttnBs1_CurrentChanged(object sender, EventArgs e)
@@ -198,8 +202,11 @@ namespace System.Scsc.Ui.Notifications
             PrivSesn_Pn.Visible = false;
             //PrivateSession_Lab.Visible = false;
             //PrivateSession_Lab.Image = null;
-            panel1.Visible = false;
-            return;
+            if (attn.FGPB_TYPE_DNRM == "002")
+            {
+               panel1.Visible = false;
+               return;
+            }
          }
          //***else if (attn.Fighter1.FGPB_TYPE_DNRM == "008")
          //***   FighterType_Lab.ImageKey = "IMAGE_1087.png";
@@ -210,7 +217,7 @@ namespace System.Scsc.Ui.Notifications
          //Sesn_Pn.Visible = false;
          
          //if(attn.Fighter1.MBCO_RWNO_DNRM != null && (attn.Fighter1.FGPB_TYPE_DNRM != "002"))
-         if (attn.MBCO_RWNO_DNRM != null && (attn.FGPB_TYPE_DNRM != "002"))
+         if (attn.MBCO_RWNO_DNRM != null && (attn.FGPB_TYPE_DNRM != "003"))
          {
             var mbco = iScsc.Member_Ships.First(m => m.FIGH_FILE_NO == attn.FIGH_FILE_NO && m.RWNO == attn.Fighter1.MBCO_RWNO_DNRM && m.RECT_CODE == "004");
             if (mbco.END_DATE.Value.Date >= DateTime.Now.Date)
@@ -264,6 +271,8 @@ namespace System.Scsc.Ui.Notifications
          //   SesnBs1.DataSource =
          //      iScsc.Sessions
          //      .Where(s => s.Member_Ship == attn.Member_Ship);
+
+         DRES_NUMB_Txt.Focus();
 
       }
 

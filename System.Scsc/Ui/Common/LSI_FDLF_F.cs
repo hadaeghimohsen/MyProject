@@ -106,6 +106,20 @@ namespace System.Scsc.Ui.Common
                break;
             case 2:
                if (MessageBox.Show(this, "آیا با بازیابی هنرجو موافق هستید؟", "عملیات بازیابی هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+
+               // 1396/09/04 * بازیابی کد انگشتی یا کارتی هنرجو
+               var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == figh.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
+               if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت هنرجو {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                  fighhist.FNGR_PRNT = "";
+               
+               if(fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به هنرجو اختصاص دهید", "الحاق انگشتی یا کارت جدید به هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               {
+               getfngrprnt:
+                  fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
+               if (fighhist.FNGR_PRNT == "")
+                  goto getfngrprnt;
+               }
+
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -113,7 +127,7 @@ namespace System.Scsc.Ui.Common
                         new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_dsen_f"},
                         new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 02 /* Execute Set */),
                         new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 07 /* Execute Load_Data */),                        
-                        new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))},
+                        new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("fngrprnt", fighhist.FNGR_PRNT))},
                         new Job(SendType.SelfToUserInterface, "LSI_FDLF_F", 07 /* Execute Load_Data */),
                      })
                );

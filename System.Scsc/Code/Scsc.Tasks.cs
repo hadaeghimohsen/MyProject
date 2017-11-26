@@ -716,6 +716,11 @@ namespace System.Scsc.Code
             if (_Tran_Expn_F == null)
                _Tran_Expn_F = new Ui.Cash.TRAN_EXPN_F { _DefaultGateway = this };
          }
+         else if (value == "mbsp_chng_f")
+         {
+            if (_Mbsp_Chng_F == null)
+               _Mbsp_Chng_F = new Ui.Admission.MBSP_CHNG_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4366,6 +4371,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 151
+      /// </summary>
+      /// <param name="job"></param>
+      private void Mbsp_Chng_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "mbsp_chng_f"},
+                  new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

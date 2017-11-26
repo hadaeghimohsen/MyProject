@@ -77,6 +77,7 @@
          System.Windows.Forms.Label cORD_XLabel;
          System.Windows.Forms.Label sUNT_BUNT_DEPT_CODELabel;
          System.Windows.Forms.Label sUNT_BUNT_DEPT_ORGN_CODELabel;
+         System.Windows.Forms.Label label5;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -96,7 +97,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label label5;
          this.LOV_RCTP = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
@@ -147,7 +147,7 @@
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMember_Ship = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
+         this.MbspRwno_Txt = new DevExpress.XtraEditors.TextEdit();
          this.END_DATE = new Atf.UI.DateTimeSelector();
          this.STRT_DATE = new Atf.UI.DateTimeSelector();
          this.Gb_Expense = new System.Windows.Forms.GroupBox();
@@ -227,6 +227,7 @@
          this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.BLOD_GROPLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.DBlodBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.Rwno_txt = new DevExpress.XtraEditors.TextEdit();
          this.INSR_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.FileNo_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DISE_CODE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
@@ -296,7 +297,6 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.Rwno_txt = new DevExpress.XtraEditors.TextEdit();
          fNGR_PRNTLabel = new System.Windows.Forms.Label();
          rEGN_CODELabel = new System.Windows.Forms.Label();
          rEGN_PRVN_CODELabel = new System.Windows.Forms.Label();
@@ -369,7 +369,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MbspRwno_Txt.Properties)).BeginInit();
          this.Gb_Expense.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.payment_DetailsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
@@ -401,6 +401,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BLOD_GROPLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DBlodBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rwno_txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FileNo_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DISE_CODE_LookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).BeginInit();
@@ -431,7 +432,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Rwno_txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // fNGR_PRNTLabel
@@ -851,7 +851,7 @@
          cORD_YLabel.AutoSize = true;
          cORD_YLabel.Location = new System.Drawing.Point(366, 341);
          cORD_YLabel.Name = "cORD_YLabel";
-         cORD_YLabel.Size = new System.Drawing.Size(116, 14);
+         cORD_YLabel.Size = new System.Drawing.Size(117, 14);
          cORD_YLabel.TabIndex = 80;
          cORD_YLabel.Text = "مختصات عمودی (Y) :";
          // 
@@ -903,6 +903,16 @@
          sUNT_BUNT_DEPT_ORGN_CODELabel.Size = new System.Drawing.Size(57, 14);
          sUNT_BUNT_DEPT_ORGN_CODELabel.TabIndex = 75;
          sUNT_BUNT_DEPT_ORGN_CODELabel.Text = "کد ارگان :";
+         // 
+         // label5
+         // 
+         label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label5.AutoSize = true;
+         label5.Location = new System.Drawing.Point(635, 41);
+         label5.Name = "label5";
+         label5.Size = new System.Drawing.Size(39, 14);
+         label5.TabIndex = 25;
+         label5.Text = "ردیف :";
          // 
          // LOV_RCTP
          // 
@@ -971,7 +981,7 @@
          this.groupBox1.Controls.Add(label6);
          this.groupBox1.Controls.Add(this.dateTimeSelector3);
          this.groupBox1.Controls.Add(label14);
-         this.groupBox1.Location = new System.Drawing.Point(368, 53);
+         this.groupBox1.Location = new System.Drawing.Point(360, 53);
          this.groupBox1.Name = "groupBox1";
          this.groupBox1.Size = new System.Drawing.Size(740, 101);
          this.groupBox1.TabIndex = 28;
@@ -1145,7 +1155,7 @@
          this.groupBox2.Controls.Add(this.RqstRqid_Txt);
          this.groupBox2.Controls.Add(this.rQTP_CODETextEdit);
          this.groupBox2.Controls.Add(label20);
-         this.groupBox2.Location = new System.Drawing.Point(-26, 53);
+         this.groupBox2.Location = new System.Drawing.Point(-34, 53);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(388, 101);
          this.groupBox2.TabIndex = 27;
@@ -1203,13 +1213,13 @@
          // 
          this.Gb_Mbsp.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.Gb_Mbsp.Controls.Add(this.sessionsGridControl);
-         this.Gb_Mbsp.Controls.Add(this.textEdit8);
+         this.Gb_Mbsp.Controls.Add(this.MbspRwno_Txt);
          this.Gb_Mbsp.Controls.Add(label3);
          this.Gb_Mbsp.Controls.Add(this.END_DATE);
          this.Gb_Mbsp.Controls.Add(label2);
          this.Gb_Mbsp.Controls.Add(this.STRT_DATE);
          this.Gb_Mbsp.Controls.Add(label1);
-         this.Gb_Mbsp.Location = new System.Drawing.Point(-26, 587);
+         this.Gb_Mbsp.Location = new System.Drawing.Point(-34, 587);
          this.Gb_Mbsp.Name = "Gb_Mbsp";
          this.Gb_Mbsp.Size = new System.Drawing.Size(1134, 119);
          this.Gb_Mbsp.TabIndex = 3;
@@ -1442,22 +1452,23 @@
          this.gridColumn15.FieldName = "Method";
          this.gridColumn15.Name = "gridColumn15";
          // 
-         // textEdit8
+         // MbspRwno_Txt
          // 
-         this.textEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs1, "RWNO", true));
-         this.textEdit8.Location = new System.Drawing.Point(1030, 22);
-         this.textEdit8.Name = "textEdit8";
-         this.textEdit8.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit8.Properties.Appearance.Options.UseBackColor = true;
-         this.textEdit8.Properties.Appearance.Options.UseFont = true;
-         this.textEdit8.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit8.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit8.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.textEdit8.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit8.Size = new System.Drawing.Size(25, 22);
-         this.textEdit8.TabIndex = 38;
+         this.MbspRwno_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MbspRwno_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs1, "RWNO", true));
+         this.MbspRwno_Txt.Location = new System.Drawing.Point(1030, 22);
+         this.MbspRwno_Txt.Name = "MbspRwno_Txt";
+         this.MbspRwno_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.MbspRwno_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.MbspRwno_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.MbspRwno_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MbspRwno_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.MbspRwno_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.MbspRwno_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.MbspRwno_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MbspRwno_Txt.Size = new System.Drawing.Size(25, 22);
+         this.MbspRwno_Txt.TabIndex = 38;
+         this.MbspRwno_Txt.DoubleClick += new System.EventHandler(this.MbspRwno_Txt_DoubleClick);
          // 
          // END_DATE
          // 
@@ -1490,7 +1501,7 @@
          this.Gb_Expense.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
-         this.Gb_Expense.Location = new System.Drawing.Point(-26, 159);
+         this.Gb_Expense.Location = new System.Drawing.Point(-34, 159);
          this.Gb_Expense.Name = "Gb_Expense";
          this.Gb_Expense.Size = new System.Drawing.Size(388, 336);
          this.Gb_Expense.TabIndex = 2;
@@ -1952,7 +1963,7 @@
          this.Gb_Info.Controls.Add(this.SEX_TYPE_LookUpEdit);
          this.Gb_Info.Controls.Add(lAST_NAMELabel);
          this.Gb_Info.Controls.Add(fRST_NAMELabel);
-         this.Gb_Info.Location = new System.Drawing.Point(368, 160);
+         this.Gb_Info.Location = new System.Drawing.Point(360, 160);
          this.Gb_Info.Name = "Gb_Info";
          this.Gb_Info.Size = new System.Drawing.Size(740, 421);
          this.Gb_Info.TabIndex = 0;
@@ -2436,6 +2447,21 @@
          // DBlodBs1
          // 
          this.DBlodBs1.DataSource = typeof(System.Scsc.Data.D_BLOD);
+         // 
+         // Rwno_txt
+         // 
+         this.Rwno_txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rwno_txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "RWNO", true));
+         this.Rwno_txt.Location = new System.Drawing.Point(604, 37);
+         this.Rwno_txt.Name = "Rwno_txt";
+         this.Rwno_txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Rwno_txt.Properties.Appearance.Options.UseFont = true;
+         this.Rwno_txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Rwno_txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Rwno_txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Rwno_txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Rwno_txt.Size = new System.Drawing.Size(25, 22);
+         this.Rwno_txt.TabIndex = 24;
          // 
          // INSR_DATE_PersianDateEdit
          // 
@@ -3262,31 +3288,6 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.RqstBnExit1_Click);
          // 
-         // label5
-         // 
-         label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(635, 41);
-         label5.Name = "label5";
-         label5.Size = new System.Drawing.Size(39, 14);
-         label5.TabIndex = 25;
-         label5.Text = "ردیف :";
-         // 
-         // Rwno_txt
-         // 
-         this.Rwno_txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rwno_txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "RWNO", true));
-         this.Rwno_txt.Location = new System.Drawing.Point(604, 37);
-         this.Rwno_txt.Name = "Rwno_txt";
-         this.Rwno_txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Rwno_txt.Properties.Appearance.Options.UseFont = true;
-         this.Rwno_txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Rwno_txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Rwno_txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Rwno_txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Rwno_txt.Size = new System.Drawing.Size(25, 22);
-         this.Rwno_txt.TabIndex = 24;
-         // 
          // SHOW_ATRQ_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -3324,7 +3325,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MbspRwno_Txt.Properties)).EndInit();
          this.Gb_Expense.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.payment_DetailsGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).EndInit();
@@ -3357,6 +3358,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BLOD_GROPLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DBlodBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rwno_txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FileNo_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DISE_CODE_LookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).EndInit();
@@ -3388,7 +3390,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Rwno_txt.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -3556,7 +3557,7 @@
       private DevExpress.XtraEditors.TextEdit textEdit7;
       private DevExpress.XtraEditors.TextEdit RqstRqid_Txt;
       private DevExpress.XtraEditors.TextEdit rQTP_CODETextEdit;
-      private DevExpress.XtraEditors.TextEdit textEdit8;
+      private DevExpress.XtraEditors.TextEdit MbspRwno_Txt;
       private Windows.Forms.BindingSource OrgnBs1;
       private Windows.Forms.BindingSource DeptBs1;
       private Windows.Forms.BindingSource BuntBs1;

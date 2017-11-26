@@ -3916,6 +3916,20 @@ namespace System.Scsc.Data
 		{
 			return this.CreateMethodCallQuery<VF_All_Info_FightersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MBSP_TCHG_P")]
+		public int MBSP_TCHG_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MBSP_SCHG_P")]
+		public int MBSP_SCHG_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Campitition")]

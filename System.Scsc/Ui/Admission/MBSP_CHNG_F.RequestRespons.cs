@@ -74,7 +74,7 @@ namespace System.Scsc.Ui.Admission
          else if (keyData == Keys.Enter)
          {
             //if (!(Btn_Search.Focused))
-            //   SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
          }
          job.Status = StatusType.Successful;
       }
@@ -247,7 +247,8 @@ namespace System.Scsc.Ui.Admission
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            
+            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+            mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
          }
          Execute_Query();
          job.Status = StatusType.Successful;

@@ -1111,5 +1111,25 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(ex.Message);
          } 
       }
+
+      private void Mbsp_Rwno_Text_DoubleClick(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                  new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("Fighter",
+                           new XAttribute("fileno", fileno),
+                           new XAttribute("mbsprwno", Mbsp_Rwno_Text.Text)
+                        )
+                  }
+               }
+            )
+         );
+      }
    }
 }

@@ -417,6 +417,7 @@
          this.vF_Last_Info_FighterResultGridControl.UseEmbeddedNavigator = true;
          this.vF_Last_Info_FighterResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.PBLC});
+         this.vF_Last_Info_FighterResultGridControl.DoubleClick += new System.EventHandler(this.vF_Last_Info_FighterResultGridControl_DoubleClick);
          // 
          // PBLC
          // 

@@ -74,7 +74,7 @@ namespace System.Scsc.Ui.Admission
          else if (keyData == Keys.Enter)
          {
             //if (!(Btn_Search.Focused))
-            //   SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
          }
          job.Status = StatusType.Successful;
       }
@@ -235,14 +235,6 @@ namespace System.Scsc.Ui.Admission
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DdytpBs.DataSource = iScsc.D_DYTPs;
-         DsxtpBs.DataSource = iScsc.D_SXTPs;
-         CbmtBs.DataSource = 
-            iScsc.Club_Methods
-            .Where(cb =>
-               Fga_Uclb_U.Contains(cb.CLUB_CODE) &&
-               cb.MTOD_STAT == "002"
-            );
          job.Status = StatusType.Successful;
       }
 
@@ -255,10 +247,10 @@ namespace System.Scsc.Ui.Admission
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            pydtcode = Convert.ToInt64(xinput.Attribute("pydtcode").Value);
             fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+            mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
          }
-         Execute_Query(true);
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

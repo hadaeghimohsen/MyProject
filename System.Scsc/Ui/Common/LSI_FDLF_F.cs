@@ -213,5 +213,10 @@ namespace System.Scsc.Ui.Common
                break;
          }
       }
+
+      private void vF_Last_Info_FighterResultGridControl_DoubleClick(object sender, EventArgs e)
+      {
+         HL_INVSFILENO_ButtonClick(null, null);
+      }
    }
 }

@@ -77,6 +77,7 @@
          this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
+         this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.vF_Last_Info_FighterResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.vF_Last_Info_FighterResultBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -172,7 +173,6 @@
          this.DebtUp_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.DebtDown_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.TrnsFngrPrnt_Butn = new System.MaxUi.NewMaxBtn();
-         this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).BeginInit();
@@ -246,6 +246,12 @@
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.persianRepositoryItemDateEdit1.Name = "persianRepositoryItemDateEdit1";
          this.persianRepositoryItemDateEdit1.ReadOnly = true;
+         // 
+         // colTYPE
+         // 
+         this.colTYPE.Caption = "gridColumn2";
+         this.colTYPE.FieldName = "TYPE";
+         this.colTYPE.Name = "colTYPE";
          // 
          // vF_Last_Info_FighterResultBindingSource
          // 
@@ -421,6 +427,7 @@
          this.vF_Last_Info_FighterResultGridControl.UseEmbeddedNavigator = true;
          this.vF_Last_Info_FighterResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.PBLC});
+         this.vF_Last_Info_FighterResultGridControl.DoubleClick += new System.EventHandler(this.vF_Last_Info_FighterResultGridControl_DoubleClick);
          // 
          // PBLC
          // 
@@ -1433,12 +1440,6 @@
          this.TrnsFngrPrnt_Butn.TextColor = System.Drawing.Color.Black;
          this.TrnsFngrPrnt_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.TrnsFngrPrnt_Butn.Click += new System.EventHandler(this.TrnsFngrPrnt_Butn_Click);
-         // 
-         // colTYPE
-         // 
-         this.colTYPE.Caption = "gridColumn2";
-         this.colTYPE.FieldName = "TYPE";
-         this.colTYPE.Name = "colTYPE";
          // 
          // LSI_FLDF_F
          // 

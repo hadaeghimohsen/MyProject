@@ -480,6 +480,9 @@ namespace System.Scsc.Code
             case 150:
                Tran_Expn_F(job);
                break;
+            case 151:
+               Mbsp_Chng_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -912,6 +915,9 @@ namespace System.Scsc.Code
                break;
             case "TRAN_EXPN_F":
                _Tran_Expn_F.SendRequest(job);
+               break;
+            case "MBSP_CHNG_F":
+               _Mbsp_Chng_F.SendRequest(job);
                break;
 
             /* Show Changed */

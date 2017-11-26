@@ -124,7 +124,7 @@
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMember_Ship = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
+         this.MbspRwno_Txt = new DevExpress.XtraEditors.TextEdit();
          this.END_DATE = new Atf.UI.DateTimeSelector();
          this.STRT_DATE = new Atf.UI.DateTimeSelector();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -335,7 +335,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MbspRwno_Txt.Properties)).BeginInit();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit4.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).BeginInit();
@@ -887,7 +887,7 @@
          // 
          this.Gb_Mbsp.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.Gb_Mbsp.Controls.Add(this.sessionsGridControl);
-         this.Gb_Mbsp.Controls.Add(this.textEdit8);
+         this.Gb_Mbsp.Controls.Add(this.MbspRwno_Txt);
          this.Gb_Mbsp.Controls.Add(label21);
          this.Gb_Mbsp.Controls.Add(this.END_DATE);
          this.Gb_Mbsp.Controls.Add(label3);
@@ -1132,22 +1132,23 @@
          this.gridColumn15.FieldName = "Method";
          this.gridColumn15.Name = "gridColumn15";
          // 
-         // textEdit8
+         // MbspRwno_Txt
          // 
-         this.textEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs1, "RWNO", true));
-         this.textEdit8.Location = new System.Drawing.Point(998, 22);
-         this.textEdit8.Name = "textEdit8";
-         this.textEdit8.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit8.Properties.Appearance.Options.UseBackColor = true;
-         this.textEdit8.Properties.Appearance.Options.UseFont = true;
-         this.textEdit8.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit8.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit8.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.textEdit8.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit8.Size = new System.Drawing.Size(25, 22);
-         this.textEdit8.TabIndex = 38;
+         this.MbspRwno_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MbspRwno_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs1, "RWNO", true));
+         this.MbspRwno_Txt.Location = new System.Drawing.Point(998, 22);
+         this.MbspRwno_Txt.Name = "MbspRwno_Txt";
+         this.MbspRwno_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.MbspRwno_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.MbspRwno_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.MbspRwno_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MbspRwno_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.MbspRwno_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.MbspRwno_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.MbspRwno_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MbspRwno_Txt.Size = new System.Drawing.Size(25, 22);
+         this.MbspRwno_Txt.TabIndex = 38;
+         this.MbspRwno_Txt.DoubleClick += new System.EventHandler(this.MbspRwno_Txt_DoubleClick);
          // 
          // END_DATE
          // 
@@ -3046,7 +3047,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MbspRwno_Txt.Properties)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit4.Properties)).EndInit();
@@ -3287,7 +3288,7 @@
       private Atf.UI.DateTimeSelector END_DATE;
       private Windows.Forms.BindingSource MbspBs1;
       private Atf.UI.DateTimeSelector STRT_DATE;
-      private DevExpress.XtraEditors.TextEdit textEdit8;
+      private DevExpress.XtraEditors.TextEdit MbspRwno_Txt;
       private DevExpress.XtraGrid.GridControl sessionsGridControl;
       private Windows.Forms.BindingSource SesnBs1;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView7;

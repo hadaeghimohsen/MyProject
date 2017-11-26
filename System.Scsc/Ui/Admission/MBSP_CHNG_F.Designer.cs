@@ -169,7 +169,7 @@
          // FighBs
          // 
          this.FighBs.DataSource = typeof(System.Scsc.Data.Fighter);
-         this.FighBs.CurrentChanged += new System.EventHandler(this.FighBs_CurrentChanged);
+
          // 
          // nAME_DNRMTextEdit
          // 
@@ -260,7 +260,6 @@
          // MbspBs
          // 
          this.MbspBs.DataSource = typeof(System.Scsc.Data.Member_Ship);
-         this.MbspBs.CurrentChanged += new System.EventHandler(this.PydtBs_CurrentChanged);
          // 
          // textEdit3
          // 
@@ -311,7 +310,6 @@
          this.RqstTran_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.RqstTran_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
          this.RqstTran_Butn.UseVisualStyleBackColor = true;
-         this.RqstTran_Butn.Click += new System.EventHandler(this.RqstTran_Butn_Click);
          // 
          // RqstSave_Butn
          // 
@@ -325,7 +323,6 @@
          this.RqstSave_Butn.Text = "ثبت نهایی";
          this.RqstSave_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.RqstSave_Butn.UseVisualStyleBackColor = true;
-         this.RqstSave_Butn.Click += new System.EventHandler(this.RqstSave_Butn_Click);
          // 
          // Back_Butn
          // 
@@ -339,7 +336,6 @@
          this.Back_Butn.Text = "بازگشت";
          this.Back_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.Back_Butn.UseVisualStyleBackColor = true;
-         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // RqstCncl_Butn
          // 
@@ -353,7 +349,6 @@
          this.RqstCncl_Butn.Text = "انصراف";
          this.RqstCncl_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.RqstCncl_Butn.UseVisualStyleBackColor = true;
-         this.RqstCncl_Butn.Click += new System.EventHandler(this.RqstCncl_Butn_Click);
          // 
          // label1
          // 

@@ -176,6 +176,7 @@ namespace System.CRM.Ui.Notification
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         xinput = job.Input as XElement;
          Execute_Query();
          job.Status = StatusType.Successful;
       }

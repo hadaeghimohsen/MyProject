@@ -315,22 +315,35 @@ namespace System.Scsc.Ui.Common
          );
       }
 
-      private void Mbco_Butn_Click(object sender, EventArgs e)
+      private void Del_Butn_Click(object sender, EventArgs e)
       {
          dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
          if (figh == null)
             figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+         //if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
 
-         Job _InteractWithScsc =
+         //Job _InteractWithScsc =
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.Self, 127 /* Execute Adm_Mbco_F */),
+         //         new Job(SendType.SelfToUserInterface, "ADM_MBCO_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("fileno", fileno))}
+         //      });
+         //_DefaultGateway.Gateway(_InteractWithScsc);
+
+         if (MessageBox.Show(this, "آیا با حذف هنرجو موافق هستید؟", "عملیات حذف موقت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+         _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
                new List<Job>
-               {
-                  new Job(SendType.Self, 127 /* Execute Adm_Mbco_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_MBCO_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("fileno", fileno))}
-               });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+                     {
+                        new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_ends_f"},
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 02 /* Execute Set */),
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 07 /* Execute Load_Data */),                        
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))},
+                        new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_Calf_F */){Input = new XElement("Request", new XAttribute("type", "refresh"))},
+                     })
+         );
       }
 
       private void ClearFingerPrint_Butn_Click(object sender, EventArgs e)
@@ -886,10 +899,14 @@ namespace System.Scsc.Ui.Common
                               new XAttribute("cashcode", pymt.CASH_CODE),
                               new XElement("Payment_Detail",
                                  new XAttribute("code", pydt.CODE),
+                                 new XAttribute("expncode", pydt.EXPN_CODE),
                                  new XAttribute("expnpric", pydt.EXPN_PRIC),
                                  new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
                                  new XAttribute("qnty", pydt.QNTY ?? 1),
-                                 new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0)
+                                 new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                                 new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM),
+                                 new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM),
+                                 new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM)
                               )
                            )
                         )

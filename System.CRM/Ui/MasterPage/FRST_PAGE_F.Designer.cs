@@ -30,10 +30,6 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         this.colSRPB_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -96,81 +92,20 @@
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Pnl_Desktop = new System.Windows.Forms.Panel();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.Refreshing_Butn = new System.MaxUi.RoundedButton();
+         this.IntervalTime_Nud = new System.Windows.Forms.NumericUpDown();
+         this.Lb_iTask = new System.Windows.Forms.Label();
          this.Lb_Mention = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.Lb_oTask = new System.Windows.Forms.Label();
          this.Lb_Notification = new System.Windows.Forms.Label();
          this.Notification_Butn = new System.MaxUi.RoundedButton();
-         this.Serv_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTARF_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMOST_DEBT_CLNG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSRPB_RWNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCONF_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCONF_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSERV_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFRST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colLAST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFATH_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colPOST_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSEX_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colBRTH_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTEST_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTRFD_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colBTRF_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCOMP_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colONOF_TAG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colIMAG_RCDC_RCID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colIMAG_RWNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUNT_BUNT_DEPT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUNT_BUNT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUNT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colISCP_ISCA_ISCG_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colISCP_ISCA_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colISCP_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCORD_X_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCORD_Y_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMRID_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRLGN_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colETHN_CITY_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCUST_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSTIF_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colJOB_TITL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colLAST_RQST_RQID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSCOR_LEVL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSERV_STAG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colEMAL_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFACE_BOOK_URL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colLINK_IN_URL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTWTR_URL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNATL_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colBase_Tariff = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colIsic_Product = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRequest = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRequest1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colService1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCompany = new DevExpress.XtraGrid.Columns.GridColumn();
          this.FeedBack_Butn = new System.MaxUi.RoundedButton();
          this.Mention_Butn = new System.MaxUi.RoundedButton();
-         this.SendMail_Butn = new System.MaxUi.RoundedButton();
+         this.oTask_Butn = new System.MaxUi.RoundedButton();
+         this.iTask_Butn = new System.MaxUi.RoundedButton();
          this.User_Butn = new System.MaxUi.RoundedButton();
+         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.ToolTipInfo = new System.Windows.Forms.ToolTip(this.components);
          this.InfoServ_Rm = new DevExpress.XtraBars.Ribbon.RadialMenu();
          this.HistLogc_Butn = new DevExpress.XtraBars.BarButtonItem();
@@ -195,21 +130,14 @@
          this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-         this.SendMessage_Butn = new System.MaxUi.RoundedButton();
-         this.LogCall_Butn = new System.MaxUi.RoundedButton();
+         this.Tm_Refreshing = new System.Windows.Forms.Timer(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Serv_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.IntervalTime_Nud)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.InfoServ_Rm)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.InfoServ_Bm)).BeginInit();
          this.SuspendLayout();
-         // 
-         // colSRPB_TYPE_DNRM
-         // 
-         this.colSRPB_TYPE_DNRM.FieldName = "SRPB_TYPE_DNRM";
-         this.colSRPB_TYPE_DNRM.Name = "colSRPB_TYPE_DNRM";
          // 
          // c1Ribbon1
          // 
@@ -222,7 +150,7 @@
          this.c1Ribbon1.Name = "c1Ribbon1";
          this.c1Ribbon1.QatHolder = this.ribbonQat1;
          this.c1Ribbon1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.c1Ribbon1.Size = new System.Drawing.Size(1236, 143);
+         this.c1Ribbon1.Size = new System.Drawing.Size(643, 143);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab5);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
@@ -693,26 +621,84 @@
          this.Pnl_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Pnl_Desktop.Location = new System.Drawing.Point(0, 196);
          this.Pnl_Desktop.Name = "Pnl_Desktop";
-         this.Pnl_Desktop.Size = new System.Drawing.Size(1236, 328);
+         this.Pnl_Desktop.Size = new System.Drawing.Size(643, 258);
          this.Pnl_Desktop.TabIndex = 1;
          // 
          // panel1
          // 
+         this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.panel1.Controls.Add(this.Refreshing_Butn);
+         this.panel1.Controls.Add(this.IntervalTime_Nud);
+         this.panel1.Controls.Add(this.Lb_iTask);
          this.panel1.Controls.Add(this.Lb_Mention);
+         this.panel1.Controls.Add(this.label1);
+         this.panel1.Controls.Add(this.Lb_oTask);
          this.panel1.Controls.Add(this.Lb_Notification);
          this.panel1.Controls.Add(this.Notification_Butn);
-         this.panel1.Controls.Add(this.Serv_Lov);
          this.panel1.Controls.Add(this.FeedBack_Butn);
          this.panel1.Controls.Add(this.Mention_Butn);
-         this.panel1.Controls.Add(this.LogCall_Butn);
-         this.panel1.Controls.Add(this.SendMessage_Butn);
-         this.panel1.Controls.Add(this.SendMail_Butn);
+         this.panel1.Controls.Add(this.oTask_Butn);
+         this.panel1.Controls.Add(this.iTask_Butn);
          this.panel1.Controls.Add(this.User_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 143);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1236, 53);
+         this.panel1.Size = new System.Drawing.Size(643, 53);
          this.panel1.TabIndex = 4;
+         // 
+         // Refreshing_Butn
+         // 
+         this.Refreshing_Butn.Active = true;
+         this.Refreshing_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Refreshing_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Refreshing_Butn.Caption = "";
+         this.Refreshing_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Refreshing_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Refreshing_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Refreshing_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Refreshing_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Refreshing_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1615;
+         this.Refreshing_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.Refreshing_Butn.ImageVisiable = true;
+         this.Refreshing_Butn.Location = new System.Drawing.Point(388, 9);
+         this.Refreshing_Butn.Name = "Refreshing_Butn";
+         this.Refreshing_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.Refreshing_Butn.NormalColorA = System.Drawing.Color.White;
+         this.Refreshing_Butn.NormalColorB = System.Drawing.Color.White;
+         this.Refreshing_Butn.Size = new System.Drawing.Size(35, 35);
+         this.Refreshing_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.Refreshing_Butn.TabIndex = 9;
+         this.Refreshing_Butn.Tooltip = "بروزرسانی اطلاعات";
+         this.Refreshing_Butn.Click += new System.EventHandler(this.Refreshing_Butn_Click);
+         // 
+         // IntervalTime_Nud
+         // 
+         this.IntervalTime_Nud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.IntervalTime_Nud.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.IntervalTime_Nud.Location = new System.Drawing.Point(476, 16);
+         this.IntervalTime_Nud.Name = "IntervalTime_Nud";
+         this.IntervalTime_Nud.Size = new System.Drawing.Size(52, 22);
+         this.IntervalTime_Nud.TabIndex = 8;
+         this.IntervalTime_Nud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+         this.IntervalTime_Nud.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+         // 
+         // Lb_iTask
+         // 
+         this.Lb_iTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Lb_iTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(30)))));
+         this.Lb_iTask.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Lb_iTask.ForeColor = System.Drawing.Color.White;
+         this.Lb_iTask.Location = new System.Drawing.Point(614, 4);
+         this.Lb_iTask.Name = "Lb_iTask";
+         this.Lb_iTask.Size = new System.Drawing.Size(24, 24);
+         this.Lb_iTask.TabIndex = 7;
+         this.Lb_iTask.Text = "5";
+         this.Lb_iTask.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Lb_iTask.Visible = false;
          // 
          // Lb_Mention
          // 
@@ -726,6 +712,33 @@
          this.Lb_Mention.Text = "5";
          this.Lb_Mention.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.Lb_Mention.Visible = false;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label1.ForeColor = System.Drawing.Color.Black;
+         this.label1.Location = new System.Drawing.Point(429, 20);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(41, 13);
+         this.label1.TabIndex = 7;
+         this.label1.Text = "(دقیقه)";
+         this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Lb_oTask
+         // 
+         this.Lb_oTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Lb_oTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Lb_oTask.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Lb_oTask.ForeColor = System.Drawing.Color.Black;
+         this.Lb_oTask.Location = new System.Drawing.Point(559, 4);
+         this.Lb_oTask.Name = "Lb_oTask";
+         this.Lb_oTask.Size = new System.Drawing.Size(24, 24);
+         this.Lb_oTask.TabIndex = 7;
+         this.Lb_oTask.Text = "5";
+         this.Lb_oTask.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Lb_oTask.Visible = false;
          // 
          // Lb_Notification
          // 
@@ -766,492 +779,6 @@
          this.Notification_Butn.Tooltip = "یادآوری";
          this.ToolTipInfo.SetToolTip(this.Notification_Butn, "پیغام ها");
          this.Notification_Butn.Click += new System.EventHandler(this.Notification_Butn_Click);
-         // 
-         // Serv_Lov
-         // 
-         this.Serv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.Serv_Lov.Location = new System.Drawing.Point(731, 11);
-         this.Serv_Lov.Name = "Serv_Lov";
-         this.Serv_Lov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Serv_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Serv_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRAN Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Serv_Lov.Properties.Appearance.Options.UseBackColor = true;
-         this.Serv_Lov.Properties.Appearance.Options.UseBorderColor = true;
-         this.Serv_Lov.Properties.Appearance.Options.UseFont = true;
-         this.Serv_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Serv_Lov.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-         this.Serv_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Serv_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.Serv_Lov.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         this.Serv_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Serv_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.Serv_Lov.Properties.DataSource = this.ServBs;
-         this.Serv_Lov.Properties.DisplayMember = "NAME_DNRM";
-         this.Serv_Lov.Properties.NullText = "جستجو بر اساس مشتریان احتمالی، خریدارانو شرکت ها";
-         this.Serv_Lov.Properties.NullValuePrompt = "جستجو بر اساس مشتریان احتمالی، خریدارانو شرکت ها";
-         this.Serv_Lov.Properties.NullValuePromptShowForEmptyValue = true;
-         this.Serv_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(515, 0);
-         this.Serv_Lov.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize;
-         this.Serv_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-         this.Serv_Lov.Properties.ValueMember = "FILE_NO";
-         this.Serv_Lov.Properties.View = this.gridLookUpEdit1View;
-         this.Serv_Lov.Size = new System.Drawing.Size(502, 32);
-         this.Serv_Lov.TabIndex = 1;
-         // 
-         // ServBs
-         // 
-         this.ServBs.DataSource = typeof(System.CRM.Data.Service);
-         // 
-         // gridLookUpEdit1View
-         // 
-         this.gridLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-         this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridLookUpEdit1View.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridLookUpEdit1View.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F);
-         this.gridLookUpEdit1View.Appearance.Row.Options.UseFont = true;
-         this.gridLookUpEdit1View.Appearance.Row.Options.UseTextOptions = true;
-         this.gridLookUpEdit1View.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colREGN_PRVN_CNTY_CODE,
-            this.colREGN_PRVN_CODE,
-            this.colREGN_CODE,
-            this.colFILE_NO,
-            this.colTARF_CODE_DNRM,
-            this.colMOST_DEBT_CLNG_DNRM,
-            this.colDEBT_DNRM,
-            this.colSRPB_RWNO_DNRM,
-            this.colCONF_STAT,
-            this.colCONF_DATE,
-            this.colSERV_STAT,
-            this.colRQST_RQID,
-            this.colNAME_DNRM,
-            this.colFRST_NAME_DNRM,
-            this.colLAST_NAME_DNRM,
-            this.colFATH_NAME_DNRM,
-            this.colPOST_ADRS_DNRM,
-            this.colSEX_TYPE_DNRM,
-            this.colBRTH_DATE_DNRM,
-            this.colCELL_PHON_DNRM,
-            this.colTELL_PHON_DNRM,
-            this.colSRPB_TYPE_DNRM,
-            this.colTEST_DATE_DNRM,
-            this.colTRFD_CODE_DNRM,
-            this.colBTRF_CODE_DNRM,
-            this.colCOMP_CODE_DNRM,
-            this.colONOF_TAG_DNRM,
-            this.colSERV_FILE_NO,
-            this.colIMAG_RCDC_RCID_DNRM,
-            this.colIMAG_RWNO_DNRM,
-            this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM,
-            this.colSUNT_BUNT_DEPT_CODE_DNRM,
-            this.colSUNT_BUNT_CODE_DNRM,
-            this.colSUNT_CODE_DNRM,
-            this.colISCP_ISCA_ISCG_CODE_DNRM,
-            this.colISCP_ISCA_CODE_DNRM,
-            this.colISCP_CODE_DNRM,
-            this.colCORD_X_DNRM,
-            this.colCORD_Y_DNRM,
-            this.colMRID_TYPE_DNRM,
-            this.colRLGN_TYPE_DNRM,
-            this.colETHN_CITY_DNRM,
-            this.colCUST_TYPE_DNRM,
-            this.colSTIF_TYPE_DNRM,
-            this.colJOB_TITL_DNRM,
-            this.colLAST_RQST_RQID_DNRM,
-            this.colSCOR_LEVL_DNRM,
-            this.colSERV_STAG_CODE,
-            this.colEMAL_ADRS_DNRM,
-            this.colFACE_BOOK_URL_DNRM,
-            this.colLINK_IN_URL_DNRM,
-            this.colTWTR_URL_DNRM,
-            this.colNATL_CODE_DNRM,
-            this.colCRET_BY,
-            this.colCRET_DATE,
-            this.colMDFY_BY,
-            this.colMDFY_DATE,
-            this.colBase_Tariff,
-            this.colIsic_Product,
-            this.colRequest,
-            this.colRegion,
-            this.colRequest1,
-            this.colService1,
-            this.colSub_Unit,
-            this.colBase_Tariff_Detail,
-            this.colCompany});
-         this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colSRPB_TYPE_DNRM;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "001";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colSRPB_TYPE_DNRM;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "002";
-         this.gridLookUpEdit1View.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
-         this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-         this.gridLookUpEdit1View.OptionsFind.AlwaysVisible = true;
-         this.gridLookUpEdit1View.OptionsFind.FindDelay = 100;
-         this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-         this.gridLookUpEdit1View.OptionsView.ShowIndicator = false;
-         // 
-         // colREGN_PRVN_CNTY_CODE
-         // 
-         this.colREGN_PRVN_CNTY_CODE.FieldName = "REGN_PRVN_CNTY_CODE";
-         this.colREGN_PRVN_CNTY_CODE.Name = "colREGN_PRVN_CNTY_CODE";
-         // 
-         // colREGN_PRVN_CODE
-         // 
-         this.colREGN_PRVN_CODE.Caption = "استان";
-         this.colREGN_PRVN_CODE.FieldName = "Region.Province.NAME";
-         this.colREGN_PRVN_CODE.Name = "colREGN_PRVN_CODE";
-         this.colREGN_PRVN_CODE.Visible = true;
-         this.colREGN_PRVN_CODE.VisibleIndex = 7;
-         // 
-         // colREGN_CODE
-         // 
-         this.colREGN_CODE.Caption = "ناحیه";
-         this.colREGN_CODE.FieldName = "Region.NAME";
-         this.colREGN_CODE.Name = "colREGN_CODE";
-         this.colREGN_CODE.Visible = true;
-         this.colREGN_CODE.VisibleIndex = 6;
-         // 
-         // colFILE_NO
-         // 
-         this.colFILE_NO.FieldName = "FILE_NO";
-         this.colFILE_NO.Name = "colFILE_NO";
-         // 
-         // colTARF_CODE_DNRM
-         // 
-         this.colTARF_CODE_DNRM.FieldName = "TARF_CODE_DNRM";
-         this.colTARF_CODE_DNRM.Name = "colTARF_CODE_DNRM";
-         // 
-         // colMOST_DEBT_CLNG_DNRM
-         // 
-         this.colMOST_DEBT_CLNG_DNRM.FieldName = "MOST_DEBT_CLNG_DNRM";
-         this.colMOST_DEBT_CLNG_DNRM.Name = "colMOST_DEBT_CLNG_DNRM";
-         // 
-         // colDEBT_DNRM
-         // 
-         this.colDEBT_DNRM.FieldName = "DEBT_DNRM";
-         this.colDEBT_DNRM.Name = "colDEBT_DNRM";
-         // 
-         // colSRPB_RWNO_DNRM
-         // 
-         this.colSRPB_RWNO_DNRM.FieldName = "SRPB_RWNO_DNRM";
-         this.colSRPB_RWNO_DNRM.Name = "colSRPB_RWNO_DNRM";
-         // 
-         // colCONF_STAT
-         // 
-         this.colCONF_STAT.FieldName = "CONF_STAT";
-         this.colCONF_STAT.Name = "colCONF_STAT";
-         // 
-         // colCONF_DATE
-         // 
-         this.colCONF_DATE.FieldName = "CONF_DATE";
-         this.colCONF_DATE.Name = "colCONF_DATE";
-         // 
-         // colSERV_STAT
-         // 
-         this.colSERV_STAT.FieldName = "SERV_STAT";
-         this.colSERV_STAT.Name = "colSERV_STAT";
-         // 
-         // colRQST_RQID
-         // 
-         this.colRQST_RQID.FieldName = "RQST_RQID";
-         this.colRQST_RQID.Name = "colRQST_RQID";
-         // 
-         // colNAME_DNRM
-         // 
-         this.colNAME_DNRM.Caption = "نام مشتری";
-         this.colNAME_DNRM.FieldName = "NAME_DNRM";
-         this.colNAME_DNRM.Name = "colNAME_DNRM";
-         this.colNAME_DNRM.Visible = true;
-         this.colNAME_DNRM.VisibleIndex = 4;
-         // 
-         // colFRST_NAME_DNRM
-         // 
-         this.colFRST_NAME_DNRM.FieldName = "FRST_NAME_DNRM";
-         this.colFRST_NAME_DNRM.Name = "colFRST_NAME_DNRM";
-         // 
-         // colLAST_NAME_DNRM
-         // 
-         this.colLAST_NAME_DNRM.FieldName = "LAST_NAME_DNRM";
-         this.colLAST_NAME_DNRM.Name = "colLAST_NAME_DNRM";
-         // 
-         // colFATH_NAME_DNRM
-         // 
-         this.colFATH_NAME_DNRM.FieldName = "FATH_NAME_DNRM";
-         this.colFATH_NAME_DNRM.Name = "colFATH_NAME_DNRM";
-         // 
-         // colPOST_ADRS_DNRM
-         // 
-         this.colPOST_ADRS_DNRM.FieldName = "POST_ADRS_DNRM";
-         this.colPOST_ADRS_DNRM.Name = "colPOST_ADRS_DNRM";
-         // 
-         // colSEX_TYPE_DNRM
-         // 
-         this.colSEX_TYPE_DNRM.FieldName = "SEX_TYPE_DNRM";
-         this.colSEX_TYPE_DNRM.Name = "colSEX_TYPE_DNRM";
-         // 
-         // colBRTH_DATE_DNRM
-         // 
-         this.colBRTH_DATE_DNRM.FieldName = "BRTH_DATE_DNRM";
-         this.colBRTH_DATE_DNRM.Name = "colBRTH_DATE_DNRM";
-         // 
-         // colCELL_PHON_DNRM
-         // 
-         this.colCELL_PHON_DNRM.Caption = "تلفن همراه";
-         this.colCELL_PHON_DNRM.FieldName = "CELL_PHON_DNRM";
-         this.colCELL_PHON_DNRM.Name = "colCELL_PHON_DNRM";
-         this.colCELL_PHON_DNRM.Visible = true;
-         this.colCELL_PHON_DNRM.VisibleIndex = 3;
-         // 
-         // colTELL_PHON_DNRM
-         // 
-         this.colTELL_PHON_DNRM.FieldName = "TELL_PHON_DNRM";
-         this.colTELL_PHON_DNRM.Name = "colTELL_PHON_DNRM";
-         // 
-         // colTEST_DATE_DNRM
-         // 
-         this.colTEST_DATE_DNRM.FieldName = "TEST_DATE_DNRM";
-         this.colTEST_DATE_DNRM.Name = "colTEST_DATE_DNRM";
-         // 
-         // colTRFD_CODE_DNRM
-         // 
-         this.colTRFD_CODE_DNRM.Caption = "زیر گروه";
-         this.colTRFD_CODE_DNRM.FieldName = "Base_Tariff_Detail.TRFD_DESC";
-         this.colTRFD_CODE_DNRM.Name = "colTRFD_CODE_DNRM";
-         this.colTRFD_CODE_DNRM.Visible = true;
-         this.colTRFD_CODE_DNRM.VisibleIndex = 0;
-         // 
-         // colBTRF_CODE_DNRM
-         // 
-         this.colBTRF_CODE_DNRM.Caption = "سرگروه";
-         this.colBTRF_CODE_DNRM.FieldName = "Base_Tariff.BTRF_DESC";
-         this.colBTRF_CODE_DNRM.Name = "colBTRF_CODE_DNRM";
-         this.colBTRF_CODE_DNRM.Visible = true;
-         this.colBTRF_CODE_DNRM.VisibleIndex = 1;
-         // 
-         // colCOMP_CODE_DNRM
-         // 
-         this.colCOMP_CODE_DNRM.Caption = "شرکت";
-         this.colCOMP_CODE_DNRM.FieldName = "Company.NAME";
-         this.colCOMP_CODE_DNRM.Name = "colCOMP_CODE_DNRM";
-         this.colCOMP_CODE_DNRM.Visible = true;
-         this.colCOMP_CODE_DNRM.VisibleIndex = 5;
-         // 
-         // colONOF_TAG_DNRM
-         // 
-         this.colONOF_TAG_DNRM.FieldName = "ONOF_TAG_DNRM";
-         this.colONOF_TAG_DNRM.Name = "colONOF_TAG_DNRM";
-         // 
-         // colSERV_FILE_NO
-         // 
-         this.colSERV_FILE_NO.FieldName = "SERV_FILE_NO";
-         this.colSERV_FILE_NO.Name = "colSERV_FILE_NO";
-         // 
-         // colIMAG_RCDC_RCID_DNRM
-         // 
-         this.colIMAG_RCDC_RCID_DNRM.FieldName = "IMAG_RCDC_RCID_DNRM";
-         this.colIMAG_RCDC_RCID_DNRM.Name = "colIMAG_RCDC_RCID_DNRM";
-         // 
-         // colIMAG_RWNO_DNRM
-         // 
-         this.colIMAG_RWNO_DNRM.FieldName = "IMAG_RWNO_DNRM";
-         this.colIMAG_RWNO_DNRM.Name = "colIMAG_RWNO_DNRM";
-         // 
-         // colSUNT_BUNT_DEPT_ORGN_CODE_DNRM
-         // 
-         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_ORGN_CODE_DNRM";
-         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_ORGN_CODE_DNRM";
-         // 
-         // colSUNT_BUNT_DEPT_CODE_DNRM
-         // 
-         this.colSUNT_BUNT_DEPT_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_CODE_DNRM";
-         this.colSUNT_BUNT_DEPT_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_CODE_DNRM";
-         // 
-         // colSUNT_BUNT_CODE_DNRM
-         // 
-         this.colSUNT_BUNT_CODE_DNRM.FieldName = "SUNT_BUNT_CODE_DNRM";
-         this.colSUNT_BUNT_CODE_DNRM.Name = "colSUNT_BUNT_CODE_DNRM";
-         // 
-         // colSUNT_CODE_DNRM
-         // 
-         this.colSUNT_CODE_DNRM.FieldName = "SUNT_CODE_DNRM";
-         this.colSUNT_CODE_DNRM.Name = "colSUNT_CODE_DNRM";
-         // 
-         // colISCP_ISCA_ISCG_CODE_DNRM
-         // 
-         this.colISCP_ISCA_ISCG_CODE_DNRM.FieldName = "ISCP_ISCA_ISCG_CODE_DNRM";
-         this.colISCP_ISCA_ISCG_CODE_DNRM.Name = "colISCP_ISCA_ISCG_CODE_DNRM";
-         // 
-         // colISCP_ISCA_CODE_DNRM
-         // 
-         this.colISCP_ISCA_CODE_DNRM.FieldName = "ISCP_ISCA_CODE_DNRM";
-         this.colISCP_ISCA_CODE_DNRM.Name = "colISCP_ISCA_CODE_DNRM";
-         // 
-         // colISCP_CODE_DNRM
-         // 
-         this.colISCP_CODE_DNRM.FieldName = "ISCP_CODE_DNRM";
-         this.colISCP_CODE_DNRM.Name = "colISCP_CODE_DNRM";
-         // 
-         // colCORD_X_DNRM
-         // 
-         this.colCORD_X_DNRM.FieldName = "CORD_X_DNRM";
-         this.colCORD_X_DNRM.Name = "colCORD_X_DNRM";
-         // 
-         // colCORD_Y_DNRM
-         // 
-         this.colCORD_Y_DNRM.FieldName = "CORD_Y_DNRM";
-         this.colCORD_Y_DNRM.Name = "colCORD_Y_DNRM";
-         // 
-         // colMRID_TYPE_DNRM
-         // 
-         this.colMRID_TYPE_DNRM.FieldName = "MRID_TYPE_DNRM";
-         this.colMRID_TYPE_DNRM.Name = "colMRID_TYPE_DNRM";
-         // 
-         // colRLGN_TYPE_DNRM
-         // 
-         this.colRLGN_TYPE_DNRM.FieldName = "RLGN_TYPE_DNRM";
-         this.colRLGN_TYPE_DNRM.Name = "colRLGN_TYPE_DNRM";
-         // 
-         // colETHN_CITY_DNRM
-         // 
-         this.colETHN_CITY_DNRM.FieldName = "ETHN_CITY_DNRM";
-         this.colETHN_CITY_DNRM.Name = "colETHN_CITY_DNRM";
-         // 
-         // colCUST_TYPE_DNRM
-         // 
-         this.colCUST_TYPE_DNRM.FieldName = "CUST_TYPE_DNRM";
-         this.colCUST_TYPE_DNRM.Name = "colCUST_TYPE_DNRM";
-         // 
-         // colSTIF_TYPE_DNRM
-         // 
-         this.colSTIF_TYPE_DNRM.FieldName = "STIF_TYPE_DNRM";
-         this.colSTIF_TYPE_DNRM.Name = "colSTIF_TYPE_DNRM";
-         // 
-         // colJOB_TITL_DNRM
-         // 
-         this.colJOB_TITL_DNRM.FieldName = "JOB_TITL_DNRM";
-         this.colJOB_TITL_DNRM.Name = "colJOB_TITL_DNRM";
-         // 
-         // colLAST_RQST_RQID_DNRM
-         // 
-         this.colLAST_RQST_RQID_DNRM.FieldName = "LAST_RQST_RQID_DNRM";
-         this.colLAST_RQST_RQID_DNRM.Name = "colLAST_RQST_RQID_DNRM";
-         // 
-         // colSCOR_LEVL_DNRM
-         // 
-         this.colSCOR_LEVL_DNRM.FieldName = "SCOR_LEVL_DNRM";
-         this.colSCOR_LEVL_DNRM.Name = "colSCOR_LEVL_DNRM";
-         // 
-         // colSERV_STAG_CODE
-         // 
-         this.colSERV_STAG_CODE.FieldName = "SERV_STAG_CODE";
-         this.colSERV_STAG_CODE.Name = "colSERV_STAG_CODE";
-         // 
-         // colEMAL_ADRS_DNRM
-         // 
-         this.colEMAL_ADRS_DNRM.Caption = "آدرس ایمیل";
-         this.colEMAL_ADRS_DNRM.FieldName = "EMAL_ADRS_DNRM";
-         this.colEMAL_ADRS_DNRM.Name = "colEMAL_ADRS_DNRM";
-         this.colEMAL_ADRS_DNRM.Visible = true;
-         this.colEMAL_ADRS_DNRM.VisibleIndex = 2;
-         // 
-         // colFACE_BOOK_URL_DNRM
-         // 
-         this.colFACE_BOOK_URL_DNRM.FieldName = "FACE_BOOK_URL_DNRM";
-         this.colFACE_BOOK_URL_DNRM.Name = "colFACE_BOOK_URL_DNRM";
-         // 
-         // colLINK_IN_URL_DNRM
-         // 
-         this.colLINK_IN_URL_DNRM.FieldName = "LINK_IN_URL_DNRM";
-         this.colLINK_IN_URL_DNRM.Name = "colLINK_IN_URL_DNRM";
-         // 
-         // colTWTR_URL_DNRM
-         // 
-         this.colTWTR_URL_DNRM.FieldName = "TWTR_URL_DNRM";
-         this.colTWTR_URL_DNRM.Name = "colTWTR_URL_DNRM";
-         // 
-         // colNATL_CODE_DNRM
-         // 
-         this.colNATL_CODE_DNRM.FieldName = "NATL_CODE_DNRM";
-         this.colNATL_CODE_DNRM.Name = "colNATL_CODE_DNRM";
-         // 
-         // colCRET_BY
-         // 
-         this.colCRET_BY.FieldName = "CRET_BY";
-         this.colCRET_BY.Name = "colCRET_BY";
-         // 
-         // colCRET_DATE
-         // 
-         this.colCRET_DATE.FieldName = "CRET_DATE";
-         this.colCRET_DATE.Name = "colCRET_DATE";
-         // 
-         // colMDFY_BY
-         // 
-         this.colMDFY_BY.FieldName = "MDFY_BY";
-         this.colMDFY_BY.Name = "colMDFY_BY";
-         // 
-         // colMDFY_DATE
-         // 
-         this.colMDFY_DATE.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE.Name = "colMDFY_DATE";
-         // 
-         // colBase_Tariff
-         // 
-         this.colBase_Tariff.FieldName = "Base_Tariff";
-         this.colBase_Tariff.Name = "colBase_Tariff";
-         // 
-         // colIsic_Product
-         // 
-         this.colIsic_Product.FieldName = "Isic_Product";
-         this.colIsic_Product.Name = "colIsic_Product";
-         // 
-         // colRequest
-         // 
-         this.colRequest.FieldName = "Request";
-         this.colRequest.Name = "colRequest";
-         // 
-         // colRegion
-         // 
-         this.colRegion.FieldName = "Region";
-         this.colRegion.Name = "colRegion";
-         // 
-         // colRequest1
-         // 
-         this.colRequest1.FieldName = "Request1";
-         this.colRequest1.Name = "colRequest1";
-         // 
-         // colService1
-         // 
-         this.colService1.FieldName = "Service1";
-         this.colService1.Name = "colService1";
-         // 
-         // colSub_Unit
-         // 
-         this.colSub_Unit.FieldName = "Sub_Unit";
-         this.colSub_Unit.Name = "colSub_Unit";
-         // 
-         // colBase_Tariff_Detail
-         // 
-         this.colBase_Tariff_Detail.FieldName = "Base_Tariff_Detail";
-         this.colBase_Tariff_Detail.Name = "colBase_Tariff_Detail";
-         // 
-         // colCompany
-         // 
-         this.colCompany.FieldName = "Company";
-         this.colCompany.Name = "colCompany";
          // 
          // FeedBack_Butn
          // 
@@ -1303,30 +830,55 @@
          this.Mention_Butn.Tooltip = "خطاب قرار گرفتن";
          this.Mention_Butn.Click += new System.EventHandler(this.Mention_Butn_Click);
          // 
-         // SendMail_Butn
+         // oTask_Butn
          // 
-         this.SendMail_Butn.Active = true;
-         this.SendMail_Butn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-         this.SendMail_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.SendMail_Butn.Caption = "";
-         this.SendMail_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.SendMail_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.SendMail_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.SendMail_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.SendMail_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.SendMail_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1510;
-         this.SendMail_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.SendMail_Butn.ImageVisiable = true;
-         this.SendMail_Butn.Location = new System.Drawing.Point(686, 9);
-         this.SendMail_Butn.Name = "SendMail_Butn";
-         this.SendMail_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.SendMail_Butn.NormalColorA = System.Drawing.Color.White;
-         this.SendMail_Butn.NormalColorB = System.Drawing.Color.White;
-         this.SendMail_Butn.Size = new System.Drawing.Size(35, 35);
-         this.SendMail_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.SendMail_Butn.TabIndex = 0;
-         this.SendMail_Butn.Tooltip = "ارسال ایمیل";
-         this.SendMail_Butn.Click += new System.EventHandler(this.SendMail_Butn_Click);
+         this.oTask_Butn.Active = true;
+         this.oTask_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.oTask_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.oTask_Butn.Caption = "";
+         this.oTask_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.oTask_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.oTask_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.oTask_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.oTask_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.oTask_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1614;
+         this.oTask_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.oTask_Butn.ImageVisiable = true;
+         this.oTask_Butn.Location = new System.Drawing.Point(534, 9);
+         this.oTask_Butn.Name = "oTask_Butn";
+         this.oTask_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.oTask_Butn.NormalColorA = System.Drawing.Color.White;
+         this.oTask_Butn.NormalColorB = System.Drawing.Color.White;
+         this.oTask_Butn.Size = new System.Drawing.Size(35, 35);
+         this.oTask_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.oTask_Butn.TabIndex = 0;
+         this.oTask_Butn.Tooltip = "وظایف ارسالی به دیگر کارمندان";
+         this.oTask_Butn.Click += new System.EventHandler(this.oTask_Butn_Click);
+         // 
+         // iTask_Butn
+         // 
+         this.iTask_Butn.Active = true;
+         this.iTask_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.iTask_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.iTask_Butn.Caption = "";
+         this.iTask_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.iTask_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.iTask_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.iTask_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.iTask_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.iTask_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1613;
+         this.iTask_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.iTask_Butn.ImageVisiable = true;
+         this.iTask_Butn.Location = new System.Drawing.Point(589, 9);
+         this.iTask_Butn.Name = "iTask_Butn";
+         this.iTask_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.iTask_Butn.NormalColorA = System.Drawing.Color.White;
+         this.iTask_Butn.NormalColorB = System.Drawing.Color.White;
+         this.iTask_Butn.Size = new System.Drawing.Size(35, 35);
+         this.iTask_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.iTask_Butn.TabIndex = 0;
+         this.iTask_Butn.Tooltip = "وظایف ارسال شده به من";
+         this.iTask_Butn.Click += new System.EventHandler(this.iTask_Butn_Click);
          // 
          // User_Butn
          // 
@@ -1352,6 +904,10 @@
          this.User_Butn.TabIndex = 0;
          this.User_Butn.Tooltip = null;
          this.User_Butn.Click += new System.EventHandler(this.User_Butn_Click);
+         // 
+         // ServBs
+         // 
+         this.ServBs.DataSource = typeof(System.CRM.Data.Service);
          // 
          // InfoServ_Rm
          // 
@@ -1510,28 +1066,28 @@
          this.barDockControlTop.CausesValidation = false;
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-         this.barDockControlTop.Size = new System.Drawing.Size(1236, 0);
+         this.barDockControlTop.Size = new System.Drawing.Size(643, 0);
          // 
          // barDockControlBottom
          // 
          this.barDockControlBottom.CausesValidation = false;
          this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.barDockControlBottom.Location = new System.Drawing.Point(0, 524);
-         this.barDockControlBottom.Size = new System.Drawing.Size(1236, 0);
+         this.barDockControlBottom.Location = new System.Drawing.Point(0, 454);
+         this.barDockControlBottom.Size = new System.Drawing.Size(643, 0);
          // 
          // barDockControlLeft
          // 
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
          this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 524);
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 454);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(1236, 0);
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 524);
+         this.barDockControlRight.Location = new System.Drawing.Point(643, 0);
+         this.barDockControlRight.Size = new System.Drawing.Size(0, 454);
          // 
          // barButtonItem4
          // 
@@ -1551,55 +1107,9 @@
          this.barButtonItem6.Id = 6;
          this.barButtonItem6.Name = "barButtonItem6";
          // 
-         // SendMessage_Butn
+         // Tm_Refreshing
          // 
-         this.SendMessage_Butn.Active = true;
-         this.SendMessage_Butn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-         this.SendMessage_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.SendMessage_Butn.Caption = "";
-         this.SendMessage_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.SendMessage_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.SendMessage_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.SendMessage_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.SendMessage_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.SendMessage_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1569;
-         this.SendMessage_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.SendMessage_Butn.ImageVisiable = true;
-         this.SendMessage_Butn.Location = new System.Drawing.Point(645, 9);
-         this.SendMessage_Butn.Name = "SendMessage_Butn";
-         this.SendMessage_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.SendMessage_Butn.NormalColorA = System.Drawing.Color.White;
-         this.SendMessage_Butn.NormalColorB = System.Drawing.Color.White;
-         this.SendMessage_Butn.Size = new System.Drawing.Size(35, 35);
-         this.SendMessage_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.SendMessage_Butn.TabIndex = 0;
-         this.SendMessage_Butn.Tooltip = "ارسال پیام";
-         this.SendMessage_Butn.Click += new System.EventHandler(this.SendMessage_Butn_Click);
-         // 
-         // LogCall_Butn
-         // 
-         this.LogCall_Butn.Active = true;
-         this.LogCall_Butn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-         this.LogCall_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.LogCall_Butn.Caption = "";
-         this.LogCall_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.LogCall_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.LogCall_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.LogCall_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.LogCall_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.LogCall_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1512;
-         this.LogCall_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.LogCall_Butn.ImageVisiable = true;
-         this.LogCall_Butn.Location = new System.Drawing.Point(604, 10);
-         this.LogCall_Butn.Name = "LogCall_Butn";
-         this.LogCall_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.LogCall_Butn.NormalColorA = System.Drawing.Color.White;
-         this.LogCall_Butn.NormalColorB = System.Drawing.Color.White;
-         this.LogCall_Butn.Size = new System.Drawing.Size(35, 35);
-         this.LogCall_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.LogCall_Butn.TabIndex = 0;
-         this.LogCall_Butn.Tooltip = "ثبت تماس تلفنی";
-         this.LogCall_Butn.Click += new System.EventHandler(this.LogCall_Butn_Click);
+         this.Tm_Refreshing.Tick += new System.EventHandler(this.Tm_Refreshing_Tick);
          // 
          // FRST_PAGE_F
          // 
@@ -1614,12 +1124,12 @@
          this.Controls.Add(this.barDockControlTop);
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1236, 524);
+         this.Size = new System.Drawing.Size(643, 454);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
          this.panel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.Serv_Lov.Properties)).EndInit();
+         this.panel1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.IntervalTime_Nud)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.InfoServ_Rm)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.InfoServ_Bm)).EndInit();
          this.ResumeLayout(false);
@@ -1672,13 +1182,11 @@
       private C1.Win.C1Ribbon.RibbonButton rb_showleads;
       private Windows.Forms.Panel panel1;
       private MaxUi.RoundedButton User_Butn;
-      private MaxUi.RoundedButton SendMail_Butn;
+      private MaxUi.RoundedButton iTask_Butn;
       private MaxUi.RoundedButton Notification_Butn;
       private MaxUi.RoundedButton Mention_Butn;
       private MaxUi.RoundedButton FeedBack_Butn;
-      private DevExpress.XtraEditors.GridLookUpEdit Serv_Lov;
       private Windows.Forms.BindingSource ServBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
       private C1.Win.C1Ribbon.RibbonButton rb_stngdfin;
       private C1.Win.C1Ribbon.RibbonButton rb_showdeleteleads;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab5;
@@ -1688,72 +1196,6 @@
       private C1.Win.C1Ribbon.RibbonButton rb_showdeletecontact;
       private C1.Win.C1Ribbon.RibbonButton rb_listcomp;
       private C1.Win.C1Ribbon.RibbonButton rb_deltlistcomp;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO;
-      private DevExpress.XtraGrid.Columns.GridColumn colTARF_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colMOST_DEBT_CLNG_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colDEBT_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSRPB_RWNO_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCONF_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colCONF_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID;
-      private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colFRST_NAME_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colLAST_NAME_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colFATH_NAME_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colBRTH_DATE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSRPB_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colTEST_DATE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colTRFD_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colBTRF_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCOMP_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colONOF_TAG_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_FILE_NO;
-      private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RCDC_RCID_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RWNO_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_ORGN_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colISCP_ISCA_ISCG_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colISCP_ISCA_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colISCP_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCORD_X_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCORD_Y_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colMRID_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colRLGN_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colETHN_CITY_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCUST_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSTIF_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colJOB_TITL_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colLAST_RQST_RQID_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSCOR_LEVL_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_STAG_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colFACE_BOOK_URL_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colLINK_IN_URL_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colTWTR_URL_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colNATL_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colBase_Tariff;
-      private DevExpress.XtraGrid.Columns.GridColumn colIsic_Product;
-      private DevExpress.XtraGrid.Columns.GridColumn colRequest;
-      private DevExpress.XtraGrid.Columns.GridColumn colRegion;
-      private DevExpress.XtraGrid.Columns.GridColumn colRequest1;
-      private DevExpress.XtraGrid.Columns.GridColumn colService1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit;
-      private DevExpress.XtraGrid.Columns.GridColumn colBase_Tariff_Detail;
-      private DevExpress.XtraGrid.Columns.GridColumn colCompany;
       private Windows.Forms.Label Lb_Notification;
       private Windows.Forms.ToolTip ToolTipInfo;
       private DevExpress.XtraBars.Ribbon.RadialMenu InfoServ_Rm;
@@ -1791,8 +1233,13 @@
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup10;
       private C1.Win.C1Ribbon.RibbonButton rb_taskappointment;
       private C1.Win.C1Ribbon.RibbonButton rb_cmphdfin;
-      private MaxUi.RoundedButton LogCall_Butn;
-      private MaxUi.RoundedButton SendMessage_Butn;
+      private MaxUi.RoundedButton oTask_Butn;
+      private Windows.Forms.Label Lb_iTask;
+      private Windows.Forms.Label Lb_oTask;
+      private Windows.Forms.NumericUpDown IntervalTime_Nud;
+      private MaxUi.RoundedButton Refreshing_Butn;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.Timer Tm_Refreshing;
 
    }
 }

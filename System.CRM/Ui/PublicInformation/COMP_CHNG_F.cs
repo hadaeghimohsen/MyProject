@@ -301,6 +301,19 @@ namespace System.CRM.Ui.PublicInformation
             DfltStat_Butn.Tag = "001";
          }
 
+         if (comp.HOST_STAT == "002")
+         {
+            HostStat_Butn.Appearance.BackColor = Color.YellowGreen;
+            HostStat_Butn.Text = "بلی";
+            HostStat_Butn.Tag = "002";
+         }
+         else
+         {
+            HostStat_Butn.Appearance.BackColor = Color.Gainsboro;
+            HostStat_Butn.Text = "خیر";
+            HostStat_Butn.Tag = "001";
+         }
+
          CompWkdyBs.DataSource = iCRM.Weekday_Infos.Where(wk => wk.COMP_CODE == code).ToList();
 
          foreach (var wkdy in CompWkdyBs.List.OfType<Data.Weekday_Info>())

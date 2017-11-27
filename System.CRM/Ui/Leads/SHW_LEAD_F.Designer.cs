@@ -307,6 +307,7 @@
          this.LeadsSearch_Lov.Properties.ValueMember = "VALU";
          this.LeadsSearch_Lov.Size = new System.Drawing.Size(444, 32);
          this.LeadsSearch_Lov.TabIndex = 2;
+         this.LeadsSearch_Lov.Visible = false;
          // 
          // DslonBs
          // 
@@ -389,6 +390,8 @@
          this.Serv_Gv.OptionsView.ShowDetailButtons = false;
          this.Serv_Gv.OptionsView.ShowGroupPanel = false;
          this.Serv_Gv.OptionsView.ShowIndicator = false;
+         this.Serv_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colLAST_NAME_DNRM, DevExpress.Data.ColumnSortOrder.Ascending)});
          this.Serv_Gv.DoubleClick += new System.EventHandler(this.ImageProfile_Butn_Click);
          // 
          // colFRST_NAME_DNRM

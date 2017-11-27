@@ -21,7 +21,7 @@ namespace System.CRM.Ui.MasterPage
          var path = new System.Drawing.Drawing2D.GraphicsPath();
          path.AddEllipse(0, 0, Lb_Notification.Width, Lb_Notification.Height);         
 
-         this.Lb_Mention.Region = this.Lb_Notification.Region = new Region(path);
+         this.Lb_iTask.Region = this.Lb_oTask.Region = this.Lb_Mention.Region = this.Lb_Notification.Region = new Region(path);
       }
 
       private long fileno;
@@ -403,31 +403,16 @@ namespace System.CRM.Ui.MasterPage
          _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
-      private void SendMail_Butn_Click(object sender, EventArgs e)
+      private void iTask_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            if (Serv_Lov.EditValue == null && Serv_Lov.EditValue.ToString() == "") return;
-            var serv = ServBs.List.OfType<Data.Service>().FirstOrDefault(s => s.FILE_NO == Convert.ToInt64(Serv_Lov.EditValue));
-            if (serv == null) return;
-
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
                  {                  
-                   new Job(SendType.Self, 31 /* Execute Opt_Emal_F */),
-                   new Job(SendType.SelfToUserInterface, "OPT_EMAL_F", 10 /* Execute ACTN_CALF_P */)
-                   {
-                      Input = 
-                        new XElement("Service", 
-                           new XAttribute("fileno", serv.FILE_NO), 
-                           new XAttribute("srpbtype", "002"), 
-                           new XAttribute("islock", true), 
-                           new XAttribute("emid", 0),
-                           new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("toemail", serv.EMAL_ADRS_DNRM ?? "")
-                        )
-                   },
+                   new Job(SendType.Self, 21 /* Execute Notf_Totl_F */),
+                   new Job(SendType.SelfToUserInterface, "NOTF_TOTL_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Notification", new XAttribute("type", "iTask"))}
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
@@ -702,63 +687,65 @@ namespace System.CRM.Ui.MasterPage
          _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
-      private void SendMessage_Butn_Click(object sender, EventArgs e)
+      private void oTask_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            if (Serv_Lov.EditValue == null && Serv_Lov.EditValue.ToString() == "") return;
-            var serv = ServBs.List.OfType<Data.Service>().FirstOrDefault(s => s.FILE_NO == Convert.ToInt64(Serv_Lov.EditValue));
-            if (serv == null) return;
-
-            Job _InteractWithCRM =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-               {                  
-                  new Job(SendType.Self, 53 /* Execute Opt_Mesg_F */),
-                  new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 10 /* Execute ACTN_CALF_P */)
-                  {
-                     Input = 
-                     new XElement("Service", 
-                        new XAttribute("fileno", serv.FILE_NO), 
-                        new XAttribute("msid", 0), 
-                        new XAttribute("cellphon", serv.CELL_PHON_DNRM ?? ""),
-                        new XAttribute("formcaller", GetType().Name)
-                     )
-                  },
-               });
-            _DefaultGateway.Gateway(_InteractWithCRM);
-         }
-         catch { }
-      }
-
-      private void LogCall_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            if (Serv_Lov.EditValue == null && Serv_Lov.EditValue.ToString() == "") return;
-            var serv = ServBs.List.OfType<Data.Service>().FirstOrDefault(s => s.FILE_NO == Convert.ToInt64(Serv_Lov.EditValue));
-            if (serv == null) return;
-
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
                  {                  
-                   new Job(SendType.Self, 25 /* Execute Opt_Logc_F */),
-                   new Job(SendType.SelfToUserInterface, "OPT_LOGC_F", 10 /* Execute ACTN_CALF_P */)
-                   {
-                      Input = 
-                        new XElement("Service", 
-                           new XAttribute("fileno", serv.FILE_NO), 
-                           new XAttribute("lcid", 0),
-                           new XAttribute("formcaller", GetType().Name)
-                        )
-                   },
+                   new Job(SendType.Self, 21 /* Execute Notf_Totl_F */),
+                   new Job(SendType.SelfToUserInterface, "NOTF_TOTL_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Notification", new XAttribute("type", "oTask"))}
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
          catch { }
       }
 
-      
+      private void Refreshing_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Tm_Refreshing_Tick(null, null);
+         }
+         catch { }
+      }
+
+      private void Tm_Refreshing_Tick(object sender, EventArgs e)
+      {
+         #region iTask Reminder
+         var iTask =
+            from jp in iCRM.Job_Personnels
+            join rm in iCRM.Reminders on jp.CODE equals rm.TO_JOBP_CODE
+            join r in iCRM.Requests on rm.RQST_RQID equals r.RQID
+            join t in iCRM.Tasks on r.RQID equals t.RQRO_RQST_RQID
+            where jp.USER_NAME == CurrentUser
+               //&& rm.FROM_JOBP_CODE != jp.CODE
+               && r.RQTP_CODE == "009"
+               && (t.TASK_STAT == "001" || t.TASK_STAT == "002")
+            select t;
+         Lb_iTask.Text = iTask.Count().ToString();
+         Lb_iTask.Visible = Lb_iTask.Text == "0" ? false : true;
+         #endregion
+
+         #region oTask Reminder
+         var oTask =
+            from jp in iCRM.Job_Personnels
+            join rm in iCRM.Reminders on jp.CODE equals rm.FROM_JOBP_CODE
+            join r in iCRM.Requests on rm.RQST_RQID equals r.RQID
+            join t in iCRM.Tasks on r.RQID equals t.RQRO_RQST_RQID
+            where jp.USER_NAME == CurrentUser
+               && rm.TO_JOBP_CODE != jp.CODE
+               && r.RQTP_CODE == "009"
+               && (t.TASK_STAT == "001" || t.TASK_STAT == "002")
+            select t;
+         Lb_oTask.Text = oTask.Count().ToString();
+         Lb_oTask.Visible = Lb_oTask.Text == "0" ? false : true;
+         #endregion
+
+         Tm_Refreshing.Interval = (int)(IntervalTime_Nud.Value * 1000 * 60);
+         Refreshing_Butn.Tooltip = string.Format("بروزرسانی \n\r آخرین زمان بروزرسانی {0} انجام شده است", DateTime.Now.ToString("HH:mm:ss"));
+      }      
    }
 }

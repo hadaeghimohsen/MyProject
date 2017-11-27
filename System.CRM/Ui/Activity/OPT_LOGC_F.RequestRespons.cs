@@ -266,9 +266,13 @@ namespace System.CRM.Ui.Activity
                logc.LOG_DATE = DateTime.Now;
                logc.LOG_TYPE = "002";
                LogcBs.EndEdit();
+               LinkText_Pk.PickChecked = true;
             }
             else
-               LogcBs.DataSource = iCRM.Log_Calls.FirstOrDefault(lc => lc.SERV_FILE_NO == fileno && lc.LCID == Convert.ToInt64(xinput.Attribute("lcid").Value));           
+            {
+               LinkText_Pk.PickChecked = false;
+               LogcBs.DataSource = iCRM.Log_Calls.FirstOrDefault(lc => lc.SERV_FILE_NO == fileno && lc.LCID == Convert.ToInt64(xinput.Attribute("lcid").Value));
+            }
          }
          
          job.Status = StatusType.Successful;

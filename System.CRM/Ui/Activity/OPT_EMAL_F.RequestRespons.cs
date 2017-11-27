@@ -268,9 +268,13 @@ namespace System.CRM.Ui.Activity
                ToMail_Txt.Text = xinput.Attribute("toemail").Value;
                EmalBs.EndEdit();
                ToMail_Txt_ButtonClick(null, null);
+               LinkText_Pk.PickChecked = true;
             }
             else
-               EmalBs.DataSource = iCRM.Emails.FirstOrDefault(em => em.SERV_FILE_NO == fileno && em.EMID == Convert.ToInt64(xinput.Attribute("emid").Value));           
+            {
+               LinkText_Pk.PickChecked = false;
+               EmalBs.DataSource = iCRM.Emails.FirstOrDefault(em => em.SERV_FILE_NO == fileno && em.EMID == Convert.ToInt64(xinput.Attribute("emid").Value));
+            }
          }
          
          job.Status = StatusType.Successful;

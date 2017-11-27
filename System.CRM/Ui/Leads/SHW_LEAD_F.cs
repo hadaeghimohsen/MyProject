@@ -66,41 +66,7 @@ namespace System.CRM.Ui.Leads
                ServBs.DataSource =
                   iCRM.VF_Services(
                      Qxml
-                  );
-                  /*iCRM.Services.
-                  Where(s =>
-                     s.SRPB_TYPE_DNRM == "001" &&
-                     (onoftag == "on" ?
-                        (Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101)
-                        :
-                        (Convert.ToInt32(s.ONOF_TAG_DNRM) <= 100)
-                     ) &&
-                     s.COMP_CODE_DNRM == (compcode != 0 ? compcode : s.COMP_CODE_DNRM) &&
-                     (
-                        Qxml.Element("Tags") == null ||
-                        s.Tags.Any(t => Qxml.Descendants("Tag").Attributes("apbscode").Select(tx => Convert.ToInt64(tx.Value)).Contains((long)t.APBS_CODE))
-                     ) &&
-                     (
-                        Qxml.Element("Regions") == null ||
-                        Qxml.Descendants("Region").Select(rgx => rgx.Attribute("code").Value + rgx.Attribute("prvncode").Value + rgx.Attribute("cntycode").Value ).Contains(s.REGN_CODE + s.REGN_PRVN_CODE + s.REGN_PRVN_CNTY_CODE)
-                     ) &&
-                     (
-                        Qxml.Element("Extra_Infos") == null || 
-                        s.Extra_Infos.Any(ei => 
-                           Qxml.Descendants("Sub_Extra_Info")
-                           .Select(eix => eix.Attribute("apbscode").Value + eix.Attribute("sapbcode").Value)
-                           .Contains(ei.Extra_Info1.APBS_CODE.ToString() + ei.APBS_CODE.ToString())
-                        )
-                     ) &&
-                     (
-                        Qxml.Element("Contact_Infos") == null ||
-                        s.Contact_Infos.Any(ei =>
-                           Qxml.Descendants("Contact_Info")
-                           .Select(eix => eix.Attribute("apbscode").Value + eix.Attribute("contdesc").Value)
-                           .(ei.APBS_CODE.ToString() + ei.CONT_DESC)
-                        )
-                     )
-                  );*/
+                  );                  
             }
             else
             {
@@ -115,17 +81,7 @@ namespace System.CRM.Ui.Leads
                            new XAttribute("code", compcode)
                         )
                      )
-                  );
-                  /*iCRM.Services.
-                  Where(s =>
-                     s.SRPB_TYPE_DNRM == "001" &&
-                     (onoftag == "on" ?
-                        (Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101)
-                        :
-                        (Convert.ToInt32(s.ONOF_TAG_DNRM) <= 100)
-                     ) &&
-                     s.COMP_CODE_DNRM == (compcode != 0 ? compcode : s.COMP_CODE_DNRM)
-                  );*/
+                  );                  
             }
          }
          catch { }

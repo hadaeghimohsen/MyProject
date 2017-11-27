@@ -273,7 +273,9 @@ namespace System.CRM.Ui.Activity
                MesgBs.EndEdit();
             }
             else
-               MesgBs.DataSource = iCRM.Messages.FirstOrDefault(ms => ms.SERV_FILE_NO == fileno && ms.MSID == Convert.ToInt64(xinput.Attribute("msid").Value));           
+            {
+               MesgBs.DataSource = iCRM.Messages.FirstOrDefault(ms => ms.SERV_FILE_NO == fileno && ms.MSID == Convert.ToInt64(xinput.Attribute("msid").Value));
+            }
          }
          
          job.Status = StatusType.Successful;

@@ -351,6 +351,8 @@
          this.Comp_Gv.OptionsView.ShowDetailButtons = false;
          this.Comp_Gv.OptionsView.ShowGroupPanel = false;
          this.Comp_Gv.OptionsView.ShowIndicator = false;
+         this.Comp_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCOMP_NAME, DevExpress.Data.ColumnSortOrder.Ascending)});
          this.Comp_Gv.DoubleClick += new System.EventHandler(this.ImageProfile_Butn_Click);
          // 
          // colCNTY_NAME

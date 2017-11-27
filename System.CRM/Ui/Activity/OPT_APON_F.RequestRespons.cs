@@ -266,11 +266,13 @@ namespace System.CRM.Ui.Activity
                apon.TO_DATE = DateTime.Now.AddMinutes(30);
                apon.ALL_DAY = "001";
                AponBs.EndEdit();
+               LinkText_Pk.PickChecked = true;
             }
             else if (xinput.Attribute("appointmenttype").Value == "edit")
             {
+               LinkText_Pk.PickChecked = false;
                AponBs.DataSource = iCRM.Appointments.FirstOrDefault(ap => ap.SERV_FILE_NO == fileno && ap.APID == Convert.ToInt64(xinput.Attribute("apid").Value));
-               ColbBs.DataSource = iCRM.Collaborators.Where(c => c.RQRO_RQST_RQID == Convert.ToInt64(xinput.Attribute("rqrorqstrqid").Value));
+               ColbBs.DataSource = iCRM.Collaborators.Where(c => c.RQRO_RQST_RQID == Convert.ToInt64(xinput.Attribute("rqrorqstrqid").Value));               
             }
          }
          

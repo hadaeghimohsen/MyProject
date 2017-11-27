@@ -22,11 +22,58 @@ namespace System.CRM.Ui.Notification
       }
 
       private bool requery = false;
+      private XElement xinput;
 
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         RmndBs.DataSource = iCRM.Reminders.Where(r => r.Job_Personnel1.USER_NAME.ToLower() == CurrentUser.ToLower() && r.ALRM_DATE.HasValue/*&& r.ALRM_DATE.Value.Date <= DateTime.Now.Date*/);
+         
+         // 1396/09/07 * اگر برای نمایش اطلاعات گزینه های فیلترینگ گذاشته شده باشد
+         if (xinput.Attribute("type") != null)
+         {
+            switch (xinput.Attribute("type").Value)
+            {
+               case "iTask":
+                  RmndBs.DataSource =
+                     from jp in iCRM.Job_Personnels
+                     join rm in iCRM.Reminders on jp.CODE equals rm.TO_JOBP_CODE
+                     join r in iCRM.Requests on rm.RQST_RQID equals r.RQID
+                     join t in iCRM.Tasks on r.RQID equals t.RQRO_RQST_RQID
+                     where jp.USER_NAME == CurrentUser
+                        && r.RQTP_CODE == "009"
+                        && (t.TASK_STAT == "001" || t.TASK_STAT == "002")
+                        && rm.ALRM_DATE.HasValue
+                     select rm;
+
+                  colTO_JOBP_CODE.Visible = false;
+                  colFROM_JOBP_CODE.Visible = true;
+                  break;
+               case "oTask":
+                  RmndBs.DataSource =
+                     from jp in iCRM.Job_Personnels
+                     join rm in iCRM.Reminders on jp.CODE equals rm.FROM_JOBP_CODE
+                     join r in iCRM.Requests on rm.RQST_RQID equals r.RQID
+                     join t in iCRM.Tasks on r.RQID equals t.RQRO_RQST_RQID
+                     where jp.USER_NAME == CurrentUser
+                        && rm.TO_JOBP_CODE != jp.CODE
+                        && r.RQTP_CODE == "009"
+                        && (t.TASK_STAT == "001" || t.TASK_STAT == "002")
+                        && rm.ALRM_DATE.HasValue
+                     select rm;
+
+                  colTO_JOBP_CODE.Visible = true;
+                  colFROM_JOBP_CODE.Visible = false;
+                  break;
+               default:
+                  break;
+            }
+         }
+         else
+         {
+            RmndBs.DataSource = iCRM.Reminders.Where(r => r.Job_Personnel1.USER_NAME.ToLower() == CurrentUser.ToLower() && r.ALRM_DATE.HasValue/*&& r.ALRM_DATE.Value.Date <= DateTime.Now.Date*/);
+            colTO_JOBP_CODE.Visible = false;
+            colFROM_JOBP_CODE.Visible = true;
+         }
          iCRM.Job_Personnels.FirstOrDefault(jp => jp.USER_NAME.ToLower() == CurrentUser.ToLower()).RMND_STAT = "001";
          iCRM.SubmitChanges();
          requery = false;

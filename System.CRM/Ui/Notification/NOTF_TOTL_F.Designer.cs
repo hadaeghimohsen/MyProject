@@ -100,7 +100,7 @@
          this.colTimePeriod.OptionsColumn.ReadOnly = true;
          this.colTimePeriod.UnboundType = DevExpress.Data.UnboundColumnType.String;
          this.colTimePeriod.Visible = true;
-         this.colTimePeriod.Width = 216;
+         this.colTimePeriod.Width = 137;
          // 
          // panel1
          // 
@@ -274,10 +274,10 @@
          // 
          this.gridBand1.Columns.Add(this.colNotf_Butn);
          this.gridBand1.Columns.Add(this.colTimePeriod);
+         this.gridBand1.Columns.Add(this.colTO_JOBP_CODE);
          this.gridBand1.Columns.Add(this.colFROM_JOBP_CODE);
          this.gridBand1.Columns.Add(this.colSERV_FILE_NO);
          this.gridBand1.Columns.Add(this.colRQST_RQID);
-         this.gridBand1.Columns.Add(this.colTO_JOBP_CODE);
          this.gridBand1.Columns.Add(this.colCODE);
          this.gridBand1.Columns.Add(this.colREAD_RMND);
          this.gridBand1.Columns.Add(this.colREAD_NOTF);
@@ -295,7 +295,7 @@
          this.gridBand1.Columns.Add(this.colALRM_DATE);
          this.gridBand1.Name = "gridBand1";
          this.gridBand1.VisibleIndex = 0;
-         this.gridBand1.Width = 958;
+         this.gridBand1.Width = 671;
          // 
          // colNotf_Butn
          // 
@@ -324,7 +324,7 @@
          this.colFROM_JOBP_CODE.OptionsColumn.AllowEdit = false;
          this.colFROM_JOBP_CODE.OptionsColumn.ReadOnly = true;
          this.colFROM_JOBP_CODE.Visible = true;
-         this.colFROM_JOBP_CODE.Width = 179;
+         this.colFROM_JOBP_CODE.Width = 113;
          // 
          // colSERV_FILE_NO
          // 
@@ -336,7 +336,7 @@
          this.colSERV_FILE_NO.OptionsColumn.AllowEdit = false;
          this.colSERV_FILE_NO.OptionsColumn.ReadOnly = true;
          this.colSERV_FILE_NO.Visible = true;
-         this.colSERV_FILE_NO.Width = 261;
+         this.colSERV_FILE_NO.Width = 165;
          // 
          // colRQST_RQID
          // 
@@ -348,12 +348,17 @@
          this.colRQST_RQID.OptionsColumn.AllowEdit = false;
          this.colRQST_RQID.OptionsColumn.ReadOnly = true;
          this.colRQST_RQID.Visible = true;
-         this.colRQST_RQID.Width = 261;
+         this.colRQST_RQID.Width = 111;
          // 
          // colTO_JOBP_CODE
          // 
-         this.colTO_JOBP_CODE.FieldName = "TO_JOBP_CODE";
+         this.colTO_JOBP_CODE.Caption = "دریافت کننده";
+         this.colTO_JOBP_CODE.FieldName = "Job_Personnel1.USER_DESC_DNRM";
+         this.colTO_JOBP_CODE.Image = ((System.Drawing.Image)(resources.GetObject("colTO_JOBP_CODE.Image")));
+         this.colTO_JOBP_CODE.ImageAlignment = System.Drawing.StringAlignment.Far;
          this.colTO_JOBP_CODE.Name = "colTO_JOBP_CODE";
+         this.colTO_JOBP_CODE.Visible = true;
+         this.colTO_JOBP_CODE.Width = 104;
          // 
          // colCODE
          // 

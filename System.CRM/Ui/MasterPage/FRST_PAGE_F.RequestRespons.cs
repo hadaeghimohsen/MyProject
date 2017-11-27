@@ -311,7 +311,8 @@ namespace System.CRM.Ui.MasterPage
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         Execute_Query();
+         //Execute_Query();
+         Tm_Refreshing.Enabled = true;
          job.Status = StatusType.Successful;
       }
 
@@ -353,7 +354,9 @@ namespace System.CRM.Ui.MasterPage
                   }
                   else
                      Lb_Notification.Visible = false;
-                  
+
+                  // 1396/09/07 *  نمایش اطلاعات مربوط به وظایف , قرار ملاقات های ارسال شده و دریافت شده
+                  Refreshing_Butn_Click(null, null);
                }));               
             }
             else
@@ -371,6 +374,9 @@ namespace System.CRM.Ui.MasterPage
                }
                else
                   Lb_Notification.Visible = false;
+
+               // 1396/09/07 *  نمایش اطلاعات مربوط به وظایف , قرار ملاقات های ارسال شده و دریافت شده
+               Refreshing_Butn_Click(null, null);
             }
          }
          catch (Exception exc){}

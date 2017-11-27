@@ -267,7 +267,9 @@ namespace System.CRM.Ui.Activity
                NoteBs.EndEdit();
             }
             else
+            {
                NoteBs.DataSource = iCRM.Notes.FirstOrDefault(nt => nt.SERV_FILE_NO == fileno && nt.NTID == Convert.ToInt64(xinput.Attribute("ntid").Value));
+            }
          }
          
          job.Status = StatusType.Successful;

@@ -268,9 +268,12 @@ namespace System.CRM.Ui.Activity
                task.SERV_FILE_NO = fileno;
                task.DUE_DATE = DateTime.Now;
                TaskBs.EndEdit();
+
+               LinkText_Pk.PickChecked = true;
             }
             else if (xinput.Attribute("tasktype").Value == "edit")
             {
+               LinkText_Pk.PickChecked = false;
                TaskBs.DataSource = iCRM.Tasks.FirstOrDefault(tk => tk.SERV_FILE_NO == fileno && tk.TKID == Convert.ToInt64(xinput.Attribute("tkid").Value));
                ColbBs.DataSource = iCRM.Collaborators.Where(c => c.RQRO_RQST_RQID == Convert.ToInt64(xinput.Attribute("rqrorqstrqid").Value));
             }

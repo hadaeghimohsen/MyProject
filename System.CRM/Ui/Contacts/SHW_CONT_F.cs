@@ -380,11 +380,10 @@ namespace System.CRM.Ui.Contacts
 
       private void ServBs_CurrentChanged(object sender, EventArgs e)
       {
+         var serv = ServBs.Current as Data.VF_ServicesResult;
+         if (serv == null) return;
          try
          {
-            var serv = ServBs.Current as Data.VF_ServicesResult;
-            if (serv == null) return;
-
             ImageProfile_Butn.ImageProfile = null;
             MemoryStream mStream = new MemoryStream();
             byte[] pData = iCRM.GET_PIMG_U(new XElement("Service", new XAttribute("fileno", serv.FILE_NO))).ToArray();
@@ -399,6 +398,12 @@ namespace System.CRM.Ui.Contacts
          }
          catch {
             ImageProfile_Butn.ImageProfile = System.CRM.Properties.Resources.IMAGE_1149;
+         }
+         finally
+         {
+            TagBs.DataSource = iCRM.Tags.Where(t => t.SERV_FILE_NO == serv.FILE_NO);
+            ExifBs.DataSource = iCRM.Extra_Infos.Where(ex => ex.SERV_FILE_NO == serv.FILE_NO && ex.EXIF_CODE == null);
+            ContBs.DataSource = iCRM.Contact_Infos.Where(c => c.SERV_FILE_NO == serv.FILE_NO);
          }
       }
 
@@ -527,6 +532,75 @@ namespace System.CRM.Ui.Contacts
             );
          }
          catch { }
+      }
+
+      private void Tag_Butn_Click(object sender, EventArgs e)
+      {
+         var serv = ServBs.Current as Data.VF_ServicesResult;
+         if (serv == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 50 /* Execute Tsk_Tag_F */),
+                  new Job(SendType.SelfToUserInterface, "TSK_TAG_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", serv.FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void ServCont_Butn_Click(object sender, EventArgs e)
+      {
+         var serv = ServBs.Current as Data.VF_ServicesResult;
+         if (serv == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 60 /* Execute Inf_Ctwk_F */),
+                  new Job(SendType.SelfToUserInterface, "INF_CTWK_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", serv.FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void AddInfo_Butn_Click(object sender, EventArgs e)
+      {
+         var serv = ServBs.Current as Data.VF_ServicesResult;
+         if (serv == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 71 /* Execute Add_Info_F */),
+                  new Job(SendType.SelfToUserInterface, "ADD_INFO_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", serv.FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
       }
    }
 }

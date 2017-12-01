@@ -417,7 +417,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (odst == null) return;
             if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            iRoboTech.DEL_ODST_P(odst.ORDR_CODE);
+            iRoboTech.DEL_ODST_P(odst.ORDR_CODE, odst.CODE);
 
             requery = true;
          }

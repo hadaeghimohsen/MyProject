@@ -138,7 +138,7 @@
          // 
          fILE_IDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          fILE_IDLabel.AutoSize = true;
-         fILE_IDLabel.Location = new System.Drawing.Point(363, 60);
+         fILE_IDLabel.Location = new System.Drawing.Point(374, 60);
          fILE_IDLabel.Name = "fILE_IDLabel";
          fILE_IDLabel.Size = new System.Drawing.Size(123, 14);
          fILE_IDLabel.TabIndex = 14;
@@ -148,7 +148,7 @@
          // 
          label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(130, 60);
+         label1.Location = new System.Drawing.Point(141, 60);
          label1.Name = "label1";
          label1.Size = new System.Drawing.Size(73, 14);
          label1.TabIndex = 14;
@@ -158,7 +158,7 @@
          // 
          pAKT_TYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          pAKT_TYPELabel.AutoSize = true;
-         pAKT_TYPELabel.Location = new System.Drawing.Point(365, 88);
+         pAKT_TYPELabel.Location = new System.Drawing.Point(376, 88);
          pAKT_TYPELabel.Name = "pAKT_TYPELabel";
          pAKT_TYPELabel.Size = new System.Drawing.Size(92, 14);
          pAKT_TYPELabel.TabIndex = 16;
@@ -168,7 +168,7 @@
          // 
          label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(363, 116);
+         label2.Location = new System.Drawing.Point(374, 116);
          label2.Name = "label2";
          label2.Size = new System.Drawing.Size(102, 14);
          label2.TabIndex = 14;
@@ -178,7 +178,7 @@
          // 
          label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(130, 116);
+         label3.Location = new System.Drawing.Point(141, 116);
          label3.Name = "label3";
          label3.Size = new System.Drawing.Size(81, 14);
          label3.TabIndex = 14;
@@ -188,7 +188,7 @@
          // 
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(363, 144);
+         label4.Location = new System.Drawing.Point(374, 144);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(86, 14);
          label4.TabIndex = 14;
@@ -198,7 +198,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(130, 144);
+         label5.Location = new System.Drawing.Point(141, 144);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(95, 14);
          label5.TabIndex = 14;
@@ -208,7 +208,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(363, 172);
+         label6.Location = new System.Drawing.Point(374, 172);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(54, 14);
          label6.TabIndex = 14;
@@ -218,7 +218,7 @@
          // 
          label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label7.AutoSize = true;
-         label7.Location = new System.Drawing.Point(363, 238);
+         label7.Location = new System.Drawing.Point(374, 238);
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(54, 14);
          label7.TabIndex = 14;
@@ -228,7 +228,7 @@
          // 
          label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label8.AutoSize = true;
-         label8.Location = new System.Drawing.Point(130, 238);
+         label8.Location = new System.Drawing.Point(141, 238);
          label8.Name = "label8";
          label8.Size = new System.Drawing.Size(91, 14);
          label8.TabIndex = 19;
@@ -239,7 +239,7 @@
          label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label11.AutoSize = true;
          label11.ForeColor = System.Drawing.Color.DarkRed;
-         label11.Location = new System.Drawing.Point(363, 294);
+         label11.Location = new System.Drawing.Point(374, 294);
          label11.Name = "label11";
          label11.Size = new System.Drawing.Size(64, 14);
          label11.TabIndex = 14;
@@ -250,7 +250,7 @@
          label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label12.AutoSize = true;
          label12.ForeColor = System.Drawing.Color.DarkRed;
-         label12.Location = new System.Drawing.Point(130, 294);
+         label12.Location = new System.Drawing.Point(141, 294);
          label12.Name = "label12";
          label12.Size = new System.Drawing.Size(85, 14);
          label12.TabIndex = 14;
@@ -261,7 +261,7 @@
          label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label13.AutoSize = true;
          label13.ForeColor = System.Drawing.Color.DarkRed;
-         label13.Location = new System.Drawing.Point(363, 322);
+         label13.Location = new System.Drawing.Point(374, 322);
          label13.Name = "label13";
          label13.Size = new System.Drawing.Size(67, 14);
          label13.TabIndex = 14;
@@ -272,7 +272,7 @@
          label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label14.AutoSize = true;
          label14.ForeColor = System.Drawing.Color.DarkRed;
-         label14.Location = new System.Drawing.Point(363, 350);
+         label14.Location = new System.Drawing.Point(374, 350);
          label14.Name = "label14";
          label14.Size = new System.Drawing.Size(81, 14);
          label14.TabIndex = 14;
@@ -283,7 +283,7 @@
          label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label15.AutoSize = true;
          label15.ForeColor = System.Drawing.Color.DarkRed;
-         label15.Location = new System.Drawing.Point(363, 378);
+         label15.Location = new System.Drawing.Point(374, 378);
          label15.Name = "label15";
          label15.Size = new System.Drawing.Size(54, 14);
          label15.TabIndex = 14;
@@ -293,7 +293,7 @@
          // 
          label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label16.AutoSize = true;
-         label16.Location = new System.Drawing.Point(363, 444);
+         label16.Location = new System.Drawing.Point(374, 444);
          label16.Name = "label16";
          label16.Size = new System.Drawing.Size(39, 14);
          label16.TabIndex = 14;
@@ -310,7 +310,7 @@
          this.panelControl5.Location = new System.Drawing.Point(0, 0);
          this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(494, 46);
+         this.panelControl5.Size = new System.Drawing.Size(505, 46);
          this.panelControl5.TabIndex = 12;
          // 
          // Save_Butn
@@ -330,7 +330,7 @@
          this.Save_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Save_Butn.Name = "Save_Butn";
          this.Save_Butn.Size = new System.Drawing.Size(66, 36);
-         this.Save_Butn.TabIndex = 1;
+         this.Save_Butn.TabIndex = 0;
          this.Save_Butn.Text = "ذخیره";
          this.Save_Butn.ToolTip = "ذخیره کردن یادداشت";
          this.Save_Butn.Click += new System.EventHandler(this.Save_Butn_Click);
@@ -350,7 +350,7 @@
          this.Cancel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Cancel_Butn.Name = "Cancel_Butn";
          this.Cancel_Butn.Size = new System.Drawing.Size(66, 36);
-         this.Cancel_Butn.TabIndex = 0;
+         this.Cancel_Butn.TabIndex = 1;
          this.Cancel_Butn.Text = "انصراف";
          this.Cancel_Butn.ToolTip = "اضافه کردن یادداشت جدید";
          this.Cancel_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
@@ -363,7 +363,7 @@
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(228, 2);
+         this.labelControl15.Location = new System.Drawing.Point(239, 2);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(264, 42);
          this.labelControl15.TabIndex = 2;
@@ -373,7 +373,7 @@
          // 
          this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-         this.panel3.Location = new System.Drawing.Point(494, 0);
+         this.panel3.Location = new System.Drawing.Point(505, 0);
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(18, 540);
          this.panel3.TabIndex = 11;
@@ -386,7 +386,7 @@
          // 
          this.fILE_IDTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.fILE_IDTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "SERV_FILE_NO", true));
-         this.fILE_IDTextEdit.Location = new System.Drawing.Point(239, 56);
+         this.fILE_IDTextEdit.Location = new System.Drawing.Point(250, 56);
          this.fILE_IDTextEdit.Name = "fILE_IDTextEdit";
          this.fILE_IDTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.fILE_IDTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -402,7 +402,7 @@
          // 
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "ROBO_RBID", true));
-         this.textEdit1.Location = new System.Drawing.Point(6, 56);
+         this.textEdit1.Location = new System.Drawing.Point(17, 56);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit1.Properties.Appearance.Options.UseFont = true;
@@ -418,7 +418,7 @@
          // 
          this.pAKT_TYPELookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.pAKT_TYPELookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "STAT", true));
-         this.pAKT_TYPELookUpEdit.Location = new System.Drawing.Point(239, 84);
+         this.pAKT_TYPELookUpEdit.Location = new System.Drawing.Point(250, 84);
          this.pAKT_TYPELookUpEdit.Name = "pAKT_TYPELookUpEdit";
          this.pAKT_TYPELookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.pAKT_TYPELookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -446,7 +446,7 @@
          // 
          this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "CHAT_ID", true));
-         this.textEdit2.Location = new System.Drawing.Point(239, 112);
+         this.textEdit2.Location = new System.Drawing.Point(250, 112);
          this.textEdit2.Name = "textEdit2";
          this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit2.Properties.Appearance.Options.UseFont = true;
@@ -462,7 +462,7 @@
          // 
          this.textEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "CELL_PHON", true));
-         this.textEdit3.Location = new System.Drawing.Point(6, 112);
+         this.textEdit3.Location = new System.Drawing.Point(17, 112);
          this.textEdit3.Name = "textEdit3";
          this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit3.Properties.Appearance.Options.UseFont = true;
@@ -478,7 +478,7 @@
          // 
          this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "CORD_X", true));
-         this.textEdit4.Location = new System.Drawing.Point(239, 140);
+         this.textEdit4.Location = new System.Drawing.Point(250, 140);
          this.textEdit4.Name = "textEdit4";
          this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit4.Properties.Appearance.Options.UseFont = true;
@@ -494,7 +494,7 @@
          // 
          this.textEdit5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "CORD_Y", true));
-         this.textEdit5.Location = new System.Drawing.Point(6, 140);
+         this.textEdit5.Location = new System.Drawing.Point(17, 140);
          this.textEdit5.Name = "textEdit5";
          this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit5.Properties.Appearance.Options.UseFont = true;
@@ -510,7 +510,7 @@
          // 
          this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.richTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtBs, "SERV_ADRS", true));
-         this.richTextBox1.Location = new System.Drawing.Point(6, 168);
+         this.richTextBox1.Location = new System.Drawing.Point(17, 168);
          this.richTextBox1.Name = "richTextBox1";
          this.richTextBox1.Size = new System.Drawing.Size(351, 60);
          this.richTextBox1.TabIndex = 7;
@@ -520,7 +520,7 @@
          // 
          this.textEdit6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtBs, "NATL_CODE", true));
-         this.textEdit6.Location = new System.Drawing.Point(239, 234);
+         this.textEdit6.Location = new System.Drawing.Point(250, 234);
          this.textEdit6.Name = "textEdit6";
          this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit6.Properties.Appearance.Options.UseFont = true;
@@ -539,7 +539,7 @@
          // 
          this.Serv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Serv_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "REF_CHAT_ID", true));
-         this.Serv_Lov.Location = new System.Drawing.Point(6, 234);
+         this.Serv_Lov.Location = new System.Drawing.Point(17, 234);
          this.Serv_Lov.Name = "Serv_Lov";
          this.Serv_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Serv_Lov.Properties.Appearance.Options.UseFont = true;
@@ -740,7 +740,7 @@
          // 
          this.textEdit9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "REAL_FRST_NAME", true));
-         this.textEdit9.Location = new System.Drawing.Point(239, 290);
+         this.textEdit9.Location = new System.Drawing.Point(250, 290);
          this.textEdit9.Name = "textEdit9";
          this.textEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit9.Properties.Appearance.Options.UseFont = true;
@@ -755,7 +755,7 @@
          // 
          this.textEdit10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit10.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "REAL_LAST_NAME", true));
-         this.textEdit10.Location = new System.Drawing.Point(6, 290);
+         this.textEdit10.Location = new System.Drawing.Point(17, 290);
          this.textEdit10.Name = "textEdit10";
          this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit10.Properties.Appearance.Options.UseFont = true;
@@ -770,7 +770,7 @@
          // 
          this.textEdit11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit11.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "COMP_NAME", true));
-         this.textEdit11.Location = new System.Drawing.Point(6, 318);
+         this.textEdit11.Location = new System.Drawing.Point(17, 318);
          this.textEdit11.Name = "textEdit11";
          this.textEdit11.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit11.Properties.Appearance.Options.UseFont = true;
@@ -785,7 +785,7 @@
          // 
          this.textEdit12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit12.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrbtBs, "OTHR_CELL_PHON", true));
-         this.textEdit12.Location = new System.Drawing.Point(239, 346);
+         this.textEdit12.Location = new System.Drawing.Point(250, 346);
          this.textEdit12.Name = "textEdit12";
          this.textEdit12.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit12.Properties.Appearance.Options.UseFont = true;
@@ -800,7 +800,7 @@
          // 
          this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.richTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtBs, "OTHR_SERV_ADDR", true));
-         this.richTextBox2.Location = new System.Drawing.Point(6, 374);
+         this.richTextBox2.Location = new System.Drawing.Point(17, 374);
          this.richTextBox2.Name = "richTextBox2";
          this.richTextBox2.Size = new System.Drawing.Size(351, 60);
          this.richTextBox2.TabIndex = 14;
@@ -810,7 +810,7 @@
          // 
          this.richTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.richTextBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtBs, "SRBT_DESC", true));
-         this.richTextBox3.Location = new System.Drawing.Point(6, 441);
+         this.richTextBox3.Location = new System.Drawing.Point(17, 441);
          this.richTextBox3.Name = "richTextBox3";
          this.richTextBox3.Size = new System.Drawing.Size(351, 99);
          this.richTextBox3.TabIndex = 15;
@@ -859,7 +859,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SRBT_INFO_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(512, 485);
+         this.Size = new System.Drawing.Size(523, 485);
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
          this.panelControl5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.SrbtBs)).EndInit();

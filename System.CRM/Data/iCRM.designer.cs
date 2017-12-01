@@ -1709,6 +1709,14 @@ namespace System.CRM.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Job_Personnel_Relation> Job_Personnel_Relations
+		{
+			get
+			{
+				return this.GetTable<Job_Personnel_Relation>();
+			}
+		}
+		
 		private void InsertIsic_Activity(Isic_Activity obj)
 		{
 			this.INS_ISCA_P(obj.FRSI_DESC, obj.ISCG_CODE, obj.CODE);
@@ -2029,6 +2037,21 @@ namespace System.CRM.Data
 		private void DeleteCompany(Company obj)
 		{
 			this.DEL_COMP_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertJob_Personnel_Relation(Job_Personnel_Relation obj)
+		{
+			this.INS_JBPR_P(((System.Nullable<long>)(obj.JOBP_CODE)), ((System.Nullable<long>)(obj.RLAT_JOBP_CODE)), ((System.Nullable<long>)(obj.APBS_CODE)));
+		}
+		
+		private void UpdateJob_Personnel_Relation(Job_Personnel_Relation obj)
+		{
+			this.UPD_JBPR_P(((System.Nullable<long>)(obj.CODE)), obj.REC_STAT, obj.JBPR_DESC);
+		}
+		
+		private void DeleteJob_Personnel_Relation(Job_Personnel_Relation obj)
+		{
+			this.DEL_JBPR_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CNCL_RQST_P")]
@@ -3027,12 +3050,6 @@ namespace System.CRM.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Services", IsComposable=true)]
-		public IQueryable<VF_ServicesResult> VF_Services([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
-		{
-			return this.CreateMethodCallQuery<VF_ServicesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_RLAT_P")]
 		public int DEL_RLAT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
 		{
@@ -3162,6 +3179,33 @@ namespace System.CRM.Data
 		public int UPD_SRTP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srtp_Desc", DbType="NVarChar(50)")] string srtp_Desc)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, srtp_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Services", IsComposable=true)]
+		public IQueryable<VF_ServicesResult> VF_Services([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			return this.CreateMethodCallQuery<VF_ServicesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_JBPR_P")]
+		public int DEL_JBPR_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_JBPR_P")]
+		public int INS_JBPR_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Jobp_Code", DbType="BigInt")] System.Nullable<long> jobp_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rlat_Jobp_Code", DbType="BigInt")] System.Nullable<long> rlat_Jobp_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apbs_Code", DbType="BigInt")] System.Nullable<long> apbs_Code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), jobp_Code, rlat_Jobp_Code, apbs_Code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_JBPR_P")]
+		public int UPD_JBPR_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rec_Stat", DbType="VarChar(3)")] string rec_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Jbpr_Desc", DbType="NVarChar(250)")] string jbpr_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, rec_Stat, jbpr_Desc);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -40322,6 +40366,8 @@ namespace System.CRM.Data
 		
 		private EntitySet<Relation_Info> _Relation_Infos;
 		
+		private EntitySet<Job_Personnel_Relation> _Job_Personnel_Relations;
+		
 		private EntityRef<App_Base_Define> _App_Base_Define1;
 		
     #region Extensibility Method Definitions
@@ -40355,6 +40401,7 @@ namespace System.CRM.Data
 			this._Extra_Infos = new EntitySet<Extra_Info>(new Action<Extra_Info>(this.attach_Extra_Infos), new Action<Extra_Info>(this.detach_Extra_Infos));
 			this._Contact_Infos = new EntitySet<Contact_Info>(new Action<Contact_Info>(this.attach_Contact_Infos), new Action<Contact_Info>(this.detach_Contact_Infos));
 			this._Relation_Infos = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos), new Action<Relation_Info>(this.detach_Relation_Infos));
+			this._Job_Personnel_Relations = new EntitySet<Job_Personnel_Relation>(new Action<Job_Personnel_Relation>(this.attach_Job_Personnel_Relations), new Action<Job_Personnel_Relation>(this.detach_Job_Personnel_Relations));
 			this._App_Base_Define1 = default(EntityRef<App_Base_Define>);
 			OnCreated();
 		}
@@ -40608,6 +40655,19 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Job_Personnel_Relation", Storage="_Job_Personnel_Relations", ThisKey="CODE", OtherKey="APBS_CODE")]
+		public EntitySet<Job_Personnel_Relation> Job_Personnel_Relations
+		{
+			get
+			{
+				return this._Job_Personnel_Relations;
+			}
+			set
+			{
+				this._Job_Personnel_Relations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_App_Base_Define", Storage="_App_Base_Define1", ThisKey="REF_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public App_Base_Define App_Base_Define1
 		{
@@ -40717,6 +40777,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Relation_Infos(Relation_Info entity)
+		{
+			this.SendPropertyChanging();
+			entity.App_Base_Define = null;
+		}
+		
+		private void attach_Job_Personnel_Relations(Job_Personnel_Relation entity)
+		{
+			this.SendPropertyChanging();
+			entity.App_Base_Define = this;
+		}
+		
+		private void detach_Job_Personnel_Relations(Job_Personnel_Relation entity)
 		{
 			this.SendPropertyChanging();
 			entity.App_Base_Define = null;
@@ -49784,6 +49856,10 @@ namespace System.CRM.Data
 		
 		private EntitySet<Personnel_Access_Service_Type> _Personnel_Access_Service_Types;
 		
+		private EntitySet<Job_Personnel_Relation> _Job_Personnel_Relations;
+		
+		private EntitySet<Job_Personnel_Relation> _Job_Personnel_Relations1;
+		
 		private EntityRef<Job> _Job;
 		
 		private EntityRef<Service> _Service;
@@ -49867,6 +49943,8 @@ namespace System.CRM.Data
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
 			this._Mentions = new EntitySet<Mention>(new Action<Mention>(this.attach_Mentions), new Action<Mention>(this.detach_Mentions));
 			this._Personnel_Access_Service_Types = new EntitySet<Personnel_Access_Service_Type>(new Action<Personnel_Access_Service_Type>(this.attach_Personnel_Access_Service_Types), new Action<Personnel_Access_Service_Type>(this.detach_Personnel_Access_Service_Types));
+			this._Job_Personnel_Relations = new EntitySet<Job_Personnel_Relation>(new Action<Job_Personnel_Relation>(this.attach_Job_Personnel_Relations), new Action<Job_Personnel_Relation>(this.detach_Job_Personnel_Relations));
+			this._Job_Personnel_Relations1 = new EntitySet<Job_Personnel_Relation>(new Action<Job_Personnel_Relation>(this.attach_Job_Personnel_Relations1), new Action<Job_Personnel_Relation>(this.detach_Job_Personnel_Relations1));
 			this._Job = default(EntityRef<Job>);
 			this._Service = default(EntityRef<Service>);
 			OnCreated();
@@ -50617,6 +50695,32 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Job_Personnel_Job_Personnel_Relation", Storage="_Job_Personnel_Relations", ThisKey="CODE", OtherKey="RLAT_JOBP_CODE")]
+		public EntitySet<Job_Personnel_Relation> Job_Personnel_Relations
+		{
+			get
+			{
+				return this._Job_Personnel_Relations;
+			}
+			set
+			{
+				this._Job_Personnel_Relations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Job_Personnel_Job_Personnel_Relation1", Storage="_Job_Personnel_Relations1", ThisKey="CODE", OtherKey="JOBP_CODE")]
+		public EntitySet<Job_Personnel_Relation> Job_Personnel_Relations1
+		{
+			get
+			{
+				return this._Job_Personnel_Relations1;
+			}
+			set
+			{
+				this._Job_Personnel_Relations1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Job_Job_Personnel", Storage="_Job", ThisKey="JOB_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Job Job
 		{
@@ -50811,6 +50915,30 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Job_Personnel = null;
+		}
+		
+		private void attach_Job_Personnel_Relations(Job_Personnel_Relation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Job_Personnel = this;
+		}
+		
+		private void detach_Job_Personnel_Relations(Job_Personnel_Relation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Job_Personnel = null;
+		}
+		
+		private void attach_Job_Personnel_Relations1(Job_Personnel_Relation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Job_Personnel1 = this;
+		}
+		
+		private void detach_Job_Personnel_Relations1(Job_Personnel_Relation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Job_Personnel1 = null;
 		}
 	}
 	
@@ -53637,6 +53765,407 @@ namespace System.CRM.Data
 						this._SRPB_RECT_CODE_DNRM = default(string);
 					}
 					this.SendPropertyChanged("Service_Public");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Job_Personnel_Relation")]
+	public partial class Job_Personnel_Relation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _JOBP_CODE;
+		
+		private System.Nullable<long> _RLAT_JOBP_CODE;
+		
+		private System.Nullable<long> _APBS_CODE;
+		
+		private long _CODE;
+		
+		private string _REC_STAT;
+		
+		private string _JBPR_DESC;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<App_Base_Define> _App_Base_Define;
+		
+		private EntityRef<Job_Personnel> _Job_Personnel;
+		
+		private EntityRef<Job_Personnel> _Job_Personnel1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnJOBP_CODEChanging(System.Nullable<long> value);
+    partial void OnJOBP_CODEChanged();
+    partial void OnRLAT_JOBP_CODEChanging(System.Nullable<long> value);
+    partial void OnRLAT_JOBP_CODEChanged();
+    partial void OnAPBS_CODEChanging(System.Nullable<long> value);
+    partial void OnAPBS_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnREC_STATChanging(string value);
+    partial void OnREC_STATChanged();
+    partial void OnJBPR_DESCChanging(string value);
+    partial void OnJBPR_DESCChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Job_Personnel_Relation()
+		{
+			this._App_Base_Define = default(EntityRef<App_Base_Define>);
+			this._Job_Personnel = default(EntityRef<Job_Personnel>);
+			this._Job_Personnel1 = default(EntityRef<Job_Personnel>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JOBP_CODE", DbType="BigInt")]
+		public System.Nullable<long> JOBP_CODE
+		{
+			get
+			{
+				return this._JOBP_CODE;
+			}
+			set
+			{
+				if ((this._JOBP_CODE != value))
+				{
+					if (this._Job_Personnel1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnJOBP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._JOBP_CODE = value;
+					this.SendPropertyChanged("JOBP_CODE");
+					this.OnJOBP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RLAT_JOBP_CODE", DbType="BigInt")]
+		public System.Nullable<long> RLAT_JOBP_CODE
+		{
+			get
+			{
+				return this._RLAT_JOBP_CODE;
+			}
+			set
+			{
+				if ((this._RLAT_JOBP_CODE != value))
+				{
+					if (this._Job_Personnel.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRLAT_JOBP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._RLAT_JOBP_CODE = value;
+					this.SendPropertyChanged("RLAT_JOBP_CODE");
+					this.OnRLAT_JOBP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APBS_CODE", DbType="BigInt")]
+		public System.Nullable<long> APBS_CODE
+		{
+			get
+			{
+				return this._APBS_CODE;
+			}
+			set
+			{
+				if ((this._APBS_CODE != value))
+				{
+					if (this._App_Base_Define.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAPBS_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._APBS_CODE = value;
+					this.SendPropertyChanged("APBS_CODE");
+					this.OnAPBS_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REC_STAT", DbType="VarChar(3)")]
+		public string REC_STAT
+		{
+			get
+			{
+				return this._REC_STAT;
+			}
+			set
+			{
+				if ((this._REC_STAT != value))
+				{
+					this.OnREC_STATChanging(value);
+					this.SendPropertyChanging();
+					this._REC_STAT = value;
+					this.SendPropertyChanged("REC_STAT");
+					this.OnREC_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JBPR_DESC", DbType="NVarChar(250)")]
+		public string JBPR_DESC
+		{
+			get
+			{
+				return this._JBPR_DESC;
+			}
+			set
+			{
+				if ((this._JBPR_DESC != value))
+				{
+					this.OnJBPR_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._JBPR_DESC = value;
+					this.SendPropertyChanged("JBPR_DESC");
+					this.OnJBPR_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Job_Personnel_Relation", Storage="_App_Base_Define", ThisKey="APBS_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public App_Base_Define App_Base_Define
+		{
+			get
+			{
+				return this._App_Base_Define.Entity;
+			}
+			set
+			{
+				App_Base_Define previousValue = this._App_Base_Define.Entity;
+				if (((previousValue != value) 
+							|| (this._App_Base_Define.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._App_Base_Define.Entity = null;
+						previousValue.Job_Personnel_Relations.Remove(this);
+					}
+					this._App_Base_Define.Entity = value;
+					if ((value != null))
+					{
+						value.Job_Personnel_Relations.Add(this);
+						this._APBS_CODE = value.CODE;
+					}
+					else
+					{
+						this._APBS_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("App_Base_Define");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Job_Personnel_Job_Personnel_Relation", Storage="_Job_Personnel", ThisKey="RLAT_JOBP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Job_Personnel Job_Personnel
+		{
+			get
+			{
+				return this._Job_Personnel.Entity;
+			}
+			set
+			{
+				Job_Personnel previousValue = this._Job_Personnel.Entity;
+				if (((previousValue != value) 
+							|| (this._Job_Personnel.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Job_Personnel.Entity = null;
+						previousValue.Job_Personnel_Relations.Remove(this);
+					}
+					this._Job_Personnel.Entity = value;
+					if ((value != null))
+					{
+						value.Job_Personnel_Relations.Add(this);
+						this._RLAT_JOBP_CODE = value.CODE;
+					}
+					else
+					{
+						this._RLAT_JOBP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Job_Personnel");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Job_Personnel_Job_Personnel_Relation1", Storage="_Job_Personnel1", ThisKey="JOBP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Job_Personnel Job_Personnel1
+		{
+			get
+			{
+				return this._Job_Personnel1.Entity;
+			}
+			set
+			{
+				Job_Personnel previousValue = this._Job_Personnel1.Entity;
+				if (((previousValue != value) 
+							|| (this._Job_Personnel1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Job_Personnel1.Entity = null;
+						previousValue.Job_Personnel_Relations1.Remove(this);
+					}
+					this._Job_Personnel1.Entity = value;
+					if ((value != null))
+					{
+						value.Job_Personnel_Relations1.Add(this);
+						this._JOBP_CODE = value.CODE;
+					}
+					else
+					{
+						this._JOBP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Job_Personnel1");
 				}
 			}
 		}
@@ -60452,6 +60981,266 @@ namespace System.CRM.Data
 		}
 	}
 	
+	public partial class VF_CompaniesResult
+	{
+		
+		private string _CNTY_NAME;
+		
+		private string _PRVN_NAME;
+		
+		private string _REGN_NAME;
+		
+		private string _COMP_NAME;
+		
+		private System.Nullable<long> _DEBT_DNRM;
+		
+		private string _RQTP_DESC;
+		
+		private string _SERV_NAME;
+		
+		private string _CRET_BY;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
+		
+		private string _RECD_STAT;
+		
+		private string _EMAL_ADRS;
+		
+		private System.Data.Linq.Binary _LOGO;
+		
+		private string _HOST_STAT;
+		
+		public VF_CompaniesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTY_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string CNTY_NAME
+		{
+			get
+			{
+				return this._CNTY_NAME;
+			}
+			set
+			{
+				if ((this._CNTY_NAME != value))
+				{
+					this._CNTY_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
+		public string PRVN_NAME
+		{
+			get
+			{
+				return this._PRVN_NAME;
+			}
+			set
+			{
+				if ((this._PRVN_NAME != value))
+				{
+					this._PRVN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string REGN_NAME
+		{
+			get
+			{
+				return this._REGN_NAME;
+			}
+			set
+			{
+				if ((this._REGN_NAME != value))
+				{
+					this._REGN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string COMP_NAME
+		{
+			get
+			{
+				return this._COMP_NAME;
+			}
+			set
+			{
+				if ((this._COMP_NAME != value))
+				{
+					this._COMP_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DEBT_DNRM
+		{
+			get
+			{
+				return this._DEBT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_DNRM != value))
+				{
+					this._DEBT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
+		public string RQTP_DESC
+		{
+			get
+			{
+				return this._RQTP_DESC;
+			}
+			set
+			{
+				if ((this._RQTP_DESC != value))
+				{
+					this._RQTP_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME", DbType="NVarChar(500)")]
+		public string SERV_NAME
+		{
+			get
+			{
+				return this._SERV_NAME;
+			}
+			set
+			{
+				if ((this._SERV_NAME != value))
+				{
+					this._SERV_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this._CRET_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
+		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._LAST_SERV_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_SERV_FILE_NO_DNRM != value))
+				{
+					this._LAST_SERV_FILE_NO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
+		public string RECD_STAT
+		{
+			get
+			{
+				return this._RECD_STAT;
+			}
+			set
+			{
+				if ((this._RECD_STAT != value))
+				{
+					this._RECD_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this._EMAL_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary LOGO
+		{
+			get
+			{
+				return this._LOGO;
+			}
+			set
+			{
+				if ((this._LOGO != value))
+				{
+					this._LOGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)")]
+		public string HOST_STAT
+		{
+			get
+			{
+				return this._HOST_STAT;
+			}
+			set
+			{
+				if ((this._HOST_STAT != value))
+				{
+					this._HOST_STAT = value;
+				}
+			}
+		}
+	}
+	
 	public partial class VF_ServicesResult
 	{
 		
@@ -60490,6 +61279,8 @@ namespace System.CRM.Data
 		private System.Nullable<double> _CORD_X_DNRM;
 		
 		private System.Nullable<double> _CORD_Y_DNRM;
+		
+		private string _NATL_CODE_DNRM;
 		
 		public VF_ServicesResult()
 		{
@@ -60782,263 +61573,19 @@ namespace System.CRM.Data
 				}
 			}
 		}
-	}
-	
-	public partial class VF_CompaniesResult
-	{
 		
-		private string _CNTY_NAME;
-		
-		private string _PRVN_NAME;
-		
-		private string _REGN_NAME;
-		
-		private string _COMP_NAME;
-		
-		private System.Nullable<long> _DEBT_DNRM;
-		
-		private string _RQTP_DESC;
-		
-		private string _SERV_NAME;
-		
-		private string _CRET_BY;
-		
-		private long _CODE;
-		
-		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
-		
-		private string _RECD_STAT;
-		
-		private string _EMAL_ADRS;
-		
-		private System.Data.Linq.Binary _LOGO;
-		
-		private string _HOST_STAT;
-		
-		public VF_CompaniesResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTY_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string CNTY_NAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE_DNRM", DbType="NVarChar(10)")]
+		public string NATL_CODE_DNRM
 		{
 			get
 			{
-				return this._CNTY_NAME;
+				return this._NATL_CODE_DNRM;
 			}
 			set
 			{
-				if ((this._CNTY_NAME != value))
+				if ((this._NATL_CODE_DNRM != value))
 				{
-					this._CNTY_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
-		public string PRVN_NAME
-		{
-			get
-			{
-				return this._PRVN_NAME;
-			}
-			set
-			{
-				if ((this._PRVN_NAME != value))
-				{
-					this._PRVN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string REGN_NAME
-		{
-			get
-			{
-				return this._REGN_NAME;
-			}
-			set
-			{
-				if ((this._REGN_NAME != value))
-				{
-					this._REGN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string COMP_NAME
-		{
-			get
-			{
-				return this._COMP_NAME;
-			}
-			set
-			{
-				if ((this._COMP_NAME != value))
-				{
-					this._COMP_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
-		public System.Nullable<long> DEBT_DNRM
-		{
-			get
-			{
-				return this._DEBT_DNRM;
-			}
-			set
-			{
-				if ((this._DEBT_DNRM != value))
-				{
-					this._DEBT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
-		public string RQTP_DESC
-		{
-			get
-			{
-				return this._RQTP_DESC;
-			}
-			set
-			{
-				if ((this._RQTP_DESC != value))
-				{
-					this._RQTP_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME", DbType="NVarChar(500)")]
-		public string SERV_NAME
-		{
-			get
-			{
-				return this._SERV_NAME;
-			}
-			set
-			{
-				if ((this._SERV_NAME != value))
-				{
-					this._SERV_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this._CRET_BY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this._CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
-		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._LAST_SERV_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_SERV_FILE_NO_DNRM != value))
-				{
-					this._LAST_SERV_FILE_NO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
-		public string RECD_STAT
-		{
-			get
-			{
-				return this._RECD_STAT;
-			}
-			set
-			{
-				if ((this._RECD_STAT != value))
-				{
-					this._RECD_STAT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
-		public string EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this._EMAL_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary LOGO
-		{
-			get
-			{
-				return this._LOGO;
-			}
-			set
-			{
-				if ((this._LOGO != value))
-				{
-					this._LOGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)")]
-		public string HOST_STAT
-		{
-			get
-			{
-				return this._HOST_STAT;
-			}
-			set
-			{
-				if ((this._HOST_STAT != value))
-				{
-					this._HOST_STAT = value;
+					this._NATL_CODE_DNRM = value;
 				}
 			}
 		}

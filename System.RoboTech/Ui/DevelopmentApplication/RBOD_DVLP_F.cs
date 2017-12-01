@@ -705,13 +705,14 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var ordr = OrdrBs.Current as Data.Order;
             if (ordr == null) return;
             if (ordr.ORDR_STAT != "004") { MessageBox.Show(this, "درخواست هایی که پایانی نشده اند نمی توانید به کارتابل ارسال کنید", "عدم ارسال به کارتابل"); return; }
+            if (ordr.CRTB_SEND_STAT == "002") { MessageBox.Show(this, "درخواست هایی که به کارتابل ارسال شده اند دیگر قادر به ارسال نیستید", "عدم ارسال به کارتابل"); return; }
 
             // بررسی اینکه آیا از فایل های ارسال شده فایلی هست که دانلود نشده و در جدول مسیر آن وجود نداشته باشد
             if (ordr.Order_Details.Any(od => (od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004") && (od.IMAG_PATH == null || string.IsNullOrWhiteSpace(od.IMAG_PATH))) && MessageBox.Show(this, "برای تمامی فایل های نامه دانلود صورت نگرفته یا اینکه مسیر آن وجود ندارد!! آیا مراحل ارسال نامه به کارتابل انجام پذیرد؟", "عدم وجود فایل نامه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var srbt = iRoboTech.Service_Robots.Where(sr => sr == ordr.Service_Robot).ToList().FirstOrDefault();
 
-            if(srbt.REAL_FRST_NAME == null || srbt.REAL_LAST_NAME == null || srbt.OTHR_CELL_PHON == null || srbt.COMP_NAME == null || srbt.OTHR_SERV_ADDR == null)
+            if((srbt.REAL_FRST_NAME == null || srbt.REAL_FRST_NAME == "") || (srbt.REAL_LAST_NAME == null || srbt.REAL_LAST_NAME == "" ) || (srbt.OTHR_CELL_PHON == null || srbt.OTHR_CELL_PHON == "" ) || (srbt.COMP_NAME == null || srbt.COMP_NAME == "") || (srbt.OTHR_SERV_ADDR == null || srbt.OTHR_SERV_ADDR == ""))
             {
                MessageBox.Show("تمامی اطلاعات مشتری وارد نشده لطفا اطلاعاتی که با رنگ قرمز مشخص شده را برای مشتری تکمیل کنید");
                //var srbt = (OrdrBs.Current as Data.Order).Service_Robot;
@@ -727,7 +728,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                            Input = 
                               new XElement("Service_Robot",
                                  new XAttribute("servfileno", srbt.SERV_FILE_NO),
-                                 new XAttribute("roborbid", srbt.ROBO_RBID)
+                                 new XAttribute("roborbid", srbt.ROBO_RBID),
+                                 new XAttribute("formcaller", GetType().Name)
                               )
                         }
                      }
@@ -746,7 +748,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             postParameters.Add("CustomerMobile", ordr.Service_Robot.OTHR_CELL_PHON);
             postParameters.Add("MailDate", GetPersianDate((DateTime)ordr.STRT_DATE));
             postParameters.Add("MailNo", ordr.CODE);
-            postParameters.Add("MailText", string.Join("\n\r*", ordr.Order_Details.Where(od => od.ELMN_TYPE == "001").Select(od => od.ORDR_DESC)));
+            postParameters.Add("MailTitle", ordr.CRTB_MAIL_SUBJ ?? "");
+            postParameters.Add("MailText", ordr.CHAT_ID.ToString() + "\n\r" + string.Join("\n\r*", ordr.Order_Details.Where(od => od.ELMN_TYPE == "001").Select(od => od.ORDR_DESC)));
             postParameters.Add("RealFirstName", ordr.Service_Robot.REAL_FRST_NAME);
             postParameters.Add("RealLastName", ordr.Service_Robot.REAL_LAST_NAME);
             postParameters.Add("CompanyName", ordr.Service_Robot.COMP_NAME);
@@ -775,7 +778,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             );
 
             // Create request and receive response
-            string postURL = /*ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
+            string postURL = ordr.Robot.CRTB_URL + "/" + "InsertInputMail";// */"http://91.98.21.232:8088/workspace/newautomation/webservice/api/InsertInputMail";
             string userAgent = "Someone";
             HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(postURL, userAgent, postParameters);
 
@@ -843,7 +846,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      Input = 
                         new XElement("Service_Robot",
                            new XAttribute("servfileno", srbt.SERV_FILE_NO),
-                           new XAttribute("roborbid", srbt.ROBO_RBID)
+                           new XAttribute("roborbid", srbt.ROBO_RBID),
+                           new XAttribute("formcaller", GetType().Name)
                         )
                   }
                }

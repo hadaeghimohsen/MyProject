@@ -2632,7 +2632,7 @@
          // 
          // colTimePeriod_Apon
          // 
-         this.colTimePeriod_Apon.Caption = "ژمان";
+         this.colTimePeriod_Apon.Caption = "زمان";
          this.colTimePeriod_Apon.FieldName = "DATE_TIME_DESC";
          this.colTimePeriod_Apon.Image = ((System.Drawing.Image)(resources.GetObject("colTimePeriod_Apon.Image")));
          this.colTimePeriod_Apon.ImageAlignment = System.Drawing.StringAlignment.Far;

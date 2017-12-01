@@ -1539,6 +1539,7 @@
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId81">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
   <Table Name="dbo.Settings" Member="Settings">
@@ -2334,10 +2335,6 @@
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId81" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
-    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Id="FunctionId78" Name="dbo.DEL_ORAC_P" Method="DEL_ORAC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -2466,6 +2463,11 @@
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Expn_Amnt" Parameter="expn_Amnt" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Extr_Prct" Parameter="extr_Prct" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId81" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
+    <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

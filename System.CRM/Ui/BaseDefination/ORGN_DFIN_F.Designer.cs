@@ -28,12 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.Windows.Forms.Label aCTN_TYPELabel;
          System.Windows.Forms.Label dSCT_DESCLabel;
          System.Windows.Forms.Label label1;
          System.Windows.Forms.Label label2;
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -47,14 +46,13 @@
          this.colNEED_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Acdc_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DactvBs = new System.Windows.Forms.BindingSource(this.components);
-         this.DpermBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DactvBs = new System.Windows.Forms.BindingSource();
+         this.DpermBs = new System.Windows.Forms.BindingSource();
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-         this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
          this.request_RequesterGridControl = new DevExpress.XtraGrid.GridControl();
-         this.RqrqBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqrqBs = new System.Windows.Forms.BindingSource();
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_YEAR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,7 +70,7 @@
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.request_DocumentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.RqdcBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqdcBs = new System.Windows.Forms.BindingSource();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colDCMT_DSID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRQ_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +85,7 @@
          this.colRequest_Requester = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.organ_DocumentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OgdcBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OgdcBs = new System.Windows.Forms.BindingSource();
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUNT_BUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUNT_BUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -100,7 +98,7 @@
          this.colODID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNEED_TYPE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dcnd_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DdcndBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DdcndBs = new System.Windows.Forms.BindingSource();
          this.colCRET_BY6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,9 +108,8 @@
          this.colRequest_Document = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.TransferOrgnDcmt_Butn = new C1.Win.C1Input.C1Button();
-         this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
          this.sub_UnitsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.SuntBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SuntBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -126,7 +123,7 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.organGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORGN_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,7 +132,7 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.departmentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.DeptBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DeptBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -146,7 +143,7 @@
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrgan = new DevExpress.XtraGrid.Columns.GridColumn();
          this.base_UnitsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.BuntBs = new System.Windows.Forms.BindingSource(this.components);
+         this.BuntBs = new System.Windows.Forms.BindingSource();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colDEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -158,8 +155,8 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
          this.aCTN_TYPEComboBox = new System.Windows.Forms.ComboBox();
-         this.BcdsBs = new System.Windows.Forms.BindingSource(this.components);
-         this.DdsatBs = new System.Windows.Forms.BindingSource(this.components);
+         this.BcdsBs = new System.Windows.Forms.BindingSource();
+         this.DdsatBs = new System.Windows.Forms.BindingSource();
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
          this.dSCT_DESCTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -177,7 +174,7 @@
          this.colPRCT_DSCT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDSCT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cetp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DcetpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcetpBs = new System.Windows.Forms.BindingSource();
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Acdc2_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colCRET_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -191,9 +188,14 @@
          this.colExpense_Item = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegulation2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.DdctpBs = new System.Windows.Forms.BindingSource(this.components);
-         this.DcspBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DdctpBs = new System.Windows.Forms.BindingSource();
+         this.DcspBs = new System.Windows.Forms.BindingSource();
          this.Btn_Back = new C1.Win.C1Input.C1Button();
+         this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          aCTN_TYPELabel = new System.Windows.Forms.Label();
          dSCT_DESCLabel = new System.Windows.Forms.Label();
          label1 = new System.Windows.Forms.Label();
@@ -208,7 +210,6 @@
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
          this.splitContainer1.SuspendLayout();
-         this.tableLayoutPanel2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.request_RequesterGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqrqBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
@@ -224,7 +225,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Dcnd_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DdcndBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TransferOrgnDcmt_Butn)).BeginInit();
-         this.tableLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sub_UnitsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
@@ -248,7 +248,57 @@
          ((System.ComponentModel.ISupportInitialize)(this.DdctpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DcspBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+         this.splitContainerControl1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+         this.splitContainerControl2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
+         this.splitContainerControl3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).BeginInit();
+         this.splitContainerControl4.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
+         this.splitContainerControl5.SuspendLayout();
          this.SuspendLayout();
+         // 
+         // aCTN_TYPELabel
+         // 
+         aCTN_TYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         aCTN_TYPELabel.AutoSize = true;
+         aCTN_TYPELabel.Location = new System.Drawing.Point(345, 560);
+         aCTN_TYPELabel.Name = "aCTN_TYPELabel";
+         aCTN_TYPELabel.Size = new System.Drawing.Size(99, 14);
+         aCTN_TYPELabel.TabIndex = 1;
+         aCTN_TYPELabel.Text = "نوع اعمال تخفیف :";
+         // 
+         // dSCT_DESCLabel
+         // 
+         dSCT_DESCLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         dSCT_DESCLabel.AutoSize = true;
+         dSCT_DESCLabel.Location = new System.Drawing.Point(345, 586);
+         dSCT_DESCLabel.Name = "dSCT_DESCLabel";
+         dSCT_DESCLabel.Size = new System.Drawing.Size(75, 14);
+         dSCT_DESCLabel.TabIndex = 3;
+         dSCT_DESCLabel.Text = "شرح تخفیف :";
+         // 
+         // label1
+         // 
+         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         label1.AutoSize = true;
+         label1.Location = new System.Drawing.Point(345, 614);
+         label1.Name = "label1";
+         label1.Size = new System.Drawing.Size(48, 14);
+         label1.TabIndex = 3;
+         label1.Text = "از تاریخ :";
+         // 
+         // label2
+         // 
+         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         label2.AutoSize = true;
+         label2.Location = new System.Drawing.Point(185, 614);
+         label2.Name = "label2";
+         label2.Size = new System.Drawing.Size(48, 14);
+         label2.TabIndex = 3;
+         label2.Text = "تا تاریخ :";
          // 
          // colPERM_STAT
          // 
@@ -288,46 +338,6 @@
          // 
          this.DactvBs.DataSource = typeof(System.CRM.Data.D_ACTV);
          // 
-         // aCTN_TYPELabel
-         // 
-         aCTN_TYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         aCTN_TYPELabel.AutoSize = true;
-         aCTN_TYPELabel.Location = new System.Drawing.Point(414, 309);
-         aCTN_TYPELabel.Name = "aCTN_TYPELabel";
-         aCTN_TYPELabel.Size = new System.Drawing.Size(99, 14);
-         aCTN_TYPELabel.TabIndex = 1;
-         aCTN_TYPELabel.Text = "نوع اعمال تخفیف :";
-         // 
-         // dSCT_DESCLabel
-         // 
-         dSCT_DESCLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         dSCT_DESCLabel.AutoSize = true;
-         dSCT_DESCLabel.Location = new System.Drawing.Point(414, 335);
-         dSCT_DESCLabel.Name = "dSCT_DESCLabel";
-         dSCT_DESCLabel.Size = new System.Drawing.Size(75, 14);
-         dSCT_DESCLabel.TabIndex = 3;
-         dSCT_DESCLabel.Text = "شرح تخفیف :";
-         // 
-         // label1
-         // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(414, 363);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(48, 14);
-         label1.TabIndex = 3;
-         label1.Text = "از تاریخ :";
-         // 
-         // label2
-         // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(254, 363);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(48, 14);
-         label2.TabIndex = 3;
-         label2.Text = "تا تاریخ :";
-         // 
          // DpermBs
          // 
          this.DpermBs.DataSource = typeof(System.CRM.Data.D_PERM);
@@ -366,8 +376,7 @@
          // splitContainer1.Panel1
          // 
          this.splitContainer1.Panel1.AutoScroll = true;
-         this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel2);
-         this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+         this.splitContainer1.Panel1.Controls.Add(this.splitContainerControl5);
          this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          // 
          // splitContainer1.Panel2
@@ -384,35 +393,19 @@
          this.splitContainer1.Panel2.Controls.Add(this.basic_Calculate_DiscountsGridControl);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.splitContainer1.Size = new System.Drawing.Size(1101, 643);
-         this.splitContainer1.SplitterDistance = 571;
+         this.splitContainer1.SplitterDistance = 642;
          this.splitContainer1.TabIndex = 1;
-         // 
-         // tableLayoutPanel2
-         // 
-         this.tableLayoutPanel2.AutoScroll = true;
-         this.tableLayoutPanel2.ColumnCount = 1;
-         this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-         this.tableLayoutPanel2.Controls.Add(this.request_RequesterGridControl, -1, 0);
-         this.tableLayoutPanel2.Controls.Add(this.tabControl1, 0, 1);
-         this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 174);
-         this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-         this.tableLayoutPanel2.RowCount = 2;
-         this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.17484F));
-         this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.82516F));
-         this.tableLayoutPanel2.Size = new System.Drawing.Size(571, 469);
-         this.tableLayoutPanel2.TabIndex = 1;
          // 
          // request_RequesterGridControl
          // 
          this.request_RequesterGridControl.DataSource = this.RqrqBs;
          this.request_RequesterGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.request_RequesterGridControl.Location = new System.Drawing.Point(3, 3);
+         this.request_RequesterGridControl.Location = new System.Drawing.Point(0, 0);
          this.request_RequesterGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.request_RequesterGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.request_RequesterGridControl.MainView = this.gridView5;
          this.request_RequesterGridControl.Name = "request_RequesterGridControl";
-         this.request_RequesterGridControl.Size = new System.Drawing.Size(565, 98);
+         this.request_RequesterGridControl.Size = new System.Drawing.Size(642, 234);
          this.request_RequesterGridControl.TabIndex = 1;
          this.request_RequesterGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -557,11 +550,11 @@
          this.tabControl1.Controls.Add(this.tabPage1);
          this.tabControl1.Controls.Add(this.tabPage2);
          this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tabControl1.Location = new System.Drawing.Point(3, 107);
+         this.tabControl1.Location = new System.Drawing.Point(0, 0);
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(565, 359);
+         this.tabControl1.Size = new System.Drawing.Size(0, 0);
          this.tabControl1.TabIndex = 0;
          // 
          // tabPage1
@@ -570,7 +563,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(557, 332);
+         this.tabPage1.Size = new System.Drawing.Size(0, 0);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "مدارک مورد نیاز درخواست";
          this.tabPage1.UseVisualStyleBackColor = true;
@@ -584,7 +577,7 @@
          this.request_DocumentsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.request_DocumentsGridControl.MainView = this.gridView6;
          this.request_DocumentsGridControl.Name = "request_DocumentsGridControl";
-         this.request_DocumentsGridControl.Size = new System.Drawing.Size(551, 326);
+         this.request_DocumentsGridControl.Size = new System.Drawing.Size(0, 0);
          this.request_DocumentsGridControl.TabIndex = 0;
          this.request_DocumentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -704,7 +697,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(557, 332);
+         this.tabPage2.Size = new System.Drawing.Size(192, 89);
          this.tabPage2.TabIndex = 1;
          this.tabPage2.Text = "مدارک مورد نیاز ارگان و سازمان";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -723,7 +716,7 @@
          this.organ_DocumentsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Dcnd_Lov,
             this.Acdc_Lov});
-         this.organ_DocumentsGridControl.Size = new System.Drawing.Size(545, 287);
+         this.organ_DocumentsGridControl.Size = new System.Drawing.Size(180, 40);
          this.organ_DocumentsGridControl.TabIndex = 0;
          this.organ_DocumentsGridControl.UseEmbeddedNavigator = true;
          this.organ_DocumentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -905,7 +898,7 @@
          // TransferOrgnDcmt_Butn
          // 
          this.TransferOrgnDcmt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.TransferOrgnDcmt_Butn.Location = new System.Drawing.Point(415, 296);
+         this.TransferOrgnDcmt_Butn.Location = new System.Drawing.Point(50, 49);
          this.TransferOrgnDcmt_Butn.Name = "TransferOrgnDcmt_Butn";
          this.TransferOrgnDcmt_Butn.Size = new System.Drawing.Size(136, 27);
          this.TransferOrgnDcmt_Butn.TabIndex = 0;
@@ -913,35 +906,16 @@
          this.TransferOrgnDcmt_Butn.UseVisualStyleBackColor = true;
          this.TransferOrgnDcmt_Butn.Click += new System.EventHandler(this.TransferOrgnDcmt_Butn_Click);
          // 
-         // tableLayoutPanel1
-         // 
-         this.tableLayoutPanel1.AutoScroll = true;
-         this.tableLayoutPanel1.ColumnCount = 2;
-         this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51F));
-         this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49F));
-         this.tableLayoutPanel1.Controls.Add(this.sub_UnitsGridControl, 1, 1);
-         this.tableLayoutPanel1.Controls.Add(this.organGridControl, -1, 0);
-         this.tableLayoutPanel1.Controls.Add(this.departmentsGridControl, 1, 0);
-         this.tableLayoutPanel1.Controls.Add(this.base_UnitsGridControl, 0, 1);
-         this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-         this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-         this.tableLayoutPanel1.RowCount = 2;
-         this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-         this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-         this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 174);
-         this.tableLayoutPanel1.TabIndex = 0;
-         // 
          // sub_UnitsGridControl
          // 
          this.sub_UnitsGridControl.DataSource = this.SuntBs;
          this.sub_UnitsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.sub_UnitsGridControl.Location = new System.Drawing.Point(3, 90);
+         this.sub_UnitsGridControl.Location = new System.Drawing.Point(0, 0);
          this.sub_UnitsGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.sub_UnitsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sub_UnitsGridControl.MainView = this.gridView4;
          this.sub_UnitsGridControl.Name = "sub_UnitsGridControl";
-         this.sub_UnitsGridControl.Size = new System.Drawing.Size(274, 81);
+         this.sub_UnitsGridControl.Size = new System.Drawing.Size(314, 257);
          this.sub_UnitsGridControl.TabIndex = 0;
          this.sub_UnitsGridControl.UseEmbeddedNavigator = true;
          this.sub_UnitsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1048,12 +1022,12 @@
          // 
          this.organGridControl.DataSource = this.OrgnBs;
          this.organGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.organGridControl.Location = new System.Drawing.Point(283, 3);
+         this.organGridControl.Location = new System.Drawing.Point(0, 0);
          this.organGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.organGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.organGridControl.MainView = this.gridView1;
          this.organGridControl.Name = "organGridControl";
-         this.organGridControl.Size = new System.Drawing.Size(285, 81);
+         this.organGridControl.Size = new System.Drawing.Size(324, 137);
          this.organGridControl.TabIndex = 0;
          this.organGridControl.UseEmbeddedNavigator = true;
          this.organGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1130,12 +1104,12 @@
          // 
          this.departmentsGridControl.DataSource = this.DeptBs;
          this.departmentsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.departmentsGridControl.Location = new System.Drawing.Point(3, 3);
+         this.departmentsGridControl.Location = new System.Drawing.Point(0, 0);
          this.departmentsGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.departmentsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.departmentsGridControl.MainView = this.gridView2;
          this.departmentsGridControl.Name = "departmentsGridControl";
-         this.departmentsGridControl.Size = new System.Drawing.Size(274, 81);
+         this.departmentsGridControl.Size = new System.Drawing.Size(313, 137);
          this.departmentsGridControl.TabIndex = 1;
          this.departmentsGridControl.UseEmbeddedNavigator = true;
          this.departmentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1224,12 +1198,12 @@
          // 
          this.base_UnitsGridControl.DataSource = this.BuntBs;
          this.base_UnitsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.base_UnitsGridControl.Location = new System.Drawing.Point(283, 90);
+         this.base_UnitsGridControl.Location = new System.Drawing.Point(0, 0);
          this.base_UnitsGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.base_UnitsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.base_UnitsGridControl.MainView = this.gridView3;
          this.base_UnitsGridControl.Name = "base_UnitsGridControl";
-         this.base_UnitsGridControl.Size = new System.Drawing.Size(285, 81);
+         this.base_UnitsGridControl.Size = new System.Drawing.Size(323, 257);
          this.base_UnitsGridControl.TabIndex = 2;
          this.base_UnitsGridControl.UseEmbeddedNavigator = true;
          this.base_UnitsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1322,14 +1296,14 @@
          // 
          // aCTN_TYPEComboBox
          // 
-         this.aCTN_TYPEComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.aCTN_TYPEComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.aCTN_TYPEComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BcdsBs, "ACTN_TYPE", true));
          this.aCTN_TYPEComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.BcdsBs, "ACTN_TYPE", true));
          this.aCTN_TYPEComboBox.DataSource = this.DdsatBs;
          this.aCTN_TYPEComboBox.DisplayMember = "DOMN_DESC";
          this.aCTN_TYPEComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.aCTN_TYPEComboBox.FormattingEnabled = true;
-         this.aCTN_TYPEComboBox.Location = new System.Drawing.Point(287, 306);
+         this.aCTN_TYPEComboBox.Location = new System.Drawing.Point(218, 557);
          this.aCTN_TYPEComboBox.Name = "aCTN_TYPEComboBox";
          this.aCTN_TYPEComboBox.Size = new System.Drawing.Size(121, 22);
          this.aCTN_TYPEComboBox.TabIndex = 10;
@@ -1345,11 +1319,11 @@
          // 
          // dateTimeSelector1
          // 
-         this.dateTimeSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.dateTimeSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs, "TO_DATE", true));
          this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(148, 359);
+         this.dateTimeSelector1.Location = new System.Drawing.Point(79, 610);
          this.dateTimeSelector1.Name = "dateTimeSelector1";
          this.dateTimeSelector1.Size = new System.Drawing.Size(100, 23);
          this.dateTimeSelector1.TabIndex = 9;
@@ -1357,11 +1331,11 @@
          // 
          // dateTimeSelector2
          // 
-         this.dateTimeSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.dateTimeSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.dateTimeSelector2.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs, "FROM_DATE", true));
          this.dateTimeSelector2.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector2.Location = new System.Drawing.Point(308, 359);
+         this.dateTimeSelector2.Location = new System.Drawing.Point(239, 610);
          this.dateTimeSelector2.Name = "dateTimeSelector2";
          this.dateTimeSelector2.Size = new System.Drawing.Size(100, 23);
          this.dateTimeSelector2.TabIndex = 9;
@@ -1369,9 +1343,9 @@
          // 
          // dSCT_DESCTextEdit
          // 
-         this.dSCT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.dSCT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.dSCT_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BcdsBs, "DSCT_DESC", true));
-         this.dSCT_DESCTextEdit.Location = new System.Drawing.Point(17, 333);
+         this.dSCT_DESCTextEdit.Location = new System.Drawing.Point(79, 585);
          this.dSCT_DESCTextEdit.Name = "dSCT_DESCTextEdit";
          this.dSCT_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.dSCT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -1379,13 +1353,15 @@
          this.dSCT_DESCTextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.dSCT_DESCTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.dSCT_DESCTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(391, 22);
+         this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(260, 22);
          this.dSCT_DESCTextEdit.TabIndex = 4;
          // 
          // basic_Calculate_DiscountsGridControl
          // 
+         this.basic_Calculate_DiscountsGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.basic_Calculate_DiscountsGridControl.DataSource = this.BcdsBs;
-         this.basic_Calculate_DiscountsGridControl.Dock = System.Windows.Forms.DockStyle.Top;
          this.basic_Calculate_DiscountsGridControl.Location = new System.Drawing.Point(0, 0);
          this.basic_Calculate_DiscountsGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.basic_Calculate_DiscountsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1394,7 +1370,7 @@
          this.basic_Calculate_DiscountsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Cetp_Lov,
             this.Acdc2_Lov});
-         this.basic_Calculate_DiscountsGridControl.Size = new System.Drawing.Size(526, 296);
+         this.basic_Calculate_DiscountsGridControl.Size = new System.Drawing.Size(455, 551);
          this.basic_Calculate_DiscountsGridControl.TabIndex = 0;
          this.basic_Calculate_DiscountsGridControl.UseEmbeddedNavigator = true;
          this.basic_Calculate_DiscountsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1635,6 +1611,79 @@
          this.Btn_Back.UseVisualStyleBackColor = true;
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // splitContainerControl1
+         // 
+         this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl1.Horizontal = false;
+         this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.request_RequesterGridControl);
+         this.splitContainerControl1.Panel1.Text = "Panel1";
+         this.splitContainerControl1.Panel2.Controls.Add(this.tabControl1);
+         this.splitContainerControl1.Panel2.Text = "Panel2";
+         this.splitContainerControl1.Size = new System.Drawing.Size(642, 239);
+         this.splitContainerControl1.SplitterPosition = 321;
+         this.splitContainerControl1.TabIndex = 2;
+         this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
+         // splitContainerControl2
+         // 
+         this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl2.Name = "splitContainerControl2";
+         this.splitContainerControl2.Panel1.Controls.Add(this.departmentsGridControl);
+         this.splitContainerControl2.Panel1.Text = "Panel1";
+         this.splitContainerControl2.Panel2.Controls.Add(this.organGridControl);
+         this.splitContainerControl2.Panel2.Text = "Panel2";
+         this.splitContainerControl2.Size = new System.Drawing.Size(642, 137);
+         this.splitContainerControl2.SplitterPosition = 313;
+         this.splitContainerControl2.TabIndex = 3;
+         this.splitContainerControl2.Text = "splitContainerControl2";
+         // 
+         // splitContainerControl3
+         // 
+         this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl3.Name = "splitContainerControl3";
+         this.splitContainerControl3.Panel1.Controls.Add(this.sub_UnitsGridControl);
+         this.splitContainerControl3.Panel1.Text = "Panel1";
+         this.splitContainerControl3.Panel2.Controls.Add(this.base_UnitsGridControl);
+         this.splitContainerControl3.Panel2.Text = "Panel2";
+         this.splitContainerControl3.Size = new System.Drawing.Size(642, 257);
+         this.splitContainerControl3.SplitterPosition = 314;
+         this.splitContainerControl3.TabIndex = 4;
+         this.splitContainerControl3.Text = "splitContainerControl3";
+         // 
+         // splitContainerControl4
+         // 
+         this.splitContainerControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl4.Horizontal = false;
+         this.splitContainerControl4.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl4.Name = "splitContainerControl4";
+         this.splitContainerControl4.Panel1.Controls.Add(this.splitContainerControl2);
+         this.splitContainerControl4.Panel1.Text = "Panel1";
+         this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl3);
+         this.splitContainerControl4.Panel2.Text = "Panel2";
+         this.splitContainerControl4.Size = new System.Drawing.Size(642, 399);
+         this.splitContainerControl4.SplitterPosition = 137;
+         this.splitContainerControl4.TabIndex = 5;
+         this.splitContainerControl4.Text = "splitContainerControl4";
+         // 
+         // splitContainerControl5
+         // 
+         this.splitContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl5.Horizontal = false;
+         this.splitContainerControl5.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl5.Name = "splitContainerControl5";
+         this.splitContainerControl5.Panel1.Controls.Add(this.splitContainerControl4);
+         this.splitContainerControl5.Panel1.Text = "Panel1";
+         this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl1);
+         this.splitContainerControl5.Panel2.Text = "Panel2";
+         this.splitContainerControl5.Size = new System.Drawing.Size(642, 643);
+         this.splitContainerControl5.SplitterPosition = 399;
+         this.splitContainerControl5.TabIndex = 6;
+         this.splitContainerControl5.Text = "splitContainerControl5";
+         // 
          // ORGN_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1656,7 +1705,6 @@
          this.splitContainer1.Panel2.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
          this.splitContainer1.ResumeLayout(false);
-         this.tableLayoutPanel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.request_RequesterGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqrqBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
@@ -1672,7 +1720,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Dcnd_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DdcndBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TransferOrgnDcmt_Butn)).EndInit();
-         this.tableLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.sub_UnitsGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
@@ -1696,6 +1743,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.DdctpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DcspBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+         this.splitContainerControl1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+         this.splitContainerControl2.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
+         this.splitContainerControl3.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).EndInit();
+         this.splitContainerControl4.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
+         this.splitContainerControl5.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -1718,7 +1775,6 @@
       private Windows.Forms.BindingSource OgdcBs;
       private Windows.Forms.BindingSource DcspBs;
       private Windows.Forms.BindingSource DdctpBs;
-      private Windows.Forms.TableLayoutPanel tableLayoutPanel1;
       private DevExpress.XtraGrid.GridControl organGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
@@ -1761,7 +1817,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY3;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE3;
       private DevExpress.XtraGrid.Columns.GridColumn colBase_Unit;
-      private Windows.Forms.TableLayoutPanel tableLayoutPanel2;
       private DevExpress.XtraGrid.GridControl request_RequesterGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
       private DevExpress.XtraGrid.Columns.GridColumn colREGL_YEAR;
@@ -1853,5 +1908,10 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRegulation2;
       private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit1;
       private Windows.Forms.ComboBox aCTN_TYPEComboBox;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl5;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
    }
 }

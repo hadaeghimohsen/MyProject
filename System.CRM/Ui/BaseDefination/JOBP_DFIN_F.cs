@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.CRM.ExceptionHandlings;
 using System.JobRouting.Jobs;
 using DevExpress.XtraEditors;
+using System.Xml.Linq;
 
 namespace System.CRM.Ui.BaseDefination
 {
@@ -361,6 +362,24 @@ namespace System.CRM.Ui.BaseDefination
             default:
                break;
          }
+      }
+
+      private void Cjbp_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                  new Job(SendType.Self, 87 /* Execute Cjbp_Dfin_F */),                
+                  new Job(SendType.SelfToUserInterface, "CJBP_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("Data",
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                  }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
    }
 }

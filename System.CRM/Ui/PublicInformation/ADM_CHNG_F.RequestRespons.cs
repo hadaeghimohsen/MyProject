@@ -17,6 +17,7 @@ namespace System.CRM.Ui.PublicInformation
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uagc_U;
+      private string CurrentUser = "";
 
       private bool isFirstLoaded = false;
 
@@ -93,8 +94,7 @@ namespace System.CRM.Ui.PublicInformation
          }
          else if (keyData == Keys.Enter)
          {
-            if (!(Btn_Back.Focused))
-               SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.Escape)
          {
@@ -131,6 +131,7 @@ namespace System.CRM.Ui.PublicInformation
          Fga_Uprv_U = iCRM.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iCRM.FGA_URGN_U() ?? "";
          Fga_Uagc_U = (iCRM.FGA_UAGC_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          //_DefaultGateway.Gateway(GetHostInfo);

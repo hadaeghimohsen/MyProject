@@ -94,5 +94,6 @@ namespace System.CRM.Code
       internal Ui.PublicInformation.RLAT_SINF_F _Rlat_Sinf_F { get; set; }
       internal Ui.PublicInformation.RLAT_CINF_F _Rlat_Cinf_F { get; set; }
       internal Ui.BaseDefination.CMPH_DFIN_F _Cmph_Dfin_F { get; set; }
+      internal Ui.BaseDefination.CJBP_DFIN_F _Cjbp_Dfin_F { get; set; }
    }
 }

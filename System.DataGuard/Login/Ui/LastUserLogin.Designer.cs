@@ -114,9 +114,9 @@
          // 
          this.Lb_ShowLoginDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Lb_ShowLoginDesc.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Lb_ShowLoginDesc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Lb_ShowLoginDesc.ForeColor = System.Drawing.Color.White;
-         this.Lb_ShowLoginDesc.Location = new System.Drawing.Point(39, 496);
+         this.Lb_ShowLoginDesc.Location = new System.Drawing.Point(39, 482);
          this.Lb_ShowLoginDesc.Name = "Lb_ShowLoginDesc";
          this.Lb_ShowLoginDesc.Size = new System.Drawing.Size(685, 58);
          this.Lb_ShowLoginDesc.TabIndex = 4;
@@ -182,6 +182,7 @@
          this.User5_RondButn.Size = new System.Drawing.Size(70, 70);
          this.User5_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.User5_RondButn.TabIndex = 9;
+         this.User5_RondButn.Tooltip = null;
          // 
          // User4_RondButn
          // 
@@ -205,6 +206,7 @@
          this.User4_RondButn.Size = new System.Drawing.Size(70, 70);
          this.User4_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.User4_RondButn.TabIndex = 8;
+         this.User4_RondButn.Tooltip = null;
          this.User4_RondButn.Click += new System.EventHandler(this.User_RondButn_Click);
          // 
          // pictureBox2
@@ -251,6 +253,7 @@
          this.User3_RondButn.Size = new System.Drawing.Size(70, 70);
          this.User3_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.User3_RondButn.TabIndex = 2;
+         this.User3_RondButn.Tooltip = null;
          this.User3_RondButn.Click += new System.EventHandler(this.User_RondButn_Click);
          // 
          // SwitchUser_RondButn
@@ -275,6 +278,7 @@
          this.SwitchUser_RondButn.Size = new System.Drawing.Size(50, 50);
          this.SwitchUser_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.SwitchUser_RondButn.TabIndex = 1;
+         this.SwitchUser_RondButn.Tooltip = null;
          this.SwitchUser_RondButn.Click += new System.EventHandler(this.SwitchUser_RondButn_Click);
          // 
          // User1_RondButn
@@ -299,6 +303,7 @@
          this.User1_RondButn.Size = new System.Drawing.Size(70, 70);
          this.User1_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.User1_RondButn.TabIndex = 1;
+         this.User1_RondButn.Tooltip = null;
          this.User1_RondButn.Click += new System.EventHandler(this.User_RondButn_Click);
          // 
          // User2_RondButn
@@ -323,6 +328,7 @@
          this.User2_RondButn.Size = new System.Drawing.Size(70, 70);
          this.User2_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.User2_RondButn.TabIndex = 0;
+         this.User2_RondButn.Tooltip = null;
          this.User2_RondButn.Click += new System.EventHandler(this.User_RondButn_Click);
          // 
          // label2

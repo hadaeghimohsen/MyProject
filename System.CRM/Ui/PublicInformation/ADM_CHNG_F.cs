@@ -38,7 +38,7 @@ namespace System.CRM.Ui.PublicInformation
          if(tb_master.SelectedTab == tp_001)
          {
             iCRM = new Data.iCRMDataContext(ConnectionString);
-            var Rqids = iCRM.VF_Requests(new XElement("Request"))
+            var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                .Where(rqst =>
                      rqst.RQTP_CODE == "002" &&
                      rqst.RQST_STAT == "001" &&
@@ -473,7 +473,7 @@ namespace System.CRM.Ui.PublicInformation
          {
             iCRM.SaveException(exc);
          }
-      }
+      }      
       #endregion
 
       #region Button Events
@@ -580,6 +580,80 @@ namespace System.CRM.Ui.PublicInformation
                   )
             }
          );
+      }
+
+      private void Tag_Butn_Click(object sender, EventArgs e)
+      {
+         var srpb = SrpbBs1.Current as Data.Service_Public;
+         if (srpb == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 50 /* Execute Tsk_Tag_F */),
+                  new Job(SendType.SelfToUserInterface, "TSK_TAG_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", srpb.SERV_FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void AddInfo_Butn_Click(object sender, EventArgs e)
+      {
+         var srpb = SrpbBs1.Current as Data.Service_Public;
+         if (srpb == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 71 /* Execute Add_Info_F */),
+                  new Job(SendType.SelfToUserInterface, "ADD_INFO_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", srpb.SERV_FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void ServCont_Butn_Click(object sender, EventArgs e)
+      {
+         var srpb = SrpbBs1.Current as Data.Service_Public;
+         if (srpb == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 60 /* Execute Inf_Ctwk_F */),
+                  new Job(SendType.SelfToUserInterface, "INF_CTWK_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", srpb.SERV_FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
       }
       
    }

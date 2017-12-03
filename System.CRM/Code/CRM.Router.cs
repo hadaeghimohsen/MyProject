@@ -284,6 +284,9 @@ namespace System.CRM.Code
             case 86:
                Cmph_Dfin_F(job);
                break;
+            case 87:
+               Cjbp_Dfin_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -545,6 +548,9 @@ namespace System.CRM.Code
                break;
             case "CMPH_DFIN_F":
                _Cmph_Dfin_F.SendRequest(job);
+               break;
+            case "CJBP_DFIN_F":
+               _Cjbp_Dfin_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

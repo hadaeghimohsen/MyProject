@@ -171,6 +171,7 @@
          this.CheckValidation_RondButn.Size = new System.Drawing.Size(28, 28);
          this.CheckValidation_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.CheckValidation_RondButn.TabIndex = 8;
+         this.CheckValidation_RondButn.Tooltip = null;
          this.CheckValidation_RondButn.Click += new System.EventHandler(this.CheckValidation_RondButn_Click);
          // 
          // Cancel_RondButn
@@ -195,6 +196,7 @@
          this.Cancel_RondButn.Size = new System.Drawing.Size(35, 35);
          this.Cancel_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.Cancel_RondButn.TabIndex = 1;
+         this.Cancel_RondButn.Tooltip = null;
          this.Cancel_RondButn.Click += new System.EventHandler(this.Cancel_RondButn_Click);
          // 
          // User_RondButn
@@ -219,6 +221,7 @@
          this.User_RondButn.Size = new System.Drawing.Size(150, 150);
          this.User_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.User_RondButn.TabIndex = 1;
+         this.User_RondButn.Tooltip = null;
          // 
          // ErrorValidation_Lbl
          // 

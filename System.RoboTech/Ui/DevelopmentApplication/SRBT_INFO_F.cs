@@ -23,6 +23,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private bool requery = false;
       private long servfileno = 0;
       private long roborbid = 0;
+      private string formcaller = "";
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -42,7 +43,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void Save_Butn_Click(object sender, EventArgs e)
       {
          try
-         {
+         {            
             SrbtBs.EndEdit();
             iRoboTech.SubmitChanges();
             requery = true;

@@ -2308,6 +2308,7 @@
       <Association Name="App_Base_Define_Extra_Info" Member="Extra_Infos" ThisKey="CODE" OtherKey="APBS_CODE" Type="Extra_Info" />
       <Association Name="App_Base_Define_Contact_Info" Member="Contact_Infos" ThisKey="CODE" OtherKey="APBS_CODE" Type="Contact_Info" />
       <Association Name="App_Base_Define_Relation_Info" Member="Relation_Infos" ThisKey="CODE" OtherKey="APBS_CODE" Type="Relation_Info" />
+      <Association Name="App_Base_Define_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="APBS_CODE" Type="Job_Personnel_Relation" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId50">
@@ -2758,6 +2759,8 @@
       <Association Name="Job_Personnel_Comment" Member="Comments" ThisKey="CODE" OtherKey="JOBP_CODE_DNRM" Type="Comment" />
       <Association Name="Job_Personnel_Mention" Member="Mentions" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Mention" />
       <Association Name="Job_Personnel_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Personnel_Access_Service_Type" />
+      <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="RLAT_JOBP_CODE" Type="Job_Personnel_Relation" />
+      <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel_Relations1" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Job_Personnel_Relation" />
       <Association Name="Job_Job_Personnel" Member="Job" ThisKey="JOB_CODE" OtherKey="CODE" Type="Job" IsForeignKey="true" />
       <Association Name="Service_Job_Personnel" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
     </Type>
@@ -2954,6 +2957,36 @@
       <Association Name="Service_Send_File" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Public_Send_File" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
     </Type>
+  </Table>
+  <Table Name="dbo.Job_Personnel_Relation" Member="Job_Personnel_Relations">
+    <Type Name="Job_Personnel_Relation">
+      <Column Name="JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RLAT_JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="JBPR_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="App_Base_Define_Job_Personnel_Relation" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel" ThisKey="RLAT_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel1" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId64">
+      <Argument Parameter="jobp_Code" Member="JOBP_CODE" />
+      <Argument Parameter="rlat_Jobp_Code" Member="RLAT_JOBP_CODE" />
+      <Argument Parameter="apbs_Code" Member="APBS_CODE" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId65">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="rec_Stat" Member="REC_STAT" />
+      <Argument Parameter="jbpr_Desc" Member="JBPR_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId66">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
@@ -4148,29 +4181,6 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.VF$Services" Method="VF_Services" IsComposable="true">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
-    <ElementType Name="VF_ServicesResult">
-      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FRST_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="LAST_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="SERV_STAG_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SRPB_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ONOF_TAG_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS_DNRM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SERV_NO_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="SERV_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="CORD_X_DNRM" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CORD_Y_DNRM" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.DEL_RLAT_P" Method="DEL_RLAT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -4298,6 +4308,46 @@
   <Function Id="FunctionId59" Name="dbo.UPD_SRTP_P" Method="UPD_SRTP_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Srtp_Desc" Parameter="srtp_Desc" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VF$Services" Method="VF_Services" IsComposable="true">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="VF_ServicesResult">
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FRST_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LAST_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SERV_STAG_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SRPB_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ONOF_TAG_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS_DNRM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SERV_NO_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SERV_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CORD_X_DNRM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CORD_Y_DNRM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NATL_CODE_DNRM" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Id="FunctionId66" Name="dbo.DEL_JBPR_P" Method="DEL_JBPR_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId64" Name="dbo.INS_JBPR_P" Method="INS_JBPR_P">
+    <Parameter Name="Jobp_Code" Parameter="jobp_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rlat_Jobp_Code" Parameter="rlat_Jobp_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId65" Name="dbo.UPD_JBPR_P" Method="UPD_JBPR_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Jbpr_Desc" Parameter="jbpr_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

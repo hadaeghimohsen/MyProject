@@ -1089,7 +1089,7 @@ namespace System.RoboTech.Data
 		
 		private void DeleteOrder_State(Order_State obj)
 		{
-			this.DEL_ODST_P(((System.Nullable<long>)(obj.ORDR_CODE)));
+			this.DEL_ODST_P(((System.Nullable<long>)(obj.ORDR_CODE)), ((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		private void InsertOrder(Order obj)
@@ -1767,13 +1767,6 @@ namespace System.RoboTech.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_ODST_P")]
-		public int DEL_ODST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_ORAC_P")]
 		public int DEL_ORAC_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
 		{
@@ -1889,6 +1882,13 @@ namespace System.RoboTech.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Extr_Prct", DbType="BigInt")] System.Nullable<long> extr_Prct)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, srbt_Serv_File_No, srbt_Robo_Rbid, srbt_Srpb_Rwno, prob_Serv_File_No, prob_Robo_Rbid, chat_Id, ordr_Code, ordr_Numb, serv_Ordr_Rwno, ownr_Name, ordr_Type, strt_Date, end_Date, ordr_Stat, cord_X, cord_Y, cell_Phon, serv_Adrs, arch_Stat, serv_Job_Apbs_Code, serv_Intr_Apbs_Code, mdfr_Stat, crtb_Send_Stat, crtb_Mail_No, crtb_Mail_Subj, apbs_Code, expn_Amnt, extr_Prct);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_ODST_P")]
+		public int DEL_ODST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordr_Code", DbType="BigInt")] System.Nullable<long> ordr_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ordr_Code, code);
 			return ((int)(result.ReturnValue));
 		}
 	}

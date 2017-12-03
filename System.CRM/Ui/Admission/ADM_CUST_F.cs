@@ -43,7 +43,7 @@ namespace System.CRM.Ui.Admission
          if(tb_master.SelectedTab == tp_001)
          {
             //iCRM = new Data.iCRMDataContext(ConnectionString);
-            var Rqids = iCRM.VF_Requests(new XElement("Request"))
+            var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                .Where(rqst =>
                      rqst.RQTP_CODE == "001" &&
                      rqst.RQST_STAT == "001" &&
@@ -62,6 +62,12 @@ namespace System.CRM.Ui.Admission
                );
 
             RqstBs1.Position = rqstindx;
+
+            // 1396/09/10 * اگر خروجی درخواست ها خالی باشد بایستی گزینه ستون نواحی اتوماتیک وار دوباره پر شود
+            if(RqstBs1.Count == 0)
+            {
+               RqstBs1_AddingNew(null, null);
+            }
          }
       }
 
@@ -531,6 +537,9 @@ namespace System.CRM.Ui.Admission
 
       private void FindGoogleMap_Butn_Click(object sender, EventArgs e)
       {
+         var rqst = RqstBs1.Current as Data.Request;
+         if (rqst == null) return;
+
          if (PostAdrs_Txt.Text == "" || PostAdrs_Txt.Text.Trim() == "") return;
 
          // "Commons:GMapNets", 10 /* Execute ActionCallForm */, SendType.SelfToUserInterface
@@ -566,7 +575,7 @@ namespace System.CRM.Ui.Admission
                                     srpb.CORD_X = Convert.ToDouble( result.Attribute("cordx").Value );
                                     srpb.CORD_Y = Convert.ToDouble( result.Attribute("cordy").Value );
 
-                                    Tb_Slave.SelectedTab = tp_0012;
+                                    //Tb_Slave.SelectedTab = tp_0012;
                                  }
                               )
                         }
@@ -598,6 +607,81 @@ namespace System.CRM.Ui.Admission
                   )
             }
          );
+      }
+
+      private void Tag_Butn_Click(object sender, EventArgs e)
+      {
+         var srpb = SrpbBs1.Current as Data.Service_Public;
+         if (srpb == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 50 /* Execute Tsk_Tag_F */),
+                  new Job(SendType.SelfToUserInterface, "TSK_TAG_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", srpb.SERV_FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void AddInfo_Butn_Click(object sender, EventArgs e)
+      {
+         var srpb = SrpbBs1.Current as Data.Service_Public;
+         if (srpb == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 71 /* Execute Add_Info_F */),
+                  new Job(SendType.SelfToUserInterface, "ADD_INFO_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", srpb.SERV_FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+         
+      }
+
+      private void ServCont_Butn_Click(object sender, EventArgs e)
+      {
+         var srpb = SrpbBs1.Current as Data.Service_Public;
+         if (srpb == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 60 /* Execute Inf_Ctwk_F */),
+                  new Job(SendType.SelfToUserInterface, "INF_CTWK_F", 10 /* Execute Actn_CalF_P */) 
+                  {
+                     Input = 
+                        new XElement("Service",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("fileno", srpb.SERV_FILE_NO)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
       }
    }
 }

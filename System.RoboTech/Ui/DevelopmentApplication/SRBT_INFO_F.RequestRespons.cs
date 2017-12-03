@@ -15,7 +15,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
-      private List<long?> Fga_Ugov_U;
+      private List<long?> Fga_Ugov_U;      
 
       public void SendRequest(Job job)
       {
@@ -66,6 +66,22 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          }
          else if (keyData == Keys.Escape)
          {
+            switch (formcaller)
+            {
+               case "RBOD_DVLP_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "RBOD_DVLP_F", 07 /* Execute Load_Data */)
+                        }
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }
+
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -215,6 +231,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (xinput.Attribute("roborbid") != null)
                roborbid = Convert.ToInt64(xinput.Attribute("roborbid").Value);
+
+            if (xinput.Attribute("formcaller") != null)
+               formcaller = xinput.Attribute("formcaller").Value;
 
             Execute_Query();
          }

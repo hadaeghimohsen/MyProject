@@ -29,7 +29,7 @@ namespace System.CRM.Ui.Notification
          iCRM = new Data.iCRMDataContext(ConnectionString);
          
          // 1396/09/07 * اگر برای نمایش اطلاعات گزینه های فیلترینگ گذاشته شده باشد
-         if (xinput.Attribute("type") != null)
+         if (xinput != null && xinput.Attribute("type") != null)
          {
             switch (xinput.Attribute("type").Value)
             {

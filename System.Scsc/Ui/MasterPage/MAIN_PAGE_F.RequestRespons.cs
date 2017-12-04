@@ -445,6 +445,9 @@ namespace System.Scsc.Ui.MasterPage
                case "5.5.1": // ClearAdministrators
                   result = axCZKEM1.ClearAdministrators(iMachineNumber);
                   break;
+               case "5.5.2":
+                  
+                  break;
             }
 
             if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -412,8 +412,8 @@ namespace System.Scsc.Ui.MasterPage
          // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
          if (bIsConnected)
          {
-            axCZKEM1.ClearLCD();
-            axCZKEM1.WriteLCD(0, 0, message);
+            //axCZKEM1.ClearLCD();
+            //axCZKEM1.WriteLCD(0, 0, message);
             goto L_End;
          }
 

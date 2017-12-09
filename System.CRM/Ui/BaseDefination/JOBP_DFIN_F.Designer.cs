@@ -28,30 +28,36 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JOBP_DFIN_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTITL = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox3 = new System.Windows.Forms.GroupBox();
+         this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.panel1 = new System.Windows.Forms.Panel();
          this.DfltStat_Butn = new System.MaxUi.RoundedButton();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.JobpDel_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.JobpSave_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
-         this.JbpsBs1 = new System.Windows.Forms.BindingSource();
-         this.JobBs1 = new System.Windows.Forms.BindingSource();
+         this.JbpsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.JobBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Tg_ShowNotfWhenAppointmentToMe = new DevExpress.XtraEditors.ToggleSwitch();
+         this.JobpAdd_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Tg_SendEmailWhenMyLCADToAsignOthers = new DevExpress.XtraEditors.ToggleSwitch();
          this.Tg_ShowNotfWhenLCADAsignToMe = new DevExpress.XtraEditors.ToggleSwitch();
          this.Tg_SendEmailWhenLCADAsignToMe = new DevExpress.XtraEditors.ToggleSwitch();
@@ -80,10 +86,6 @@
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.JobpDel_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.JobpSave_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.JobpAdd_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colJOB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,7 +93,7 @@
          this.colUSER_DESC_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DysnoBs1 = new System.Windows.Forms.BindingSource();
+         this.DysnoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,7 +101,7 @@
          this.colJob = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.vUserBs1 = new System.Windows.Forms.BindingSource();
+         this.vUserBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,13 +116,14 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Cjbp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
          this.groupBox3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+         this.splitContainerControl2.SuspendLayout();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.JbpsBs1)).BeginInit();
@@ -147,8 +150,6 @@
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.jobGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
-         this.splitContainerControl2.SuspendLayout();
          this.SuspendLayout();
          // 
          // colCODE1
@@ -213,6 +214,21 @@
          this.groupBox3.TabIndex = 1;
          this.groupBox3.TabStop = false;
          this.groupBox3.Text = "سمت ها";
+         // 
+         // splitContainerControl2
+         // 
+         this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
+         this.splitContainerControl2.Location = new System.Drawing.Point(3, 18);
+         this.splitContainerControl2.Name = "splitContainerControl2";
+         this.splitContainerControl2.Panel1.Controls.Add(this.panel1);
+         this.splitContainerControl2.Panel1.Text = "Panel1";
+         this.splitContainerControl2.Panel2.Controls.Add(this.gridControl2);
+         this.splitContainerControl2.Panel2.Text = "Panel2";
+         this.splitContainerControl2.Size = new System.Drawing.Size(795, 487);
+         this.splitContainerControl2.SplitterPosition = 139;
+         this.splitContainerControl2.TabIndex = 3;
+         this.splitContainerControl2.Text = "splitContainerControl2";
          // 
          // panel1
          // 
@@ -286,6 +302,46 @@
          this.DfltStat_Butn.Tooltip = null;
          this.DfltStat_Butn.Click += new System.EventHandler(this.DfltStat_Butn_Click);
          // 
+         // Back_Butn
+         // 
+         this.Back_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.Back_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back_Butn.Image")));
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.Back_Butn.Location = new System.Drawing.Point(46, 444);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(83, 27);
+         this.Back_Butn.TabIndex = 1;
+         this.Back_Butn.Text = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
+         // 
+         // JobpDel_Butn
+         // 
+         this.JobpDel_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1196;
+         this.JobpDel_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.JobpDel_Butn.Location = new System.Drawing.Point(46, 18);
+         this.JobpDel_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.JobpDel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.JobpDel_Butn.Name = "JobpDel_Butn";
+         this.JobpDel_Butn.Size = new System.Drawing.Size(29, 27);
+         this.JobpDel_Butn.TabIndex = 1;
+         this.JobpDel_Butn.Text = "simpleButton1";
+         this.JobpDel_Butn.Click += new System.EventHandler(this.JobpDel_Butn_Click);
+         // 
+         // JobpSave_Butn
+         // 
+         this.JobpSave_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1195;
+         this.JobpSave_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.JobpSave_Butn.Location = new System.Drawing.Point(81, 18);
+         this.JobpSave_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.JobpSave_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.JobpSave_Butn.Name = "JobpSave_Butn";
+         this.JobpSave_Butn.Size = new System.Drawing.Size(29, 27);
+         this.JobpSave_Butn.TabIndex = 1;
+         this.JobpSave_Butn.Text = "simpleButton1";
+         this.JobpSave_Butn.Click += new System.EventHandler(this.JobpSave_Butn_Click);
+         // 
          // spinEdit2
          // 
          this.spinEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -331,6 +387,19 @@
          this.Tg_ShowNotfWhenAppointmentToMe.TabIndex = 4;
          this.Tg_ShowNotfWhenAppointmentToMe.Tag = "005";
          this.Tg_ShowNotfWhenAppointmentToMe.Toggled += new System.EventHandler(this.Tg_ObjectTag_Toggled);
+         // 
+         // JobpAdd_Butn
+         // 
+         this.JobpAdd_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1198;
+         this.JobpAdd_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.JobpAdd_Butn.Location = new System.Drawing.Point(116, 18);
+         this.JobpAdd_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.JobpAdd_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.JobpAdd_Butn.Name = "JobpAdd_Butn";
+         this.JobpAdd_Butn.Size = new System.Drawing.Size(29, 27);
+         this.JobpAdd_Butn.TabIndex = 1;
+         this.JobpAdd_Butn.Text = "simpleButton6";
+         this.JobpAdd_Butn.Click += new System.EventHandler(this.JobpAdd_Butn_Click);
          // 
          // Tg_SendEmailWhenMyLCADToAsignOthers
          // 
@@ -711,62 +780,6 @@
          this.labelControl1.TabIndex = 0;
          this.labelControl1.Text = "یادآوری";
          // 
-         // Back_Butn
-         // 
-         this.Back_Butn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Back_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back_Butn.Image")));
-         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Back_Butn.Location = new System.Drawing.Point(283, 450);
-         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.Size = new System.Drawing.Size(83, 27);
-         this.Back_Butn.TabIndex = 1;
-         this.Back_Butn.Text = "بازگشت";
-         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
-         // 
-         // JobpDel_Butn
-         // 
-         this.JobpDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.JobpDel_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1196;
-         this.JobpDel_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.JobpDel_Butn.Location = new System.Drawing.Point(46, 18);
-         this.JobpDel_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.JobpDel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.JobpDel_Butn.Name = "JobpDel_Butn";
-         this.JobpDel_Butn.Size = new System.Drawing.Size(29, 27);
-         this.JobpDel_Butn.TabIndex = 1;
-         this.JobpDel_Butn.Text = "simpleButton1";
-         this.JobpDel_Butn.Click += new System.EventHandler(this.JobpDel_Butn_Click);
-         // 
-         // JobpSave_Butn
-         // 
-         this.JobpSave_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.JobpSave_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1195;
-         this.JobpSave_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.JobpSave_Butn.Location = new System.Drawing.Point(81, 18);
-         this.JobpSave_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.JobpSave_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.JobpSave_Butn.Name = "JobpSave_Butn";
-         this.JobpSave_Butn.Size = new System.Drawing.Size(29, 27);
-         this.JobpSave_Butn.TabIndex = 1;
-         this.JobpSave_Butn.Text = "simpleButton1";
-         this.JobpSave_Butn.Click += new System.EventHandler(this.JobpSave_Butn_Click);
-         // 
-         // JobpAdd_Butn
-         // 
-         this.JobpAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.JobpAdd_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1198;
-         this.JobpAdd_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.JobpAdd_Butn.Location = new System.Drawing.Point(116, 18);
-         this.JobpAdd_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.JobpAdd_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.JobpAdd_Butn.Name = "JobpAdd_Butn";
-         this.JobpAdd_Butn.Size = new System.Drawing.Size(29, 27);
-         this.JobpAdd_Butn.TabIndex = 1;
-         this.JobpAdd_Butn.Text = "simpleButton6";
-         this.JobpAdd_Butn.Click += new System.EventHandler(this.JobpAdd_Butn_Click);
-         // 
          // gridControl2
          // 
          this.gridControl2.DataSource = this.JbpsBs1;
@@ -804,21 +817,21 @@
             this.colMDFY_BY1,
             this.colMDFY_DATE1,
             this.colJob});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colCODE1;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "0";
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Column = this.colCODE1;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-         styleFormatCondition6.Value1 = "0";
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition7.Appearance.Options.UseBackColor = true;
+         styleFormatCondition7.ApplyToRow = true;
+         styleFormatCondition7.Column = this.colCODE1;
+         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition7.Value1 = "0";
+         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition8.Appearance.Options.UseBackColor = true;
+         styleFormatCondition8.ApplyToRow = true;
+         styleFormatCondition8.Column = this.colCODE1;
+         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition8.Value1 = "0";
          this.gridView3.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6});
+            styleFormatCondition7,
+            styleFormatCondition8});
          this.gridView3.GridControl = this.gridControl2;
          this.gridView3.Name = "gridView3";
          this.gridView3.OptionsView.ShowDetailButtons = false;
@@ -1061,21 +1074,21 @@
             this.colCRET_DATE,
             this.colMDFY_BY,
             this.colMDFY_DATE});
-         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition7.Appearance.Options.UseBackColor = true;
-         styleFormatCondition7.ApplyToRow = true;
-         styleFormatCondition7.Column = this.colTITL;
-         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition7.Value1 = "0";
-         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition8.Appearance.Options.UseBackColor = true;
-         styleFormatCondition8.ApplyToRow = true;
-         styleFormatCondition8.Column = this.colTITL;
-         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-         styleFormatCondition8.Value1 = "0";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colTITL;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "0";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colTITL;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition4.Value1 = "0";
          this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition7,
-            styleFormatCondition8});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView1.GridControl = this.jobGridControl;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsView.ShowDetailButtons = false;
@@ -1107,21 +1120,6 @@
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
-         // splitContainerControl2
-         // 
-         this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-         this.splitContainerControl2.Location = new System.Drawing.Point(3, 18);
-         this.splitContainerControl2.Name = "splitContainerControl2";
-         this.splitContainerControl2.Panel1.Controls.Add(this.panel1);
-         this.splitContainerControl2.Panel1.Text = "Panel1";
-         this.splitContainerControl2.Panel2.Controls.Add(this.gridControl2);
-         this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(795, 487);
-         this.splitContainerControl2.SplitterPosition = 139;
-         this.splitContainerControl2.TabIndex = 3;
-         this.splitContainerControl2.Text = "splitContainerControl2";
-         // 
          // Cjbp_Butn
          // 
          this.Cjbp_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1150,6 +1148,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
          this.groupBox3.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+         this.splitContainerControl2.ResumeLayout(false);
          this.panel1.ResumeLayout(false);
          this.panel1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
@@ -1177,8 +1177,6 @@
          this.groupBox1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.jobGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
-         this.splitContainerControl2.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

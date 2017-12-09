@@ -345,7 +345,7 @@ namespace System.Scsc.Ui.Admission
             }
             else if ((job.Input as XElement).Attribute("type").Value == "setcard")
             {
-               CardNumb_Text.Text = (job.Input as XElement).Attribute("value").Value;
+               FNGR_PRNT_TextEdit.Text = CardNumb_Text.Text = (job.Input as XElement).Attribute("value").Value;
             }
             else if ((job.Input as XElement).Attribute("type").Value == "refresh")
                Execute_Query();

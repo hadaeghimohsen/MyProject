@@ -371,6 +371,8 @@ namespace System.Scsc.Ui.MasterPage
             return;
          }
 
+         if (!bIsConnected) return;
+
          string EnrollNumber, CardNumber, NameDnrm;
          EnrollNumber = (job.Input as XElement).Attribute("enrollnumb").Value;
          CardNumber = (job.Input as XElement).Attribute("cardnumb").Value;

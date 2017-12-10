@@ -91,11 +91,18 @@ namespace System.RoboTech.Controller
       }
 
       private async void BotOnMessageReceived(object sender, MessageEventArgs e)
-      {
+      {         
          if (/*robot.SPY_TYPE == "001"*/ e.Message.Chat.Id > 0)
             await Robot_Interact(e);
          else
             await Robot_Spy(e);
+
+         try
+         {
+            await Download_Media(Token, e.Message);
+         }
+         catch
+         { }
       }
 
       private async Task Robot_Interact(MessageEventArgs e)
@@ -153,6 +160,7 @@ namespace System.RoboTech.Controller
                await Send_Replay_Message(Token, chat);
             }
             catch { }
+            
 
             /* اگر برای اولین بار داره ربات رو اجرا می کنه می تونیم چک کنیم آیا متن مقدماتی داریم به بخوایم بهش نشون بدیم
              */
@@ -2807,6 +2815,161 @@ namespace System.RoboTech.Controller
                   ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Failed\r\n", send.CHAT_ID, send.Service_Robot.Service.FRST_NAME + ", " + send.Service_Robot.Service.LAST_NAME, Me.Username, DateTime.Now.ToString());
             }
          }
+         iRobotTech.SubmitChanges();
+      }
+      private async Task Download_Media(string robotToken, Message m)
+      {
+         // برای ذخیره سازی فایل های وارد شده به سیستم برای نگهداری درون سیستم
+         // مرحله اول ذخیره کردن اطلاعات از جدول Order_Detail
+         Data.iRoboTechDataContext iRobotTech = new Data.iRoboTechDataContext(connectionString);
+         #region Order_Detail
+         foreach (var ordt in iRobotTech.Order_Details.Where(od => (od.IMAG_PATH == null || od.IMAG_PATH.Trim().Length == 0) && (od.ELMN_TYPE == "002" || od.ELMN_TYPE == "003" || od.ELMN_TYPE == "004" || od.ELMN_TYPE == "006" || od.ELMN_TYPE == "009")))
+         {
+            #region Order_Detail Download
+            {
+               // 1396/07/22 * بدست آوردن مرجعی برای ذخیره سازی اطلاعات فایل های دریافتی برای ربات
+               var filestorage = "";
+               if (robot.DOWN_LOAD_FILE_PATH != "" && robot.DOWN_LOAD_FILE_PATH.Length >= 10)
+                  filestorage = robot.DOWN_LOAD_FILE_PATH;
+
+               //if (parentmenu != null)
+               {
+                  var datenow = iRobotTech.GET_MTOS_U(DateTime.Now).Replace("/", "_");
+                  //if ((parentmenu.UPLD_FILE_PATH ?? @"D:\") != "")
+                  {
+                     var fileupload = (filestorage ?? @"D:") + "\\" + Me.Username + "\\" + datenow + "\\" + m.Chat.Id.ToString() + "\\" + ordt.RWNO.ToString();
+                     var filename = DateTime.Now.ToString("yyyyMMdd_HHmmss_") + Guid.NewGuid().ToString();
+                     if (!Directory.Exists(fileupload))
+                     {
+                        DirectoryInfo di = Directory.CreateDirectory(fileupload);
+                     }
+
+                     if (ordt.ELMN_TYPE == "002")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           ordt.IMAG_PATH = filestorage + "\\" + filename + ".jpg";
+                        }
+                        catch { }
+                     }
+                     else if (ordt.ELMN_TYPE == "003")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                     else if (ordt.ELMN_TYPE == "004")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                     else if (ordt.ELMN_TYPE == "006")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                     else if (ordt.ELMN_TYPE == "009")
+                     {
+                        try
+                        {                           
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }                     
+                  }
+               }
+            }
+            #endregion
+         }
+         #endregion
+
+         #region Robot_Spy_Group_Message
+         foreach (var rsgm in iRobotTech.Robot_Spy_Group_Messages.Where(r => r.FILE_ID != null && r .FILE_PATH == null))
+         {
+            #region Robot_Spy_Group_Message Download
+            {
+               // 1396/07/22 * بدست آوردن مرجعی برای ذخیره سازی اطلاعات فایل های دریافتی برای ربات
+               var filestorage = "";
+               if (robot.DOWN_LOAD_FILE_PATH != "" && robot.DOWN_LOAD_FILE_PATH.Length >= 10)
+                  filestorage = robot.DOWN_LOAD_FILE_PATH;
+
+               //if (parentmenu != null)
+               {
+                  var datenow = iRobotTech.GET_MTOS_U(DateTime.Now).Replace("/", "_");
+                  //if ((parentmenu.UPLD_FILE_PATH ?? @"D:\") != "")
+                  {
+                     var fileupload = (filestorage ?? @"D:") + "\\" + Me.Username + "\\" + datenow + "\\" + m.Chat.Id.ToString() + "\\" + rsgm.CODE.ToString();
+                     var filename = DateTime.Now.ToString("yyyyMMdd_HHmmss_") + Guid.NewGuid().ToString();
+                     if (!Directory.Exists(fileupload))
+                     {
+                        DirectoryInfo di = Directory.CreateDirectory(fileupload);
+                     }
+
+                     if (rsgm.MESG_TYPE == "002")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           rsgm.FILE_PATH = filestorage + "\\" + filename + ".jpg";
+                        }
+                        catch { }
+                     }
+                     else if (rsgm.MESG_TYPE == "003")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                     else if (rsgm.MESG_TYPE == "004")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                     else if (rsgm.MESG_TYPE == "006")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                     else if (rsgm.MESG_TYPE == "009")
+                     {
+                        try
+                        {
+                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                        }
+                        catch { }
+                     }
+                  }
+               }
+            }
+            #endregion
+         }
+         #endregion
+
          iRobotTech.SubmitChanges();
       }
 

@@ -2849,7 +2849,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
-                           ordt.IMAG_PATH = filestorage + "\\" + filename + ".jpg";
+                           ordt.IMAG_PATH = fileupload + "\\" + filename + ".jpg";
                         }
                         catch { }
                      }
@@ -2858,7 +2858,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
-                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -2867,7 +2867,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
-                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -2876,7 +2876,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -2885,7 +2885,7 @@ namespace System.RoboTech.Controller
                         try
                         {                           
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
-                           ordt.IMAG_PATH = filestorage + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }                     
@@ -2923,7 +2923,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
-                           rsgm.FILE_PATH = filestorage + "\\" + filename + ".jpg";
+                           rsgm.FILE_PATH = fileupload + "\\" + filename + ".jpg";
                         }
                         catch { }
                      }
@@ -2932,7 +2932,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
-                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                           rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -2941,7 +2941,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
-                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                           rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -2950,7 +2950,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                           rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -2959,7 +2959,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
-                           rsgm.FILE_PATH = filestorage + "\\" + filename;
+                           rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
                      }

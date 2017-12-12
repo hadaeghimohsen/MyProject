@@ -187,11 +187,20 @@
     <Compile Include="Ui\Activity\OPT_AEML_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Activity\OPT_PRJT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Activity\OPT_PRJT_F.Designer.cs">
+      <DependentUpon>OPT_PRJT_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Activity\OPT_NOTE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Activity\OPT_NOTE_F.Designer.cs">
       <DependentUpon>OPT_NOTE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Activity\OPT_PRJT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Activity\OPT_NOTE_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -2138,6 +2147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Activity\OPT_AEML_F.resx">
       <DependentUpon>OPT_AEML_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Activity\OPT_PRJT_F.resx">
+      <DependentUpon>OPT_PRJT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Activity\OPT_NOTE_F.resx">
       <DependentUpon>OPT_NOTE_F.cs</DependentUpon>

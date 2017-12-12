@@ -1339,66 +1339,6 @@
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
-  <Table Name="dbo.Order_Detail" Member="Order_Details">
-    <Type Name="Order_Detail">
-      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ELMN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BASE_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SUB_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR_CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MIME_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GHIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GHIT_MIN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GHIT_MAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="ORDR_CODE,RWNO" OtherKey="ORDT_ORDR_CODE,ORDT_RWNO" Type="Service_Robot_Replay_Message" />
-      <Association Name="Group_Header_Item_Order_Detail" Member="Group_Header_Item" ThisKey="GHIT_CODE" OtherKey="CODE" Type="Group_Header_Item" IsForeignKey="true" />
-      <Association Name="Order_Order_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId70">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="elmn_Type" Member="ELMN_TYPE" />
-      <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
-      <Argument Parameter="numb" Member="NUMB" />
-      <Argument Parameter="base_Ussd_Code" Member="BASE_USSD_CODE" />
-      <Argument Parameter="sub_Ussd_Code" Member="SUB_USSD_CODE" />
-      <Argument Parameter="ordr_Cmnt" Member="ORDR_CMNT" />
-      <Argument Parameter="ordr_Imag" Member="ORDR_IMAG" />
-      <Argument Parameter="imag_Path" Member="IMAG_PATH" />
-      <Argument Parameter="mime_Type" Member="MIME_TYPE" />
-      <Argument Parameter="ghit_Code" Member="GHIT_CODE" />
-      <Argument Parameter="ghit_Min_Date" Member="GHIT_MIN_DATE" />
-      <Argument Parameter="ghit_Max_Date" Member="GHIT_MAX_DATE" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId71">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-      <Argument Parameter="elmn_Type" Member="ELMN_TYPE" />
-      <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
-      <Argument Parameter="numb" Member="NUMB" />
-      <Argument Parameter="base_Ussd_Code" Member="BASE_USSD_CODE" />
-      <Argument Parameter="sub_Ussd_Code" Member="SUB_USSD_CODE" />
-      <Argument Parameter="ordr_Cmnt" Member="ORDR_CMNT" />
-      <Argument Parameter="ordr_Imag" Member="ORDR_IMAG" />
-      <Argument Parameter="imag_Path" Member="IMAG_PATH" />
-      <Argument Parameter="mime_Type" Member="MIME_TYPE" />
-      <Argument Parameter="ghit_Code" Member="GHIT_CODE" />
-      <Argument Parameter="ghit_Min_Date" Member="GHIT_MIN_DATE" />
-      <Argument Parameter="ghit_Max_Date" Member="GHIT_MAX_DATE" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId72">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-    </DeleteFunction>
-  </Table>
   <Table Name="dbo.App_Base_Define" Member="App_Base_Defines">
     <Type Name="App_Base_Define">
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -1417,20 +1357,20 @@
       <Association Name="App_Base_Define_Order2" Member="Orders2" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId73">
+    <InsertFunction FunctionId="FunctionId70">
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
       <Argument Parameter="ref_Code" Member="REF_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId74">
+    <UpdateFunction FunctionId="FunctionId71">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
       <Argument Parameter="ref_Code" Member="REF_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId75">
+    <DeleteFunction FunctionId="FunctionId72">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -1455,19 +1395,19 @@
       <Association Name="Personal_Robot_Order_Access" Member="Personal_Robot" ThisKey="PROB_SERV_FILE_NO,PROB_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Personal_Robot" IsForeignKey="true" />
       <Association Name="Order_Order_Access" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId76">
+    <InsertFunction FunctionId="FunctionId73">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
       <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
       <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
       <Argument Parameter="recd_Stat" Member="RECD_STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId77">
+    <UpdateFunction FunctionId="FunctionId74">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
       <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
       <Argument Parameter="recd_Stat" Member="RECD_STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId78">
+    <DeleteFunction FunctionId="FunctionId75">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -1493,7 +1433,7 @@
       <Association Name="App_Base_Define_Order_State" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Order_Order_State" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId79">
+    <InsertFunction FunctionId="FunctionId76">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="stat_Date" Member="STAT_DATE" />
@@ -1501,7 +1441,7 @@
       <Argument Parameter="amnt" Member="AMNT" />
       <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId80">
+    <UpdateFunction FunctionId="FunctionId77">
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="stat_Date" Member="STAT_DATE" />
@@ -1509,7 +1449,7 @@
       <Argument Parameter="amnt" Member="AMNT" />
       <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId81">
+    <DeleteFunction FunctionId="FunctionId78">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
@@ -1568,10 +1508,10 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Order_Personal_Robot_Job_Order" Member="Personal_Robot_Job_Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Personal_Robot_Job_Order" />
-      <Association Name="Order_Order_Detail" Member="Order_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Detail" />
       <Association Name="Order_Order_Access" Member="Order_Accesses" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Access" />
       <Association Name="Order_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_State" />
       <Association Name="Order_Order" Member="Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order" />
+      <Association Name="Order_Order_Detail" Member="Order_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Detail" />
       <Association Name="App_Base_Define_Order" Member="App_Base_Define" ThisKey="SERV_INTR_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="App_Base_Define_Order1" Member="App_Base_Define1" ThisKey="SERV_JOB_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="App_Base_Define_Order2" Member="App_Base_Define2" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
@@ -1580,7 +1520,7 @@
       <Association Name="Robot_Order" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
       <Association Name="Service_Robot_Order" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId82">
+    <InsertFunction FunctionId="FunctionId79">
       <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="srbt_Srpb_Rwno" Member="SRBT_SRPB_RWNO" />
@@ -1609,7 +1549,7 @@
       <Argument Parameter="expn_Amnt" Member="EXPN_AMNT" />
       <Argument Parameter="extr_Prct" Member="EXTR_PRCT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId83">
+    <UpdateFunction FunctionId="FunctionId80">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
@@ -1641,7 +1581,7 @@
       <Argument Parameter="expn_Amnt" Member="EXPN_AMNT" />
       <Argument Parameter="extr_Prct" Member="EXTR_PRCT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId84">
+    <DeleteFunction FunctionId="FunctionId81">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -1673,6 +1613,68 @@
       <Association Name="Robot_Spy_Group_Robot_Spy_Group_Message" Member="Robot_Spy_Group" ThisKey="RSPG_ROBO_RBID,RSPG_GROP_CODE" OtherKey="ROBO_RBID,GROP_CODE" Type="Robot_Spy_Group" IsForeignKey="true" />
       <Association Name="Service_Robot_Robot_Spy_Group_Message" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,RSPG_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
     </Type>
+  </Table>
+  <Table Name="dbo.Order_Detail" Member="Order_Details">
+    <Type Name="Order_Detail">
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ELMN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ORDR_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BASE_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SUB_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ORDR_CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ORDR_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MIME_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FILE_EXT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GHIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GHIT_MIN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GHIT_MAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="ORDR_CODE,RWNO" OtherKey="ORDT_ORDR_CODE,ORDT_RWNO" Type="Service_Robot_Replay_Message" />
+      <Association Name="Group_Header_Item_Order_Detail" Member="Group_Header_Item" ThisKey="GHIT_CODE" OtherKey="CODE" Type="Group_Header_Item" IsForeignKey="true" />
+      <Association Name="Order_Order_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId82">
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="elmn_Type" Member="ELMN_TYPE" />
+      <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
+      <Argument Parameter="numb" Member="NUMB" />
+      <Argument Parameter="base_Ussd_Code" Member="BASE_USSD_CODE" />
+      <Argument Parameter="sub_Ussd_Code" Member="SUB_USSD_CODE" />
+      <Argument Parameter="ordr_Cmnt" Member="ORDR_CMNT" />
+      <Argument Parameter="ordr_Imag" Member="ORDR_IMAG" />
+      <Argument Parameter="imag_Path" Member="IMAG_PATH" />
+      <Argument Parameter="mime_Type" Member="MIME_TYPE" />
+      <Argument Parameter="ghit_Code" Member="GHIT_CODE" />
+      <Argument Parameter="ghit_Min_Date" Member="GHIT_MIN_DATE" />
+      <Argument Parameter="ghit_Max_Date" Member="GHIT_MAX_DATE" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId83">
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="elmn_Type" Member="ELMN_TYPE" />
+      <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
+      <Argument Parameter="numb" Member="NUMB" />
+      <Argument Parameter="base_Ussd_Code" Member="BASE_USSD_CODE" />
+      <Argument Parameter="sub_Ussd_Code" Member="SUB_USSD_CODE" />
+      <Argument Parameter="ordr_Cmnt" Member="ORDR_CMNT" />
+      <Argument Parameter="ordr_Imag" Member="ORDR_IMAG" />
+      <Argument Parameter="imag_Path" Member="IMAG_PATH" />
+      <Argument Parameter="mime_Type" Member="MIME_TYPE" />
+      <Argument Parameter="ghit_Code" Member="GHIT_CODE" />
+      <Argument Parameter="ghit_Min_Date" Member="GHIT_MIN_DATE" />
+      <Argument Parameter="ghit_Max_Date" Member="GHIT_MAX_DATE" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId84">
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
+    </DeleteFunction>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
@@ -2278,18 +2280,18 @@
     <Parameter Name="User_Name" Parameter="user_Name" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId75" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
+  <Function Id="FunctionId72" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId73" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
+  <Function Id="FunctionId70" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId74" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
+  <Function Id="FunctionId71" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
@@ -2297,7 +2299,7 @@
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId84" Name="dbo.DEL_ORDR_P" Method="DEL_ORDR_P">
+  <Function Id="FunctionId81" Name="dbo.DEL_ORDR_P" Method="DEL_ORDR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -2334,30 +2336,30 @@
     <Parameter Name="Coef_Stat" Parameter="coef_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId72" Name="dbo.DEL_ODRT_P" Method="DEL_ODRT_P">
+  <Function Id="FunctionId84" Name="dbo.DEL_ODRT_P" Method="DEL_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId78" Name="dbo.DEL_ORAC_P" Method="DEL_ORAC_P">
+  <Function Id="FunctionId75" Name="dbo.DEL_ORAC_P" Method="DEL_ORAC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId76" Name="dbo.INS_ORAC_P" Method="INS_ORAC_P">
+  <Function Id="FunctionId73" Name="dbo.INS_ORAC_P" Method="INS_ORAC_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Recd_Stat" Parameter="recd_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId77" Name="dbo.UPD_ORAC_P" Method="UPD_ORAC_P">
+  <Function Id="FunctionId74" Name="dbo.UPD_ORAC_P" Method="UPD_ORAC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Recd_Stat" Parameter="recd_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId79" Name="dbo.INS_ODST_P" Method="INS_ODST_P">
+  <Function Id="FunctionId76" Name="dbo.INS_ODST_P" Method="INS_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat_Date" Parameter="stat_Date" Type="System.DateTime" DbType="DateTime" />
@@ -2366,7 +2368,7 @@
     <Parameter Name="Amnt_Type" Parameter="amnt_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId80" Name="dbo.UPD_ODST_P" Method="UPD_ODST_P">
+  <Function Id="FunctionId77" Name="dbo.UPD_ODST_P" Method="UPD_ODST_P">
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat_Date" Parameter="stat_Date" Type="System.DateTime" DbType="DateTime" />
@@ -2375,7 +2377,7 @@
     <Parameter Name="Amnt_Type" Parameter="amnt_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId70" Name="dbo.INS_ODRT_P" Method="INS_ODRT_P">
+  <Function Id="FunctionId82" Name="dbo.INS_ODRT_P" Method="INS_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Ordr_Desc" Parameter="ordr_Desc" Type="System.String" DbType="NVarChar(MAX)" />
@@ -2391,7 +2393,7 @@
     <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId71" Name="dbo.UPD_ODRT_P" Method="UPD_ODRT_P">
+  <Function Id="FunctionId83" Name="dbo.UPD_ODRT_P" Method="UPD_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
@@ -2408,12 +2410,12 @@
     <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId81" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
+  <Function Id="FunctionId78" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId82" Name="dbo.INS_ORDR_P" Method="INS_ORDR_P">
+  <Function Id="FunctionId79" Name="dbo.INS_ORDR_P" Method="INS_ORDR_P">
     <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Srpb_Rwno" Parameter="srbt_Srpb_Rwno" Type="System.Int32" DbType="Int" />
@@ -2443,7 +2445,7 @@
     <Parameter Name="Extr_Prct" Parameter="extr_Prct" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId83" Name="dbo.UPD_ORDR_P" Method="UPD_ORDR_P">
+  <Function Id="FunctionId80" Name="dbo.UPD_ORDR_P" Method="UPD_ORDR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />

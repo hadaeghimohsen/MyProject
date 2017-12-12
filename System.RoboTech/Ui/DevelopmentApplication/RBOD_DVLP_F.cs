@@ -767,7 +767,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      byte[] data = new byte[fs.Length];
                      fs.Read(data, 0, data.Length);
                      fs.Close();
-                     postParameters.Add(string.Format("mail_files[{0}]", i), new FormUpload.FileParameter(data, od.IMAG_PATH.Substring(od.IMAG_PATH.LastIndexOf('\\') + 1)/* FileName */, od.IMAG_PATH.Substring(od.IMAG_PATH.LastIndexOf('.') + 1 /* Extension File Type */)));
+                     postParameters.Add(string.Format("mail_files[{0}]", i), new FormUpload.FileParameter(data, /*od.IMAG_PATH.Substring(od.IMAG_PATH.LastIndexOf('\\') + 1)*/ od.FILE_NAME/* FileName */, /*od.IMAG_PATH.Substring(od.IMAG_PATH.LastIndexOf('.') + 1)*/ od.FILE_EXT /* Extension File Type */));
                      ++i;
                   }
                   catch (Exception exc)

@@ -643,10 +643,14 @@ namespace System.RoboTech.Controller
                {
                   string elmntype = "001"; // متن ساده   
                   string mimetype = ""; // پسوند فایل
+                  string filename = "";
+                  string fileext = "";
                   if (chat.Message.Photo != null)
                   {
                      elmntype = "002";
                      mimetype = "application/jpg";
+                     filename = e.Message.Photo.Reverse().FirstOrDefault().FileId + ".jpg";
+                     fileext = "jpg";
                   }
                   if (chat.Message.Video != null)
                   {
@@ -657,6 +661,8 @@ namespace System.RoboTech.Controller
                   {
                      elmntype = "004";
                      mimetype = chat.Message.Document.MimeType;
+                     filename = e.Message.Document.FileName;
+                     fileext = e.Message.Document.FileName.Substring(e.Message.Document.FileName.LastIndexOf('.') + 1);
                   }
                   if (chat.Message.Location != null)
                   {
@@ -673,6 +679,8 @@ namespace System.RoboTech.Controller
                               new XAttribute("chatid", chat.Message.Chat.Id),
                               new XAttribute("elmntype", elmntype),
                               new XAttribute("mimetype", mimetype),
+                              new XAttribute("filename", filename),
+                              new XAttribute("fileext", fileext),
                               new XAttribute("mesgid", chat.Message.MessageId),
                               new XElement("Text", chat.Message.Text == null ? (chat.Message.Contact != null ? string.Format("{0}*{1}*{2}", chat.Message.Contact.FirstName + " , " + chat.Message.Contact.LastName, chat.Message.Contact.PhoneNumber, "متن نا مشخص") : (chat.Message.Caption == null ? "No Text" : chat.Message.Caption)) : chat.Message.Text),
                               new XElement("Location",
@@ -2858,7 +2866,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
-                           ordt.IMAG_PATH = fileupload + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
                      }
@@ -2867,7 +2875,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
-                           ordt.IMAG_PATH = fileupload + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
                      }
@@ -2876,7 +2884,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           ordt.IMAG_PATH = fileupload + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
                      }
@@ -2885,7 +2893,7 @@ namespace System.RoboTech.Controller
                         try
                         {                           
                            await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
-                           ordt.IMAG_PATH = fileupload + "\\" + filename;
+                           ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
                      }                     

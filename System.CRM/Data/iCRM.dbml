@@ -855,6 +855,7 @@
       <Association Name="Request_Service" Member="Services" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Service" />
       <Association Name="Request_Service1" Member="Services1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service" />
       <Association Name="Request_Company" Member="Companies" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Company" />
+      <Association Name="Request_Service_Project" Member="Service_Projects" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service_Project" />
       <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
@@ -2495,6 +2496,7 @@
       <Association Name="Service_Job_Personnel" Member="Job_Personnels" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Job_Personnel" />
       <Association Name="Service_Company" Member="Companies" ThisKey="FILE_NO" OtherKey="LAST_SERV_FILE_NO_DNRM" Type="Company" />
       <Association Name="Service_Send_File" Member="Send_Files" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Send_File" />
+      <Association Name="Service_Service_Project" Member="Service_Projects" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO_DNRM" Type="Service_Project" />
       <Association Name="Base_Tariff_Service" Member="Base_Tariff" ThisKey="BTRF_CODE_DNRM" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" />
       <Association Name="Isic_Product_Service" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE_DNRM,ISCP_ISCA_CODE_DNRM,ISCP_CODE_DNRM" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
       <Association Name="Request_Service" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
@@ -2970,6 +2972,7 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Job_Personnel_Relation_Service_Project" Member="Service_Projects" ThisKey="CODE" OtherKey="JBPR_CODE" Type="Service_Project" />
       <Association Name="App_Base_Define_Job_Personnel_Relation" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel" ThisKey="RLAT_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel1" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
@@ -2985,6 +2988,36 @@
       <Argument Parameter="jbpr_Desc" Member="JBPR_DESC" />
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId66">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Service_Project" Member="Service_Projects">
+    <Type Name="Service_Project">
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="JBPR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RAJP_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Job_Personnel_Relation_Service_Project" Member="Job_Personnel_Relation" ThisKey="JBPR_CODE" OtherKey="CODE" Type="Job_Personnel_Relation" IsForeignKey="true" />
+      <Association Name="Request_Service_Project" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Service_Service_Project" Member="Service" ThisKey="SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId67">
+      <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
+      <Argument Parameter="jbpr_Code" Member="JBPR_CODE" />
+      <Argument Parameter="rajp_Desc" Member="RAJP_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId68">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="rec_Stat" Member="REC_STAT" />
+      <Argument Parameter="rajp_Desc" Member="RAJP_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId69">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -4348,6 +4381,22 @@
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Jbpr_Desc" Parameter="jbpr_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId69" Name="dbo.DEL_SRPR_P" Method="DEL_SRPR_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId67" Name="dbo.INS_SRPR_P" Method="INS_SRPR_P">
+    <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Jbpr_Code" Parameter="jbpr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId68" Name="dbo.UPD_SRPR_P" Method="UPD_SRPR_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

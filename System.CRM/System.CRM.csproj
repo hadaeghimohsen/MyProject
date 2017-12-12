@@ -2494,6 +2494,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Send_File.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Join_Service_Type.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Service_Project.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Public.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Relation.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Type.datasource" />

@@ -55,12 +55,6 @@ namespace System.CRM.Ui.Activity
             case 10:
                Actn_CalF_P(job);
                break;
-            case 100:
-               SetTemplateText(job);
-               break;
-            case 150:
-               SetMentioned(job);
-               break;
             default:
                break;
          }
@@ -184,7 +178,7 @@ namespace System.CRM.Ui.Activity
       /// <param name="job"></param>
       private void OpenDrawer(Job job)
       {
-         bool toggleMode = (bool)job.Input;
+         bool toggleMode = true;//(bool)job.Input;
 
          switch (detailShow)
          {
@@ -233,6 +227,7 @@ namespace System.CRM.Ui.Activity
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         JrpbBs.DataSource = iCRM.Job_Personnel_Relations.Where(j => j.REC_STAT == "002");
          job.Status = StatusType.Successful;
       }
 
@@ -257,48 +252,30 @@ namespace System.CRM.Ui.Activity
             Serv_Lov.Enabled = false;
             Execute_Query();            
             
-            NoteBs.List.Clear();
-            if (xinput.Attribute("ntid").Value == "0")
+            RqstBs.List.Clear();
+            if (xinput.Attribute("rqid").Value == "0")
             {
-               NoteBs.AddNew();
-               var mesg = NoteBs.Current as Data.Note;
-               mesg.SERV_FILE_NO = fileno;
-               mesg.NOTE_DATE = DateTime.Now;
-               NoteBs.EndEdit();
+               RqstBs.DataSource =
+                  iCRM.Requests.Where(t =>
+                     t.RQTP_CODE == "013" &&
+                     t.RQTT_CODE == "004" &&
+                     t.RQST_STAT != "003" &&
+                     t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno) 
+                  );
+
+               RqstBs.AddNew();
+               var rqst = RqstBs.Current as Data.Request;
+               rqst.RQTP_CODE = "013";
+               rqst.RQST_DATE = DateTime.Now;
+               RqstBs.EndEdit();
             }
             else
             {
-               NoteBs.DataSource = iCRM.Notes.FirstOrDefault(nt => nt.SERV_FILE_NO == fileno && nt.NTID == Convert.ToInt64(xinput.Attribute("ntid").Value));
+               RqstBs.DataSource = iCRM.Requests.FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value));
             }
          }
          
          job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// Code 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetTemplateText(Job job)
-      {
-         var xinput = job.Input as XElement;
-         Comment_Txt.Text = xinput.Element("Temp_Text").Element("Result").Value;
-      }
-
-      /// <summary>
-      /// Code 150
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetMentioned(Job job)
-      {
-         var xinput = job.Input as XElement;
-
-         switch (xinput.Attribute("section").Value)
-         {
-            case "message":
-               Comment_Txt.Text = Comment_Txt.Text.Insert(Comment_Txt.SelectionStart, xinput.Attribute("user_mentioned").Value);
-               break;
-         }
       }
    }
 }

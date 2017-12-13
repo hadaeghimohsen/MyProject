@@ -520,21 +520,6 @@ namespace System.CRM.Ui.Leads
             }
          }
       }
-
-      private void CallLog_Gv_DoubleClick(object sender, EventArgs e)
-      {
-         LeadActn_Butn_ButtonClick(LeadActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[2]));
-      }
-
-      private void DelLogCal_Butn_Click(object sender, EventArgs e)
-      {
-         LeadActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[3]));
-      }
-
-      private void EditLogCall_Butn_Click(object sender, EventArgs e)
-      {
-         LeadActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[2]));
-      }
       #endregion
 
       #region Email
@@ -640,22 +625,6 @@ namespace System.CRM.Ui.Leads
             }
          }
       }
-
-      private void Email_Gv_DoubleClick(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(EmalActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[2]));
-      }
-
-      private void EditEmal_Butn_Click(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[2]));
-      }
-
-      private void DelEmal_Butn_Click(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[3]));
-      }
-
       #endregion 
 
       #region Task
@@ -1582,6 +1551,44 @@ namespace System.CRM.Ui.Leads
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
          catch { }
+      }
+
+      private void NewProj_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 88 /* Execute Opt_Prjt_F */),
+                     new Job(SendType.SelfToUserInterface, "OPT_PRJT_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Project",
+                              new XAttribute("fileno", fileno),
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("rqid", 0)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void EditProj_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DelProj_Butn_Click(object sender, EventArgs e)
+      {
+
       }
    }
 }

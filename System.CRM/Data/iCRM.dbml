@@ -4399,4 +4399,8 @@
     <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.OPR_PSAV_P" Method="OPR_PSAV_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

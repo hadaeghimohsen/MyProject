@@ -23,7 +23,7 @@ namespace System.CRM.Ui.Activity
       }
 
       private bool requery = false;
-      private long fileno;
+      private long fileno, projrqstrqid;
       private bool needclose = true;
       private long rqstrqid;
 
@@ -91,6 +91,7 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_TSAV_P(
                new XElement("Task",
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("servfileno", fileno),
                   new XAttribute("duedate", GetDateTimeString(task.DUE_DATE)),
                   new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID ?? 0),

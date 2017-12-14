@@ -24,7 +24,7 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private long fileno;
       private bool needclose = true;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
 
       private void Execute_Query()
       {
@@ -94,6 +94,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorwno", mesg.RQRO_RWNO ?? 0),
                   new XAttribute("msid", mesg.MSID),
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("cellphon", mesg.CELL_PHON),
                   new XAttribute("mesgstat", mesg.MESG_STAT ?? "003"),
                   new XAttribute("mesgtype", mesg.MESG_TYPE),

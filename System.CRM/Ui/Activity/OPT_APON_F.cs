@@ -23,7 +23,7 @@ namespace System.CRM.Ui.Activity
       }
 
       private bool requery = false;
-      private long fileno;
+      private long fileno, projrqstrqid;
       private long rqstrqid;
       private bool needclose = true;
 
@@ -91,6 +91,7 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_ASAV_P(
                new XElement("Appointment",
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("servfileno", fileno),
                   new XAttribute("allday", Apon.ALL_DAY),
                   new XAttribute("fromdate", GetDateTimeString(Apon.FROM_DATE)),

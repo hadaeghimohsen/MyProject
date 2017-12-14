@@ -28,7 +28,7 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private long fileno;
       private string sendtype;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
       private long cmid;
       private bool needclose = true;
 
@@ -105,6 +105,7 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_SSAV_P(
                new XElement("SendFile",
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("cmid", cmid),
                   new XAttribute("servfileno", fileno),
                   new XAttribute("sherteam", sndf.SHER_TEAM),

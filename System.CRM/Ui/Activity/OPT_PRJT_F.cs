@@ -22,15 +22,21 @@ namespace System.CRM.Ui.Activity
       }
 
       private bool requery = false;
-      private long fileno;
+      private long? fileno, rqid;
       private bool needclose = true;
       private long rqstrqid;
 
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => /*s.SRPB_TYPE_DNRM == srpbtype*/ s.FILE_NO == fileno && s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);
-         Serv_Lov.EditValue = fileno;
+
+         RqstBs.DataSource =
+            iCRM.Requests.Where(t =>
+               t.RQTP_CODE == "013" &&
+               t.RQTT_CODE == "004" &&
+               t.RQID == (rqid != null ? rqid : t.RQID) &&
+               t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno)
+            );
          requery = false;
       }
 
@@ -49,16 +55,14 @@ namespace System.CRM.Ui.Activity
                RqstBs.DataSource =
                   iCRM.Requests.FirstOrDefault(t =>
                      t.RQTP_CODE == "013" &&
-                     t.RQTT_CODE == "004" &&
-                     t.RQST_STAT != "003" &&
+                     t.RQTT_CODE == "004" &&                     
                      t.RQST_DESC == RqstDesc_Txt.Text &&
                      t.CRET_BY == CurrentUser &&
                      t.CRET_DATE.Value.Date == DateTime.Now.Date &&
                      t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno) &&
-                     t.RQID == iCRM.Requests.Where(r => 
+                     t.RQID == iCRM.Requests.Where(r =>
                         r.RQTP_CODE == "013" &&
-                        r.RQTT_CODE == "004" &&
-                        r.RQST_STAT != "003" &&
+                        r.RQTT_CODE == "004" &&                        
                         r.RQST_DESC == RqstDesc_Txt.Text &&
                         r.CRET_BY == CurrentUser &&
                         r.CRET_DATE.Value.Date == DateTime.Now.Date &&
@@ -106,32 +110,37 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("code", sp.CODE)
                         )
                      )
-                  )                  
+                  )
                )
             );
-            
+
             requery = true;
          }
          catch (Exception exc)
          {
             requery = false;
             iCRM.SaveException(exc);
+            MessageBox.Show(exc.Message);
          }
          finally
          {
-            if(requery && needclose)
+            if(requery)
             {
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno)) }
-               );
-               Btn_Back_Click(null, null);
+               Execute_Query();
             }
+            //if (requery && needclose)
+            //{
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno)) }
+            //   );
+            //   Btn_Back_Click(null, null);
+            //}
          }
-      }      
+      }
 
       private string GetDateTimeString(DateTime? dt)
       {
-         return 
+         return
             string.Format("{0}-{1}-{2} {3}:{4}:{5}",
                dt.Value.Year,
                dt.Value.Month,
@@ -145,7 +154,7 @@ namespace System.CRM.Ui.Activity
       private void Jrpb_Lov_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          try
-         {            
+         {
             switch (e.Button.Index)
             {
                case 0:
@@ -153,7 +162,7 @@ namespace System.CRM.Ui.Activity
                case 1:
                   var jbpr = (long?)Jrpb_Lov.EditValue;
                   if (jbpr == null) return;
-                  if(!SrprBs.List.OfType<Data.Service_Project>().Any(sp => sp.JBPR_CODE == jbpr))
+                  if (!SrprBs.List.OfType<Data.Service_Project>().Any(sp => sp.JBPR_CODE == jbpr))
                   {
                      SrprBs.AddNew();
                      var srpr = SrprBs.Current as Data.Service_Project;
@@ -185,7 +194,7 @@ namespace System.CRM.Ui.Activity
             Apply();
          }
          catch (Exception exc)
-         {}
-      }      
+         { }
+      }
    }
 }

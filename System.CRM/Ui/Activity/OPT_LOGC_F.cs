@@ -24,7 +24,7 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private bool needclose = true;
       private long fileno;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
 
       private void Execute_Query()
       {
@@ -94,6 +94,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("lcid", logc.LCID),
                   new XAttribute("rsltstat", logc.RSLT_STAT ?? "002"),
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XElement("Comment",
                      new XAttribute("subject", logc.SUBJ_DESC),
                      logc.LOG_CMNT

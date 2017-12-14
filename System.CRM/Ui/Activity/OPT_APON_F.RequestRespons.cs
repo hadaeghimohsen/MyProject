@@ -252,6 +252,11 @@ namespace System.CRM.Ui.Activity
                rqstrqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
             else
                rqstrqid = 0;
+            
+            if (xinput.Attribute("projrqstrqid") != null)
+               projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+            else
+               projrqstrqid = 0;
 
             Serv_Lov.Enabled = false;
             Execute_Query();  

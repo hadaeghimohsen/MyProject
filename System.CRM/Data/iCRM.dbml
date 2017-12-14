@@ -145,11 +145,11 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Region_Region" Member="Regions" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" Type="Region" />
       <Association Name="Region_Expense_Cash" Member="Expense_Cashes" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Expense_Cash" />
-      <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
       <Association Name="Region_Request_Row" Member="Request_Rows" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request_Row" />
       <Association Name="Region_Service" Member="Services" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Service" />
       <Association Name="Region_Service_Public" Member="Service_Publics" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Service_Public" />
       <Association Name="Region_Company" Member="Companies" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Company" />
+      <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
       <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
       <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -204,8 +204,8 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Requester_Type_Request_Requester" Member="Request_Requesters" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request_Requester" />
       <Association Name="Requester_Type_Expense_Item" Member="Expense_Items" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Expense_Item" />
-      <Association Name="Requester_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request" />
       <Association Name="Requester_Type_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request_Row" />
+      <Association Name="Requester_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request" />
     </Type>
   </Table>
   <Table Name="dbo.Request_Document" Member="Request_Documents">
@@ -271,8 +271,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Request_Regulation_History" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Regulation_Request_Regulation_History" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Request_Request_Regulation_History" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Main_State" Member="Main_States">
@@ -809,60 +809,6 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Job_Job_Personnel" Member="Job_Personnels" ThisKey="CODE" OtherKey="JOB_CODE" Type="Job_Personnel" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Request" Member="Requests">
-    <Type Name="Request">
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="JOBP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="LAST_JOBP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
-      <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
-      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
-      <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
-      <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
-      <Association Name="Request_Reminder" Member="Reminders" ThisKey="RQID" OtherKey="RQST_RQID" Type="Reminder" />
-      <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
-      <Association Name="Request_Mention" Member="Mentions" ThisKey="RQID" OtherKey="RQST_RQID" Type="Mention" />
-      <Association Name="Request_Service" Member="Services" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Service" />
-      <Association Name="Request_Service1" Member="Services1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service" />
-      <Association Name="Request_Company" Member="Companies" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Company" />
-      <Association Name="Request_Service_Project" Member="Service_Projects" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service_Project" />
-      <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
-      <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
-      <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
-      <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Request" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Request1" Member="Job_Personnel1" ThisKey="LAST_JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Request_Job_Personnel" Member="Request_Job_Personnels">
@@ -1752,11 +1698,11 @@
       <Association Name="Request_Row_Email" Member="Emails" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Email" />
       <Association Name="Request_Row_Send_File" Member="Send_Files" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Send_File" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Service_Request_Row" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Company_Request_Row" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.V#TopNRelatedServicesOfCompany" Member="V_TopNRelatedServicesOfCompanies">
@@ -1786,10 +1732,10 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Request_Reminder" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Reminder" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Job_Personnel_Reminder" Member="Job_Personnel" ThisKey="FROM_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Job_Personnel_Reminder1" Member="Job_Personnel1" ThisKey="TO_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Request_Reminder" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Request_Type" Member="Request_Types">
@@ -1809,8 +1755,8 @@
       <Association Name="Request_Type_Request_Requester" Member="Request_Requesters" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request_Requester" />
       <Association Name="Request_Type_Reason_Spec" Member="Reason_Specs" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Reason_Spec" />
       <Association Name="Request_Type_Expense_Item" Member="Expense_Items" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Expense_Item" />
-      <Association Name="Request_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request" />
       <Association Name="Request_Type_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request_Row" />
+      <Association Name="Request_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request" />
     </Type>
   </Table>
   <Table Name="dbo.D$SDRC" Member="D_SDRCs">
@@ -2087,12 +2033,12 @@
       <Association Name="Payment_Payment_Method" Member="Payment_Methods" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Method" />
       <Association Name="Payment_Payment_Check" Member="Payment_Checks" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Check" />
       <Association Name="Cash_Payment" Member="Cash" ThisKey="CASH_CODE" OtherKey="CODE" Type="Cash" IsForeignKey="true" />
-      <Association Name="Request_Payment" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Payment" Member="Service" ThisKey="REF_SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Payment1" Member="Service1" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Payment" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
       <Association Name="Company_Payment" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Company_Payment1" Member="Company1" ThisKey="REF_COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Request_Payment" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Task" Member="Tasks">
@@ -2252,9 +2198,9 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Request_Mention" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Mention" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Job_Personnel_Mention" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Request_Mention" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Tag" Member="Tags">
@@ -2499,13 +2445,13 @@
       <Association Name="Service_Service_Project" Member="Service_Projects" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO_DNRM" Type="Service_Project" />
       <Association Name="Base_Tariff_Service" Member="Base_Tariff" ThisKey="BTRF_CODE_DNRM" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" />
       <Association Name="Isic_Product_Service" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE_DNRM,ISCP_ISCA_CODE_DNRM,ISCP_CODE_DNRM" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
-      <Association Name="Request_Service" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Region_Service" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Service1" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Service" Member="Service1" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Sub_Unit_Service" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
       <Association Name="Base_Tariff_Detail_Service" Member="Base_Tariff_Detail" ThisKey="TRFD_CODE_DNRM" OtherKey="CODE" Type="Base_Tariff_Detail" IsForeignKey="true" />
       <Association Name="Company_Service" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Request_Service" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Request_Service1" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Service_Public" Member="Service_Publics">
@@ -2752,8 +2698,6 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Job_Personnel_Request" Member="Requests" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Request" />
-      <Association Name="Job_Personnel_Request1" Member="Requests1" ThisKey="CODE" OtherKey="LAST_JOBP_CODE_DNRM" Type="Request" />
       <Association Name="Job_Personnel_Reminder" Member="Reminders" ThisKey="CODE" OtherKey="FROM_JOBP_CODE" Type="Reminder" />
       <Association Name="Job_Personnel_Reminder1" Member="Reminders1" ThisKey="CODE" OtherKey="TO_JOBP_CODE" Type="Reminder" />
       <Association Name="Job_Personnel_Like" Member="Likes" ThisKey="CODE" OtherKey="JOBP_CODE_DNRM" Type="Like" />
@@ -2763,6 +2707,8 @@
       <Association Name="Job_Personnel_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Personnel_Access_Service_Type" />
       <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="RLAT_JOBP_CODE" Type="Job_Personnel_Relation" />
       <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel_Relations1" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Job_Personnel_Relation" />
+      <Association Name="Job_Personnel_Request" Member="Requests" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Request" />
+      <Association Name="Job_Personnel_Request1" Member="Requests1" ThisKey="CODE" OtherKey="LAST_JOBP_CODE_DNRM" Type="Request" />
       <Association Name="Job_Job_Personnel" Member="Job" ThisKey="JOB_CODE" OtherKey="CODE" Type="Job" IsForeignKey="true" />
       <Association Name="Service_Job_Personnel" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
     </Type>
@@ -2842,8 +2788,8 @@
       <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Region_Company" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Company" Member="Service" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+      <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId61">
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
@@ -3004,8 +2950,8 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Job_Personnel_Relation_Service_Project" Member="Job_Personnel_Relation" ThisKey="JBPR_CODE" OtherKey="CODE" Type="Job_Personnel_Relation" IsForeignKey="true" />
-      <Association Name="Request_Service_Project" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Service_Project" Member="Service" ThisKey="SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+      <Association Name="Request_Service_Project" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId67">
       <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
@@ -3020,6 +2966,65 @@
     <DeleteFunction FunctionId="FunctionId69">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Request" Member="Requests">
+    <Type Name="Request">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="PROJ_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="JOBP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LAST_JOBP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRVC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SORC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
+      <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
+      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
+      <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
+      <Association Name="Request_Reminder" Member="Reminders" ThisKey="RQID" OtherKey="RQST_RQID" Type="Reminder" />
+      <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
+      <Association Name="Request_Mention" Member="Mentions" ThisKey="RQID" OtherKey="RQST_RQID" Type="Mention" />
+      <Association Name="Request_Service" Member="Services" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Service" />
+      <Association Name="Request_Service1" Member="Services1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service" />
+      <Association Name="Request_Company" Member="Companies" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Company" />
+      <Association Name="Request_Service_Project" Member="Service_Projects" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service_Project" />
+      <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="PROJ_RQST_RQID" Type="Request" />
+      <Association Name="Request_Request1" Member="Requests1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
+      <Association Name="Request_Request" Member="Request1" ThisKey="PROJ_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Request" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Request1" Member="Job_Personnel1" ThisKey="LAST_JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="Request_Request1" Member="Request2" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
+      <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
+      <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+    </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />

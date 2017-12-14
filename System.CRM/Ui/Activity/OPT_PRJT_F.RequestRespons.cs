@@ -228,6 +228,7 @@ namespace System.CRM.Ui.Activity
       private void LoadData(Job job)
       {
          JrpbBs.DataSource = iCRM.Job_Personnel_Relations.Where(j => j.REC_STAT == "002");
+         ServBs.DataSource = iCRM.Services.Where(s => /*s.SRPB_TYPE_DNRM == srpbtype*/ s.FILE_NO == fileno && s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);         
          job.Status = StatusType.Successful;
       }
 
@@ -238,7 +239,7 @@ namespace System.CRM.Ui.Activity
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         if(xinput != null)
+         if (xinput != null)
          {
             needclose = true;
             FormCaller = xinput.Attribute("formcaller").Value;
@@ -249,32 +250,25 @@ namespace System.CRM.Ui.Activity
             else
                rqstrqid = 0;
 
+            Serv_Lov.EditValue = fileno;
             Serv_Lov.Enabled = false;
-            Execute_Query();            
-            
+            rqid = null;
+
             RqstBs.List.Clear();
             if (xinput.Attribute("rqid").Value == "0")
             {
-               RqstBs.DataSource =
-                  iCRM.Requests.Where(t =>
-                     t.RQTP_CODE == "013" &&
-                     t.RQTT_CODE == "004" &&
-                     t.RQST_STAT != "003" &&
-                     t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno) 
-                  );
-
+               Execute_Query();
                RqstBs.AddNew();
                var rqst = RqstBs.Current as Data.Request;
-               rqst.RQTP_CODE = "013";
-               rqst.RQST_DATE = DateTime.Now;
                RqstBs.EndEdit();
             }
             else
             {
-               RqstBs.DataSource = iCRM.Requests.FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value));
+               rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
+               RqstBs.DataSource = iCRM.Requests.FirstOrDefault(r => r.RQID == rqid);
             }
          }
-         
+
          job.Status = StatusType.Successful;
       }
    }

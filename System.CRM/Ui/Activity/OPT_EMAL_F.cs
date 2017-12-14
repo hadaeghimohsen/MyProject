@@ -24,7 +24,7 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private long fileno;
       private bool needclose = true;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
 
       private void Execute_Query()
       {
@@ -93,6 +93,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("emid", email.EMID),
                   new XAttribute("sendstat", email.SEND_STAT ?? "001"),
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XElement("Comment",
                      new XAttribute("subject", email.SUBJ_DESC),
                      email.EMAL_CMNT

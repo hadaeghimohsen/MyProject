@@ -24,7 +24,7 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private long fileno;
       private bool needclose = true;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
 
       private void Execute_Query()
       {
@@ -86,6 +86,7 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_NSAV_P(
                new XElement("Note",
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("servfileno", note.SERV_FILE_NO),
                   new XAttribute("rqrorqstrqid", note.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", note.RQRO_RWNO ?? 0),

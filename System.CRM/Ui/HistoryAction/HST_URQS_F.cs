@@ -80,7 +80,7 @@ namespace System.CRM.Ui.HistoryAction
 	            {
                   case "001":
                      RqstChngBs.DataSource = 
-                        from rq in iCRM.VF_Request_Changing(null, null, null)
+                        from rq in iCRM.VF_Request_Changing(null, null, null, null)
                         where rq.SAVE_DATE.Value.Date < DateTime.Now.Date
                            && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
                         orderby rq.SAVE_DATE descending
@@ -88,7 +88,7 @@ namespace System.CRM.Ui.HistoryAction
                      break;
                   case "002":
                      RqstChngBs.DataSource =
-                        from rq in iCRM.VF_Request_Changing(null, null, null)
+                        from rq in iCRM.VF_Request_Changing(null, null, null, null)
                         where rq.SAVE_DATE.Value.Date == DateTime.Now.Date
                            && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
                         orderby rq.SAVE_DATE descending
@@ -101,7 +101,7 @@ namespace System.CRM.Ui.HistoryAction
                         RqstToDate_Date.Value = datetime = DateTime.Now.AddDays(-1);
 
                      RqstChngBs.DataSource =
-                        from rq in iCRM.VF_Request_Changing(null, null, null)
+                        from rq in iCRM.VF_Request_Changing(null, null, null, null)
                         where rq.SAVE_DATE.Value.Date == datetime.Date
                            && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
                         orderby rq.SAVE_DATE descending

@@ -24,7 +24,7 @@ namespace System.CRM.Ui.Deals
       private bool needclose = true;
       private long fileno;
       private long cashcode, rqid;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
 
       private void Execute_Query()
       {
@@ -79,6 +79,7 @@ namespace System.CRM.Ui.Deals
             iCRM.OPR_DRQT_F(
                new XElement("Payment",
                   new XAttribute("rqstrqid", rqstrqid),
+                  new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("rqid", pymt.RQST_RQID),
                   new XAttribute("cashcode", pymt.CASH_CODE),
                   new XAttribute("servfileno", pymt.SERV_FILE_NO),
@@ -178,6 +179,7 @@ namespace System.CRM.Ui.Deals
                               new XElement("Service", 
                                  new XAttribute("fileno", pymt.SERV_FILE_NO), 
                                  new XAttribute("rqstrqid", pymt.RQST_RQID),
+                                 new XAttribute("projrqstrqid", projrqstrqid),
                                  new XAttribute("cashcode", pymt.CASH_CODE),
                                  new XAttribute("formcaller", GetType().Name)
                               )

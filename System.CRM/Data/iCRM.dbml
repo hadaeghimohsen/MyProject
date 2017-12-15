@@ -279,14 +279,25 @@
     <Type Name="Main_State">
       <Column Name="CODE" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MSTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MSTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Main_State_Sub_State" Member="Sub_States" ThisKey="CODE,SUB_SYS" OtherKey="MSTT_CODE,MSTT_SUB_SYS" Type="Sub_State" />
       <Association Name="Main_State_Step_History_Summery" Member="Step_History_Summeries" ThisKey="CODE,SUB_SYS" OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS" Type="Step_History_Summery" />
     </Type>
+    <InsertFunction FunctionId="FunctionId21">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="mSTT_DESC" Member="MSTT_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId22">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="mSTT_DESC" Member="MSTT_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId23">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Table Name="dbo.Sub_Unit" Member="Sub_Units">
     <Type Name="Sub_Unit">
@@ -312,50 +323,29 @@
       <Column Name="MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CODE" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SSTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Sub_State_Step_History_Detail" Member="Step_History_Details" ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE" OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" Type="Step_History_Detail" />
+      <Column Name="SSTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Sub_State_Request" Member="Requests" ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE" OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" Type="Request" />
+      <Association Name="Sub_State_Step_History_Detail" Member="Step_History_Details" ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE" OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" Type="Step_History_Detail" />
       <Association Name="Main_State_Sub_State" Member="Main_State" ThisKey="MSTT_CODE,MSTT_SUB_SYS" OtherKey="CODE,SUB_SYS" Type="Main_State" IsForeignKey="true" />
     </Type>
-  </Table>
-  <Table Name="dbo.Step_History_Detail" Member="Step_History_Details">
-    <Type Name="Step_History_Detail">
-      <Column Name="SHIS_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SHIS_RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="FROM_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TO_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Sub_State_Step_History_Detail" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Step_History_Summery_Step_History_Detail" Member="Step_History_Summery" ThisKey="SHIS_RQST_RQID,SHIS_RWNO" OtherKey="RQST_RQID,RWNO" Type="Step_History_Summery" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Step_History_Summery" Member="Step_History_Summeries">
-    <Type Name="Step_History_Summery">
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="FROM_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TO_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Step_History_Summery_Step_History_Detail" Member="Step_History_Details" ThisKey="RQST_RQID,RWNO" OtherKey="SHIS_RQST_RQID,SHIS_RWNO" Type="Step_History_Detail" />
-      <Association Name="Main_State_Step_History_Summery" Member="Main_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS" OtherKey="CODE,SUB_SYS" Type="Main_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Request_Step_History_Summery" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
+    <InsertFunction FunctionId="FunctionId24">
+      <Argument Parameter="mstt_Code" Member="MSTT_CODE" />
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId25">
+      <Argument Parameter="mstt_Code" Member="MSTT_CODE" />
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId26">
+      <Argument Parameter="mstt_Code" Member="MSTT_CODE" />
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Table Name="dbo.Reason_Spec" Member="Reason_Specs">
     <Type Name="Reason_Spec">
@@ -779,7 +769,7 @@
       <Association Name="Isic_Product_Company_Activity" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
       <Association Name="Company_Company_Activity" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId21">
+    <InsertFunction FunctionId="FunctionId27">
       <Argument Parameter="comp_Code" Member="COMP_CODE" />
       <Argument Parameter="iscp_Isca_Iscg_Code" Member="ISCP_ISCA_ISCG_CODE" />
       <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
@@ -787,7 +777,7 @@
       <Argument Parameter="desc" Member="DESC" />
       <Argument Parameter="stat" Member="STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId22">
+    <UpdateFunction FunctionId="FunctionId28">
       <Argument Parameter="comp_Code" Member="COMP_CODE" />
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="iscp_Isca_Iscg_Code" Member="ISCP_ISCA_ISCG_CODE" />
@@ -796,7 +786,7 @@
       <Argument Parameter="desc" Member="DESC" />
       <Argument Parameter="stat" Member="STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId23">
+    <DeleteFunction FunctionId="FunctionId29">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -1441,7 +1431,7 @@
       <Association Name="Regulation_Expense" Member="Expenses" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Expense" />
       <Association Name="Regulation_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Basic_Calculate_Discount" />
     </Type>
-    <InsertFunction FunctionId="FunctionId24">
+    <InsertFunction FunctionId="FunctionId30">
       <Argument Parameter="year" Member="YEAR" />
       <Argument Parameter="type" Member="TYPE" />
       <Argument Parameter="lett_No" Member="LETT_NO" />
@@ -1453,7 +1443,7 @@
       <Argument Parameter="duty_Prct" Member="DUTY_PRCT" />
       <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId25">
+    <UpdateFunction FunctionId="FunctionId31">
       <Argument Parameter="year" Member="YEAR" />
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="type" Member="TYPE" />
@@ -1467,7 +1457,7 @@
       <Argument Parameter="duty_Prct" Member="DUTY_PRCT" />
       <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId26">
+    <DeleteFunction FunctionId="FunctionId32">
       <Argument Parameter="year" Member="YEAR" />
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
@@ -1491,7 +1481,7 @@
       <Association Name="Request_Row_Payment_Discount" Member="Request_Row" ThisKey="PYMT_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Payment_Payment_Discount" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId27">
+    <InsertFunction FunctionId="FunctionId33">
       <Argument Parameter="pymt_Cash_Code" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pymt_Rqst_Rqid" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
@@ -1501,7 +1491,7 @@
       <Argument Parameter="stat" Member="STAT" />
       <Argument Parameter="pyds_Desc" Member="PYDS_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId28">
+    <UpdateFunction FunctionId="FunctionId34">
       <Argument Parameter="pymt_Cash_Code" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pymt_Rqst_Rqid" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
@@ -1512,7 +1502,7 @@
       <Argument Parameter="stat" Member="STAT" />
       <Argument Parameter="pyds_Desc" Member="PYDS_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId29">
+    <DeleteFunction FunctionId="FunctionId35">
       <Argument Parameter="pymt_Cash_Code" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pymt_Rqst_Rqid" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
@@ -1548,7 +1538,7 @@
       <Association Name="Request_Row_Payment_Detail" Member="Request_Row" ThisKey="PYMT_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Payment_Payment_Detail" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId30">
+    <InsertFunction FunctionId="FunctionId36">
       <Argument Parameter="pYMT_CASH_CODE" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pYMT_RQST_RQID" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rQRO_RWNO" Member="RQRO_RWNO" />
@@ -1567,7 +1557,7 @@
       <Argument Parameter="aDD_QUTS" Member="ADD_QUTS" />
       <Argument Parameter="cODE" Member="CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId31">
+    <UpdateFunction FunctionId="FunctionId37">
       <Argument Parameter="cODE" Member="CODE" />
       <Argument Parameter="pYMT_CASH_CODE" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pYMT_RQST_RQID" Member="PYMT_RQST_RQID" />
@@ -1586,7 +1576,7 @@
       <Argument Parameter="pYDT_DESC" Member="PYDT_DESC" />
       <Argument Parameter="aDD_QUTS" Member="ADD_QUTS" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId32">
+    <DeleteFunction FunctionId="FunctionId38">
       <Argument Parameter="cODE" Member="CODE" />
       <Argument Parameter="pYMT_CASH_CODE" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pYMT_RQST_RQID" Member="PYMT_RQST_RQID" />
@@ -1779,20 +1769,20 @@
       <Association Name="Check_List_Check_List_Detial" Member="Check_List_Detials" ThisKey="CKID" OtherKey="CKLS_CKID" Type="Check_List_Detial" />
       <Association Name="Collaborator_Check_List" Member="Collaborator" ThisKey="COLB_CLID" OtherKey="CLID" Type="Collaborator" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId33">
+    <InsertFunction FunctionId="FunctionId39">
       <Argument Parameter="colb_Clid" Member="COLB_CLID" />
       <Argument Parameter="ckls_Desc" Member="CKLS_DESC" />
       <Argument Parameter="stat" Member="STAT" />
       <Argument Parameter="prct_Valu" Member="PRCT_VALU" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId34">
+    <UpdateFunction FunctionId="FunctionId40">
       <Argument Parameter="ckid" Member="CKID" />
       <Argument Parameter="colb_Clid" Member="COLB_CLID" />
       <Argument Parameter="ckls_Desc" Member="CKLS_DESC" />
       <Argument Parameter="stat" Member="STAT" />
       <Argument Parameter="prct_Valu" Member="PRCT_VALU" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId35">
+    <DeleteFunction FunctionId="FunctionId41">
       <Argument Parameter="ckid" Member="CKID" />
     </DeleteFunction>
   </Table>
@@ -1809,15 +1799,15 @@
       <Association Name="Comment_Like" Member="Comment" ThisKey="CMNT_CMID" OtherKey="CMID" Type="Comment" IsForeignKey="true" />
       <Association Name="Job_Personnel_Like" Member="Job_Personnel" ThisKey="JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId36">
+    <InsertFunction FunctionId="FunctionId42">
       <Argument Parameter="cmnt_Cmid" Member="CMNT_CMID" />
       <Argument Parameter="like_Cmnt" Member="LIKE_CMNT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId37">
+    <UpdateFunction FunctionId="FunctionId43">
       <Argument Parameter="lkid" Member="LKID" />
       <Argument Parameter="like_Cmnt" Member="LIKE_CMNT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId38">
+    <DeleteFunction FunctionId="FunctionId44">
       <Argument Parameter="cmnt_Cmid" Member="CMNT_CMID" />
     </DeleteFunction>
   </Table>
@@ -1865,16 +1855,16 @@
       <Association Name="Service_Comment" Member="Service" ThisKey="SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Job_Personnel_Comment" Member="Job_Personnel" ThisKey="JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId39">
+    <InsertFunction FunctionId="FunctionId45">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="cmnt" Member="CMNT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId40">
+    <UpdateFunction FunctionId="FunctionId46">
       <Argument Parameter="cmid" Member="CMID" />
       <Argument Parameter="cmnt" Member="CMNT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId41">
+    <DeleteFunction FunctionId="FunctionId47">
       <Argument Parameter="cmid" Member="CMID" />
     </DeleteFunction>
   </Table>
@@ -1892,19 +1882,19 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Check_List_Check_List_Detial" Member="Check_List" ThisKey="CKLS_CKID" OtherKey="CKID" Type="Check_List" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId42">
+    <InsertFunction FunctionId="FunctionId48">
       <Argument Parameter="ckls_Ckid" Member="CKLS_CKID" />
       <Argument Parameter="from_Date_Time" Member="FROM_DATE_TIME" />
       <Argument Parameter="to_Date_Time" Member="TO_DATE_TIME" />
       <Argument Parameter="cmnt_Desc" Member="CMNT_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId43">
+    <UpdateFunction FunctionId="FunctionId49">
       <Argument Parameter="cdid" Member="CDID" />
       <Argument Parameter="from_Date_Time" Member="FROM_DATE_TIME" />
       <Argument Parameter="to_Date_Time" Member="TO_DATE_TIME" />
       <Argument Parameter="cmnt_Desc" Member="CMNT_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId44">
+    <DeleteFunction FunctionId="FunctionId50">
       <Argument Parameter="cdid" Member="CDID" />
     </DeleteFunction>
   </Table>
@@ -2121,7 +2111,7 @@
       <Association Name="Service_Public_Final_Result" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
       <Association Name="Company_Final_Result" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId45">
+    <InsertFunction FunctionId="FunctionId51">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
@@ -2130,7 +2120,7 @@
       <Argument Parameter="finr_Type_Stat" Member="FINR_TYPE_STAT" />
       <Argument Parameter="finr_Cmnt" Member="FINR_CMNT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId46">
+    <UpdateFunction FunctionId="FunctionId52">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
@@ -2224,18 +2214,18 @@
       <Association Name="Service_Public_Tag" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
       <Association Name="Company_Tag" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId47">
+    <InsertFunction FunctionId="FunctionId53">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
       <Argument Parameter="comp_Code_Dnrm" Member="COMP_CODE_DNRM" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId48">
+    <UpdateFunction FunctionId="FunctionId54">
       <Argument Parameter="tgid" Member="TGID" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId49">
+    <DeleteFunction FunctionId="FunctionId55">
       <Argument Parameter="tgid" Member="TGID" />
     </DeleteFunction>
   </Table>
@@ -2258,20 +2248,20 @@
       <Association Name="App_Base_Define_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="APBS_CODE" Type="Job_Personnel_Relation" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId50">
+    <InsertFunction FunctionId="FunctionId56">
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
       <Argument Parameter="ref_Code" Member="REF_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId51">
+    <UpdateFunction FunctionId="FunctionId57">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
       <Argument Parameter="ref_Code" Member="REF_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId52">
+    <DeleteFunction FunctionId="FunctionId58">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2293,14 +2283,14 @@
       <Association Name="Service_Extra_Info" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Company_Extra_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId53">
+    <InsertFunction FunctionId="FunctionId59">
       <Argument Parameter="comp_Code" Member="COMP_CODE" />
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="exif_Code" Member="EXIF_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </InsertFunction>
-    <DeleteFunction FunctionId="FunctionId54">
+    <DeleteFunction FunctionId="FunctionId60">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2319,17 +2309,17 @@
       <Association Name="Service_Contact_Info" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Company_Contact_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId55">
+    <InsertFunction FunctionId="FunctionId61">
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
       <Argument Parameter="comp_Code" Member="COMP_CODE" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="cont_Desc" Member="CONT_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId56">
+    <UpdateFunction FunctionId="FunctionId62">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="cont_Desc" Member="CONT_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId57">
+    <DeleteFunction FunctionId="FunctionId63">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2622,15 +2612,15 @@
       <Association Name="Service_Type_Service_Join_Service_Type" Member="Service_Join_Service_Types" ThisKey="CODE" OtherKey="SRTP_CODE" Type="Service_Join_Service_Type" />
       <Association Name="Service_Type_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="CODE" OtherKey="SRTP_CODE" Type="Personnel_Access_Service_Type" />
     </Type>
-    <InsertFunction FunctionId="FunctionId58">
+    <InsertFunction FunctionId="FunctionId64">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="srtp_Desc" Member="SRTP_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId59">
+    <UpdateFunction FunctionId="FunctionId65">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="srtp_Desc" Member="SRTP_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId60">
+    <DeleteFunction FunctionId="FunctionId66">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2791,7 +2781,7 @@
       <Association Name="Service_Company" Member="Service" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId61">
+    <InsertFunction FunctionId="FunctionId67">
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
       <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
       <Argument Parameter="regn_Code" Member="REGN_CODE" />
@@ -2830,7 +2820,7 @@
       <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
       <Argument Parameter="host_Stat" Member="HOST_STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId62">
+    <UpdateFunction FunctionId="FunctionId68">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
       <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
@@ -2870,7 +2860,7 @@
       <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
       <Argument Parameter="host_Stat" Member="HOST_STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId63">
+    <DeleteFunction FunctionId="FunctionId69">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2923,17 +2913,17 @@
       <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel" ThisKey="RLAT_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel1" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId64">
+    <InsertFunction FunctionId="FunctionId70">
       <Argument Parameter="jobp_Code" Member="JOBP_CODE" />
       <Argument Parameter="rlat_Jobp_Code" Member="RLAT_JOBP_CODE" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId65">
+    <UpdateFunction FunctionId="FunctionId71">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="rec_Stat" Member="REC_STAT" />
       <Argument Parameter="jbpr_Desc" Member="JBPR_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId66">
+    <DeleteFunction FunctionId="FunctionId72">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2953,17 +2943,17 @@
       <Association Name="Service_Service_Project" Member="Service" ThisKey="SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Request_Service_Project" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId67">
+    <InsertFunction FunctionId="FunctionId73">
       <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
       <Argument Parameter="jbpr_Code" Member="JBPR_CODE" />
       <Argument Parameter="rajp_Desc" Member="RAJP_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId68">
+    <UpdateFunction FunctionId="FunctionId74">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="rec_Stat" Member="REC_STAT" />
       <Argument Parameter="rajp_Desc" Member="RAJP_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId69">
+    <DeleteFunction FunctionId="FunctionId75">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -3005,7 +2995,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
       <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
-      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
       <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
       <Association Name="Request_Reminder" Member="Reminders" ThisKey="RQID" OtherKey="RQST_RQID" Type="Reminder" />
       <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
@@ -3016,6 +3005,7 @@
       <Association Name="Request_Service_Project" Member="Service_Projects" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service_Project" />
       <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="PROJ_RQST_RQID" Type="Request" />
       <Association Name="Request_Request1" Member="Requests1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
+      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
       <Association Name="Request_Request" Member="Request1" ThisKey="PROJ_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Job_Personnel_Request" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Job_Personnel_Request1" Member="Job_Personnel1" ThisKey="LAST_JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
@@ -3024,6 +3014,43 @@
       <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Step_History_Summery" Member="Step_History_Summeries">
+    <Type Name="Step_History_Summery">
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FROM_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TO_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MSTT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Step_History_Summery_Step_History_Detail" Member="Step_History_Details" ThisKey="RQST_RQID,RWNO" OtherKey="SHIS_RQST_RQID,SHIS_RWNO" Type="Step_History_Detail" />
+      <Association Name="Main_State_Step_History_Summery" Member="Main_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS" OtherKey="CODE,SUB_SYS" Type="Main_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Request_Step_History_Summery" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Step_History_Detail" Member="Step_History_Details">
+    <Type Name="Step_History_Detail">
+      <Column Name="SHIS_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SHIS_RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FROM_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TO_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SSTT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Step_History_Summery_Step_History_Detail" Member="Step_History_Summery" ThisKey="SHIS_RQST_RQID,SHIS_RWNO" OtherKey="RQST_RQID,RWNO" Type="Step_History_Summery" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Sub_State_Step_History_Detail" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
@@ -3544,7 +3571,7 @@
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId26" Name="dbo.DEL_REGL_P" Method="DEL_REGL_P">
+  <Function Id="FunctionId32" Name="dbo.DEL_REGL_P" Method="DEL_REGL_P">
     <Parameter Name="Year" Parameter="year" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -3579,7 +3606,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId32" Name="dbo.DEL_PYDT_P" Method="DEL_PYDT_P">
+  <Function Id="FunctionId38" Name="dbo.DEL_PYDT_P" Method="DEL_PYDT_P">
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_CASH_CODE" Parameter="pYMT_CASH_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_RQST_RQID" Parameter="pYMT_RQST_RQID" Type="System.Int64" DbType="BigInt" />
@@ -3595,11 +3622,11 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId23" Name="dbo.DEL_CMAC_P" Method="DEL_CMAC_P">
+  <Function Id="FunctionId29" Name="dbo.DEL_CMAC_P" Method="DEL_CMAC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId21" Name="dbo.INS_CMAC_P" Method="INS_CMAC_P">
+  <Function Id="FunctionId27" Name="dbo.INS_CMAC_P" Method="INS_CMAC_P">
     <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Iscp_Isca_Iscg_Code" Parameter="iscp_Isca_Iscg_Code" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
@@ -3608,7 +3635,7 @@
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId22" Name="dbo.UPD_CMAC_P" Method="UPD_CMAC_P">
+  <Function Id="FunctionId28" Name="dbo.UPD_CMAC_P" Method="UPD_CMAC_P">
     <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Iscp_Isca_Iscg_Code" Parameter="iscp_Isca_Iscg_Code" Type="System.String" DbType="VarChar(2)" />
@@ -3726,7 +3753,7 @@
       <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId63" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
+  <Function Id="FunctionId69" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -3770,7 +3797,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId24" Name="dbo.INS_REGL_P" Method="INS_REGL_P">
+  <Function Id="FunctionId30" Name="dbo.INS_REGL_P" Method="INS_REGL_P">
     <Parameter Name="Year" Parameter="year" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Lett_No" Parameter="lett_No" Type="System.String" DbType="VarChar(15)" />
@@ -3783,7 +3810,7 @@
     <Parameter Name="Amnt_Type" Parameter="amnt_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId25" Name="dbo.UPD_REGL_P" Method="UPD_REGL_P">
+  <Function Id="FunctionId31" Name="dbo.UPD_REGL_P" Method="UPD_REGL_P">
     <Parameter Name="Year" Parameter="year" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int32" DbType="Int" />
     <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
@@ -3802,7 +3829,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId30" Name="dbo.INS_PYDT_P" Method="INS_PYDT_P">
+  <Function Id="FunctionId36" Name="dbo.INS_PYDT_P" Method="INS_PYDT_P">
     <Parameter Name="PYMT_CASH_CODE" Parameter="pYMT_CASH_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_RQST_RQID" Parameter="pYMT_RQST_RQID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RQRO_RWNO" Parameter="rQRO_RWNO" Type="System.Int16" DbType="SmallInt" />
@@ -3822,7 +3849,7 @@
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId31" Name="dbo.UPD_PYDT_T" Method="UPD_PYDT_T">
+  <Function Id="FunctionId37" Name="dbo.UPD_PYDT_T" Method="UPD_PYDT_T">
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_CASH_CODE" Parameter="pYMT_CASH_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_RQST_RQID" Parameter="pYMT_RQST_RQID" Type="System.Int64" DbType="BigInt" />
@@ -3842,7 +3869,7 @@
     <Parameter Name="ADD_QUTS" Parameter="aDD_QUTS" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId27" Name="dbo.INS_PYDS_P" Method="INS_PYDS_P">
+  <Function Id="FunctionId33" Name="dbo.INS_PYDS_P" Method="INS_PYDS_P">
     <Parameter Name="Pymt_Cash_Code" Parameter="pymt_Cash_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Pymt_Rqst_Rqid" Parameter="pymt_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
@@ -3853,7 +3880,7 @@
     <Parameter Name="Pyds_Desc" Parameter="pyds_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId28" Name="dbo.UPD_PYDS_P" Method="UPD_PYDS_P">
+  <Function Id="FunctionId34" Name="dbo.UPD_PYDS_P" Method="UPD_PYDS_P">
     <Parameter Name="Pymt_Cash_Code" Parameter="pymt_Cash_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Pymt_Rqst_Rqid" Parameter="pymt_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
@@ -3865,7 +3892,7 @@
     <Parameter Name="Pyds_Desc" Parameter="pyds_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId29" Name="dbo.DEL_PYDS_P" Method="DEL_PYDS_P">
+  <Function Id="FunctionId35" Name="dbo.DEL_PYDS_P" Method="DEL_PYDS_P">
     <Parameter Name="Pymt_Cash_Code" Parameter="pymt_Cash_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Pymt_Rqst_Rqid" Parameter="pymt_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
@@ -3875,37 +3902,6 @@
   <Function Name="dbo.OPR_DSAV_F" Method="OPR_DSAV_F">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.VF$Save_Payments" Method="VF_Save_Payments" IsComposable="true">
-    <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="CompCode" Parameter="compCode" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="VF_Save_PaymentsResult">
-      <Column Name="PYMT_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RECV_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_EXPN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_EXPN_EXTR_PRCT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_REMN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_RCPT_EXPN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_RCPT_EXPN_EXTR_PRCT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_RCPT_REMN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_PYMT_DSCN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="PYMT_CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="PYMT_MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PYMT_LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PYMT_LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="CASH_CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="AMNT_UNIT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PYMT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="PYMT_STAG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="COMP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-    </ElementType>
   </Function>
   <Function Id="FunctionId18" Name="dbo.INS_RQDC_P" Method="INS_RQDC_P">
     <Parameter Name="Dcmt_Dsid" Parameter="dcmt_Dsid" Type="System.Int64" DbType="BigInt" />
@@ -4005,18 +4001,18 @@
     <Parameter Name="Clid" Parameter="clid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId35" Name="dbo.DEL_CKLS_P" Method="DEL_CKLS_P">
+  <Function Id="FunctionId41" Name="dbo.DEL_CKLS_P" Method="DEL_CKLS_P">
     <Parameter Name="Ckid" Parameter="ckid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId33" Name="dbo.INS_CKLS_P" Method="INS_CKLS_P">
+  <Function Id="FunctionId39" Name="dbo.INS_CKLS_P" Method="INS_CKLS_P">
     <Parameter Name="Colb_Clid" Parameter="colb_Clid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Ckls_Desc" Parameter="ckls_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Prct_Valu" Parameter="prct_Valu" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId34" Name="dbo.UPD_CKLS_P" Method="UPD_CKLS_P">
+  <Function Id="FunctionId40" Name="dbo.UPD_CKLS_P" Method="UPD_CKLS_P">
     <Parameter Name="Ckid" Parameter="ckid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Colb_Clid" Parameter="colb_Clid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Ckls_Desc" Parameter="ckls_Desc" Type="System.String" DbType="NVarChar(250)" />
@@ -4024,51 +4020,51 @@
     <Parameter Name="Prct_Valu" Parameter="prct_Valu" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId49" Name="dbo.DEL_TAG_P" Method="DEL_TAG_P">
+  <Function Id="FunctionId55" Name="dbo.DEL_TAG_P" Method="DEL_TAG_P">
     <Parameter Name="Tgid" Parameter="tgid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId41" Name="dbo.DEL_CMNT_P" Method="DEL_CMNT_P">
+  <Function Id="FunctionId47" Name="dbo.DEL_CMNT_P" Method="DEL_CMNT_P">
     <Parameter Name="Cmid" Parameter="cmid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId39" Name="dbo.INS_CMNT_P" Method="INS_CMNT_P">
+  <Function Id="FunctionId45" Name="dbo.INS_CMNT_P" Method="INS_CMNT_P">
     <Parameter Name="Rqro_Rqst_Rqid" Parameter="rqro_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Cmnt" Parameter="cmnt" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId40" Name="dbo.UPD_CMNT_P" Method="UPD_CMNT_P">
+  <Function Id="FunctionId46" Name="dbo.UPD_CMNT_P" Method="UPD_CMNT_P">
     <Parameter Name="Cmid" Parameter="cmid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Cmnt" Parameter="cmnt" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId36" Name="dbo.INS_LIKE_P" Method="INS_LIKE_P">
+  <Function Id="FunctionId42" Name="dbo.INS_LIKE_P" Method="INS_LIKE_P">
     <Parameter Name="Cmnt_Cmid" Parameter="cmnt_Cmid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Like_Cmnt" Parameter="like_Cmnt" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId37" Name="dbo.UPD_LIKE_P" Method="UPD_LIKE_P">
+  <Function Id="FunctionId43" Name="dbo.UPD_LIKE_P" Method="UPD_LIKE_P">
     <Parameter Name="Lkid" Parameter="lkid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Like_Cmnt" Parameter="like_Cmnt" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId38" Name="dbo.DEL_LIKE_P" Method="DEL_LIKE_P">
+  <Function Id="FunctionId44" Name="dbo.DEL_LIKE_P" Method="DEL_LIKE_P">
     <Parameter Name="Cmnt_Cmid" Parameter="cmnt_Cmid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId44" Name="dbo.DEL_CKLD_P" Method="DEL_CKLD_P">
+  <Function Id="FunctionId50" Name="dbo.DEL_CKLD_P" Method="DEL_CKLD_P">
     <Parameter Name="Cdid" Parameter="cdid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId42" Name="dbo.INS_CKLD_P" Method="INS_CKLD_P">
+  <Function Id="FunctionId48" Name="dbo.INS_CKLD_P" Method="INS_CKLD_P">
     <Parameter Name="Ckls_Ckid" Parameter="ckls_Ckid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="From_Date_Time" Parameter="from_Date_Time" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="To_Date_Time" Parameter="to_Date_Time" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Cmnt_Desc" Parameter="cmnt_Desc" Type="System.String" DbType="NVarChar(1000)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId43" Name="dbo.UPD_CKLD_P" Method="UPD_CKLD_P">
+  <Function Id="FunctionId49" Name="dbo.UPD_CKLD_P" Method="UPD_CKLD_P">
     <Parameter Name="Cdid" Parameter="cdid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="From_Date_Time" Parameter="from_Date_Time" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="To_Date_Time" Parameter="to_Date_Time" Type="System.DateTime" DbType="DateTime" />
@@ -4083,28 +4079,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.VF$Request_Changing" Method="VF_Request_Changing" IsComposable="true">
-    <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="CompCode" Parameter="compCode" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="VF_Request_ChangingResult">
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="COMP_POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Id="FunctionId45" Name="dbo.INS_FINR_P" Method="INS_FINR_P">
+  <Function Id="FunctionId51" Name="dbo.INS_FINR_P" Method="INS_FINR_P">
     <Parameter Name="Rqro_Rqst_Rqid" Parameter="rqro_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
@@ -4114,7 +4089,7 @@
     <Parameter Name="Finr_Cmnt" Parameter="finr_Cmnt" Type="System.String" DbType="NVarChar(4000)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId46" Name="dbo.UPD_FINR_P" Method="UPD_FINR_P">
+  <Function Id="FunctionId52" Name="dbo.UPD_FINR_P" Method="UPD_FINR_P">
     <Parameter Name="Rqro_Rqst_Rqid" Parameter="rqro_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
@@ -4151,12 +4126,12 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId48" Name="dbo.UPD_TAG_P" Method="UPD_TAG_P">
+  <Function Id="FunctionId54" Name="dbo.UPD_TAG_P" Method="UPD_TAG_P">
     <Parameter Name="Tgid" Parameter="tgid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId47" Name="dbo.INS_TAG_P" Method="INS_TAG_P">
+  <Function Id="FunctionId53" Name="dbo.INS_TAG_P" Method="INS_TAG_P">
     <Parameter Name="Rqro_Rqst_Rqid" Parameter="rqro_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
@@ -4164,18 +4139,18 @@
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId52" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
+  <Function Id="FunctionId58" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId50" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
+  <Function Id="FunctionId56" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId51" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
+  <Function Id="FunctionId57" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
@@ -4183,11 +4158,11 @@
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId54" Name="dbo.DEL_EXIF_P" Method="DEL_EXIF_P">
+  <Function Id="FunctionId60" Name="dbo.DEL_EXIF_P" Method="DEL_EXIF_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId53" Name="dbo.INS_EXIF_P" Method="INS_EXIF_P">
+  <Function Id="FunctionId59" Name="dbo.INS_EXIF_P" Method="INS_EXIF_P">
     <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
@@ -4195,18 +4170,18 @@
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId57" Name="dbo.DEL_CTIF_P" Method="DEL_CTIF_P">
+  <Function Id="FunctionId63" Name="dbo.DEL_CTIF_P" Method="DEL_CTIF_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId55" Name="dbo.INS_CTIF_P" Method="INS_CTIF_P">
+  <Function Id="FunctionId61" Name="dbo.INS_CTIF_P" Method="INS_CTIF_P">
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Cont_Desc" Parameter="cont_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId56" Name="dbo.UPD_CTIF_P" Method="UPD_CTIF_P">
+  <Function Id="FunctionId62" Name="dbo.UPD_CTIF_P" Method="UPD_CTIF_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Cont_Desc" Parameter="cont_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
@@ -4232,7 +4207,7 @@
     <Parameter Name="Rlt2_Apbs_Code" Parameter="rlt2_Apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId61" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
+  <Function Id="FunctionId67" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
     <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
@@ -4273,7 +4248,7 @@
     <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId62" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
+  <Function Id="FunctionId68" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
@@ -4334,16 +4309,16 @@
       <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId58" Name="dbo.INS_SRTP_P" Method="INS_SRTP_P">
+  <Function Id="FunctionId64" Name="dbo.INS_SRTP_P" Method="INS_SRTP_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Srtp_Desc" Parameter="srtp_Desc" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId60" Name="dbo.DEL_SRTP_P" Method="DEL_SRTP_P">
+  <Function Id="FunctionId66" Name="dbo.DEL_SRTP_P" Method="DEL_SRTP_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId59" Name="dbo.UPD_SRTP_P" Method="UPD_SRTP_P">
+  <Function Id="FunctionId65" Name="dbo.UPD_SRTP_P" Method="UPD_SRTP_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Srtp_Desc" Parameter="srtp_Desc" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
@@ -4372,33 +4347,33 @@
       <Column Name="NATL_CODE_DNRM" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId66" Name="dbo.DEL_JBPR_P" Method="DEL_JBPR_P">
+  <Function Id="FunctionId72" Name="dbo.DEL_JBPR_P" Method="DEL_JBPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId64" Name="dbo.INS_JBPR_P" Method="INS_JBPR_P">
+  <Function Id="FunctionId70" Name="dbo.INS_JBPR_P" Method="INS_JBPR_P">
     <Parameter Name="Jobp_Code" Parameter="jobp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rlat_Jobp_Code" Parameter="rlat_Jobp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId65" Name="dbo.UPD_JBPR_P" Method="UPD_JBPR_P">
+  <Function Id="FunctionId71" Name="dbo.UPD_JBPR_P" Method="UPD_JBPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Jbpr_Desc" Parameter="jbpr_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId69" Name="dbo.DEL_SRPR_P" Method="DEL_SRPR_P">
+  <Function Id="FunctionId75" Name="dbo.DEL_SRPR_P" Method="DEL_SRPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId67" Name="dbo.INS_SRPR_P" Method="INS_SRPR_P">
+  <Function Id="FunctionId73" Name="dbo.INS_SRPR_P" Method="INS_SRPR_P">
     <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Jbpr_Code" Parameter="jbpr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId68" Name="dbo.UPD_SRPR_P" Method="UPD_SRPR_P">
+  <Function Id="FunctionId74" Name="dbo.UPD_SRPR_P" Method="UPD_SRPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
@@ -4406,6 +4381,91 @@
   </Function>
   <Function Name="dbo.OPR_PSAV_P" Method="OPR_PSAV_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VF$Request_Changing" Method="VF_Request_Changing" IsComposable="true">
+    <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="CompCode" Parameter="compCode" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ProjRqstRqid" Parameter="projRqstRqid" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="VF_Request_ChangingResult">
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="COMP_POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.VF$Save_Payments" Method="VF_Save_Payments" IsComposable="true">
+    <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="CompCode" Parameter="compCode" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ProjRqstRqid" Parameter="projRqstRqid" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="VF_Save_PaymentsResult">
+      <Column Name="PYMT_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RECV_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_EXPN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_EXPN_EXTR_PRCT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_REMN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_RCPT_EXPN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_RCPT_EXPN_EXTR_PRCT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_RCPT_REMN_PRIC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_PYMT_DSCN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PYMT_CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PYMT_MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PYMT_LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PYMT_LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CASH_CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AMNT_UNIT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PYMT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PYMT_STAG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="COMP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Id="FunctionId26" Name="dbo.DEL_SSTT_P" Method="DEL_SSTT_P">
+    <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId23" Name="dbo.DEL_MSTT_P" Method="DEL_MSTT_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId21" Name="dbo.INS_MSTT_P" Method="INS_MSTT_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="MSTT_DESC" Parameter="mSTT_DESC" Type="System.String" DbType="NVarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId24" Name="dbo.INS_SSTT_P" Method="INS_SSTT_P">
+    <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId22" Name="dbo.UPD_MSTT_P" Method="UPD_MSTT_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="MSTT_DESC" Parameter="mSTT_DESC" Type="System.String" DbType="NVarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId25" Name="dbo.UPD_SSTT_P" Method="UPD_SSTT_P">
+    <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

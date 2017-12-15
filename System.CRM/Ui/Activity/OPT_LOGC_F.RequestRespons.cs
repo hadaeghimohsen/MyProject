@@ -268,7 +268,7 @@ namespace System.CRM.Ui.Activity
                LogcBs.AddNew();
                var logc = LogcBs.Current as Data.Log_Call;
                logc.SERV_FILE_NO = fileno;
-               logc.LOG_DATE = DateTime.Now;
+               logc.LOG_DATE = DateTime.Now.AddMinutes(10);
                logc.LOG_TYPE = "002";
                LogcBs.EndEdit();
                LinkText_Pk.PickChecked = true;

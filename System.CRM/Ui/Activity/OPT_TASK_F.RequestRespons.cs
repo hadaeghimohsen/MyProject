@@ -269,7 +269,7 @@ namespace System.CRM.Ui.Activity
                TaskBs.AddNew();
                var task = TaskBs.Current as Data.Task;
                task.SERV_FILE_NO = fileno;
-               task.DUE_DATE = DateTime.Now;
+               task.DUE_DATE = DateTime.Now.AddMinutes(10);
                TaskBs.EndEdit();
 
                LinkText_Pk.PickChecked = true;

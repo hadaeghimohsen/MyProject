@@ -39,8 +39,8 @@ namespace System.CRM.Ui.Acounts
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
          CompBs.DataSource = iCRM.Companies.FirstOrDefault(c => c.CODE == compcode );
-         RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode).OrderByDescending(r => r.SAVE_DATE).Take(5);
-         PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode);
+         RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
+         PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode, null);
          requery = false;
       }
 

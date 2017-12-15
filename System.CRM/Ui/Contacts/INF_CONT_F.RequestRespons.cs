@@ -194,10 +194,21 @@ namespace System.CRM.Ui.Contacts
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            switch (xinput.Attribute("type").Value)
+            {
+               case "refresh":
+                  Execute_Query();
+                  job.Status = StatusType.Successful;
+                  return;
+            }
+         }
          DAtypBs.DataSource = iCRM.D_ATYPs;
          DPstgBs.DataSource = iCRM.D_PSTGs;
          DsdrcBs.DataSource = iCRM.D_SDRCs;
-         DsdstBs.DataSource = iCRM.D_SDSTs;
+         DsdstBs.DataSource = iCRM.D_SDSTs;         
          job.Status = StatusType.Successful;
       }
 

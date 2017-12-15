@@ -283,7 +283,7 @@ namespace System.CRM.Ui.Activity
                SndfBs.AddNew();
                var sndf = SndfBs.Current as Data.Send_File;
                sndf.SERV_FILE_NO = fileno;
-               sndf.SEND_DATE = DateTime.Now;
+               sndf.SEND_DATE = DateTime.Now.AddMinutes(10);
                sndf.SHER_TEAM = "001";
                if (sendtype == "001" && rqstrqid > 0)
                {

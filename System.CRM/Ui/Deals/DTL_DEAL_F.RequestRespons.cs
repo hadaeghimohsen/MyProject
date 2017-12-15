@@ -252,6 +252,7 @@ namespace System.CRM.Ui.Deals
             fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
             cashcode = Convert.ToInt64(xinput.Attribute("cashcode").Value);
             rqstrqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
+            projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
             Execute_Query();
          }
          

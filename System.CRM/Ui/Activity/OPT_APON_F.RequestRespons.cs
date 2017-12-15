@@ -267,7 +267,7 @@ namespace System.CRM.Ui.Activity
                AponBs.AddNew();
                var apon = AponBs.Current as Data.Appointment;
                apon.SERV_FILE_NO = fileno;
-               apon.FROM_DATE = DateTime.Now;
+               apon.FROM_DATE = DateTime.Now.AddMinutes(10);
                apon.TO_DATE = DateTime.Now.AddMinutes(30);
                apon.ALL_DAY = "001";
                AponBs.EndEdit();

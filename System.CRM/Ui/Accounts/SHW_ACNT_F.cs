@@ -351,7 +351,7 @@ namespace System.CRM.Ui.Acounts
 
             int i = 0;
 
-            var relatedservice = iCRM.VF_Request_Changing(null, null, comp.CODE).OrderByDescending(r => r.SAVE_DATE).ToList().Select(s => new { s.FILE_NO, s.NAME_DNRM }).Distinct().Take(3);
+            var relatedservice = iCRM.VF_Request_Changing(null, null, comp.CODE, null).OrderByDescending(r => r.SAVE_DATE).ToList().Select(s => new { s.FILE_NO, s.NAME_DNRM }).Distinct().Take(3);
             lb_1st.Visible = rb_1st.Visible = false;
             lb_2nd.Visible = rb_2nd.Visible = false;
             lb_3rd.Visible = rb_3rd.Visible = false;

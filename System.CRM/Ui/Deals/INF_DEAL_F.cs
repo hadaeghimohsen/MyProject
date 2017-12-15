@@ -35,7 +35,7 @@ namespace System.CRM.Ui.Deals
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         PymtBs.DataSource = iCRM.VF_Save_Payments(null, null, null).Where(p => p.PYMT_STAG == pymtstag);
+         PymtBs.DataSource = iCRM.VF_Save_Payments(null, null, null, null).Where(p => p.PYMT_STAG == pymtstag);
       }
 
       private void DealActn_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)

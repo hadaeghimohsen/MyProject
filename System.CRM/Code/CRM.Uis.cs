@@ -96,5 +96,6 @@ namespace System.CRM.Code
       internal Ui.BaseDefination.CMPH_DFIN_F _Cmph_Dfin_F { get; set; }
       internal Ui.BaseDefination.CJBP_DFIN_F _Cjbp_Dfin_F { get; set; }
       internal Ui.Activity.OPT_PRJT_F _Opt_Prjt_F { get; set; }
+      internal Ui.BaseDefination.MSTT_DFIN_F _Mstt_Dfin_F { get; set; }
    }
 }

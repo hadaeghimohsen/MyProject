@@ -38,8 +38,10 @@ namespace System.CRM.Ui.Contacts
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
          ServBs.DataSource = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno );
-         RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, fileno, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
-         PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, fileno, null);
+
+         MsttBs.DataSource = iCRM.Main_States;
+         //RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, fileno, null, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
+         //PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, fileno, null);
          requery = false;
       }
 
@@ -91,6 +93,13 @@ namespace System.CRM.Ui.Contacts
          catch {
             ImageProfile_Butn.ImageProfile = System.CRM.Properties.Resources.IMAGE_1149;
          }
+
+         RqstProjBs.DataSource =
+            iCRM.Requests.Where(t =>
+               t.RQTP_CODE == "013" &&
+               t.RQTT_CODE == "004" &&
+               t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno)
+            );
       }
 
       #region Note
@@ -100,6 +109,9 @@ namespace System.CRM.Ui.Contacts
          /*NoteBs.AddNew();*/
          var serv = ServBs.Current as Data.Service;
          if (serv == null) return;
+
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -112,6 +124,7 @@ namespace System.CRM.Ui.Contacts
                      new XElement("Service", 
                         new XAttribute("fileno", serv.FILE_NO), 
                         new XAttribute("ntid", "0"),
+                        new XAttribute("projrqstrqid", rqstproj.RQID),
                         new XAttribute("formcaller", GetType().Name)
                      )
                   },
@@ -219,6 +232,9 @@ namespace System.CRM.Ui.Contacts
             var serv = ServBs.Current as Data.Service;
             if (serv == null) return;
 
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -230,6 +246,7 @@ namespace System.CRM.Ui.Contacts
                         new XElement("Service", 
                            new XAttribute("fileno", serv.FILE_NO), 
                            new XAttribute("lcid", 0),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                    },
@@ -370,6 +387,9 @@ namespace System.CRM.Ui.Contacts
             var serv = ServBs.Current as Data.Service;
             if (serv == null) return;
 
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -381,6 +401,7 @@ namespace System.CRM.Ui.Contacts
                         new XElement("Service", 
                            new XAttribute("fileno", serv.FILE_NO), 
                            new XAttribute("emid", 0),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name),
                            new XAttribute("toemail", serv.EMAL_ADRS_DNRM ?? "")
                         )
@@ -509,21 +530,6 @@ namespace System.CRM.Ui.Contacts
             }
          }
       }
-
-      private void CallLog_Gv_DoubleClick(object sender, EventArgs e)
-      {
-         LeadActn_Butn_ButtonClick(LeadActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[2]));
-      }
-
-      private void DelLogCal_Butn_Click(object sender, EventArgs e)
-      {
-         LeadActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[3]));
-      }
-
-      private void EditLogCall_Butn_Click(object sender, EventArgs e)
-      {
-         LeadActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[2]));
-      }
       #endregion
 
       #region Email
@@ -629,21 +635,6 @@ namespace System.CRM.Ui.Contacts
             }
          }
       }
-
-      private void Email_Gv_DoubleClick(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(EmalActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[2]));
-      }
-
-      private void EditEmal_Butn_Click(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[2]));
-      }
-
-      private void DelEmal_Butn_Click(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[3]));
-      }
       #endregion 
 
       #region Task
@@ -651,6 +642,9 @@ namespace System.CRM.Ui.Contacts
       {
          var serv = ServBs.Current as Data.Service;
          if (serv == null) return;
+
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -663,6 +657,7 @@ namespace System.CRM.Ui.Contacts
                               new XElement("Service", 
                                  new XAttribute("fileno", serv.FILE_NO), 
                                  new XAttribute("tasktype", "new"),
+                                 new XAttribute("projrqstrqid", rqstproj.RQID),
                                  new XAttribute("formcaller", GetType().Name)
                               )
                          },
@@ -709,6 +704,10 @@ namespace System.CRM.Ui.Contacts
          var serv = ServBs.Current as Data.Service;
          if (serv == null) return;
 
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
+
+
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
               new List<Job>
@@ -720,6 +719,7 @@ namespace System.CRM.Ui.Contacts
                      new XElement("Service", 
                         new XAttribute("fileno", serv.FILE_NO), 
                         new XAttribute("appointmenttype", "new"),
+                        new XAttribute("projrqstrqid", rqstproj.RQID),
                         new XAttribute("formcaller", GetType().Name)
                      )
                   },
@@ -765,7 +765,10 @@ namespace System.CRM.Ui.Contacts
       {
          var serv = ServBs.Current as Data.Service;
          if (serv == null) return;
-                  
+
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
+
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
               new List<Job>
@@ -777,6 +780,7 @@ namespace System.CRM.Ui.Contacts
                      new XElement("Service", 
                         new XAttribute("fileno", serv.FILE_NO), 
                         new XAttribute("sendfiletype", "new"),
+                        new XAttribute("projrqstrqid", rqstproj.RQID),
                         new XAttribute("formcaller", GetType().Name)
                      )
                   },
@@ -823,6 +827,9 @@ namespace System.CRM.Ui.Contacts
          var serv = ServBs.Current as Data.Service;
          if (serv == null) return;
 
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
+
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
               new List<Job>
@@ -833,6 +840,7 @@ namespace System.CRM.Ui.Contacts
                      Input = 
                      new XElement("Service", 
                         new XAttribute("fileno", serv.FILE_NO), 
+                        new XAttribute("projrqstrqid", rqstproj.RQID),
                         new XAttribute("msid", 0), 
                         new XAttribute("cellphon", serv.CELL_PHON_DNRM ?? ""),
                         new XAttribute("formcaller", GetType().Name)
@@ -882,6 +890,9 @@ namespace System.CRM.Ui.Contacts
             var serv = ServBs.Current as Data.Service;
             if (serv == null) return;
 
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -894,6 +905,8 @@ namespace System.CRM.Ui.Contacts
                            new XAttribute("fileno", serv.FILE_NO), 
                            new XAttribute("cashcode", 0), 
                            new XAttribute("rqid", 0), 
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
+                           new XAttribute("pymtdesc", rqstproj.RQST_DESC),
                            new XAttribute("formcaller", GetType().Name)
                         )
                    },
@@ -1812,6 +1825,129 @@ namespace System.CRM.Ui.Contacts
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
          catch { }
+      }
+
+      private void NewProj_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 88 /* Execute Opt_Prjt_F */),
+                     new Job(SendType.SelfToUserInterface, "OPT_PRJT_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Project",
+                              new XAttribute("fileno", fileno),
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("rqid", 0)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void EditProj_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstProjBs.Current as Data.Request;
+            if (rqst == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 88 /* Execute Opt_Prjt_F */),
+                     new Job(SendType.SelfToUserInterface, "OPT_PRJT_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Project",
+                              new XAttribute("fileno", fileno),
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("rqid", rqst.RQID)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqstProjBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var pr = RqstProjBs.Current as Data.Request;
+            if (pr == null) return;
+
+            NoteBs.DataSource = iCRM.Notes.Where(n => n.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            TaskBs.DataSource = iCRM.Tasks.Where(t => t.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            AponBs.DataSource = iCRM.Appointments.Where(a => a.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            FileBs.DataSource = iCRM.Send_Files.Where(sf => sf.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            MesgBs.DataSource = iCRM.Messages.Where(m => m.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            LogcBs.DataSource = iCRM.Log_Calls.Where(l => l.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            EmalBs.DataSource = iCRM.Emails.Where(em => em.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+
+            RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, fileno, null, pr.RQID).OrderByDescending(r => r.SAVE_DATE).Take(5);
+            PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, fileno, null, pr.RQID);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveMsttSstt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            MsttBs.EndEdit();
+            SsttBs.EndEdit();
+
+            Shis_Gv.PostEditor();
+            Shid_Gv.PostEditor();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+
+            }
+         }
+      }
+
+      private void ShisBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var shis = ShisBs.Current as Data.Step_History_Summery;
+            if (shis == null) return;
+
+            SsttBs.DataSource = iCRM.Sub_States.Where(s => s.MSTT_CODE == shis.SSTT_MSTT_CODE);
+         }
+         catch (Exception exc)
+         {}
       }
    }
 }

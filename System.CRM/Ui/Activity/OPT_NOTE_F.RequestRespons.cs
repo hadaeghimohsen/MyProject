@@ -268,7 +268,7 @@ namespace System.CRM.Ui.Activity
                NoteBs.AddNew();
                var mesg = NoteBs.Current as Data.Note;
                mesg.SERV_FILE_NO = fileno;
-               mesg.NOTE_DATE = DateTime.Now;
+               mesg.NOTE_DATE = DateTime.Now.AddMinutes(10);
                NoteBs.EndEdit();
             }
             else

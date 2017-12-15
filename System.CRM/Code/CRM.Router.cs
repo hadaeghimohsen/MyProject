@@ -290,6 +290,9 @@ namespace System.CRM.Code
             case 88:
                Opt_Prjt_F(job);
                break;
+            case 89:
+               Mstt_Dfin_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -557,6 +560,9 @@ namespace System.CRM.Code
                break;
             case "OPT_PRJT_F":
                _Opt_Prjt_F.SendRequest(job);
+               break;
+            case "MSTT_DFIN_F":
+               _Mstt_Dfin_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

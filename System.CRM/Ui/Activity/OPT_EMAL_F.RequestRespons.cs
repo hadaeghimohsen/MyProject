@@ -269,7 +269,7 @@ namespace System.CRM.Ui.Activity
                EmalBs.AddNew();
                var emal = EmalBs.Current as Data.Email;
                emal.SERV_FILE_NO = fileno;
-               emal.SEND_DATE = DateTime.Now;
+               emal.SEND_DATE = DateTime.Now.AddMinutes(10);
                ToMail_Txt.Text = xinput.Attribute("toemail").Value;
                EmalBs.EndEdit();
                ToMail_Txt_ButtonClick(null, null);

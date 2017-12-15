@@ -270,7 +270,7 @@ namespace System.CRM.Ui.Activity
                MesgBs.AddNew();
                var mesg = MesgBs.Current as Data.Message;
                mesg.SERV_FILE_NO = fileno;
-               mesg.MESG_DATE = DateTime.Now;
+               mesg.MESG_DATE = DateTime.Now.AddMinutes(10);
                if (xinput.Attribute("cellphon") != null)
                   CellPhon_Txt.Text = xinput.Attribute("cellphon").Value;
                else

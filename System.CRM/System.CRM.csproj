@@ -277,11 +277,20 @@
     <Compile Include="Ui\Admission\ADM_CUST_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\BaseDefination\MSTT_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefination\MSTT_DFIN_F.Designer.cs">
+      <DependentUpon>MSTT_DFIN_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\BaseDefination\APBS_DFIN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefination\APBS_DFIN_F.Designer.cs">
       <DependentUpon>APBS_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefination\MSTT_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefination\BTRF_DFIN_F.cs">
       <SubType>UserControl</SubType>
@@ -2174,6 +2183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Activity\OPT_LOGC_F.resx">
       <DependentUpon>OPT_LOGC_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefination\MSTT_DFIN_F.resx">
+      <DependentUpon>MSTT_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefination\APBS_DFIN_F.resx">
       <DependentUpon>APBS_DFIN_F.cs</DependentUpon>

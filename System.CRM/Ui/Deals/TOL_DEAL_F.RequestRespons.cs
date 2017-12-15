@@ -251,6 +251,11 @@ namespace System.CRM.Ui.Deals
             else
                rqstrqid = 0;
 
+            if (xinput.Attribute("projrqstrqid") != null)
+               projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+            else
+               projrqstrqid = 0;
+
 
             cashcode = Convert.ToInt64(xinput.Attribute("cashcode").Value);
             rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
@@ -265,8 +270,9 @@ namespace System.CRM.Ui.Deals
                PymtBs.AddNew();
                var pymt = PymtBs.Current as Data.Payment;
                pymt.SERV_FILE_NO = fileno;
-               pymt.PYMT_DATE = DateTime.Now;
+               pymt.PYMT_DATE = DateTime.Now.AddMinutes(10);
                pymt.PYMT_STAG = "001";
+               pymt.PYMT_DESC = xinput.Attribute("pymtdesc").Value;
                PymtBs.EndEdit();
             }
             else

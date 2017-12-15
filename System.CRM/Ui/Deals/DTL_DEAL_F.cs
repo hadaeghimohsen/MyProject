@@ -25,7 +25,7 @@ namespace System.CRM.Ui.Deals
       private long fileno;
       private string srpbtype = "001";
       private bool islock = false;
-      private long cashcode, rqstrqid;
+      private long cashcode, rqstrqid, projrqstrqid;
 
       private void Execute_Query()
       {
@@ -158,6 +158,7 @@ namespace System.CRM.Ui.Deals
                               new XAttribute("fileno", fileno), 
                               new XAttribute("cashcode", cashcode), 
                               new XAttribute("rqid", rqstrqid), 
+                              new XAttribute("projrqstrqid", projrqstrqid), 
                               new XAttribute("formcaller", "INF_CONT_F")
                            )
                   }

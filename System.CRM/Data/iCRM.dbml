@@ -3033,6 +3033,25 @@
       <Association Name="Main_State_Step_History_Summery" Member="Main_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS" OtherKey="CODE,SUB_SYS" Type="Main_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Request_Step_History_Summery" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
+    <InsertFunction FunctionId="FunctionId76">
+      <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
+      <Argument Parameter="sstt_Mstt_Code" Member="SSTT_MSTT_CODE" />
+      <Argument Parameter="sstt_Mstt_Sub_Sys" Member="SSTT_MSTT_SUB_SYS" />
+      <Argument Parameter="from_Date" Member="FROM_DATE" />
+      <Argument Parameter="to_Date" Member="TO_DATE" />
+      <Argument Parameter="mstt_Desc" Member="MSTT_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId77">
+      <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
+      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="from_Date" Member="FROM_DATE" />
+      <Argument Parameter="to_Date" Member="TO_DATE" />
+      <Argument Parameter="mstt_Desc" Member="MSTT_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId78">
+      <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
+      <Argument Parameter="rwno" Member="RWNO" />
+    </DeleteFunction>
   </Table>
   <Table Name="dbo.Step_History_Detail" Member="Step_History_Details">
     <Type Name="Step_History_Detail">
@@ -3052,6 +3071,29 @@
       <Association Name="Step_History_Summery_Step_History_Detail" Member="Step_History_Summery" ThisKey="SHIS_RQST_RQID,SHIS_RWNO" OtherKey="RQST_RQID,RWNO" Type="Step_History_Summery" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Sub_State_Step_History_Detail" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
+    <InsertFunction FunctionId="FunctionId79">
+      <Argument Parameter="shis_Rqst_Rqid" Member="SHIS_RQST_RQID" />
+      <Argument Parameter="shis_Rwno" Member="SHIS_RWNO" />
+      <Argument Parameter="sstt_Mstt_Sub_Sys" Member="SSTT_MSTT_SUB_SYS" />
+      <Argument Parameter="sstt_Mstt_Code" Member="SSTT_MSTT_CODE" />
+      <Argument Parameter="sstt_Code" Member="SSTT_CODE" />
+      <Argument Parameter="from_Date" Member="FROM_DATE" />
+      <Argument Parameter="to_Date" Member="TO_DATE" />
+      <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId80">
+      <Argument Parameter="shis_Rqst_Rqid" Member="SHIS_RQST_RQID" />
+      <Argument Parameter="shis_Rwno" Member="SHIS_RWNO" />
+      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="from_Date" Member="FROM_DATE" />
+      <Argument Parameter="to_Date" Member="TO_DATE" />
+      <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId81">
+      <Argument Parameter="shis_Rqst_Rqid" Member="SHIS_RQST_RQID" />
+      <Argument Parameter="shis_Rwno" Member="SHIS_RWNO" />
+      <Argument Parameter="rwno" Member="RWNO" />
+    </DeleteFunction>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
@@ -4466,6 +4508,54 @@
     <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId78" Name="dbo.DEL_SHIS_P" Method="DEL_SHIS_P">
+    <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId81" Name="dbo.DEL_SHID_P" Method="DEL_SHID_P">
+    <Parameter Name="Shis_Rqst_Rqid" Parameter="shis_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Shis_Rwno" Parameter="shis_Rwno" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId79" Name="dbo.INS_SHID_P" Method="INS_SHID_P">
+    <Parameter Name="Shis_Rqst_Rqid" Parameter="shis_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Shis_Rwno" Parameter="shis_Rwno" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Sstt_Mstt_Sub_Sys" Parameter="sstt_Mstt_Sub_Sys" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Sstt_Mstt_Code" Parameter="sstt_Mstt_Code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Sstt_Code" Parameter="sstt_Code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="From_Date" Parameter="from_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="To_Date" Parameter="to_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId80" Name="dbo.UPD_SHID_P" Method="UPD_SHID_P">
+    <Parameter Name="Shis_Rqst_Rqid" Parameter="shis_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Shis_Rwno" Parameter="shis_Rwno" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="From_Date" Parameter="from_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="To_Date" Parameter="to_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId77" Name="dbo.UPD_SHIS_P" Method="UPD_SHIS_P">
+    <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="From_Date" Parameter="from_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="To_Date" Parameter="to_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Mstt_Desc" Parameter="mstt_Desc" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId76" Name="dbo.INS_SHIS_P" Method="INS_SHIS_P">
+    <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Sstt_Mstt_Code" Parameter="sstt_Mstt_Code" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Sstt_Mstt_Sub_Sys" Parameter="sstt_Mstt_Sub_Sys" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="From_Date" Parameter="from_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="To_Date" Parameter="to_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Mstt_Desc" Parameter="mstt_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

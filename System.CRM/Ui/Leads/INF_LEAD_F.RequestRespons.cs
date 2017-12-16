@@ -112,7 +112,7 @@ namespace System.CRM.Ui.Leads
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
 
-         splitContainerControl2.Width = panel6.Width;
+         
 
          job.Status = StatusType.Successful;
       }
@@ -131,6 +131,8 @@ namespace System.CRM.Ui.Leads
                new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 08 /* Execute PastOnWall */) { Input = this }               
             });
          _DefaultGateway.Gateway(_Paint);
+
+         splitContainerControl2.Width = panel6.Width;
 
          Enabled = true;
          job.Status = StatusType.Successful;

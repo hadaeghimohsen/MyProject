@@ -94,12 +94,20 @@ namespace System.CRM.Ui.Contacts
             ImageProfile_Butn.ImageProfile = System.CRM.Properties.Resources.IMAGE_1149;
          }
 
+         var projrqst = RqstProjBs.Position;
+         var shis = ShisBs.Position;
+         var shid = ShidBs.Position;
+
          RqstProjBs.DataSource =
             iCRM.Requests.Where(t =>
                t.RQTP_CODE == "013" &&
                t.RQTT_CODE == "004" &&
                t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno)
             );
+
+         RqstProjBs.Position = projrqst;
+         ShisBs.Position = shis;
+         ShidBs.Position = shid;
       }
 
       #region Note
@@ -1948,6 +1956,119 @@ namespace System.CRM.Ui.Contacts
          }
          catch (Exception exc)
          {}
+      }
+
+      private void AddMstt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 89 /* Execute Mstt_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "MSTT_DFIN_F", 10 /* Execute Actn_CalF_P */) 
+                     {
+                        Input = 
+                           new XElement("MainSub_Stat",
+                              new XAttribute("formcaller", GetType().Name)                           
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MainStat_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  var msttcode = (short?)MainStat_Lov.EditValue;
+                  if (msttcode == null) return;
+                  var projrqst = RqstProjBs.Current as Data.Request;
+                  if (projrqst == null) return;
+
+                  ShisBs.AddNew();
+
+                  var shis = ShisBs.Current as Data.Step_History_Summery;
+                  shis.RQST_RQID = projrqst.RQID;
+                  shis.SSTT_MSTT_CODE = (short)msttcode;
+                  shis.SSTT_MSTT_SUB_SYS = 1;
+
+                  ShisBs.EndEdit();
+
+                  iCRM.SubmitChanges();
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void SubStat_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  var shis = ShisBs.Current as Data.Step_History_Summery;
+                  if (shis == null) return;
+
+                  var ssttcode = (short?)SubStat_Lov.EditValue;
+                  if (ssttcode == null) return;
+                  var projrqst = RqstProjBs.Current as Data.Request;
+                  if (projrqst == null) return;
+
+                  ShidBs.AddNew();
+
+                  var shid = ShidBs.Current as Data.Step_History_Detail;
+                  shid.SHIS_RQST_RQID = projrqst.RQID;
+                  shid.SHIS_RWNO = shis.RWNO;
+                  shid.SSTT_CODE = (short)ssttcode;
+                  shid.SSTT_MSTT_SUB_SYS = 1;
+                  shid.SSTT_MSTT_CODE = shis.SSTT_MSTT_CODE;
+
+                  ShidBs.EndEdit();
+
+                  iCRM.SubmitChanges();
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
       }
    }
 }

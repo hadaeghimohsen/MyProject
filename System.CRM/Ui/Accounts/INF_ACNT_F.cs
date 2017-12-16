@@ -39,12 +39,13 @@ namespace System.CRM.Ui.Acounts
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
          CompBs.DataSource = iCRM.Companies.FirstOrDefault(c => c.CODE == compcode );
-         RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
-         PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode, null);
+         //RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
+         //PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode, null);
+         MsttBs.DataSource = iCRM.Main_States;
          requery = false;
       }
 
-      private void ServBs_CurrentChanged(object sender, EventArgs e)
+      private void CompBs_CurrentChanged(object sender, EventArgs e)
       {
          var comp = CompBs.Current as Data.Company;
 
@@ -92,6 +93,21 @@ namespace System.CRM.Ui.Acounts
          catch {
             CompanyLogo_Pb.ImageProfile = System.CRM.Properties.Resources.IMAGE_1149;
          }
+
+         var projrqst = RqstProjBs.Position;
+         var shis = ShisBs.Position;
+         var shid = ShidBs.Position;
+
+         RqstProjBs.DataSource =
+            iCRM.Requests.Where(t =>
+               t.RQTP_CODE == "013" &&
+               t.RQTT_CODE == "004" &&
+               t.Request_Rows.Any(rr => rr.COMP_CODE == compcode)
+            );
+
+         RqstProjBs.Position = projrqst;
+         ShisBs.Position = shis;
+         ShidBs.Position = shid;
       }
 
       #region Note
@@ -428,15 +444,6 @@ namespace System.CRM.Ui.Acounts
          }
       }
 
-      private void CallLog_Gv_DoubleClick(object sender, EventArgs e)
-      {
-         LogcActn_Butn_ButtonClick(LeadActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[2]));
-      }
-
-      private void EditLogc_Butn_Click(object sender, EventArgs e)
-      {
-         LogcActn_Butn_ButtonClick(LeadActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(LeadActn_Butn.Buttons[2]));
-      }
       #endregion
 
       #region Email
@@ -560,15 +567,6 @@ namespace System.CRM.Ui.Acounts
          }
       }
 
-      private void Email_Gv_DoubleClick(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(EmalActn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[2]));
-      }
-
-      private void EditEmal_Butn_Click(object sender, EventArgs e)
-      {
-         EmalActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(EmalActn_Butn.Buttons[2])); ;
-      }
       #endregion 
 
       #region Task
@@ -1648,6 +1646,214 @@ namespace System.CRM.Ui.Acounts
                }
             )
          );
+      }
+
+      private void AddMstt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 89 /* Execute Mstt_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "MSTT_DFIN_F", 10 /* Execute Actn_CalF_P */) 
+                     {
+                        Input = 
+                           new XElement("MainSub_Stat",
+                              new XAttribute("formcaller", GetType().Name)                           
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveMstt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            MsttBs.EndEdit();
+            SsttBs.EndEdit();
+
+            Shis_Gv.PostEditor();
+            Shid_Gv.PostEditor();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+
+            }
+         }
+      }
+
+      private void MainStat_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  var msttcode = (short?)MainStat_Lov.EditValue;
+                  if (msttcode == null) return;
+                  var projrqst = RqstProjBs.Current as Data.Request;
+                  if (projrqst == null) return;
+
+                  ShisBs.AddNew();
+
+                  var shis = ShisBs.Current as Data.Step_History_Summery;
+                  shis.RQST_RQID = projrqst.RQID;
+                  shis.SSTT_MSTT_CODE = (short)msttcode;
+                  shis.SSTT_MSTT_SUB_SYS = 1;
+
+                  ShisBs.EndEdit();
+
+                  iCRM.SubmitChanges();
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void SubStat_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  var shis = ShisBs.Current as Data.Step_History_Summery;
+                  if (shis == null) return;
+
+                  var ssttcode = (short?)SubStat_Lov.EditValue;
+                  if (ssttcode == null) return;
+                  var projrqst = RqstProjBs.Current as Data.Request;
+                  if (projrqst == null) return;
+
+                  ShidBs.AddNew();
+
+                  var shid = ShidBs.Current as Data.Step_History_Detail;
+                  shid.SHIS_RQST_RQID = projrqst.RQID;
+                  shid.SHIS_RWNO = shis.RWNO;
+                  shid.SSTT_CODE = (short)ssttcode;
+                  shid.SSTT_MSTT_SUB_SYS = 1;
+                  shid.SSTT_MSTT_CODE = shis.SSTT_MSTT_CODE;
+
+                  ShidBs.EndEdit();
+
+                  iCRM.SubmitChanges();
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void RqstProjBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var pr = RqstProjBs.Current as Data.Request;
+            if (pr == null) return;
+
+            NoteBs.DataSource = iCRM.Notes.Where(n => n.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            TaskBs.DataSource = iCRM.Tasks.Where(t => t.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            AponBs.DataSource = iCRM.Appointments.Where(a => a.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            FileBs.DataSource = iCRM.Send_Files.Where(sf => sf.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            MesgBs.DataSource = iCRM.Messages.Where(m => m.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            LogcBs.DataSource = iCRM.Log_Calls.Where(l => l.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            EmalBs.DataSource = iCRM.Emails.Where(em => em.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+
+            RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode, pr.RQID).OrderByDescending(r => r.SAVE_DATE).Take(5);
+            PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode, pr.RQID);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ShisBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var shis = ShisBs.Current as Data.Step_History_Summery;
+            if (shis == null) return;
+
+            SsttBs.DataSource = iCRM.Sub_States.Where(s => s.MSTT_CODE == shis.SSTT_MSTT_CODE);
+         }
+         catch (Exception exc)
+         { }
+      }
+
+      private void EditProj_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstProjBs.Current as Data.Request;
+            if (rqst == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 88 /* Execute Opt_Prjt_F */),
+                     new Job(SendType.SelfToUserInterface, "OPT_PRJT_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Project",
+                              new XAttribute("fileno", rqst.Request_Rows.FirstOrDefault().SERV_FILE_NO),
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("rqid", rqst.RQID)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

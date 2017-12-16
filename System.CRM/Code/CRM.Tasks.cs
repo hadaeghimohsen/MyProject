@@ -441,7 +441,7 @@ namespace System.CRM.Code
             if (_Opt_Prjt_F == null)
                _Opt_Prjt_F = new Ui.Activity.OPT_PRJT_F { _DefaultGateway = this };
          }
-         else if (value == "msst_dfin_f")
+         else if (value == "mstt_dfin_f")
          {
             if (_Mstt_Dfin_F == null)
                _Mstt_Dfin_F = new Ui.BaseDefination.MSTT_DFIN_F { _DefaultGateway = this };

@@ -31,14 +31,13 @@ namespace System.CRM.Ui.BaseDefination
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
-         {
-            int b = MsttBs.Position;
-            int t = SsttBs.Position;
-            MsttBs.DataSource = iCRM.Main_States;
-            MsttBs.Position = b;
-            SsttBs.Position = t;
-         }
+         
+         int b = MsttBs.Position;
+         int t = SsttBs.Position;
+         MsttBs.DataSource = iCRM.Main_States;
+         MsttBs.Position = b;
+         SsttBs.Position = t;
+         
          requery = false;
       }
 

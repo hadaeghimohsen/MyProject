@@ -209,12 +209,6 @@ namespace System.CRM.Data
     partial void InsertRequest(Request instance);
     partial void UpdateRequest(Request instance);
     partial void DeleteRequest(Request instance);
-    partial void InsertStep_History_Summery(Step_History_Summery instance);
-    partial void UpdateStep_History_Summery(Step_History_Summery instance);
-    partial void DeleteStep_History_Summery(Step_History_Summery instance);
-    partial void InsertStep_History_Detail(Step_History_Detail instance);
-    partial void UpdateStep_History_Detail(Step_History_Detail instance);
-    partial void DeleteStep_History_Detail(Step_History_Detail instance);
     #endregion
 		
 		public iCRMDataContext() : 
@@ -2101,6 +2095,36 @@ namespace System.CRM.Data
 			this.DEL_SRPR_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
+		private void InsertStep_History_Summery(Step_History_Summery obj)
+		{
+			this.INS_SHIS_P(((System.Nullable<long>)(obj.RQST_RQID)), ((System.Nullable<short>)(obj.SSTT_MSTT_CODE)), ((System.Nullable<short>)(obj.SSTT_MSTT_SUB_SYS)), ((System.Nullable<System.DateTime>)(obj.FROM_DATE)), ((System.Nullable<System.DateTime>)(obj.TO_DATE)), obj.MSTT_DESC);
+		}
+		
+		private void UpdateStep_History_Summery(Step_History_Summery obj)
+		{
+			this.UPD_SHIS_P(((System.Nullable<long>)(obj.RQST_RQID)), ((System.Nullable<short>)(obj.RWNO)), ((System.Nullable<System.DateTime>)(obj.FROM_DATE)), ((System.Nullable<System.DateTime>)(obj.TO_DATE)), obj.MSTT_DESC);
+		}
+		
+		private void DeleteStep_History_Summery(Step_History_Summery obj)
+		{
+			this.DEL_SHIS_P(((System.Nullable<long>)(obj.RQST_RQID)), ((System.Nullable<short>)(obj.RWNO)));
+		}
+		
+		private void InsertStep_History_Detail(Step_History_Detail obj)
+		{
+			this.INS_SHID_P(((System.Nullable<long>)(obj.SHIS_RQST_RQID)), ((System.Nullable<short>)(obj.SHIS_RWNO)), ((System.Nullable<short>)(obj.SSTT_MSTT_SUB_SYS)), ((System.Nullable<short>)(obj.SSTT_MSTT_CODE)), ((System.Nullable<short>)(obj.SSTT_CODE)), ((System.Nullable<System.DateTime>)(obj.FROM_DATE)), ((System.Nullable<System.DateTime>)(obj.TO_DATE)), obj.SSTT_DESC);
+		}
+		
+		private void UpdateStep_History_Detail(Step_History_Detail obj)
+		{
+			this.UPD_SHID_P(((System.Nullable<long>)(obj.SHIS_RQST_RQID)), ((System.Nullable<short>)(obj.SHIS_RWNO)), ((System.Nullable<short>)(obj.RWNO)), ((System.Nullable<System.DateTime>)(obj.FROM_DATE)), ((System.Nullable<System.DateTime>)(obj.TO_DATE)), obj.SSTT_DESC);
+		}
+		
+		private void DeleteStep_History_Detail(Step_History_Detail obj)
+		{
+			this.DEL_SHID_P(((System.Nullable<long>)(obj.SHIS_RQST_RQID)), ((System.Nullable<short>)(obj.SHIS_RWNO)), ((System.Nullable<short>)(obj.RWNO)));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CNCL_RQST_P")]
 		public int CNCL_RQST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -3323,6 +3347,48 @@ namespace System.CRM.Data
 		public int UPD_SSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Code", DbType="SmallInt")] System.Nullable<short> mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(250)")] string sstt_Desc)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mstt_Code, code, sstt_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_SHIS_P")]
+		public int DEL_SHIS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqst_Rqid", DbType="BigInt")] System.Nullable<long> rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="SmallInt")] System.Nullable<short> rwno)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rqst_Rqid, rwno);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_SHID_P")]
+		public int DEL_SHID_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shis_Rqst_Rqid", DbType="BigInt")] System.Nullable<long> shis_Rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shis_Rwno", DbType="SmallInt")] System.Nullable<short> shis_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="SmallInt")] System.Nullable<short> rwno)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), shis_Rqst_Rqid, shis_Rwno, rwno);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SHID_P")]
+		public int INS_SHID_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shis_Rqst_Rqid", DbType="BigInt")] System.Nullable<long> shis_Rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shis_Rwno", DbType="SmallInt")] System.Nullable<short> shis_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Mstt_Sub_Sys", DbType="SmallInt")] System.Nullable<short> sstt_Mstt_Sub_Sys, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Mstt_Code", DbType="SmallInt")] System.Nullable<short> sstt_Mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Code", DbType="SmallInt")] System.Nullable<short> sstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="From_Date", DbType="DateTime")] System.Nullable<System.DateTime> from_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="To_Date", DbType="DateTime")] System.Nullable<System.DateTime> to_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(500)")] string sstt_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), shis_Rqst_Rqid, shis_Rwno, sstt_Mstt_Sub_Sys, sstt_Mstt_Code, sstt_Code, from_Date, to_Date, sstt_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SHID_P")]
+		public int UPD_SHID_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shis_Rqst_Rqid", DbType="BigInt")] System.Nullable<long> shis_Rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shis_Rwno", DbType="SmallInt")] System.Nullable<short> shis_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="SmallInt")] System.Nullable<short> rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="From_Date", DbType="DateTime")] System.Nullable<System.DateTime> from_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="To_Date", DbType="DateTime")] System.Nullable<System.DateTime> to_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(500)")] string sstt_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), shis_Rqst_Rqid, shis_Rwno, rwno, from_Date, to_Date, sstt_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SHIS_P")]
+		public int UPD_SHIS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqst_Rqid", DbType="BigInt")] System.Nullable<long> rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="SmallInt")] System.Nullable<short> rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="From_Date", DbType="DateTime")] System.Nullable<System.DateTime> from_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="To_Date", DbType="DateTime")] System.Nullable<System.DateTime> to_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Desc", DbType="NVarChar(500)")] string mstt_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rqst_Rqid, rwno, from_Date, to_Date, mstt_Desc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SHIS_P")]
+		public int INS_SHIS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqst_Rqid", DbType="BigInt")] System.Nullable<long> rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Mstt_Code", DbType="SmallInt")] System.Nullable<short> sstt_Mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Mstt_Sub_Sys", DbType="SmallInt")] System.Nullable<short> sstt_Mstt_Sub_Sys, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="From_Date", DbType="DateTime")] System.Nullable<System.DateTime> from_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="To_Date", DbType="DateTime")] System.Nullable<System.DateTime> to_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Desc", DbType="NVarChar(500)")] string mstt_Desc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rqst_Rqid, sstt_Mstt_Code, sstt_Mstt_Sub_Sys, from_Date, to_Date, mstt_Desc);
 			return ((int)(result.ReturnValue));
 		}
 	}

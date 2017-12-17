@@ -42,6 +42,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
+            Actn_Clmn.Width = 25;
             if (LeadActn_Butn.Buttons.OfType<EditorButton>().Any(b => b.Tag != null && b.Visible == false))
                LeadActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Visible == false).Visible = true;
 

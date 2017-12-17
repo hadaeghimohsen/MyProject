@@ -95,7 +95,7 @@
          this.colNAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Actn_Clmn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LeadActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNATL_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,6 +157,7 @@
          this.colService3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCompany3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.AddInfo_Butn = new System.MaxUi.RoundedButton();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
          this.TagBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -179,7 +180,6 @@
          this.colService_Public = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCompany = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.AddInfo_Butn = new System.MaxUi.RoundedButton();
          this.Tag_Butn = new System.MaxUi.RoundedButton();
          this.ServCont_Butn = new System.MaxUi.RoundedButton();
          this.ImageProfile_Butn = new System.MaxUi.RoundedButton();
@@ -544,7 +544,7 @@
             this.colNAME,
             this.colRQTP_DESC,
             this.colCRET_BY,
-            this.gridColumn1,
+            this.Actn_Clmn,
             this.colSERV_NO_DNRM,
             this.colNATL_CODE_DNRM});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -577,7 +577,7 @@
          this.colFRST_NAME_DNRM.OptionsColumn.ReadOnly = true;
          this.colFRST_NAME_DNRM.Visible = true;
          this.colFRST_NAME_DNRM.VisibleIndex = 5;
-         this.colFRST_NAME_DNRM.Width = 116;
+         this.colFRST_NAME_DNRM.Width = 128;
          // 
          // colLAST_NAME_DNRM
          // 
@@ -588,7 +588,7 @@
          this.colLAST_NAME_DNRM.OptionsColumn.ReadOnly = true;
          this.colLAST_NAME_DNRM.Visible = true;
          this.colLAST_NAME_DNRM.VisibleIndex = 4;
-         this.colLAST_NAME_DNRM.Width = 116;
+         this.colLAST_NAME_DNRM.Width = 128;
          // 
          // colCELL_PHON_DNRM
          // 
@@ -599,7 +599,7 @@
          this.colCELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colCELL_PHON_DNRM.Visible = true;
          this.colCELL_PHON_DNRM.VisibleIndex = 3;
-         this.colCELL_PHON_DNRM.Width = 116;
+         this.colCELL_PHON_DNRM.Width = 128;
          // 
          // colTELL_PHON_DNRM
          // 
@@ -610,7 +610,7 @@
          this.colTELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colTELL_PHON_DNRM.Visible = true;
          this.colTELL_PHON_DNRM.VisibleIndex = 2;
-         this.colTELL_PHON_DNRM.Width = 116;
+         this.colTELL_PHON_DNRM.Width = 128;
          // 
          // colNAME
          // 
@@ -623,7 +623,7 @@
          this.colNAME.OptionsColumn.ReadOnly = true;
          this.colNAME.Visible = true;
          this.colNAME.VisibleIndex = 1;
-         this.colNAME.Width = 116;
+         this.colNAME.Width = 128;
          // 
          // colRQTP_DESC
          // 
@@ -645,25 +645,25 @@
          // 
          // gridColumn1
          // 
-         this.gridColumn1.ColumnEdit = this.LeadActn_Butn;
-         this.gridColumn1.Name = "gridColumn1";
-         this.gridColumn1.OptionsColumn.FixedWidth = true;
-         this.gridColumn1.Visible = true;
-         this.gridColumn1.VisibleIndex = 0;
-         this.gridColumn1.Width = 211;
+         this.Actn_Clmn.ColumnEdit = this.LeadActn_Butn;
+         this.Actn_Clmn.Name = "gridColumn1";
+         this.Actn_Clmn.OptionsColumn.FixedWidth = true;
+         this.Actn_Clmn.Visible = true;
+         this.Actn_Clmn.VisibleIndex = 0;
+         this.Actn_Clmn.Width = 50;
          // 
          // LeadActn_Butn
          // 
          this.LeadActn_Butn.AutoHeight = false;
          this.LeadActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "تبدیل به خریدار", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "ثبت تماس تلفنی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "نمونه برداری", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "تبدیل به خریدار", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "ثبت تماس تلفنی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "نمونه برداری", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "حذف", "001", null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "بازیابی", "101", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons4"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "قرارملاقات", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons5"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "ویرایش", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons6"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "ارسال ایمیل", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons4"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "قرارملاقات", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons5"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "ویرایش", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons6"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "ارسال ایمیل", null, null, true)});
          this.LeadActn_Butn.Name = "LeadActn_Butn";
          this.LeadActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.LeadActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LeadActn_Butn_ButtonClick);
@@ -677,6 +677,7 @@
          this.colSERV_NO_DNRM.OptionsColumn.ReadOnly = true;
          this.colSERV_NO_DNRM.Visible = true;
          this.colSERV_NO_DNRM.VisibleIndex = 6;
+         this.colSERV_NO_DNRM.Width = 82;
          // 
          // colNATL_CODE_DNRM
          // 
@@ -689,6 +690,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.colNATL_CODE_DNRM.Visible = true;
          this.colNATL_CODE_DNRM.VisibleIndex = 7;
+         this.colNATL_CODE_DNRM.Width = 98;
          // 
          // splitContainerControl1
          // 
@@ -1226,6 +1228,31 @@
          this.repositoryItemButtonEdit4.Name = "repositoryItemButtonEdit4";
          this.repositoryItemButtonEdit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
+         // AddInfo_Butn
+         // 
+         this.AddInfo_Butn.Active = true;
+         this.AddInfo_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.AddInfo_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.AddInfo_Butn.Caption = "";
+         this.AddInfo_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.AddInfo_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.AddInfo_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.AddInfo_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.AddInfo_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.AddInfo_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1580;
+         this.AddInfo_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.AddInfo_Butn.ImageVisiable = true;
+         this.AddInfo_Butn.Location = new System.Drawing.Point(33, 150);
+         this.AddInfo_Butn.Name = "AddInfo_Butn";
+         this.AddInfo_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.AddInfo_Butn.NormalColorA = System.Drawing.Color.White;
+         this.AddInfo_Butn.NormalColorB = System.Drawing.Color.White;
+         this.AddInfo_Butn.Size = new System.Drawing.Size(35, 35);
+         this.AddInfo_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.AddInfo_Butn.TabIndex = 8;
+         this.AddInfo_Butn.Tooltip = null;
+         this.AddInfo_Butn.Click += new System.EventHandler(this.AddInfo_Butn_Click);
+         // 
          // gridControl2
          // 
          this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1404,31 +1431,6 @@
          this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
          this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
-         // AddInfo_Butn
-         // 
-         this.AddInfo_Butn.Active = true;
-         this.AddInfo_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.AddInfo_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.AddInfo_Butn.Caption = "";
-         this.AddInfo_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.AddInfo_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.AddInfo_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.AddInfo_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.AddInfo_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.AddInfo_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1580;
-         this.AddInfo_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.AddInfo_Butn.ImageVisiable = true;
-         this.AddInfo_Butn.Location = new System.Drawing.Point(33, 150);
-         this.AddInfo_Butn.Name = "AddInfo_Butn";
-         this.AddInfo_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.AddInfo_Butn.NormalColorA = System.Drawing.Color.White;
-         this.AddInfo_Butn.NormalColorB = System.Drawing.Color.White;
-         this.AddInfo_Butn.Size = new System.Drawing.Size(35, 35);
-         this.AddInfo_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.AddInfo_Butn.TabIndex = 8;
-         this.AddInfo_Butn.Tooltip = null;
-         this.AddInfo_Butn.Click += new System.EventHandler(this.AddInfo_Butn_Click);
-         // 
          // Tag_Butn
          // 
          this.Tag_Butn.Active = true;
@@ -1588,7 +1590,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colNAME;
       private DevExpress.XtraGrid.Columns.GridColumn colRQTP_DESC;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+      private DevExpress.XtraGrid.Columns.GridColumn Actn_Clmn;
       private MaxUi.RoundedButton SendMesagges_Butn;
       private MaxUi.RoundedButton SendEmails_Butn;
       private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM;

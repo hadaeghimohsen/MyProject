@@ -41,6 +41,7 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {
+            Actn_Clmn.Width = 25;
             if (CompActn_Butn.Buttons.OfType<EditorButton>().Any(b => b.Tag != null && b.Visible == false))
                CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Visible == false).Visible = true;
 

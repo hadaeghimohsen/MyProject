@@ -29,6 +29,10 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INF_LEAD_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -64,11 +68,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INF_LEAD_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colRQST_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqstStat_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.panel1 = new System.Windows.Forms.Panel();
          this.Previous_Butn = new System.MaxUi.RoundedButton();
          this.Next_Butn = new System.MaxUi.RoundedButton();
@@ -369,7 +370,7 @@
          this.panel6 = new System.Windows.Forms.Panel();
          this.DsdrcBs = new System.Windows.Forms.BindingSource(this.components);
          this.DsdstBs = new System.Windows.Forms.BindingSource(this.components);
-         this.RqstStat_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstStat_Butn)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -509,7 +510,6 @@
          this.panel6.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.DsdrcBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsdstBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqstStat_Butn)).BeginInit();
          this.SuspendLayout();
          // 
          // colRQST_STAT
@@ -520,7 +520,17 @@
          this.colRQST_STAT.Name = "colRQST_STAT";
          this.colRQST_STAT.Visible = true;
          this.colRQST_STAT.VisibleIndex = 0;
-         this.colRQST_STAT.Width = 85;
+         this.colRQST_STAT.Width = 64;
+         // 
+         // RqstStat_Butn
+         // 
+         this.RqstStat_Butn.AutoHeight = false;
+         this.RqstStat_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("RqstStat_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject36, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("RqstStat_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("RqstStat_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject38, "", null, null, true)});
+         this.RqstStat_Butn.Name = "RqstStat_Butn";
+         this.RqstStat_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
          // panel1
          // 
@@ -3045,7 +3055,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.panelControl7);
          this.splitContainerControl2.Panel2.Controls.Add(this.panelControl6);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(877, 1155);
+         this.splitContainerControl2.Size = new System.Drawing.Size(860, 1155);
          this.splitContainerControl2.SplitterPosition = 531;
          this.splitContainerControl2.TabIndex = 6;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -3060,7 +3070,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl7);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(877, 491);
+         this.splitContainerControl4.Size = new System.Drawing.Size(860, 491);
          this.splitContainerControl4.SplitterPosition = 153;
          this.splitContainerControl4.TabIndex = 6;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -3079,7 +3089,7 @@
             this.repositoryItemTimeEdit1,
             this.RqstStat_Butn});
          this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.gridControl1.Size = new System.Drawing.Size(877, 153);
+         this.gridControl1.Size = new System.Drawing.Size(860, 153);
          this.gridControl1.TabIndex = 5;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CallLog_Gv});
@@ -3093,7 +3103,7 @@
          // 
          this.CallLog_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.CallLog_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
-         this.CallLog_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CallLog_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CallLog_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.CallLog_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.CallLog_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -3200,8 +3210,14 @@
          // 
          // colRQID
          // 
+         this.colRQID.Caption = "شماره پروژه";
          this.colRQID.FieldName = "RQID";
          this.colRQID.Name = "colRQID";
+         this.colRQID.OptionsColumn.AllowEdit = false;
+         this.colRQID.OptionsColumn.ReadOnly = true;
+         this.colRQID.Visible = true;
+         this.colRQID.VisibleIndex = 4;
+         this.colRQID.Width = 79;
          // 
          // colRQTP_CODE
          // 
@@ -3265,13 +3281,21 @@
          // 
          // colSSTT_MSTT_CODE2
          // 
-         this.colSSTT_MSTT_CODE2.FieldName = "SSTT_MSTT_CODE";
+         this.colSSTT_MSTT_CODE2.Caption = "آخرین وضعیت اصلی";
+         this.colSSTT_MSTT_CODE2.FieldName = "Sub_State.Main_State.MSTT_DESC";
          this.colSSTT_MSTT_CODE2.Name = "colSSTT_MSTT_CODE2";
+         this.colSSTT_MSTT_CODE2.Visible = true;
+         this.colSSTT_MSTT_CODE2.VisibleIndex = 2;
+         this.colSSTT_MSTT_CODE2.Width = 141;
          // 
          // colSSTT_CODE1
          // 
-         this.colSSTT_CODE1.FieldName = "SSTT_CODE";
+         this.colSSTT_CODE1.Caption = "آخرین وضعیت فرعی";
+         this.colSSTT_CODE1.FieldName = "Sub_State.SSTT_DESC";
          this.colSSTT_CODE1.Name = "colSSTT_CODE1";
+         this.colSSTT_CODE1.Visible = true;
+         this.colSSTT_CODE1.VisibleIndex = 1;
+         this.colSSTT_CODE1.Width = 148;
          // 
          // colYEAR
          // 
@@ -3304,8 +3328,8 @@
          this.colRQST_DESC.FieldName = "RQST_DESC";
          this.colRQST_DESC.Name = "colRQST_DESC";
          this.colRQST_DESC.Visible = true;
-         this.colRQST_DESC.VisibleIndex = 1;
-         this.colRQST_DESC.Width = 790;
+         this.colRQST_DESC.VisibleIndex = 3;
+         this.colRQST_DESC.Width = 426;
          // 
          // colRQST_NUMB
          // 
@@ -3398,7 +3422,7 @@
          this.splitContainerControl7.Panel2.Controls.Add(this.splitContainerControl8);
          this.splitContainerControl7.Panel2.Controls.Add(this.panelControl2);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(877, 333);
+         this.splitContainerControl7.Size = new System.Drawing.Size(860, 333);
          this.splitContainerControl7.SplitterPosition = 443;
          this.splitContainerControl7.TabIndex = 0;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -3450,7 +3474,7 @@
          // 
          this.Shid_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.Shid_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
-         this.Shid_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Shid_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Shid_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Shid_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Shid_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -3482,6 +3506,8 @@
          this.Shid_Gv.OptionsView.ShowDetailButtons = false;
          this.Shid_Gv.OptionsView.ShowGroupPanel = false;
          this.Shid_Gv.OptionsView.ShowIndicator = false;
+         this.Shid_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colFROM_DATE1, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colSHIS_RQST_RQID
          // 
@@ -3495,8 +3521,12 @@
          // 
          // colRWNO1
          // 
+         this.colRWNO1.Caption = "ردیف";
          this.colRWNO1.FieldName = "RWNO";
          this.colRWNO1.Name = "colRWNO1";
+         this.colRWNO1.Visible = true;
+         this.colRWNO1.VisibleIndex = 2;
+         this.colRWNO1.Width = 46;
          // 
          // colSSTT_MSTT_SUB_SYS1
          // 
@@ -3514,12 +3544,17 @@
          this.colSSTT_CODE.FieldName = "Sub_State.SSTT_DESC";
          this.colSSTT_CODE.Name = "colSSTT_CODE";
          this.colSSTT_CODE.Visible = true;
-         this.colSSTT_CODE.VisibleIndex = 0;
+         this.colSSTT_CODE.VisibleIndex = 1;
+         this.colSSTT_CODE.Width = 395;
          // 
          // colFROM_DATE1
          // 
+         this.colFROM_DATE1.Caption = "تاریخ";
+         this.colFROM_DATE1.ColumnEdit = this.persianRepositoryItemDateEdit10;
          this.colFROM_DATE1.FieldName = "FROM_DATE";
          this.colFROM_DATE1.Name = "colFROM_DATE1";
+         this.colFROM_DATE1.Visible = true;
+         this.colFROM_DATE1.VisibleIndex = 0;
          // 
          // colTO_DATE1
          // 
@@ -3711,7 +3746,7 @@
          this.splitContainerControl8.Panel1.Text = "Panel1";
          this.splitContainerControl8.Panel2.Controls.Add(this.memoEdit5);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(429, 293);
+         this.splitContainerControl8.Size = new System.Drawing.Size(412, 293);
          this.splitContainerControl8.SplitterPosition = 201;
          this.splitContainerControl8.TabIndex = 9;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -3728,7 +3763,7 @@
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemTimeEdit6});
-         this.gridControl2.Size = new System.Drawing.Size(429, 201);
+         this.gridControl2.Size = new System.Drawing.Size(412, 201);
          this.gridControl2.TabIndex = 6;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Shis_Gv});
@@ -3737,7 +3772,7 @@
          // 
          this.Shis_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.Shis_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
-         this.Shis_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Shis_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Shis_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Shis_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Shis_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -3767,6 +3802,8 @@
          this.Shis_Gv.OptionsView.ShowDetailButtons = false;
          this.Shis_Gv.OptionsView.ShowGroupPanel = false;
          this.Shis_Gv.OptionsView.ShowIndicator = false;
+         this.Shis_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colFROM_DATE, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colRQST_RQID1
          // 
@@ -3775,8 +3812,12 @@
          // 
          // colRWNO
          // 
+         this.colRWNO.Caption = "ردیف";
          this.colRWNO.FieldName = "RWNO";
          this.colRWNO.Name = "colRWNO";
+         this.colRWNO.Visible = true;
+         this.colRWNO.VisibleIndex = 2;
+         this.colRWNO.Width = 48;
          // 
          // colSSTT_MSTT_CODE
          // 
@@ -3785,7 +3826,7 @@
          this.colSSTT_MSTT_CODE.Name = "colSSTT_MSTT_CODE";
          this.colSSTT_MSTT_CODE.Visible = true;
          this.colSSTT_MSTT_CODE.VisibleIndex = 1;
-         this.colSSTT_MSTT_CODE.Width = 368;
+         this.colSSTT_MSTT_CODE.Width = 286;
          // 
          // colSSTT_MSTT_SUB_SYS
          // 
@@ -3800,7 +3841,7 @@
          this.colFROM_DATE.Name = "colFROM_DATE";
          this.colFROM_DATE.Visible = true;
          this.colFROM_DATE.VisibleIndex = 0;
-         this.colFROM_DATE.Width = 101;
+         this.colFROM_DATE.Width = 76;
          // 
          // persianRepositoryItemDateEdit3
          // 
@@ -3868,7 +3909,7 @@
          this.memoEdit5.Properties.Appearance.Options.UseFont = true;
          this.memoEdit5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.memoEdit5.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.memoEdit5.Size = new System.Drawing.Size(429, 87);
+         this.memoEdit5.Size = new System.Drawing.Size(412, 87);
          this.memoEdit5.TabIndex = 8;
          // 
          // panelControl2
@@ -3883,7 +3924,7 @@
          this.panelControl2.Location = new System.Drawing.Point(0, 0);
          this.panelControl2.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(429, 40);
+         this.panelControl2.Size = new System.Drawing.Size(412, 40);
          this.panelControl2.TabIndex = 7;
          // 
          // MainStat_Lov
@@ -3925,7 +3966,7 @@
          this.MainStat_Lov.Properties.NullValuePrompt = "وضعیت اصلی";
          this.MainStat_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.MainStat_Lov.Properties.ValueMember = "CODE";
-         this.MainStat_Lov.Size = new System.Drawing.Size(197, 32);
+         this.MainStat_Lov.Size = new System.Drawing.Size(180, 32);
          this.MainStat_Lov.TabIndex = 40;
          this.MainStat_Lov.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.MainStat_Lov_ButtonClick);
          // 
@@ -3975,7 +4016,7 @@
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(287, 2);
+         this.labelControl17.Location = new System.Drawing.Point(270, 2);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(140, 36);
          this.labelControl17.TabIndex = 2;
@@ -3992,7 +4033,7 @@
          this.panelControl5.Location = new System.Drawing.Point(0, 0);
          this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(877, 40);
+         this.panelControl5.Size = new System.Drawing.Size(860, 40);
          this.panelControl5.TabIndex = 4;
          // 
          // EditProj_Butn
@@ -4051,7 +4092,7 @@
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(611, 2);
+         this.labelControl15.Location = new System.Drawing.Point(594, 2);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(264, 36);
          this.labelControl15.TabIndex = 2;
@@ -4065,7 +4106,7 @@
          this.AllActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AllActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.AllActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AllActivity_Txt.Location = new System.Drawing.Point(528, 488);
+         this.AllActivity_Txt.Location = new System.Drawing.Point(511, 488);
          this.AllActivity_Txt.Name = "AllActivity_Txt";
          this.AllActivity_Txt.Size = new System.Drawing.Size(262, 60);
          this.AllActivity_Txt.TabIndex = 11;
@@ -4085,7 +4126,7 @@
          this.AllActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1524;
          this.AllActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AllActivity_Butn.ImageVisiable = true;
-         this.AllActivity_Butn.Location = new System.Drawing.Point(805, 488);
+         this.AllActivity_Butn.Location = new System.Drawing.Point(788, 488);
          this.AllActivity_Butn.Name = "AllActivity_Butn";
          this.AllActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AllActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4213,7 +4254,7 @@
          this.Activity1_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity1_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity1_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity1_Txt.Location = new System.Drawing.Point(528, 338);
+         this.Activity1_Txt.Location = new System.Drawing.Point(511, 338);
          this.Activity1_Txt.Name = "Activity1_Txt";
          this.Activity1_Txt.Size = new System.Drawing.Size(262, 60);
          this.Activity1_Txt.TabIndex = 8;
@@ -4228,7 +4269,7 @@
          this.Activity2_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity2_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity2_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity2_Txt.Location = new System.Drawing.Point(528, 262);
+         this.Activity2_Txt.Location = new System.Drawing.Point(511, 262);
          this.Activity2_Txt.Name = "Activity2_Txt";
          this.Activity2_Txt.Size = new System.Drawing.Size(262, 60);
          this.Activity2_Txt.TabIndex = 8;
@@ -4243,7 +4284,7 @@
          this.Activity3_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity3_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity3_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity3_Txt.Location = new System.Drawing.Point(528, 190);
+         this.Activity3_Txt.Location = new System.Drawing.Point(511, 190);
          this.Activity3_Txt.Name = "Activity3_Txt";
          this.Activity3_Txt.Size = new System.Drawing.Size(262, 60);
          this.Activity3_Txt.TabIndex = 8;
@@ -4258,7 +4299,7 @@
          this.Activity0_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity0_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity0_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity0_Txt.Location = new System.Drawing.Point(528, 413);
+         this.Activity0_Txt.Location = new System.Drawing.Point(511, 413);
          this.Activity0_Txt.Name = "Activity0_Txt";
          this.Activity0_Txt.Size = new System.Drawing.Size(262, 60);
          this.Activity0_Txt.TabIndex = 8;
@@ -4273,7 +4314,7 @@
          this.TodayActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TodayActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.TodayActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TodayActivity_Txt.Location = new System.Drawing.Point(528, 46);
+         this.TodayActivity_Txt.Location = new System.Drawing.Point(511, 46);
          this.TodayActivity_Txt.Name = "TodayActivity_Txt";
          this.TodayActivity_Txt.Size = new System.Drawing.Size(262, 60);
          this.TodayActivity_Txt.TabIndex = 8;
@@ -4287,7 +4328,7 @@
          this.Activity4_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity4_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity4_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity4_Txt.Location = new System.Drawing.Point(528, 116);
+         this.Activity4_Txt.Location = new System.Drawing.Point(511, 116);
          this.Activity4_Txt.Name = "Activity4_Txt";
          this.Activity4_Txt.Size = new System.Drawing.Size(262, 60);
          this.Activity4_Txt.TabIndex = 8;
@@ -4308,7 +4349,7 @@
          this.Activity4_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity4_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity4_Butn.ImageVisiable = true;
-         this.Activity4_Butn.Location = new System.Drawing.Point(805, 116);
+         this.Activity4_Butn.Location = new System.Drawing.Point(788, 116);
          this.Activity4_Butn.Name = "Activity4_Butn";
          this.Activity4_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity4_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4333,7 +4374,7 @@
          this.Activity3_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity3_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity3_Butn.ImageVisiable = true;
-         this.Activity3_Butn.Location = new System.Drawing.Point(805, 190);
+         this.Activity3_Butn.Location = new System.Drawing.Point(788, 190);
          this.Activity3_Butn.Name = "Activity3_Butn";
          this.Activity3_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity3_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4358,7 +4399,7 @@
          this.Activity0_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1530;
          this.Activity0_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity0_Butn.ImageVisiable = true;
-         this.Activity0_Butn.Location = new System.Drawing.Point(806, 413);
+         this.Activity0_Butn.Location = new System.Drawing.Point(789, 413);
          this.Activity0_Butn.Name = "Activity0_Butn";
          this.Activity0_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity0_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4383,7 +4424,7 @@
          this.Activity1_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1528;
          this.Activity1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity1_Butn.ImageVisiable = true;
-         this.Activity1_Butn.Location = new System.Drawing.Point(805, 338);
+         this.Activity1_Butn.Location = new System.Drawing.Point(788, 338);
          this.Activity1_Butn.Name = "Activity1_Butn";
          this.Activity1_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4408,7 +4449,7 @@
          this.Activity2_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1527;
          this.Activity2_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity2_Butn.ImageVisiable = true;
-         this.Activity2_Butn.Location = new System.Drawing.Point(806, 262);
+         this.Activity2_Butn.Location = new System.Drawing.Point(789, 262);
          this.Activity2_Butn.Name = "Activity2_Butn";
          this.Activity2_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity2_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4433,7 +4474,7 @@
          this.TodayActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1523;
          this.TodayActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.TodayActivity_Butn.ImageVisiable = true;
-         this.TodayActivity_Butn.Location = new System.Drawing.Point(805, 46);
+         this.TodayActivity_Butn.Location = new System.Drawing.Point(788, 46);
          this.TodayActivity_Butn.Name = "TodayActivity_Butn";
          this.TodayActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.TodayActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4448,7 +4489,7 @@
          this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.panelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl7.Appearance.Options.UseBackColor = true;
-         this.panelControl7.Location = new System.Drawing.Point(826, 94);
+         this.panelControl7.Location = new System.Drawing.Point(809, 94);
          this.panelControl7.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl7.Name = "panelControl7";
@@ -4464,7 +4505,7 @@
          this.panelControl6.Location = new System.Drawing.Point(0, 0);
          this.panelControl6.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl6.Name = "panelControl6";
-         this.panelControl6.Size = new System.Drawing.Size(877, 40);
+         this.panelControl6.Size = new System.Drawing.Size(860, 40);
          this.panelControl6.TabIndex = 6;
          // 
          // labelControl12
@@ -4476,7 +4517,7 @@
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(611, 2);
+         this.labelControl12.Location = new System.Drawing.Point(594, 2);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(264, 36);
          this.labelControl12.TabIndex = 2;
@@ -4500,16 +4541,6 @@
          // 
          this.DsdstBs.DataSource = typeof(System.CRM.Data.D_SDST);
          // 
-         // RqstStat_Butn
-         // 
-         this.RqstStat_Butn.AutoHeight = false;
-         this.RqstStat_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("RqstStat_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject36, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("RqstStat_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("RqstStat_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject38, "", null, null, true)});
-         this.RqstStat_Butn.Name = "RqstStat_Butn";
-         this.RqstStat_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-         // 
          // INF_LEAD_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4521,6 +4552,7 @@
          this.Name = "INF_LEAD_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(1275, 649);
+         ((System.ComponentModel.ISupportInitialize)(this.RqstStat_Butn)).EndInit();
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
@@ -4661,7 +4693,6 @@
          this.panel6.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.DsdrcBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsdstBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqstStat_Butn)).EndInit();
          this.ResumeLayout(false);
 
       }

@@ -81,6 +81,25 @@ namespace System.CRM.Ui.Activity
             //   };
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+
+            switch (FormCaller)
+            {
+               case "INF_LEAD_F":
+               case "INF_CONT_F":
+               case "INF_ACNT_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", FormCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("Action",
+                              new XAttribute("type", "refresh")
+                           )
+                     }
+                  );
+                  break;
+               default:
+                  break;
+            }
          }
 
          job.Status = StatusType.Successful;
@@ -228,7 +247,7 @@ namespace System.CRM.Ui.Activity
       private void LoadData(Job job)
       {
          JrpbBs.DataSource = iCRM.Job_Personnel_Relations.Where(j => j.REC_STAT == "002");
-         ServBs.DataSource = iCRM.Services.Where(s => /*s.SRPB_TYPE_DNRM == srpbtype*/ s.FILE_NO == fileno && s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);         
+         ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);         
          job.Status = StatusType.Successful;
       }
 
@@ -250,7 +269,6 @@ namespace System.CRM.Ui.Activity
             else
                rqstrqid = 0;
 
-            Serv_Lov.EditValue = fileno;
             Serv_Lov.Enabled = false;
             rqid = null;
 
@@ -261,6 +279,10 @@ namespace System.CRM.Ui.Activity
                RqstBs.AddNew();
                var rqst = RqstBs.Current as Data.Request;
                RqstBs.EndEdit();
+
+               RqroBs.AddNew();
+               var rqro = RqroBs.Current as Data.Request_Row;
+               rqro.SERV_FILE_NO = fileno;
             }
             else
             {

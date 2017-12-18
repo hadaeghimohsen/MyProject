@@ -190,6 +190,16 @@ namespace System.CRM.Ui.Acounts
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            switch (xinput.Attribute("type").Value)
+            {
+               case "refresh":
+                  Execute_Query();
+                  break;
+            }
+         }
          DAtypBs.DataSource = iCRM.D_ATYPs;
          DPstgBs.DataSource = iCRM.D_PSTGs;
          job.Status = StatusType.Successful;

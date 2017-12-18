@@ -30,6 +30,10 @@ namespace System.CRM.Ui.Activity
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
 
+         int rqst = RqstBs.Position;
+         int rqro = RqroBs.Position;
+         int srpr = SrprBs.Position;
+
          RqstBs.DataSource =
             iCRM.Requests.Where(t =>
                t.RQTP_CODE == "013" &&
@@ -37,6 +41,11 @@ namespace System.CRM.Ui.Activity
                t.RQID == (rqid != null ? rqid : t.RQID) &&
                t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno)
             );
+
+         RqstBs.Position = rqst;
+         RqroBs.Position = rqro;
+         SrprBs.Position = srpr;
+
          requery = false;
       }
 
@@ -90,6 +99,8 @@ namespace System.CRM.Ui.Activity
          {
             RqstBs.EndEdit();
             var rqst = RqstBs.Current as Data.Request;
+            var rqro = RqroBs.Current as Data.Request_Row;
+            var srpr = SrprBs.Current as Data.Service_Project;
 
             if (rqst == null) throw new Exception("خطا * شی یادداشت خالی می باشد");
             if (rqst.RQST_DESC == null || rqst.RQST_DESC == "") { RqstDesc_Txt.Focus(); throw new Exception("خطا * عنوان پروژه خالی می باشد"); }
@@ -98,16 +109,16 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_PSAV_P(
                new XElement("Project",
                   new XAttribute("rqstrqid", 0),
-                  new XAttribute("servfileno", fileno),
-                  new XAttribute("rqrorqstrqid", rqst.RQID),
-                  new XAttribute("rqrorwno", 0),
+                  new XAttribute("rqrorqstrqid", rqst.RQID),                  
                   new XAttribute("rqstdesc", rqst.RQST_DESC),
-                  new XElement("Service_Projects",
-                     SrprBs.List.OfType<Data.Service_Project>().Select(sp =>
+                  new XElement("Request_Rows",
+                     new XElement("Service_Projects",                              
                         new XElement("Service_Project",
-                           new XAttribute("jbprcode", sp.JBPR_CODE),
-                           new XAttribute("recstat", sp.REC_STAT),
-                           new XAttribute("code", sp.CODE)
+                           new XAttribute("jbprcode", srpr.JBPR_CODE),
+                           new XAttribute("recstat", srpr.REC_STAT),
+                           new XAttribute("code", srpr.CODE),
+                           new XAttribute("rwno", rqro.RWNO),
+                           new XAttribute("servfileno", rqro.SERV_FILE_NO)
                         )
                      )
                   )
@@ -166,7 +177,7 @@ namespace System.CRM.Ui.Activity
                   {
                      SrprBs.AddNew();
                      var srpr = SrprBs.Current as Data.Service_Project;
-                     srpr.SERV_FILE_NO_DNRM = fileno;
+                     //srpr.SERV_FILE_NO_DNRM = fileno;
                      srpr.JBPR_CODE = jbpr;
                      srpr.REC_STAT = "002";
                   }
@@ -195,6 +206,56 @@ namespace System.CRM.Ui.Activity
          }
          catch (Exception exc)
          { }
+      }
+
+      private void AddRqro_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (RqroBs.List.OfType<Data.Request_Row>().Any(rr => rr.RWNO == 0)) return;
+            RqroBs.AddNew();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Rqro_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var rqro = RqroBs.Current as Data.Request_Row;
+            if (rqro == null || rqro.SERV_FILE_NO == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  break;
+               case 1:
+                  var serv = ServBs.List.OfType<Data.Service>().FirstOrDefault(s => s.FILE_NO == rqro.SERV_FILE_NO);
+                  if (serv == null) return;
+                  int method = serv.SRPB_TYPE_DNRM == "001" ? 24 : 34;
+                  string formpage = serv.SRPB_TYPE_DNRM == "001" ? "INF_LEAD_F" : "INF_CONT_F";
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.Self, method /* Execute Inf_Lead_F */),
+                           new Job(SendType.SelfToUserInterface, formpage, 10 /* Execute ACTN_CALF_P */){Input = new XElement("Service", new XAttribute("fileno", serv.FILE_NO))},
+                        }
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

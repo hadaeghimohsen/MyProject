@@ -117,8 +117,8 @@ namespace System.CRM.Ui.Acounts
             iCRM.Requests.Where(t =>
                t.RQTP_CODE == "013" &&
                t.RQTT_CODE == "004" &&
-               t.Request_Rows.Any(rr => rr.COMP_CODE == compcode) &&
-               t.Service_Projects.Any(sp => sp.REC_STAT == "002" && sp.Job_Personnel_Relation.Job_Personnel.USER_NAME == CurrentUser)
+               //t.Request_Rows.Any(rr => rr.COMP_CODE == compcode) &&
+               t.Request_Rows.FirstOrDefault(rr => rr.COMP_CODE == compcode).Service_Projects.Any(sp => sp.REC_STAT == "002" && sp.Job_Personnel_Relation.Job_Personnel.USER_NAME == CurrentUser)
             );
 
          RqstProjBs.Position = projrqst;

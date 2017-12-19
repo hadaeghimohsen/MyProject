@@ -355,7 +355,7 @@
          this.Jbpd_Butn.Size = new System.Drawing.Size(29, 27);
          this.Jbpd_Butn.TabIndex = 1;
          this.Jbpd_Butn.ToolTip = "کارتابل کاربری";
-         this.Jbpd_Butn.Click += new System.EventHandler(this.Cjbp_Butn_Click);
+         this.Jbpd_Butn.Click += new System.EventHandler(this.Jbpd_Butn_Click);
          // 
          // spinEdit2
          // 

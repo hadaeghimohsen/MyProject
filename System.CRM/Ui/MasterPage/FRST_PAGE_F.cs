@@ -746,6 +746,21 @@ namespace System.CRM.Ui.MasterPage
 
          Tm_Refreshing.Interval = (int)(IntervalTime_Nud.Value * 1000 * 60);
          Refreshing_Butn.Tooltip = string.Format("بروزرسانی \n\r آخرین زمان بروزرسانی {0} انجام شده است", DateTime.Now.ToString("HH:mm:ss"));
+      }
+
+      private void Comp_Rtab_Select(object sender, EventArgs e)
+      {
+         rb_listcomp_Click(null, null);
+      }
+
+      private void Serv_Rtab_Select(object sender, EventArgs e)
+      {
+         rb_showleads_Click(null, null);
+      }
+
+      private void Cont_Rtab_Select(object sender, EventArgs e)
+      {
+         rb_showcontact_Click(null, null);
       }      
    }
 }

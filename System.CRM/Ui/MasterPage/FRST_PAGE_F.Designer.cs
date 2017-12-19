@@ -30,7 +30,7 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
+         this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
          this.ribbonConfigToolBar1 = new C1.Win.C1Ribbon.RibbonConfigToolBar();
@@ -57,12 +57,12 @@
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_crgldfin = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonButton7 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonTab5 = new C1.Win.C1Ribbon.RibbonTab();
+         this.Comp_Rtab = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup8 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_AddAccountButn = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_listcomp = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_deltlistcomp = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
+         this.Serv_Rtab = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_adslat = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_actlogs = new C1.Win.C1Ribbon.RibbonButton();
@@ -72,7 +72,7 @@
          this.rb_AddleadsButn = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_showleads = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_showdeleteleads = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
+         this.Cont_Rtab = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup5 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_AddContactButn = new C1.Win.C1Ribbon.RibbonButton();
          this.rb_lstc = new C1.Win.C1Ribbon.RibbonButton();
@@ -131,7 +131,7 @@
          this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
          this.Tm_Refreshing = new System.Windows.Forms.Timer(this.components);
-         ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IntervalTime_Nud)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).BeginInit();
@@ -139,25 +139,25 @@
          ((System.ComponentModel.ISupportInitialize)(this.InfoServ_Bm)).BeginInit();
          this.SuspendLayout();
          // 
-         // c1Ribbon1
+         // Menu_Rbn
          // 
-         this.c1Ribbon1.ApplicationMenuHolder = this.ribbonApplicationMenu1;
-         this.c1Ribbon1.BottomToolBarHolder = this.ribbonBottomToolBar1;
-         this.c1Ribbon1.ConfigToolBarHolder = this.ribbonConfigToolBar1;
-         this.c1Ribbon1.ContextualTabGroups.Add(this.ribbonContextualTabGroup1);
-         this.c1Ribbon1.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Ribbon1.Location = new System.Drawing.Point(0, 0);
-         this.c1Ribbon1.Name = "c1Ribbon1";
-         this.c1Ribbon1.QatHolder = this.ribbonQat1;
-         this.c1Ribbon1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.c1Ribbon1.Size = new System.Drawing.Size(643, 143);
-         this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
-         this.c1Ribbon1.Tabs.Add(this.ribbonTab5);
-         this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
-         this.c1Ribbon1.Tabs.Add(this.ribbonTab4);
-         this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
-         this.c1Ribbon1.TopToolBarHolder = this.ribbonTopToolBar1;
-         this.c1Ribbon1.VisualStyle = C1.Win.C1Ribbon.VisualStyle.Custom;
+         this.Menu_Rbn.ApplicationMenuHolder = this.ribbonApplicationMenu1;
+         this.Menu_Rbn.BottomToolBarHolder = this.ribbonBottomToolBar1;
+         this.Menu_Rbn.ConfigToolBarHolder = this.ribbonConfigToolBar1;
+         this.Menu_Rbn.ContextualTabGroups.Add(this.ribbonContextualTabGroup1);
+         this.Menu_Rbn.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Menu_Rbn.Location = new System.Drawing.Point(0, 0);
+         this.Menu_Rbn.Name = "Menu_Rbn";
+         this.Menu_Rbn.QatHolder = this.ribbonQat1;
+         this.Menu_Rbn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.Menu_Rbn.Size = new System.Drawing.Size(643, 143);
+         this.Menu_Rbn.Tabs.Add(this.ribbonTab1);
+         this.Menu_Rbn.Tabs.Add(this.Comp_Rtab);
+         this.Menu_Rbn.Tabs.Add(this.Serv_Rtab);
+         this.Menu_Rbn.Tabs.Add(this.Cont_Rtab);
+         this.Menu_Rbn.Tabs.Add(this.ribbonTab3);
+         this.Menu_Rbn.TopToolBarHolder = this.ribbonTopToolBar1;
+         this.Menu_Rbn.VisualStyle = C1.Win.C1Ribbon.VisualStyle.Custom;
          // 
          // ribbonApplicationMenu1
          // 
@@ -239,6 +239,7 @@
          // 
          // rb_stngdfin
          // 
+         this.rb_stngdfin.Enabled = false;
          this.rb_stngdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_stngdfin.LargeImage")));
          this.rb_stngdfin.Name = "rb_stngdfin";
          this.rb_stngdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -247,6 +248,7 @@
          // 
          // rb_regndfin
          // 
+         this.rb_regndfin.Enabled = false;
          this.rb_regndfin.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1153;
          this.rb_regndfin.Name = "rb_regndfin";
          this.rb_regndfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -255,6 +257,7 @@
          // 
          // rb_epitdfin
          // 
+         this.rb_epitdfin.Enabled = false;
          this.rb_epitdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_epitdfin.LargeImage")));
          this.rb_epitdfin.Name = "rb_epitdfin";
          this.rb_epitdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -263,6 +266,7 @@
          // 
          // rb_btrfdifn
          // 
+         this.rb_btrfdifn.Enabled = false;
          this.rb_btrfdifn.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1123;
          this.rb_btrfdifn.Name = "rb_btrfdifn";
          this.rb_btrfdifn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -271,6 +275,7 @@
          // 
          // rb_cashdfin
          // 
+         this.rb_cashdfin.Enabled = false;
          this.rb_cashdfin.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1104;
          this.rb_cashdfin.Name = "rb_cashdfin";
          this.rb_cashdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -287,6 +292,7 @@
          // 
          // rb_orgndfin
          // 
+         this.rb_orgndfin.Enabled = false;
          this.rb_orgndfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_orgndfin.LargeImage")));
          this.rb_orgndfin.Name = "rb_orgndfin";
          this.rb_orgndfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -303,6 +309,7 @@
          // 
          // rb_isicdfin
          // 
+         this.rb_isicdfin.Enabled = false;
          this.rb_isicdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_isicdfin.LargeImage")));
          this.rb_isicdfin.Name = "rb_isicdfin";
          this.rb_isicdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -336,6 +343,7 @@
          // 
          // ribbonGroup2
          // 
+         this.ribbonGroup2.Enabled = false;
          this.ribbonGroup2.Items.Add(this.rb_crgldfin);
          this.ribbonGroup2.Items.Add(this.ribbonButton7);
          this.ribbonGroup2.Name = "ribbonGroup2";
@@ -356,11 +364,12 @@
          this.ribbonButton7.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.ribbonButton7.ToolTip = "افزایش / کاهش نرخ درآمد";
          // 
-         // ribbonTab5
+         // Comp_Rtab
          // 
-         this.ribbonTab5.Groups.Add(this.ribbonGroup8);
-         this.ribbonTab5.Name = "ribbonTab5";
-         this.ribbonTab5.Text = "شرکتها";
+         this.Comp_Rtab.Groups.Add(this.ribbonGroup8);
+         this.Comp_Rtab.Name = "Comp_Rtab";
+         this.Comp_Rtab.Text = "شرکتها";
+         this.Comp_Rtab.Select += new System.EventHandler(this.Comp_Rtab_Select);
          // 
          // ribbonGroup8
          // 
@@ -397,12 +406,13 @@
          this.rb_deltlistcomp.ToolTip = "شرکت های غیرفعال";
          this.rb_deltlistcomp.Click += new System.EventHandler(this.rb_deltlistcomp_Click);
          // 
-         // ribbonTab2
+         // Serv_Rtab
          // 
-         this.ribbonTab2.Groups.Add(this.ribbonGroup3);
-         this.ribbonTab2.Groups.Add(this.ribbonGroup6);
-         this.ribbonTab2.Name = "ribbonTab2";
-         this.ribbonTab2.Text = "مشتریان احتمالی";
+         this.Serv_Rtab.Groups.Add(this.ribbonGroup3);
+         this.Serv_Rtab.Groups.Add(this.ribbonGroup6);
+         this.Serv_Rtab.Name = "Serv_Rtab";
+         this.Serv_Rtab.Text = "مشتریان احتمالی";
+         this.Serv_Rtab.Select += new System.EventHandler(this.Serv_Rtab_Select);
          // 
          // ribbonGroup3
          // 
@@ -477,11 +487,12 @@
          this.rb_showdeleteleads.ToolTip = "مشتریان غیرفعال";
          this.rb_showdeleteleads.Click += new System.EventHandler(this.rb_showdeleteleads_Click);
          // 
-         // ribbonTab4
+         // Cont_Rtab
          // 
-         this.ribbonTab4.Groups.Add(this.ribbonGroup5);
-         this.ribbonTab4.Name = "ribbonTab4";
-         this.ribbonTab4.Text = "خریداران";
+         this.Cont_Rtab.Groups.Add(this.ribbonGroup5);
+         this.Cont_Rtab.Name = "Cont_Rtab";
+         this.Cont_Rtab.Text = "خریداران";
+         this.Cont_Rtab.Select += new System.EventHandler(this.Cont_Rtab_Select);
          // 
          // ribbonGroup5
          // 
@@ -1117,7 +1128,7 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.Controls.Add(this.Pnl_Desktop);
          this.Controls.Add(this.panel1);
-         this.Controls.Add(this.c1Ribbon1);
+         this.Controls.Add(this.Menu_Rbn);
          this.Controls.Add(this.barDockControlLeft);
          this.Controls.Add(this.barDockControlRight);
          this.Controls.Add(this.barDockControlBottom);
@@ -1125,7 +1136,7 @@
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(643, 454);
-         ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          this.panel1.ResumeLayout(false);
          this.panel1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IntervalTime_Nud)).EndInit();
@@ -1139,7 +1150,7 @@
 
       #endregion
 
-      private C1.Win.C1Ribbon.C1Ribbon c1Ribbon1;
+      private C1.Win.C1Ribbon.C1Ribbon Menu_Rbn;
       private C1.Win.C1Ribbon.RibbonApplicationMenu ribbonApplicationMenu1;
       private C1.Win.C1Ribbon.RibbonBottomToolBar ribbonBottomToolBar1;
       private C1.Win.C1Ribbon.RibbonConfigToolBar ribbonConfigToolBar1;
@@ -1155,9 +1166,9 @@
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup2;
       private C1.Win.C1Ribbon.RibbonButton rb_crgldfin;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton7;
-      private C1.Win.C1Ribbon.RibbonTab ribbonTab2;
+      private C1.Win.C1Ribbon.RibbonTab Serv_Rtab;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup3;
-      private C1.Win.C1Ribbon.RibbonTab ribbonTab4;
+      private C1.Win.C1Ribbon.RibbonTab Cont_Rtab;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup5;
       private C1.Win.C1Ribbon.RibbonContextualTabGroup ribbonContextualTabGroup1;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab6;
@@ -1189,7 +1200,7 @@
       private Windows.Forms.BindingSource ServBs;
       private C1.Win.C1Ribbon.RibbonButton rb_stngdfin;
       private C1.Win.C1Ribbon.RibbonButton rb_showdeleteleads;
-      private C1.Win.C1Ribbon.RibbonTab ribbonTab5;
+      private C1.Win.C1Ribbon.RibbonTab Comp_Rtab;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup8;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup9;
       private C1.Win.C1Ribbon.RibbonButton rb_chngpblc;

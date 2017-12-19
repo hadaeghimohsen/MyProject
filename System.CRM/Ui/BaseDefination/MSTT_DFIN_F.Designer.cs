@@ -36,6 +36,13 @@
          this.Apbs_Gc = new DevExpress.XtraGrid.GridControl();
          this.MsttBs = new System.Windows.Forms.BindingSource(this.components);
          this.Mstt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMSTT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MsttBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -52,6 +59,15 @@
          this.Sapb_Gc = new DevExpress.XtraGrid.GridControl();
          this.SsttBs = new System.Windows.Forms.BindingSource(this.components);
          this.Sstt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colMSTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMSTT_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSSTT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMain_State = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SsttBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -81,22 +97,10 @@
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
          this.Back_Butn = new System.MaxUi.RoundedButton();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-         this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMSTT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMSTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMSTT_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSSTT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMain_State = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMSTT_COLR = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttColr_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
+         this.colSSTT_COLR = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttColr_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -116,6 +120,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.MsttColr_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SsttColr_Lov)).BeginInit();
          this.SuspendLayout();
          // 
          // tb_master
@@ -170,6 +176,8 @@
          this.Apbs_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Apbs_Gc.MainView = this.Mstt_Gv;
          this.Apbs_Gc.Name = "Apbs_Gc";
+         this.Apbs_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.MsttColr_Lov});
          this.Apbs_Gc.Size = new System.Drawing.Size(384, 170);
          this.Apbs_Gc.TabIndex = 1;
          this.Apbs_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -179,7 +187,7 @@
          // 
          this.MsttBs.DataSource = typeof(System.CRM.Data.Main_State);
          // 
-         // Apbs_Gv
+         // Mstt_Gv
          // 
          this.Mstt_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Mstt_Gv.Appearance.HeaderPanel.Options.UseFont = true;
@@ -196,13 +204,57 @@
             this.colCRET_BY,
             this.colCRET_DATE,
             this.colMDFY_BY,
-            this.colMDFY_DATE});
+            this.colMDFY_DATE,
+            this.colMSTT_COLR});
          this.Mstt_Gv.GridControl = this.Apbs_Gc;
-         this.Mstt_Gv.Name = "Apbs_Gv";
+         this.Mstt_Gv.Name = "Mstt_Gv";
          this.Mstt_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.Mstt_Gv.OptionsView.ShowDetailButtons = false;
          this.Mstt_Gv.OptionsView.ShowGroupPanel = false;
          this.Mstt_Gv.OptionsView.ShowIndicator = false;
+         // 
+         // colCODE
+         // 
+         this.colCODE.Caption = "ردیف";
+         this.colCODE.FieldName = "CODE";
+         this.colCODE.Name = "colCODE";
+         this.colCODE.Visible = true;
+         this.colCODE.VisibleIndex = 2;
+         this.colCODE.Width = 36;
+         // 
+         // colSUB_SYS
+         // 
+         this.colSUB_SYS.FieldName = "SUB_SYS";
+         this.colSUB_SYS.Name = "colSUB_SYS";
+         // 
+         // colMSTT_DESC
+         // 
+         this.colMSTT_DESC.Caption = "شرح وضعیت اصلی";
+         this.colMSTT_DESC.FieldName = "MSTT_DESC";
+         this.colMSTT_DESC.Name = "colMSTT_DESC";
+         this.colMSTT_DESC.Visible = true;
+         this.colMSTT_DESC.VisibleIndex = 1;
+         this.colMSTT_DESC.Width = 237;
+         // 
+         // colCRET_BY
+         // 
+         this.colCRET_BY.FieldName = "CRET_BY";
+         this.colCRET_BY.Name = "colCRET_BY";
+         // 
+         // colCRET_DATE
+         // 
+         this.colCRET_DATE.FieldName = "CRET_DATE";
+         this.colCRET_DATE.Name = "colCRET_DATE";
+         // 
+         // colMDFY_BY
+         // 
+         this.colMDFY_BY.FieldName = "MDFY_BY";
+         this.colMDFY_BY.Name = "colMDFY_BY";
+         // 
+         // colMDFY_DATE
+         // 
+         this.colMDFY_DATE.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
          // MsttBn
          // 
@@ -342,6 +394,8 @@
          this.Sapb_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Sapb_Gc.MainView = this.Sstt_Gv;
          this.Sapb_Gc.Name = "Sapb_Gc";
+         this.Sapb_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.SsttColr_Lov});
          this.Sapb_Gc.Size = new System.Drawing.Size(384, 179);
          this.Sapb_Gc.TabIndex = 1;
          this.Sapb_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -352,7 +406,7 @@
          this.SsttBs.DataMember = "Sub_States";
          this.SsttBs.DataSource = this.MsttBs;
          // 
-         // SApb_Gv
+         // Sstt_Gv
          // 
          this.Sstt_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Sstt_Gv.Appearance.HeaderPanel.Options.UseFont = true;
@@ -371,13 +425,67 @@
             this.colCRET_DATE1,
             this.colMDFY_BY1,
             this.colMDFY_DATE1,
-            this.colMain_State});
+            this.colMain_State,
+            this.colSSTT_COLR});
          this.Sstt_Gv.GridControl = this.Sapb_Gc;
-         this.Sstt_Gv.Name = "SApb_Gv";
+         this.Sstt_Gv.Name = "Sstt_Gv";
          this.Sstt_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.Sstt_Gv.OptionsView.ShowDetailButtons = false;
          this.Sstt_Gv.OptionsView.ShowGroupPanel = false;
          this.Sstt_Gv.OptionsView.ShowIndicator = false;
+         // 
+         // colMSTT_CODE
+         // 
+         this.colMSTT_CODE.FieldName = "MSTT_CODE";
+         this.colMSTT_CODE.Name = "colMSTT_CODE";
+         // 
+         // colMSTT_SUB_SYS
+         // 
+         this.colMSTT_SUB_SYS.FieldName = "MSTT_SUB_SYS";
+         this.colMSTT_SUB_SYS.Name = "colMSTT_SUB_SYS";
+         // 
+         // colCODE1
+         // 
+         this.colCODE1.Caption = "ردیف";
+         this.colCODE1.FieldName = "CODE";
+         this.colCODE1.Name = "colCODE1";
+         this.colCODE1.Visible = true;
+         this.colCODE1.VisibleIndex = 2;
+         this.colCODE1.Width = 35;
+         // 
+         // colSSTT_DESC
+         // 
+         this.colSSTT_DESC.Caption = "شرح وضعیت فرعی";
+         this.colSSTT_DESC.FieldName = "SSTT_DESC";
+         this.colSSTT_DESC.Name = "colSSTT_DESC";
+         this.colSSTT_DESC.Visible = true;
+         this.colSSTT_DESC.VisibleIndex = 1;
+         this.colSSTT_DESC.Width = 240;
+         // 
+         // colCRET_BY1
+         // 
+         this.colCRET_BY1.FieldName = "CRET_BY";
+         this.colCRET_BY1.Name = "colCRET_BY1";
+         // 
+         // colCRET_DATE1
+         // 
+         this.colCRET_DATE1.FieldName = "CRET_DATE";
+         this.colCRET_DATE1.Name = "colCRET_DATE1";
+         // 
+         // colMDFY_BY1
+         // 
+         this.colMDFY_BY1.FieldName = "MDFY_BY";
+         this.colMDFY_BY1.Name = "colMDFY_BY1";
+         // 
+         // colMDFY_DATE1
+         // 
+         this.colMDFY_DATE1.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE1.Name = "colMDFY_DATE1";
+         // 
+         // colMain_State
+         // 
+         this.colMain_State.FieldName = "Main_State";
+         this.colMain_State.Name = "colMain_State";
          // 
          // SsttBn
          // 
@@ -665,101 +773,39 @@
          this.labelControl15.TabIndex = 2;
          this.labelControl15.Text = "وضعیت های سیستم";
          // 
-         // colCODE
+         // colMSTT_COLR
          // 
-         this.colCODE.Caption = "ردیف";
-         this.colCODE.FieldName = "CODE";
-         this.colCODE.Name = "colCODE";
-         this.colCODE.Visible = true;
-         this.colCODE.VisibleIndex = 1;
-         this.colCODE.Width = 46;
+         this.colMSTT_COLR.Caption = "رنگ وضعیت اصلی";
+         this.colMSTT_COLR.ColumnEdit = this.MsttColr_Lov;
+         this.colMSTT_COLR.FieldName = "MSTT_COLR";
+         this.colMSTT_COLR.Name = "colMSTT_COLR";
+         this.colMSTT_COLR.Visible = true;
+         this.colMSTT_COLR.VisibleIndex = 0;
+         this.colMSTT_COLR.Width = 107;
          // 
-         // colSUB_SYS
+         // MsttColr_Lov
          // 
-         this.colSUB_SYS.FieldName = "SUB_SYS";
-         this.colSUB_SYS.Name = "colSUB_SYS";
+         this.MsttColr_Lov.AutoHeight = false;
+         this.MsttColr_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.MsttColr_Lov.Name = "MsttColr_Lov";
          // 
-         // colMSTT_DESC
+         // colSSTT_COLR
          // 
-         this.colMSTT_DESC.Caption = "شرح وضعیت اصلی";
-         this.colMSTT_DESC.FieldName = "MSTT_DESC";
-         this.colMSTT_DESC.Name = "colMSTT_DESC";
-         this.colMSTT_DESC.Visible = true;
-         this.colMSTT_DESC.VisibleIndex = 0;
-         this.colMSTT_DESC.Width = 334;
+         this.colSSTT_COLR.Caption = "رنگ وضعیت فرعی";
+         this.colSSTT_COLR.ColumnEdit = this.SsttColr_Lov;
+         this.colSSTT_COLR.FieldName = "SSTT_COLR";
+         this.colSSTT_COLR.Name = "colSSTT_COLR";
+         this.colSSTT_COLR.Visible = true;
+         this.colSSTT_COLR.VisibleIndex = 0;
+         this.colSSTT_COLR.Width = 105;
          // 
-         // colCRET_BY
+         // SsttColr_Lov
          // 
-         this.colCRET_BY.FieldName = "CRET_BY";
-         this.colCRET_BY.Name = "colCRET_BY";
-         // 
-         // colCRET_DATE
-         // 
-         this.colCRET_DATE.FieldName = "CRET_DATE";
-         this.colCRET_DATE.Name = "colCRET_DATE";
-         // 
-         // colMDFY_BY
-         // 
-         this.colMDFY_BY.FieldName = "MDFY_BY";
-         this.colMDFY_BY.Name = "colMDFY_BY";
-         // 
-         // colMDFY_DATE
-         // 
-         this.colMDFY_DATE.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE.Name = "colMDFY_DATE";
-         // 
-         // colMSTT_CODE
-         // 
-         this.colMSTT_CODE.FieldName = "MSTT_CODE";
-         this.colMSTT_CODE.Name = "colMSTT_CODE";
-         // 
-         // colMSTT_SUB_SYS
-         // 
-         this.colMSTT_SUB_SYS.FieldName = "MSTT_SUB_SYS";
-         this.colMSTT_SUB_SYS.Name = "colMSTT_SUB_SYS";
-         // 
-         // colCODE1
-         // 
-         this.colCODE1.Caption = "ردیف";
-         this.colCODE1.FieldName = "CODE";
-         this.colCODE1.Name = "colCODE1";
-         this.colCODE1.Visible = true;
-         this.colCODE1.VisibleIndex = 1;
-         this.colCODE1.Width = 47;
-         // 
-         // colSSTT_DESC
-         // 
-         this.colSSTT_DESC.Caption = "شرح وضعیت فرعی";
-         this.colSSTT_DESC.FieldName = "SSTT_DESC";
-         this.colSSTT_DESC.Name = "colSSTT_DESC";
-         this.colSSTT_DESC.Visible = true;
-         this.colSSTT_DESC.VisibleIndex = 0;
-         this.colSSTT_DESC.Width = 333;
-         // 
-         // colCRET_BY1
-         // 
-         this.colCRET_BY1.FieldName = "CRET_BY";
-         this.colCRET_BY1.Name = "colCRET_BY1";
-         // 
-         // colCRET_DATE1
-         // 
-         this.colCRET_DATE1.FieldName = "CRET_DATE";
-         this.colCRET_DATE1.Name = "colCRET_DATE1";
-         // 
-         // colMDFY_BY1
-         // 
-         this.colMDFY_BY1.FieldName = "MDFY_BY";
-         this.colMDFY_BY1.Name = "colMDFY_BY1";
-         // 
-         // colMDFY_DATE1
-         // 
-         this.colMDFY_DATE1.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE1.Name = "colMDFY_DATE1";
-         // 
-         // colMain_State
-         // 
-         this.colMain_State.FieldName = "Main_State";
-         this.colMain_State.Name = "colMain_State";
+         this.SsttColr_Lov.AutoHeight = false;
+         this.SsttColr_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.SsttColr_Lov.Name = "SsttColr_Lov";
          // 
          // MSTT_DFIN_F
          // 
@@ -793,6 +839,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
          this.panelControl5.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.MsttColr_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SsttColr_Lov)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -866,5 +914,9 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY1;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE1;
       private DevExpress.XtraGrid.Columns.GridColumn colMain_State;
+      private DevExpress.XtraGrid.Columns.GridColumn colMSTT_COLR;
+      private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit MsttColr_Lov;
+      private DevExpress.XtraGrid.Columns.GridColumn colSSTT_COLR;
+      private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit SsttColr_Lov;
    }
 }

@@ -329,27 +329,11 @@ namespace System.CRM.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Main_State> Main_States
-		{
-			get
-			{
-				return this.GetTable<Main_State>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Sub_Unit> Sub_Units
 		{
 			get
 			{
 				return this.GetTable<Sub_Unit>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Sub_State> Sub_States
-		{
-			get
-			{
-				return this.GetTable<Sub_State>();
 			}
 		}
 		
@@ -1721,6 +1705,22 @@ namespace System.CRM.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Main_State> Main_States
+		{
+			get
+			{
+				return this.GetTable<Main_State>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sub_State> Sub_States
+		{
+			get
+			{
+				return this.GetTable<Sub_State>();
+			}
+		}
+		
 		private void InsertIsic_Activity(Isic_Activity obj)
 		{
 			this.INS_ISCA_P(obj.FRSI_DESC, obj.ISCG_CODE, obj.CODE);
@@ -1824,36 +1824,6 @@ namespace System.CRM.Data
 		private void DeleteRequest_Document(Request_Document obj)
 		{
 			this.DEL_RQDC_P(((System.Nullable<long>)(obj.RDID)));
-		}
-		
-		private void InsertMain_State(Main_State obj)
-		{
-			this.INS_MSTT_P(((System.Nullable<short>)(obj.CODE)), obj.MSTT_DESC);
-		}
-		
-		private void UpdateMain_State(Main_State obj)
-		{
-			this.UPD_MSTT_P(((System.Nullable<short>)(obj.CODE)), obj.MSTT_DESC);
-		}
-		
-		private void DeleteMain_State(Main_State obj)
-		{
-			this.DEL_MSTT_P(((System.Nullable<short>)(obj.CODE)));
-		}
-		
-		private void InsertSub_State(Sub_State obj)
-		{
-			this.INS_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)), obj.SSTT_DESC);
-		}
-		
-		private void UpdateSub_State(Sub_State obj)
-		{
-			this.UPD_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)), obj.SSTT_DESC);
-		}
-		
-		private void DeleteSub_State(Sub_State obj)
-		{
-			this.DEL_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)));
 		}
 		
 		private void InsertCompany_Activity(Company_Activity obj)
@@ -2146,6 +2116,36 @@ namespace System.CRM.Data
 		private void DeleteJob_Personel_Dashboard(Job_Personel_Dashboard obj)
 		{
 			this.DEL_JBPD_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertMain_State(Main_State obj)
+		{
+			this.INS_MSTT_P(((System.Nullable<short>)(obj.CODE)), obj.MSTT_DESC, obj.MSTT_COLR);
+		}
+		
+		private void UpdateMain_State(Main_State obj)
+		{
+			this.UPD_MSTT_P(((System.Nullable<short>)(obj.CODE)), obj.MSTT_DESC, obj.MSTT_COLR);
+		}
+		
+		private void DeleteMain_State(Main_State obj)
+		{
+			this.DEL_MSTT_P(((System.Nullable<short>)(obj.CODE)));
+		}
+		
+		private void InsertSub_State(Sub_State obj)
+		{
+			this.INS_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)), obj.SSTT_DESC, obj.SSTT_COLR);
+		}
+		
+		private void UpdateSub_State(Sub_State obj)
+		{
+			this.UPD_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)), obj.SSTT_DESC, obj.SSTT_COLR);
+		}
+		
+		private void DeleteSub_State(Sub_State obj)
+		{
+			this.DEL_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CNCL_RQST_P")]
@@ -3338,34 +3338,6 @@ namespace System.CRM.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_MSTT_P")]
-		public int INS_MSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSTT_DESC", DbType="NVarChar(250)")] string mSTT_DESC)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mSTT_DESC);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SSTT_P")]
-		public int INS_SSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Code", DbType="SmallInt")] System.Nullable<short> mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(250)")] string sstt_Desc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mstt_Code, code, sstt_Desc);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_MSTT_P")]
-		public int UPD_MSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSTT_DESC", DbType="NVarChar(250)")] string mSTT_DESC)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mSTT_DESC);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SSTT_P")]
-		public int UPD_SSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Code", DbType="SmallInt")] System.Nullable<short> mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(250)")] string sstt_Desc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mstt_Code, code, sstt_Desc);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_SHIS_P")]
 		public int DEL_SHIS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqst_Rqid", DbType="BigInt")] System.Nullable<long> rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="SmallInt")] System.Nullable<short> rwno)
 		{
@@ -3433,6 +3405,34 @@ namespace System.CRM.Data
 		public int UPD_JBPD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rec_Stat", DbType="VarChar(3)")] string rec_Stat)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, rec_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_MSTT_P")]
+		public int INS_MSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSTT_DESC", DbType="NVarChar(250)")] string mSTT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSTT_COLR", DbType="VarChar(30)")] string mSTT_COLR)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mSTT_DESC, mSTT_COLR);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SSTT_P")]
+		public int INS_SSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Code", DbType="SmallInt")] System.Nullable<short> mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(250)")] string sstt_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Colr", DbType="VarChar(30)")] string sstt_Colr)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mstt_Code, code, sstt_Desc, sstt_Colr);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_MSTT_P")]
+		public int UPD_MSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSTT_DESC", DbType="NVarChar(250)")] string mSTT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Colr", DbType="VarChar(30)")] string mstt_Colr)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mSTT_DESC, mstt_Colr);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SSTT_P")]
+		public int UPD_SSTT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mstt_Code", DbType="SmallInt")] System.Nullable<short> mstt_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="SmallInt")] System.Nullable<short> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Desc", DbType="NVarChar(250)")] string sstt_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sstt_Colr", DbType="VarChar(30)")] string sstt_Colr)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mstt_Code, code, sstt_Desc, sstt_Colr);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -7320,268 +7320,6 @@ namespace System.CRM.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Main_State")]
-	public partial class Main_State : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _CODE;
-		
-		private short _SUB_SYS;
-		
-		private string _MSTT_DESC;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Sub_State> _Sub_States;
-		
-		private EntitySet<Step_History_Summery> _Step_History_Summeries;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(short value);
-    partial void OnCODEChanged();
-    partial void OnSUB_SYSChanging(short value);
-    partial void OnSUB_SYSChanged();
-    partial void OnMSTT_DESCChanging(string value);
-    partial void OnMSTT_DESCChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Main_State()
-		{
-			this._Sub_States = new EntitySet<Sub_State>(new Action<Sub_State>(this.attach_Sub_States), new Action<Sub_State>(this.detach_Sub_States));
-			this._Step_History_Summeries = new EntitySet<Step_History_Summery>(new Action<Step_History_Summery>(this.attach_Step_History_Summeries), new Action<Step_History_Summery>(this.detach_Step_History_Summeries));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short SUB_SYS
-		{
-			get
-			{
-				return this._SUB_SYS;
-			}
-			set
-			{
-				if ((this._SUB_SYS != value))
-				{
-					this.OnSUB_SYSChanging(value);
-					this.SendPropertyChanging();
-					this._SUB_SYS = value;
-					this.SendPropertyChanged("SUB_SYS");
-					this.OnSUB_SYSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MSTT_DESC
-		{
-			get
-			{
-				return this._MSTT_DESC;
-			}
-			set
-			{
-				if ((this._MSTT_DESC != value))
-				{
-					this.OnMSTT_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._MSTT_DESC = value;
-					this.SendPropertyChanged("MSTT_DESC");
-					this.OnMSTT_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Sub_State", Storage="_Sub_States", ThisKey="CODE,SUB_SYS", OtherKey="MSTT_CODE,MSTT_SUB_SYS")]
-		public EntitySet<Sub_State> Sub_States
-		{
-			get
-			{
-				return this._Sub_States;
-			}
-			set
-			{
-				this._Sub_States.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Step_History_Summery", Storage="_Step_History_Summeries", ThisKey="CODE,SUB_SYS", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS")]
-		public EntitySet<Step_History_Summery> Step_History_Summeries
-		{
-			get
-			{
-				return this._Step_History_Summeries;
-			}
-			set
-			{
-				this._Step_History_Summeries.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Sub_States(Sub_State entity)
-		{
-			this.SendPropertyChanging();
-			entity.Main_State = this;
-		}
-		
-		private void detach_Sub_States(Sub_State entity)
-		{
-			this.SendPropertyChanging();
-			entity.Main_State = null;
-		}
-		
-		private void attach_Step_History_Summeries(Step_History_Summery entity)
-		{
-			this.SendPropertyChanging();
-			entity.Main_State = this;
-		}
-		
-		private void detach_Step_History_Summeries(Step_History_Summery entity)
-		{
-			this.SendPropertyChanging();
-			entity.Main_State = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sub_Unit")]
 	public partial class Sub_Unit : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -8023,367 +7761,6 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Sub_Unit = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sub_State")]
-	public partial class Sub_State : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _MSTT_CODE;
-		
-		private short _MSTT_SUB_SYS;
-		
-		private short _CODE;
-		
-		private string _SSTT_DESC;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Request> _Requests;
-		
-		private EntitySet<Step_History_Detail> _Step_History_Details;
-		
-		private EntitySet<Job_Personel_Dashboard> _Job_Personel_Dashboards;
-		
-		private EntityRef<Main_State> _Main_State;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMSTT_CODEChanging(short value);
-    partial void OnMSTT_CODEChanged();
-    partial void OnMSTT_SUB_SYSChanging(short value);
-    partial void OnMSTT_SUB_SYSChanged();
-    partial void OnCODEChanging(short value);
-    partial void OnCODEChanged();
-    partial void OnSSTT_DESCChanging(string value);
-    partial void OnSSTT_DESCChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Sub_State()
-		{
-			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
-			this._Step_History_Details = new EntitySet<Step_History_Detail>(new Action<Step_History_Detail>(this.attach_Step_History_Details), new Action<Step_History_Detail>(this.detach_Step_History_Details));
-			this._Job_Personel_Dashboards = new EntitySet<Job_Personel_Dashboard>(new Action<Job_Personel_Dashboard>(this.attach_Job_Personel_Dashboards), new Action<Job_Personel_Dashboard>(this.detach_Job_Personel_Dashboards));
-			this._Main_State = default(EntityRef<Main_State>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_CODE", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short MSTT_CODE
-		{
-			get
-			{
-				return this._MSTT_CODE;
-			}
-			set
-			{
-				if ((this._MSTT_CODE != value))
-				{
-					if (this._Main_State.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMSTT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MSTT_CODE = value;
-					this.SendPropertyChanged("MSTT_CODE");
-					this.OnMSTT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_SUB_SYS", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short MSTT_SUB_SYS
-		{
-			get
-			{
-				return this._MSTT_SUB_SYS;
-			}
-			set
-			{
-				if ((this._MSTT_SUB_SYS != value))
-				{
-					if (this._Main_State.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMSTT_SUB_SYSChanging(value);
-					this.SendPropertyChanging();
-					this._MSTT_SUB_SYS = value;
-					this.SendPropertyChanged("MSTT_SUB_SYS");
-					this.OnMSTT_SUB_SYSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SSTT_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string SSTT_DESC
-		{
-			get
-			{
-				return this._SSTT_DESC;
-			}
-			set
-			{
-				if ((this._SSTT_DESC != value))
-				{
-					this.OnSSTT_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._SSTT_DESC = value;
-					this.SendPropertyChanged("SSTT_DESC");
-					this.OnSSTT_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_State_Request", Storage="_Requests", ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE")]
-		public EntitySet<Request> Requests
-		{
-			get
-			{
-				return this._Requests;
-			}
-			set
-			{
-				this._Requests.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_State_Step_History_Detail", Storage="_Step_History_Details", ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE")]
-		public EntitySet<Step_History_Detail> Step_History_Details
-		{
-			get
-			{
-				return this._Step_History_Details;
-			}
-			set
-			{
-				this._Step_History_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_State_Job_Personel_Dashboard", Storage="_Job_Personel_Dashboards", ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE")]
-		public EntitySet<Job_Personel_Dashboard> Job_Personel_Dashboards
-		{
-			get
-			{
-				return this._Job_Personel_Dashboards;
-			}
-			set
-			{
-				this._Job_Personel_Dashboards.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Sub_State", Storage="_Main_State", ThisKey="MSTT_CODE,MSTT_SUB_SYS", OtherKey="CODE,SUB_SYS", IsForeignKey=true)]
-		public Main_State Main_State
-		{
-			get
-			{
-				return this._Main_State.Entity;
-			}
-			set
-			{
-				Main_State previousValue = this._Main_State.Entity;
-				if (((previousValue != value) 
-							|| (this._Main_State.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Main_State.Entity = null;
-						previousValue.Sub_States.Remove(this);
-					}
-					this._Main_State.Entity = value;
-					if ((value != null))
-					{
-						value.Sub_States.Add(this);
-						this._MSTT_CODE = value.CODE;
-						this._MSTT_SUB_SYS = value.SUB_SYS;
-					}
-					else
-					{
-						this._MSTT_CODE = default(short);
-						this._MSTT_SUB_SYS = default(short);
-					}
-					this.SendPropertyChanged("Main_State");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Requests(Request entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_State = this;
-		}
-		
-		private void detach_Requests(Request entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_State = null;
-		}
-		
-		private void attach_Step_History_Details(Step_History_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_State = this;
-		}
-		
-		private void detach_Step_History_Details(Step_History_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_State = null;
-		}
-		
-		private void attach_Job_Personel_Dashboards(Job_Personel_Dashboard entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_State = this;
-		}
-		
-		private void detach_Job_Personel_Dashboards(Job_Personel_Dashboard entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_State = null;
 		}
 	}
 	
@@ -53937,9 +53314,9 @@ namespace System.CRM.Data
 		
 		private EntitySet<Step_History_Detail> _Step_History_Details;
 		
-		private EntityRef<Main_State> _Main_State;
-		
 		private EntityRef<Request> _Request;
+		
+		private EntityRef<Main_State> _Main_State;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -53972,8 +53349,8 @@ namespace System.CRM.Data
 		public Step_History_Summery()
 		{
 			this._Step_History_Details = new EntitySet<Step_History_Detail>(new Action<Step_History_Detail>(this.attach_Step_History_Details), new Action<Step_History_Detail>(this.detach_Step_History_Details));
-			this._Main_State = default(EntityRef<Main_State>);
 			this._Request = default(EntityRef<Request>);
+			this._Main_State = default(EntityRef<Main_State>);
 			OnCreated();
 		}
 		
@@ -54222,6 +53599,40 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Step_History_Summery", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Request Request
+		{
+			get
+			{
+				return this._Request.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request.Entity;
+				if (((previousValue != value) 
+							|| (this._Request.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request.Entity = null;
+						previousValue.Step_History_Summeries.Remove(this);
+					}
+					this._Request.Entity = value;
+					if ((value != null))
+					{
+						value.Step_History_Summeries.Add(this);
+						this._RQST_RQID = value.RQID;
+					}
+					else
+					{
+						this._RQST_RQID = default(long);
+					}
+					this.SendPropertyChanged("Request");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Step_History_Summery", Storage="_Main_State", ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS", OtherKey="CODE,SUB_SYS", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Main_State Main_State
 		{
@@ -54254,40 +53665,6 @@ namespace System.CRM.Data
 						this._SSTT_MSTT_SUB_SYS = default(short);
 					}
 					this.SendPropertyChanged("Main_State");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Step_History_Summery", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Request Request
-		{
-			get
-			{
-				return this._Request.Entity;
-			}
-			set
-			{
-				Request previousValue = this._Request.Entity;
-				if (((previousValue != value) 
-							|| (this._Request.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request.Entity = null;
-						previousValue.Step_History_Summeries.Remove(this);
-					}
-					this._Request.Entity = value;
-					if ((value != null))
-					{
-						value.Step_History_Summeries.Add(this);
-						this._RQST_RQID = value.RQID;
-					}
-					else
-					{
-						this._RQST_RQID = default(long);
-					}
-					this.SendPropertyChanged("Request");
 				}
 			}
 		}
@@ -55612,6 +54989,677 @@ namespace System.CRM.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Main_State")]
+	public partial class Main_State : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _CODE;
+		
+		private short _SUB_SYS;
+		
+		private string _MSTT_DESC;
+		
+		private string _MSTT_COLR;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Step_History_Summery> _Step_History_Summeries;
+		
+		private EntitySet<Sub_State> _Sub_States;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(short value);
+    partial void OnCODEChanged();
+    partial void OnSUB_SYSChanging(short value);
+    partial void OnSUB_SYSChanged();
+    partial void OnMSTT_DESCChanging(string value);
+    partial void OnMSTT_DESCChanged();
+    partial void OnMSTT_COLRChanging(string value);
+    partial void OnMSTT_COLRChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Main_State()
+		{
+			this._Step_History_Summeries = new EntitySet<Step_History_Summery>(new Action<Step_History_Summery>(this.attach_Step_History_Summeries), new Action<Step_History_Summery>(this.detach_Step_History_Summeries));
+			this._Sub_States = new EntitySet<Sub_State>(new Action<Sub_State>(this.attach_Sub_States), new Action<Sub_State>(this.detach_Sub_States));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short SUB_SYS
+		{
+			get
+			{
+				return this._SUB_SYS;
+			}
+			set
+			{
+				if ((this._SUB_SYS != value))
+				{
+					this.OnSUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_SYS = value;
+					this.SendPropertyChanged("SUB_SYS");
+					this.OnSUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_DESC", DbType="NVarChar(250)")]
+		public string MSTT_DESC
+		{
+			get
+			{
+				return this._MSTT_DESC;
+			}
+			set
+			{
+				if ((this._MSTT_DESC != value))
+				{
+					this.OnMSTT_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._MSTT_DESC = value;
+					this.SendPropertyChanged("MSTT_DESC");
+					this.OnMSTT_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_COLR", DbType="VarChar(30)")]
+		public string MSTT_COLR
+		{
+			get
+			{
+				return this._MSTT_COLR;
+			}
+			set
+			{
+				if ((this._MSTT_COLR != value))
+				{
+					this.OnMSTT_COLRChanging(value);
+					this.SendPropertyChanging();
+					this._MSTT_COLR = value;
+					this.SendPropertyChanged("MSTT_COLR");
+					this.OnMSTT_COLRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Step_History_Summery", Storage="_Step_History_Summeries", ThisKey="CODE,SUB_SYS", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS")]
+		public EntitySet<Step_History_Summery> Step_History_Summeries
+		{
+			get
+			{
+				return this._Step_History_Summeries;
+			}
+			set
+			{
+				this._Step_History_Summeries.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Sub_State", Storage="_Sub_States", ThisKey="CODE,SUB_SYS", OtherKey="MSTT_CODE,MSTT_SUB_SYS")]
+		public EntitySet<Sub_State> Sub_States
+		{
+			get
+			{
+				return this._Sub_States;
+			}
+			set
+			{
+				this._Sub_States.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Step_History_Summeries(Step_History_Summery entity)
+		{
+			this.SendPropertyChanging();
+			entity.Main_State = this;
+		}
+		
+		private void detach_Step_History_Summeries(Step_History_Summery entity)
+		{
+			this.SendPropertyChanging();
+			entity.Main_State = null;
+		}
+		
+		private void attach_Sub_States(Sub_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.Main_State = this;
+		}
+		
+		private void detach_Sub_States(Sub_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.Main_State = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sub_State")]
+	public partial class Sub_State : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _MSTT_CODE;
+		
+		private short _MSTT_SUB_SYS;
+		
+		private short _CODE;
+		
+		private string _SSTT_DESC;
+		
+		private string _SSTT_COLR;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Request> _Requests;
+		
+		private EntitySet<Step_History_Detail> _Step_History_Details;
+		
+		private EntitySet<Job_Personel_Dashboard> _Job_Personel_Dashboards;
+		
+		private EntityRef<Main_State> _Main_State;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMSTT_CODEChanging(short value);
+    partial void OnMSTT_CODEChanged();
+    partial void OnMSTT_SUB_SYSChanging(short value);
+    partial void OnMSTT_SUB_SYSChanged();
+    partial void OnCODEChanging(short value);
+    partial void OnCODEChanged();
+    partial void OnSSTT_DESCChanging(string value);
+    partial void OnSSTT_DESCChanged();
+    partial void OnSSTT_COLRChanging(string value);
+    partial void OnSSTT_COLRChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Sub_State()
+		{
+			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
+			this._Step_History_Details = new EntitySet<Step_History_Detail>(new Action<Step_History_Detail>(this.attach_Step_History_Details), new Action<Step_History_Detail>(this.detach_Step_History_Details));
+			this._Job_Personel_Dashboards = new EntitySet<Job_Personel_Dashboard>(new Action<Job_Personel_Dashboard>(this.attach_Job_Personel_Dashboards), new Action<Job_Personel_Dashboard>(this.detach_Job_Personel_Dashboards));
+			this._Main_State = default(EntityRef<Main_State>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_CODE", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short MSTT_CODE
+		{
+			get
+			{
+				return this._MSTT_CODE;
+			}
+			set
+			{
+				if ((this._MSTT_CODE != value))
+				{
+					if (this._Main_State.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMSTT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MSTT_CODE = value;
+					this.SendPropertyChanged("MSTT_CODE");
+					this.OnMSTT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSTT_SUB_SYS", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short MSTT_SUB_SYS
+		{
+			get
+			{
+				return this._MSTT_SUB_SYS;
+			}
+			set
+			{
+				if ((this._MSTT_SUB_SYS != value))
+				{
+					if (this._Main_State.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMSTT_SUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._MSTT_SUB_SYS = value;
+					this.SendPropertyChanged("MSTT_SUB_SYS");
+					this.OnMSTT_SUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SSTT_DESC", DbType="NVarChar(250)")]
+		public string SSTT_DESC
+		{
+			get
+			{
+				return this._SSTT_DESC;
+			}
+			set
+			{
+				if ((this._SSTT_DESC != value))
+				{
+					this.OnSSTT_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SSTT_DESC = value;
+					this.SendPropertyChanged("SSTT_DESC");
+					this.OnSSTT_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SSTT_COLR", DbType="VarChar(30)")]
+		public string SSTT_COLR
+		{
+			get
+			{
+				return this._SSTT_COLR;
+			}
+			set
+			{
+				if ((this._SSTT_COLR != value))
+				{
+					this.OnSSTT_COLRChanging(value);
+					this.SendPropertyChanging();
+					this._SSTT_COLR = value;
+					this.SendPropertyChanged("SSTT_COLR");
+					this.OnSSTT_COLRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_State_Request", Storage="_Requests", ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE")]
+		public EntitySet<Request> Requests
+		{
+			get
+			{
+				return this._Requests;
+			}
+			set
+			{
+				this._Requests.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_State_Step_History_Detail", Storage="_Step_History_Details", ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE")]
+		public EntitySet<Step_History_Detail> Step_History_Details
+		{
+			get
+			{
+				return this._Step_History_Details;
+			}
+			set
+			{
+				this._Step_History_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_State_Job_Personel_Dashboard", Storage="_Job_Personel_Dashboards", ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE", OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE")]
+		public EntitySet<Job_Personel_Dashboard> Job_Personel_Dashboards
+		{
+			get
+			{
+				return this._Job_Personel_Dashboards;
+			}
+			set
+			{
+				this._Job_Personel_Dashboards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Main_State_Sub_State", Storage="_Main_State", ThisKey="MSTT_CODE,MSTT_SUB_SYS", OtherKey="CODE,SUB_SYS", IsForeignKey=true)]
+		public Main_State Main_State
+		{
+			get
+			{
+				return this._Main_State.Entity;
+			}
+			set
+			{
+				Main_State previousValue = this._Main_State.Entity;
+				if (((previousValue != value) 
+							|| (this._Main_State.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Main_State.Entity = null;
+						previousValue.Sub_States.Remove(this);
+					}
+					this._Main_State.Entity = value;
+					if ((value != null))
+					{
+						value.Sub_States.Add(this);
+						this._MSTT_CODE = value.CODE;
+						this._MSTT_SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._MSTT_CODE = default(short);
+						this._MSTT_SUB_SYS = default(short);
+					}
+					this.SendPropertyChanged("Main_State");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Requests(Request entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_State = this;
+		}
+		
+		private void detach_Requests(Request entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_State = null;
+		}
+		
+		private void attach_Step_History_Details(Step_History_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_State = this;
+		}
+		
+		private void detach_Step_History_Details(Step_History_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_State = null;
+		}
+		
+		private void attach_Job_Personel_Dashboards(Job_Personel_Dashboard entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_State = this;
+		}
+		
+		private void detach_Job_Personel_Dashboards(Job_Personel_Dashboard entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_State = null;
 		}
 	}
 	

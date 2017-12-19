@@ -460,6 +460,36 @@ namespace System.CRM.Ui.Acounts
          }
       }
 
+      private void EditLogc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var logc = LogcBs.Current as Data.Log_Call;
+            if (logc == null) return;
+
+            var _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+              {                  
+                  new Job(SendType.Self, 25 /* Execute Opt_Logc_F */),
+                  new Job(SendType.SelfToUserInterface, "OPT_LOGC_F", 10 /* Execute ACTN_CALF_P */)
+                  {
+                     Input = 
+                     new XElement("Service", 
+                        new XAttribute("fileno", logc.SERV_FILE_NO), 
+                        new XAttribute("lcid", logc.LCID),
+                        new XAttribute("formcaller", GetType().Name)
+                     )
+                  },
+              });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }      
+
       #endregion
 
       #region Email
@@ -583,6 +613,35 @@ namespace System.CRM.Ui.Acounts
          }
       }
 
+      private void EditEmal_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var emal = EmalBs.Current as Data.Email;
+            if (emal == null) return;
+
+            var _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                    new Job(SendType.Self, 31 /* Execute Opt_Emal_F */),
+                    new Job(SendType.SelfToUserInterface, "OPT_EMAL_F", 10 /* Execute ACTN_CALF_P */)
+                    {
+                       Input = 
+                       new XElement("Service", 
+                          new XAttribute("fileno", emal.SERV_FILE_NO), 
+                          new XAttribute("emid", emal.EMID),
+                          new XAttribute("formcaller", GetType().Name)
+                       )
+                    },
+                 });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
       #endregion 
 
       #region Task
@@ -1870,6 +1929,6 @@ namespace System.CRM.Ui.Acounts
          {
             MessageBox.Show(exc.Message);
          }
-      }      
+      }
    }
 }

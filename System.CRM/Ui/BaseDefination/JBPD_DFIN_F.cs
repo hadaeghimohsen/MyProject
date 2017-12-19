@@ -26,6 +26,7 @@ namespace System.CRM.Ui.BaseDefination
 
       private bool requery;
       private string formcaller;
+      private long jobpcode;
       private XElement xinput;
 
       private void Execute_Query()
@@ -34,7 +35,7 @@ namespace System.CRM.Ui.BaseDefination
          JbpdBs1.DataSource = iCRM.Job_Personel_Dashboards;
 
          JobpBs1.DataSource = iCRM.Job_Personnels;
-         SsttBs1.DataSource = iCRM.Sub_States;
+         MsttBs1.DataSource = iCRM.Main_States;
          requery = false;
       }
 
@@ -50,11 +51,12 @@ namespace System.CRM.Ui.BaseDefination
          try
          {
             var jobpcode = JobpCode_Lov.EditValue;            
-            var apbscode = ApbsCode_Lov.EditValue;
+            var msttcode = MsttCode_Lov.EditValue;
+            var ssttcode = SsttCode_Lov.EditValue;
 
-            if ((jobpcode == null|| jobpcode == "") || (rlatjobpcode == null || rlatjobpcode == "") || (apbscode == null || apbscode == "")) return;
+            if ((jobpcode == null|| jobpcode == "") || (msttcode == null || msttcode == "") || (ssttcode == null || ssttcode == "")) return;
 
-            iCRM.INS_JBPR_P((long?)jobpcode, (long?)rlatjobpcode, (long?)apbscode);
+            iCRM.INS_JBPD_P((long?)jobpcode, 1, (short?)msttcode, (short?)ssttcode);
 
             requery = true;
          }
@@ -73,11 +75,11 @@ namespace System.CRM.Ui.BaseDefination
       {
          try
          {
-            var jbpr = JbprBs1.Current as Data.Job_Personnel_Relation;
+            var jbpd = JbpdBs1.Current as Data.Job_Personel_Dashboard;
 
-            if (jbpr == null) return;
+            if (jbpd == null) return;
 
-            iCRM.DEL_JBPR_P(jbpr.CODE);
+            iCRM.DEL_JBPD_P(jbpd.CODE);
 
             requery = true;
          }
@@ -92,7 +94,7 @@ namespace System.CRM.Ui.BaseDefination
          }
       }
 
-      private void ApbsCode_Lov_ButtonClick(object sender, ButtonPressedEventArgs e)
+      private void MsttCode_Lov_ButtonClick(object sender, ButtonPressedEventArgs e)
       {
          try
          {
@@ -102,22 +104,59 @@ namespace System.CRM.Ui.BaseDefination
                   new Job(SendType.External, "localhost",
                      new List<Job>
                      {
-                        new Job(SendType.Self, 79 /* Execute Apbs_Dfin_F */),
-                        new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        new Job(SendType.Self, 89 /* Execute Mstt_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "MSTT_DFIN_F", 10 /* Execute Actn_CalF_P */) 
                         {
                            Input = 
-                              new XElement("App_Base",
-                                 new XAttribute("tablename", "COMPANYCHART_INFO"),
-                                 new XAttribute("formcaller", GetType().Name)
+                              new XElement("MainSub_Stat",
+                                 new XAttribute("formcaller", GetType().Name)                           
                               )
                         }
-                     })
+                     }
+                  )
                );
             }
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MsttCode_Lov_EditValueChanging(object sender, ChangingEventArgs e)
+      {
+         try
+         {
+            SsttBs1.DataSource = iCRM.Sub_States.Where(ss => ss.MSTT_SUB_SYS == 1 && ss.MSTT_CODE == (short)e.NewValue);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RecStat_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var jbpd = JbpdBs1.Current as Data.Job_Personel_Dashboard;
+            if (jbpd == null) return;
+
+            jbpd.REC_STAT = jbpd.REC_STAT == "002" ? "001" : "002";
+            iCRM.UPD_JBPD_P(jbpd.CODE, jbpd.REC_STAT);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
          }
       }
    }

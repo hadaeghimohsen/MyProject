@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INF_ACNT_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -84,10 +85,9 @@
          this.AddDeals_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Back_Butn = new System.MaxUi.RoundedButton();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-         this.CompBs = new System.Windows.Forms.BindingSource();
+         this.CompBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-         this.RelationShip_Butn = new System.MaxUi.RoundedButton();
          this.linkLabel9 = new System.Windows.Forms.LinkLabel();
          this.linkLabel8 = new System.Windows.Forms.LinkLabel();
          this.linkLabel7 = new System.Windows.Forms.LinkLabel();
@@ -126,6 +126,7 @@
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+         this.RelationShip_Butn = new System.MaxUi.RoundedButton();
          this.TwitterUrl_Butn = new System.MaxUi.RoundedButton();
          this.AddLogCall_Butn = new System.MaxUi.RoundedButton();
          this.DeleteRecycleCompany_Butn = new System.MaxUi.RoundedButton();
@@ -140,14 +141,14 @@
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.PymtNotEnd_Lb = new DevExpress.XtraEditors.LabelControl();
          this.PymtEnd_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.LogcBs = new System.Windows.Forms.BindingSource();
-         this.RqstChngBs = new System.Windows.Forms.BindingSource();
+         this.LogcBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstChngBs = new System.Windows.Forms.BindingSource(this.components);
          this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.NoteComment_Txt = new DevExpress.XtraEditors.MemoEdit();
-         this.NoteBs = new System.Windows.Forms.BindingSource();
+         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
          this.panel3 = new System.Windows.Forms.Panel();
          this.EditNote_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
@@ -173,7 +174,7 @@
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-         this.TaskBs = new System.Windows.Forms.BindingSource();
+         this.TaskBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.Task_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -201,7 +202,7 @@
          this.TaskRelatedService_Pb = new System.MaxUi.RoundedButton();
          this.tabPage3 = new System.Windows.Forms.TabPage();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.AponBs = new System.Windows.Forms.BindingSource();
+         this.AponBs = new System.Windows.Forms.BindingSource(this.components);
          this.Apon_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colSUBJ_DESC2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -233,7 +234,7 @@
          this.AppointmentRelatedService_Pb = new System.MaxUi.RoundedButton();
          this.tabPage4 = new System.Windows.Forms.TabPage();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.FileBs = new System.Windows.Forms.BindingSource();
+         this.FileBs = new System.Windows.Forms.BindingSource(this.components);
          this.File_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colSUBJ_DESC3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -266,7 +267,7 @@
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
          this.tabPage5 = new System.Windows.Forms.TabPage();
          this.gridControl8 = new DevExpress.XtraGrid.GridControl();
-         this.MesgBs = new System.Windows.Forms.BindingSource();
+         this.MesgBs = new System.Windows.Forms.BindingSource(this.components);
          this.Mesg_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colRQRO_RQST_RQID3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -319,7 +320,7 @@
          this.tabPage7 = new System.Windows.Forms.TabPage();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.memoEdit4 = new DevExpress.XtraEditors.MemoEdit();
-         this.EmalBs = new System.Windows.Forms.BindingSource();
+         this.EmalBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridControl10 = new DevExpress.XtraGrid.GridControl();
          this.advBandedGridView2 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -336,7 +337,7 @@
          this.labelControl56 = new DevExpress.XtraEditors.LabelControl();
          this.tabPage8 = new System.Windows.Forms.TabPage();
          this.gridControl11 = new DevExpress.XtraGrid.GridControl();
-         this.PymtSaveBs = new System.Windows.Forms.BindingSource();
+         this.PymtSaveBs = new System.Windows.Forms.BindingSource(this.components);
          this.Deal_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.bandedGridColumn34 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -354,7 +355,7 @@
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RqstProjBs = new System.Windows.Forms.BindingSource();
+         this.RqstProjBs = new System.Windows.Forms.BindingSource(this.components);
          this.CallLog_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -401,8 +402,8 @@
          this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.ShidBs = new System.Windows.Forms.BindingSource();
-         this.ShisBs = new System.Windows.Forms.BindingSource();
+         this.ShidBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ShisBs = new System.Windows.Forms.BindingSource(this.components);
          this.Shid_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSHIS_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSHIS_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -424,7 +425,7 @@
          this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
          this.SaveSstt_Butn = new System.MaxUi.RoundedButton();
          this.SubStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.SsttBs = new System.Windows.Forms.BindingSource();
+         this.SsttBs = new System.Windows.Forms.BindingSource(this.components);
          this.AddSstt_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl9 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -448,7 +449,7 @@
          this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
          this.SaveMstt_Butn = new System.MaxUi.RoundedButton();
          this.MainStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.MsttBs = new System.Windows.Forms.BindingSource();
+         this.MsttBs = new System.Windows.Forms.BindingSource(this.components);
          this.AddMstt_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -496,11 +497,11 @@
          this.colCASH_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.Atyp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs = new System.Windows.Forms.BindingSource();
+         this.DAtypBs = new System.Windows.Forms.BindingSource(this.components);
          this.colTOTL_EXPN_PRIC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colPYMT_STAG = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.Pstg_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DPstgBs = new System.Windows.Forms.BindingSource();
+         this.DPstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.colPYMT_DESC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colDebt_Amnt = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colSUM_RCPT_EXPN_PRIC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -515,8 +516,8 @@
          this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
          this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
          this.panel6 = new System.Windows.Forms.Panel();
-         this.DsdstBs = new System.Windows.Forms.BindingSource();
-         this.DsdrcBs = new System.Windows.Forms.BindingSource();
+         this.DsdstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsdrcBs = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.RqstStat_Butn)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CompBs)).BeginInit();
@@ -918,31 +919,6 @@
          this.panelControl4.Name = "panelControl4";
          this.panelControl4.Size = new System.Drawing.Size(698, 383);
          this.panelControl4.TabIndex = 3;
-         // 
-         // RelationShip_Butn
-         // 
-         this.RelationShip_Butn.Active = true;
-         this.RelationShip_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.RelationShip_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.RelationShip_Butn.Caption = "";
-         this.RelationShip_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.RelationShip_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.RelationShip_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.RelationShip_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.RelationShip_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.RelationShip_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1601;
-         this.RelationShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.RelationShip_Butn.ImageVisiable = true;
-         this.RelationShip_Butn.Location = new System.Drawing.Point(163, 6);
-         this.RelationShip_Butn.Name = "RelationShip_Butn";
-         this.RelationShip_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.RelationShip_Butn.NormalColorA = System.Drawing.Color.White;
-         this.RelationShip_Butn.NormalColorB = System.Drawing.Color.White;
-         this.RelationShip_Butn.Size = new System.Drawing.Size(36, 36);
-         this.RelationShip_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.RelationShip_Butn.TabIndex = 21;
-         this.RelationShip_Butn.Tooltip = "روابط و ارتباطات";
-         this.RelationShip_Butn.Click += new System.EventHandler(this.RelationShip_Butn_Click);
          // 
          // linkLabel9
          // 
@@ -1529,6 +1505,31 @@
          this.labelControl5.Size = new System.Drawing.Size(109, 27);
          this.labelControl5.TabIndex = 2;
          this.labelControl5.Text = "کشور";
+         // 
+         // RelationShip_Butn
+         // 
+         this.RelationShip_Butn.Active = true;
+         this.RelationShip_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RelationShip_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.RelationShip_Butn.Caption = "";
+         this.RelationShip_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.RelationShip_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.RelationShip_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.RelationShip_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.RelationShip_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RelationShip_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1601;
+         this.RelationShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.RelationShip_Butn.ImageVisiable = true;
+         this.RelationShip_Butn.Location = new System.Drawing.Point(163, 6);
+         this.RelationShip_Butn.Name = "RelationShip_Butn";
+         this.RelationShip_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.RelationShip_Butn.NormalColorA = System.Drawing.Color.White;
+         this.RelationShip_Butn.NormalColorB = System.Drawing.Color.White;
+         this.RelationShip_Butn.Size = new System.Drawing.Size(36, 36);
+         this.RelationShip_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.RelationShip_Butn.TabIndex = 21;
+         this.RelationShip_Butn.Tooltip = "روابط و ارتباطات";
+         this.RelationShip_Butn.Click += new System.EventHandler(this.RelationShip_Butn_Click);
          // 
          // TwitterUrl_Butn
          // 
@@ -3849,6 +3850,7 @@
          this.EditLogc_Butn.Name = "EditLogc_Butn";
          this.EditLogc_Butn.Size = new System.Drawing.Size(36, 36);
          this.EditLogc_Butn.TabIndex = 7;
+         this.EditLogc_Butn.Click += new System.EventHandler(this.EditLogc_Butn_Click);
          // 
          // labelControl50
          // 
@@ -4097,6 +4099,7 @@
          this.EditEmal_Butn.Name = "EditEmal_Butn";
          this.EditEmal_Butn.Size = new System.Drawing.Size(36, 36);
          this.EditEmal_Butn.TabIndex = 7;
+         this.EditEmal_Butn.Click += new System.EventHandler(this.EditEmal_Butn_Click);
          // 
          // labelControl54
          // 

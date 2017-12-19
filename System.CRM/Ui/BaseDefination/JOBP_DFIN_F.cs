@@ -366,16 +366,20 @@ namespace System.CRM.Ui.BaseDefination
 
       private void Cjbp_Butn_Click(object sender, EventArgs e)
       {
+         var jbps = JbpsBs1.Current as Data.Job_Personnel;
+         if(jbps == null)return;
+
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
               new List<Job>
               {                  
-                  new Job(SendType.Self, 87 /* Execute Cjbp_Dfin_F */),                
-                  new Job(SendType.SelfToUserInterface, "CJBP_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                  new Job(SendType.Self, 90 /* Execute Jbpd_Dfin_F */),                
+                  new Job(SendType.SelfToUserInterface, "JBPD_DFIN_F", 10 /* Execute Actn_CalF_F */)
                   {
                      Input = 
                         new XElement("Data",
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("jobpcode", jbps.CODE)
                         )
                   }
               });

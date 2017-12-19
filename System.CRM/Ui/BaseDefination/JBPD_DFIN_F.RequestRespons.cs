@@ -220,6 +220,8 @@ namespace System.CRM.Ui.BaseDefination
       {
          xinput = job.Input as XElement;
          formcaller = xinput.Attribute("formcaller").Value;
+         jobpcode = Convert.ToInt64(xinput.Attribute("jobpcode").Value);
+         JobpCode_Lov.EditValue = jobpcode;
          Execute_Query();
          job.Status = StatusType.Successful;
       }

@@ -293,6 +293,9 @@ namespace System.CRM.Code
             case 89:
                Mstt_Dfin_F(job);
                break;
+            case 90:
+               Jbpd_Dfin_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -563,6 +566,9 @@ namespace System.CRM.Code
                break;
             case "MSTT_DFIN_F":
                _Mstt_Dfin_F.SendRequest(job);
+               break;
+            case "JBPD_DFIN_F":
+               _Jbpd_Dfin_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

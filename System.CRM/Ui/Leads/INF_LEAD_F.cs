@@ -562,6 +562,38 @@ namespace System.CRM.Ui.Leads
             }
          }
       }
+
+      private void EditLogCall_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var logc = LogcBs.Current as Data.Log_Call;
+            if (logc == null) return;
+
+            var serv = ServBs.Current as Data.Service;
+            if (serv == null) return;
+
+            var _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+              {                  
+                  new Job(SendType.Self, 25 /* Execute Opt_Logc_F */),
+                  new Job(SendType.SelfToUserInterface, "OPT_LOGC_F", 10 /* Execute ACTN_CALF_P */)
+                  {
+                     Input = 
+                     new XElement("Service", 
+                        new XAttribute("fileno", serv.FILE_NO), 
+                        new XAttribute("lcid", logc.LCID),
+                        new XAttribute("formcaller", GetType().Name)
+                     )
+                  },
+              });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
       #endregion
 
       #region Email
@@ -667,6 +699,40 @@ namespace System.CRM.Ui.Leads
             }
          }
       }
+
+      private void EditEmal_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var emal = EmalBs.Current as Data.Email;
+            if (emal == null) return;
+
+            var serv = ServBs.Current as Data.Service;
+            if (serv == null) return;
+
+            var _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                    new Job(SendType.Self, 31 /* Execute Opt_Emal_F */),
+                    new Job(SendType.SelfToUserInterface, "OPT_EMAL_F", 10 /* Execute ACTN_CALF_P */)
+                    {
+                       Input = 
+                       new XElement("Service", 
+                          new XAttribute("fileno", serv.FILE_NO), 
+                          new XAttribute("emid", emal.EMID),
+                          new XAttribute("formcaller", GetType().Name)
+                       )
+                    },
+                 });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
       #endregion 
 
       #region Task
@@ -1683,13 +1749,13 @@ namespace System.CRM.Ui.Leads
             var pr = RqstProjBs.Current as Data.Request;
             if(pr == null)return;
 
-            NoteBs.DataSource = iCRM.Notes.Where(n => n.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
-            TaskBs.DataSource = iCRM.Tasks.Where(t => t.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
-            AponBs.DataSource = iCRM.Appointments.Where(a => a.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
-            FileBs.DataSource = iCRM.Send_Files.Where(sf => sf.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
-            MesgBs.DataSource = iCRM.Messages.Where(m => m.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
-            LogcBs.DataSource = iCRM.Log_Calls.Where(l => l.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
-            EmalBs.DataSource = iCRM.Emails.Where(em => em.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            NoteBs.DataSource = iCRM.Notes.Where(n => n.Request_Row.SERV_FILE_NO == fileno && n.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            TaskBs.DataSource = iCRM.Tasks.Where(t => t.Request_Row.SERV_FILE_NO == fileno && t.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            AponBs.DataSource = iCRM.Appointments.Where(a => a.Request_Row.SERV_FILE_NO == fileno && a.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            FileBs.DataSource = iCRM.Send_Files.Where(sf => sf.Request_Row.SERV_FILE_NO == fileno && sf.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            MesgBs.DataSource = iCRM.Messages.Where(m => m.Request_Row.SERV_FILE_NO == fileno && m.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            LogcBs.DataSource = iCRM.Log_Calls.Where(l => l.Request_Row.SERV_FILE_NO == fileno && l.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
+            EmalBs.DataSource = iCRM.Emails.Where(em => em.Request_Row.SERV_FILE_NO == fileno && em.Request_Row.Request.PROJ_RQST_RQID == pr.RQID);
 
             RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, fileno, null, pr.RQID).OrderByDescending(r => r.SAVE_DATE).Take(5);
          }
@@ -1851,5 +1917,7 @@ namespace System.CRM.Ui.Leads
             }
          }
       }
+
+
    }
 }

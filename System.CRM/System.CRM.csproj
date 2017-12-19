@@ -277,6 +277,15 @@
     <Compile Include="Ui\Admission\ADM_CUST_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\BaseDefination\JBPD_DFIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefination\JBPD_DFIN_F.Designer.cs">
+      <DependentUpon>JBPD_DFIN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefination\JBPD_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\BaseDefination\MSTT_DFIN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2184,6 +2193,9 @@
     <EmbeddedResource Include="Ui\Activity\OPT_LOGC_F.resx">
       <DependentUpon>OPT_LOGC_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefination\JBPD_DFIN_F.resx">
+      <DependentUpon>JBPD_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefination\MSTT_DFIN_F.resx">
       <DependentUpon>MSTT_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -2481,6 +2493,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Isic_Group.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Isic_Product.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Job.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Job_Personel_Dashboard.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personnel.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personnel_Relation.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Like.datasource" />

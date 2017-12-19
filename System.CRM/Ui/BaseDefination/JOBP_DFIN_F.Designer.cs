@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JOBP_DFIN_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -52,9 +53,10 @@
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.JobpDel_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.JobpSave_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Jbpd_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
-         this.JbpsBs1 = new System.Windows.Forms.BindingSource();
-         this.JobBs1 = new System.Windows.Forms.BindingSource();
+         this.JbpsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.JobBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Tg_ShowNotfWhenAppointmentToMe = new DevExpress.XtraEditors.ToggleSwitch();
          this.JobpAdd_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Tg_SendEmailWhenMyLCADToAsignOthers = new DevExpress.XtraEditors.ToggleSwitch();
@@ -92,7 +94,7 @@
          this.colUSER_DESC_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DysnoBs1 = new System.Windows.Forms.BindingSource();
+         this.DysnoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -100,7 +102,7 @@
          this.colJob = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.vUserBs1 = new System.Windows.Forms.BindingSource();
+         this.vUserBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -116,7 +118,6 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cjbp_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Jbpd_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -342,6 +343,19 @@
          this.JobpSave_Butn.TabIndex = 1;
          this.JobpSave_Butn.Text = "simpleButton1";
          this.JobpSave_Butn.Click += new System.EventHandler(this.JobpSave_Butn_Click);
+         // 
+         // Jbpd_Butn
+         // 
+         this.Jbpd_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Jbpd_Butn.Image")));
+         this.Jbpd_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Jbpd_Butn.Location = new System.Drawing.Point(150, 18);
+         this.Jbpd_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Jbpd_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Jbpd_Butn.Name = "Jbpd_Butn";
+         this.Jbpd_Butn.Size = new System.Drawing.Size(29, 27);
+         this.Jbpd_Butn.TabIndex = 1;
+         this.Jbpd_Butn.ToolTip = "کارتابل کاربری";
+         this.Jbpd_Butn.Click += new System.EventHandler(this.Cjbp_Butn_Click);
          // 
          // spinEdit2
          // 
@@ -1134,20 +1148,6 @@
          this.Cjbp_Butn.TabIndex = 1;
          this.Cjbp_Butn.ToolTip = "چارت سازمانی";
          this.Cjbp_Butn.Click += new System.EventHandler(this.Cjbp_Butn_Click);
-         // 
-         // Jbpd_Butn
-         // 
-         this.Jbpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.Jbpd_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Jbpd_Butn.Image")));
-         this.Jbpd_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Jbpd_Butn.Location = new System.Drawing.Point(150, 18);
-         this.Jbpd_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Jbpd_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Jbpd_Butn.Name = "Jbpd_Butn";
-         this.Jbpd_Butn.Size = new System.Drawing.Size(29, 27);
-         this.Jbpd_Butn.TabIndex = 1;
-         this.Jbpd_Butn.ToolTip = "کارتابل کاربری";
-         this.Jbpd_Butn.Click += new System.EventHandler(this.Cjbp_Butn_Click);
          // 
          // JOBP_DFIN_F
          // 

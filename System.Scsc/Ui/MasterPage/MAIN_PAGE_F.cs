@@ -211,7 +211,7 @@ namespace System.Scsc.Ui.MasterPage
             else 
                axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
          }
-         catch { }
+         catch (Exception exc) { MessageBox.Show(exc.InnerException.Message); }
       }
       #endregion
 

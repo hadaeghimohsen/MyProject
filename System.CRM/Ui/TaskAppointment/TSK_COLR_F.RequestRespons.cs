@@ -188,9 +188,13 @@ namespace System.CRM.Ui.TaskAppointment
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-            tkid = Convert.ToInt64(xinput.Attribute("tkid").Value);
+            if (xinput.Attribute("fileno") != null)
+               fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+            if (xinput.Attribute("tkid") != null)
+               tkid = Convert.ToInt64(xinput.Attribute("tkid").Value);
             formcaller = xinput.Attribute("formcaller").Value;
+            if (xinput.Attribute("type") != null)
+               type = xinput.Attribute("type").Value;
          }
          job.Status = StatusType.Successful;
       }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
+using System.Xml.Linq;
 
 namespace System.CRM.Ui.BaseDefination
 {
@@ -136,5 +137,76 @@ namespace System.CRM.Ui.BaseDefination
          sstt.CODE = (short)(SsttBs.List.Count == 1 ? 1 : SsttBs.List.OfType<Data.Sub_State>().Max(a => a.CODE) + 1);
       }
 
+      private void MsttBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var mstt = MsttBs.Current as Data.Main_State;
+            if (mstt == null) return;
+
+            mstt.MSTT_COLR = mstt.MSTT_COLR == null ? "#ADFF2F" : mstt.MSTT_COLR;
+            SelectMsttColor_Butn.NormalColorA = SelectMsttColor_Butn.NormalColorB = SelectMsttColor_Butn.HoverColorA = SelectMsttColor_Butn.HoverColorB = ColorTranslator.FromHtml(mstt.MSTT_COLR);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SsttBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var sstt = SsttBs.Current as Data.Sub_State;
+            if (sstt == null) return;
+
+            sstt.SSTT_COLR = sstt.SSTT_COLR == null ? "#ADFF2F" : sstt.SSTT_COLR;
+            SelectSsttColor_Butn.NormalColorA = SelectSsttColor_Butn.NormalColorB = SelectSsttColor_Butn.HoverColorA = SelectSsttColor_Butn.HoverColorB = ColorTranslator.FromHtml(sstt.SSTT_COLR);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SelectMsttColor_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 48 /* Execute Tsk_Colr_F */),
+                  new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
+                  {
+                        Input = 
+                        new XElement("Service",   
+                           new XAttribute("type", "msttcolor"),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void SelectSsttColor_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 48 /* Execute Tsk_Colr_F */),
+                  new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
+                  {
+                        Input = 
+                        new XElement("Service",                            
+                           new XAttribute("type", "ssttcolor"),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                  }
+               }
+            )
+         );
+      }
    }
 }

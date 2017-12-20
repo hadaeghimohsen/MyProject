@@ -33,6 +33,7 @@
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.SelectMsttColor_Butn = new System.MaxUi.RoundedButton();
          this.Apbs_Gc = new DevExpress.XtraGrid.GridControl();
          this.MsttBs = new System.Windows.Forms.BindingSource(this.components);
          this.Mstt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -43,6 +44,8 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMSTT_COLR = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttColr_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
          this.MsttBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -56,6 +59,7 @@
          this.AddApbs_Butn = new System.Windows.Forms.ToolStripButton();
          this.Tsb_DelApbs = new System.Windows.Forms.ToolStripButton();
          this.countryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+         this.SelectSsttColor_Butn = new System.MaxUi.RoundedButton();
          this.Sapb_Gc = new DevExpress.XtraGrid.GridControl();
          this.SsttBs = new System.Windows.Forms.BindingSource(this.components);
          this.Sstt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -68,6 +72,8 @@
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMain_State = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSSTT_COLR = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttColr_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
          this.SsttBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -97,10 +103,6 @@
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
          this.Back_Butn = new System.MaxUi.RoundedButton();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-         this.colMSTT_COLR = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.MsttColr_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
-         this.colSSTT_COLR = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SsttColr_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -109,19 +111,19 @@
          ((System.ComponentModel.ISupportInitialize)(this.Apbs_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsttBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mstt_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MsttColr_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsttBn)).BeginInit();
          this.MsttBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Sapb_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SsttBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Sstt_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SsttColr_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SsttBn)).BeginInit();
          this.SsttBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.MsttColr_Lov)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SsttColr_Lov)).BeginInit();
          this.SuspendLayout();
          // 
          // tb_master
@@ -133,7 +135,7 @@
          this.tb_master.Location = new System.Drawing.Point(0, 53);
          this.tb_master.Name = "tb_master";
          this.tb_master.RightToLeftLayout = true;
-         this.tb_master.Size = new System.Drawing.Size(390, 435);
+         this.tb_master.Size = new System.Drawing.Size(390, 651);
          this.tb_master.TabIndex = 0;
          this.tb_master.TabsSpacing = 0;
          this.tb_master.TabStyle = C1.Win.C1Command.TabStyleEnum.WindowsXP;
@@ -146,7 +148,7 @@
          this.tp_001.Controls.Add(this.splitContainerControl1);
          this.tp_001.Location = new System.Drawing.Point(2, 27);
          this.tp_001.Name = "tp_001";
-         this.tp_001.Size = new System.Drawing.Size(384, 404);
+         this.tp_001.Size = new System.Drawing.Size(384, 620);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "وضعیت های سیستم";
          // 
@@ -156,29 +158,55 @@
          this.splitContainerControl1.Horizontal = false;
          this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.SelectMsttColor_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.Apbs_Gc);
          this.splitContainerControl1.Panel1.Controls.Add(this.MsttBn);
          this.splitContainerControl1.Panel1.Text = "Panel1";
+         this.splitContainerControl1.Panel2.Controls.Add(this.SelectSsttColor_Butn);
          this.splitContainerControl1.Panel2.Controls.Add(this.Sapb_Gc);
          this.splitContainerControl1.Panel2.Controls.Add(this.SsttBn);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(384, 404);
-         this.splitContainerControl1.SplitterPosition = 195;
+         this.splitContainerControl1.Size = new System.Drawing.Size(384, 620);
+         this.splitContainerControl1.SplitterPosition = 330;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
+         // SelectMsttColor_Butn
+         // 
+         this.SelectMsttColor_Butn.Active = true;
+         this.SelectMsttColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectMsttColor_Butn.Caption = "";
+         this.SelectMsttColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectMsttColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectMsttColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectMsttColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectMsttColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectMsttColor_Butn.ImageProfile = null;
+         this.SelectMsttColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectMsttColor_Butn.ImageVisiable = false;
+         this.SelectMsttColor_Butn.Location = new System.Drawing.Point(3, 28);
+         this.SelectMsttColor_Butn.Name = "SelectMsttColor_Butn";
+         this.SelectMsttColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectMsttColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectMsttColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectMsttColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectMsttColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectMsttColor_Butn.TabIndex = 7;
+         this.SelectMsttColor_Butn.Tooltip = null;
+         this.SelectMsttColor_Butn.Click += new System.EventHandler(this.SelectMsttColor_Butn_Click);
          // 
          // Apbs_Gc
          // 
          this.Apbs_Gc.DataSource = this.MsttBs;
-         this.Apbs_Gc.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Apbs_Gc.Location = new System.Drawing.Point(0, 25);
+         this.Apbs_Gc.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Apbs_Gc.Location = new System.Drawing.Point(39, 25);
          this.Apbs_Gc.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Apbs_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Apbs_Gc.MainView = this.Mstt_Gv;
          this.Apbs_Gc.Name = "Apbs_Gc";
          this.Apbs_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.MsttColr_Lov});
-         this.Apbs_Gc.Size = new System.Drawing.Size(384, 170);
+         this.Apbs_Gc.Size = new System.Drawing.Size(345, 305);
          this.Apbs_Gc.TabIndex = 1;
          this.Apbs_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Mstt_Gv});
@@ -186,6 +214,7 @@
          // MsttBs
          // 
          this.MsttBs.DataSource = typeof(System.CRM.Data.Main_State);
+         this.MsttBs.CurrentChanged += new System.EventHandler(this.MsttBs_CurrentChanged);
          // 
          // Mstt_Gv
          // 
@@ -219,7 +248,7 @@
          this.colCODE.FieldName = "CODE";
          this.colCODE.Name = "colCODE";
          this.colCODE.Visible = true;
-         this.colCODE.VisibleIndex = 2;
+         this.colCODE.VisibleIndex = 1;
          this.colCODE.Width = 36;
          // 
          // colSUB_SYS
@@ -233,7 +262,7 @@
          this.colMSTT_DESC.FieldName = "MSTT_DESC";
          this.colMSTT_DESC.Name = "colMSTT_DESC";
          this.colMSTT_DESC.Visible = true;
-         this.colMSTT_DESC.VisibleIndex = 1;
+         this.colMSTT_DESC.VisibleIndex = 0;
          this.colMSTT_DESC.Width = 237;
          // 
          // colCRET_BY
@@ -255,6 +284,21 @@
          // 
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
+         // 
+         // colMSTT_COLR
+         // 
+         this.colMSTT_COLR.Caption = "رنگ وضعیت اصلی";
+         this.colMSTT_COLR.ColumnEdit = this.MsttColr_Lov;
+         this.colMSTT_COLR.FieldName = "MSTT_COLR";
+         this.colMSTT_COLR.Name = "colMSTT_COLR";
+         this.colMSTT_COLR.Width = 107;
+         // 
+         // MsttColr_Lov
+         // 
+         this.MsttColr_Lov.AutoHeight = false;
+         this.MsttColr_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.MsttColr_Lov.Name = "MsttColr_Lov";
          // 
          // MsttBn
          // 
@@ -385,18 +429,42 @@
          this.countryBindingNavigatorSaveItem.Text = "Save Data";
          this.countryBindingNavigatorSaveItem.Click += new System.EventHandler(this.SubmitChanged_Clicked);
          // 
+         // SelectSsttColor_Butn
+         // 
+         this.SelectSsttColor_Butn.Active = true;
+         this.SelectSsttColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectSsttColor_Butn.Caption = "";
+         this.SelectSsttColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectSsttColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectSsttColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectSsttColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectSsttColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectSsttColor_Butn.ImageProfile = null;
+         this.SelectSsttColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectSsttColor_Butn.ImageVisiable = false;
+         this.SelectSsttColor_Butn.Location = new System.Drawing.Point(3, 28);
+         this.SelectSsttColor_Butn.Name = "SelectSsttColor_Butn";
+         this.SelectSsttColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectSsttColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectSsttColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectSsttColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectSsttColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectSsttColor_Butn.TabIndex = 7;
+         this.SelectSsttColor_Butn.Tooltip = null;
+         this.SelectSsttColor_Butn.Click += new System.EventHandler(this.SelectSsttColor_Butn_Click);
+         // 
          // Sapb_Gc
          // 
          this.Sapb_Gc.DataSource = this.SsttBs;
-         this.Sapb_Gc.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Sapb_Gc.Location = new System.Drawing.Point(0, 25);
+         this.Sapb_Gc.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Sapb_Gc.Location = new System.Drawing.Point(39, 25);
          this.Sapb_Gc.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Sapb_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Sapb_Gc.MainView = this.Sstt_Gv;
          this.Sapb_Gc.Name = "Sapb_Gc";
          this.Sapb_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.SsttColr_Lov});
-         this.Sapb_Gc.Size = new System.Drawing.Size(384, 179);
+         this.Sapb_Gc.Size = new System.Drawing.Size(345, 260);
          this.Sapb_Gc.TabIndex = 1;
          this.Sapb_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Sstt_Gv});
@@ -405,6 +473,7 @@
          // 
          this.SsttBs.DataMember = "Sub_States";
          this.SsttBs.DataSource = this.MsttBs;
+         this.SsttBs.CurrentChanged += new System.EventHandler(this.SsttBs_CurrentChanged);
          // 
          // Sstt_Gv
          // 
@@ -450,7 +519,7 @@
          this.colCODE1.FieldName = "CODE";
          this.colCODE1.Name = "colCODE1";
          this.colCODE1.Visible = true;
-         this.colCODE1.VisibleIndex = 2;
+         this.colCODE1.VisibleIndex = 1;
          this.colCODE1.Width = 35;
          // 
          // colSSTT_DESC
@@ -459,7 +528,7 @@
          this.colSSTT_DESC.FieldName = "SSTT_DESC";
          this.colSSTT_DESC.Name = "colSSTT_DESC";
          this.colSSTT_DESC.Visible = true;
-         this.colSSTT_DESC.VisibleIndex = 1;
+         this.colSSTT_DESC.VisibleIndex = 0;
          this.colSSTT_DESC.Width = 240;
          // 
          // colCRET_BY1
@@ -486,6 +555,21 @@
          // 
          this.colMain_State.FieldName = "Main_State";
          this.colMain_State.Name = "colMain_State";
+         // 
+         // colSSTT_COLR
+         // 
+         this.colSSTT_COLR.Caption = "رنگ وضعیت فرعی";
+         this.colSSTT_COLR.ColumnEdit = this.SsttColr_Lov;
+         this.colSSTT_COLR.FieldName = "SSTT_COLR";
+         this.colSSTT_COLR.Name = "colSSTT_COLR";
+         this.colSSTT_COLR.Width = 105;
+         // 
+         // SsttColr_Lov
+         // 
+         this.SsttColr_Lov.AutoHeight = false;
+         this.SsttColr_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.SsttColr_Lov.Name = "SsttColr_Lov";
          // 
          // SsttBn
          // 
@@ -773,40 +857,6 @@
          this.labelControl15.TabIndex = 2;
          this.labelControl15.Text = "وضعیت های سیستم";
          // 
-         // colMSTT_COLR
-         // 
-         this.colMSTT_COLR.Caption = "رنگ وضعیت اصلی";
-         this.colMSTT_COLR.ColumnEdit = this.MsttColr_Lov;
-         this.colMSTT_COLR.FieldName = "MSTT_COLR";
-         this.colMSTT_COLR.Name = "colMSTT_COLR";
-         this.colMSTT_COLR.Visible = true;
-         this.colMSTT_COLR.VisibleIndex = 0;
-         this.colMSTT_COLR.Width = 107;
-         // 
-         // MsttColr_Lov
-         // 
-         this.MsttColr_Lov.AutoHeight = false;
-         this.MsttColr_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.MsttColr_Lov.Name = "MsttColr_Lov";
-         // 
-         // colSSTT_COLR
-         // 
-         this.colSSTT_COLR.Caption = "رنگ وضعیت فرعی";
-         this.colSSTT_COLR.ColumnEdit = this.SsttColr_Lov;
-         this.colSSTT_COLR.FieldName = "SSTT_COLR";
-         this.colSSTT_COLR.Name = "colSSTT_COLR";
-         this.colSSTT_COLR.Visible = true;
-         this.colSSTT_COLR.VisibleIndex = 0;
-         this.colSSTT_COLR.Width = 105;
-         // 
-         // SsttColr_Lov
-         // 
-         this.SsttColr_Lov.AutoHeight = false;
-         this.SsttColr_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.SsttColr_Lov.Name = "SsttColr_Lov";
-         // 
          // MSTT_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -817,7 +867,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MSTT_DFIN_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(390, 491);
+         this.Size = new System.Drawing.Size(390, 707);
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).EndInit();
          this.tb_master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
@@ -826,12 +876,14 @@
          ((System.ComponentModel.ISupportInitialize)(this.Apbs_Gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsttBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mstt_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MsttColr_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsttBn)).EndInit();
          this.MsttBn.ResumeLayout(false);
          this.MsttBn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Sapb_Gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SsttBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Sstt_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SsttColr_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SsttBn)).EndInit();
          this.SsttBn.ResumeLayout(false);
          this.SsttBn.PerformLayout();
@@ -839,8 +891,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
          this.panelControl5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.MsttColr_Lov)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SsttColr_Lov)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -918,5 +968,7 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit MsttColr_Lov;
       private DevExpress.XtraGrid.Columns.GridColumn colSSTT_COLR;
       private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit SsttColr_Lov;
+      private MaxUi.RoundedButton SelectMsttColor_Butn;
+      private MaxUi.RoundedButton SelectSsttColor_Butn;
    }
 }

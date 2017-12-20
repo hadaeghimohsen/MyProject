@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -45,6 +46,9 @@ namespace System.CRM.Ui.BaseDefination
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 100:
+               SetColor(job);
                break;
             default:
                break;
@@ -227,5 +231,37 @@ namespace System.CRM.Ui.BaseDefination
          job.Status = StatusType.Successful;
       }
 
+
+      /// <summary>
+      /// Code 100
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetColor(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            switch(xinput.Attribute("type").Value)
+            {
+               case "msttcolor":
+                  var mstt = MsttBs.Current as Data.Main_State;
+                  if (mstt == null) return;
+
+                  mstt.MSTT_COLR = xinput.Attribute("colr").Value;
+                  SelectMsttColor_Butn.NormalColorA = SelectMsttColor_Butn.NormalColorB = SelectMsttColor_Butn.HoverColorA = SelectMsttColor_Butn.HoverColorB = ColorTranslator.FromHtml(mstt.MSTT_COLR);
+
+                  break;
+               case "ssttcolor":
+
+                  var sstt = SsttBs.Current as Data.Sub_State;
+                  if (sstt == null) return;
+
+                  sstt.SSTT_COLR = xinput.Attribute("colr").Value;
+                  SelectSsttColor_Butn.NormalColorA = SelectSsttColor_Butn.NormalColorB = SelectSsttColor_Butn.HoverColorA = SelectSsttColor_Butn.HoverColorB = ColorTranslator.FromHtml(sstt.SSTT_COLR);
+                  break;
+            }
+         }
+         job.Status = StatusType.Successful;
+      }
    }
 }

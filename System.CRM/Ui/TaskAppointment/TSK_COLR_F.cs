@@ -27,6 +27,7 @@ namespace System.CRM.Ui.TaskAppointment
       private long fileno;
       private long tkid;
       private string formcaller;
+      private string type;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -51,7 +52,8 @@ namespace System.CRM.Ui.TaskAppointment
                            new XAttribute("fileno", fileno), 
                            new XAttribute("tkid", tkid),
                            //new XAttribute("tasktype", "new"),
-                           new XAttribute("colr", ColorTranslator.ToHtml(colr.NormalColorB))
+                           new XAttribute("colr", ColorTranslator.ToHtml(colr.NormalColorB)),
+                           new XAttribute("type", type)
                         )
                      }
                }

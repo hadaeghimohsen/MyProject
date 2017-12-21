@@ -56,6 +56,8 @@
          this.UserMentioned_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+         this.LinkText_Pk = new System.MaxUi.NewPickBtn();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.InfoServ_Butn = new System.MaxUi.RoundedButton();
          this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
          this.DtsktBs = new System.Windows.Forms.BindingSource(this.components);
@@ -186,8 +188,6 @@
          this.colJob = new DevExpress.XtraGrid.Columns.GridColumn();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.LinkText_Pk = new System.MaxUi.NewPickBtn();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -515,6 +515,39 @@
          this.panelControl8.Size = new System.Drawing.Size(591, 245);
          this.panelControl8.TabIndex = 10;
          // 
+         // LinkText_Pk
+         // 
+         this.LinkText_Pk.BackColor = System.Drawing.Color.Transparent;
+         this.LinkText_Pk.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.LinkText_Pk.Disabled = false;
+         this.LinkText_Pk.First = null;
+         this.LinkText_Pk.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.LinkText_Pk.ForceSelect = false;
+         this.LinkText_Pk.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.LinkText_Pk.ImageIndexPickDown = 0;
+         this.LinkText_Pk.ImageIndexPickUp = 1;
+         this.LinkText_Pk.ImageList = this.imageList1;
+         this.LinkText_Pk.Location = new System.Drawing.Point(16, 138);
+         this.LinkText_Pk.Name = "LinkText_Pk";
+         this.LinkText_Pk.Next = null;
+         this.LinkText_Pk.PickChecked = false;
+         this.LinkText_Pk.PickDownFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LinkText_Pk.PickDownText = null;
+         this.LinkText_Pk.PickDownTextColor = System.Drawing.Color.Empty;
+         this.LinkText_Pk.PickUpFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LinkText_Pk.PickUpText = null;
+         this.LinkText_Pk.PickUpTextColor = System.Drawing.Color.Empty;
+         this.LinkText_Pk.Size = new System.Drawing.Size(35, 32);
+         this.LinkText_Pk.TabIndex = 16;
+         this.LinkText_Pk.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1610.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1611.png");
+         // 
          // InfoServ_Butn
          // 
          this.InfoServ_Butn.Active = true;
@@ -726,7 +759,7 @@
          this.SelectColor_Butn.ImageProfile = null;
          this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.SelectColor_Butn.ImageVisiable = false;
-         this.SelectColor_Butn.Location = new System.Drawing.Point(11, 48);
+         this.SelectColor_Butn.Location = new System.Drawing.Point(13, 48);
          this.SelectColor_Butn.Name = "SelectColor_Butn";
          this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
@@ -1742,39 +1775,6 @@
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(18, 578);
          this.panel3.TabIndex = 8;
-         // 
-         // imageList1
-         // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1610.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1611.png");
-         // 
-         // LinkText_Pk
-         // 
-         this.LinkText_Pk.BackColor = System.Drawing.Color.Transparent;
-         this.LinkText_Pk.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.LinkText_Pk.Disabled = false;
-         this.LinkText_Pk.First = null;
-         this.LinkText_Pk.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.LinkText_Pk.ForceSelect = false;
-         this.LinkText_Pk.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.LinkText_Pk.ImageIndexPickDown = 0;
-         this.LinkText_Pk.ImageIndexPickUp = 1;
-         this.LinkText_Pk.ImageList = this.imageList1;
-         this.LinkText_Pk.Location = new System.Drawing.Point(16, 138);
-         this.LinkText_Pk.Name = "LinkText_Pk";
-         this.LinkText_Pk.Next = null;
-         this.LinkText_Pk.PickChecked = false;
-         this.LinkText_Pk.PickDownFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LinkText_Pk.PickDownText = null;
-         this.LinkText_Pk.PickDownTextColor = System.Drawing.Color.Empty;
-         this.LinkText_Pk.PickUpFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LinkText_Pk.PickUpText = null;
-         this.LinkText_Pk.PickUpTextColor = System.Drawing.Color.Empty;
-         this.LinkText_Pk.Size = new System.Drawing.Size(35, 32);
-         this.LinkText_Pk.TabIndex = 16;
-         this.LinkText_Pk.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // OPT_TASK_F
          // 

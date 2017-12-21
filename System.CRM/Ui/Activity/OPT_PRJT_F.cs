@@ -111,6 +111,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqstrqid", 0),
                   new XAttribute("rqrorqstrqid", rqst.RQID),                  
                   new XAttribute("rqstdesc", rqst.RQST_DESC),
+                  new XAttribute("colr", rqst.COLR ?? "#ADFF2F"),
                   new XElement("Request_Rows",
                      new XElement("Service_Projects",                              
                         new XElement("Service_Project",
@@ -251,6 +252,51 @@ namespace System.CRM.Ui.Activity
                default:
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqstBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs.Current as Data.Request;
+            if (rqst == null) return;
+
+            rqst.COLR = rqst.COLR == null ? "#ADFF2F" : rqst.COLR;
+            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.COLR);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SelectColor_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs.Current as Data.Request;
+            if (rqst == null || rqst.RQID == 0) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                     {
+                        new Job(SendType.Self, 48 /* Execute Tsk_Colr_F */),
+                        new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
+                        {
+                            Input = 
+                              new XElement("Request", 
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                         }
+                     }
+               )
+            );
          }
          catch (Exception exc)
          {

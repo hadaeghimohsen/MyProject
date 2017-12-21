@@ -24,8 +24,8 @@ namespace System.CRM.Ui.TaskAppointment
          InitializeComponent();
       }
 
-      private long fileno;
-      private long tkid;
+      //private long fileno;
+      //private long tkid;
       private string formcaller;
       private string type;
 
@@ -45,15 +45,15 @@ namespace System.CRM.Ui.TaskAppointment
                new List<Job>
                {                  
                   new Job(SendType.SelfToUserInterface,GetType().Name, 00 /* Execute ProcessCmdKey */) { Input = Keys.Escape },
-                  new Job(SendType.SelfToUserInterface, formcaller, 100 /* Execute SetColor */)
+                  new Job(SendType.SelfToUserInterface, formcaller, 200 /* Execute SetColor */)
                   {
                         Input = 
-                        new XElement("Service", 
-                           new XAttribute("fileno", fileno), 
-                           new XAttribute("tkid", tkid),
+                        new XElement("Request", 
+                           //new XAttribute("fileno", fileno), 
+                           //new XAttribute("tkid", tkid),
                            //new XAttribute("tasktype", "new"),
                            new XAttribute("colr", ColorTranslator.ToHtml(colr.NormalColorB)),
-                           new XAttribute("type", type)
+                           new XAttribute("type", type ?? "")
                         )
                      }
                }

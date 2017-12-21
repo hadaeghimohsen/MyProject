@@ -333,5 +333,56 @@ namespace System.CRM.Ui.Activity
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void SelectColor_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var note = NoteBs.Current as Data.Note;
+
+            if (note.RQRO_RQST_RQID == null)
+            {
+               needclose = false;
+               Save_Butn_Click(null, null);
+               needclose = true;
+               if (requery)
+               {
+                  iCRM = new Data.iCRMDataContext(ConnectionString);
+                  NoteBs.DataSource =
+                     iCRM.Notes.FirstOrDefault(t =>
+                        t.SERV_FILE_NO == fileno &&
+                        t.NTID == iCRM.Notes.Where(tt => tt.SERV_FILE_NO == fileno).Max(tt => tt.NTID));
+                  requery = true;
+               }
+            }
+            else
+               requery = true;
+         }
+         catch {  }
+         finally
+         {
+            if (requery)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 48 /* Execute Tsk_Colr_F */),
+                        new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
+                        {
+                            Input = 
+                              new XElement("Request", 
+                                 //new XAttribute("fileno", task.SERV_FILE_NO), 
+                                 //new XAttribute("tkid", task.TKID),
+                                 //new XAttribute("tasktype", "new"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                         }
+                     }
+                  )
+               );
+            }
+         }
+      }
    }
 }

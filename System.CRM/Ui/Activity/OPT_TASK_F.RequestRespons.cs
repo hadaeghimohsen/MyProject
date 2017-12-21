@@ -56,7 +56,7 @@ namespace System.CRM.Ui.Activity
             case 10:
                Actn_CalF_P(job);
                break;
-            case 100:
+            case 200:
                SetColor(job);
                break;
             case 150:
@@ -286,7 +286,7 @@ namespace System.CRM.Ui.Activity
       }
 
       /// <summary>
-      /// Code 100
+      /// Code 200
       /// </summary>
       /// <param name="job"></param>
       private void SetColor(Job job)
@@ -298,7 +298,7 @@ namespace System.CRM.Ui.Activity
             var task = TaskBs.Current as Data.Task;
             if (task == null) return;
 
-            task.COLR = xinput.Attribute("colr").Value;
+            task.Request_Row.Request.COLR = xinput.Attribute("colr").Value;
          }
          job.Status = StatusType.Successful;
       }

@@ -97,7 +97,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", task.RQRO_RWNO ?? 0),
                   new XAttribute("tkid", task.TKID),
-                  new XAttribute("colr", task.COLR ?? "#ADFF2F"),
+                  new XAttribute("colr", task.Request_Row != null ? task.Request_Row.Request.COLR : "#ADFF2F"),
                   new XAttribute("taskstat", task.TASK_STAT ?? "001"),
                   new XAttribute("deadlinestat", task.DEAD_LINE_STAT ?? "001"),
                   new XAttribute("deadline", GetDateTimeString(task.DEAD_LINE ?? DateTime.Now)),
@@ -223,9 +223,9 @@ namespace System.CRM.Ui.Activity
                         new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
                         {
                             Input = 
-                              new XElement("Service", 
-                                 new XAttribute("fileno", task.SERV_FILE_NO), 
-                                 new XAttribute("tkid", task.TKID),
+                              new XElement("Request", 
+                                 //new XAttribute("fileno", task.SERV_FILE_NO), 
+                                 //new XAttribute("tkid", task.TKID),
                                  //new XAttribute("tasktype", "new"),
                                  new XAttribute("formcaller", GetType().Name)
                               )
@@ -275,8 +275,8 @@ namespace System.CRM.Ui.Activity
 
             rqst.TASK_STAT = rqst.TASK_STAT == null ? "001" : rqst.TASK_STAT;
 
-            rqst.COLR = rqst.COLR == null ? "#ADFF2F" : rqst.COLR;
-            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.COLR);
+            rqst.Request_Row.Request.COLR = rqst.Request_Row.Request.COLR == null ? "#ADFF2F" : rqst.Request_Row.Request.COLR;
+            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.Request_Row.Request.COLR);
          }
          catch { }
       }

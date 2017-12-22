@@ -455,8 +455,9 @@ namespace System.Scsc.Ui.MasterPage
                   case "5.2.3.10":
                      result = axCZKEM1.DeleteUserInfoEx(iMachineNumber, Convert.ToInt32(xinput.Attribute("enrollnumb").Value));
                      break;
-                  case "5.2.3.8":
+                  case "5.2.3.8":                     
                      result = axCZKEM1.SSR_SetUserInfo(iMachineNumber, "1", "Mohsen Hadaeghi", "", 0, true);
+
                      break;
                }
 

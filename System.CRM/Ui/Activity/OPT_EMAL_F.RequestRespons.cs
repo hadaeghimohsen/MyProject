@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -60,6 +61,9 @@ namespace System.CRM.Ui.Activity
                break;
             case 150:
                SetMentioned(job);
+               break;
+            case 200:
+               SetColor(job);
                break;
             default:
                break;
@@ -309,6 +313,24 @@ namespace System.CRM.Ui.Activity
                Comment_Txt.Text = Comment_Txt.Text.Insert(Comment_Txt.SelectionStart, xinput.Attribute("user_mentioned").Value);
                break;
          }
+      }
+
+      /// <summary>
+      /// Code 200
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetColor(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(xinput.Attribute("colr").Value);
+            var rqst = EmalBs.Current as Data.Email;
+            if (rqst == null) return;
+
+            rqst.Request_Row.Request.COLR = xinput.Attribute("colr").Value;
+         }
+         job.Status = StatusType.Successful;
       }
    }
 }

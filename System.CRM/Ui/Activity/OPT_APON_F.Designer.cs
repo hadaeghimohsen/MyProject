@@ -175,6 +175,7 @@
          this.colJob = new DevExpress.XtraGrid.Columns.GridColumn();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
+         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -542,6 +543,7 @@
          // 
          this.panelControl8.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panelControl8.Appearance.Options.UseBackColor = true;
+         this.panelControl8.Controls.Add(this.SelectColor_Butn);
          this.panelControl8.Controls.Add(this.LinkText_Pk);
          this.panelControl8.Controls.Add(this.InfoServ_Butn);
          this.panelControl8.Controls.Add(this.AllDay_Tg);
@@ -1583,6 +1585,30 @@
          this.panel3.Size = new System.Drawing.Size(18, 648);
          this.panel3.TabIndex = 8;
          // 
+         // SelectColor_Butn
+         // 
+         this.SelectColor_Butn.Active = true;
+         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectColor_Butn.Caption = "";
+         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.ImageProfile = null;
+         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectColor_Butn.ImageVisiable = false;
+         this.SelectColor_Butn.Location = new System.Drawing.Point(18, 48);
+         this.SelectColor_Butn.Name = "SelectColor_Butn";
+         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectColor_Butn.TabIndex = 18;
+         this.SelectColor_Butn.Tooltip = null;
+         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
+         // 
          // OPT_APON_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1770,6 +1796,7 @@
       private MaxUi.RoundedButton RqstFolw_Butn;
       private MaxUi.NewPickBtn LinkText_Pk;
       private Windows.Forms.ImageList imageList1;
+      private MaxUi.RoundedButton SelectColor_Butn;
 
    }
 }

@@ -436,28 +436,38 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void DeviceControlFunction(Job job)
       {
-         var xinput = job.Input as XElement;
-         // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
-         if (bIsConnected)
+         try
          {
-            var result = false;
-            int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-            switch(xinput.Attribute("functype").Value)
+            var xinput = job.Input as XElement;
+            // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
+            if (bIsConnected)
             {
-               case "5.5.1": // ClearAdministrators
-                  result = axCZKEM1.ClearAdministrators(iMachineNumber);
-                  break;
-               case "5.5.2":
-                  
-                  break;
+               var result = false;
+               int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+               switch (xinput.Attribute("functype").Value)
+               {
+                  case "5.5.1": // ClearAdministrators
+                     result = axCZKEM1.ClearAdministrators(iMachineNumber);
+                     break;
+                  case "5.5.2":
+
+                     break;
+                  case "5.2.3.10":
+                     result = axCZKEM1.DeleteUserInfoEx(iMachineNumber, Convert.ToInt32(xinput.Attribute("enrollnumb").Value));
+                     break;
+               }
+
+               if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               else
+               {
+                  MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               }
+
+               goto L_End;
             }
 
-            if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            goto L_End;
-         }         
-
+         }
+         catch { }
          L_End:
          job.Status = StatusType.Successful;
       }

@@ -56,6 +56,7 @@
          this.TemplateText_Butn = new System.MaxUi.RoundedButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          this.roundedButton1 = new System.MaxUi.RoundedButton();
          this.MessageRecieve_Butn = new System.MaxUi.RoundedButton();
          this.MessageCheckStat_Butn = new System.MaxUi.RoundedButton();
@@ -147,7 +148,6 @@
          this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CellPhon_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -505,6 +505,30 @@
          this.panelControl8.Name = "panelControl8";
          this.panelControl8.Size = new System.Drawing.Size(533, 192);
          this.panelControl8.TabIndex = 10;
+         // 
+         // SelectColor_Butn
+         // 
+         this.SelectColor_Butn.Active = true;
+         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectColor_Butn.Caption = "";
+         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.ImageProfile = null;
+         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectColor_Butn.ImageVisiable = false;
+         this.SelectColor_Butn.Location = new System.Drawing.Point(10, 46);
+         this.SelectColor_Butn.Name = "SelectColor_Butn";
+         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectColor_Butn.TabIndex = 15;
+         this.SelectColor_Butn.Tooltip = null;
+         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
          // 
          // roundedButton1
          // 
@@ -1362,29 +1386,6 @@
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(18, 500);
          this.panel3.TabIndex = 8;
-         // 
-         // SelectColor_Butn
-         // 
-         this.SelectColor_Butn.Active = true;
-         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.SelectColor_Butn.Caption = "";
-         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.ImageProfile = null;
-         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.SelectColor_Butn.ImageVisiable = false;
-         this.SelectColor_Butn.Location = new System.Drawing.Point(10, 46);
-         this.SelectColor_Butn.Name = "SelectColor_Butn";
-         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
-         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.SelectColor_Butn.TabIndex = 15;
-         this.SelectColor_Butn.Tooltip = null;
          // 
          // OPT_MESG_F
          // 

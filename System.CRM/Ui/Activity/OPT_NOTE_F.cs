@@ -85,6 +85,7 @@ namespace System.CRM.Ui.Activity
 
             iCRM.OPR_NSAV_P(
                new XElement("Note",
+                  new XAttribute("colr", note.Request_Row != null ? note.Request_Row.Request.COLR : "#ADFF2F"),
                   new XAttribute("rqstrqid", rqstrqid),
                   new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("servfileno", note.SERV_FILE_NO),
@@ -322,11 +323,18 @@ namespace System.CRM.Ui.Activity
                RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);
                RqstFolw_Butn.Tag =
                   new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request1.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request1.RQID));
-            }
+            }            
             else
             {
                RqstFolw_Butn.Visible = false;
             }
+
+            if (rqst.Request_Row != null)
+            {
+               rqst.Request_Row.Request.COLR = rqst.Request_Row.Request.COLR == null ? "#ADFF2F" : rqst.Request_Row.Request.COLR;
+               SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.Request_Row.Request.COLR);
+            }
+
          }
          catch (Exception exc)
          {

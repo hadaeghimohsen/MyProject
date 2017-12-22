@@ -82,6 +82,7 @@ namespace System.CRM.Ui.Deals
                   new XAttribute("projrqstrqid", projrqstrqid),
                   new XAttribute("rqid", pymt.RQST_RQID),
                   new XAttribute("cashcode", pymt.CASH_CODE),
+                  new XAttribute("colr", pymt.Request != null ? pymt.Request.COLR : "#ADFF2F"),
                   new XAttribute("servfileno", pymt.SERV_FILE_NO),
                   new XAttribute("pymtdesc", pymt.PYMT_DESC),
                   new XAttribute("pymtstag", pymt.PYMT_STAG),
@@ -244,10 +245,67 @@ namespace System.CRM.Ui.Deals
                LostType_Gb.Visible = true;
             else
                LostType_Gb.Visible = false;
+
+            if (pymt.Request != null)
+            {
+               pymt.Request.COLR = pymt.Request.COLR == null ? "#ADFF2F" : pymt.Request.COLR;
+               SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(pymt.Request.COLR);
+            }
          }
          catch (Exception exc)
          {
             iCRM.SaveException(exc);
+         }
+      }
+
+      private void SelectColor_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = PymtBs.Current as Data.Payment;
+
+            if (pymt.RQST_RQID == 0)
+            {
+               needclose = false;
+               Save_Butn_Click(null, null);
+               needclose = true;
+               if (requery)
+               {
+                  iCRM = new Data.iCRMDataContext(ConnectionString);
+                  PymtBs.DataSource =
+                     iCRM.Payments.FirstOrDefault(t =>
+                        t.SERV_FILE_NO == fileno &&
+                        t.RQST_RQID == t.Service1.RQST_RQID);
+                  requery = true;
+               }
+            }
+            else
+               requery = true;
+         }
+         catch { }
+         finally
+         {
+            if (requery)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 48 /* Execute Tsk_Colr_F */),
+                        new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
+                        {
+                            Input = 
+                              new XElement("Request", 
+                                 //new XAttribute("fileno", task.SERV_FILE_NO), 
+                                 //new XAttribute("tkid", task.TKID),
+                                 //new XAttribute("tasktype", "new"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                         }
+                     }
+                  )
+               );
+            }
          }
       }
    }

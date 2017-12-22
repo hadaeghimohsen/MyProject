@@ -91,6 +91,7 @@ namespace System.CRM.Ui.Activity
                   new XAttribute("datetime", GetDateTimeString(logc.LOG_DATE)),
                   new XAttribute("rqrorqstrqid", logc.RQRO_RQST_RQID ?? 0),
                   new XAttribute("rqrorwno", logc.RQRO_RWNO ?? 0),
+                  new XAttribute("colr", logc.Request_Row != null ? logc.Request_Row.Request.COLR : "#ADFF2F"),
                   new XAttribute("lcid", logc.LCID),
                   new XAttribute("rsltstat", logc.RSLT_STAT ?? "002"),
                   new XAttribute("rqstrqid", rqstrqid),
@@ -220,6 +221,12 @@ namespace System.CRM.Ui.Activity
             else
             {
                RqstFolw_Butn.Visible = false;
+            }
+
+            if (rqst.Request_Row != null)
+            {
+               rqst.Request_Row.Request.COLR = rqst.Request_Row.Request.COLR == null ? "#ADFF2F" : rqst.Request_Row.Request.COLR;
+               SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.Request_Row.Request.COLR);
             }
 
             // Set Rslt_Stat
@@ -465,6 +472,57 @@ namespace System.CRM.Ui.Activity
 
          logc.SUBJ_DESC = Subject_Txt.Text;
          logc.LOG_CMNT = Subject_Txt.Text;
+      }
+
+      private void SelectColor_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var logc = LogcBs.Current as Data.Log_Call;
+
+            if (logc.RQRO_RQST_RQID == null)
+            {
+               needclose = false;
+               Save_Butn_Click(null, null);
+               needclose = true;
+               if (requery)
+               {
+                  iCRM = new Data.iCRMDataContext(ConnectionString);
+                  LogcBs.DataSource =
+                     iCRM.Log_Calls.FirstOrDefault(t =>
+                        t.SERV_FILE_NO == fileno &&
+                        t.LCID == iCRM.Log_Calls.Where(tt => tt.SERV_FILE_NO == fileno).Max(tt => tt.LCID));
+                  requery = true;
+               }
+            }
+            else
+               requery = true;
+         }
+         catch { }
+         finally
+         {
+            if (requery)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 48 /* Execute Tsk_Colr_F */),
+                        new Job(SendType.SelfToUserInterface, "TSK_COLR_F", 10 /* Execute Actn_Calf_P */)
+                        {
+                            Input = 
+                              new XElement("Request", 
+                                 //new XAttribute("fileno", task.SERV_FILE_NO), 
+                                 //new XAttribute("tkid", task.TKID),
+                                 //new XAttribute("tasktype", "new"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                         }
+                     }
+                  )
+               );
+            }
+         }
       }
    }
 }

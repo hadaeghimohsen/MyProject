@@ -168,6 +168,7 @@ namespace System.CRM.Ui.Acounts
                            new XAttribute("fileno", note.SERV_FILE_NO), 
                            new XAttribute("ntid", note.NTID), 
                            new XAttribute("rqrorqstrqid", note.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", note.Request_Row.Request.PROJ_RQST_RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -478,6 +479,7 @@ namespace System.CRM.Ui.Acounts
                      new XElement("Service", 
                         new XAttribute("fileno", logc.SERV_FILE_NO), 
                         new XAttribute("lcid", logc.LCID),
+                        new XAttribute("projrqstrqid", logc.Request_Row.Request.PROJ_RQST_RQID),
                         new XAttribute("formcaller", GetType().Name)
                      )
                   },
@@ -631,6 +633,7 @@ namespace System.CRM.Ui.Acounts
                        new XElement("Service", 
                           new XAttribute("fileno", emal.SERV_FILE_NO), 
                           new XAttribute("emid", emal.EMID),
+                          new XAttribute("projrqstrqid", emal.Request_Row.Request.PROJ_RQST_RQID),
                           new XAttribute("formcaller", GetType().Name)
                        )
                     },
@@ -663,6 +666,7 @@ namespace System.CRM.Ui.Acounts
                            new XAttribute("tasktype", "edit"), 
                            new XAttribute("tkid", task.TKID), 
                            new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", task.Request_Row.Request.PROJ_RQST_RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -714,6 +718,7 @@ namespace System.CRM.Ui.Acounts
                            new XAttribute("appointmenttype", "edit"), 
                            new XAttribute("apid", apon.APID), 
                            new XAttribute("rqrorqstrqid", apon.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", apon.Request_Row.Request.PROJ_RQST_RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -765,6 +770,7 @@ namespace System.CRM.Ui.Acounts
                            new XAttribute("sendfiletype", "edit"), 
                            new XAttribute("sfid", sndf.SFID), 
                            new XAttribute("rqrorqstrqid", sndf.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", sndf.Request_Row.Request.PROJ_RQST_RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -814,6 +820,7 @@ namespace System.CRM.Ui.Acounts
                         new XElement("Service", 
                            new XAttribute("fileno", mesg.SERV_FILE_NO), 
                            new XAttribute("msid", mesg.MSID),                            
+                           new XAttribute("projrqstrqid", mesg.Request_Row.Request.PROJ_RQST_RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -1168,6 +1175,9 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             var pymt = PymtSaveBs.Current as Data.VF_Save_PaymentsResult;
             switch (e.Button.Index)
             {
@@ -1228,6 +1238,7 @@ namespace System.CRM.Ui.Acounts
                                  new XAttribute("fileno", pymt.SERV_FILE_NO), 
                                  new XAttribute("cashcode", pymt.CASH_CODE), 
                                  new XAttribute("rqid", pymt.RQID), 
+                                 new XAttribute("projrqstrqid", rqstproj.RQID),
                                  new XAttribute("formcaller", GetType().Name)
                               )
                          },
@@ -1677,7 +1688,7 @@ namespace System.CRM.Ui.Acounts
                      Input = 
                         new XElement("Company",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("compcode", comp.CODE)
+                           new XAttribute("compcode", comp.CODE),                           
                         )
                   }
                }

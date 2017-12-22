@@ -109,6 +109,7 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_PSAV_P(
                new XElement("Project",
                   new XAttribute("rqstrqid", 0),
+                  new XAttribute("servfileno", fileno),
                   new XAttribute("rqrorqstrqid", rqst.RQID),                  
                   new XAttribute("rqstdesc", rqst.RQST_DESC),
                   new XAttribute("colr", rqst.COLR ?? "#ADFF2F"),
@@ -172,6 +173,10 @@ namespace System.CRM.Ui.Activity
                case 0:
                   break;
                case 1:
+                  var rqst = RqstBs.Current as Data.Request;
+                  if (rqst == null) return;
+                  if (rqst.RQST_DESC == null || rqst.RQST_DESC == "") { RqstDesc_Txt.Focus(); throw new Exception("خطا * عنوان پروژه خالی می باشد"); }
+
                   var jbpr = (long?)Jrpb_Lov.EditValue;
                   if (jbpr == null) return;
                   if (!SrprBs.List.OfType<Data.Service_Project>().Any(sp => sp.JBPR_CODE == jbpr))

@@ -29,11 +29,11 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OPT_NOTE_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
          this.RqstFolw_Butn = new System.MaxUi.RoundedButton();
          this.Finr_Butn = new System.MaxUi.RoundedButton();
@@ -51,6 +51,7 @@
          this.TemplateText_Butn = new System.MaxUi.RoundedButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          this.InfoServ_Butn = new System.MaxUi.RoundedButton();
          this.Mesg_Date = new Atf.UI.DateTimeSelector();
          this.LogCall_Time = new DevExpress.XtraEditors.TimeEdit();
@@ -125,7 +126,6 @@
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -438,6 +438,30 @@
          this.panelControl8.Size = new System.Drawing.Size(533, 75);
          this.panelControl8.TabIndex = 10;
          // 
+         // SelectColor_Butn
+         // 
+         this.SelectColor_Butn.Active = true;
+         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectColor_Butn.Caption = "";
+         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.ImageProfile = null;
+         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectColor_Butn.ImageVisiable = false;
+         this.SelectColor_Butn.Location = new System.Drawing.Point(11, 41);
+         this.SelectColor_Butn.Name = "SelectColor_Butn";
+         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectColor_Butn.TabIndex = 14;
+         this.SelectColor_Butn.Tooltip = null;
+         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
+         // 
          // InfoServ_Butn
          // 
          this.InfoServ_Butn.Active = true;
@@ -489,7 +513,7 @@
          this.LogCall_Time.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LogCall_Time.Properties.Appearance.Options.UseFont = true;
          this.LogCall_Time.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.LogCall_Time.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
          this.LogCall_Time.Properties.LookAndFeel.SkinName = "Office 2010 Black";
          this.LogCall_Time.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -546,9 +570,9 @@
          this.Serv_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Serv_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Serv_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1522, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Serv_Lov.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1522, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Serv_Lov.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Serv_Lov.Properties.DataSource = this.ServBs;
          this.Serv_Lov.Properties.DisplayMember = "NAME_DNRM";
          this.Serv_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -1000,30 +1024,6 @@
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(18, 422);
          this.panel3.TabIndex = 8;
-         // 
-         // SelectColor_Butn
-         // 
-         this.SelectColor_Butn.Active = true;
-         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.SelectColor_Butn.Caption = "";
-         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.ImageProfile = null;
-         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.SelectColor_Butn.ImageVisiable = false;
-         this.SelectColor_Butn.Location = new System.Drawing.Point(11, 42);
-         this.SelectColor_Butn.Name = "SelectColor_Butn";
-         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
-         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.SelectColor_Butn.TabIndex = 14;
-         this.SelectColor_Butn.Tooltip = null;
-         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
          // 
          // OPT_NOTE_F
          // 

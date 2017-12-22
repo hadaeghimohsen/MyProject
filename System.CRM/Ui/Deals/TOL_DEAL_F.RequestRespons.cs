@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -54,6 +55,9 @@ namespace System.CRM.Ui.Deals
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 200:
+               SetColor(job);
                break;
             default:
                break;
@@ -279,6 +283,24 @@ namespace System.CRM.Ui.Deals
                PymtBs.DataSource = iCRM.Payments.FirstOrDefault(p => p.SERV_FILE_NO == fileno && p.CASH_CODE == Convert.ToInt64(xinput.Attribute("cashcode").Value) && p.RQST_RQID == Convert.ToInt64(xinput.Attribute("rqid").Value));
          }
          
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 200
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetColor(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(xinput.Attribute("colr").Value);
+            var rqst = PymtBs.Current as Data.Payment;
+            if (rqst == null) return;
+
+            rqst.Request.COLR = xinput.Attribute("colr").Value;
+         }
          job.Status = StatusType.Successful;
       }
 

@@ -258,6 +258,12 @@ namespace System.CRM.Ui.Activity
                RqstFolw_Butn.Visible = false;
             }
 
+            if (rqst.Request_Row != null)
+            {
+               rqst.Request_Row.Request.COLR = rqst.Request_Row.Request.COLR == null ? "#ADFF2F" : rqst.Request_Row.Request.COLR;
+               SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.Request_Row.Request.COLR);
+            }
+
             rqst.DEAD_LINE_STAT = rqst.DEAD_LINE_STAT == null ? "001" : rqst.DEAD_LINE_STAT;
             switch (rqst.DEAD_LINE_STAT)
             {
@@ -273,10 +279,7 @@ namespace System.CRM.Ui.Activity
 
             rqst.ARCH_STAT = rqst.ARCH_STAT == null ? "001" : rqst.ARCH_STAT;
 
-            rqst.TASK_STAT = rqst.TASK_STAT == null ? "001" : rqst.TASK_STAT;
-
-            rqst.Request_Row.Request.COLR = rqst.Request_Row.Request.COLR == null ? "#ADFF2F" : rqst.Request_Row.Request.COLR;
-            SelectColor_Butn.NormalColorA = SelectColor_Butn.NormalColorB = SelectColor_Butn.HoverColorA = SelectColor_Butn.HoverColorB = ColorTranslator.FromHtml(rqst.Request_Row.Request.COLR);
+            rqst.TASK_STAT = rqst.TASK_STAT == null ? "001" : rqst.TASK_STAT;            
          }
          catch { }
       }

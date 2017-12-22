@@ -250,5 +250,36 @@ namespace System.Scsc.Ui.Common
       {
          HL_INVSFILENO_ButtonClick(null, null);
       }
+
+      private void DeltFngrPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         var users = vF_Last_Info_FighterResultBindingSource.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.END_DATE.HasValue && f.END_DATE.Value.AddDays((double)Days_Nud.Value) < DateTime.Now);
+         Users_Lb.Text = string.Format("تعداد کاربران : {0}", users.Count());
+         if (MessageBox.Show(this, "آیا با حذف اطلاعات کاربر از دستگاه موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+         
+         foreach (Data.VF_Last_Info_FighterResult figh in users)
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 43, SendType.SelfToUserInterface)
+               {
+                  Input =
+                  new XElement("User",
+                     new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM),
+                     new XAttribute("functype", "5.2.3.10")
+                  )
+               }
+            );
+         }
+      }
+
+      private void Days_Nud_ValueChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var users = vF_Last_Info_FighterResultBindingSource.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.END_DATE.HasValue && f.END_DATE.Value.AddDays((double)Days_Nud.Value) < DateTime.Now);
+            Users_Lb.Text = string.Format("تعداد کاربران : {0}", users.Count());            
+         }
+         catch { }
+      }
    }
 }

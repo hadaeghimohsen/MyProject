@@ -1010,6 +1010,9 @@ namespace System.CRM.Ui.Contacts
       {
          try
          {
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             var pymt = PymtSaveBs.Current as Data.VF_Save_PaymentsResult;
             switch (e.Button.Index)
             {
@@ -1079,6 +1082,7 @@ namespace System.CRM.Ui.Contacts
                                  new XAttribute("fileno", serv.FILE_NO), 
                                  new XAttribute("cashcode", pymt.CASH_CODE), 
                                  new XAttribute("rqid", pymt.RQID), 
+                                 new XAttribute("projrqstrqid", rqstproj.RQID),
                                  new XAttribute("formcaller", GetType().Name)
                               )
                          },

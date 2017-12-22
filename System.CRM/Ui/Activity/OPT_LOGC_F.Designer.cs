@@ -53,6 +53,8 @@
          this.UserMentioned_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+         this.LinkText_Pk = new System.MaxUi.NewPickBtn();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.FileAttachment_Butn = new System.MaxUi.RoundedButton();
          this.Answer_Butn = new System.MaxUi.RoundedButton();
          this.InfoServ_Butn = new System.MaxUi.RoundedButton();
@@ -134,8 +136,7 @@
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.Subject_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.LinkText_Pk = new System.MaxUi.NewPickBtn();
+         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -444,6 +445,7 @@
          // 
          this.panelControl8.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panelControl8.Appearance.Options.UseBackColor = true;
+         this.panelControl8.Controls.Add(this.SelectColor_Butn);
          this.panelControl8.Controls.Add(this.LinkText_Pk);
          this.panelControl8.Controls.Add(this.FileAttachment_Butn);
          this.panelControl8.Controls.Add(this.Answer_Butn);
@@ -465,6 +467,39 @@
          this.panelControl8.Name = "panelControl8";
          this.panelControl8.Size = new System.Drawing.Size(533, 162);
          this.panelControl8.TabIndex = 10;
+         // 
+         // LinkText_Pk
+         // 
+         this.LinkText_Pk.BackColor = System.Drawing.Color.Transparent;
+         this.LinkText_Pk.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.LinkText_Pk.Disabled = false;
+         this.LinkText_Pk.First = null;
+         this.LinkText_Pk.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.LinkText_Pk.ForceSelect = false;
+         this.LinkText_Pk.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.LinkText_Pk.ImageIndexPickDown = 0;
+         this.LinkText_Pk.ImageIndexPickUp = 1;
+         this.LinkText_Pk.ImageList = this.imageList1;
+         this.LinkText_Pk.Location = new System.Drawing.Point(14, 121);
+         this.LinkText_Pk.Name = "LinkText_Pk";
+         this.LinkText_Pk.Next = null;
+         this.LinkText_Pk.PickChecked = false;
+         this.LinkText_Pk.PickDownFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LinkText_Pk.PickDownText = null;
+         this.LinkText_Pk.PickDownTextColor = System.Drawing.Color.Empty;
+         this.LinkText_Pk.PickUpFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LinkText_Pk.PickUpText = null;
+         this.LinkText_Pk.PickUpTextColor = System.Drawing.Color.Empty;
+         this.LinkText_Pk.Size = new System.Drawing.Size(35, 32);
+         this.LinkText_Pk.TabIndex = 15;
+         this.LinkText_Pk.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1610.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1611.png");
          // 
          // FileAttachment_Butn
          // 
@@ -1191,38 +1226,29 @@
          this.panel3.Size = new System.Drawing.Size(18, 451);
          this.panel3.TabIndex = 8;
          // 
-         // imageList1
+         // SelectColor_Butn
          // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1610.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1611.png");
-         // 
-         // LinkText_Pk
-         // 
-         this.LinkText_Pk.BackColor = System.Drawing.Color.Transparent;
-         this.LinkText_Pk.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.LinkText_Pk.Disabled = false;
-         this.LinkText_Pk.First = null;
-         this.LinkText_Pk.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.LinkText_Pk.ForceSelect = false;
-         this.LinkText_Pk.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.LinkText_Pk.ImageIndexPickDown = 0;
-         this.LinkText_Pk.ImageIndexPickUp = 1;
-         this.LinkText_Pk.ImageList = this.imageList1;
-         this.LinkText_Pk.Location = new System.Drawing.Point(14, 121);
-         this.LinkText_Pk.Name = "LinkText_Pk";
-         this.LinkText_Pk.Next = null;
-         this.LinkText_Pk.PickChecked = false;
-         this.LinkText_Pk.PickDownFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LinkText_Pk.PickDownText = null;
-         this.LinkText_Pk.PickDownTextColor = System.Drawing.Color.Empty;
-         this.LinkText_Pk.PickUpFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LinkText_Pk.PickUpText = null;
-         this.LinkText_Pk.PickUpTextColor = System.Drawing.Color.Empty;
-         this.LinkText_Pk.Size = new System.Drawing.Size(35, 32);
-         this.LinkText_Pk.TabIndex = 15;
-         this.LinkText_Pk.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SelectColor_Butn.Active = true;
+         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectColor_Butn.Caption = "";
+         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.ImageProfile = null;
+         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectColor_Butn.ImageVisiable = false;
+         this.SelectColor_Butn.Location = new System.Drawing.Point(17, 89);
+         this.SelectColor_Butn.Name = "SelectColor_Butn";
+         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectColor_Butn.TabIndex = 16;
+         this.SelectColor_Butn.Tooltip = null;
+         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
          // 
          // OPT_LOGC_F
          // 
@@ -1361,6 +1387,7 @@
       private MaxUi.RoundedButton RqstFolw_Butn;
       private MaxUi.NewPickBtn LinkText_Pk;
       private Windows.Forms.ImageList imageList1;
+      private MaxUi.RoundedButton SelectColor_Butn;
 
    }
 }

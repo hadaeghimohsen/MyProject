@@ -1148,5 +1148,18 @@ namespace System.Scsc.Ui.Common
             )
          );
       }
+
+      private void AddUserWithFngrPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  #region DoWork                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "SSR_SetUserInfo"))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

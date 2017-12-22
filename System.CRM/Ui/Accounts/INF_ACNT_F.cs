@@ -1688,7 +1688,7 @@ namespace System.CRM.Ui.Acounts
                      Input = 
                         new XElement("Company",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("compcode", comp.CODE),                           
+                           new XAttribute("compcode", comp.CODE)                       
                         )
                   }
                }

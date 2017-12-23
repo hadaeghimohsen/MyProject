@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label22;
          System.Windows.Forms.Label label23;
          System.Windows.Forms.Label label24;
@@ -74,10 +75,10 @@
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_CHNG_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState9 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState10 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState11 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
-         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState12 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState1 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState2 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState3 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
+         DevExpress.XtraGauges.Core.Model.IndicatorState indicatorState4 = new DevExpress.XtraGauges.Core.Model.IndicatorState();
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.panel1 = new System.Windows.Forms.Panel();
@@ -88,9 +89,9 @@
          this.Tag_Butn = new System.MaxUi.RoundedButton();
          this.ServCont_Butn = new System.MaxUi.RoundedButton();
          this.FileNo_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.SrpbBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
+         this.SrpbBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.TwitterUrl_Txt = new DevExpress.XtraEditors.TextEdit();
          this.LinkedIn_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FacebookUrl_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -100,16 +101,16 @@
          this.CordY_Txt = new DevExpress.XtraEditors.TextEdit();
          this.CordX_Txt = new DevExpress.XtraEditors.TextEdit();
          this.SexType_Lov = new System.Windows.Forms.ComboBox();
-         this.DsxtpBs = new System.Windows.Forms.BindingSource();
+         this.DsxtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.FindGoogleMap_Butn = new C1.Win.C1Input.C1Button();
          this.ServInfo_Pikb = new System.MaxUi.NewPickBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.CntyCode_Lov = new System.Windows.Forms.ComboBox();
-         this.CntyBs = new System.Windows.Forms.BindingSource();
+         this.CntyBs = new System.Windows.Forms.BindingSource(this.components);
          this.SrpbType_Lov = new System.Windows.Forms.ComboBox();
-         this.DsrtpBs = new System.Windows.Forms.BindingSource();
+         this.DsrtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.ServFileNo_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.ServsBs1 = new System.Windows.Forms.BindingSource();
+         this.ServsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -174,10 +175,10 @@
          this.Regn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Comp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RegnCode_Lov = new System.Windows.Forms.ComboBox();
-         this.RegnBs1 = new System.Windows.Forms.BindingSource();
-         this.PrvnBs1 = new System.Windows.Forms.BindingSource();
+         this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CompCode_Lov = new System.Windows.Forms.ComboBox();
-         this.CompBs1 = new System.Windows.Forms.BindingSource();
+         this.CompBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PrvnCode_Lov = new System.Windows.Forms.ComboBox();
          this.EmalAdrs_Txt = new DevExpress.XtraEditors.TextEdit();
          this.TellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -189,16 +190,17 @@
          this.FrstName_Txt = new DevExpress.XtraEditors.TextEdit();
          this.BrthDate_Dat = new Atf.UI.DateTimeSelector();
          this.Gb_Rqst = new System.Windows.Forms.GroupBox();
+         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.StatusSaving_Gc = new DevExpress.XtraGauges.Win.GaugeControl();
          this.stateIndicatorGauge1 = new DevExpress.XtraGauges.Win.Gauges.State.StateIndicatorGauge();
          this.StatusSaving_Sic = new DevExpress.XtraGauges.Win.Gauges.State.StateIndicatorComponent();
          this.Rqtp_Lov = new System.Windows.Forms.ComboBox();
-         this.RqtpBs1 = new System.Windows.Forms.BindingSource();
+         this.RqtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.comboBox3 = new System.Windows.Forms.ComboBox();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.comboBox1 = new System.Windows.Forms.ComboBox();
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector4 = new Atf.UI.DateTimeSelector();
          this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
@@ -212,31 +214,31 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.Orgn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SuntCode_Lov = new System.Windows.Forms.ComboBox();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
-         this.BuntBs1 = new System.Windows.Forms.BindingSource();
-         this.DeptBs1 = new System.Windows.Forms.BindingSource();
-         this.OrgnBs1 = new System.Windows.Forms.BindingSource();
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CustType_Lov = new System.Windows.Forms.ComboBox();
-         this.DcttpBs1 = new System.Windows.Forms.BindingSource();
+         this.DcttpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.IscpCode_Lov = new System.Windows.Forms.ComboBox();
-         this.IscpBs1 = new System.Windows.Forms.BindingSource();
-         this.IscaBs1 = new System.Windows.Forms.BindingSource();
-         this.IscgBs1 = new System.Windows.Forms.BindingSource();
+         this.IscpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.IscaBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.IscgBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.BuntCode_Lov = new System.Windows.Forms.ComboBox();
          this.IscaCode_Lov = new System.Windows.Forms.ComboBox();
          this.DeptCode_Lov = new System.Windows.Forms.ComboBox();
          this.EthnCity_Lov = new System.Windows.Forms.ComboBox();
-         this.DectpBs1 = new System.Windows.Forms.BindingSource();
+         this.DectpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.JobTitl_Lov = new System.Windows.Forms.ComboBox();
-         this.DjbtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DjbtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.IscgCode_Lov = new System.Windows.Forms.ComboBox();
          this.OrgnCode_Lov = new System.Windows.Forms.ComboBox();
          this.RlgnType_Lov = new System.Windows.Forms.ComboBox();
-         this.DrltpBs1 = new System.Windows.Forms.BindingSource();
+         this.DrltpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MridType_Lov = new System.Windows.Forms.ComboBox();
-         this.DmrtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DmrtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.groupBox2 = new System.Windows.Forms.GroupBox();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -274,8 +276,7 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.toolTip1 = new System.Windows.Forms.ToolTip();
-         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          label22 = new System.Windows.Forms.Label();
          label23 = new System.Windows.Forms.Label();
          label24 = new System.Windows.Forms.Label();
@@ -764,6 +765,7 @@
          label33.Size = new System.Drawing.Size(72, 14);
          label33.TabIndex = 35;
          label33.Text = "نوع مشتری :";
+         label33.Visible = false;
          // 
          // label37
          // 
@@ -1321,6 +1323,7 @@
          this.SrpbType_Lov.Size = new System.Drawing.Size(132, 22);
          this.SrpbType_Lov.TabIndex = 6;
          this.SrpbType_Lov.ValueMember = "VALU";
+         this.SrpbType_Lov.Visible = false;
          // 
          // DsrtpBs
          // 
@@ -2024,6 +2027,33 @@
          this.Gb_Rqst.TabStop = false;
          this.Gb_Rqst.Text = "اطلاعات درخواست";
          // 
+         // ShowRqst_PickButn
+         // 
+         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
+         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.ShowRqst_PickButn.Disabled = false;
+         this.ShowRqst_PickButn.First = null;
+         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.ForceSelect = false;
+         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
+         this.ShowRqst_PickButn.ImageIndexPickUp = 0;
+         this.ShowRqst_PickButn.ImageList = null;
+         this.ShowRqst_PickButn.Location = new System.Drawing.Point(13, 269);
+         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
+         this.ShowRqst_PickButn.Next = null;
+         this.ShowRqst_PickButn.PickChecked = true;
+         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickDownText = "درخواست های من";
+         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickUpText = "همه درخواست ها";
+         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.Size = new System.Drawing.Size(110, 25);
+         this.ShowRqst_PickButn.TabIndex = 70;
+         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
+         // 
          // StatusSaving_Gc
          // 
          this.StatusSaving_Gc.BackColor = System.Drawing.SystemColors.Control;
@@ -2048,19 +2078,19 @@
          this.StatusSaving_Sic.Name = "stateIndicatorComponent1";
          this.StatusSaving_Sic.Size = new System.Drawing.SizeF(200F, 200F);
          this.StatusSaving_Sic.StateIndex = 0;
-         indicatorState9.Name = "New Request";
-         indicatorState9.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight1;
-         indicatorState10.Name = "Error On Saving";
-         indicatorState10.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight2;
-         indicatorState11.Name = "Wait For Saving";
-         indicatorState11.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight3;
-         indicatorState12.Name = "Successfull Saving";
-         indicatorState12.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight4;
+         indicatorState1.Name = "New Request";
+         indicatorState1.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight1;
+         indicatorState2.Name = "Error On Saving";
+         indicatorState2.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight2;
+         indicatorState3.Name = "Wait For Saving";
+         indicatorState3.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight3;
+         indicatorState4.Name = "Successfull Saving";
+         indicatorState4.ShapeType = DevExpress.XtraGauges.Core.Model.StateIndicatorShapeType.ElectricLight4;
          this.StatusSaving_Sic.States.AddRange(new DevExpress.XtraGauges.Core.Model.IIndicatorState[] {
-            indicatorState9,
-            indicatorState10,
-            indicatorState11,
-            indicatorState12});
+            indicatorState1,
+            indicatorState2,
+            indicatorState3,
+            indicatorState4});
          // 
          // Rqtp_Lov
          // 
@@ -2939,33 +2969,6 @@
          this.colBase_Tariff2.Name = "colBase_Tariff2";
          this.colBase_Tariff2.Visible = true;
          this.colBase_Tariff2.VisibleIndex = 10;
-         // 
-         // ShowRqst_PickButn
-         // 
-         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
-         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ShowRqst_PickButn.Disabled = false;
-         this.ShowRqst_PickButn.First = null;
-         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.ForceSelect = false;
-         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
-         this.ShowRqst_PickButn.ImageIndexPickUp = 0;
-         this.ShowRqst_PickButn.ImageList = null;
-         this.ShowRqst_PickButn.Location = new System.Drawing.Point(13, 269);
-         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
-         this.ShowRqst_PickButn.Next = null;
-         this.ShowRqst_PickButn.PickChecked = true;
-         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.PickDownText = "درخواست های من";
-         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
-         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.PickUpText = "همه درخواست ها";
-         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
-         this.ShowRqst_PickButn.Size = new System.Drawing.Size(110, 25);
-         this.ShowRqst_PickButn.TabIndex = 70;
-         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
          // 
          // ADM_CHNG_F
          // 

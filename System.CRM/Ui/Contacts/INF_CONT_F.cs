@@ -2157,6 +2157,24 @@ namespace System.CRM.Ui.Contacts
          }
       }
 
-
+      private void MoreInfo_Butn_Click(object sender, EventArgs e)
+      {         
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 91 /* Execute Opt_Info_F */),
+                  new Job(SendType.SelfToUserInterface, "OPT_INFO_F", 10 /* Execute Actn_Calf_F */)
+                  {
+                     Input = 
+                        new XElement("Object",
+                           new XAttribute("fileno", fileno),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                  }                     
+               }
+            )
+         );
+      }
    }
 }

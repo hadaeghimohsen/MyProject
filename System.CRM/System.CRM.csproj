@@ -205,6 +205,12 @@
     <Compile Include="Ui\Activity\OPT_NOTE_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Activity\OPT_INFO_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Activity\OPT_INFO_F.Designer.cs">
+      <DependentUpon>OPT_INFO_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Activity\OPT_RQST_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </Compile>
     <Compile Include="Ui\Activity\OPT_EMAL_F.Designer.cs">
       <DependentUpon>OPT_EMAL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Activity\OPT_INFO_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Activity\OPT_RQST_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -2171,6 +2180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Activity\OPT_NOTE_F.resx">
       <DependentUpon>OPT_NOTE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Activity\OPT_INFO_F.resx">
+      <DependentUpon>OPT_INFO_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Activity\OPT_RQST_F.resx">
       <DependentUpon>OPT_RQST_F.cs</DependentUpon>

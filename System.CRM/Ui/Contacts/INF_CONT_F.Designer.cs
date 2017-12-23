@@ -88,9 +88,13 @@
          this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+         this.RelationShip_Butn = new System.MaxUi.RoundedButton();
          this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+         this.Gis_Butn = new System.MaxUi.RoundedButton();
          this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+         this.ChangeServiceType_Butn = new System.MaxUi.RoundedButton();
          this.RqstRqid_Lbl = new System.Windows.Forms.LinkLabel();
+         this.AddLogCall_Butn = new System.MaxUi.RoundedButton();
          this.linkLabel4 = new System.Windows.Forms.LinkLabel();
          this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
@@ -121,9 +125,7 @@
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-         this.RelationShip_Butn = new System.MaxUi.RoundedButton();
          this.TwitterUrl_Butn = new System.MaxUi.RoundedButton();
-         this.AddLogCall_Butn = new System.MaxUi.RoundedButton();
          this.DeleteRecycleService_Butn = new System.MaxUi.RoundedButton();
          this.CloneService_Butn = new System.MaxUi.RoundedButton();
          this.SendEmail_Butn = new System.MaxUi.RoundedButton();
@@ -132,8 +134,7 @@
          this.FacebookUrl_Butn = new System.MaxUi.RoundedButton();
          this.Lb_Comp = new DevExpress.XtraEditors.LabelControl();
          this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-         this.Gis_Butn = new System.MaxUi.RoundedButton();
-         this.ChangeServiceType_Butn = new System.MaxUi.RoundedButton();
+         this.MoreInfo_Butn = new System.MaxUi.RoundedButton();
          this.ImageProfile_Butn = new System.MaxUi.RoundedButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.PymtNotEnd_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -804,13 +805,17 @@
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(214, 53);
          this.labelControl1.TabIndex = 1;
-         this.labelControl1.Text = "خریدار";
+         this.labelControl1.Text = "اشخاص";
          // 
          // panelControl4
          // 
+         this.panelControl4.Controls.Add(this.RelationShip_Butn);
          this.panelControl4.Controls.Add(this.linkLabel6);
+         this.panelControl4.Controls.Add(this.Gis_Butn);
          this.panelControl4.Controls.Add(this.linkLabel5);
+         this.panelControl4.Controls.Add(this.ChangeServiceType_Butn);
          this.panelControl4.Controls.Add(this.RqstRqid_Lbl);
+         this.panelControl4.Controls.Add(this.AddLogCall_Butn);
          this.panelControl4.Controls.Add(this.linkLabel4);
          this.panelControl4.Controls.Add(this.labelControl37);
          this.panelControl4.Controls.Add(this.labelControl40);
@@ -849,6 +854,32 @@
          this.panelControl4.Size = new System.Drawing.Size(699, 362);
          this.panelControl4.TabIndex = 3;
          // 
+         // RelationShip_Butn
+         // 
+         this.RelationShip_Butn.Active = true;
+         this.RelationShip_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RelationShip_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.RelationShip_Butn.Caption = "";
+         this.RelationShip_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.RelationShip_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.RelationShip_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.RelationShip_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.RelationShip_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RelationShip_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1601;
+         this.RelationShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.RelationShip_Butn.ImageVisiable = true;
+         this.RelationShip_Butn.Location = new System.Drawing.Point(76, 252);
+         this.RelationShip_Butn.Name = "RelationShip_Butn";
+         this.RelationShip_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.RelationShip_Butn.NormalColorA = System.Drawing.Color.White;
+         this.RelationShip_Butn.NormalColorB = System.Drawing.Color.White;
+         this.RelationShip_Butn.Size = new System.Drawing.Size(36, 36);
+         this.RelationShip_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.RelationShip_Butn.TabIndex = 28;
+         this.RelationShip_Butn.Tooltip = "روابط و ارتباطات";
+         this.RelationShip_Butn.Visible = false;
+         this.RelationShip_Butn.Click += new System.EventHandler(this.RelationShip_Butn_Click);
+         // 
          // linkLabel6
          // 
          this.linkLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -860,6 +891,31 @@
          this.linkLabel6.Size = new System.Drawing.Size(223, 27);
          this.linkLabel6.TabIndex = 27;
          this.linkLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Gis_Butn
+         // 
+         this.Gis_Butn.Active = true;
+         this.Gis_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Gis_Butn.Caption = "";
+         this.Gis_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Gis_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Gis_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Gis_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Gis_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Gis_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1564;
+         this.Gis_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.Gis_Butn.ImageVisiable = true;
+         this.Gis_Butn.Location = new System.Drawing.Point(33, 252);
+         this.Gis_Butn.Name = "Gis_Butn";
+         this.Gis_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.Gis_Butn.NormalColorA = System.Drawing.Color.White;
+         this.Gis_Butn.NormalColorB = System.Drawing.Color.White;
+         this.Gis_Butn.Size = new System.Drawing.Size(35, 35);
+         this.Gis_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.Gis_Butn.TabIndex = 5;
+         this.Gis_Butn.Tooltip = "موقعیت مکانی";
+         this.Gis_Butn.Visible = false;
+         this.Gis_Butn.Click += new System.EventHandler(this.Gis_Butn_Click);
          // 
          // linkLabel5
          // 
@@ -873,6 +929,31 @@
          this.linkLabel5.TabIndex = 24;
          this.linkLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
+         // ChangeServiceType_Butn
+         // 
+         this.ChangeServiceType_Butn.Active = true;
+         this.ChangeServiceType_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.ChangeServiceType_Butn.Caption = "";
+         this.ChangeServiceType_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.ChangeServiceType_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.ChangeServiceType_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.ChangeServiceType_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.ChangeServiceType_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.ChangeServiceType_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1542;
+         this.ChangeServiceType_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.ChangeServiceType_Butn.ImageVisiable = true;
+         this.ChangeServiceType_Butn.Location = new System.Drawing.Point(161, 252);
+         this.ChangeServiceType_Butn.Name = "ChangeServiceType_Butn";
+         this.ChangeServiceType_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.ChangeServiceType_Butn.NormalColorA = System.Drawing.Color.White;
+         this.ChangeServiceType_Butn.NormalColorB = System.Drawing.Color.White;
+         this.ChangeServiceType_Butn.Size = new System.Drawing.Size(35, 35);
+         this.ChangeServiceType_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.ChangeServiceType_Butn.TabIndex = 4;
+         this.ChangeServiceType_Butn.Tooltip = "تبدیل به مشتری احتمالی";
+         this.ChangeServiceType_Butn.Visible = false;
+         this.ChangeServiceType_Butn.Click += new System.EventHandler(this.ChangeServiceType_Butn_Click);
+         // 
          // RqstRqid_Lbl
          // 
          this.RqstRqid_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -884,6 +965,31 @@
          this.RqstRqid_Lbl.Size = new System.Drawing.Size(166, 27);
          this.RqstRqid_Lbl.TabIndex = 25;
          this.RqstRqid_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // AddLogCall_Butn
+         // 
+         this.AddLogCall_Butn.Active = true;
+         this.AddLogCall_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.AddLogCall_Butn.Caption = "";
+         this.AddLogCall_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.AddLogCall_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.AddLogCall_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.AddLogCall_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.AddLogCall_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.AddLogCall_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1512;
+         this.AddLogCall_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.AddLogCall_Butn.ImageVisiable = true;
+         this.AddLogCall_Butn.Location = new System.Drawing.Point(118, 252);
+         this.AddLogCall_Butn.Name = "AddLogCall_Butn";
+         this.AddLogCall_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.AddLogCall_Butn.NormalColorA = System.Drawing.Color.White;
+         this.AddLogCall_Butn.NormalColorB = System.Drawing.Color.White;
+         this.AddLogCall_Butn.Size = new System.Drawing.Size(35, 35);
+         this.AddLogCall_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.AddLogCall_Butn.TabIndex = 4;
+         this.AddLogCall_Butn.Tooltip = "ثبت تماس تلفنی";
+         this.AddLogCall_Butn.Visible = false;
+         this.AddLogCall_Butn.Click += new System.EventHandler(this.AddLogCall_Butn_Click);
          // 
          // linkLabel4
          // 
@@ -1383,32 +1489,6 @@
          this.labelControl5.TabIndex = 2;
          this.labelControl5.Text = "تلفن همراه";
          // 
-         // RelationShip_Butn
-         // 
-         this.RelationShip_Butn.Active = true;
-         this.RelationShip_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.RelationShip_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.RelationShip_Butn.Caption = "";
-         this.RelationShip_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.RelationShip_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.RelationShip_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.RelationShip_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.RelationShip_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.RelationShip_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1601;
-         this.RelationShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.RelationShip_Butn.ImageVisiable = true;
-         this.RelationShip_Butn.Location = new System.Drawing.Point(163, 9);
-         this.RelationShip_Butn.Name = "RelationShip_Butn";
-         this.RelationShip_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.RelationShip_Butn.NormalColorA = System.Drawing.Color.White;
-         this.RelationShip_Butn.NormalColorB = System.Drawing.Color.White;
-         this.RelationShip_Butn.Size = new System.Drawing.Size(36, 36);
-         this.RelationShip_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.RelationShip_Butn.TabIndex = 28;
-         this.RelationShip_Butn.Tooltip = "روابط و ارتباطات";
-         this.RelationShip_Butn.Visible = false;
-         this.RelationShip_Butn.Click += new System.EventHandler(this.RelationShip_Butn_Click);
-         // 
          // TwitterUrl_Butn
          // 
          this.TwitterUrl_Butn.Active = true;
@@ -1432,32 +1512,6 @@
          this.TwitterUrl_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.TwitterUrl_Butn.TabIndex = 4;
          this.TwitterUrl_Butn.Tooltip = null;
-         this.TwitterUrl_Butn.Visible = false;
-         // 
-         // AddLogCall_Butn
-         // 
-         this.AddLogCall_Butn.Active = true;
-         this.AddLogCall_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.AddLogCall_Butn.Caption = "";
-         this.AddLogCall_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.AddLogCall_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.AddLogCall_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.AddLogCall_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.AddLogCall_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.AddLogCall_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1512;
-         this.AddLogCall_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.AddLogCall_Butn.ImageVisiable = true;
-         this.AddLogCall_Butn.Location = new System.Drawing.Point(16, 71);
-         this.AddLogCall_Butn.Name = "AddLogCall_Butn";
-         this.AddLogCall_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.AddLogCall_Butn.NormalColorA = System.Drawing.Color.White;
-         this.AddLogCall_Butn.NormalColorB = System.Drawing.Color.White;
-         this.AddLogCall_Butn.Size = new System.Drawing.Size(35, 35);
-         this.AddLogCall_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.AddLogCall_Butn.TabIndex = 4;
-         this.AddLogCall_Butn.Tooltip = "ثبت تماس تلفنی";
-         this.AddLogCall_Butn.Visible = false;
-         this.AddLogCall_Butn.Click += new System.EventHandler(this.AddLogCall_Butn_Click);
          // 
          // DeleteRecycleService_Butn
          // 
@@ -1578,7 +1632,6 @@
          this.LinkedInUrl_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.LinkedInUrl_Butn.TabIndex = 4;
          this.LinkedInUrl_Butn.Tooltip = null;
-         this.LinkedInUrl_Butn.Visible = false;
          // 
          // FacebookUrl_Butn
          // 
@@ -1603,7 +1656,6 @@
          this.FacebookUrl_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.FacebookUrl_Butn.TabIndex = 4;
          this.FacebookUrl_Butn.Tooltip = null;
-         this.FacebookUrl_Butn.Visible = false;
          // 
          // Lb_Comp
          // 
@@ -1626,11 +1678,8 @@
          // 
          // panelControl1
          // 
-         this.panelControl1.Controls.Add(this.RelationShip_Butn);
-         this.panelControl1.Controls.Add(this.Gis_Butn);
+         this.panelControl1.Controls.Add(this.MoreInfo_Butn);
          this.panelControl1.Controls.Add(this.DeleteRecycleService_Butn);
-         this.panelControl1.Controls.Add(this.ChangeServiceType_Butn);
-         this.panelControl1.Controls.Add(this.AddLogCall_Butn);
          this.panelControl1.Controls.Add(this.TwitterUrl_Butn);
          this.panelControl1.Controls.Add(this.CloneService_Butn);
          this.panelControl1.Controls.Add(this.ImageProfile_Butn);
@@ -1650,55 +1699,30 @@
          this.panelControl1.Size = new System.Drawing.Size(214, 362);
          this.panelControl1.TabIndex = 2;
          // 
-         // Gis_Butn
+         // MoreInfo_Butn
          // 
-         this.Gis_Butn.Active = true;
-         this.Gis_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.Gis_Butn.Caption = "";
-         this.Gis_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.Gis_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.Gis_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.Gis_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.Gis_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.Gis_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1564;
-         this.Gis_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.Gis_Butn.ImageVisiable = true;
-         this.Gis_Butn.Location = new System.Drawing.Point(16, 6);
-         this.Gis_Butn.Name = "Gis_Butn";
-         this.Gis_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.Gis_Butn.NormalColorA = System.Drawing.Color.White;
-         this.Gis_Butn.NormalColorB = System.Drawing.Color.White;
-         this.Gis_Butn.Size = new System.Drawing.Size(35, 35);
-         this.Gis_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.Gis_Butn.TabIndex = 5;
-         this.Gis_Butn.Tooltip = "موقعیت مکانی";
-         this.Gis_Butn.Visible = false;
-         this.Gis_Butn.Click += new System.EventHandler(this.Gis_Butn_Click);
-         // 
-         // ChangeServiceType_Butn
-         // 
-         this.ChangeServiceType_Butn.Active = true;
-         this.ChangeServiceType_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.ChangeServiceType_Butn.Caption = "";
-         this.ChangeServiceType_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.ChangeServiceType_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.ChangeServiceType_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.ChangeServiceType_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.ChangeServiceType_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.ChangeServiceType_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1542;
-         this.ChangeServiceType_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.ChangeServiceType_Butn.ImageVisiable = true;
-         this.ChangeServiceType_Butn.Location = new System.Drawing.Point(163, 71);
-         this.ChangeServiceType_Butn.Name = "ChangeServiceType_Butn";
-         this.ChangeServiceType_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.ChangeServiceType_Butn.NormalColorA = System.Drawing.Color.White;
-         this.ChangeServiceType_Butn.NormalColorB = System.Drawing.Color.White;
-         this.ChangeServiceType_Butn.Size = new System.Drawing.Size(35, 35);
-         this.ChangeServiceType_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.ChangeServiceType_Butn.TabIndex = 4;
-         this.ChangeServiceType_Butn.Tooltip = "تبدیل به مشتری احتمالی";
-         this.ChangeServiceType_Butn.Visible = false;
-         this.ChangeServiceType_Butn.Click += new System.EventHandler(this.ChangeServiceType_Butn_Click);
+         this.MoreInfo_Butn.Active = true;
+         this.MoreInfo_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.MoreInfo_Butn.Caption = "ooo";
+         this.MoreInfo_Butn.Font = new System.Drawing.Font("Symbol", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+         this.MoreInfo_Butn.ForeColor = System.Drawing.Color.DarkGray;
+         this.MoreInfo_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.MoreInfo_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.MoreInfo_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.MoreInfo_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.MoreInfo_Butn.ImageProfile = null;
+         this.MoreInfo_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.MoreInfo_Butn.ImageVisiable = true;
+         this.MoreInfo_Butn.Location = new System.Drawing.Point(16, 73);
+         this.MoreInfo_Butn.Name = "MoreInfo_Butn";
+         this.MoreInfo_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.MoreInfo_Butn.NormalColorA = System.Drawing.Color.White;
+         this.MoreInfo_Butn.NormalColorB = System.Drawing.Color.White;
+         this.MoreInfo_Butn.Size = new System.Drawing.Size(35, 35);
+         this.MoreInfo_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.MoreInfo_Butn.TabIndex = 5;
+         this.MoreInfo_Butn.Tooltip = null;
+         this.MoreInfo_Butn.Click += new System.EventHandler(this.MoreInfo_Butn_Click);
          // 
          // ImageProfile_Butn
          // 
@@ -3505,7 +3529,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(720, 1629);
+         this.splitContainerControl2.Size = new System.Drawing.Size(887, 1629);
          this.splitContainerControl2.SplitterPosition = 531;
          this.splitContainerControl2.TabIndex = 6;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -3520,7 +3544,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl8);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(720, 491);
+         this.splitContainerControl4.Size = new System.Drawing.Size(887, 491);
          this.splitContainerControl4.SplitterPosition = 190;
          this.splitContainerControl4.TabIndex = 7;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -3539,7 +3563,7 @@
             this.repositoryItemTimeEdit1,
             this.RqstStat_Butn});
          this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.gridControl1.Size = new System.Drawing.Size(720, 190);
+         this.gridControl1.Size = new System.Drawing.Size(887, 190);
          this.gridControl1.TabIndex = 6;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CallLog_Gv});
@@ -3871,7 +3895,7 @@
          this.splitContainerControl8.Panel2.Controls.Add(this.splitContainerControl9);
          this.splitContainerControl8.Panel2.Controls.Add(this.panelControl10);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(720, 296);
+         this.splitContainerControl8.Size = new System.Drawing.Size(887, 296);
          this.splitContainerControl8.SplitterPosition = 443;
          this.splitContainerControl8.TabIndex = 0;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -4195,7 +4219,7 @@
          this.splitContainerControl9.Panel1.Text = "Panel1";
          this.splitContainerControl9.Panel2.Controls.Add(this.memoEdit5);
          this.splitContainerControl9.Panel2.Text = "Panel2";
-         this.splitContainerControl9.Size = new System.Drawing.Size(272, 256);
+         this.splitContainerControl9.Size = new System.Drawing.Size(439, 256);
          this.splitContainerControl9.SplitterPosition = 169;
          this.splitContainerControl9.TabIndex = 8;
          this.splitContainerControl9.Text = "splitContainerControl9";
@@ -4212,7 +4236,7 @@
          this.gridControl12.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit12,
             this.repositoryItemTimeEdit12});
-         this.gridControl12.Size = new System.Drawing.Size(272, 169);
+         this.gridControl12.Size = new System.Drawing.Size(439, 169);
          this.gridControl12.TabIndex = 7;
          this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Shis_Gv});
@@ -4358,7 +4382,7 @@
          this.memoEdit5.Properties.Appearance.Options.UseFont = true;
          this.memoEdit5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.memoEdit5.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.memoEdit5.Size = new System.Drawing.Size(272, 82);
+         this.memoEdit5.Size = new System.Drawing.Size(439, 82);
          this.memoEdit5.TabIndex = 9;
          // 
          // panelControl10
@@ -4373,7 +4397,7 @@
          this.panelControl10.Location = new System.Drawing.Point(0, 0);
          this.panelControl10.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl10.Name = "panelControl10";
-         this.panelControl10.Size = new System.Drawing.Size(272, 40);
+         this.panelControl10.Size = new System.Drawing.Size(439, 40);
          this.panelControl10.TabIndex = 7;
          // 
          // SaveMstt_Butn
@@ -4439,7 +4463,7 @@
          this.MainStat_Lov.Properties.NullValuePrompt = "وضعیت اصلی";
          this.MainStat_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.MainStat_Lov.Properties.ValueMember = "CODE";
-         this.MainStat_Lov.Size = new System.Drawing.Size(45, 32);
+         this.MainStat_Lov.Size = new System.Drawing.Size(212, 32);
          this.MainStat_Lov.TabIndex = 42;
          this.MainStat_Lov.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.MainStat_Lov_ButtonClick);
          // 
@@ -4465,7 +4489,7 @@
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(134, 2);
+         this.labelControl17.Location = new System.Drawing.Point(301, 2);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(136, 36);
          this.labelControl17.TabIndex = 2;
@@ -4482,7 +4506,7 @@
          this.panelControl5.Location = new System.Drawing.Point(0, 0);
          this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(720, 40);
+         this.panelControl5.Size = new System.Drawing.Size(887, 40);
          this.panelControl5.TabIndex = 5;
          // 
          // EditProj_Butn
@@ -4541,7 +4565,7 @@
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(454, 2);
+         this.labelControl15.Location = new System.Drawing.Point(621, 2);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(264, 36);
          this.labelControl15.TabIndex = 2;
@@ -4574,7 +4598,7 @@
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl7);
          this.splitContainerControl5.Panel2.Controls.Add(this.panelControl2);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(720, 1093);
+         this.splitContainerControl5.Size = new System.Drawing.Size(887, 1093);
          this.splitContainerControl5.SplitterPosition = 557;
          this.splitContainerControl5.TabIndex = 12;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -4593,7 +4617,7 @@
          this.AllActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1524;
          this.AllActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AllActivity_Butn.ImageVisiable = true;
-         this.AllActivity_Butn.Location = new System.Drawing.Point(649, 488);
+         this.AllActivity_Butn.Location = new System.Drawing.Point(816, 488);
          this.AllActivity_Butn.Name = "AllActivity_Butn";
          this.AllActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AllActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4617,7 +4641,7 @@
          this.TodayActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1523;
          this.TodayActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.TodayActivity_Butn.ImageVisiable = true;
-         this.TodayActivity_Butn.Location = new System.Drawing.Point(649, 46);
+         this.TodayActivity_Butn.Location = new System.Drawing.Point(816, 46);
          this.TodayActivity_Butn.Name = "TodayActivity_Butn";
          this.TodayActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.TodayActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4641,7 +4665,7 @@
          this.Activity2_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1527;
          this.Activity2_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity2_Butn.ImageVisiable = true;
-         this.Activity2_Butn.Location = new System.Drawing.Point(650, 262);
+         this.Activity2_Butn.Location = new System.Drawing.Point(817, 262);
          this.Activity2_Butn.Name = "Activity2_Butn";
          this.Activity2_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity2_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4666,7 +4690,7 @@
          this.Activity1_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1528;
          this.Activity1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity1_Butn.ImageVisiable = true;
-         this.Activity1_Butn.Location = new System.Drawing.Point(649, 338);
+         this.Activity1_Butn.Location = new System.Drawing.Point(816, 338);
          this.Activity1_Butn.Name = "Activity1_Butn";
          this.Activity1_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4691,7 +4715,7 @@
          this.Activity0_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1530;
          this.Activity0_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity0_Butn.ImageVisiable = true;
-         this.Activity0_Butn.Location = new System.Drawing.Point(650, 413);
+         this.Activity0_Butn.Location = new System.Drawing.Point(817, 413);
          this.Activity0_Butn.Name = "Activity0_Butn";
          this.Activity0_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity0_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4716,7 +4740,7 @@
          this.Activity3_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity3_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity3_Butn.ImageVisiable = true;
-         this.Activity3_Butn.Location = new System.Drawing.Point(649, 190);
+         this.Activity3_Butn.Location = new System.Drawing.Point(816, 190);
          this.Activity3_Butn.Name = "Activity3_Butn";
          this.Activity3_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity3_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4741,7 +4765,7 @@
          this.Activity4_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity4_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity4_Butn.ImageVisiable = true;
-         this.Activity4_Butn.Location = new System.Drawing.Point(649, 116);
+         this.Activity4_Butn.Location = new System.Drawing.Point(816, 116);
          this.Activity4_Butn.Name = "Activity4_Butn";
          this.Activity4_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity4_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4871,7 +4895,7 @@
          this.AllActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AllActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.AllActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AllActivity_Txt.Location = new System.Drawing.Point(372, 488);
+         this.AllActivity_Txt.Location = new System.Drawing.Point(539, 488);
          this.AllActivity_Txt.Name = "AllActivity_Txt";
          this.AllActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.AllActivity_Txt.TabIndex = 11;
@@ -4887,7 +4911,7 @@
          this.panelControl6.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl6.Name = "panelControl6";
-         this.panelControl6.Size = new System.Drawing.Size(720, 40);
+         this.panelControl6.Size = new System.Drawing.Size(887, 40);
          this.panelControl6.TabIndex = 6;
          // 
          // labelControl12
@@ -4899,7 +4923,7 @@
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(454, 2);
+         this.labelControl12.Location = new System.Drawing.Point(621, 2);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(264, 36);
          this.labelControl12.TabIndex = 2;
@@ -4913,7 +4937,7 @@
          this.TodayActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TodayActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.TodayActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TodayActivity_Txt.Location = new System.Drawing.Point(372, 46);
+         this.TodayActivity_Txt.Location = new System.Drawing.Point(539, 46);
          this.TodayActivity_Txt.Name = "TodayActivity_Txt";
          this.TodayActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.TodayActivity_Txt.TabIndex = 8;
@@ -4927,7 +4951,7 @@
          this.Activity1_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity1_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity1_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity1_Txt.Location = new System.Drawing.Point(372, 338);
+         this.Activity1_Txt.Location = new System.Drawing.Point(539, 338);
          this.Activity1_Txt.Name = "Activity1_Txt";
          this.Activity1_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity1_Txt.TabIndex = 8;
@@ -4939,7 +4963,7 @@
          this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.panelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl7.Appearance.Options.UseBackColor = true;
-         this.panelControl7.Location = new System.Drawing.Point(670, 94);
+         this.panelControl7.Location = new System.Drawing.Point(837, 94);
          this.panelControl7.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl7.Name = "panelControl7";
@@ -4954,7 +4978,7 @@
          this.Activity2_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity2_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity2_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity2_Txt.Location = new System.Drawing.Point(372, 262);
+         this.Activity2_Txt.Location = new System.Drawing.Point(539, 262);
          this.Activity2_Txt.Name = "Activity2_Txt";
          this.Activity2_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity2_Txt.TabIndex = 8;
@@ -4969,7 +4993,7 @@
          this.Activity3_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity3_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity3_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity3_Txt.Location = new System.Drawing.Point(372, 190);
+         this.Activity3_Txt.Location = new System.Drawing.Point(539, 190);
          this.Activity3_Txt.Name = "Activity3_Txt";
          this.Activity3_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity3_Txt.TabIndex = 8;
@@ -4984,7 +5008,7 @@
          this.Activity0_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity0_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity0_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity0_Txt.Location = new System.Drawing.Point(372, 413);
+         this.Activity0_Txt.Location = new System.Drawing.Point(539, 413);
          this.Activity0_Txt.Name = "Activity0_Txt";
          this.Activity0_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity0_Txt.TabIndex = 8;
@@ -4999,7 +5023,7 @@
          this.Activity4_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity4_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity4_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity4_Txt.Location = new System.Drawing.Point(372, 116);
+         this.Activity4_Txt.Location = new System.Drawing.Point(539, 116);
          this.Activity4_Txt.Name = "Activity4_Txt";
          this.Activity4_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity4_Txt.TabIndex = 8;
@@ -5021,7 +5045,7 @@
             this.repositoryItemTimeEdit7,
             this.Atyp_Lov,
             this.Pstg_Lov});
-         this.gridControl7.Size = new System.Drawing.Size(720, 491);
+         this.gridControl7.Size = new System.Drawing.Size(887, 491);
          this.gridControl7.TabIndex = 8;
          this.gridControl7.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView5});
@@ -5454,7 +5478,7 @@
          this.panelControl2.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(720, 40);
+         this.panelControl2.Size = new System.Drawing.Size(887, 40);
          this.panelControl2.TabIndex = 7;
          // 
          // labelControl35
@@ -5466,7 +5490,7 @@
          this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl35.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(454, 2);
+         this.labelControl35.Location = new System.Drawing.Point(621, 2);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(264, 36);
          this.labelControl35.TabIndex = 2;
@@ -6121,5 +6145,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colSub_State;
       private DevExpress.XtraGrid.Columns.GridColumn colStep_History_Summery;
       private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit6;
+      private MaxUi.RoundedButton MoreInfo_Butn;
    }
 }

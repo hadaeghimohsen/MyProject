@@ -1591,18 +1591,26 @@ namespace System.CRM.Ui.Acounts
       {
          var comp = CompBs.Current as Data.Company;
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 58 /* Execute Add_Serv_F */),
-                  new Job(SendType.SelfToUserInterface, "ADD_SERV_F", 10 /* Execute Actn_CalF_P */)
-                  {
-                     Input = new XElement("Request", new XAttribute("formcaller", GetType().Name), new XAttribute("compcode", comp.CODE), new XAttribute("regncode", comp.REGN_CODE), new XAttribute("prvncode", comp.REGN_PRVN_CODE), new XAttribute("cntycode", comp.REGN_PRVN_CNTY_CODE))
-                  }
-               }
-            )
-         );
+         //_DefaultGateway.Gateway(
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.Self, 58 /* Execute Add_Serv_F */),
+         //         new Job(SendType.SelfToUserInterface, "ADD_SERV_F", 10 /* Execute Actn_CalF_P */)
+         //         {
+         //            Input = new XElement("Request", new XAttribute("formcaller", GetType().Name), new XAttribute("compcode", comp.CODE), new XAttribute("regncode", comp.REGN_CODE), new XAttribute("prvncode", comp.REGN_PRVN_CODE), new XAttribute("cntycode", comp.REGN_PRVN_CNTY_CODE))
+         //         }
+         //      }
+         //   )
+         //);
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 11 /* Execute Adm_Cust_F */),                
+                new Job(SendType.SelfToUserInterface, "ADM_CUST_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Request", new XAttribute("srpbtype", "002"), new XAttribute("formcaller", GetType().Name), new XAttribute("compcode", comp.CODE), new XAttribute("regncode", comp.REGN_CODE), new XAttribute("prvncode", comp.REGN_PRVN_CODE), new XAttribute("cntycode", comp.REGN_PRVN_CNTY_CODE))}
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void AddInfo_Butn_Click(object sender, EventArgs e)
@@ -1940,6 +1948,26 @@ namespace System.CRM.Ui.Acounts
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void MoreInfo_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 91 /* Execute Opt_Info_F */),
+                  new Job(SendType.SelfToUserInterface, "OPT_INFO_F", 10 /* Execute Actn_Calf_F */)
+                  {
+                     Input = 
+                        new XElement("Object",
+                           new XAttribute("compcode", compcode),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                  }                     
+               }
+            )
+         );
       }
    }
 }

@@ -412,6 +412,7 @@
          this.Serv_Rtab.Groups.Add(this.ribbonGroup6);
          this.Serv_Rtab.Name = "Serv_Rtab";
          this.Serv_Rtab.Text = "مشتریان احتمالی";
+         this.Serv_Rtab.Visible = false;
          this.Serv_Rtab.Select += new System.EventHandler(this.Serv_Rtab_Select);
          // 
          // ribbonGroup3
@@ -491,7 +492,7 @@
          // 
          this.Cont_Rtab.Groups.Add(this.ribbonGroup5);
          this.Cont_Rtab.Name = "Cont_Rtab";
-         this.Cont_Rtab.Text = "خریداران";
+         this.Cont_Rtab.Text = "اشخاص";
          this.Cont_Rtab.Select += new System.EventHandler(this.Cont_Rtab_Select);
          // 
          // ribbonGroup5
@@ -501,7 +502,7 @@
          this.ribbonGroup5.Items.Add(this.rb_admc);
          this.ribbonGroup5.Items.Add(this.rb_showdeletecontact);
          this.ribbonGroup5.Name = "ribbonGroup5";
-         this.ribbonGroup5.Text = "خریداران";
+         this.ribbonGroup5.Text = "اشخاص";
          // 
          // rb_AddContactButn
          // 
@@ -517,7 +518,7 @@
          this.rb_lstc.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_lstc.LargeImage")));
          this.rb_lstc.Name = "rb_lstc";
          this.rb_lstc.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
-         this.rb_lstc.ToolTip = "خریداران فعال";
+         this.rb_lstc.ToolTip = "اشخاص فعال";
          this.rb_lstc.Click += new System.EventHandler(this.rb_showcontact_Click);
          // 
          // rb_admc
@@ -534,7 +535,7 @@
          this.rb_showdeletecontact.Name = "rb_showdeletecontact";
          this.rb_showdeletecontact.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_showdeletecontact.SmallImage")));
          this.rb_showdeletecontact.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
-         this.rb_showdeletecontact.ToolTip = "خریداران غیرفعال";
+         this.rb_showdeletecontact.ToolTip = "اشخاص غیرفعال";
          this.rb_showdeletecontact.Click += new System.EventHandler(this.rb_showdeletecontact_Click);
          // 
          // ribbonTab3

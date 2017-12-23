@@ -296,6 +296,9 @@ namespace System.CRM.Code
             case 90:
                Jbpd_Dfin_F(job);
                break;
+            case 91:
+               Opt_Info_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -569,6 +572,9 @@ namespace System.CRM.Code
                break;
             case "JBPD_DFIN_F":
                _Jbpd_Dfin_F.SendRequest(job);
+               break;
+            case "OPT_INFO_F":
+               _Opt_Info_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

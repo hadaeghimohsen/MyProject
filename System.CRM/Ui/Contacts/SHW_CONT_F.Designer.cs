@@ -102,7 +102,7 @@
          this.colONOF_TAG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEMAL_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Actn_Clmn = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colActn_Butn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LeadActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNATL_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -559,7 +559,7 @@
             this.colONOF_TAG_DNRM,
             this.colEMAL_ADRS_DNRM,
             this.colDEBT_DNRM,
-            this.Actn_Clmn,
+            this.colActn_Butn,
             this.colSERV_NO_DNRM,
             this.colSERV_STAT,
             this.colNATL_CODE_DNRM});
@@ -700,12 +700,12 @@
          // 
          // colActn_Butn
          // 
-         this.Actn_Clmn.ColumnEdit = this.LeadActn_Butn;
-         this.Actn_Clmn.Name = "colActn_Butn";
-         this.Actn_Clmn.OptionsColumn.FixedWidth = true;
-         this.Actn_Clmn.Visible = true;
-         this.Actn_Clmn.VisibleIndex = 0;
-         this.Actn_Clmn.Width = 50;
+         this.colActn_Butn.ColumnEdit = this.LeadActn_Butn;
+         this.colActn_Butn.Name = "colActn_Butn";
+         this.colActn_Butn.OptionsColumn.FixedWidth = true;
+         this.colActn_Butn.Visible = true;
+         this.colActn_Butn.VisibleIndex = 0;
+         this.colActn_Butn.Width = 50;
          // 
          // LeadActn_Butn
          // 
@@ -817,7 +817,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl5);
          this.splitContainerControl3.Panel2.Text = "Panel2";
          this.splitContainerControl3.Size = new System.Drawing.Size(238, 366);
-         this.splitContainerControl3.SplitterPosition = 96;
+         this.splitContainerControl3.SplitterPosition = 208;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
          // 
@@ -831,7 +831,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl3);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(238, 96);
+         this.splitContainerControl5.Size = new System.Drawing.Size(238, 208);
          this.splitContainerControl5.SplitterPosition = 112;
          this.splitContainerControl5.TabIndex = 0;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -847,7 +847,7 @@
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit3});
-         this.gridControl4.Size = new System.Drawing.Size(121, 96);
+         this.gridControl4.Size = new System.Drawing.Size(121, 208);
          this.gridControl4.TabIndex = 3;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1001,7 +1001,7 @@
          this.gridControl3.Name = "gridControl3";
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit2});
-         this.gridControl3.Size = new System.Drawing.Size(112, 96);
+         this.gridControl3.Size = new System.Drawing.Size(112, 208);
          this.gridControl3.TabIndex = 2;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1148,7 +1148,7 @@
          this.gridControl5.Name = "gridControl5";
          this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit4});
-         this.gridControl5.Size = new System.Drawing.Size(238, 265);
+         this.gridControl5.Size = new System.Drawing.Size(238, 153);
          this.gridControl5.TabIndex = 2;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1742,5 +1742,6 @@
       private MaxUi.RoundedButton Tag_Butn;
       private MaxUi.RoundedButton ServCont_Butn;
       private MaxUi.RoundedButton ImageProfile_Butn;
+      private DevExpress.XtraGrid.Columns.GridColumn colActn_Butn;
    }
 }

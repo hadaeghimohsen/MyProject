@@ -272,6 +272,17 @@ namespace System.Scsc.Ui.Notifications
          //      iScsc.Sessions
          //      .Where(s => s.Member_Ship == attn.Member_Ship);
 
+         if(attn.EXIT_TIME != null)
+         {
+            var diff = attn.EXIT_TIME.Value.Subtract(attn.ENTR_TIME.Value);
+            TotlAttnTime_Lbl.Text = string.Format("{0}:{1}", diff.Hours, diff.Minutes); ;
+         }
+         else
+         {
+            var diff = DateTime.Now.Subtract(attn.ENTR_TIME.Value);
+            TotlAttnTime_Lbl.Text = string.Format("{0}:{1}",  diff.Hour, diff.Minute);
+         }
+
          DRES_NUMB_Txt.Focus();
 
       }

@@ -847,6 +847,88 @@ namespace System.Scsc.Ui.MessageBroadcast
       }
       #endregion
 
+      private void Btn_Preview006_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crnt = MsgbBs6.Current as Data.Message_Broadcast;
+
+            if (crnt.STAT == "001")
+            {
+               MessageBox.Show("پیام در وضعیت غیرفعال می باشد");
+               return;
+            }
+
+            if (crnt.MSGB_TEXT == null || crnt.MSGB_TEXT.Trim().Length == 0)
+            {
+               MessageBox.Show("متن پیام وارد نشده");
+               return;
+            }
+
+            var sms = crnt.MSGB_TEXT;
+
+            if (crnt.INSR_FNAM_STAT == "002")
+               sms = "آقا / خانم" + "\n\r" + sms;
+
+            if (crnt.INSR_CNAM_STAT == "002")
+            {
+               if (crnt.CLUB_NAME.Trim().Length == 0 && crnt.CLUB_CODE == null)
+               {
+                  MessageBox.Show("نام باشگاه مشخص نشده است");
+                  return;
+               }
+               if (crnt.CLUB_NAME.Trim().Length > 0)
+                  sms = sms + "\n\r" + crnt.CLUB_NAME;
+               else
+                  sms = sms + "\n\r" + crnt.Club.NAME;
+            }
+
+            MessageBox.Show(this, sms, "خروجی پیامک");
+         }
+         catch { }
+      }
+
+      private void Btn_Preview007_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crnt = MsgbBs7.Current as Data.Message_Broadcast;
+
+            if (crnt.STAT == "001")
+            {
+               MessageBox.Show("پیام در وضعیت غیرفعال می باشد");
+               return;
+            }
+
+            if (crnt.MSGB_TEXT == null || crnt.MSGB_TEXT.Trim().Length == 0)
+            {
+               MessageBox.Show("متن پیام وارد نشده");
+               return;
+            }
+
+            var sms = crnt.MSGB_TEXT;
+
+            if (crnt.INSR_FNAM_STAT == "002")
+               sms = "آقا / خانم" + "\n\r" + sms;
+
+            if (crnt.INSR_CNAM_STAT == "002")
+            {
+               if (crnt.CLUB_NAME.Trim().Length == 0 && crnt.CLUB_CODE == null)
+               {
+                  MessageBox.Show("نام باشگاه مشخص نشده است");
+                  return;
+               }
+               if (crnt.CLUB_NAME.Trim().Length > 0)
+                  sms = sms + "\n\r" + crnt.CLUB_NAME;
+               else
+                  sms = sms + "\n\r" + crnt.Club.NAME;
+            }
+
+            MessageBox.Show(this, sms, "خروجی پیامک");
+         }
+         catch { }
+      }
+
 
       
 

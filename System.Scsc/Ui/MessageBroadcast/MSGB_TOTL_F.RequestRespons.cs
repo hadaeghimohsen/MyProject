@@ -221,6 +221,8 @@ namespace System.Scsc.Ui.MessageBroadcast
             MsgbBs3.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "004");
             MsgbBs4.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "002");
             MsgbBs5.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "005");
+            MsgbBs6.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "006");
+            MsgbBs7.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "007");
             DActvBs1.DataSource = iScsc.D_ACTVs;
             DYsnoBs1.DataSource = iScsc.D_YSNOs;
             DDytpBs1.DataSource = iScsc.D_DYTPs;

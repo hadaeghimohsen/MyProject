@@ -91,8 +91,18 @@ namespace System.Scsc.Ui.Notifications
          {
             var sesn = SesnBs1.Current as Data.Session;
             var cbmt = Convert.ToInt64(CBMT_CODELookUpEdit.EditValue);
-            // اگر حضوری قبلا ثبت شده است باید دکمه خروج را فشار دهد
             if(iScsc.Session_Meetings
+               .Any(sm =>
+                  sm.MBSP_FIGH_FILE_NO == sesn.MBSP_FIGH_FILE_NO &&
+                  sm.END_TIME == null &&
+                  sm.SESN_SNID != sesn.SNID
+               ))
+            {
+               MessageBox.Show(this, "برای این فرد قبلا ورود برای کلاس دیگری ثبت شده!لطفا ابتدا کلاس قبلی رادر حالت خروج قرار دهید", "خطای ورود", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+               return;
+            }
+            // اگر حضوری قبلا ثبت شده است باید دکمه خروج را فشار دهد
+            if (SnmtBs1.List.OfType<Data.Session_Meeting>()
                .Any(sm => 
                   sm.Session == sesn && 
                   sm.ACTN_DATE.Value.Date == DateTime.Now.Date &&

@@ -213,6 +213,43 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc) { MessageBox.Show(exc.InnerException.Message); }
       }
+
+      private void Sp_GateAttn_DataReceived(object sender, IO.Ports.SerialDataReceivedEventArgs e)
+      {
+         try
+         {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+            var enrollNumber = Sp_GateAttn.ReadLine();
+            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r'));
+            //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            //   return;
+            //oldenrollnumber = enrollNumber;
+
+            if (barCodeSetting.BAR_CODE_DATA_TYPE == "001")
+            {
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
+               if (figh != null)
+               {
+                  enrollNumber = figh.FNGR_PRNT_DNRM;
+                  if (enrollNumber.Length == 0)
+                  {
+                     MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
+                     oldenrollnumber = "";
+                     return;
+                  }
+               }
+            }
+
+            //MessageBox.Show(enrollNumber);
+
+            if (InvokeRequired)
+               Invoke(new Action(() => axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1)));
+            else
+               axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.InnerException.Message); }
+      }
       #endregion
 
       #region GateAttn

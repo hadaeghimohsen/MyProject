@@ -44,10 +44,10 @@
          System.Windows.Forms.Label label3;
          System.Windows.Forms.Label cBMT_CODELabel;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHOS_CLAS_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          this.colEND_TIME1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
          this.MbspBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -161,6 +161,7 @@
          this.colSession = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colMTOD_CODE_DNRM1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colCOCH_FILE_NO_DNRM1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+         this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          label5 = new System.Windows.Forms.Label();
          label4 = new System.Windows.Forms.Label();
          label13 = new System.Windows.Forms.Label();
@@ -205,6 +206,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+         this.splitContainerControl1.SuspendLayout();
          this.SuspendLayout();
          // 
          // label5
@@ -327,7 +330,7 @@
          // cBMT_CODELabel
          // 
          cBMT_CODELabel.AutoSize = true;
-         cBMT_CODELabel.Location = new System.Drawing.Point(187, 491);
+         cBMT_CODELabel.Location = new System.Drawing.Point(187, 313);
          cBMT_CODELabel.Name = "cBMT_CODELabel";
          cBMT_CODELabel.Size = new System.Drawing.Size(261, 14);
          cBMT_CODELabel.TabIndex = 62;
@@ -598,12 +601,13 @@
          // sessionsGridControl
          // 
          this.sessionsGridControl.DataSource = this.SesnBs1;
-         this.sessionsGridControl.Location = new System.Drawing.Point(17, 318);
+         this.sessionsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.sessionsGridControl.Location = new System.Drawing.Point(0, 0);
          this.sessionsGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.sessionsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sessionsGridControl.MainView = this.advBandedGridView1;
          this.sessionsGridControl.Name = "sessionsGridControl";
-         this.sessionsGridControl.Size = new System.Drawing.Size(434, 165);
+         this.sessionsGridControl.Size = new System.Drawing.Size(438, 163);
          this.sessionsGridControl.TabIndex = 61;
          this.sessionsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView1});
@@ -969,7 +973,7 @@
          // 
          // CBMT_CODELookUpEdit
          // 
-         this.CBMT_CODELookUpEdit.Location = new System.Drawing.Point(17, 489);
+         this.CBMT_CODELookUpEdit.Location = new System.Drawing.Point(17, 311);
          this.CBMT_CODELookUpEdit.Name = "CBMT_CODELookUpEdit";
          this.CBMT_CODELookUpEdit.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
          this.CBMT_CODELookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -984,7 +988,7 @@
          this.CBMT_CODELookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CBMT_CODELookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CBMT_CODELookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.CBMT_CODELookUpEdit.Properties.DataSource = this.CbmtBs1;
          this.CBMT_CODELookUpEdit.Properties.DisplayMember = "STRT_TIME";
          this.CBMT_CODELookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1003,7 +1007,7 @@
          // 
          this.Dytp_Lov.AutoHeight = false;
          this.Dytp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Dytp_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "زوج / فرد", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1136,18 +1140,16 @@
          // 
          // session_MeetingsGridControl
          // 
-         this.session_MeetingsGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.session_MeetingsGridControl.DataSource = this.SnmtBs1;
-         this.session_MeetingsGridControl.Location = new System.Drawing.Point(17, 517);
+         this.session_MeetingsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.session_MeetingsGridControl.Location = new System.Drawing.Point(0, 0);
          this.session_MeetingsGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.session_MeetingsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.session_MeetingsGridControl.MainView = this.advBandedGridView2;
          this.session_MeetingsGridControl.Name = "session_MeetingsGridControl";
          this.session_MeetingsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1});
-         this.session_MeetingsGridControl.Size = new System.Drawing.Size(434, 168);
+         this.session_MeetingsGridControl.Size = new System.Drawing.Size(438, 178);
          this.session_MeetingsGridControl.TabIndex = 63;
          this.session_MeetingsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView2});
@@ -1195,19 +1197,19 @@
             this.colMember_Ship1,
             this.colMethod2,
             this.colSession});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colEND_TIME1;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colEND_TIME1;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colEND_TIME1;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colEND_TIME1;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          this.advBandedGridView2.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.advBandedGridView2.GridControl = this.session_MeetingsGridControl;
          this.advBandedGridView2.Name = "advBandedGridView2";
          this.advBandedGridView2.OptionsBehavior.Editable = false;
@@ -1431,15 +1433,31 @@
          this.colCOCH_FILE_NO_DNRM1.Visible = true;
          this.colCOCH_FILE_NO_DNRM1.Width = 164;
          // 
+         // splitContainerControl1
+         // 
+         this.splitContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.splitContainerControl1.Horizontal = false;
+         this.splitContainerControl1.Location = new System.Drawing.Point(17, 339);
+         this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.sessionsGridControl);
+         this.splitContainerControl1.Panel1.Text = "Panel1";
+         this.splitContainerControl1.Panel2.Controls.Add(this.session_MeetingsGridControl);
+         this.splitContainerControl1.Panel2.Text = "Panel2";
+         this.splitContainerControl1.Size = new System.Drawing.Size(438, 346);
+         this.splitContainerControl1.SplitterPosition = 163;
+         this.splitContainerControl1.TabIndex = 64;
+         this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
          // CHOS_CLAS_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.Control;
-         this.Controls.Add(this.session_MeetingsGridControl);
+         this.Controls.Add(this.splitContainerControl1);
          this.Controls.Add(cBMT_CODELabel);
          this.Controls.Add(this.Btn_Back);
-         this.Controls.Add(this.sessionsGridControl);
          this.Controls.Add(this.AttnDate_Date);
          this.Controls.Add(this.dateTimeSelector3);
          this.Controls.Add(label3);
@@ -1511,6 +1529,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+         this.splitContainerControl1.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1631,5 +1651,6 @@
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSession;
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colMTOD_CODE_DNRM1;
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colCOCH_FILE_NO_DNRM1;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
    }
 }

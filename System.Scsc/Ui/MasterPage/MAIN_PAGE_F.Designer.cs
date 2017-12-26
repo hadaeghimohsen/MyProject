@@ -1228,7 +1228,6 @@
          this.bbi_cyclbutn.Id = 83;
          this.bbi_cyclbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1126;
          this.bbi_cyclbutn.Name = "bbi_cyclbutn";
-         this.bbi_cyclbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_cyclbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cyclbutn_ItemClick);
          // 
          // bbi_rptcbutn
@@ -1316,7 +1315,6 @@
          this.bbi_mbsnbutn.Id = 93;
          this.bbi_mbsnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbsnbutn.LargeGlyph")));
          this.bbi_mbsnbutn.Name = "bbi_mbsnbutn";
-         this.bbi_mbsnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_mbsnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbsnbutn_ItemClick);
          // 
          // ribbonPageCategory2
@@ -1645,8 +1643,8 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1235, 504);
-         this.spc_desktop.SplitterDistance = 463;
+         this.spc_desktop.Size = new System.Drawing.Size(1235, 302);
+         this.spc_desktop.SplitterDistance = 261;
          this.spc_desktop.TabIndex = 3;
          // 
          // AttnType_Lov
@@ -2501,6 +2499,10 @@
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
          // 
+         // Sp_GateAttn
+         // 
+         this.Sp_GateAttn.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Sp_GateAttn_DataReceived);
+         // 
          // MAIN_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2511,7 +2513,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1235, 646);
+         this.Size = new System.Drawing.Size(1235, 444);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          this.statusStrip1.ResumeLayout(false);

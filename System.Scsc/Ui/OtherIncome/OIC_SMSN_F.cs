@@ -1451,15 +1451,29 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt32(f.FNGR_PRNT_DNRM)) + 1;
+               FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
             }
-         }catch
+         }
+         catch
          {
             if (tb_master.SelectedTab == tp_001)
             {
                FNGR_PRNT_TextEdit.EditValue = 1;
             }
          }
+         //try
+         //{
+         //   if (tb_master.SelectedTab == tp_001)
+         //   {
+         //      FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt32(f.FNGR_PRNT_DNRM)) + 1;
+         //   }
+         //}catch
+         //{
+         //   if (tb_master.SelectedTab == tp_001)
+         //   {
+         //      FNGR_PRNT_TextEdit.EditValue = 1;
+         //   }
+         //}
       }
 
       private void sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup(object sender, EventArgs e)

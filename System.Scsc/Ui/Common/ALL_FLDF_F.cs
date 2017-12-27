@@ -269,16 +269,35 @@ namespace System.Scsc.Ui.Common
          if (figh == null)
             figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+         //if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+         if (figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004") return;
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
-               })
-         );
+         switch(MessageBox.Show(this, "آیا میخواهید به صورت تک رشته ای تمدید کنید؟", "روش تمدید مجدد", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading))
+         {
+            case DialogResult.Yes:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                        new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+                     })
+               );
+               break;
+            case DialogResult.No:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 114 /* Execute Oic_Smsn_F */),
+                        new Job(SendType.SelfToUserInterface,"OIC_SMSN_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "tp_002"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+                     })
+               );
+               break;
+            default:
+               break;
+         }
+         
       }
 
       private void Btn_Insr_Click(object sender, EventArgs e)

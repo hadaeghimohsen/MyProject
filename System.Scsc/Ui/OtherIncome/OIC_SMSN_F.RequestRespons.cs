@@ -338,7 +338,10 @@ namespace System.Scsc.Ui.OtherIncome
                INSR_DATE_PersianDateEdit.Value = DateTime.Now;
             }
             else if ((job.Input as XElement).Attribute("type").Value == "tp_002")
+            {
                FNGR_PRNT_TextEdit02.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
+               Btn_RqstBnARqt1_Click(null, null);
+            }
          }
          else
             Execute_Query();         

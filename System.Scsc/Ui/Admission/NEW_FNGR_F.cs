@@ -71,14 +71,14 @@ namespace System.Scsc.Ui.Admission
 
       private void Btn_IncNumbSession_Click(object sender, EventArgs e)
       {
-         if (iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == Lbl_FingerPrint.Text && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) != null) return;
+         //if (iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == Lbl_FingerPrint.Text && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) != null) return;
 
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  new Job(SendType.Self, 97 /* Execute Oic_Smor_F */),
-                  new Job(SendType.SelfToUserInterface,"OIC_SMOR_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "tp_002"), new XAttribute("enrollnumber", Lbl_FingerPrint.Text))}
+                  new Job(SendType.Self, 114 /* Execute Oic_Smsn_F */),
+                  new Job(SendType.SelfToUserInterface,"OIC_SMSN_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "tp_002"), new XAttribute("enrollnumber", Lbl_FingerPrint.Text))}
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }

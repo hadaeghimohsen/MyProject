@@ -128,6 +128,7 @@ namespace System.Scsc.Ui.Common
          tb_master.TabPages.Remove(tabPage8);
          tb_master.TabPages.Remove(tabPage9);
          tb_master.TabPages.Remove(tabPage10);
+         tb_master.TabPages.Remove(tabPage12);
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)

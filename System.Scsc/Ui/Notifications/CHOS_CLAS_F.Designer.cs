@@ -161,7 +161,9 @@
          this.colSession = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colMTOD_CODE_DNRM1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colCOCH_FILE_NO_DNRM1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-         this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.ClasList_Splp = new DevExpress.XtraEditors.SplitContainerControl();
+         this.label6 = new System.Windows.Forms.Label();
+         this.Mbsp_Butn = new System.Windows.Forms.Button();
          label5 = new System.Windows.Forms.Label();
          label4 = new System.Windows.Forms.Label();
          label13 = new System.Windows.Forms.Label();
@@ -206,8 +208,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-         this.splitContainerControl1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ClasList_Splp)).BeginInit();
+         this.ClasList_Splp.SuspendLayout();
          this.SuspendLayout();
          // 
          // label5
@@ -1433,29 +1435,52 @@
          this.colCOCH_FILE_NO_DNRM1.Visible = true;
          this.colCOCH_FILE_NO_DNRM1.Width = 164;
          // 
-         // splitContainerControl1
+         // ClasList_Splp
          // 
-         this.splitContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+         this.ClasList_Splp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.splitContainerControl1.Horizontal = false;
-         this.splitContainerControl1.Location = new System.Drawing.Point(17, 339);
-         this.splitContainerControl1.Name = "splitContainerControl1";
-         this.splitContainerControl1.Panel1.Controls.Add(this.sessionsGridControl);
-         this.splitContainerControl1.Panel1.Text = "Panel1";
-         this.splitContainerControl1.Panel2.Controls.Add(this.session_MeetingsGridControl);
-         this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(438, 346);
-         this.splitContainerControl1.SplitterPosition = 163;
-         this.splitContainerControl1.TabIndex = 64;
-         this.splitContainerControl1.Text = "splitContainerControl1";
+         this.ClasList_Splp.Horizontal = false;
+         this.ClasList_Splp.Location = new System.Drawing.Point(17, 339);
+         this.ClasList_Splp.Name = "ClasList_Splp";
+         this.ClasList_Splp.Panel1.Controls.Add(this.sessionsGridControl);
+         this.ClasList_Splp.Panel1.Text = "Panel1";
+         this.ClasList_Splp.Panel2.Controls.Add(this.session_MeetingsGridControl);
+         this.ClasList_Splp.Panel2.Text = "Panel2";
+         this.ClasList_Splp.Size = new System.Drawing.Size(438, 346);
+         this.ClasList_Splp.SplitterPosition = 163;
+         this.ClasList_Splp.TabIndex = 64;
+         this.ClasList_Splp.Text = "splitContainerControl1";
+         // 
+         // label6
+         // 
+         this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label6.ForeColor = System.Drawing.Color.Red;
+         this.label6.Location = new System.Drawing.Point(87, 465);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(300, 37);
+         this.label6.TabIndex = 65;
+         this.label6.Text = "اعضا گرامی تعداد جلسات یا تاریخ شما به اتمام رسیده لطفا جهت تمدید اقدام فرمایید";
+         this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Mbsp_Butn
+         // 
+         this.Mbsp_Butn.Location = new System.Drawing.Point(173, 507);
+         this.Mbsp_Butn.Name = "Mbsp_Butn";
+         this.Mbsp_Butn.Size = new System.Drawing.Size(128, 23);
+         this.Mbsp_Butn.TabIndex = 66;
+         this.Mbsp_Butn.Text = "تمدید عضویت کلاسی";
+         this.Mbsp_Butn.UseVisualStyleBackColor = true;
+         this.Mbsp_Butn.Click += new System.EventHandler(this.Mbsp_Butn_Click);
          // 
          // CHOS_CLAS_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.Control;
-         this.Controls.Add(this.splitContainerControl1);
+         this.Controls.Add(this.ClasList_Splp);
+         this.Controls.Add(this.Mbsp_Butn);
+         this.Controls.Add(this.label6);
          this.Controls.Add(cBMT_CODELabel);
          this.Controls.Add(this.Btn_Back);
          this.Controls.Add(this.AttnDate_Date);
@@ -1529,8 +1554,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-         this.splitContainerControl1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.ClasList_Splp)).EndInit();
+         this.ClasList_Splp.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1651,6 +1676,8 @@
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSession;
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colMTOD_CODE_DNRM1;
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colCOCH_FILE_NO_DNRM1;
-      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+      private DevExpress.XtraEditors.SplitContainerControl ClasList_Splp;
+      private Windows.Forms.Label label6;
+      private Windows.Forms.Button Mbsp_Butn;
    }
 }

@@ -251,6 +251,7 @@ namespace System.Scsc.Ui.Notifications
       {
          FIGH_FILE_NOTextEdit.EditValue = (job.Input as XElement).Attribute("fileno").Value;
          AttnDate_Date.Value = DateTime.Now.Date;
+         recheck = true;
          Execute_Query(true);
          job.Status = StatusType.Successful;
       }

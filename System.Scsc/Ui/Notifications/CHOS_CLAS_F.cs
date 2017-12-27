@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.Notifications
       }
 
       bool requery = false;
+      bool recheck = false;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -59,6 +60,38 @@ namespace System.Scsc.Ui.Notifications
             return;
 
          RemnDay_TextEdit.EditValue = (mbsp.END_DATE.Value - mbsp.STRT_DATE.Value).Days;
+         // 1396/10/06 * اگر تاریخ هنرجو تمام شده باشد باید دوباره تمدید کند
+         ClasList_Splp.Visible = true;
+         if(mbsp.END_DATE.Value.Date < DateTime.Now.Date)
+         {
+            ClasList_Splp.Visible = false;
+            return;
+         }
+
+         if (recheck)
+         {
+            // 1396/10/06 * بررسی اینکه آیا کلاسی وجود دارد که عضو وارد شده
+            var sesnopen =
+               iScsc.Sessions
+               .Where(s =>
+                  s.MBSP_FIGH_FILE_NO == mbsp.FIGH_FILE_NO &&
+                  s.MBSP_RWNO == mbsp.RWNO &&
+                  s.MBSP_RECT_CODE == mbsp.RECT_CODE &&
+                  (
+                     //s.TOTL_SESN - (s.SUM_MEET_HELD_DNRM ?? 0) > 0 &&
+                     s.Session_Meetings.Any(sm => sm.END_TIME == null)
+                  )
+               );
+            // اگر سانی پیدا شد که فرد وارد شده باشد خروجی برای آن باید زده شود
+            if (sesnopen != null && sesnopen.Count() >= 1)
+            {
+               SesnBs1.DataSource = sesnopen;
+               SnmtBs1.DataSource = iScsc.Session_Meetings.Where(sm => sm.Session == sesnopen && sm.END_TIME == null);
+               ExitAttn_Butn_Click(null, null);
+               Btn_Back_Click(null, null);
+               return;
+            }
+         }
 
          SesnBs1.DataSource = 
             iScsc.Sessions
@@ -70,8 +103,15 @@ namespace System.Scsc.Ui.Notifications
                   s.TOTL_SESN - (s.SUM_MEET_HELD_DNRM ?? 0) > 0 ||
                   s.Session_Meetings.Any(sm => sm.END_TIME == null)
                )
-
             );
+
+         ClasList_Splp.Visible = true;
+
+         if (SesnBs1.List.Count == 0)
+         {
+            ClasList_Splp.Visible = false;
+            return;
+         }
       }
 
       private void SesnBs1_CurrentChanged(object sender, EventArgs e)
@@ -142,8 +182,10 @@ namespace System.Scsc.Ui.Notifications
             if(requery)
             {
                Attn_Oprt_P();
+               recheck = false;
                Execute_Query(true);
                requery = false;
+               recheck = true;
             }
          }
       }
@@ -182,8 +224,10 @@ namespace System.Scsc.Ui.Notifications
             if (requery)
             {
                Attn_Oprt_P();
+               recheck = false;
                Execute_Query(true);
                requery = false;
+               recheck = true;
             }
          }
       }
@@ -199,6 +243,8 @@ namespace System.Scsc.Ui.Notifications
          {
             MessageBox.Show(ex.Message);
             if (fNGR_PRNT_DNRMTextEdit.EditValue != null)
+            {
+               Btn_Back_Click(null, null);
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
                      new List<Job>
@@ -214,6 +260,7 @@ namespace System.Scsc.Ui.Notifications
                         }
                      })
                );
+            }
             requery = false;
          }
          finally
@@ -244,6 +291,20 @@ namespace System.Scsc.Ui.Notifications
                }
             }
          }
+      }
+
+      private void Mbsp_Butn_Click(object sender, EventArgs e)
+      {
+         Btn_Back_Click(null, null);
+
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 114 /* Execute Oic_Smsn_F */),
+                  new Job(SendType.SelfToUserInterface,"OIC_SMSN_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "tp_002"), new XAttribute("enrollnumber", fNGR_PRNT_DNRMTextEdit.Text))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
          
    }

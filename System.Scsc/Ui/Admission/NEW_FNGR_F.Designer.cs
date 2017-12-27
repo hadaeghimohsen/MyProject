@@ -222,7 +222,7 @@
          this.Btn_IncNumbSession.Name = "Btn_IncNumbSession";
          this.Btn_IncNumbSession.Size = new System.Drawing.Size(178, 42);
          this.Btn_IncNumbSession.TabIndex = 2;
-         this.Btn_IncNumbSession.Text = "افزایش تعداد جلسات ";
+         this.Btn_IncNumbSession.Text = "تمدید جلسات ترکیبی";
          this.Btn_IncNumbSession.UseVisualStyleBackColor = true;
          this.Btn_IncNumbSession.Click += new System.EventHandler(this.Btn_IncNumbSession_Click);
          // 

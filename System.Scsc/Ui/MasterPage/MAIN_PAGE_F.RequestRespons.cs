@@ -367,7 +367,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          if (bIsConnected == false)
          {
-            MessageBox.Show("Please connect the device first!", "Error");
+            //MessageBox.Show("Please connect the device first!", "Error");
             return;
          }
 

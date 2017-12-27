@@ -1815,12 +1815,6 @@
          cBMT_CODELabel.TabIndex = 24;
          cBMT_CODELabel.Text = "برنامه کلاسی *:";
          // 
-         // colDFLT_STAT
-         // 
-         this.colDFLT_STAT.Caption = "کلاس پیش فرض";
-         this.colDFLT_STAT.FieldName = "DFLT_STAT";
-         this.colDFLT_STAT.Name = "colDFLT_STAT";
-         // 
          // label9
          // 
          label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1832,12 +1826,6 @@
          label9.TabIndex = 27;
          label9.Text = "رسته *:";
          // 
-         // gridColumn48
-         // 
-         this.gridColumn48.Caption = "کلاس پیش فرض";
-         this.gridColumn48.FieldName = "DFLT_STAT";
-         this.gridColumn48.Name = "gridColumn48";
-         // 
          // label10
          // 
          label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1848,6 +1836,18 @@
          label10.Size = new System.Drawing.Size(93, 14);
          label10.TabIndex = 29;
          label10.Text = "برنامه کلاسی *:";
+         // 
+         // colDFLT_STAT
+         // 
+         this.colDFLT_STAT.Caption = "کلاس پیش فرض";
+         this.colDFLT_STAT.FieldName = "DFLT_STAT";
+         this.colDFLT_STAT.Name = "colDFLT_STAT";
+         // 
+         // gridColumn48
+         // 
+         this.gridColumn48.Caption = "کلاس پیش فرض";
+         this.gridColumn48.FieldName = "DFLT_STAT";
+         this.gridColumn48.Name = "gridColumn48";
          // 
          // tb_master
          // 
@@ -4115,7 +4115,6 @@
          this.tbn_POSPayment1.Appearance.Options.UseFont = true;
          this.tbn_POSPayment1.Appearance.Options.UseForeColor = true;
          this.tbn_POSPayment1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.tbn_POSPayment1.Enabled = false;
          this.tbn_POSPayment1.Image = global::System.Scsc.Properties.Resources.IMAGE_1089;
          this.tbn_POSPayment1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.tbn_POSPayment1.Location = new System.Drawing.Point(175, 25);
@@ -4143,6 +4142,7 @@
          this.tbn_POSPayment1.SuperTip = superToolTip6;
          this.tbn_POSPayment1.TabIndex = 4;
          this.tbn_POSPayment1.Tag = "1";
+         this.tbn_POSPayment1.Click += new System.EventHandler(this.tbn_POSPayment1_Click);
          // 
          // bn_PaymentMethods1
          // 
@@ -6565,7 +6565,6 @@
          this.simpleButton6.Appearance.Options.UseFont = true;
          this.simpleButton6.Appearance.Options.UseForeColor = true;
          this.simpleButton6.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.simpleButton6.Enabled = false;
          this.simpleButton6.Image = global::System.Scsc.Properties.Resources.IMAGE_1089;
          this.simpleButton6.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.simpleButton6.Location = new System.Drawing.Point(175, 25);
@@ -6593,6 +6592,7 @@
          this.simpleButton6.SuperTip = superToolTip12;
          this.simpleButton6.TabIndex = 4;
          this.simpleButton6.Tag = "1";
+         this.simpleButton6.Click += new System.EventHandler(this.tbn_POSPayment1_Click);
          // 
          // newMaxBtn1
          // 

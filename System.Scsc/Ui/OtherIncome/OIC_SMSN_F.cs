@@ -1109,66 +1109,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void ntb_POSPayment1_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
-         {
-            if (RqstBs1.Current == null) return;
-            var rqst = RqstBs1.Current as Data.Request;
-            var pymt = PymtsBs1.Current as Data.Payment;
 
-            var xSendPos =
-               new XElement("Form",
-                  new XAttribute("name", GetType().Name),
-                  new XAttribute("tabpage", "tp_001"),
-                  new XElement("Request",
-                     new XAttribute("rqid", rqst.RQID),
-                     new XAttribute("rqtpcode", rqst.RQTP_CODE),
-                     new XAttribute("fileno", rqst.Fighters.FirstOrDefault().FILE_NO),
-                     new XElement("Payment",
-                        new XAttribute("cashcode", pymt.CASH_CODE),
-                        new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
-                     )
-                  )
-               );
-
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 93 /* Execute Pos_Totl_F */),
-                     new Job(SendType.SelfToUserInterface, "POS_TOTL_F", 10 /* Actn_CalF_F */){Input = xSendPos}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedTab == tp_002)
-         {
-            if (RqstBs2.Current == null) return;
-            var rqst = RqstBs2.Current as Data.Request;
-            var pymt = PymtsBs2.Current as Data.Payment;
-
-            var xSendPos =
-               new XElement("Form",
-                  new XAttribute("name", GetType().Name),
-                  new XAttribute("tabpage", "tp_002"),
-                  new XElement("Request",
-                     new XAttribute("rqid", rqst.RQID),
-                     new XAttribute("rqtpcode", rqst.RQTP_CODE),
-                     new XAttribute("fileno", rqst.Fighters.FirstOrDefault().FILE_NO),
-                     new XElement("Payment",
-                        new XAttribute("cashcode", pymt.CASH_CODE),
-                        new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
-                     )
-                  )
-               );
-
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 93 /* Execute Pos_Totl_F */),
-                     new Job(SendType.SelfToUserInterface, "POS_TOTL_F", 10 /* Actn_CalF_F */){Input = xSendPos}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
       }
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
@@ -1235,6 +1176,8 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   )
                );
+
+               tc_submaster.SelectedTab = tabPage3;
             }
             else if(tb_master.SelectedTab == tp_002)
             {
@@ -1250,6 +1193,8 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   )
                );
+
+               tb_submaster2.SelectedTab = tabPage4;
             }
             else if(tb_master.SelectedTab == tp_003)
             {
@@ -1817,6 +1762,100 @@ namespace System.Scsc.Ui.OtherIncome
          {
             var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
             e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";
+         }
+      }
+
+      private void tbn_POSPayment1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (tb_master.SelectedTab == tp_001)
+            {
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               var rqst = RqstBs1.Current as Data.Request;
+               if (rqst == null) return;
+               //var pymt = PymtsBs1.Current as Data.Payment;
+
+               /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
+               {
+                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  return;
+               }*/
+
+               foreach (Data.Payment pymt in PymtsBs1)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithPOS"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                           )
+                        )
+                     )
+                  );
+               }
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+            else if (tb_master.SelectedTab == tp_002)
+            {
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               var rqst = RqstBs2.Current as Data.Request;
+               if (rqst == null) return;
+               //var pymt = PymtsBs2.Current as Data.Payment;
+
+               /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
+               {
+                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  return;
+               }*/
+               foreach (Data.Payment pymt in PymtsBs2)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithPOS"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                     //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
+                           )
+                        )
+                     )
+                  );
+               }
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+            else if (tb_master.SelectedTab == tp_003)
+            {
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               var rqst = RqstBs3.Current as Data.Request;
+               if (rqst == null) return;
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
          }
       }
    }

@@ -295,26 +295,26 @@ namespace System.Scsc.Ui.OtherIncome
                tb_master.TabPages.Add(tp_001);
                tb_master.SelectedTab = tp_001;
 
-               ExpnBs1.DataSource =
-               iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-                  ex.Expense_Type.Request_Requester.RQTP_CODE == "001" &&
-                  ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
-                  ex.EXPN_STAT == "002" /* هزینه های فعال */
-               );
+               //ExpnBs1.DataSource =
+               //iScsc.Expenses.Where(ex =>
+               //   ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               //   ex.Expense_Type.Request_Requester.RQTP_CODE == "001" &&
+               //   ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
+               //   ex.EXPN_STAT == "002" /* هزینه های فعال */
+               //);
 
                break;
             case "tp_002":
                tb_master.TabPages.Add(tp_002);
                tb_master.SelectedTab = tp_002;
 
-               ExpnBs1.DataSource =
-               iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-                  ex.Expense_Type.Request_Requester.RQTP_CODE == "009" &&
-                  ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
-                  ex.EXPN_STAT == "002" /* هزینه های فعال */
-               );
+               //ExpnBs1.DataSource =
+               //iScsc.Expenses.Where(ex =>
+               //   ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               //   ex.Expense_Type.Request_Requester.RQTP_CODE == "009" &&
+               //   ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
+               //   ex.EXPN_STAT == "002" /* هزینه های فعال */
+               //);
                break;
             case "tp_003":
                //tb_master.TabPages.Add(tp_003);

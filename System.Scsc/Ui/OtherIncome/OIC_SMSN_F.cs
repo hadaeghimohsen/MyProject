@@ -397,6 +397,8 @@ namespace System.Scsc.Ui.OtherIncome
                   )
                );
 
+               tc_submaster.SelectedTab = tp_sub001;
+
                // Save Card In Device
                if (CardNum_Txt.Text != "")
                   _DefaultGateway.Gateway(
@@ -431,6 +433,8 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   )
                );
+
+               tb_submaster2.SelectedTab = tp_pblcinfo;
 
                if (SaveAttn002_Pkbt.PickChecked)
                   AutoAttn();
@@ -1357,12 +1361,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void DayType_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
       {
-         GridView view = sender as GridView;
-         if (e.Column.FieldName == "TIME_DESC" && e.IsGetData)
-         {
-            var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
-            e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";
-         }
+
       }
 
       private void Btn_ReLoadCbmt_Click(object sender, EventArgs e)
@@ -1527,7 +1526,23 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void SesnAdd_Butn_Click(object sender, EventArgs e)
       {
-         SesnBs1.AddNew();
+         try
+         {
+            var cbmt = CbmtCode_Lov1.EditValue;
+            var expn = ExpnCode_Lov1.EditValue;
+
+            if (cbmt == null || cbmt.ToString() == "") { CbmtCode_Lov1.Focus(); return; }
+            if (expn == null || expn.ToString() == "") { ExpnCode_Lov1.Focus(); return; }
+
+            SesnBs1.AddNew();
+            var sesn = SesnBs1.Current as Data.Session;
+            sesn.CBMT_CODE = (long)cbmt;
+            sesn.EXPN_CODE = (long)expn;
+            sesn.TOTL_SESN = (short)ExpnBs1.List.OfType<Data.Expense>().FirstOrDefault(ex => ex.CODE == (long)expn).NUMB_OF_ATTN_MONT;
+
+            Btn_RqstBnARqt1_Click(null, null);
+         }
+         catch (Exception exc) { }
       }
 
       private void SesnDel_Butn_Click(object sender, EventArgs e)
@@ -1555,7 +1570,24 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void AddInc_Butn_Click(object sender, EventArgs e)
       {
-         SesnBs2.AddNew();      
+         try
+         {
+            var cbmt = CbmtCode_Lov2.EditValue;
+            var expn = ExpnCode_Lov2.EditValue;
+
+            if (cbmt == null || cbmt.ToString() == "") { CbmtCode_Lov2.Focus(); return; }
+            if (expn == null || expn.ToString() == "") { ExpnCode_Lov2.Focus(); return; }
+
+            SesnBs2.AddNew();      
+            var sesn = SesnBs2.Current as Data.Session;
+            sesn.CBMT_CODE = (long)cbmt;
+            sesn.EXPN_CODE = (long)expn;
+            sesn.TOTL_SESN = (short)ExpnBs1.List.OfType<Data.Expense>().FirstOrDefault(ex => ex.CODE == (long)expn).NUMB_OF_ATTN_MONT;
+
+            Btn_RqstBnARqt1_Click(null, null);
+         }
+         catch (Exception exc) { }
+         
       }
 
       private void DelInc_Butn_Click(object sender, EventArgs e)
@@ -1576,10 +1608,10 @@ namespace System.Scsc.Ui.OtherIncome
             iScsc.Sessions.DeleteOnSubmit(Sesn);
 
             iScsc.SubmitChanges();
-            SesnBs1.Remove(Sesn);
+            SesnBs2.Remove(Sesn);
          }
          catch
-         { SesnBs1.Remove(Sesn); }         
+         { SesnBs2.Remove(Sesn); }         
       }
 
       private bool setOnDebt = false;
@@ -1709,6 +1741,82 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CBMT_CODE_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cb => cb.CODE == (long)e.NewValue);
+            ExpnBs1.DataSource =
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "001" &&
+                  ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
+                  ex.MTOD_CODE == (long)cbmt.MTOD_CODE &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
+               );
+
+         }
+         catch (Exception exc)
+         {
+
+         }
+      }
+
+      private void Btn_Cbmt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            long code = 0;
+            if(tb_master.SelectedTab == tp_001)
+               code = (long)CbmtCode_Lov1.EditValue;
+            else if(tb_master.SelectedTab == tp_002)
+               code = (long)CbmtCode_Lov2.EditValue;
+
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+               {
+                  new Job(SendType.Self, 149 /* Execute Bas_Wkdy_F */),
+                  new Job(SendType.SelfToUserInterface,"BAS_WKDY_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("code", code), new XAttribute("showonly", "002"))}
+               }
+               )
+            );
+         }
+         catch { }
+      }
+
+      private void CbmtCode_Lov2_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cb => cb.CODE == (long)e.NewValue);
+            ExpnBs1.DataSource =
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "009" &&
+                  ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
+                  ex.MTOD_CODE == (long)cbmt.MTOD_CODE &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
+               );
+
+         }
+         catch (Exception exc)
+         {
+
+         }
+      }
+
+      private void Cbmt_Gv1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+      {
+         GridView view = sender as GridView;
+         if (e.Column.FieldName == "TIME_DESC" && e.IsGetData)
+         {
+            var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
+            e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";
          }
       }
    }

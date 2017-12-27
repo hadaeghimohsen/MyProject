@@ -530,6 +530,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
+                  
                   /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",

@@ -168,7 +168,9 @@ namespace System.Scsc.Ui.ReportManager
          DysnoBs2.DataSource = iScsc.D_YSNOs;
          DsxtpBs2.DataSource = iScsc.D_SXTPs;
          DpydsBs2.DataSource = iScsc.D_PYDS;
+         DDytpBs2.DataSource = iScsc.D_DYTPs;
          RqtpBs1.DataSource = iScsc.Request_Types;
+         CbmtBs.DataSource = iScsc.Club_Methods.Where(cb => cb.MTOD_STAT == "002");
          FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" /*&& f.FGPB_TYPE_DNRM != "007" && !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          job.Status = StatusType.Successful;
       }

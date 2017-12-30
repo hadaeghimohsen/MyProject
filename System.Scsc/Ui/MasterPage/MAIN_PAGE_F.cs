@@ -184,7 +184,7 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_Barcode.ReadLine();
-            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r'));
+            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
             //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
             //   return;
             //oldenrollnumber = enrollNumber;
@@ -196,25 +196,29 @@ namespace System.Scsc.Ui.MasterPage
                //{
                //   temp = 4294967296 + temp;
                //}
-               var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
-               if (figh != null)
+               try
                {
-                  enrollNumber = figh.FNGR_PRNT_DNRM;
-                  if (enrollNumber.Length == 0)
+                  var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
+                  if (figh != null)
                   {
-                     MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
-                     oldenrollnumber = "";
-                     return;
+                     enrollNumber = figh.FNGR_PRNT_DNRM;
+                     if (enrollNumber.Length == 0)
+                     {
+                        MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
+                        oldenrollnumber = "";
+                        return;
+                     }
                   }
                }
+               catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
             }
 
-            var temp = Convert.ToInt64(enrollNumber);
-            if (temp < 0)
-            {
-               temp = 4294967296 + temp;
-               enrollNumber = temp.ToString();
-            }
+            //var temp = Convert.ToInt64(enrollNumber);
+            //if (temp < 0)
+            //{
+            //   temp = 4294967296 + temp;
+            //   enrollNumber = temp.ToString();
+            //}
             
             //MessageBox.Show(enrollNumber);
 
@@ -233,7 +237,7 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_GateAttn.ReadLine();
-            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r'));
+            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
             //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
             //   return;
             //oldenrollnumber = enrollNumber;
@@ -245,25 +249,29 @@ namespace System.Scsc.Ui.MasterPage
                //{
                //   enrollnumb = 4294967296 + enrollnumb;
                //}
-               var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
-               if (figh != null)
+               try
                {
-                  enrollNumber = figh.FNGR_PRNT_DNRM;
-                  if (enrollNumber.Length == 0)
+                  var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
+                  if (figh != null)
                   {
-                     MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
-                     oldenrollnumber = "";
-                     return;
+                     enrollNumber = figh.FNGR_PRNT_DNRM;
+                     if (enrollNumber.Length == 0)
+                     {
+                        MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
+                        oldenrollnumber = "";
+                        return;
+                     }
                   }
                }
+               catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
             }
 
-            var temp = Convert.ToInt64(enrollNumber);
-            if (temp < 0)
-            {
-               temp = 4294967296 + temp;
-               enrollNumber = temp.ToString();
-            }
+            //var temp = Convert.ToInt64(enrollNumber);
+            //if (temp < 0)
+            //{
+            //   temp = 4294967296 + temp;
+            //   enrollNumber = temp.ToString();
+            //}
 
             //MessageBox.Show(enrollNumber);
 

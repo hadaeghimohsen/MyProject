@@ -365,7 +365,7 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Selection"), 
                               new XAttribute("modual", /*GetType().Name*/formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
                            )
                      }
                   });
@@ -390,7 +390,7 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Default"), 
                               new XAttribute("modual", /*GetType().Name*/ formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
                            )
                      }
                   });
@@ -498,12 +498,12 @@ namespace System.Scsc.Ui.ReportManager
                                     #endregion                        
                                  })                     
                               });
-                              _DefaultGateway.Gateway(_InteractWithScsc);
-                              if (checkOK)
-                              {
-                                 _DefaultGateway.Gateway(
-                                    new Job(SendType.External, "localhost",
-                                       new List<Job>
+                     _DefaultGateway.Gateway(_InteractWithScsc);
+                     if (checkOK)
+                     {
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
                                        {
                                           new Job(SendType.Self, 86 /* Execute Pay_Mtod_F */){Input = pydt.Payment},
                                           //new Job(SendType.SelfToUserInterface, "PAY_MTOD_F", 10 /* Execute Actn_CalF_F*/)
@@ -515,15 +515,15 @@ namespace System.Scsc.Ui.ReportManager
                                           //      )
                                           //}
                                        }
-                                    )
-                                 );
-                              }
-                           }
-                           catch
-                           {
-                              requery = false;
-                           }
-                  
+                           )
+                        );
+                     }
+                  }
+                  catch
+                  {
+                     requery = false;
+                  }
+
                   break;
                case 2:
                   try
@@ -595,19 +595,45 @@ namespace System.Scsc.Ui.ReportManager
                   {
                      if (requery)
                      {
-                        Execute_Query();                        
+                        Execute_Query();
                      }
                   }
-                  
+
                   break;
                default:
                   break;
             }
          }
-         catch (Exception exc)
-         {
+         catch { }
+      }
 
+      private void Cbmt_Lov2_EditValueChanging(object sender, ChangingEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs.List.OfType<Data.Club_Method>().FirstOrDefault(cb => cb.CODE == (long)e.NewValue);
+            CtgyBs.DataSource = iScsc.Category_Belts.Where(cg => cg.MTOD_CODE == cbmt.MTOD_CODE && cg.CTGY_STAT == "002");
          }
+         catch {}
+      }
+
+      private void Btn_Cbmt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            long code = (long)Cbmt_Lov2.EditValue;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 149 /* Execute Bas_Wkdy_F */),
+                     new Job(SendType.SelfToUserInterface,"BAS_WKDY_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("code", code), new XAttribute("showonly", "002"))}
+                  }
+               )
+            );
+         }
+         catch { }
       }
    }
 }

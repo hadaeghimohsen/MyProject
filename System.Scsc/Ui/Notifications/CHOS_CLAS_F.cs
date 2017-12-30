@@ -112,6 +112,14 @@ namespace System.Scsc.Ui.Notifications
             ClasList_Splp.Visible = false;
             return;
          }
+         else if(SesnBs1.Count == 1)
+         {
+            var sesnopen = SesnBs1.Current as Data.Session;
+            SnmtBs1.DataSource = iScsc.Session_Meetings.Where(sm => sm.Session == sesnopen);
+            EntrAttn_Butn_Click(null, null);
+            Btn_Back_Click(null, null);
+            return;
+         }
       }
 
       private void SesnBs1_CurrentChanged(object sender, EventArgs e)

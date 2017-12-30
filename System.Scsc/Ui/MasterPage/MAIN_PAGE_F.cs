@@ -191,6 +191,11 @@ namespace System.Scsc.Ui.MasterPage
 
             if (barCodeSetting.BAR_CODE_DATA_TYPE == "001")
             {
+               //var temp = Convert.ToInt64(enrollNumber);
+               //if(temp < 0)
+               //{
+               //   temp = 4294967296 + temp;
+               //}
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
                if (figh != null)
                {
@@ -202,6 +207,13 @@ namespace System.Scsc.Ui.MasterPage
                      return;
                   }
                }
+            }
+
+            var temp = Convert.ToInt64(enrollNumber);
+            if (temp < 0)
+            {
+               temp = 4294967296 + temp;
+               enrollNumber = temp.ToString();
             }
             
             //MessageBox.Show(enrollNumber);
@@ -228,6 +240,11 @@ namespace System.Scsc.Ui.MasterPage
 
             if (barCodeSetting.BAR_CODE_DATA_TYPE == "001")
             {
+               //var enrollnumb = Convert.ToInt64(enrollNumber);
+               //if (enrollnumb < 0)
+               //{
+               //   enrollnumb = 4294967296 + enrollnumb;
+               //}
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
                if (figh != null)
                {
@@ -239,6 +256,13 @@ namespace System.Scsc.Ui.MasterPage
                      return;
                   }
                }
+            }
+
+            var temp = Convert.ToInt64(enrollNumber);
+            if (temp < 0)
+            {
+               temp = 4294967296 + temp;
+               enrollNumber = temp.ToString();
             }
 
             //MessageBox.Show(enrollNumber);

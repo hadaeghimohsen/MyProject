@@ -2865,7 +2865,7 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename + "." + ordt.FILE_EXT));
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2874,7 +2874,7 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename+"." + ordt.FILE_EXT));
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2883,7 +2883,7 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename + "." + ordt.FILE_EXT));
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2891,8 +2891,8 @@ namespace System.RoboTech.Controller
                      else if (ordt.ELMN_TYPE == "009")
                      {
                         try
-                        {                           
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                        {
+                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename + "." + ordt.FILE_EXT));
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }

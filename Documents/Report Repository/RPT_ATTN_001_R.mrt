@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>Integrated Security=True;Initial Catalog=iScsc;Data Source=.</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <V_x0023_Attendance_Action Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>V#Attendance_Action</Alias>
+        <Columns isList="true" count="10">
+          <value>ATTN_DATE,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>ATTN_DATE_DNRM,System.String</value>
+          <value>ENTR_TIME,System.String</value>
+          <value>EXIT_TIME,System.String</value>
+          <value>DREN_NUMBS,System.String</value>
+          <value>ATTN_DESCS,System.String</value>
+          <value>PYMT_AMNT,System.Int64</value>
+          <value>PYMT_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>V#Attendance_Action</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from V#Attendance_Action
+where 1=1 and {WhereClause}
+ORDER BY 5 DESC</SqlCommand>
+      </V_x0023_Attendance_Action>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>All;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <ReportTitleBand1 Ref="5" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,1.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>7,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>گزارش حضور و غیاب اعضا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>14.8,1,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{V_Attendance_Action.ATTN_DATE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>17.2,1,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </ReportTitleBand1>
+        <HeaderV_Attendance_Action Ref="9" type="HeaderBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3,19,0.8</ClientRectangle>
+          <Components isList="true" count="7">
+            <HeaderV_Attendance_Action_NAME_DNRM Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>16.6,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>نام اعضا</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_NAME_DNRM>
+            <HeaderV_Attendance_Action_PYMT_DESC Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>14.4,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_PYMT_DESC</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>شماره کمد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_PYMT_DESC>
+            <HeaderV_Attendance_Action_ENTR_TIME Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>12,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_ENTR_TIME</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>ساعت ورود</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_ENTR_TIME>
+            <HeaderV_Attendance_Action_EXIT_TIME Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>9.6,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_EXIT_TIME</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>ساعت خروج</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_EXIT_TIME>
+            <HeaderV_Attendance_Action_ATTN_DESCS Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_ATTN_DESCS</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>شرح</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_ATTN_DESCS>
+            <HeaderV_Attendance_Action_PYMT_AMNT Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>7.2,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_PYMT_AMNT</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>مبلغ پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_PYMT_AMNT>
+            <HeaderV_Attendance_Action_DREN_NUMBS Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.8,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Attendance_Action_DREN_NUMBS</Name>
+              <Page isRef="4" />
+              <Parent isRef="9" />
+              <Text>روش پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Attendance_Action_DREN_NUMBS>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderV_Attendance_Action</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </HeaderV_Attendance_Action>
+        <DataV_x0023_Attendance_Action Ref="17" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="7">
+            <DataV_Attendance_Action_NAME_DNRM Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.6,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_NAME_DNRM>
+            <DataV_Attendance_Action_PYMT_DESC Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.8,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_PYMT_DESC</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.PYMT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_PYMT_DESC>
+            <DataV_Attendance_Action_ENTR_TIME Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_ENTR_TIME</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.ENTR_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_ENTR_TIME>
+            <DataV_Attendance_Action_EXIT_TIME Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_EXIT_TIME</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.EXIT_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_EXIT_TIME>
+            <DataV_Attendance_Action_ATTN_DESCS Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_ATTN_DESCS</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.ATTN_DESCS}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_ATTN_DESCS>
+            <DataV_Attendance_Action_PYMT_AMNT Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.2,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_PYMT_AMNT</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.PYMT_AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="24" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_PYMT_AMNT>
+            <DataV_Attendance_Action_DREN_NUMBS Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.4,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRAN Sans,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_DREN_NUMBS</Name>
+              <Page isRef="4" />
+              <Parent isRef="17" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{V_Attendance_Action.DREN_NUMBS}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_DREN_NUMBS>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>V#Attendance_Action</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataV#Attendance_Action</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataV_x0023_Attendance_Action>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>e9d8c3dec06b450cab9bb46ea7ca9c67</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="26" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="27" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>10/9/2017 9:56:11 AM</ReportChanged>
+  <ReportCreated>10/8/2017 5:47:32 PM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_ATTN_001_R.mrt</ReportFile>
+  <ReportGuid>f40934fd890e471181caf4922b1a03ba</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

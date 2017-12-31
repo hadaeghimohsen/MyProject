@@ -26,7 +26,7 @@ namespace System.Scsc.Ui.DebitsList
          iScsc = new Data.iScscDataContext(ConnectionString);
          iScsc.CommandTimeout = 18000;
          vF_Last_Info_FighterResultBs1.DataSource = 
-            iScsc.VF_Last_Info_Fighter(fileno).
+            iScsc.VF_Last_Info_Fighter(fileno, null, null,null, null, null, null, null).
             Where(f => 
                f.DEBT_DNRM != 0 ||
                iScsc.Requests.

@@ -108,7 +108,9 @@ namespace System.Scsc.Ui.Settings
 
                      new XAttribute("expnextrstat", Stng.EXPN_EXTR_STAT ?? "001"),
                      new XAttribute("expncommportname", /*GateComPortName_Lov.Text*/Stng.EXPN_COMM_PORT_NAME ?? ""),
-                     new XAttribute("expnbandrate", Stng.EXPN_BAND_RATE ?? 9600)
+                     new XAttribute("expnbandrate", Stng.EXPN_BAND_RATE ?? 9600),
+
+                     new XAttribute("runqury", Stng.RUN_QURY ?? "001")
                   )
                )
             );

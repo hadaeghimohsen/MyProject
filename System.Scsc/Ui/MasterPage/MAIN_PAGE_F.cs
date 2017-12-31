@@ -649,6 +649,8 @@ namespace System.Scsc.Ui.MasterPage
             return;
          oldenrollnumber = EnrollNumber;
 
+         bool recycleService = false;
+
          FngrPrnt_Txt.Text = EnrollNumber;
          if (
             !iScsc.Fighters
@@ -667,6 +669,19 @@ namespace System.Scsc.Ui.MasterPage
             {
                if (MessageBox.Show(this, "هنرجو مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد هنرجو هستید؟", "حضور مجدد هنرجوی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                {
+                  // 1396/09/04 * بازیابی کد انگشتی یا کارتی هنرجو
+                  var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == figh.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
+                  if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت هنرجو {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                     fighhist.FNGR_PRNT = "";
+
+                  if (fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به هنرجو اختصاص دهید", "الحاق انگشتی یا کارت جدید به هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                  {
+                  getfngrprnt:
+                     fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
+                     if (fighhist.FNGR_PRNT == "")
+                        goto getfngrprnt;
+                  }
+
                   // این قسمت برنامه باید با واحد مربوطه انتقال یابد که پراکندگی کد وجود نداشته باشد
                   #region Disable To Enabled
                   iScsc.AET_RQST_F(
@@ -678,7 +693,8 @@ namespace System.Scsc.Ui.MasterPage
                            new XElement("Request_Row",
                               new XAttribute("fileno", figh.FILE_NO),
                               new XElement("Fighter_Public",
-                                 new XElement("Actv_Tag", "101")
+                                 new XElement("Actv_Tag", "101"),
+                                 new XElement("Fngr_Prnt", fighhist.FNGR_PRNT.ToUpper())
                               )
                            )
                         )
@@ -700,26 +716,33 @@ namespace System.Scsc.Ui.MasterPage
                      )
                   );
                   #endregion
+
+                  recycleService = true;
                }
                else
                   return;
             }
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
-                     new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
+            if(!recycleService)
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
                      {
-                        Input = 
-                        new XElement("Fighter",
-                           new XAttribute("enrollnumber", EnrollNumber),
-                           new XAttribute("isnewenroll", true)
-                        )
-                     }
-                  })
-            );
+                        new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
+                        new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
+                        {
+                           Input = 
+                           new XElement("Fighter",
+                              new XAttribute("enrollnumber", EnrollNumber),
+                              new XAttribute("isnewenroll", true)
+                           )
+                        }
+                     })
+               );
+            else
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
+               );
          }
          else
          {

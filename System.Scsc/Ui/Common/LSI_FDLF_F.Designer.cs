@@ -169,6 +169,23 @@
          this.YellowGreen_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.DebtUp_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.DebtDown_Lbl = new DevExpress.XtraEditors.LabelControl();
+         this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.Search_Butn = new System.Windows.Forms.Button();
+         this.Women_Rb = new System.Windows.Forms.RadioButton();
+         this.BothSex_Rb = new System.Windows.Forms.RadioButton();
+         this.Men_Rb = new System.Windows.Forms.RadioButton();
+         this.label2 = new System.Windows.Forms.Label();
+         this.label6 = new System.Windows.Forms.Label();
+         this.label4 = new System.Windows.Forms.Label();
+         this.label5 = new System.Windows.Forms.Label();
+         this.label3 = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.LastName_Txt = new System.Windows.Forms.TextBox();
+         this.TellPhon_Txt = new System.Windows.Forms.TextBox();
+         this.FngrPrnt_Txt = new System.Windows.Forms.TextBox();
+         this.CellPhon_Txt = new System.Windows.Forms.TextBox();
+         this.NatlCode_Txt = new System.Windows.Forms.TextBox();
+         this.FrstName_Txt = new System.Windows.Forms.TextBox();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).BeginInit();
@@ -198,6 +215,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.LOV_CTGY)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.categoryBeltsBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+         this.splitContainerControl1.SuspendLayout();
          this.SuspendLayout();
          // 
          // colDEBT_DNRM
@@ -380,10 +399,8 @@
          // 
          // vF_Last_Info_FighterResultGridControl
          // 
-         this.vF_Last_Info_FighterResultGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.vF_Last_Info_FighterResultGridControl.DataSource = this.vF_Last_Info_FighterResultBindingSource;
+         this.vF_Last_Info_FighterResultGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
          this.vF_Last_Info_FighterResultGridControl.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.vF_Last_Info_FighterResultGridControl.EmbeddedNavigator.Appearance.Options.UseFont = true;
          this.vF_Last_Info_FighterResultGridControl.EmbeddedNavigator.Buttons.Append.Visible = false;
@@ -392,7 +409,7 @@
          this.vF_Last_Info_FighterResultGridControl.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
          this.vF_Last_Info_FighterResultGridControl.EmbeddedNavigator.Buttons.Remove.Visible = false;
          this.vF_Last_Info_FighterResultGridControl.EmbeddedNavigator.TextStringFormat = "تعداد اعضا {0} of {1}";
-         this.vF_Last_Info_FighterResultGridControl.Location = new System.Drawing.Point(0, 25);
+         this.vF_Last_Info_FighterResultGridControl.Location = new System.Drawing.Point(0, 0);
          this.vF_Last_Info_FighterResultGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.vF_Last_Info_FighterResultGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.vF_Last_Info_FighterResultGridControl.MainView = this.PBLC;
@@ -412,7 +429,7 @@
             this.repositoryItemCheckEdit1,
             this.COCH_LOV,
             this.colActn_Butn});
-         this.vF_Last_Info_FighterResultGridControl.Size = new System.Drawing.Size(1077, 586);
+         this.vF_Last_Info_FighterResultGridControl.Size = new System.Drawing.Size(1071, 276);
          this.vF_Last_Info_FighterResultGridControl.TabIndex = 1;
          this.vF_Last_Info_FighterResultGridControl.UseEmbeddedNavigator = true;
          this.vF_Last_Info_FighterResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1250,7 +1267,7 @@
          // 
          // Btn_Back
          // 
-         this.Btn_Back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+         this.Btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.Btn_Back.BackColor = System.Drawing.Color.Transparent;
          this.Btn_Back.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Btn_Back.Caption = "بازگشت";
@@ -1261,9 +1278,9 @@
          this.Btn_Back.ImageIndex = -1;
          this.Btn_Back.ImageList = null;
          this.Btn_Back.InToBold = false;
-         this.Btn_Back.Location = new System.Drawing.Point(492, 629);
+         this.Btn_Back.Location = new System.Drawing.Point(833, 376);
          this.Btn_Back.Name = "Btn_Back";
-         this.Btn_Back.Size = new System.Drawing.Size(93, 27);
+         this.Btn_Back.Size = new System.Drawing.Size(93, 48);
          this.Btn_Back.TabIndex = 2;
          this.Btn_Back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.Btn_Back.TextColor = System.Drawing.Color.Black;
@@ -1283,9 +1300,9 @@
          this.FighBnSettingPrint.ImageIndex = -1;
          this.FighBnSettingPrint.ImageList = null;
          this.FighBnSettingPrint.InToBold = false;
-         this.FighBnSettingPrint.Location = new System.Drawing.Point(775, 629);
+         this.FighBnSettingPrint.Location = new System.Drawing.Point(932, 401);
          this.FighBnSettingPrint.Name = "FighBnSettingPrint";
-         this.FighBnSettingPrint.Size = new System.Drawing.Size(142, 27);
+         this.FighBnSettingPrint.Size = new System.Drawing.Size(142, 23);
          this.FighBnSettingPrint.TabIndex = 3;
          this.FighBnSettingPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.FighBnSettingPrint.TextColor = System.Drawing.Color.Black;
@@ -1305,9 +1322,9 @@
          this.FighBnDefaultPrint.ImageIndex = -1;
          this.FighBnDefaultPrint.ImageList = null;
          this.FighBnDefaultPrint.InToBold = false;
-         this.FighBnDefaultPrint.Location = new System.Drawing.Point(923, 629);
+         this.FighBnDefaultPrint.Location = new System.Drawing.Point(932, 376);
          this.FighBnDefaultPrint.Name = "FighBnDefaultPrint";
-         this.FighBnDefaultPrint.Size = new System.Drawing.Size(142, 27);
+         this.FighBnDefaultPrint.Size = new System.Drawing.Size(142, 23);
          this.FighBnDefaultPrint.TabIndex = 4;
          this.FighBnDefaultPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.FighBnDefaultPrint.TextColor = System.Drawing.Color.Black;
@@ -1320,7 +1337,7 @@
          this.Green_Lbl.Appearance.BackColor = System.Drawing.Color.Lime;
          this.Green_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Green_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Green_Lbl.Location = new System.Drawing.Point(3, 615);
+         this.Green_Lbl.Location = new System.Drawing.Point(3, 374);
          this.Green_Lbl.Name = "Green_Lbl";
          this.Green_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
@@ -1338,7 +1355,7 @@
          this.Yellow_Lbl.Appearance.BackColor = System.Drawing.Color.Yellow;
          this.Yellow_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Yellow_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Yellow_Lbl.Location = new System.Drawing.Point(3, 642);
+         this.Yellow_Lbl.Location = new System.Drawing.Point(3, 401);
          this.Yellow_Lbl.Name = "Yellow_Lbl";
          this.Yellow_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
@@ -1356,7 +1373,7 @@
          this.Red_Lbl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
          this.Red_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Red_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Red_Lbl.Location = new System.Drawing.Point(31, 615);
+         this.Red_Lbl.Location = new System.Drawing.Point(31, 374);
          this.Red_Lbl.Name = "Red_Lbl";
          this.Red_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem10.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
@@ -1374,7 +1391,7 @@
          this.Gray_Lbl.Appearance.BackColor = System.Drawing.Color.DarkGray;
          this.Gray_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Gray_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Gray_Lbl.Location = new System.Drawing.Point(31, 642);
+         this.Gray_Lbl.Location = new System.Drawing.Point(31, 401);
          this.Gray_Lbl.Name = "Gray_Lbl";
          this.Gray_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem11.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
@@ -1392,7 +1409,7 @@
          this.YellowGreen_Lbl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
          this.YellowGreen_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.YellowGreen_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.YellowGreen_Lbl.Location = new System.Drawing.Point(59, 615);
+         this.YellowGreen_Lbl.Location = new System.Drawing.Point(59, 374);
          this.YellowGreen_Lbl.Name = "YellowGreen_Lbl";
          this.YellowGreen_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
@@ -1410,7 +1427,7 @@
          this.DebtUp_Lbl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.DebtUp_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.DebtUp_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.DebtUp_Lbl.Location = new System.Drawing.Point(104, 615);
+         this.DebtUp_Lbl.Location = new System.Drawing.Point(104, 374);
          this.DebtUp_Lbl.Name = "DebtUp_Lbl";
          this.DebtUp_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image12")));
@@ -1428,7 +1445,7 @@
          this.DebtDown_Lbl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
          this.DebtDown_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.DebtDown_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.DebtDown_Lbl.Location = new System.Drawing.Point(104, 642);
+         this.DebtDown_Lbl.Location = new System.Drawing.Point(104, 401);
          this.DebtDown_Lbl.Name = "DebtDown_Lbl";
          this.DebtDown_Lbl.Size = new System.Drawing.Size(25, 25);
          toolTipTitleItem14.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
@@ -1440,11 +1457,222 @@
          this.DebtDown_Lbl.TabIndex = 5;
          this.DebtDown_Lbl.Click += new System.EventHandler(this.Lbls_Click);
          // 
+         // splitContainerControl1
+         // 
+         this.splitContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.splitContainerControl1.Horizontal = false;
+         this.splitContainerControl1.IsSplitterFixed = true;
+         this.splitContainerControl1.Location = new System.Drawing.Point(3, 28);
+         this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.Search_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Women_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.BothSex_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Men_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label2);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label6);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label4);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label5);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label3);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label1);
+         this.splitContainerControl1.Panel1.Controls.Add(this.LastName_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.TellPhon_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.FngrPrnt_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.CellPhon_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.NatlCode_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.FrstName_Txt);
+         this.splitContainerControl1.Panel1.Text = "Panel1";
+         this.splitContainerControl1.Panel2.Controls.Add(this.vF_Last_Info_FighterResultGridControl);
+         this.splitContainerControl1.Panel2.Text = "Panel2";
+         this.splitContainerControl1.Size = new System.Drawing.Size(1071, 340);
+         this.splitContainerControl1.SplitterPosition = 59;
+         this.splitContainerControl1.TabIndex = 0;
+         this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
+         // Search_Butn
+         // 
+         this.Search_Butn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+         this.Search_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.Search_Butn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Search_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         this.Search_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.Search_Butn.Location = new System.Drawing.Point(3, 4);
+         this.Search_Butn.Name = "Search_Butn";
+         this.Search_Butn.Size = new System.Drawing.Size(95, 50);
+         this.Search_Butn.TabIndex = 9;
+         this.Search_Butn.Text = "F5";
+         this.Search_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Search_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.Search_Butn.UseVisualStyleBackColor = true;
+         this.Search_Butn.Click += new System.EventHandler(this.Search_Butn_Click);
+         // 
+         // Women_Rb
+         // 
+         this.Women_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Women_Rb.AutoSize = true;
+         this.Women_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Women_Rb.Location = new System.Drawing.Point(470, 33);
+         this.Women_Rb.Name = "Women_Rb";
+         this.Women_Rb.Size = new System.Drawing.Size(37, 18);
+         this.Women_Rb.TabIndex = 7;
+         this.Women_Rb.Text = "زن";
+         this.Women_Rb.UseVisualStyleBackColor = true;
+         // 
+         // BothSex_Rb
+         // 
+         this.BothSex_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BothSex_Rb.AutoSize = true;
+         this.BothSex_Rb.Checked = true;
+         this.BothSex_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BothSex_Rb.Location = new System.Drawing.Point(368, 5);
+         this.BothSex_Rb.Name = "BothSex_Rb";
+         this.BothSex_Rb.Size = new System.Drawing.Size(91, 18);
+         this.BothSex_Rb.TabIndex = 8;
+         this.BothSex_Rb.TabStop = true;
+         this.BothSex_Rb.Text = "همه جنسیت";
+         this.BothSex_Rb.UseVisualStyleBackColor = true;
+         // 
+         // Men_Rb
+         // 
+         this.Men_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Men_Rb.AutoSize = true;
+         this.Men_Rb.Checked = true;
+         this.Men_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Men_Rb.Location = new System.Drawing.Point(465, 5);
+         this.Men_Rb.Name = "Men_Rb";
+         this.Men_Rb.Size = new System.Drawing.Size(42, 18);
+         this.Men_Rb.TabIndex = 6;
+         this.Men_Rb.TabStop = true;
+         this.Men_Rb.Text = "مرد";
+         this.Men_Rb.UseVisualStyleBackColor = true;
+         // 
+         // label2
+         // 
+         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
+         this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label2.Location = new System.Drawing.Point(1009, 35);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(50, 14);
+         this.label2.TabIndex = 2;
+         this.label2.Text = "فامیلی :";
+         // 
+         // label6
+         // 
+         this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label6.AutoSize = true;
+         this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label6.Location = new System.Drawing.Point(608, 35);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(62, 14);
+         this.label6.TabIndex = 2;
+         this.label6.Text = "تلفن ثابت :";
+         // 
+         // label4
+         // 
+         this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label4.AutoSize = true;
+         this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label4.Location = new System.Drawing.Point(781, 35);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(73, 14);
+         this.label4.TabIndex = 2;
+         this.label4.Text = "کد انگشتی :";
+         // 
+         // label5
+         // 
+         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label5.AutoSize = true;
+         this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label5.Location = new System.Drawing.Point(608, 7);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(70, 14);
+         this.label5.TabIndex = 2;
+         this.label5.Text = "تلفن همراه :";
+         // 
+         // label3
+         // 
+         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label3.AutoSize = true;
+         this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label3.Location = new System.Drawing.Point(781, 7);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(54, 14);
+         this.label3.TabIndex = 2;
+         this.label3.Text = "کد ملی :";
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label1.Location = new System.Drawing.Point(1009, 7);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(29, 14);
+         this.label1.TabIndex = 2;
+         this.label1.Text = "نام :";
+         // 
+         // LastName_Txt
+         // 
+         this.LastName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LastName_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LastName_Txt.Location = new System.Drawing.Point(859, 32);
+         this.LastName_Txt.Name = "LastName_Txt";
+         this.LastName_Txt.Size = new System.Drawing.Size(144, 22);
+         this.LastName_Txt.TabIndex = 1;
+         // 
+         // TellPhon_Txt
+         // 
+         this.TellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TellPhon_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TellPhon_Txt.Location = new System.Drawing.Point(513, 32);
+         this.TellPhon_Txt.Name = "TellPhon_Txt";
+         this.TellPhon_Txt.Size = new System.Drawing.Size(89, 22);
+         this.TellPhon_Txt.TabIndex = 5;
+         // 
+         // FngrPrnt_Txt
+         // 
+         this.FngrPrnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FngrPrnt_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FngrPrnt_Txt.Location = new System.Drawing.Point(686, 32);
+         this.FngrPrnt_Txt.Name = "FngrPrnt_Txt";
+         this.FngrPrnt_Txt.Size = new System.Drawing.Size(89, 22);
+         this.FngrPrnt_Txt.TabIndex = 3;
+         // 
+         // CellPhon_Txt
+         // 
+         this.CellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CellPhon_Txt.Location = new System.Drawing.Point(513, 4);
+         this.CellPhon_Txt.Name = "CellPhon_Txt";
+         this.CellPhon_Txt.Size = new System.Drawing.Size(89, 22);
+         this.CellPhon_Txt.TabIndex = 4;
+         // 
+         // NatlCode_Txt
+         // 
+         this.NatlCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NatlCode_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NatlCode_Txt.Location = new System.Drawing.Point(686, 4);
+         this.NatlCode_Txt.Name = "NatlCode_Txt";
+         this.NatlCode_Txt.Size = new System.Drawing.Size(89, 22);
+         this.NatlCode_Txt.TabIndex = 2;
+         // 
+         // FrstName_Txt
+         // 
+         this.FrstName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FrstName_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FrstName_Txt.Location = new System.Drawing.Point(859, 4);
+         this.FrstName_Txt.Name = "FrstName_Txt";
+         this.FrstName_Txt.Size = new System.Drawing.Size(144, 22);
+         this.FrstName_Txt.TabIndex = 0;
+         // 
          // LSI_FDLF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Controls.Add(this.splitContainerControl1);
          this.Controls.Add(this.Gray_Lbl);
          this.Controls.Add(this.YellowGreen_Lbl);
          this.Controls.Add(this.Red_Lbl);
@@ -1455,10 +1683,10 @@
          this.Controls.Add(this.FighBnSettingPrint);
          this.Controls.Add(this.FighBnDefaultPrint);
          this.Controls.Add(this.Btn_Back);
-         this.Controls.Add(this.vF_Last_Info_FighterResultGridControl);
          this.Controls.Add(this.vF_Last_Info_FighterResultBindingNavigator);
          this.Name = "LSI_FDLF_F";
-         this.Size = new System.Drawing.Size(1077, 668);
+         this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.Size = new System.Drawing.Size(1077, 427);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).EndInit();
@@ -1489,6 +1717,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.LOV_CTGY)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.categoryBeltsBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+         this.splitContainerControl1.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1593,5 +1823,22 @@
       private DevExpress.XtraEditors.LabelControl DebtDown_Lbl;
       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_DESC;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+      private Windows.Forms.Button Search_Butn;
+      private Windows.Forms.RadioButton Women_Rb;
+      private Windows.Forms.RadioButton Men_Rb;
+      private Windows.Forms.Label label2;
+      private Windows.Forms.Label label6;
+      private Windows.Forms.Label label4;
+      private Windows.Forms.Label label5;
+      private Windows.Forms.Label label3;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.TextBox LastName_Txt;
+      private Windows.Forms.TextBox TellPhon_Txt;
+      private Windows.Forms.TextBox FngrPrnt_Txt;
+      private Windows.Forms.TextBox CellPhon_Txt;
+      private Windows.Forms.TextBox NatlCode_Txt;
+      private Windows.Forms.TextBox FrstName_Txt;
+      private Windows.Forms.RadioButton BothSex_Rb;
    }
 }

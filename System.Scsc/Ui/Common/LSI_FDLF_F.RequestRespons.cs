@@ -94,6 +94,10 @@ namespace System.Scsc.Ui.Common
          {
             HL_INVSFILENO_ButtonClick(null, null);
          }
+         else if(keyData == Keys.F5)
+         {
+            Search_Butn_Click(null, null);
+         }
          else if (keyData == Keys.Escape)
          {
             job.Next =
@@ -191,12 +195,14 @@ namespace System.Scsc.Ui.Common
 
             isFirstLoaded = true;
 
-            finishcommand:
+         finishcommand:
 
             //if (InvokeRequired)
             //   Invoke(new Action(() => vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE)));
             //else
-            vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
+            //vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
+            if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
+               Search_Butn_Click(null, null);
          }
          catch (Exception ex) { MessageBox.Show(ex.Message); }
          job.Status = StatusType.Successful;

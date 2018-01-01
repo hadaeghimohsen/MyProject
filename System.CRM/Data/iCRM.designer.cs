@@ -123,9 +123,6 @@ namespace System.CRM.Data
     partial void InsertBasic_Calculate_Discount(Basic_Calculate_Discount instance);
     partial void UpdateBasic_Calculate_Discount(Basic_Calculate_Discount instance);
     partial void DeleteBasic_Calculate_Discount(Basic_Calculate_Discount instance);
-    partial void InsertSetting(Setting instance);
-    partial void UpdateSetting(Setting instance);
-    partial void DeleteSetting(Setting instance);
     partial void InsertEmail_To_Email(Email_To_Email instance);
     partial void UpdateEmail_To_Email(Email_To_Email instance);
     partial void DeleteEmail_To_Email(Email_To_Email instance);
@@ -209,6 +206,9 @@ namespace System.CRM.Data
     partial void InsertRequest(Request instance);
     partial void UpdateRequest(Request instance);
     partial void DeleteRequest(Request instance);
+    partial void InsertSetting(Setting instance);
+    partial void UpdateSetting(Setting instance);
+    partial void DeleteSetting(Setting instance);
     #endregion
 		
 		public iCRMDataContext() : 
@@ -1217,14 +1217,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Setting> Settings
-		{
-			get
-			{
-				return this.GetTable<Setting>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Email_To_Email> Email_To_Emails
 		{
 			get
@@ -1718,6 +1710,14 @@ namespace System.CRM.Data
 			get
 			{
 				return this.GetTable<Request>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Setting> Settings
+		{
+			get
+			{
+				return this.GetTable<Setting>();
 			}
 		}
 		
@@ -22739,260 +22739,6 @@ namespace System.CRM.Data
 				{
 					this._DOMN_DESC = value;
 				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Settings")]
-	public partial class Setting : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _CODE;
-		
-		private string _DFLT_STAT;
-		
-		private System.Nullable<bool> _BACK_UP;
-		
-		private System.Nullable<bool> _BACK_UP_APP_EXIT;
-		
-		private System.Nullable<bool> _BACK_UP_IN_TRED;
-		
-		private System.Nullable<bool> _BACK_UP_OPTN_PATH;
-		
-		private string _BACK_UP_OPTN_PATH_ADRS;
-		
-		private string _BACK_UP_ROOT_PATH;
-		
-		private string _UPLD_FILE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnDFLT_STATChanging(string value);
-    partial void OnDFLT_STATChanged();
-    partial void OnBACK_UPChanging(System.Nullable<bool> value);
-    partial void OnBACK_UPChanged();
-    partial void OnBACK_UP_APP_EXITChanging(System.Nullable<bool> value);
-    partial void OnBACK_UP_APP_EXITChanged();
-    partial void OnBACK_UP_IN_TREDChanging(System.Nullable<bool> value);
-    partial void OnBACK_UP_IN_TREDChanged();
-    partial void OnBACK_UP_OPTN_PATHChanging(System.Nullable<bool> value);
-    partial void OnBACK_UP_OPTN_PATHChanged();
-    partial void OnBACK_UP_OPTN_PATH_ADRSChanging(string value);
-    partial void OnBACK_UP_OPTN_PATH_ADRSChanged();
-    partial void OnBACK_UP_ROOT_PATHChanging(string value);
-    partial void OnBACK_UP_ROOT_PATHChanged();
-    partial void OnUPLD_FILEChanging(string value);
-    partial void OnUPLD_FILEChanged();
-    #endregion
-		
-		public Setting()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DFLT_STAT
-		{
-			get
-			{
-				return this._DFLT_STAT;
-			}
-			set
-			{
-				if ((this._DFLT_STAT != value))
-				{
-					this.OnDFLT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DFLT_STAT = value;
-					this.SendPropertyChanged("DFLT_STAT");
-					this.OnDFLT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<bool> BACK_UP
-		{
-			get
-			{
-				return this._BACK_UP;
-			}
-			set
-			{
-				if ((this._BACK_UP != value))
-				{
-					this.OnBACK_UPChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP = value;
-					this.SendPropertyChanged("BACK_UP");
-					this.OnBACK_UPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<bool> BACK_UP_APP_EXIT
-		{
-			get
-			{
-				return this._BACK_UP_APP_EXIT;
-			}
-			set
-			{
-				if ((this._BACK_UP_APP_EXIT != value))
-				{
-					this.OnBACK_UP_APP_EXITChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_APP_EXIT = value;
-					this.SendPropertyChanged("BACK_UP_APP_EXIT");
-					this.OnBACK_UP_APP_EXITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_IN_TRED", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<bool> BACK_UP_IN_TRED
-		{
-			get
-			{
-				return this._BACK_UP_IN_TRED;
-			}
-			set
-			{
-				if ((this._BACK_UP_IN_TRED != value))
-				{
-					this.OnBACK_UP_IN_TREDChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_IN_TRED = value;
-					this.SendPropertyChanged("BACK_UP_IN_TRED");
-					this.OnBACK_UP_IN_TREDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<bool> BACK_UP_OPTN_PATH
-		{
-			get
-			{
-				return this._BACK_UP_OPTN_PATH;
-			}
-			set
-			{
-				if ((this._BACK_UP_OPTN_PATH != value))
-				{
-					this.OnBACK_UP_OPTN_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_OPTN_PATH = value;
-					this.SendPropertyChanged("BACK_UP_OPTN_PATH");
-					this.OnBACK_UP_OPTN_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH_ADRS", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string BACK_UP_OPTN_PATH_ADRS
-		{
-			get
-			{
-				return this._BACK_UP_OPTN_PATH_ADRS;
-			}
-			set
-			{
-				if ((this._BACK_UP_OPTN_PATH_ADRS != value))
-				{
-					this.OnBACK_UP_OPTN_PATH_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_OPTN_PATH_ADRS = value;
-					this.SendPropertyChanged("BACK_UP_OPTN_PATH_ADRS");
-					this.OnBACK_UP_OPTN_PATH_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_ROOT_PATH", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string BACK_UP_ROOT_PATH
-		{
-			get
-			{
-				return this._BACK_UP_ROOT_PATH;
-			}
-			set
-			{
-				if ((this._BACK_UP_ROOT_PATH != value))
-				{
-					this.OnBACK_UP_ROOT_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_ROOT_PATH = value;
-					this.SendPropertyChanged("BACK_UP_ROOT_PATH");
-					this.OnBACK_UP_ROOT_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLD_FILE", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
-		public string UPLD_FILE
-		{
-			get
-			{
-				return this._UPLD_FILE;
-			}
-			set
-			{
-				if ((this._UPLD_FILE != value))
-				{
-					this.OnUPLD_FILEChanging(value);
-					this.SendPropertyChanging();
-					this._UPLD_FILE = value;
-					this.SendPropertyChanged("UPLD_FILE");
-					this.OnUPLD_FILEChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -55660,6 +55406,284 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Request2 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Settings")]
+	public partial class Setting : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _DFLT_STAT;
+		
+		private System.Nullable<bool> _BACK_UP;
+		
+		private System.Nullable<bool> _BACK_UP_APP_EXIT;
+		
+		private System.Nullable<bool> _BACK_UP_IN_TRED;
+		
+		private System.Nullable<bool> _BACK_UP_OPTN_PATH;
+		
+		private string _BACK_UP_OPTN_PATH_ADRS;
+		
+		private string _BACK_UP_ROOT_PATH;
+		
+		private string _UPLD_FILE;
+		
+		private string _RUN_QURY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnBACK_UPChanging(System.Nullable<bool> value);
+    partial void OnBACK_UPChanged();
+    partial void OnBACK_UP_APP_EXITChanging(System.Nullable<bool> value);
+    partial void OnBACK_UP_APP_EXITChanged();
+    partial void OnBACK_UP_IN_TREDChanging(System.Nullable<bool> value);
+    partial void OnBACK_UP_IN_TREDChanged();
+    partial void OnBACK_UP_OPTN_PATHChanging(System.Nullable<bool> value);
+    partial void OnBACK_UP_OPTN_PATHChanged();
+    partial void OnBACK_UP_OPTN_PATH_ADRSChanging(string value);
+    partial void OnBACK_UP_OPTN_PATH_ADRSChanged();
+    partial void OnBACK_UP_ROOT_PATHChanging(string value);
+    partial void OnBACK_UP_ROOT_PATHChanged();
+    partial void OnUPLD_FILEChanging(string value);
+    partial void OnUPLD_FILEChanged();
+    partial void OnRUN_QURYChanging(string value);
+    partial void OnRUN_QURYChanged();
+    #endregion
+		
+		public Setting()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP", DbType="Bit")]
+		public System.Nullable<bool> BACK_UP
+		{
+			get
+			{
+				return this._BACK_UP;
+			}
+			set
+			{
+				if ((this._BACK_UP != value))
+				{
+					this.OnBACK_UPChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP = value;
+					this.SendPropertyChanged("BACK_UP");
+					this.OnBACK_UPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="Bit")]
+		public System.Nullable<bool> BACK_UP_APP_EXIT
+		{
+			get
+			{
+				return this._BACK_UP_APP_EXIT;
+			}
+			set
+			{
+				if ((this._BACK_UP_APP_EXIT != value))
+				{
+					this.OnBACK_UP_APP_EXITChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_APP_EXIT = value;
+					this.SendPropertyChanged("BACK_UP_APP_EXIT");
+					this.OnBACK_UP_APP_EXITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_IN_TRED", DbType="Bit")]
+		public System.Nullable<bool> BACK_UP_IN_TRED
+		{
+			get
+			{
+				return this._BACK_UP_IN_TRED;
+			}
+			set
+			{
+				if ((this._BACK_UP_IN_TRED != value))
+				{
+					this.OnBACK_UP_IN_TREDChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_IN_TRED = value;
+					this.SendPropertyChanged("BACK_UP_IN_TRED");
+					this.OnBACK_UP_IN_TREDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH", DbType="Bit")]
+		public System.Nullable<bool> BACK_UP_OPTN_PATH
+		{
+			get
+			{
+				return this._BACK_UP_OPTN_PATH;
+			}
+			set
+			{
+				if ((this._BACK_UP_OPTN_PATH != value))
+				{
+					this.OnBACK_UP_OPTN_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_OPTN_PATH = value;
+					this.SendPropertyChanged("BACK_UP_OPTN_PATH");
+					this.OnBACK_UP_OPTN_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH_ADRS", DbType="NVarChar(MAX)")]
+		public string BACK_UP_OPTN_PATH_ADRS
+		{
+			get
+			{
+				return this._BACK_UP_OPTN_PATH_ADRS;
+			}
+			set
+			{
+				if ((this._BACK_UP_OPTN_PATH_ADRS != value))
+				{
+					this.OnBACK_UP_OPTN_PATH_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_OPTN_PATH_ADRS = value;
+					this.SendPropertyChanged("BACK_UP_OPTN_PATH_ADRS");
+					this.OnBACK_UP_OPTN_PATH_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_ROOT_PATH", DbType="NVarChar(MAX)")]
+		public string BACK_UP_ROOT_PATH
+		{
+			get
+			{
+				return this._BACK_UP_ROOT_PATH;
+			}
+			set
+			{
+				if ((this._BACK_UP_ROOT_PATH != value))
+				{
+					this.OnBACK_UP_ROOT_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_ROOT_PATH = value;
+					this.SendPropertyChanged("BACK_UP_ROOT_PATH");
+					this.OnBACK_UP_ROOT_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLD_FILE", DbType="NVarChar(4000)")]
+		public string UPLD_FILE
+		{
+			get
+			{
+				return this._UPLD_FILE;
+			}
+			set
+			{
+				if ((this._UPLD_FILE != value))
+				{
+					this.OnUPLD_FILEChanging(value);
+					this.SendPropertyChanging();
+					this._UPLD_FILE = value;
+					this.SendPropertyChanged("UPLD_FILE");
+					this.OnUPLD_FILEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_QURY", DbType="VarChar(3)")]
+		public string RUN_QURY
+		{
+			get
+			{
+				return this._RUN_QURY;
+			}
+			set
+			{
+				if ((this._RUN_QURY != value))
+				{
+					this.OnRUN_QURYChanging(value);
+					this.SendPropertyChanging();
+					this._RUN_QURY = value;
+					this.SendPropertyChanged("RUN_QURY");
+					this.OnRUN_QURYChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

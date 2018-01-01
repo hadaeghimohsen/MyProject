@@ -90,11 +90,17 @@ namespace System.Scsc.Ui.Common
                   });
             #endregion
          }
-         else if(keyData == Keys.F11)
+         else if(keyData == Keys.Enter)
          {
             HL_INVSFILENO_ButtonClick(null, null);
          }
-         else if(keyData == Keys.F5)
+         else if(keyData == Keys.F11)
+         {
+            FrstName_Txt.Focus();
+            FrstName_Txt.Text = LastName_Txt.Text = NatlCode_Txt.Text = FngrPrnt_Txt.Text = TellPhon_Txt.Text = CellPhon_Txt.Text = "";
+            BothSex_Rb.Checked = true;
+         }
+         else if(keyData == (Keys.F11 | Keys.Control))
          {
             Search_Butn_Click(null, null);
          }

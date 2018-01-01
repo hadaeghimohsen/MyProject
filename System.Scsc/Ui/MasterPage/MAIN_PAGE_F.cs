@@ -2252,7 +2252,7 @@ namespace System.Scsc.Ui.MasterPage
 
       private void CardNumb_Text_KeyDown(object sender, KeyEventArgs e)
       {
-         if(e.KeyData == (Keys.F4))
+         if(e.KeyData == (Keys.Enter))
          {
             CardNumb_Text_Properties_ButtonClick(sender, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[2]));
          }

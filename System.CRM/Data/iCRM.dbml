@@ -1306,19 +1306,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Settings" Member="Settings">
-    <Type Name="Setting">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BACK_UP" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BACK_UP_APP_EXIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BACK_UP_IN_TRED" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BACK_UP_OPTN_PATH" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BACK_UP_OPTN_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BACK_UP_ROOT_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="UPLD_FILE" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
   <Table Name="dbo.Email_To_Email" Member="Email_To_Emails">
     <Type Name="Email_To_Email">
       <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -3134,6 +3121,20 @@
       <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BACK_UP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_APP_EXIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_IN_TRED" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_OPTN_PATH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_OPTN_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BACK_UP_ROOT_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UPLD_FILE" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="RUN_QURY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">

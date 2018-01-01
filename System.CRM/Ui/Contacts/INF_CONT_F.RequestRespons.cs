@@ -76,6 +76,16 @@ namespace System.CRM.Ui.Contacts
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
+         else if(keyData == (Keys.Left | Keys.Control))
+         {
+            // قبلی
+            Previous_Butn_Click(null, null);
+         }
+         else if(keyData == (Keys.Right | Keys.Control))
+         {
+            // بعدی
+            Next_Butn_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }
@@ -220,7 +230,7 @@ namespace System.CRM.Ui.Contacts
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+         fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);         
          Execute_Query();
          job.Status = StatusType.Successful;
       }

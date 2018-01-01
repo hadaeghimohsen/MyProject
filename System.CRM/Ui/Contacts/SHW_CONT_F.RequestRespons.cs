@@ -69,6 +69,18 @@ namespace System.CRM.Ui.Contacts
          if (keyData == Keys.Enter)
          {
             SendKeys.Send("{TAB}");
+            ImageProfile_Butn_Click(null, null);
+         }
+         else if(keyData == (Keys.F11 | Keys.Control))
+         {
+            Execute_Query();
+         }
+         else if(keyData == Keys.F11)
+         {
+            FrstName_Txt.Focus();
+            FrstName_Txt.Text = LastName_Txt.Text = CellPhon_Txt.Text = TellPhon_Txt.Text = NatlCode_Txt.Text = ServNo_Txt.Text = PostAddr_Txt.Text = CordX_Txt.Text = CordY_Txt.Text = Radius_Txt.Text = EmalAddr_Txt.Text = "";
+            BothSex_Rb.Checked = true;
+            tc_master.SelectedTab = tp_002;
          }
          else if (keyData == Keys.Escape)
          {
@@ -214,20 +226,24 @@ namespace System.CRM.Ui.Contacts
                compcode = 0;
          }
 
+         var runqury = iCRM.Settings.FirstOrDefault(s => s.DFLT_STAT == "002").RUN_QURY;
+
          if (InvokeRequired)
          {
             Invoke(
                new Action(
                   () =>
                   {
-                     Execute_Query();
+                     if(runqury == "002")
+                        Execute_Query();
                   }
                )
             );
          }
          else
          {
-            Execute_Query();
+            if(runqury == "002")
+               Execute_Query();
          }
          job.Status = StatusType.Successful;
       }

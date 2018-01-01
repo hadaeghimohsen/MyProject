@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INF_CONT_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -85,7 +84,7 @@
          this.AddDeals_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Back_Butn = new System.MaxUi.RoundedButton();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ServBs = new System.Windows.Forms.BindingSource();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
          this.RelationShip_Butn = new System.MaxUi.RoundedButton();
@@ -139,14 +138,14 @@
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.PymtNotEnd_Lb = new DevExpress.XtraEditors.LabelControl();
          this.PymtEnd_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.LogcBs = new System.Windows.Forms.BindingSource(this.components);
-         this.RqstChngBs = new System.Windows.Forms.BindingSource(this.components);
+         this.LogcBs = new System.Windows.Forms.BindingSource();
+         this.RqstChngBs = new System.Windows.Forms.BindingSource();
          this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.NoteComment_Txt = new DevExpress.XtraEditors.MemoEdit();
-         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
+         this.NoteBs = new System.Windows.Forms.BindingSource();
          this.panel3 = new System.Windows.Forms.Panel();
          this.UserMentioned_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DeleteNote_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -163,7 +162,7 @@
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-         this.TaskBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TaskBs = new System.Windows.Forms.BindingSource();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.Task_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -179,7 +178,7 @@
          this.AddTask_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tabPage3 = new System.Windows.Forms.TabPage();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.AponBs = new System.Windows.Forms.BindingSource(this.components);
+         this.AponBs = new System.Windows.Forms.BindingSource();
          this.Appointment_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colSUBJ_DESC2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -194,7 +193,7 @@
          this.AddAppointment_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tabPage4 = new System.Windows.Forms.TabPage();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.FileBs = new System.Windows.Forms.BindingSource(this.components);
+         this.FileBs = new System.Windows.Forms.BindingSource();
          this.File_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colSUBJ_DESC3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -209,7 +208,7 @@
          this.AddSendFile_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tabPage5 = new System.Windows.Forms.TabPage();
          this.gridControl8 = new DevExpress.XtraGrid.GridControl();
-         this.MesgBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MesgBs = new System.Windows.Forms.BindingSource();
          this.Mesg_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colTime_Period_Message = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -244,7 +243,7 @@
          this.tabPage7 = new System.Windows.Forms.TabPage();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.memoEdit4 = new DevExpress.XtraEditors.MemoEdit();
-         this.EmalBs = new System.Windows.Forms.BindingSource(this.components);
+         this.EmalBs = new System.Windows.Forms.BindingSource();
          this.gridControl10 = new DevExpress.XtraGrid.GridControl();
          this.advBandedGridView2 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -260,7 +259,7 @@
          this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
          this.tabPage8 = new System.Windows.Forms.TabPage();
          this.gridControl11 = new DevExpress.XtraGrid.GridControl();
-         this.PymtSaveBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PymtSaveBs = new System.Windows.Forms.BindingSource();
          this.Deal_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.bandedGridColumn34 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -277,7 +276,7 @@
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RqstProjBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstProjBs = new System.Windows.Forms.BindingSource();
          this.CallLog_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -321,8 +320,8 @@
          this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.ShidBs = new System.Windows.Forms.BindingSource(this.components);
-         this.ShisBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ShidBs = new System.Windows.Forms.BindingSource();
+         this.ShisBs = new System.Windows.Forms.BindingSource();
          this.Shid_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSHIS_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSHIS_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -344,7 +343,7 @@
          this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
          this.SaveSstt_Butn = new System.MaxUi.RoundedButton();
          this.SubStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.SsttBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SsttBs = new System.Windows.Forms.BindingSource();
          this.AddSstt_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl9 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -368,7 +367,7 @@
          this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
          this.SaveMstt_Butn = new System.MaxUi.RoundedButton();
          this.MainStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.MsttBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MsttBs = new System.Windows.Forms.BindingSource();
          this.AddMstt_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
@@ -420,11 +419,11 @@
          this.colCASH_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.Atyp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DAtypBs = new System.Windows.Forms.BindingSource();
          this.colTOTL_EXPN_PRIC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colPYMT_STAG = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.Pstg_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DPstgBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DPstgBs = new System.Windows.Forms.BindingSource();
          this.colPYMT_DESC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colDebt_Amnt = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colSUM_RCPT_EXPN_PRIC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -438,8 +437,8 @@
          this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
          this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
          this.panel6 = new System.Windows.Forms.Panel();
-         this.DsdstBs = new System.Windows.Forms.BindingSource(this.components);
-         this.DsdrcBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsdstBs = new System.Windows.Forms.BindingSource();
+         this.DsdrcBs = new System.Windows.Forms.BindingSource();
          this.colRQRO_RQST_RQID2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSERV_FILE_NO5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -888,7 +887,7 @@
          this.linkLabel6.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.linkLabel6.Location = new System.Drawing.Point(76, 69);
          this.linkLabel6.Name = "linkLabel6";
-         this.linkLabel6.Size = new System.Drawing.Size(223, 27);
+         this.linkLabel6.Size = new System.Drawing.Size(217, 27);
          this.linkLabel6.TabIndex = 27;
          this.linkLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -925,7 +924,7 @@
          this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.linkLabel5.Location = new System.Drawing.Point(75, 9);
          this.linkLabel5.Name = "linkLabel5";
-         this.linkLabel5.Size = new System.Drawing.Size(185, 27);
+         this.linkLabel5.Size = new System.Drawing.Size(220, 27);
          this.linkLabel5.TabIndex = 24;
          this.linkLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -962,7 +961,7 @@
          this.RqstRqid_Lbl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.RqstRqid_Lbl.Location = new System.Drawing.Point(424, 201);
          this.RqstRqid_Lbl.Name = "RqstRqid_Lbl";
-         this.RqstRqid_Lbl.Size = new System.Drawing.Size(166, 27);
+         this.RqstRqid_Lbl.Size = new System.Drawing.Size(150, 27);
          this.RqstRqid_Lbl.TabIndex = 25;
          this.RqstRqid_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -1177,7 +1176,7 @@
          this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.linkLabel1.Location = new System.Drawing.Point(381, 77);
          this.linkLabel1.Name = "linkLabel1";
-         this.linkLabel1.Size = new System.Drawing.Size(236, 27);
+         this.linkLabel1.Size = new System.Drawing.Size(190, 27);
          this.linkLabel1.TabIndex = 4;
          this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -1189,7 +1188,7 @@
          this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.linkLabel2.Location = new System.Drawing.Point(75, 42);
          this.linkLabel2.Name = "linkLabel2";
-         this.linkLabel2.Size = new System.Drawing.Size(223, 27);
+         this.linkLabel2.Size = new System.Drawing.Size(217, 27);
          this.linkLabel2.TabIndex = 4;
          this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.linkLabel2.Click += new System.EventHandler(this.SendEmail_Butn_Click);
@@ -1225,9 +1224,10 @@
          this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(647, 107);
+         this.labelControl10.Location = new System.Drawing.Point(580, 107);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(42, 27);
          this.labelControl10.TabIndex = 2;
@@ -1238,6 +1238,7 @@
          this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl9.Location = new System.Drawing.Point(304, 43);
@@ -1261,7 +1262,7 @@
          this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl14.Location = new System.Drawing.Point(74, 107);
          this.labelControl14.Name = "labelControl14";
-         this.labelControl14.Size = new System.Drawing.Size(567, 27);
+         this.labelControl14.Size = new System.Drawing.Size(500, 27);
          this.labelControl14.TabIndex = 2;
          // 
          // CnclRqst_Butn
@@ -1294,11 +1295,12 @@
          this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(580, 140);
+         this.labelControl3.Location = new System.Drawing.Point(580, 138);
          this.labelControl3.Name = "labelControl3";
-         this.labelControl3.Size = new System.Drawing.Size(109, 27);
+         this.labelControl3.Size = new System.Drawing.Size(66, 27);
          this.labelControl3.TabIndex = 2;
          this.labelControl3.Text = "تاریخ تولد";
          // 
@@ -1316,7 +1318,7 @@
          this.labelControl31.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl31.Location = new System.Drawing.Point(364, 234);
          this.labelControl31.Name = "labelControl31";
-         this.labelControl31.Size = new System.Drawing.Size(226, 27);
+         this.labelControl31.Size = new System.Drawing.Size(210, 27);
          this.labelControl31.TabIndex = 2;
          // 
          // labelControl30
@@ -1324,9 +1326,10 @@
          this.labelControl30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl30.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl30.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl30.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl30.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl30.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl30.Location = new System.Drawing.Point(596, 234);
+         this.labelControl30.Location = new System.Drawing.Point(580, 234);
          this.labelControl30.Name = "labelControl30";
          this.labelControl30.Size = new System.Drawing.Size(93, 27);
          this.labelControl30.TabIndex = 2;
@@ -1337,9 +1340,10 @@
          this.labelControl28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl28.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl28.Location = new System.Drawing.Point(596, 201);
+         this.labelControl28.Location = new System.Drawing.Point(580, 201);
          this.labelControl28.Name = "labelControl28";
          this.labelControl28.Size = new System.Drawing.Size(93, 27);
          this.labelControl28.TabIndex = 2;
@@ -1358,7 +1362,7 @@
          this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl34.Location = new System.Drawing.Point(75, 206);
          this.labelControl34.Name = "labelControl34";
-         this.labelControl34.Size = new System.Drawing.Size(223, 27);
+         this.labelControl34.Size = new System.Drawing.Size(217, 27);
          this.labelControl34.TabIndex = 2;
          this.labelControl34.Visible = false;
          // 
@@ -1367,6 +1371,7 @@
          this.labelControl33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl33.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl33.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl33.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl33.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl33.Location = new System.Drawing.Point(304, 206);
@@ -1389,7 +1394,7 @@
          this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl32.Location = new System.Drawing.Point(75, 173);
          this.labelControl32.Name = "labelControl32";
-         this.labelControl32.Size = new System.Drawing.Size(223, 27);
+         this.labelControl32.Size = new System.Drawing.Size(217, 27);
          this.labelControl32.TabIndex = 2;
          this.labelControl32.Visible = false;
          // 
@@ -1398,6 +1403,7 @@
          this.labelControl29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl29.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl29.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl29.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl29.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl29.Location = new System.Drawing.Point(304, 173);
@@ -1412,6 +1418,7 @@
          this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl18.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl18.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl18.Location = new System.Drawing.Point(305, 69);
@@ -1425,11 +1432,12 @@
          this.labelControl16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl16.Location = new System.Drawing.Point(580, 168);
          this.labelControl16.Name = "labelControl16";
-         this.labelControl16.Size = new System.Drawing.Size(109, 27);
+         this.labelControl16.Size = new System.Drawing.Size(66, 27);
          this.labelControl16.TabIndex = 2;
          this.labelControl16.Text = "تلفن ثابت";
          // 
@@ -1438,9 +1446,10 @@
          this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl26.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.Location = new System.Drawing.Point(276, 9);
+         this.labelControl26.Location = new System.Drawing.Point(304, 9);
          this.labelControl26.Name = "labelControl26";
          this.labelControl26.Size = new System.Drawing.Size(83, 27);
          this.labelControl26.TabIndex = 2;
@@ -1460,7 +1469,7 @@
          this.labelControl21.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl21.Location = new System.Drawing.Point(381, 43);
          this.labelControl21.Name = "labelControl21";
-         this.labelControl21.Size = new System.Drawing.Size(236, 27);
+         this.labelControl21.Size = new System.Drawing.Size(190, 27);
          this.labelControl21.TabIndex = 2;
          // 
          // labelControl20
@@ -1468,9 +1477,10 @@
          this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl20.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl20.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(623, 43);
+         this.labelControl20.Location = new System.Drawing.Point(580, 43);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(66, 27);
          this.labelControl20.TabIndex = 2;
@@ -1481,9 +1491,10 @@
          this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(623, 76);
+         this.labelControl5.Location = new System.Drawing.Point(580, 76);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(66, 27);
          this.labelControl5.TabIndex = 2;
@@ -3529,7 +3540,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(887, 1629);
+         this.splitContainerControl2.Size = new System.Drawing.Size(870, 1629);
          this.splitContainerControl2.SplitterPosition = 531;
          this.splitContainerControl2.TabIndex = 6;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -3544,7 +3555,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl8);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(887, 491);
+         this.splitContainerControl4.Size = new System.Drawing.Size(870, 491);
          this.splitContainerControl4.SplitterPosition = 190;
          this.splitContainerControl4.TabIndex = 7;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -3563,7 +3574,7 @@
             this.repositoryItemTimeEdit1,
             this.RqstStat_Butn});
          this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.gridControl1.Size = new System.Drawing.Size(887, 190);
+         this.gridControl1.Size = new System.Drawing.Size(870, 190);
          this.gridControl1.TabIndex = 6;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CallLog_Gv});
@@ -3895,7 +3906,7 @@
          this.splitContainerControl8.Panel2.Controls.Add(this.splitContainerControl9);
          this.splitContainerControl8.Panel2.Controls.Add(this.panelControl10);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(887, 296);
+         this.splitContainerControl8.Size = new System.Drawing.Size(870, 296);
          this.splitContainerControl8.SplitterPosition = 443;
          this.splitContainerControl8.TabIndex = 0;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -4219,7 +4230,7 @@
          this.splitContainerControl9.Panel1.Text = "Panel1";
          this.splitContainerControl9.Panel2.Controls.Add(this.memoEdit5);
          this.splitContainerControl9.Panel2.Text = "Panel2";
-         this.splitContainerControl9.Size = new System.Drawing.Size(439, 256);
+         this.splitContainerControl9.Size = new System.Drawing.Size(422, 256);
          this.splitContainerControl9.SplitterPosition = 169;
          this.splitContainerControl9.TabIndex = 8;
          this.splitContainerControl9.Text = "splitContainerControl9";
@@ -4236,7 +4247,7 @@
          this.gridControl12.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit12,
             this.repositoryItemTimeEdit12});
-         this.gridControl12.Size = new System.Drawing.Size(439, 169);
+         this.gridControl12.Size = new System.Drawing.Size(422, 169);
          this.gridControl12.TabIndex = 7;
          this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Shis_Gv});
@@ -4382,7 +4393,7 @@
          this.memoEdit5.Properties.Appearance.Options.UseFont = true;
          this.memoEdit5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.memoEdit5.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.memoEdit5.Size = new System.Drawing.Size(439, 82);
+         this.memoEdit5.Size = new System.Drawing.Size(422, 82);
          this.memoEdit5.TabIndex = 9;
          // 
          // panelControl10
@@ -4397,7 +4408,7 @@
          this.panelControl10.Location = new System.Drawing.Point(0, 0);
          this.panelControl10.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl10.Name = "panelControl10";
-         this.panelControl10.Size = new System.Drawing.Size(439, 40);
+         this.panelControl10.Size = new System.Drawing.Size(422, 40);
          this.panelControl10.TabIndex = 7;
          // 
          // SaveMstt_Butn
@@ -4463,7 +4474,7 @@
          this.MainStat_Lov.Properties.NullValuePrompt = "وضعیت اصلی";
          this.MainStat_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.MainStat_Lov.Properties.ValueMember = "CODE";
-         this.MainStat_Lov.Size = new System.Drawing.Size(212, 32);
+         this.MainStat_Lov.Size = new System.Drawing.Size(195, 32);
          this.MainStat_Lov.TabIndex = 42;
          this.MainStat_Lov.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.MainStat_Lov_ButtonClick);
          // 
@@ -4489,7 +4500,7 @@
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(301, 2);
+         this.labelControl17.Location = new System.Drawing.Point(284, 2);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(136, 36);
          this.labelControl17.TabIndex = 2;
@@ -4506,7 +4517,7 @@
          this.panelControl5.Location = new System.Drawing.Point(0, 0);
          this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
          this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(887, 40);
+         this.panelControl5.Size = new System.Drawing.Size(870, 40);
          this.panelControl5.TabIndex = 5;
          // 
          // EditProj_Butn
@@ -4565,7 +4576,7 @@
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(621, 2);
+         this.labelControl15.Location = new System.Drawing.Point(604, 2);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(264, 36);
          this.labelControl15.TabIndex = 2;
@@ -4598,7 +4609,7 @@
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl7);
          this.splitContainerControl5.Panel2.Controls.Add(this.panelControl2);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(887, 1093);
+         this.splitContainerControl5.Size = new System.Drawing.Size(870, 1093);
          this.splitContainerControl5.SplitterPosition = 557;
          this.splitContainerControl5.TabIndex = 12;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -4617,7 +4628,7 @@
          this.AllActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1524;
          this.AllActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AllActivity_Butn.ImageVisiable = true;
-         this.AllActivity_Butn.Location = new System.Drawing.Point(816, 488);
+         this.AllActivity_Butn.Location = new System.Drawing.Point(799, 488);
          this.AllActivity_Butn.Name = "AllActivity_Butn";
          this.AllActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AllActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4641,7 +4652,7 @@
          this.TodayActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1523;
          this.TodayActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.TodayActivity_Butn.ImageVisiable = true;
-         this.TodayActivity_Butn.Location = new System.Drawing.Point(816, 46);
+         this.TodayActivity_Butn.Location = new System.Drawing.Point(799, 46);
          this.TodayActivity_Butn.Name = "TodayActivity_Butn";
          this.TodayActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.TodayActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4665,7 +4676,7 @@
          this.Activity2_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1527;
          this.Activity2_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity2_Butn.ImageVisiable = true;
-         this.Activity2_Butn.Location = new System.Drawing.Point(817, 262);
+         this.Activity2_Butn.Location = new System.Drawing.Point(800, 262);
          this.Activity2_Butn.Name = "Activity2_Butn";
          this.Activity2_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity2_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4690,7 +4701,7 @@
          this.Activity1_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1528;
          this.Activity1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity1_Butn.ImageVisiable = true;
-         this.Activity1_Butn.Location = new System.Drawing.Point(816, 338);
+         this.Activity1_Butn.Location = new System.Drawing.Point(799, 338);
          this.Activity1_Butn.Name = "Activity1_Butn";
          this.Activity1_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4715,7 +4726,7 @@
          this.Activity0_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1530;
          this.Activity0_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity0_Butn.ImageVisiable = true;
-         this.Activity0_Butn.Location = new System.Drawing.Point(817, 413);
+         this.Activity0_Butn.Location = new System.Drawing.Point(800, 413);
          this.Activity0_Butn.Name = "Activity0_Butn";
          this.Activity0_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity0_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4740,7 +4751,7 @@
          this.Activity3_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity3_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity3_Butn.ImageVisiable = true;
-         this.Activity3_Butn.Location = new System.Drawing.Point(816, 190);
+         this.Activity3_Butn.Location = new System.Drawing.Point(799, 190);
          this.Activity3_Butn.Name = "Activity3_Butn";
          this.Activity3_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity3_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4765,7 +4776,7 @@
          this.Activity4_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity4_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity4_Butn.ImageVisiable = true;
-         this.Activity4_Butn.Location = new System.Drawing.Point(816, 116);
+         this.Activity4_Butn.Location = new System.Drawing.Point(799, 116);
          this.Activity4_Butn.Name = "Activity4_Butn";
          this.Activity4_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity4_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4895,7 +4906,7 @@
          this.AllActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AllActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.AllActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AllActivity_Txt.Location = new System.Drawing.Point(539, 488);
+         this.AllActivity_Txt.Location = new System.Drawing.Point(522, 488);
          this.AllActivity_Txt.Name = "AllActivity_Txt";
          this.AllActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.AllActivity_Txt.TabIndex = 11;
@@ -4911,7 +4922,7 @@
          this.panelControl6.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl6.Name = "panelControl6";
-         this.panelControl6.Size = new System.Drawing.Size(887, 40);
+         this.panelControl6.Size = new System.Drawing.Size(870, 40);
          this.panelControl6.TabIndex = 6;
          // 
          // labelControl12
@@ -4923,7 +4934,7 @@
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(621, 2);
+         this.labelControl12.Location = new System.Drawing.Point(604, 2);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(264, 36);
          this.labelControl12.TabIndex = 2;
@@ -4937,7 +4948,7 @@
          this.TodayActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TodayActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.TodayActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TodayActivity_Txt.Location = new System.Drawing.Point(539, 46);
+         this.TodayActivity_Txt.Location = new System.Drawing.Point(522, 46);
          this.TodayActivity_Txt.Name = "TodayActivity_Txt";
          this.TodayActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.TodayActivity_Txt.TabIndex = 8;
@@ -4951,7 +4962,7 @@
          this.Activity1_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity1_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity1_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity1_Txt.Location = new System.Drawing.Point(539, 338);
+         this.Activity1_Txt.Location = new System.Drawing.Point(522, 338);
          this.Activity1_Txt.Name = "Activity1_Txt";
          this.Activity1_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity1_Txt.TabIndex = 8;
@@ -4963,7 +4974,7 @@
          this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.panelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl7.Appearance.Options.UseBackColor = true;
-         this.panelControl7.Location = new System.Drawing.Point(837, 94);
+         this.panelControl7.Location = new System.Drawing.Point(820, 94);
          this.panelControl7.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl7.Name = "panelControl7";
@@ -4978,7 +4989,7 @@
          this.Activity2_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity2_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity2_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity2_Txt.Location = new System.Drawing.Point(539, 262);
+         this.Activity2_Txt.Location = new System.Drawing.Point(522, 262);
          this.Activity2_Txt.Name = "Activity2_Txt";
          this.Activity2_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity2_Txt.TabIndex = 8;
@@ -4993,7 +5004,7 @@
          this.Activity3_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity3_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity3_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity3_Txt.Location = new System.Drawing.Point(539, 190);
+         this.Activity3_Txt.Location = new System.Drawing.Point(522, 190);
          this.Activity3_Txt.Name = "Activity3_Txt";
          this.Activity3_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity3_Txt.TabIndex = 8;
@@ -5008,7 +5019,7 @@
          this.Activity0_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity0_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity0_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity0_Txt.Location = new System.Drawing.Point(539, 413);
+         this.Activity0_Txt.Location = new System.Drawing.Point(522, 413);
          this.Activity0_Txt.Name = "Activity0_Txt";
          this.Activity0_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity0_Txt.TabIndex = 8;
@@ -5023,7 +5034,7 @@
          this.Activity4_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity4_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity4_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity4_Txt.Location = new System.Drawing.Point(539, 116);
+         this.Activity4_Txt.Location = new System.Drawing.Point(522, 116);
          this.Activity4_Txt.Name = "Activity4_Txt";
          this.Activity4_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity4_Txt.TabIndex = 8;
@@ -5045,7 +5056,7 @@
             this.repositoryItemTimeEdit7,
             this.Atyp_Lov,
             this.Pstg_Lov});
-         this.gridControl7.Size = new System.Drawing.Size(887, 491);
+         this.gridControl7.Size = new System.Drawing.Size(870, 491);
          this.gridControl7.TabIndex = 8;
          this.gridControl7.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView5});
@@ -5478,7 +5489,7 @@
          this.panelControl2.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(887, 40);
+         this.panelControl2.Size = new System.Drawing.Size(870, 40);
          this.panelControl2.TabIndex = 7;
          // 
          // labelControl35
@@ -5490,7 +5501,7 @@
          this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl35.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(621, 2);
+         this.labelControl35.Location = new System.Drawing.Point(604, 2);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(264, 36);
          this.labelControl35.TabIndex = 2;

@@ -224,6 +224,7 @@ namespace System.Scsc.Ui.Common
          try
          {
             vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null));
+            vF_Last_Info_FighterResultGridControl.Focus();
          }
          catch { }
       }

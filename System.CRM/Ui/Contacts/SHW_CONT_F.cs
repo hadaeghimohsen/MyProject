@@ -57,7 +57,19 @@ namespace System.CRM.Ui.Contacts
                Qxml.Add(
                      new XElement("Service",
                         new XAttribute("srpbtype", "002"),
-                        new XAttribute("onoftag", onoftag)
+                        new XAttribute("onoftag", onoftag),
+                        new XAttribute("frstname", FrstName_Txt.Text),
+                        new XAttribute("lastname", LastName_Txt.Text),
+                        new XAttribute("sextype", BothSex_Rb.Checked ? "" : Men_Rb.Checked ? "001" : "002"),
+                        new XAttribute("cellphon", CellPhon_Txt.Text),
+                        new XAttribute("tellphon", TellPhon_Txt.Text),
+                        new XAttribute("natlcode", NatlCode_Txt.Text),
+                        new XAttribute("servno", ServNo_Txt.Text),
+                        new XAttribute("postaddr", PostAddr_Txt.Text),
+                        new XAttribute("cordx", CordX_Txt.Text),
+                        new XAttribute("cordy", CordY_Txt.Text),
+                        new XAttribute("radsnumb", Radius_Txt.Text),
+                        new XAttribute("emaladdr", EmalAddr_Txt.Text)
                      ),
                      new XElement("Company",
                         new XAttribute("code", compcode)
@@ -110,7 +122,19 @@ namespace System.CRM.Ui.Contacts
                      new XElement("Query",
                         new XElement("Service",
                            new XAttribute("srpbtype", "002"),
-                           new XAttribute("onoftag", onoftag)
+                           new XAttribute("onoftag", onoftag),
+                           new XAttribute("frstname", FrstName_Txt.Text),
+                           new XAttribute("lastname", LastName_Txt.Text),
+                           new XAttribute("sextype", BothSex_Rb.Checked ? "" : Men_Rb.Checked ? "001" : "002"),
+                           new XAttribute("cellphon", CellPhon_Txt.Text),
+                           new XAttribute("tellphon", TellPhon_Txt.Text),
+                           new XAttribute("natlcode", NatlCode_Txt.Text),
+                           new XAttribute("servno", ServNo_Txt.Text),
+                           new XAttribute("postaddr", PostAddr_Txt.Text),
+                           new XAttribute("cordx", CordX_Txt.Text),
+                           new XAttribute("cordy", CordY_Txt.Text),
+                           new XAttribute("radsnumb", Radius_Txt.Text),
+                           new XAttribute("emaladdr", EmalAddr_Txt.Text)
                         ),
                         new XElement("Company",
                            new XAttribute("code", compcode)
@@ -131,8 +155,11 @@ namespace System.CRM.Ui.Contacts
          }
          catch { }
          finally
-         {
+         {            
             Serv_Gv.BestFitColumns();
+            if (ServBs.List.Count >= 1)
+               tc_master.SelectedTab = tp_001;
+            Serv_Gc.Focus();
          }
       }
 
@@ -602,6 +629,11 @@ namespace System.CRM.Ui.Contacts
                }
             )
          );
+      }
+
+      private void Search_Butn_Click(object sender, EventArgs e)
+      {
+         Execute_Query();
       }
    }
 }

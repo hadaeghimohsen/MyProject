@@ -122,14 +122,6 @@ namespace System.Scsc.Ui.Common
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
 
-         tb_master.TabPages.Remove(tabPage5);
-         tb_master.TabPages.Remove(tabPage6);
-         tb_master.TabPages.Remove(tabPage7);
-         tb_master.TabPages.Remove(tabPage8);
-         tb_master.TabPages.Remove(tabPage9);
-         tb_master.TabPages.Remove(tabPage10);
-         tb_master.TabPages.Remove(tabPage12);
-
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
@@ -193,21 +185,23 @@ namespace System.Scsc.Ui.Common
             fileno = Convert.ToInt64((job.Input as XElement).Attributes("fileno").First().Value);
             try
             {
-               Pb_FighImg.Image = null;
+               UserProFile_Rb.ImageProfile = null;
                MemoryStream mStream = new MemoryStream();
                byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
                Bitmap bm = new Bitmap(mStream, false);
                mStream.Dispose();
 
-               Pb_FighImg.Visible = true;
+               //Pb_FighImg.Visible = true;
 
                if (InvokeRequired)
-                  Invoke(new Action(() => Pb_FighImg.Image = bm));
+                  Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
                else
-                  Pb_FighImg.Image = bm;
+                  UserProFile_Rb.ImageProfile = bm;
             }
-            catch { Pb_FighImg.Visible = false; }
+            catch { //Pb_FighImg.Visible = false;
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; 
+            }
             // 1395/11/26 * اگر مشترک غیرفعال باشد باید از لیست مربوط به مشترکین غیرفعال استفاده کرد
             var crntinfo = iScsc.Fighters.First(f => f.FILE_NO == fileno);
             if (Convert.ToInt32(crntinfo.ACTV_TAG_DNRM) <= 100)
@@ -223,9 +217,8 @@ namespace System.Scsc.Ui.Common
 
             vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
             vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno);
-            GlrlBs.DataSource = iScsc.Gain_Loss_Rials.Where(g => g.FIGH_FILE_NO == fileno && g.CONF_STAT == "002");
             AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
-            Attn_gv.ActiveFilterString = string.Format("MBSP_RWNO_DNRM = '{0}' AND ATTN_STAT = '002'", Mbsp_Rwno_Text.Text);
+            
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
 
             //var crnt = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
@@ -274,10 +267,11 @@ namespace System.Scsc.Ui.Common
                Mbfz_pn.Visible = false;
             }
 
+            // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
+            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && mb.TYPE == "001");
+
             if(isFirstLoaded) goto commandfinished;
 
-            DCngtBs.DataSource = iScsc.D_CNGTs;
-            DCngrBs.DataSource = iScsc.D_CNGRs;
             DDebtBs.DataSource = iScsc.D_DEBTs;
             DAttpBs.DataSource = iScsc.D_ATTPs;
             DActvBs.DataSource = iScsc.D_ACTVs;

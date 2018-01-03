@@ -1690,9 +1690,9 @@
       <Association Name="Request_Row_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Gain_Loss_Rial1" Member="Gain_Loss_Rials1" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Payment_Check" Member="Payment_Checks" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Check" />
-      <Association Name="Request_Row_Member_Ship" Member="Member_Ships" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Member_Ship" />
       <Association Name="Request_Row_Fighter_Public" Member="Fighter_Publics" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Fighter_Public" />
       <Association Name="Request_Row_Payment_Detail" Member="Payment_Details" ThisKey="RQST_RQID,RWNO" OtherKey="PYMT_RQST_RQID,RQRO_RWNO" Type="Payment_Detail" />
+      <Association Name="Request_Row_Member_Ship" Member="Member_Ships" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Member_Ship" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
@@ -1809,12 +1809,12 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Session_Session_Meeting" Member="Session" ThisKey="SESN_SNID" OtherKey="SNID" Type="Session" IsForeignKey="true" />
-      <Association Name="Member_Ship_Session_Meeting" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Expense_Session_Meeting" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Category_Belt_Session_Meeting" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Method_Session_Meeting" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Club_Method_Session_Meeting" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
       <Association Name="Fighter_Session_Meeting" Member="Fighter" ThisKey="COCH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Member_Ship_Session_Meeting" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Session" Member="Sessions">
@@ -1841,12 +1841,12 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Session_Session_Meeting" Member="Session_Meetings" ThisKey="SNID" OtherKey="SESN_SNID" Type="Session_Meeting" />
       <Association Name="Session_Attendance" Member="Attendances" ThisKey="SNID" OtherKey="SESN_SNID_DNRM" Type="Attendance" />
-      <Association Name="Member_Ship_Session" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Expense_Session" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Category_Belt_Session" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Method_Session" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Club_Method_Session" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
       <Association Name="Fighter_Session" Member="Fighter" ThisKey="COCH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Member_Ship_Session" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.D$MSGT" Member="D_MSGTs">
@@ -2254,39 +2254,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Member_Ship" Member="Member_Ships">
-    <Type Name="Member_Ship">
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RECT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STRT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="END_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_DAYS_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ATTN_DAY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRNT_CONT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SESN_MEET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SESN_MEET_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SMS_SEND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Member_Ship_Session_Meeting" Member="Session_Meetings" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Session_Meeting" />
-      <Association Name="Member_Ship_Session" Member="Sessions" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Session" />
-      <Association Name="Member_Ship_Attendance" Member="Attendances" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" Type="Attendance" />
-      <Association Name="Request_Row_Member_Ship" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Fighter_Member_Ship" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Fighter_Public" Member="Fighter_Publics">
     <Type Name="Fighter_Public">
       <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
@@ -2348,6 +2315,7 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Fighter_Public_Present" Member="Presents" ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE" OtherKey="FGPB_FIGH_FILE_NO,FGPB_RWNO,FGPB_RECT_CODE" Type="Present" />
+      <Association Name="Fighter_Public_Member_Ship" Member="Member_Ships" ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE" OtherKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM" Type="Member_Ship" />
       <Association Name="Request_Fighter_Public" Member="Request" ThisKey="CNTR_CODE" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Diseases_Type_Fighter_Public" Member="Diseases_Type" ThisKey="DISE_CODE" OtherKey="CODE" Type="Diseases_Type" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Region_Fighter_Public" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
@@ -2773,12 +2741,12 @@
       <Association Name="Attendance_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Dresser_Attendance" />
       <Association Name="Attendance_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Aggregation_Operation_Detail" />
       <Association Name="Club_Attendance" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
-      <Association Name="Member_Ship_Attendance" Member="Member_Ship" ThisKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Session_Attendance" Member="Session" ThisKey="SESN_SNID_DNRM" OtherKey="SNID" Type="Session" IsForeignKey="true" />
       <Association Name="Category_Belt_Attendance" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Method_Attendance" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Fighter_Attendance" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Fighter_Attendance1" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Member_Ship_Attendance" Member="Member_Ship" ThisKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Expense" Member="Expenses">
@@ -3092,7 +3060,6 @@
       <Association Name="Fighter_Session_Meeting" Member="Session_Meetings" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO_DNRM" Type="Session_Meeting" />
       <Association Name="Fighter_Session" Member="Sessions" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO_DNRM" Type="Session" />
       <Association Name="Fighter_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Aggregation_Operation" />
-      <Association Name="Fighter_Member_Ship" Member="Member_Ships" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Member_Ship" />
       <Association Name="Fighter_Fighter_Public" Member="Fighter_Publics" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Fighter_Public" />
       <Association Name="Fighter_Fighter_Public1" Member="Fighter_Publics1" ThisKey="FILE_NO" OtherKey="INTR_FILE_NO" Type="Fighter_Public" />
       <Association Name="Fighter_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Aggregation_Operation_Detail" />
@@ -3103,6 +3070,7 @@
       <Association Name="Fighter_Payment_Expense" Member="Payment_Expenses" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Payment_Expense" />
       <Association Name="Fighter_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Calculate_Expense_Coach" />
       <Association Name="Fighter_Payment_Detail" Member="Payment_Details" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Payment_Detail" />
+      <Association Name="Fighter_Member_Ship" Member="Member_Ships" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Member_Ship" />
       <Association Name="Club_Fighter" Member="Club" ThisKey="CLUB_CODE_DNRM" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Category_Belt_Fighter" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
@@ -3337,6 +3305,42 @@
       <Column Name="EXPN_BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="RUN_QURY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Association Name="Club_Setting" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Member_Ship" Member="Member_Ships">
+    <Type Name="Member_Ship">
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RECT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FGPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FGPB_RECT_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STRT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NUMB_OF_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_OF_DAYS_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_DAY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PRNT_CONT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SESN_MEET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SESN_MEET_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SMS_SEND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Member_Ship_Session_Meeting" Member="Session_Meetings" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Session_Meeting" />
+      <Association Name="Member_Ship_Session" Member="Sessions" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Session" />
+      <Association Name="Member_Ship_Attendance" Member="Attendances" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" Type="Attendance" />
+      <Association Name="Fighter_Public_Member_Ship" Member="Fighter_Public" ThisKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM" OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE" Type="Fighter_Public" IsForeignKey="true" />
+      <Association Name="Fighter_Member_Ship" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Request_Row_Member_Ship" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">

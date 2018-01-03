@@ -272,31 +272,32 @@ namespace System.Scsc.Ui.Common
          //if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
          if (figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004") return;
 
-         switch(MessageBox.Show(this, "آیا میخواهید به صورت تک رشته ای تمدید کنید؟", "روش تمدید مجدد", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading))
-         {
-            case DialogResult.Yes:
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
-                        new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-               break;
-            case DialogResult.No:
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 114 /* Execute Oic_Smsn_F */),
-                        new Job(SendType.SelfToUserInterface,"OIC_SMSN_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "tp_002"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-               break;
-            default:
-               break;
-         }
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+               })
+         );
+
+         //switch(MessageBox.Show(this, "آیا میخواهید به صورت تک رشته ای تمدید کنید؟", "روش تمدید مجدد", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading))
+         //{
+         //   case DialogResult.Yes:               
+         //      break;
+         //   case DialogResult.No:
+         //      _DefaultGateway.Gateway(
+         //         new Job(SendType.External, "Localhost",
+         //            new List<Job>
+         //            {
+         //               new Job(SendType.Self, 114 /* Execute Oic_Smsn_F */),
+         //               new Job(SendType.SelfToUserInterface,"OIC_SMSN_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "tp_002"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+         //            })
+         //      );
+         //      break;
+         //   default:
+         //      break;
+         //}
          
       }
 
@@ -1150,22 +1151,41 @@ namespace System.Scsc.Ui.Common
 
       private void Mbsp_Rwno_Text_DoubleClick(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
-                  new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
                   {
-                     Input = 
-                        new XElement("Fighter",
-                           new XAttribute("fileno", fileno),
-                           new XAttribute("mbsprwno", Mbsp_Rwno_Text.Text)
-                        )
+                     new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                     new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Fighter",
+                              new XAttribute("fileno", fileno),
+                              new XAttribute("mbsprwno", mbsp.RWNO)
+                           )
+                     }
                   }
-               }
-            )
-         );
+               )
+            );
+         }
+         catch { }
+      }
+
+      private void MbspBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+            Attn_gv.ActiveFilterString = string.Format("MBSP_RWNO_DNRM = '{0}' AND ATTN_STAT = '002'", mbsp.RWNO);
+         }
+         catch{
+         }
       }
    }
 }

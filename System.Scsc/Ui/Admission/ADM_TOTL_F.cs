@@ -837,7 +837,7 @@ namespace System.Scsc.Ui.Admission
                            new XAttribute("prntcont", "1"),
                            new XAttribute("numbmontofer", NumbMontOfer_TextEdit003.Text ?? "0"),
                            new XAttribute("numbofattnmont", NumbOfAttnMont_TextEdit003.Text ?? "0"),
-                           new XAttribute("numbofattnweek", NumbOfAttnWeek_TextEdit003.Text ?? "0"),
+                           new XAttribute("numbofattnweek", "0"),
                            new XAttribute("attndaytype", "")
                         )
                      )
@@ -1827,7 +1827,6 @@ namespace System.Scsc.Ui.Admission
                //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT));
                EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                NumbOfAttnMont_TextEdit003.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
-               NumbOfAttnWeek_TextEdit003.EditValue = expn.NUMB_OF_ATTN_WEEK ?? 0;
                NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
             }
          }

@@ -185,9 +185,6 @@ namespace System.Scsc.Data
     partial void InsertPayment_Check(Payment_Check instance);
     partial void UpdatePayment_Check(Payment_Check instance);
     partial void DeletePayment_Check(Payment_Check instance);
-    partial void InsertMember_Ship(Member_Ship instance);
-    partial void UpdateMember_Ship(Member_Ship instance);
-    partial void DeleteMember_Ship(Member_Ship instance);
     partial void InsertFighter_Public(Fighter_Public instance);
     partial void UpdateFighter_Public(Fighter_Public instance);
     partial void DeleteFighter_Public(Fighter_Public instance);
@@ -221,6 +218,9 @@ namespace System.Scsc.Data
     partial void InsertPayment_Expense(Payment_Expense instance);
     partial void UpdatePayment_Expense(Payment_Expense instance);
     partial void DeletePayment_Expense(Payment_Expense instance);
+    partial void InsertMember_Ship(Member_Ship instance);
+    partial void UpdateMember_Ship(Member_Ship instance);
+    partial void DeleteMember_Ship(Member_Ship instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -1413,14 +1413,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Member_Ship> Member_Ships
-		{
-			get
-			{
-				return this.GetTable<Member_Ship>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Fighter_Public> Fighter_Publics
 		{
 			get
@@ -1626,6 +1618,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Setting>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Member_Ship> Member_Ships
+		{
+			get
+			{
+				return this.GetTable<Member_Ship>();
 			}
 		}
 		
@@ -29886,11 +29886,11 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Check> _Payment_Checks;
 		
-		private EntitySet<Member_Ship> _Member_Ships;
-		
 		private EntitySet<Fighter_Public> _Fighter_Publics;
 		
 		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Member_Ship> _Member_Ships;
 		
 		private EntityRef<Region> _Region;
 		
@@ -29951,9 +29951,9 @@ namespace System.Scsc.Data
 			this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
 			this._Gain_Loss_Rials1 = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials1), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials1));
 			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
-			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Region = default(EntityRef<Region>);
 			this._Request = default(EntityRef<Request>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
@@ -30445,19 +30445,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Member_Ship", Storage="_Member_Ships", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
-		public EntitySet<Member_Ship> Member_Ships
-		{
-			get
-			{
-				return this._Member_Ships;
-			}
-			set
-			{
-				this._Member_Ships.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Fighter_Public", Storage="_Fighter_Publics", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
 		public EntitySet<Fighter_Public> Fighter_Publics
 		{
@@ -30481,6 +30468,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Member_Ship", Storage="_Member_Ships", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
+		public EntitySet<Member_Ship> Member_Ships
+		{
+			get
+			{
+				return this._Member_Ships;
+			}
+			set
+			{
+				this._Member_Ships.Assign(value);
 			}
 		}
 		
@@ -30858,18 +30858,6 @@ namespace System.Scsc.Data
 			entity.Request_Row = null;
 		}
 		
-		private void attach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = this;
-		}
-		
-		private void detach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = null;
-		}
-		
 		private void attach_Fighter_Publics(Fighter_Public entity)
 		{
 			this.SendPropertyChanging();
@@ -30889,6 +30877,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = null;
+		}
+		
+		private void attach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = this;
+		}
+		
+		private void detach_Member_Ships(Member_Ship entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request_Row = null;
@@ -32948,8 +32948,6 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Session> _Session;
 		
-		private EntityRef<Member_Ship> _Member_Ship;
-		
 		private EntityRef<Expense> _Expense;
 		
 		private EntityRef<Category_Belt> _Category_Belt;
@@ -32959,6 +32957,8 @@ namespace System.Scsc.Data
 		private EntityRef<Club_Method> _Club_Method;
 		
 		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Member_Ship> _Member_Ship;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -33015,12 +33015,12 @@ namespace System.Scsc.Data
 		public Session_Meeting()
 		{
 			this._Session = default(EntityRef<Session>);
-			this._Member_Ship = default(EntityRef<Member_Ship>);
 			this._Expense = default(EntityRef<Expense>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Method = default(EntityRef<Method>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Fighter = default(EntityRef<Fighter>);
+			this._Member_Ship = default(EntityRef<Member_Ship>);
 			OnCreated();
 		}
 		
@@ -33554,44 +33554,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session_Meeting", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
-		public Member_Ship Member_Ship
-		{
-			get
-			{
-				return this._Member_Ship.Entity;
-			}
-			set
-			{
-				Member_Ship previousValue = this._Member_Ship.Entity;
-				if (((previousValue != value) 
-							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Member_Ship.Entity = null;
-						previousValue.Session_Meetings.Remove(this);
-					}
-					this._Member_Ship.Entity = value;
-					if ((value != null))
-					{
-						value.Session_Meetings.Add(this);
-						this._MBSP_FIGH_FILE_NO = value.FIGH_FILE_NO;
-						this._MBSP_RECT_CODE = value.RECT_CODE;
-						this._MBSP_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._MBSP_FIGH_FILE_NO = default(long);
-						this._MBSP_RECT_CODE = default(string);
-						this._MBSP_RWNO = default(short);
-					}
-					this.SendPropertyChanged("Member_Ship");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Session_Meeting", Storage="_Expense", ThisKey="EXPN_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Expense Expense
 		{
@@ -33762,6 +33724,44 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session_Meeting", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
+		public Member_Ship Member_Ship
+		{
+			get
+			{
+				return this._Member_Ship.Entity;
+			}
+			set
+			{
+				Member_Ship previousValue = this._Member_Ship.Entity;
+				if (((previousValue != value) 
+							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Member_Ship.Entity = null;
+						previousValue.Session_Meetings.Remove(this);
+					}
+					this._Member_Ship.Entity = value;
+					if ((value != null))
+					{
+						value.Session_Meetings.Add(this);
+						this._MBSP_FIGH_FILE_NO = value.FIGH_FILE_NO;
+						this._MBSP_RECT_CODE = value.RECT_CODE;
+						this._MBSP_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._MBSP_FIGH_FILE_NO = default(long);
+						this._MBSP_RECT_CODE = default(string);
+						this._MBSP_RWNO = default(short);
+					}
+					this.SendPropertyChanged("Member_Ship");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -33833,8 +33833,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Attendance> _Attendances;
 		
-		private EntityRef<Member_Ship> _Member_Ship;
-		
 		private EntityRef<Expense> _Expense;
 		
 		private EntityRef<Category_Belt> _Category_Belt;
@@ -33844,6 +33842,8 @@ namespace System.Scsc.Data
 		private EntityRef<Club_Method> _Club_Method;
 		
 		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Member_Ship> _Member_Ship;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -33895,12 +33895,12 @@ namespace System.Scsc.Data
 		{
 			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
-			this._Member_Ship = default(EntityRef<Member_Ship>);
 			this._Expense = default(EntityRef<Expense>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Method = default(EntityRef<Method>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Fighter = default(EntityRef<Fighter>);
+			this._Member_Ship = default(EntityRef<Member_Ship>);
 			OnCreated();
 		}
 		
@@ -34362,44 +34362,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
-		public Member_Ship Member_Ship
-		{
-			get
-			{
-				return this._Member_Ship.Entity;
-			}
-			set
-			{
-				Member_Ship previousValue = this._Member_Ship.Entity;
-				if (((previousValue != value) 
-							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Member_Ship.Entity = null;
-						previousValue.Sessions.Remove(this);
-					}
-					this._Member_Ship.Entity = value;
-					if ((value != null))
-					{
-						value.Sessions.Add(this);
-						this._MBSP_FIGH_FILE_NO = value.FIGH_FILE_NO;
-						this._MBSP_RECT_CODE = value.RECT_CODE;
-						this._MBSP_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._MBSP_FIGH_FILE_NO = default(long);
-						this._MBSP_RECT_CODE = default(string);
-						this._MBSP_RWNO = default(short);
-					}
-					this.SendPropertyChanged("Member_Ship");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Session", Storage="_Expense", ThisKey="EXPN_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Expense Expense
 		{
@@ -34566,6 +34528,44 @@ namespace System.Scsc.Data
 						this._COCH_FILE_NO_DNRM = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Member_Ship Member_Ship
+		{
+			get
+			{
+				return this._Member_Ship.Entity;
+			}
+			set
+			{
+				Member_Ship previousValue = this._Member_Ship.Entity;
+				if (((previousValue != value) 
+							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Member_Ship.Entity = null;
+						previousValue.Sessions.Remove(this);
+					}
+					this._Member_Ship.Entity = value;
+					if ((value != null))
+					{
+						value.Sessions.Add(this);
+						this._MBSP_FIGH_FILE_NO = value.FIGH_FILE_NO;
+						this._MBSP_RECT_CODE = value.RECT_CODE;
+						this._MBSP_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._MBSP_FIGH_FILE_NO = default(long);
+						this._MBSP_RECT_CODE = default(string);
+						this._MBSP_RWNO = default(short);
+					}
+					this.SendPropertyChanged("Member_Ship");
 				}
 			}
 		}
@@ -41533,792 +41533,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Member_Ship")]
-	public partial class Member_Ship : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _RQRO_RQST_RQID;
-		
-		private System.Nullable<short> _RQRO_RWNO;
-		
-		private long _FIGH_FILE_NO;
-		
-		private short _RWNO;
-		
-		private string _RECT_CODE;
-		
-		private string _TYPE;
-		
-		private System.Nullable<System.DateTime> _STRT_DATE;
-		
-		private System.Nullable<System.DateTime> _END_DATE;
-		
-		private System.Nullable<int> _NUMB_OF_MONT_DNRM;
-		
-		private System.Nullable<int> _NUMB_OF_DAYS_DNRM;
-		
-		private System.Nullable<int> _NUMB_MONT_OFER;
-		
-		private System.Nullable<int> _NUMB_OF_ATTN_MONT;
-		
-		private System.Nullable<int> _NUMB_OF_ATTN_WEEK;
-		
-		private System.Nullable<int> _SUM_ATTN_MONT_DNRM;
-		
-		private System.Nullable<int> _SUM_ATTN_WEEK_DNRM;
-		
-		private string _ATTN_DAY_TYPE;
-		
-		private System.Nullable<short> _PRNT_CONT;
-		
-		private System.Nullable<System.DateTime> _SESN_MEET_DATE;
-		
-		private string _SESN_MEET_TYPE;
-		
-		private string _SMS_SEND;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Session_Meeting> _Session_Meetings;
-		
-		private EntitySet<Session> _Sessions;
-		
-		private EntitySet<Attendance> _Attendances;
-		
-		private EntityRef<Request_Row> _Request_Row;
-		
-		private EntityRef<Fighter> _Fighter;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRQRO_RQST_RQIDChanging(System.Nullable<long> value);
-    partial void OnRQRO_RQST_RQIDChanged();
-    partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
-    partial void OnRQRO_RWNOChanged();
-    partial void OnFIGH_FILE_NOChanging(long value);
-    partial void OnFIGH_FILE_NOChanged();
-    partial void OnRWNOChanging(short value);
-    partial void OnRWNOChanged();
-    partial void OnRECT_CODEChanging(string value);
-    partial void OnRECT_CODEChanged();
-    partial void OnTYPEChanging(string value);
-    partial void OnTYPEChanged();
-    partial void OnSTRT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnSTRT_DATEChanged();
-    partial void OnEND_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnEND_DATEChanged();
-    partial void OnNUMB_OF_MONT_DNRMChanging(System.Nullable<int> value);
-    partial void OnNUMB_OF_MONT_DNRMChanged();
-    partial void OnNUMB_OF_DAYS_DNRMChanging(System.Nullable<int> value);
-    partial void OnNUMB_OF_DAYS_DNRMChanged();
-    partial void OnNUMB_MONT_OFERChanging(System.Nullable<int> value);
-    partial void OnNUMB_MONT_OFERChanged();
-    partial void OnNUMB_OF_ATTN_MONTChanging(System.Nullable<int> value);
-    partial void OnNUMB_OF_ATTN_MONTChanged();
-    partial void OnNUMB_OF_ATTN_WEEKChanging(System.Nullable<int> value);
-    partial void OnNUMB_OF_ATTN_WEEKChanged();
-    partial void OnSUM_ATTN_MONT_DNRMChanging(System.Nullable<int> value);
-    partial void OnSUM_ATTN_MONT_DNRMChanged();
-    partial void OnSUM_ATTN_WEEK_DNRMChanging(System.Nullable<int> value);
-    partial void OnSUM_ATTN_WEEK_DNRMChanged();
-    partial void OnATTN_DAY_TYPEChanging(string value);
-    partial void OnATTN_DAY_TYPEChanged();
-    partial void OnPRNT_CONTChanging(System.Nullable<short> value);
-    partial void OnPRNT_CONTChanged();
-    partial void OnSESN_MEET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnSESN_MEET_DATEChanged();
-    partial void OnSESN_MEET_TYPEChanging(string value);
-    partial void OnSESN_MEET_TYPEChanged();
-    partial void OnSMS_SENDChanging(string value);
-    partial void OnSMS_SENDChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Member_Ship()
-		{
-			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
-			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
-			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
-			this._Request_Row = default(EntityRef<Request_Row>);
-			this._Fighter = default(EntityRef<Fighter>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> RQRO_RQST_RQID
-		{
-			get
-			{
-				return this._RQRO_RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQRO_RQST_RQID != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RQST_RQID = value;
-					this.SendPropertyChanged("RQRO_RQST_RQID");
-					this.OnRQRO_RQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> RQRO_RWNO
-		{
-			get
-			{
-				return this._RQRO_RWNO;
-			}
-			set
-			{
-				if ((this._RQRO_RWNO != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RWNO = value;
-					this.SendPropertyChanged("RQRO_RWNO");
-					this.OnRQRO_RWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long FIGH_FILE_NO
-		{
-			get
-			{
-				return this._FIGH_FILE_NO;
-			}
-			set
-			{
-				if ((this._FIGH_FILE_NO != value))
-				{
-					if (this._Fighter.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFIGH_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._FIGH_FILE_NO = value;
-					this.SendPropertyChanged("FIGH_FILE_NO");
-					this.OnFIGH_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this.OnRWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RWNO = value;
-					this.SendPropertyChanged("RWNO");
-					this.OnRWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECT_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string RECT_CODE
-		{
-			get
-			{
-				return this._RECT_CODE;
-			}
-			set
-			{
-				if ((this._RECT_CODE != value))
-				{
-					this.OnRECT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._RECT_CODE = value;
-					this.SendPropertyChanged("RECT_CODE");
-					this.OnRECT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string TYPE
-		{
-			get
-			{
-				return this._TYPE;
-			}
-			set
-			{
-				if ((this._TYPE != value))
-				{
-					this.OnTYPEChanging(value);
-					this.SendPropertyChanging();
-					this._TYPE = value;
-					this.SendPropertyChanged("TYPE");
-					this.OnTYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> STRT_DATE
-		{
-			get
-			{
-				return this._STRT_DATE;
-			}
-			set
-			{
-				if ((this._STRT_DATE != value))
-				{
-					this.OnSTRT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._STRT_DATE = value;
-					this.SendPropertyChanged("STRT_DATE");
-					this.OnSTRT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> END_DATE
-		{
-			get
-			{
-				return this._END_DATE;
-			}
-			set
-			{
-				if ((this._END_DATE != value))
-				{
-					this.OnEND_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._END_DATE = value;
-					this.SendPropertyChanged("END_DATE");
-					this.OnEND_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_MONT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> NUMB_OF_MONT_DNRM
-		{
-			get
-			{
-				return this._NUMB_OF_MONT_DNRM;
-			}
-			set
-			{
-				if ((this._NUMB_OF_MONT_DNRM != value))
-				{
-					this.OnNUMB_OF_MONT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._NUMB_OF_MONT_DNRM = value;
-					this.SendPropertyChanged("NUMB_OF_MONT_DNRM");
-					this.OnNUMB_OF_MONT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_DAYS_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> NUMB_OF_DAYS_DNRM
-		{
-			get
-			{
-				return this._NUMB_OF_DAYS_DNRM;
-			}
-			set
-			{
-				if ((this._NUMB_OF_DAYS_DNRM != value))
-				{
-					this.OnNUMB_OF_DAYS_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._NUMB_OF_DAYS_DNRM = value;
-					this.SendPropertyChanged("NUMB_OF_DAYS_DNRM");
-					this.OnNUMB_OF_DAYS_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_MONT_OFER", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> NUMB_MONT_OFER
-		{
-			get
-			{
-				return this._NUMB_MONT_OFER;
-			}
-			set
-			{
-				if ((this._NUMB_MONT_OFER != value))
-				{
-					this.OnNUMB_MONT_OFERChanging(value);
-					this.SendPropertyChanging();
-					this._NUMB_MONT_OFER = value;
-					this.SendPropertyChanged("NUMB_MONT_OFER");
-					this.OnNUMB_MONT_OFERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_MONT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> NUMB_OF_ATTN_MONT
-		{
-			get
-			{
-				return this._NUMB_OF_ATTN_MONT;
-			}
-			set
-			{
-				if ((this._NUMB_OF_ATTN_MONT != value))
-				{
-					this.OnNUMB_OF_ATTN_MONTChanging(value);
-					this.SendPropertyChanging();
-					this._NUMB_OF_ATTN_MONT = value;
-					this.SendPropertyChanged("NUMB_OF_ATTN_MONT");
-					this.OnNUMB_OF_ATTN_MONTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_WEEK", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> NUMB_OF_ATTN_WEEK
-		{
-			get
-			{
-				return this._NUMB_OF_ATTN_WEEK;
-			}
-			set
-			{
-				if ((this._NUMB_OF_ATTN_WEEK != value))
-				{
-					this.OnNUMB_OF_ATTN_WEEKChanging(value);
-					this.SendPropertyChanging();
-					this._NUMB_OF_ATTN_WEEK = value;
-					this.SendPropertyChanged("NUMB_OF_ATTN_WEEK");
-					this.OnNUMB_OF_ATTN_WEEKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_MONT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> SUM_ATTN_MONT_DNRM
-		{
-			get
-			{
-				return this._SUM_ATTN_MONT_DNRM;
-			}
-			set
-			{
-				if ((this._SUM_ATTN_MONT_DNRM != value))
-				{
-					this.OnSUM_ATTN_MONT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SUM_ATTN_MONT_DNRM = value;
-					this.SendPropertyChanged("SUM_ATTN_MONT_DNRM");
-					this.OnSUM_ATTN_MONT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_WEEK_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> SUM_ATTN_WEEK_DNRM
-		{
-			get
-			{
-				return this._SUM_ATTN_WEEK_DNRM;
-			}
-			set
-			{
-				if ((this._SUM_ATTN_WEEK_DNRM != value))
-				{
-					this.OnSUM_ATTN_WEEK_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SUM_ATTN_WEEK_DNRM = value;
-					this.SendPropertyChanged("SUM_ATTN_WEEK_DNRM");
-					this.OnSUM_ATTN_WEEK_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_DAY_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string ATTN_DAY_TYPE
-		{
-			get
-			{
-				return this._ATTN_DAY_TYPE;
-			}
-			set
-			{
-				if ((this._ATTN_DAY_TYPE != value))
-				{
-					this.OnATTN_DAY_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_DAY_TYPE = value;
-					this.SendPropertyChanged("ATTN_DAY_TYPE");
-					this.OnATTN_DAY_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRNT_CONT", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> PRNT_CONT
-		{
-			get
-			{
-				return this._PRNT_CONT;
-			}
-			set
-			{
-				if ((this._PRNT_CONT != value))
-				{
-					this.OnPRNT_CONTChanging(value);
-					this.SendPropertyChanging();
-					this._PRNT_CONT = value;
-					this.SendPropertyChanged("PRNT_CONT");
-					this.OnPRNT_CONTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MEET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> SESN_MEET_DATE
-		{
-			get
-			{
-				return this._SESN_MEET_DATE;
-			}
-			set
-			{
-				if ((this._SESN_MEET_DATE != value))
-				{
-					this.OnSESN_MEET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._SESN_MEET_DATE = value;
-					this.SendPropertyChanged("SESN_MEET_DATE");
-					this.OnSESN_MEET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MEET_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string SESN_MEET_TYPE
-		{
-			get
-			{
-				return this._SESN_MEET_TYPE;
-			}
-			set
-			{
-				if ((this._SESN_MEET_TYPE != value))
-				{
-					this.OnSESN_MEET_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._SESN_MEET_TYPE = value;
-					this.SendPropertyChanged("SESN_MEET_TYPE");
-					this.OnSESN_MEET_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_SEND", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string SMS_SEND
-		{
-			get
-			{
-				return this._SMS_SEND;
-			}
-			set
-			{
-				if ((this._SMS_SEND != value))
-				{
-					this.OnSMS_SENDChanging(value);
-					this.SendPropertyChanging();
-					this._SMS_SEND = value;
-					this.SendPropertyChanged("SMS_SEND");
-					this.OnSMS_SENDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session_Meeting", Storage="_Session_Meetings", ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO", OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO")]
-		public EntitySet<Session_Meeting> Session_Meetings
-		{
-			get
-			{
-				return this._Session_Meetings;
-			}
-			set
-			{
-				this._Session_Meetings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session", Storage="_Sessions", ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO", OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO")]
-		public EntitySet<Session> Sessions
-		{
-			get
-			{
-				return this._Sessions;
-			}
-			set
-			{
-				this._Sessions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Attendance", Storage="_Attendances", ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO", OtherKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM")]
-		public EntitySet<Attendance> Attendances
-		{
-			get
-			{
-				return this._Attendances;
-			}
-			set
-			{
-				this._Attendances.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Member_Ship", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Request_Row Request_Row
-		{
-			get
-			{
-				return this._Request_Row.Entity;
-			}
-			set
-			{
-				Request_Row previousValue = this._Request_Row.Entity;
-				if (((previousValue != value) 
-							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request_Row.Entity = null;
-						previousValue.Member_Ships.Remove(this);
-					}
-					this._Request_Row.Entity = value;
-					if ((value != null))
-					{
-						value.Member_Ships.Add(this);
-						this._RQRO_RQST_RQID = value.RQST_RQID;
-						this._RQRO_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._RQRO_RQST_RQID = default(Nullable<long>);
-						this._RQRO_RWNO = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Request_Row");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Member_Ship", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Member_Ships.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Member_Ships.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(long);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Session_Meetings(Session_Meeting entity)
-		{
-			this.SendPropertyChanging();
-			entity.Member_Ship = this;
-		}
-		
-		private void detach_Session_Meetings(Session_Meeting entity)
-		{
-			this.SendPropertyChanging();
-			entity.Member_Ship = null;
-		}
-		
-		private void attach_Sessions(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.Member_Ship = this;
-		}
-		
-		private void detach_Sessions(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.Member_Ship = null;
-		}
-		
-		private void attach_Attendances(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Member_Ship = this;
-		}
-		
-		private void detach_Attendances(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Member_Ship = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter_Public")]
 	public partial class Fighter_Public : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -42442,6 +41656,8 @@ namespace System.Scsc.Data
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
 		private EntitySet<Present> _Presents;
+		
+		private EntitySet<Member_Ship> _Member_Ships;
 		
 		private EntityRef<Request> _Request;
 		
@@ -42588,6 +41804,7 @@ namespace System.Scsc.Data
 		public Fighter_Public()
 		{
 			this._Presents = new EntitySet<Present>(new Action<Present>(this.attach_Presents), new Action<Present>(this.detach_Presents));
+			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Request = default(EntityRef<Request>);
 			this._Diseases_Type = default(EntityRef<Diseases_Type>);
 			this._Region = default(EntityRef<Region>);
@@ -43838,6 +43055,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Member_Ship", Storage="_Member_Ships", ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE", OtherKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM")]
+		public EntitySet<Member_Ship> Member_Ships
+		{
+			get
+			{
+				return this._Member_Ships;
+			}
+			set
+			{
+				this._Member_Ships.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter_Public", Storage="_Request", ThisKey="CNTR_CODE", OtherKey="RQID", IsForeignKey=true)]
 		public Request Request
 		{
@@ -44217,6 +43447,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Presents(Present entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Public = null;
+		}
+		
+		private void attach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Public = this;
+		}
+		
+		private void detach_Member_Ships(Member_Ship entity)
 		{
 			this.SendPropertyChanging();
 			entity.Fighter_Public = null;
@@ -50293,8 +49535,6 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Club> _Club;
 		
-		private EntityRef<Member_Ship> _Member_Ship;
-		
 		private EntityRef<Session> _Session;
 		
 		private EntityRef<Category_Belt> _Category_Belt;
@@ -50304,6 +49544,8 @@ namespace System.Scsc.Data
 		private EntityRef<Fighter> _Fighter;
 		
 		private EntityRef<Fighter> _Fighter1;
+		
+		private EntityRef<Member_Ship> _Member_Ship;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -50386,12 +49628,12 @@ namespace System.Scsc.Data
 			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
 			this._Club = default(EntityRef<Club>);
-			this._Member_Ship = default(EntityRef<Member_Ship>);
 			this._Session = default(EntityRef<Session>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Method = default(EntityRef<Method>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Fighter1 = default(EntityRef<Fighter>);
+			this._Member_Ship = default(EntityRef<Member_Ship>);
 			OnCreated();
 		}
 		
@@ -50430,7 +49672,7 @@ namespace System.Scsc.Data
 			{
 				if ((this._FIGH_FILE_NO != value))
 				{
-					if ((this._Member_Ship.HasLoadedOrAssignedValue || this._Fighter1.HasLoadedOrAssignedValue))
+					if ((this._Fighter1.HasLoadedOrAssignedValue || this._Member_Ship.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -51187,44 +50429,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Attendance", Storage="_Member_Ship", ThisKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
-		public Member_Ship Member_Ship
-		{
-			get
-			{
-				return this._Member_Ship.Entity;
-			}
-			set
-			{
-				Member_Ship previousValue = this._Member_Ship.Entity;
-				if (((previousValue != value) 
-							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Member_Ship.Entity = null;
-						previousValue.Attendances.Remove(this);
-					}
-					this._Member_Ship.Entity = value;
-					if ((value != null))
-					{
-						value.Attendances.Add(this);
-						this._FIGH_FILE_NO = value.FIGH_FILE_NO;
-						this._MBSP_RECT_CODE_DNRM = value.RECT_CODE;
-						this._MBSP_RWNO_DNRM = value.RWNO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(long);
-						this._MBSP_RECT_CODE_DNRM = default(string);
-						this._MBSP_RWNO_DNRM = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Member_Ship");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Session_Attendance", Storage="_Session", ThisKey="SESN_SNID_DNRM", OtherKey="SNID", IsForeignKey=true)]
 		public Session Session
 		{
@@ -51391,6 +50595,44 @@ namespace System.Scsc.Data
 						this._FIGH_FILE_NO = default(long);
 					}
 					this.SendPropertyChanged("Fighter1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Attendance", Storage="_Member_Ship", ThisKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
+		public Member_Ship Member_Ship
+		{
+			get
+			{
+				return this._Member_Ship.Entity;
+			}
+			set
+			{
+				Member_Ship previousValue = this._Member_Ship.Entity;
+				if (((previousValue != value) 
+							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Member_Ship.Entity = null;
+						previousValue.Attendances.Remove(this);
+					}
+					this._Member_Ship.Entity = value;
+					if ((value != null))
+					{
+						value.Attendances.Add(this);
+						this._FIGH_FILE_NO = value.FIGH_FILE_NO;
+						this._MBSP_RECT_CODE_DNRM = value.RECT_CODE;
+						this._MBSP_RWNO_DNRM = value.RWNO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(long);
+						this._MBSP_RECT_CODE_DNRM = default(string);
+						this._MBSP_RWNO_DNRM = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Member_Ship");
 				}
 			}
 		}
@@ -55373,8 +54615,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
 		
-		private EntitySet<Member_Ship> _Member_Ships;
-		
 		private EntitySet<Fighter_Public> _Fighter_Publics;
 		
 		private EntitySet<Fighter_Public> _Fighter_Publics1;
@@ -55394,6 +54634,8 @@ namespace System.Scsc.Data
 		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
 		
 		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Member_Ship> _Member_Ships;
 		
 		private EntityRef<Club> _Club;
 		
@@ -55561,7 +54803,6 @@ namespace System.Scsc.Data
 			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
 			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
-			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Fighter_Publics1 = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics1), new Action<Fighter_Public>(this.detach_Fighter_Publics1));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
@@ -55572,6 +54813,7 @@ namespace System.Scsc.Data
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Club = default(EntityRef<Club>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Fighter1 = default(EntityRef<Fighter>);
@@ -57112,19 +56354,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Member_Ship", Storage="_Member_Ships", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Member_Ship> Member_Ships
-		{
-			get
-			{
-				return this._Member_Ships;
-			}
-			set
-			{
-				this._Member_Ships.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public", Storage="_Fighter_Publics", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
 		public EntitySet<Fighter_Public> Fighter_Publics
 		{
@@ -57252,6 +56481,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Member_Ship", Storage="_Member_Ships", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Member_Ship> Member_Ships
+		{
+			get
+			{
+				return this._Member_Ships;
+			}
+			set
+			{
+				this._Member_Ships.Assign(value);
 			}
 		}
 		
@@ -57692,18 +56934,6 @@ namespace System.Scsc.Data
 			entity.Fighter = null;
 		}
 		
-		private void attach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
 		private void attach_Fighter_Publics(Fighter_Public entity)
 		{
 			this.SendPropertyChanging();
@@ -57819,6 +57049,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Member_Ships(Member_Ship entity)
 		{
 			this.SendPropertyChanging();
 			entity.Fighter = null;
@@ -61066,6 +60308,889 @@ namespace System.Scsc.Data
 					this._RUN_QURY = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Member_Ship")]
+	public partial class Member_Ship : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _RQRO_RQST_RQID;
+		
+		private System.Nullable<short> _RQRO_RWNO;
+		
+		private long _FIGH_FILE_NO;
+		
+		private short _RWNO;
+		
+		private string _RECT_CODE;
+		
+		private System.Nullable<int> _FGPB_RWNO_DNRM;
+		
+		private string _FGPB_RECT_CODE_DNRM;
+		
+		private string _TYPE;
+		
+		private System.Nullable<System.DateTime> _STRT_DATE;
+		
+		private System.Nullable<System.DateTime> _END_DATE;
+		
+		private System.Nullable<int> _NUMB_OF_MONT_DNRM;
+		
+		private System.Nullable<int> _NUMB_OF_DAYS_DNRM;
+		
+		private System.Nullable<int> _NUMB_MONT_OFER;
+		
+		private System.Nullable<int> _NUMB_OF_ATTN_MONT;
+		
+		private System.Nullable<int> _NUMB_OF_ATTN_WEEK;
+		
+		private System.Nullable<int> _SUM_ATTN_MONT_DNRM;
+		
+		private System.Nullable<int> _SUM_ATTN_WEEK_DNRM;
+		
+		private string _ATTN_DAY_TYPE;
+		
+		private System.Nullable<short> _PRNT_CONT;
+		
+		private System.Nullable<System.DateTime> _SESN_MEET_DATE;
+		
+		private string _SESN_MEET_TYPE;
+		
+		private string _SMS_SEND;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Session_Meeting> _Session_Meetings;
+		
+		private EntitySet<Session> _Sessions;
+		
+		private EntitySet<Attendance> _Attendances;
+		
+		private EntityRef<Fighter_Public> _Fighter_Public;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Request_Row> _Request_Row;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRQRO_RQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQRO_RQST_RQIDChanged();
+    partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
+    partial void OnRQRO_RWNOChanged();
+    partial void OnFIGH_FILE_NOChanging(long value);
+    partial void OnFIGH_FILE_NOChanged();
+    partial void OnRWNOChanging(short value);
+    partial void OnRWNOChanged();
+    partial void OnRECT_CODEChanging(string value);
+    partial void OnRECT_CODEChanged();
+    partial void OnFGPB_RWNO_DNRMChanging(System.Nullable<int> value);
+    partial void OnFGPB_RWNO_DNRMChanged();
+    partial void OnFGPB_RECT_CODE_DNRMChanging(string value);
+    partial void OnFGPB_RECT_CODE_DNRMChanged();
+    partial void OnTYPEChanging(string value);
+    partial void OnTYPEChanged();
+    partial void OnSTRT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSTRT_DATEChanged();
+    partial void OnEND_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnEND_DATEChanged();
+    partial void OnNUMB_OF_MONT_DNRMChanging(System.Nullable<int> value);
+    partial void OnNUMB_OF_MONT_DNRMChanged();
+    partial void OnNUMB_OF_DAYS_DNRMChanging(System.Nullable<int> value);
+    partial void OnNUMB_OF_DAYS_DNRMChanged();
+    partial void OnNUMB_MONT_OFERChanging(System.Nullable<int> value);
+    partial void OnNUMB_MONT_OFERChanged();
+    partial void OnNUMB_OF_ATTN_MONTChanging(System.Nullable<int> value);
+    partial void OnNUMB_OF_ATTN_MONTChanged();
+    partial void OnNUMB_OF_ATTN_WEEKChanging(System.Nullable<int> value);
+    partial void OnNUMB_OF_ATTN_WEEKChanged();
+    partial void OnSUM_ATTN_MONT_DNRMChanging(System.Nullable<int> value);
+    partial void OnSUM_ATTN_MONT_DNRMChanged();
+    partial void OnSUM_ATTN_WEEK_DNRMChanging(System.Nullable<int> value);
+    partial void OnSUM_ATTN_WEEK_DNRMChanged();
+    partial void OnATTN_DAY_TYPEChanging(string value);
+    partial void OnATTN_DAY_TYPEChanged();
+    partial void OnPRNT_CONTChanging(System.Nullable<short> value);
+    partial void OnPRNT_CONTChanged();
+    partial void OnSESN_MEET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSESN_MEET_DATEChanged();
+    partial void OnSESN_MEET_TYPEChanging(string value);
+    partial void OnSESN_MEET_TYPEChanged();
+    partial void OnSMS_SENDChanging(string value);
+    partial void OnSMS_SENDChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Member_Ship()
+		{
+			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
+			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
+			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
+			this._Fighter_Public = default(EntityRef<Fighter_Public>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Request_Row = default(EntityRef<Request_Row>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> RQRO_RQST_RQID
+		{
+			get
+			{
+				return this._RQRO_RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQRO_RQST_RQID != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RQST_RQID = value;
+					this.SendPropertyChanged("RQRO_RQST_RQID");
+					this.OnRQRO_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt")]
+		public System.Nullable<short> RQRO_RWNO
+		{
+			get
+			{
+				return this._RQRO_RWNO;
+			}
+			set
+			{
+				if ((this._RQRO_RWNO != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RWNO = value;
+					this.SendPropertyChanged("RQRO_RWNO");
+					this.OnRQRO_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long FIGH_FILE_NO
+		{
+			get
+			{
+				return this._FIGH_FILE_NO;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO != value))
+				{
+					if ((this._Fighter_Public.HasLoadedOrAssignedValue || this._Fighter.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO = value;
+					this.SendPropertyChanged("FIGH_FILE_NO");
+					this.OnFIGH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECT_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RECT_CODE
+		{
+			get
+			{
+				return this._RECT_CODE;
+			}
+			set
+			{
+				if ((this._RECT_CODE != value))
+				{
+					this.OnRECT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._RECT_CODE = value;
+					this.SendPropertyChanged("RECT_CODE");
+					this.OnRECT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_RWNO_DNRM", DbType="Int")]
+		public System.Nullable<int> FGPB_RWNO_DNRM
+		{
+			get
+			{
+				return this._FGPB_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._FGPB_RWNO_DNRM != value))
+				{
+					if (this._Fighter_Public.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFGPB_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FGPB_RWNO_DNRM = value;
+					this.SendPropertyChanged("FGPB_RWNO_DNRM");
+					this.OnFGPB_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_RECT_CODE_DNRM", DbType="VarChar(3)")]
+		public string FGPB_RECT_CODE_DNRM
+		{
+			get
+			{
+				return this._FGPB_RECT_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._FGPB_RECT_CODE_DNRM != value))
+				{
+					if (this._Fighter_Public.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFGPB_RECT_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FGPB_RECT_CODE_DNRM = value;
+					this.SendPropertyChanged("FGPB_RECT_CODE_DNRM");
+					this.OnFGPB_RECT_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)")]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this.OnTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TYPE = value;
+					this.SendPropertyChanged("TYPE");
+					this.OnTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> STRT_DATE
+		{
+			get
+			{
+				return this._STRT_DATE;
+			}
+			set
+			{
+				if ((this._STRT_DATE != value))
+				{
+					this.OnSTRT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._STRT_DATE = value;
+					this.SendPropertyChanged("STRT_DATE");
+					this.OnSTRT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> END_DATE
+		{
+			get
+			{
+				return this._END_DATE;
+			}
+			set
+			{
+				if ((this._END_DATE != value))
+				{
+					this.OnEND_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._END_DATE = value;
+					this.SendPropertyChanged("END_DATE");
+					this.OnEND_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_MONT_DNRM", DbType="Int")]
+		public System.Nullable<int> NUMB_OF_MONT_DNRM
+		{
+			get
+			{
+				return this._NUMB_OF_MONT_DNRM;
+			}
+			set
+			{
+				if ((this._NUMB_OF_MONT_DNRM != value))
+				{
+					this.OnNUMB_OF_MONT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_OF_MONT_DNRM = value;
+					this.SendPropertyChanged("NUMB_OF_MONT_DNRM");
+					this.OnNUMB_OF_MONT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_DAYS_DNRM", DbType="Int")]
+		public System.Nullable<int> NUMB_OF_DAYS_DNRM
+		{
+			get
+			{
+				return this._NUMB_OF_DAYS_DNRM;
+			}
+			set
+			{
+				if ((this._NUMB_OF_DAYS_DNRM != value))
+				{
+					this.OnNUMB_OF_DAYS_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_OF_DAYS_DNRM = value;
+					this.SendPropertyChanged("NUMB_OF_DAYS_DNRM");
+					this.OnNUMB_OF_DAYS_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_MONT_OFER", DbType="Int")]
+		public System.Nullable<int> NUMB_MONT_OFER
+		{
+			get
+			{
+				return this._NUMB_MONT_OFER;
+			}
+			set
+			{
+				if ((this._NUMB_MONT_OFER != value))
+				{
+					this.OnNUMB_MONT_OFERChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_MONT_OFER = value;
+					this.SendPropertyChanged("NUMB_MONT_OFER");
+					this.OnNUMB_MONT_OFERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_MONT", DbType="Int")]
+		public System.Nullable<int> NUMB_OF_ATTN_MONT
+		{
+			get
+			{
+				return this._NUMB_OF_ATTN_MONT;
+			}
+			set
+			{
+				if ((this._NUMB_OF_ATTN_MONT != value))
+				{
+					this.OnNUMB_OF_ATTN_MONTChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_OF_ATTN_MONT = value;
+					this.SendPropertyChanged("NUMB_OF_ATTN_MONT");
+					this.OnNUMB_OF_ATTN_MONTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_WEEK", DbType="Int")]
+		public System.Nullable<int> NUMB_OF_ATTN_WEEK
+		{
+			get
+			{
+				return this._NUMB_OF_ATTN_WEEK;
+			}
+			set
+			{
+				if ((this._NUMB_OF_ATTN_WEEK != value))
+				{
+					this.OnNUMB_OF_ATTN_WEEKChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_OF_ATTN_WEEK = value;
+					this.SendPropertyChanged("NUMB_OF_ATTN_WEEK");
+					this.OnNUMB_OF_ATTN_WEEKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_MONT_DNRM", DbType="Int")]
+		public System.Nullable<int> SUM_ATTN_MONT_DNRM
+		{
+			get
+			{
+				return this._SUM_ATTN_MONT_DNRM;
+			}
+			set
+			{
+				if ((this._SUM_ATTN_MONT_DNRM != value))
+				{
+					this.OnSUM_ATTN_MONT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUM_ATTN_MONT_DNRM = value;
+					this.SendPropertyChanged("SUM_ATTN_MONT_DNRM");
+					this.OnSUM_ATTN_MONT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_WEEK_DNRM", DbType="Int")]
+		public System.Nullable<int> SUM_ATTN_WEEK_DNRM
+		{
+			get
+			{
+				return this._SUM_ATTN_WEEK_DNRM;
+			}
+			set
+			{
+				if ((this._SUM_ATTN_WEEK_DNRM != value))
+				{
+					this.OnSUM_ATTN_WEEK_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUM_ATTN_WEEK_DNRM = value;
+					this.SendPropertyChanged("SUM_ATTN_WEEK_DNRM");
+					this.OnSUM_ATTN_WEEK_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_DAY_TYPE", DbType="VarChar(3)")]
+		public string ATTN_DAY_TYPE
+		{
+			get
+			{
+				return this._ATTN_DAY_TYPE;
+			}
+			set
+			{
+				if ((this._ATTN_DAY_TYPE != value))
+				{
+					this.OnATTN_DAY_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_DAY_TYPE = value;
+					this.SendPropertyChanged("ATTN_DAY_TYPE");
+					this.OnATTN_DAY_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRNT_CONT", DbType="SmallInt")]
+		public System.Nullable<short> PRNT_CONT
+		{
+			get
+			{
+				return this._PRNT_CONT;
+			}
+			set
+			{
+				if ((this._PRNT_CONT != value))
+				{
+					this.OnPRNT_CONTChanging(value);
+					this.SendPropertyChanging();
+					this._PRNT_CONT = value;
+					this.SendPropertyChanged("PRNT_CONT");
+					this.OnPRNT_CONTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MEET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SESN_MEET_DATE
+		{
+			get
+			{
+				return this._SESN_MEET_DATE;
+			}
+			set
+			{
+				if ((this._SESN_MEET_DATE != value))
+				{
+					this.OnSESN_MEET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._SESN_MEET_DATE = value;
+					this.SendPropertyChanged("SESN_MEET_DATE");
+					this.OnSESN_MEET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MEET_TYPE", DbType="VarChar(3)")]
+		public string SESN_MEET_TYPE
+		{
+			get
+			{
+				return this._SESN_MEET_TYPE;
+			}
+			set
+			{
+				if ((this._SESN_MEET_TYPE != value))
+				{
+					this.OnSESN_MEET_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._SESN_MEET_TYPE = value;
+					this.SendPropertyChanged("SESN_MEET_TYPE");
+					this.OnSESN_MEET_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_SEND", DbType="VarChar(3)")]
+		public string SMS_SEND
+		{
+			get
+			{
+				return this._SMS_SEND;
+			}
+			set
+			{
+				if ((this._SMS_SEND != value))
+				{
+					this.OnSMS_SENDChanging(value);
+					this.SendPropertyChanging();
+					this._SMS_SEND = value;
+					this.SendPropertyChanged("SMS_SEND");
+					this.OnSMS_SENDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session_Meeting", Storage="_Session_Meetings", ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO", OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO")]
+		public EntitySet<Session_Meeting> Session_Meetings
+		{
+			get
+			{
+				return this._Session_Meetings;
+			}
+			set
+			{
+				this._Session_Meetings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session", Storage="_Sessions", ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO", OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO")]
+		public EntitySet<Session> Sessions
+		{
+			get
+			{
+				return this._Sessions;
+			}
+			set
+			{
+				this._Sessions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Attendance", Storage="_Attendances", ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO", OtherKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM")]
+		public EntitySet<Attendance> Attendances
+		{
+			get
+			{
+				return this._Attendances;
+			}
+			set
+			{
+				this._Attendances.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Member_Ship", Storage="_Fighter_Public", ThisKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM", OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true)]
+		public Fighter_Public Fighter_Public
+		{
+			get
+			{
+				return this._Fighter_Public.Entity;
+			}
+			set
+			{
+				Fighter_Public previousValue = this._Fighter_Public.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter_Public.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter_Public.Entity = null;
+						previousValue.Member_Ships.Remove(this);
+					}
+					this._Fighter_Public.Entity = value;
+					if ((value != null))
+					{
+						value.Member_Ships.Add(this);
+						this._FIGH_FILE_NO = value.FIGH_FILE_NO;
+						this._FGPB_RWNO_DNRM = value.RWNO;
+						this._FGPB_RECT_CODE_DNRM = value.RECT_CODE;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(long);
+						this._FGPB_RWNO_DNRM = default(Nullable<int>);
+						this._FGPB_RECT_CODE_DNRM = default(string);
+					}
+					this.SendPropertyChanged("Fighter_Public");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Member_Ship", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Member_Ships.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Member_Ships.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(long);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Member_Ship", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Request_Row Request_Row
+		{
+			get
+			{
+				return this._Request_Row.Entity;
+			}
+			set
+			{
+				Request_Row previousValue = this._Request_Row.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Row.Entity = null;
+						previousValue.Member_Ships.Remove(this);
+					}
+					this._Request_Row.Entity = value;
+					if ((value != null))
+					{
+						value.Member_Ships.Add(this);
+						this._RQRO_RQST_RQID = value.RQST_RQID;
+						this._RQRO_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._RQRO_RQST_RQID = default(Nullable<long>);
+						this._RQRO_RWNO = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Session_Meetings(Session_Meeting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = this;
+		}
+		
+		private void detach_Session_Meetings(Session_Meeting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = null;
+		}
+		
+		private void attach_Sessions(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = this;
+		}
+		
+		private void detach_Sessions(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = null;
+		}
+		
+		private void attach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = this;
+		}
+		
+		private void detach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = null;
 		}
 	}
 	

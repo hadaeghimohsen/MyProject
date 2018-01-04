@@ -746,14 +746,40 @@ namespace System.Scsc.Ui.MasterPage
          }
          else
          {
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                  new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
+            // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
+            var mbsp = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM));
+            if (mbsp.Count() >= 2)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                        {
+                           new Job(SendType.Self, 152 /* Execute Chos_Mbsp_F */),
+                           new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XAttribute("namednrm", figh.NAME_DNRM),
+                                 new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+                              )
+                           }
+                        }
+                  )
+               );
+            }
+            else
+            {
+               Job _InteractWithScsc =
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                        new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 1))}
+                     });
+               _DefaultGateway.Gateway(_InteractWithScsc);
+            }
          }
       }
 

@@ -483,6 +483,9 @@ namespace System.Scsc.Code
             case 151:
                Mbsp_Chng_F(job);
                break;
+            case 152:
+               Chos_Mbsp_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -918,6 +921,9 @@ namespace System.Scsc.Code
                break;
             case "MBSP_CHNG_F":
                _Mbsp_Chng_F.SendRequest(job);
+               break;
+            case "CHOS_MBSP_F":
+               _Chos_Mbsp_F.SendRequest(job);
                break;
 
             /* Show Changed */

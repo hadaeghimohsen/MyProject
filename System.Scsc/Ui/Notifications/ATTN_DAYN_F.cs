@@ -87,7 +87,7 @@ namespace System.Scsc.Ui.Notifications
                   if (attn.EXIT_TIME == null)
                   {
                      if (MessageBox.Show(this, "با خروج دستی هنرجو موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003");
+                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", attn.MBSP_RWNO_DNRM);
                      requery = true;
                   }
                   break;

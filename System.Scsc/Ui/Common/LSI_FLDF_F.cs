@@ -95,14 +95,36 @@ namespace System.Scsc.Ui.Common
             case 1:
                if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
-                        new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
+               // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
+               if (iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)).Count() >= 2)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 152 /* Execute Chos_Mbsp_F */),
+                           new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XAttribute("namednrm", figh.NAME_DNRM),
+                                 new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+                              )
+                           }
+                        }
+                     )
+                  );
+               }
+               else
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+                        })
+                  );
                break;
             case 2:
                if (MessageBox.Show(this, "آیا با حذف هنرجو موافق هستید؟", "عملیات حذف موقت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;

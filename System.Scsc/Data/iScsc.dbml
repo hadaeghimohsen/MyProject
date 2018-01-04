@@ -4890,14 +4890,6 @@
     <Parameter Name="MtodStat" Parameter="mtodStat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
-    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.UPD_ATTN_P" Method="UPD_ATTN_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
@@ -5606,5 +5598,14 @@
       <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
+    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="MbspRwno" Parameter="mbspRwno" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

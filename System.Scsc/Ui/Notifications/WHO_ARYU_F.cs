@@ -68,6 +68,7 @@ namespace System.Scsc.Ui.Notifications
                      iScsc.Attendances
                      .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)
                         && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
+                        && a.MBSP_RWNO_DNRM == mbsprwno
                         && a.EXIT_TIME == null
                       )
                      .OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
@@ -77,6 +78,7 @@ namespace System.Scsc.Ui.Notifications
                         iScsc.Attendances
                         .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)
                            && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
+                           && a.MBSP_RWNO_DNRM == mbsprwno
                            && a.EXIT_TIME != null
                          )
                         .OrderByDescending(a => a.EXIT_TIME).FirstOrDefault();
@@ -423,10 +425,10 @@ namespace System.Scsc.Ui.Notifications
 		         case DialogResult.Cancel:
                   return;
                case DialogResult.No:
-                  iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, attn.ATTN_DATE, attn.COCH_FILE_NO, "008");
+                  iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, attn.ATTN_DATE, attn.COCH_FILE_NO, "008", attn.MBSP_RWNO_DNRM);
                   break;
                case DialogResult.Yes:
-                  iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, attn.ATTN_DATE, attn.COCH_FILE_NO, "007");
+                  iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, attn.ATTN_DATE, attn.COCH_FILE_NO, "007", attn.MBSP_RWNO_DNRM);
                   break;               
 	         }
             requery = true;

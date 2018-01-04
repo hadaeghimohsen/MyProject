@@ -22,7 +22,9 @@ namespace System.Scsc.Ui.Notifications
       {
          InitializeComponent();
       }
+
       private bool requry = false;
+      private short mbsprwno;
 
       private void Execute_Query()
       {
@@ -549,7 +551,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -575,7 +577,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -640,20 +642,22 @@ namespace System.Scsc.Ui.Notifications
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
-                     {
-                        new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
-                        new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
                         {
-                           Input = 
-                           new XElement("Fighter",
-                              new XAttribute("fileno", fileno),
-                              new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
-                              new XAttribute("gatecontrol", "true")
-                           )
-                        },
-                        new Job(SendType.Self, 1 /* Execute GetUi */){Input = "attn_dayn_f"},
-                        new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )                        
-                     })
+                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
+                           new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", fileno),
+                                 new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
+                                 new XAttribute("gatecontrol", "true"),
+                                 new XAttribute("mbsprwno", mbsprwno)
+                              )
+                           },
+                           new Job(SendType.Self, 1 /* Execute GetUi */){Input = "attn_dayn_f"},
+                           new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )                        
+                        }
+                     )
                   );
                }
             }
@@ -687,7 +691,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value, null, "002");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -713,7 +717,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -776,7 +780,8 @@ namespace System.Scsc.Ui.Notifications
                            Input = 
                            new XElement("Fighter",
                               new XAttribute("fileno", fileno),
-                              new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE)
+                              new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
+                              new XAttribute("mbsprwno", mbsprwno)
                            )
                         },
                         new Job(SendType.Self, 1 /* Execute GetUi */){Input = "attn_dayn_f"},
@@ -815,7 +820,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "004");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -841,7 +846,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -902,7 +907,8 @@ namespace System.Scsc.Ui.Notifications
                            Input = 
                            new XElement("Fighter",
                               new XAttribute("fileno", fileno),
-                              new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE)
+                              new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
+                              new XAttribute("mbsprwno", mbsprwno)
                            )
                         },
                         new Job(SendType.Self, 1 /* Execute GetUi */){Input = "attn_dayn_f"},
@@ -941,7 +947,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -967,7 +973,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005");
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -1027,7 +1033,8 @@ namespace System.Scsc.Ui.Notifications
                               Input = 
                               new XElement("Fighter",
                                  new XAttribute("fileno", fileno),
-                                 new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE)
+                                 new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
+                                 new XAttribute("mbsprwno", mbsprwno)
                               )
                            },
                            new Job(SendType.Self, 1 /* Execute GetUi */){Input = "attn_dayn_f"},
@@ -1211,7 +1218,7 @@ namespace System.Scsc.Ui.Notifications
                   if (attn.EXIT_TIME == null)
                   {
                      if (MessageBox.Show(this, "با خروج دستی هنرجو موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003");
+                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", mbsprwno == 0 ? null : (short?)mbsprwno);
                      Btn_Search_Click(null, null);
                   }
                   break;

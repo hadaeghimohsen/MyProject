@@ -3480,13 +3480,6 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ATTN_P")]
-		public int INS_ATTN_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Club_Code", DbType="BigInt")] System.Nullable<long> club_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Figh_File_No", DbType="BigInt")] System.Nullable<long> figh_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Date", DbType="Date")] System.Nullable<System.DateTime> attn_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CochFileNo", DbType="BigInt")] System.Nullable<long> cochFileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_TYPE", DbType="VarChar(3)")] string attn_TYPE)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), club_Code, figh_File_No, attn_Date, cochFileNo, attn_TYPE);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_ATTN_P")]
 		public int UPD_ATTN_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -3929,6 +3922,13 @@ namespace System.Scsc.Data
 		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType)
 		{
 			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ATTN_P")]
+		public int INS_ATTN_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Club_Code", DbType="BigInt")] System.Nullable<long> club_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Figh_File_No", DbType="BigInt")] System.Nullable<long> figh_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Date", DbType="Date")] System.Nullable<System.DateTime> attn_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CochFileNo", DbType="BigInt")] System.Nullable<long> cochFileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_TYPE", DbType="VarChar(3)")] string attn_TYPE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MbspRwno", DbType="SmallInt")] System.Nullable<short> mbspRwno)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), club_Code, figh_File_No, attn_Date, cochFileNo, attn_TYPE, mbspRwno);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	

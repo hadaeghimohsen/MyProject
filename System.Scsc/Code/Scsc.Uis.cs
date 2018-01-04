@@ -152,6 +152,7 @@ namespace System.Scsc.Code
       internal Ui.BaseDefinition.BAS_WKDY_F _Bas_Wkdy_F { get; set; }
       internal Ui.Cash.TRAN_EXPN_F _Tran_Expn_F { get; set; }
       internal Ui.Admission.MBSP_CHNG_F _Mbsp_Chng_F { get; set; }
+      internal Ui.Notifications.CHOS_MBSP_F _Chos_Mbsp_F { get; set; }
 
       /// Show Change
       internal Ui.Admission.ShowChanges.SHOW_ATRQ_F _Show_Atrq_F { get; set; }

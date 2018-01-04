@@ -231,6 +231,12 @@ namespace System.Scsc.Ui.Notifications
             case "attn":
                //tb_master.Pages.Add(tp_002);
                tb_master.SelectedPage = tp_002;
+               if (input.Attribute("mbsprwno") != null)
+                  mbsprwno = Convert.ToInt16(input.Attribute("mbsprwno").Value);
+               else
+                  mbsprwno = 0;
+
+
                if (input.Attribute("barcodedata") != null && input.Attribute("barcodedata").Value != "")
                {
                   Pb_FileName2.PickChecked = true;

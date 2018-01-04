@@ -244,7 +244,7 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            iScsc.INS_ATTN_P(null, Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue), null, null, "001");
+            iScsc.INS_ATTN_P(null, Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue), null, null, "001", null);
             requery = true;
          }
          catch (Exception ex)

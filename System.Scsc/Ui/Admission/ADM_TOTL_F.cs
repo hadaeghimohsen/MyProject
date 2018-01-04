@@ -12,6 +12,7 @@ using System.JobRouting.Jobs;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
+using System.IO;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -885,6 +886,27 @@ namespace System.Scsc.Ui.Admission
                Pn_MbspInfo.Visible = true;
 
                ReloadSelectedData();
+
+               try
+               {
+                  UserProFile_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
+
+                  //Pb_FighImg.Visible = true;
+
+                  if (InvokeRequired)
+                     Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+                  else
+                     UserProFile_Rb.ImageProfile = bm;
+               }
+               catch
+               { //Pb_FighImg.Visible = false;
+                  UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;               
+               }
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
@@ -900,6 +922,27 @@ namespace System.Scsc.Ui.Admission
                Pn_MbspInfo.Visible = true;
 
                //ReloadSelectedData();
+
+               try
+               {
+                  UserProFile_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
+
+                  //Pb_FighImg.Visible = true;
+
+                  if (InvokeRequired)
+                     Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+                  else
+                     UserProFile_Rb.ImageProfile = bm;
+               }
+               catch
+               { //Pb_FighImg.Visible = false;
+                  UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;               
+               }
             }
             else if (Rqst.RQID == 0)
             {
@@ -911,6 +954,8 @@ namespace System.Scsc.Ui.Admission
 
                Pn_MbspInfo.Visible = false;
                DefaultTabPage003();
+
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;               
             }
          }
          catch

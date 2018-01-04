@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -12,7 +13,7 @@ using System.Xml.Linq;
 
 namespace System.Scsc.Ui.Notifications
 {
-   partial class WHO_ARYU_F : ISendRequest
+   partial class CHOS_MBSP_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
@@ -25,7 +26,6 @@ namespace System.Scsc.Ui.Notifications
       string fileno;
       long? attncode = 0;
       bool gateControl = false;
-      private short? mbsprwno;
 
       public void SendRequest(Job job)
       {
@@ -80,10 +80,6 @@ namespace System.Scsc.Ui.Notifications
          {
             //if (!(Btn_Search.Focused))
             //   SendKeys.Send("{TAB}");
-         }
-         else if(keyData == Keys.F5)
-         {
-            Butn_Zoom_Click(null, null);
          }
          else if(keyData == Keys.F8)
          {
@@ -203,7 +199,7 @@ namespace System.Scsc.Ui.Notifications
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}",GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:normal:center"} }               
+               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "cntrhrz:normal"} }               
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -262,30 +258,37 @@ namespace System.Scsc.Ui.Notifications
          try
          {
             var xinput = job.Input as XElement;
-
-            Lbl_Dresser.BackColor = SystemColors.Control;
+            NameDnrm_Lbl.Text = xinput.Attribute("namednrm").Value;
+            FngrPrnt_Lbl.Text = xinput.Attribute("fngrprnt").Value;
             fileno = xinput.Attribute("fileno").Value;
-            AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
-            // 1396/07/16 * اضافه شدن 
-            if (xinput.Attribute("attncode") != null)
-               attncode = Convert.ToInt64(xinput.Attribute("attncode").Value);
-            else
-               attncode = null;
 
-            if (xinput.Attribute("mbsprwno") != null)
-               mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
-            else
-               mbsprwno = null;
+            try
+            {
+               UserProFile_Rb.ImageProfile = null;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
 
-            if (xinput.Attribute("gatecontrol") != null)
-               gateControl = true;
-            else
-               gateControl = false;
+               //Pb_FighImg.Visible = true;
+
+               if (InvokeRequired)
+                  Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+               else
+                  UserProFile_Rb.ImageProfile = bm;
+            }
+            catch
+            { //Pb_FighImg.Visible = false;
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            }
+
+            CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
          }
          catch { }
          finally
          {
-            Execute_Query(true);
+            Execute_Query();
          }
          job.Status = StatusType.Successful;
       }

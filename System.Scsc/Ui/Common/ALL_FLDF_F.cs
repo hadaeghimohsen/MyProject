@@ -214,7 +214,7 @@ namespace System.Scsc.Ui.Common
                   if (attn.EXIT_TIME == null)
                   {
                      if (MessageBox.Show(this, "با خروج دستی هنرجو موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003");
+                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", attn.MBSP_RWNO_DNRM);
                      iScsc = new Data.iScscDataContext(ConnectionString);
                      AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
                   }
@@ -247,7 +247,8 @@ namespace System.Scsc.Ui.Common
                               Input = 
                               new XElement("Fighter",
                                  new XAttribute("fileno", (AttnBs2.Current as Data.Attendance).FIGH_FILE_NO),
-                                 new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE)
+                                 new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
+                                 new XAttribute("mbsprwno", (AttnBs2.Current as Data.Attendance).MBSP_RWNO_DNRM)
                               )
                            }
                         })
@@ -1087,12 +1088,15 @@ namespace System.Scsc.Ui.Common
             if (figh == null)
                figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
                      new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }

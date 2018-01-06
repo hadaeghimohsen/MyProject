@@ -21,7 +21,7 @@ namespace System.Scsc.Ui.Notifications
          InitializeComponent();
       }
 
-      private bool requery = false;
+      //private bool requery = false;
 
       private void Execute_Query()
       {
@@ -123,6 +123,10 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            RqstBnExit1_Click(null, null);
          }
       }
    }

@@ -292,7 +292,7 @@ namespace MyProject.Commons.Ui
             }
             Second_Pic.Invalidate();
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

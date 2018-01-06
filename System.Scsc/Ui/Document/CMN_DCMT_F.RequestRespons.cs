@@ -25,7 +25,7 @@ namespace System.Scsc.Ui.Document
       ///  AForge.Net
       /// </summary>
       private FilterInfoCollection filterInfoCollection;
-      private VideoCaptureDevice videoCaptureDevice;
+      //private VideoCaptureDevice videoCaptureDevice;
 
       /// <summary>
       /// Emgu.CV

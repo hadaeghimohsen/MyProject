@@ -17,10 +17,10 @@ namespace System.Scsc.Ui.UserAction
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
-      int Sleeping = 1;
-      int step = 15;
+      //int Sleeping = 1;
+      //int step = 15;
       bool isPainted = false;
-      string Crnt_User;
+      //string Crnt_User;
 
       public void SendRequest(Job job)
       {

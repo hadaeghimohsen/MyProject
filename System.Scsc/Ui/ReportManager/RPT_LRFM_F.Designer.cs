@@ -251,6 +251,7 @@
          // 
          this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.label1.BackColor = System.Drawing.Color.DarkSalmon;
+         this.label1.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
          this.label1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

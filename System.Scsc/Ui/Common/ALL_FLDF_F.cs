@@ -546,7 +546,7 @@ namespace System.Scsc.Ui.Common
                GustInfo_Pn.Visible = false;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }
@@ -808,7 +808,7 @@ namespace System.Scsc.Ui.Common
                   break;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {}
          finally
          {
@@ -989,7 +989,7 @@ namespace System.Scsc.Ui.Common
                   break;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {}
          finally
          {
@@ -1099,6 +1099,8 @@ namespace System.Scsc.Ui.Common
                      new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
+
+            Refresh_Butn_Click(null, null);
          }
          catch(Exception exc)
          {

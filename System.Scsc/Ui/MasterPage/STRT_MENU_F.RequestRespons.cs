@@ -17,7 +17,7 @@ namespace System.Scsc.Ui.MasterPage
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       //private long Rqid, FileNo;
-      private bool isFirstLoaded = false;
+      //private bool isFirstLoaded = false;
 
       public void SendRequest(Job job)
       {

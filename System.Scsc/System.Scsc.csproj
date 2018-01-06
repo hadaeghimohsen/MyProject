@@ -499,15 +499,6 @@
     <Compile Include="Ui\BodyFitness\BSC_BMOV_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\CalculateCalorie\CLC_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\CalculateCalorie\CLC_TOTL_F.Designer.cs">
-      <DependentUpon>CLC_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\CalculateCalorie\CLC_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\CalculateExpense\CAL_CEXC_P.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -535,15 +526,6 @@
     <Compile Include="Ui\CalculateExpense\CAL_EXPN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\Campitition\CMP_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Campitition\CMP_TOTL_F.Designer.cs">
-      <DependentUpon>CMP_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Campitition\CMP_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\Cash\TRAN_EXPN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -553,24 +535,6 @@
     <Compile Include="Ui\Cash\TRAN_EXPN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\Cash\PAY_CASH_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Cash\PAY_CASH_F.Designer.cs">
-      <DependentUpon>PAY_CASH_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Cash\PAY_CASH_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ChangeMethodCategory\CMC_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ChangeMethodCategory\CMC_TOTL_F.Designer.cs">
-      <DependentUpon>CMC_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\ChangeMethodCategory\CMC_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -578,36 +542,6 @@
       <DependentUpon>SHOW_CTRQ_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ChangeRials\GLR_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ChangeRials\GLR_TOTL_F.Designer.cs">
-      <DependentUpon>GLR_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\ChangeRials\GLR_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ChangeRials\ShowChanges\SHOW_GLRL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ChangeRials\ShowChanges\SHOW_GLRL_F.Designer.cs">
-      <DependentUpon>SHOW_GLRL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\ChangeRials\ShowChanges\SHOW_GLRL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Club\MSTR_CLUB_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Club\MSTR_CLUB_F.Designer.cs">
-      <DependentUpon>MSTR_CLUB_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Club\MSTR_CLUB_F.Events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Club\MSTR_CLUB_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Common\ALL_FLDF_F.cs">
@@ -635,33 +569,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Common\LSI_FLDF_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_CHRT_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_CHRT_F.Designer.cs">
-      <DependentUpon>DAP_CHRT_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_DSHB_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_DSHB_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_DSHB_F.Designer.cs">
-      <DependentUpon>DAP_DSHB_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_PIVT_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_PIVT_F.Designer.cs">
-      <DependentUpon>DAP_PIVT_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_CHRT_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\DataAnalysis\DAP_PIVT_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DebitsList\DEBT_LIST_F.cs">
@@ -718,33 +625,6 @@
     <Compile Include="Ui\EnablingDisabling\ShowChanges\SHOW_DERQ_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\Exam\EXM_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Exam\EXM_TOTL_F.Designer.cs">
-      <DependentUpon>EXM_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Exam\EXM_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Financial\RFD_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Financial\RFD_TOTL_F.Designer.cs">
-      <DependentUpon>RFD_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Financial\RFD_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Financial\ShowChanges\SHOW_RFDT_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Financial\ShowChanges\SHOW_RFDT_F.Designer.cs">
-      <DependentUpon>SHOW_RFDT_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Financial\ShowChanges\SHOW_RFDT_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\FingerPrint\FNGR_RSVD_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -761,24 +641,6 @@
       <DependentUpon>GATE_ACTN_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\GateEntryExit\GATE_ACTN_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\HeartZone\HRZ_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\HeartZone\HRZ_TOTL_F.Designer.cs">
-      <DependentUpon>HRZ_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\HeartZone\HRZ_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\HumanResource\ADM_HRSC_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\HumanResource\ADM_HRSC_F.Designer.cs">
-      <DependentUpon>ADM_HRSC_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\HumanResource\ADM_HRSC_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Notifications\ATTN_DAYN_F.cs">
@@ -805,16 +667,7 @@
     <Compile Include="Ui\OtherIncome\ADM_BRSR_F.Designer.cs">
       <DependentUpon>ADM_BRSR_F.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\HumanResource\ADM_HRSR_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\HumanResource\ADM_HRSR_F.Designer.cs">
-      <DependentUpon>ADM_HRSR_F.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ui\OtherIncome\ADM_BRSR_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\HumanResource\ADM_HRSR_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Insurance\INS_TOTL_F.cs">
@@ -824,18 +677,6 @@
       <DependentUpon>INS_TOTL_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Insurance\INS_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.Designer.cs">
-      <DependentUpon>MAIN_SUBS_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.Events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\MainSubStat\MAIN_SUBS_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
@@ -874,27 +715,6 @@
     <Compile Include="Ui\MessageBroadcast\MSGB_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\MethodClubCard\MCC_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\MethodClubCard\MCC_TOTL_F.Designer.cs">
-      <DependentUpon>MCC_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\MethodClubCard\MCC_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Method\MSTR_MTOD_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Method\MSTR_MTOD_F.Designer.cs">
-      <DependentUpon>MSTR_MTOD_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Method\MSTR_MTOD_F.Events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Method\MSTR_MTOD_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\Notifications\CHOS_CLAS_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -931,67 +751,13 @@
     <Compile Include="Ui\Organ\ORGN_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\OtherExpense\ShowChanges\SHOW_EMRQ_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherExpense\ShowChanges\SHOW_EMRQ_F.Designer.cs">
-      <DependentUpon>SHOW_EMRQ_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\OtherExpense\ShowChanges\SHOW_EMRQ_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SMSN_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SMSN_F.Designer.cs">
-      <DependentUpon>OIC_SMSN_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SMOR_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SMOR_F.Designer.cs">
-      <DependentUpon>OIC_SMOR_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SMSN_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SONE_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SONE_F.Designer.cs">
-      <DependentUpon>OIC_SONE_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SMOR_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SRZH_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SRZH_F.Designer.cs">
-      <DependentUpon>OIC_SRZH_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SONE_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\OtherIncome\OIC_TOTL_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\OtherIncome\OIC_TOTL_F.Designer.cs">
       <DependentUpon>OIC_TOTL_F.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\OtherIncome\OIC_SRZH_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\OtherIncome\OIC_TOTL_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\ShowChanges\SHOW_OMRQ_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\ShowChanges\SHOW_OMRQ_F.Designer.cs">
-      <DependentUpon>SHOW_OMRQ_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\OtherIncome\ShowChanges\SHOW_OMRQ_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\PaymentMethod\PAY_MTOD_F.cs">
@@ -1001,15 +767,6 @@
       <DependentUpon>PAY_MTOD_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\PaymentMethod\PAY_MTOD_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\PhysicalFitness\PSF_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\PhysicalFitness\PSF_TOTL_F.Designer.cs">
-      <DependentUpon>PSF_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\PhysicalFitness\PSF_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\POS\POS_TOTL_F.cs" />
@@ -1030,18 +787,6 @@
       <DependentUpon>MNG_RCAN_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\ReceiptAnnouncement\MNG_RCAN_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Region\MSTR_REGN_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Region\MSTR_REGN_F.Designer.cs">
-      <DependentUpon>MSTR_REGN_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Region\MSTR_REGN_F.Events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Region\MSTR_REGN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Regulation\MSTR_DCMT_F.cs">
@@ -1116,15 +861,6 @@
     <Compile Include="Ui\Regulation\REGL_EXPN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\ReportManager\ACN_LIST_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ReportManager\ACN_LIST_F.Designer.cs">
-      <DependentUpon>ACN_LIST_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\ReportManager\ACN_LIST_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\ReportManager\RPT_LIST_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1158,15 +894,6 @@
     <Compile Include="Ui\ReportManager\RPT_PMMT_F.Designer.cs">
       <DependentUpon>RPT_PMMT_F.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\ReportManager\RQST_FLOW_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\ReportManager\RQST_FLOW_F.Designer.cs">
-      <DependentUpon>RQST_FLOW_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\ReportManager\RQST_FLOW_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\ReportManager\RQST_TRAC_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1177,30 +904,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\ReportManager\RQST_TRAC_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.Designer.cs">
-      <DependentUpon>RQTR_TYPE_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.Events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\RequesterType\RQTR_TYPE_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\RequestType\RQST_TYPE_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\RequestType\RQST_TYPE_F.Designer.cs">
-      <DependentUpon>RQST_TYPE_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\RequestType\RQST_TYPE_F.Events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\RequestType\RQST_TYPE_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Settings\BAS_CPR_F.cs">
@@ -1228,15 +931,6 @@
       <DependentUpon>CNF_STNG_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Settings\CNF_STNG_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Test\TST_TOTL_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Test\TST_TOTL_F.Designer.cs">
-      <DependentUpon>TST_TOTL_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Test\TST_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\UserAction\USR_ACTN_F.RequestRespons.cs">
@@ -1571,9 +1265,6 @@
     <EmbeddedResource Include="Ui\BodyFitness\BSC_BMOV_F.resx">
       <DependentUpon>BSC_BMOV_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\CalculateCalorie\CLC_TOTL_F.resx">
-      <DependentUpon>CLC_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\CalculateExpense\CAL_CEXC_P.resx">
       <DependentUpon>CAL_CEXC_P.cs</DependentUpon>
     </EmbeddedResource>
@@ -1583,29 +1274,11 @@
     <EmbeddedResource Include="Ui\CalculateExpense\CAL_EXPN_F.resx">
       <DependentUpon>CAL_EXPN_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Campitition\CMP_TOTL_F.resx">
-      <DependentUpon>CMP_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Cash\TRAN_EXPN_F.resx">
       <DependentUpon>TRAN_EXPN_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Cash\PAY_CASH_F.resx">
-      <DependentUpon>PAY_CASH_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\ChangeMethodCategory\CMC_TOTL_F.resx">
-      <DependentUpon>CMC_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.resx">
       <DependentUpon>SHOW_CTRQ_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\ChangeRials\GLR_TOTL_F.resx">
-      <DependentUpon>GLR_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\ChangeRials\ShowChanges\SHOW_GLRL_F.resx">
-      <DependentUpon>SHOW_GLRL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Club\MSTR_CLUB_F.resx">
-      <DependentUpon>MSTR_CLUB_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\ALL_FLDF_F.resx">
       <DependentUpon>ALL_FLDF_F.cs</DependentUpon>
@@ -1615,15 +1288,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\LSI_FLDF_F.resx">
       <DependentUpon>LSI_FLDF_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\DataAnalysis\DAP_CHRT_F.resx">
-      <DependentUpon>DAP_CHRT_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\DataAnalysis\DAP_DSHB_F.resx">
-      <DependentUpon>DAP_DSHB_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\DataAnalysis\DAP_PIVT_F.resx">
-      <DependentUpon>DAP_PIVT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DebitsList\DEBT_LIST_F.resx">
       <DependentUpon>DEBT_LIST_F.cs</DependentUpon>
@@ -1643,26 +1307,11 @@
     <EmbeddedResource Include="Ui\EnablingDisabling\ShowChanges\SHOW_DERQ_F.resx">
       <DependentUpon>SHOW_DERQ_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Exam\EXM_TOTL_F.resx">
-      <DependentUpon>EXM_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Financial\RFD_TOTL_F.resx">
-      <DependentUpon>RFD_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Financial\ShowChanges\SHOW_RFDT_F.resx">
-      <DependentUpon>SHOW_RFDT_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\FingerPrint\FNGR_RSVD_F.resx">
       <DependentUpon>FNGR_RSVD_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\GateEntryExit\GATE_ACTN_F.resx">
       <DependentUpon>GATE_ACTN_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\HeartZone\HRZ_TOTL_F.resx">
-      <DependentUpon>HRZ_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\HumanResource\ADM_HRSC_F.resx">
-      <DependentUpon>ADM_HRSC_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notifications\ATTN_DAYN_F.resx">
       <DependentUpon>ATTN_DAYN_F.cs</DependentUpon>
@@ -1673,14 +1322,8 @@
     <EmbeddedResource Include="Ui\OtherIncome\ADM_BRSR_F.resx">
       <DependentUpon>ADM_BRSR_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\HumanResource\ADM_HRSR_F.resx">
-      <DependentUpon>ADM_HRSR_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Insurance\INS_TOTL_F.resx">
       <DependentUpon>INS_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\MainSubStat\MAIN_SUBS_F.resx">
-      <DependentUpon>MAIN_SUBS_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\MasterPage\FRST_PAGE_F.resx">
       <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
@@ -1694,12 +1337,6 @@
     <EmbeddedResource Include="Ui\MessageBroadcast\MSGB_TOTL_F.resx">
       <DependentUpon>MSGB_TOTL_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\MethodClubCard\MCC_TOTL_F.resx">
-      <DependentUpon>MCC_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Method\MSTR_MTOD_F.resx">
-      <DependentUpon>MSTR_MTOD_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notifications\CHOS_CLAS_F.resx">
       <DependentUpon>CHOS_CLAS_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -1712,41 +1349,17 @@
     <EmbeddedResource Include="Ui\Organ\ORGN_TOTL_F.resx">
       <DependentUpon>ORGN_TOTL_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\OtherExpense\ShowChanges\SHOW_EMRQ_F.resx">
-      <DependentUpon>SHOW_EMRQ_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\OtherIncome\OIC_SMSN_F.resx">
-      <DependentUpon>OIC_SMSN_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\OtherIncome\OIC_SMOR_F.resx">
-      <DependentUpon>OIC_SMOR_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\OtherIncome\OIC_SONE_F.resx">
-      <DependentUpon>OIC_SONE_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\OtherIncome\OIC_SRZH_F.resx">
-      <DependentUpon>OIC_SRZH_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\OtherIncome\OIC_TOTL_F.resx">
       <DependentUpon>OIC_TOTL_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\OtherIncome\ShowChanges\SHOW_OMRQ_F.resx">
-      <DependentUpon>SHOW_OMRQ_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\PaymentMethod\PAY_MTOD_F.resx">
       <DependentUpon>PAY_MTOD_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\PhysicalFitness\PSF_TOTL_F.resx">
-      <DependentUpon>PSF_TOTL_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Reason\CMN_RESN_F.resx">
       <DependentUpon>CMN_RESN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\ReceiptAnnouncement\MNG_RCAN_F.resx">
       <DependentUpon>MNG_RCAN_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Region\MSTR_REGN_F.resx">
-      <DependentUpon>MSTR_REGN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Regulation\MSTR_DCMT_F.resx">
       <DependentUpon>MSTR_DCMT_F.cs</DependentUpon>
@@ -1766,9 +1379,6 @@
     <EmbeddedResource Include="Ui\Regulation\REGL_EXPN_F.resx">
       <DependentUpon>REGL_EXPN_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\ReportManager\ACN_LIST_F.resx">
-      <DependentUpon>ACN_LIST_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\ReportManager\RPT_LIST_F.resx">
       <DependentUpon>RPT_LIST_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -1781,17 +1391,8 @@
     <EmbeddedResource Include="Ui\ReportManager\RPT_PMMT_F.resx">
       <DependentUpon>RPT_PMMT_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\ReportManager\RQST_FLOW_F.resx">
-      <DependentUpon>RQST_FLOW_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\ReportManager\RQST_TRAC_F.resx">
       <DependentUpon>RQST_TRAC_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\RequesterType\RQTR_TYPE_F.resx">
-      <DependentUpon>RQTR_TYPE_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\RequestType\RQST_TYPE_F.resx">
-      <DependentUpon>RQST_TYPE_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Settings\BAS_CPR_F.resx">
       <DependentUpon>BAS_CPR_F.cs</DependentUpon>
@@ -1801,9 +1402,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Settings\CNF_STNG_F.resx">
       <DependentUpon>CNF_STNG_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Test\TST_TOTL_F.resx">
-      <DependentUpon>TST_TOTL_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\UserAction\USR_ACTN_F.resx">
       <DependentUpon>USR_ACTN_F.cs</DependentUpon>
@@ -3109,9 +2707,28 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ui\Attendance\" />
+    <Folder Include="Ui\CalculateCalorie\" />
+    <Folder Include="Ui\Campitition\" />
+    <Folder Include="Ui\ChangeRials\ShowChanges\" />
+    <Folder Include="Ui\Club\" />
     <Folder Include="Ui\Committee\" />
+    <Folder Include="Ui\DataAnalysis\" />
     <Folder Include="Ui\DebitsList\ShowChanges\" />
+    <Folder Include="Ui\Exam\" />
     <Folder Include="Ui\FighterPublic\" />
+    <Folder Include="Ui\Financial\ShowChanges\" />
+    <Folder Include="Ui\HeartZone\" />
+    <Folder Include="Ui\HumanResource\" />
+    <Folder Include="Ui\MainSubStat\" />
+    <Folder Include="Ui\MethodClubCard\" />
+    <Folder Include="Ui\Method\" />
+    <Folder Include="Ui\OtherExpense\ShowChanges\" />
+    <Folder Include="Ui\OtherIncome\ShowChanges\" />
+    <Folder Include="Ui\PhysicalFitness\" />
+    <Folder Include="Ui\Region\" />
+    <Folder Include="Ui\RequesterType\" />
+    <Folder Include="Ui\RequestType\" />
+    <Folder Include="Ui\Test\" />
     <Folder Include="Ui\UserClubCard\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -41,7 +41,7 @@ namespace System.Scsc.Ui.Admission
 
             Mbsp002Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RQRO_RQST_RQID == mbsp.RQRO_RQST_RQID && mb.RECT_CODE == "002" && mb.FIGH_FILE_NO == fileno);
          }
-         catch (Exception exc) { }
+         catch (Exception ) { }
          requery = false;
       }
 

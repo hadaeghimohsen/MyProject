@@ -71,7 +71,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception ex)
+         catch (Exception )
          {
          }
          finally
@@ -118,7 +118,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception ex)
+         catch (Exception )
          {
          }
          finally

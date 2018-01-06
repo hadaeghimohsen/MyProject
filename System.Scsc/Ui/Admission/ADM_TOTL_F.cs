@@ -1009,7 +1009,7 @@ namespace System.Scsc.Ui.Admission
             }
          }
       }
-      LookUpEdit lov_prvn;
+      LookUpEdit lov_prvn = null;
       //private void REGN_PRVN_CODE_EditValueChanged(object sender, EventArgs e)
       //{
       //   try
@@ -1875,7 +1875,7 @@ namespace System.Scsc.Ui.Admission
                NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }

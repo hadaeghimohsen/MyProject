@@ -52,8 +52,8 @@ namespace System.Scsc.Ui.ReportManager
             {
                var rqtps = Rqtp_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
                var users = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               
-               long? fileno = null, coch = null;
+
+               long? fileno = null;//, coch = null;
                
                if (Figh_Lov2.EditValue != null && Figh_Lov2.EditValue.ToString() != "")
                   fileno = (long?)Figh_Lov2.EditValue;
@@ -116,7 +116,7 @@ namespace System.Scsc.Ui.ReportManager
                var rqtps = Rqtp_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
                var users = User_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
 
-               long? fileno = null, coch = null;
+               long? fileno = null;//, coch = null;
 
                if (Figh_Lov5.EditValue != null && Figh_Lov5.EditValue.ToString() != "")
                   fileno = (long?)Figh_Lov5.EditValue;
@@ -266,7 +266,7 @@ namespace System.Scsc.Ui.ReportManager
                   break;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }
@@ -304,7 +304,7 @@ namespace System.Scsc.Ui.ReportManager
                   break;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }
@@ -342,7 +342,7 @@ namespace System.Scsc.Ui.ReportManager
                   break;
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }
@@ -589,7 +589,7 @@ namespace System.Scsc.Ui.ReportManager
                         requery = true;
                      }
                   }
-                  catch (Exception exc)
+                  catch (Exception )
                   { }
                   finally
                   {

@@ -329,7 +329,7 @@ namespace System.Scsc.Ui.CalculateExpense
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", pyde.Payment_Detail.Request_Row.FIGH_FILE_NO)) }
             );
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

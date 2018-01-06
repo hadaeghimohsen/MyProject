@@ -352,7 +352,7 @@ namespace System.Scsc.Ui.MasterPage
             if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
             Sp_GateAttn.Write("in");
             //MessageBox.Show("Gate is Open");
-         }catch(Exception exc){}
+         }catch(Exception ){}
       }
 
       private void Close_Gate()
@@ -367,7 +367,7 @@ namespace System.Scsc.Ui.MasterPage
             Sp_GateAttn.Write("out");
             //MessageBox.Show("Gate is Close");
          }
-         catch (Exception exc) { }
+         catch (Exception ) { }
       }
       #endregion
 
@@ -2202,7 +2202,7 @@ namespace System.Scsc.Ui.MasterPage
                );
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

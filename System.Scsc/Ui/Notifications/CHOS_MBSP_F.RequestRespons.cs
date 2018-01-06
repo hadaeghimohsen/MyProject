@@ -24,8 +24,8 @@ namespace System.Scsc.Ui.Notifications
       int step = 15;
       bool isPainted = false;
       string fileno;
-      long? attncode = 0;
-      bool gateControl = false;
+      //long? attncode = 0;
+      //bool gateControl = false;
 
       public void SendRequest(Job job)
       {

@@ -521,25 +521,25 @@ namespace System.Scsc.Code
                _Mstr_Dcmt_F.SendRequest(job);
                break;
             case "MSTR_MTOD_F":
-               _Mstr_Mtod_F.SendRequest(job);
+               //_Mstr_Mtod_F.SendRequest(job);
                break;
             case "MSTR_REGN_F":
-               _Mstr_Regn_F.SendRequest(job);
+               //_Mstr_Regn_F.SendRequest(job);
                break;
             case "MSTR_EPIT_F":
                _Mstr_Epit_F.SendRequest(job);
                break;
             case "MSTR_CLUB_F":
-               _Mstr_Club_F.SendRequest(job);
+               //_Mstr_Club_F.SendRequest(job);
                break;
             case "MAIN_SUBS_F":
-               _Main_Subs_F.SendRequest(job);
+               //_Main_Subs_F.SendRequest(job);
                break;
             case "RQST_TYPE_F":
-               _Rqst_Type_F.SendRequest(job);
+               //_Rqst_Type_F.SendRequest(job);
                break;
             case "RQTR_TYPE_F":
-               _Rqtr_Type_F.SendRequest(job);
+               //_Rqtr_Type_F.SendRequest(job);
                break;
             //case "ADM_RQST_F":
             //   _Adm_Rqst_F.SendRequest(job);
@@ -698,7 +698,7 @@ namespace System.Scsc.Code
                _Frst_Page_F.SendRequest(job);
                break;
             case "PAY_CASH_F":
-               _Pay_Cash_F.SendRequest(job);
+               //_Pay_Cash_F.SendRequest(job);
                break;
             case "CAL_EXPN_F":
                _Cal_Expn_F.SendRequest(job);
@@ -710,31 +710,31 @@ namespace System.Scsc.Code
                _Adm_Chng_F.SendRequest(job);
                break;
             case "EXM_TOTL_F":
-               _Exm_Totl_F.SendRequest(job);
+               //_Exm_Totl_F.SendRequest(job);
                break;
             case "PSF_TOTL_F":
-               _Psf_Totl_F.SendRequest(job);
+               //_Psf_Totl_F.SendRequest(job);
                break;
             case "CLC_TOTL_F":
-               _Clc_Totl_F.SendRequest(job);
+               //_Clc_Totl_F.SendRequest(job);
                break;
             case "HRZ_TOTL_F":
-               _Hrz_Totl_F.SendRequest(job);
+               //_Hrz_Totl_F.SendRequest(job);
                break;
             case "CMC_TOTL_F":
-               _Cmc_Totl_F.SendRequest(job);
+               //_Cmc_Totl_F.SendRequest(job);
                break;
             case "TST_TOTL_F":
-               _Tst_Totl_F.SendRequest(job);
+               //_Tst_Totl_F.SendRequest(job);
                break;
             case "CMP_TOTL_F":
-               _Cmp_Totl_F.SendRequest(job);
+               //_Cmp_Totl_F.SendRequest(job);
                break;
             //case "COM_TOTL_F":
             //   _Com_Totl_F.SendRequest(job);
             //   break;
             case "MCC_TOTL_F":
-               _Mcc_Totl_F.SendRequest(job);
+               //_Mcc_Totl_F.SendRequest(job);
                break;
             case "INS_TOTL_F":
                _Ins_Totl_F.SendRequest(job);
@@ -770,7 +770,7 @@ namespace System.Scsc.Code
                _Cal_Cexc_P.SendRequest(job);
                break;
             case "ACN_LIST_F":
-               _Acn_List_F.SendRequest(job);
+               //_Acn_List_F.SendRequest(job);
                break;
             case "OIC_TOTL_F":
                _Oic_Totl_F.SendRequest(job);
@@ -782,13 +782,13 @@ namespace System.Scsc.Code
                _Cmn_Resn_F.SendRequest(job);
                break;
             case "OIC_SRZH_F":
-               _Oic_Srzh_F.SendRequest(job);
+               //_Oic_Srzh_F.SendRequest(job);
                break;
             case "OIC_SONE_F":
-               _Oic_Sone_F.SendRequest(job);
+               //_Oic_Sone_F.SendRequest(job);
                break;
             case "OIC_SMOR_F":
-               _Oic_Smor_F.SendRequest(job);
+               //_Oic_Smor_F.SendRequest(job);
                break;
             case "BAS_CPR_F":
                _Bas_Cpr_F.SendRequest(job);
@@ -809,13 +809,13 @@ namespace System.Scsc.Code
                _Who_Aryu_F.SendRequest(job);
                break;
             case "RFD_TOTL_F":
-               _Rfd_Totl_F.SendRequest(job);
+               //_Rfd_Totl_F.SendRequest(job);
                break;
             case "GLR_TOTL_F":
-               _Glr_Totl_F.SendRequest(job);
+               //_Glr_Totl_F.SendRequest(job);
                break;
             case "OIC_SMSN_F":
-               _Oic_Smsn_F.SendRequest(job);
+               //_Oic_Smsn_F.SendRequest(job);
                break;
             case "CHOS_CLAS_F":
                _Chos_Clas_F.SendRequest(job);
@@ -854,7 +854,7 @@ namespace System.Scsc.Code
                _Adm_Mbco_F.SendRequest(job);
                break;
             case "ADM_HRSR_F":
-               _Adm_Hrsr_F.SendRequest(job);
+               //_Adm_Hrsr_F.SendRequest(job);
                break;
             case "ADM_BRSR_F":
                _Adm_Brsr_F.SendRequest(job);
@@ -863,7 +863,7 @@ namespace System.Scsc.Code
                _Aop_Bufe_F.SendRequest(job);
                break;
             case "ADM_HRSC_F":
-               _Adm_Hrsc_F.SendRequest(job);
+               //_Adm_Hrsc_F.SendRequest(job);
                break;
             case "ADM_MBFZ_F":
                _Adm_Mbfz_F.SendRequest(job);
@@ -875,16 +875,16 @@ namespace System.Scsc.Code
                _Rpt_Pmmt_F.SendRequest(job);
                break;
             case "DAP_PIVT_F":
-               _Dap_Pivt_F.SendRequest(job);
+               //_Dap_Pivt_F.SendRequest(job);
                break;
             case "DAP_CHRT_F":
-               _Dap_Chrt_F.SendRequest(job);
+               //_Dap_Chrt_F.SendRequest(job);
                break;
             case "CNF_STNG_F":
                _Cnf_Stng_F.SendRequest(job);
                break;
             case "DAP_DSHB_F":
-               _Dap_Dshb_F.SendRequest(job);
+               //_Dap_Dshb_F.SendRequest(job);
                break;
             case "LSI_FDLF_F":
                _Lsi_Fdlf_F.SendRequest(job);
@@ -943,16 +943,16 @@ namespace System.Scsc.Code
                _Show_Ucrq_F.SendRequest(job);
                break;
             case "SHOW_OMRQ_F":
-               _Show_Omrq_F.SendRequest(job);
+               //_Show_Omrq_F.SendRequest(job);
                break;
             case "SHOW_EMRQ_F":
-               _Show_Emrq_F.SendRequest(job);
+               //_Show_Emrq_F.SendRequest(job);
                break;
             case "SHOW_RFDT_F":
-               _Show_Rfdt_F.SendRequest(job);
+               //_Show_Rfdt_F.SendRequest(job);
                break;
             case "SHOW_GLRL_F":
-               _Show_Glrl_F.SendRequest(job);
+               //_Show_Glrl_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

@@ -464,7 +464,7 @@ namespace System.Scsc.Ui.Admission
                NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
             }
          }
-         catch (Exception exc)
+         catch (Exception)
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
@@ -943,7 +943,7 @@ namespace System.Scsc.Ui.Admission
 
             CtgyBs1.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == crntcbmt.MTOD_CODE && c.CTGY_STAT == "002");
          }
-         catch (Exception exc)
+         catch (Exception)
          {
                         
          }
@@ -1081,7 +1081,7 @@ namespace System.Scsc.Ui.Admission
             TotlAdm_Txt.Text = iScsc.Fighters.Where(f => f.CBMT_CODE_DNRM == fgpb.CBMT_CODE && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101 && f.MBSP_END_DATE.Value.Date >= DateTime.Now.Date).Count().ToString();
             NewAdm_Txt.Text = (Convert.ToInt32(TotlAdm_Txt.Text) + 1).ToString();
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

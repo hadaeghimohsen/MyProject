@@ -20,13 +20,13 @@ namespace System.Scsc.Code
       internal Ui.Regulation.REGL_EXPN_F _Regl_Expn_F { get; set; }
       internal Ui.Regulation.REGL_DCMT_F _Regl_Dcmt_F { get; set; }
       internal Ui.Regulation.MSTR_DCMT_F _Mstr_Dcmt_F { get; set; }
-      internal Ui.Method.MSTR_MTOD_F _Mstr_Mtod_F { get; set; }
-      internal Ui.Region.MSTR_REGN_F _Mstr_Regn_F { get; set; }
+      //internal Ui.Method.MSTR_MTOD_F _Mstr_Mtod_F { get; set; }
+      //internal Ui.Region.MSTR_REGN_F _Mstr_Regn_F { get; set; }
       internal Ui.Regulation.MSTR_EPIT_F _Mstr_Epit_F { get; set; }
-      internal Ui.Club.MSTR_CLUB_F _Mstr_Club_F { get; set; }
-      internal Ui.MainSubStat.MAIN_SUBS_F _Main_Subs_F { get; set; }
-      internal Ui.RequestType.RQST_TYPE_F _Rqst_Type_F { get; set; }
-      internal Ui.RequesterType.RQTR_TYPE_F _Rqtr_Type_F { get; set; }
+      //internal Ui.Club.MSTR_CLUB_F _Mstr_Club_F { get; set; }
+      //internal Ui.MainSubStat.MAIN_SUBS_F _Main_Subs_F { get; set; }
+      //internal Ui.RequestType.RQST_TYPE_F _Rqst_Type_F { get; set; }
+      //internal Ui.RequesterType.RQTR_TYPE_F _Rqtr_Type_F { get; set; }
       //internal Ui.Admission.ADM_RQST_F _Adm_Rqst_F { get; set; }
       //internal Ui.Admission.ADM_FSUM_F _Adm_Fsum_F { get; set; }
       //internal Ui.Admission.ADM_SEXP_F _Adm_Sexp_F { get; set; }
@@ -79,19 +79,19 @@ namespace System.Scsc.Code
       //internal Ui.MethodClubCard.MCC_SAVE_F _Mcc_Save_F { get; set; }
       internal Ui.Admission.ADM_TOTL_F _Adm_Totl_F { get; set; }
       internal Ui.Diseases.CMN_DISE_F _Cmn_Dise_F { get; set; }
-      internal Ui.Cash.PAY_CASH_F _Pay_Cash_F { get; set; }
+      //internal Ui.Cash.PAY_CASH_F _Pay_Cash_F { get; set; }
       internal Ui.CalculateExpense.CAL_EXPN_F _Cal_Expn_F { get; set; }
       internal Ui.CalculateExpense.CAL_CEXC_F _Cal_Cexc_F { get; set; }
       internal Ui.Admission.ADM_CHNG_F _Adm_Chng_F { get; set; }
-      internal Ui.Exam.EXM_TOTL_F _Exm_Totl_F { get; set; }
-      internal Ui.PhysicalFitness.PSF_TOTL_F _Psf_Totl_F { get; set; }
-      internal Ui.CalculateCalorie.CLC_TOTL_F _Clc_Totl_F { get; set; }
-      internal Ui.HeartZone.HRZ_TOTL_F _Hrz_Totl_F { get; set; }
-      internal Ui.ChangeMethodCategory.CMC_TOTL_F _Cmc_Totl_F { get; set; }
-      internal Ui.Test.TST_TOTL_F _Tst_Totl_F { get; set; }
-      internal Ui.Campitition.CMP_TOTL_F _Cmp_Totl_F { get; set; }
+      //internal Ui.Exam.EXM_TOTL_F _Exm_Totl_F { get; set; }
+      //internal Ui.PhysicalFitness.PSF_TOTL_F _Psf_Totl_F { get; set; }
+      //internal Ui.CalculateCalorie.CLC_TOTL_F _Clc_Totl_F { get; set; }
+      //internal Ui.HeartZone.HRZ_TOTL_F _Hrz_Totl_F { get; set; }
+      //internal Ui.ChangeMethodCategory.CMC_TOTL_F _Cmc_Totl_F { get; set; }
+      //internal Ui.Test.TST_TOTL_F _Tst_Totl_F { get; set; }
+      //internal Ui.Campitition.CMP_TOTL_F _Cmp_Totl_F { get; set; }
       //internal Ui.Committee.COM_TOTL_F _Com_Totl_F { get; set; }
-      internal Ui.MethodClubCard.MCC_TOTL_F _Mcc_Totl_F { get; set; }
+      //internal Ui.MethodClubCard.MCC_TOTL_F _Mcc_Totl_F { get; set; }
       internal Ui.Insurance.INS_TOTL_F _Ins_Totl_F { get; set; }
       internal Ui.Settings.CFG_STNG_F _Cfg_Stng_F { get; set; }
       internal Ui.EnablingDisabling.ADM_ENDS_F _Adm_Ends_F { get; set; }
@@ -103,22 +103,22 @@ namespace System.Scsc.Code
       internal Ui.Notifications.NTF_TOTL_F _Ntf_Totl_F { get; set; }
       internal Ui.ReportManager.RPT_LIST_F _Rpt_List_F { get; set; }
       internal Ui.CalculateExpense.CAL_CEXC_P _Cal_Cexc_P { get; set; }
-      internal Ui.ReportManager.ACN_LIST_F _Acn_List_F { get; set; }
+      //internal Ui.ReportManager.ACN_LIST_F _Acn_List_F { get; set; }
       internal Ui.OtherIncome.OIC_TOTL_F _Oic_Totl_F { get; set; }
       internal Ui.POS.POS_TOTL_F _Pos_Totl_F { get; set; }
       internal Ui.Reason.CMN_RESN_F _Cmn_Resn_F { get; set; }
-      internal Ui.OtherIncome.OIC_SRZH_F _Oic_Srzh_F { get; set; }
-      internal Ui.OtherIncome.OIC_SONE_F _Oic_Sone_F { get; set; }
-      internal Ui.OtherIncome.OIC_SMOR_F _Oic_Smor_F { get; set; }
+      //internal Ui.OtherIncome.OIC_SRZH_F _Oic_Srzh_F { get; set; }
+      //internal Ui.OtherIncome.OIC_SONE_F _Oic_Sone_F { get; set; }
+      //internal Ui.OtherIncome.OIC_SMOR_F _Oic_Smor_F { get; set; }
       internal Ui.Settings.BAS_CPR_F _Bas_Cpr_F { get; set; }
       internal Ui.Admission.NEW_FNGR_F _New_Fngr_F { get; set; }
       internal Ui.FingerPrint.FNGR_RSVD_F _Fngr_Rsvd_F { get; set; }
       internal Ui.Organ.ORGN_TOTL_F _Orgn_Totl_F { get; set; }
       internal Ui.ReportManager.RQST_TRAC_F _Rqst_Trac_F { get; set; }
       internal Ui.Notifications.WHO_ARYU_F _Who_Aryu_F { get; set; }
-      internal Ui.Financial.RFD_TOTL_F _Rfd_Totl_F { get; set; }
-      internal Ui.ChangeRials.GLR_TOTL_F _Glr_Totl_F { get; set; }
-      internal Ui.OtherIncome.OIC_SMSN_F _Oic_Smsn_F { get; set; }
+      //internal Ui.Financial.RFD_TOTL_F _Rfd_Totl_F { get; set; }
+      //internal Ui.ChangeRials.GLR_TOTL_F _Glr_Totl_F { get; set; }
+      //internal Ui.OtherIncome.OIC_SMSN_F _Oic_Smsn_F { get; set; }
       internal Ui.Notifications.CHOS_CLAS_F _Chos_Clas_F { get; set; }
       internal Ui.MessageBroadcast.MSGB_TOTL_F _Msgb_Totl_F { get; set; }
       internal Ui.DebitsList.DEBT_LIST_F _Debt_List_F { get; set; }
@@ -130,17 +130,17 @@ namespace System.Scsc.Code
       internal Ui.AggregateOperation.AOP_ATTN_F _Aop_Attn_F { get; set; }
       internal Ui.Admission.ADM_FIGH_F _Adm_Figh_F { get; set; }
       internal Ui.Admission.ADM_MBCO_F _Adm_Mbco_F { get; set; }
-      internal Ui.HumanResource.ADM_HRSR_F _Adm_Hrsr_F { get; set; }
+      //internal Ui.HumanResource.ADM_HRSR_F _Adm_Hrsr_F { get; set; }
       internal Ui.OtherIncome.ADM_BRSR_F _Adm_Brsr_F { get; set; }
       internal Ui.AggregateOperation.AOP_BUFE_F _Aop_Bufe_F { get; set; }
-      internal Ui.HumanResource.ADM_HRSC_F _Adm_Hrsc_F { get; set; }
+      //internal Ui.HumanResource.ADM_HRSC_F _Adm_Hrsc_F { get; set; }
       internal Ui.Admission.ADM_MBFZ_F _Adm_Mbfz_F { get; set; }
       internal Ui.Admission.ADM_MBSM_F _Adm_Mbsm_F { get; set; }
       internal Ui.ReportManager.RPT_PMMT_F _Rpt_Pmmt_F { get; set; }
-      internal Ui.DataAnalysis.DAP_PIVT_F _Dap_Pivt_F { get; set; }
-      internal Ui.DataAnalysis.DAP_CHRT_F _Dap_Chrt_F { get; set; }
+      //internal Ui.DataAnalysis.DAP_PIVT_F _Dap_Pivt_F { get; set; }
+      //internal Ui.DataAnalysis.DAP_CHRT_F _Dap_Chrt_F { get; set; }
       internal Ui.Settings.CNF_STNG_F _Cnf_Stng_F { get; set; }
-      internal Ui.DataAnalysis.DAP_DSHB_F _Dap_Dshb_F { get; set; }
+      //internal Ui.DataAnalysis.DAP_DSHB_F _Dap_Dshb_F { get; set; }
       internal Ui.Notifications.ATTN_DAYN_F _Attn_Dayn_F { get; set; }
       internal Ui.UserAction.USR_ACTN_F _Usr_Actn_F { get; set; }
       internal Ui.UserAction.USR_CTBL_F _Usr_Ctbl_F { get; set; }
@@ -160,9 +160,9 @@ namespace System.Scsc.Code
       internal Ui.ChangeMethodCategory.ShowChanges.SHOW_CTRQ_F _Show_Ctrq_F { get; set; }
       internal Ui.EnablingDisabling.ShowChanges.SHOW_DERQ_F _Show_Derq_F { get; set; }
       internal Ui.Admission.ShowChanges.SHOW_UCRQ_F _Show_Ucrq_F { get; set; }
-      internal Ui.OtherIncome.ShowChanges.SHOW_OMRQ_F _Show_Omrq_F { get; set; }
-      internal Ui.OtherExpense.ShowChanges.SHOW_EMRQ_F _Show_Emrq_F { get; set; }
-      internal Ui.Financial.ShowChanges.SHOW_RFDT_F _Show_Rfdt_F { get; set; }
-      internal Ui.ChangeRials.ShowChanges.SHOW_GLRL_F _Show_Glrl_F { get; set; }
+      //internal Ui.OtherIncome.ShowChanges.SHOW_OMRQ_F _Show_Omrq_F { get; set; }
+      //internal Ui.OtherExpense.ShowChanges.SHOW_EMRQ_F _Show_Emrq_F { get; set; }
+      //internal Ui.Financial.ShowChanges.SHOW_RFDT_F _Show_Rfdt_F { get; set; }
+      //internal Ui.ChangeRials.ShowChanges.SHOW_GLRL_F _Show_Glrl_F { get; set; }
    }
 }

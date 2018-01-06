@@ -55,7 +55,7 @@ namespace System.Scsc.Ui.BodyFitness
             iScsc.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("خطا در انجام عملیات");
          }
@@ -78,7 +78,7 @@ namespace System.Scsc.Ui.BodyFitness
             iScsc.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("خطا در انجام عملیات");
          }
@@ -103,7 +103,7 @@ namespace System.Scsc.Ui.BodyFitness
             iScsc.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("خطا در انجام عملیات");
          }
@@ -127,7 +127,7 @@ namespace System.Scsc.Ui.BodyFitness
 
             requery = true;
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("خطا در انجام عملیات");
          }

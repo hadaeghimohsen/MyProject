@@ -106,7 +106,7 @@ namespace System.Scsc.Ui.CalculateExpense
             PrctValu_Txt.EditValue = cexc.PRCT_VALU;
             Stat_Pkbt.PickChecked = cexc.STAT == "002" ? true : false;
          }
-         catch (Exception exc){}
+         catch (Exception ){}
       }
 
       private void Stat_Pkbt_PickCheckedChange(object sender)
@@ -118,7 +118,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             cexc.STAT = Stat_Pkbt.PickChecked ? "002" : "001";
          }
-         catch (Exception exc) { }
+         catch (Exception ) { }
       }
 
       private void Mtod_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -129,7 +129,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == mtod && c.CTGY_STAT == "002");
          }
-         catch (Exception exc){}
+         catch (Exception ){}
       }      
    }
 }

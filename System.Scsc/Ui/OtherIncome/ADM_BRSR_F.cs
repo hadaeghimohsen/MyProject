@@ -284,7 +284,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
@@ -522,7 +522,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             CtgyBs1.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long)mtod);
          }
-         catch (Exception exc)
+         catch (Exception )
          {
                         
          }

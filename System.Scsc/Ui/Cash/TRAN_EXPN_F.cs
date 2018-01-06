@@ -253,7 +253,7 @@ namespace System.Scsc.Ui.Cash
                   ex.Expense_Type.Request_Requester.RQTT_CODE == rqst.RQTT_CODE &&
                   ex.EXPN_STAT == "002");
          }
-         catch (Exception exc){}
+         catch (Exception ){}
       }
 
       private void FighBs_CurrentChanged(object sender, EventArgs e)
@@ -306,7 +306,7 @@ namespace System.Scsc.Ui.Cash
                      ex.EXPN_STAT == "002");
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

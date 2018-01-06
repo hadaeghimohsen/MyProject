@@ -1023,7 +1023,7 @@ namespace System.Scsc.Ui.OtherIncome
             else
                FreeAdm_Pn.Visible = false;
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

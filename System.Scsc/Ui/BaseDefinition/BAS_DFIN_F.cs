@@ -1185,7 +1185,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception exc)
+         catch (Exception )            
          {
 
          }
@@ -1216,7 +1216,7 @@ namespace System.Scsc.Ui.BaseDefinition
                )
             );
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             throw;
          }
@@ -1452,7 +1452,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }
@@ -1476,7 +1476,7 @@ namespace System.Scsc.Ui.BaseDefinition
             }
             requery = true;
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }

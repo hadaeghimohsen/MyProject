@@ -543,7 +543,7 @@ namespace System.Scsc.Ui.Admission
 
              }
          }
-         catch (Exception exc)
+         catch (Exception )
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }

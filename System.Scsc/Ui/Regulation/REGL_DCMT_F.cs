@@ -281,7 +281,7 @@ namespace System.Scsc.Ui.Regulation
 
             expn.EXPN_DESC = string.Format("{0} {1}، {2}", expn.Expense_Type.Expense_Item.EPIT_DESC, expn.Method.MTOD_DESC, expn.Category_Belt.CTGY_DESC);
          }
-         catch (Exception exc)
+         catch (Exception )
          {
 
          }
@@ -297,8 +297,8 @@ namespace System.Scsc.Ui.Regulation
                expn.EXPN_DESC = string.Format("{0} {1}، {2}", expn.Expense_Type.Expense_Item.EPIT_DESC, expn.Method.MTOD_DESC, expn.Category_Belt.CTGY_DESC);
             }
          }
-         catch (Exception exc)
-         {         }
+         catch (Exception )
+         {}
       }
 
       private void SetCashActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

@@ -162,7 +162,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   }
                );
          }
-         catch (Exception exc)
+         catch (Exception )
          {}
       }
 

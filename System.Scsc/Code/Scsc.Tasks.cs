@@ -53,13 +53,13 @@ namespace System.Scsc.Code
          }
          else if (value == "mstr_mtod_f")
          {
-            if (_Mstr_Mtod_F == null)
-               _Mstr_Mtod_F = new Ui.Method.MSTR_MTOD_F { _DefaultGateway = this };
+            //if (_Mstr_Mtod_F == null)
+            //   _Mstr_Mtod_F = new Ui.Method.MSTR_MTOD_F { _DefaultGateway = this };
          }
          else if (value == "mstr_regn_f")
          {
-            if (_Mstr_Regn_F == null)
-               _Mstr_Regn_F = new Ui.Region.MSTR_REGN_F { _DefaultGateway = this };
+            //if (_Mstr_Regn_F == null)
+            //   _Mstr_Regn_F = new Ui.Region.MSTR_REGN_F { _DefaultGateway = this };
          }
          else if (value == "mstr_epit_f")
          {
@@ -68,23 +68,23 @@ namespace System.Scsc.Code
          }
          else if (value == "mstr_club_f")
          {
-            if (_Mstr_Club_F == null)
-               _Mstr_Club_F = new Ui.Club.MSTR_CLUB_F { _DefaultGateway = this };
+            //if (_Mstr_Club_F == null)
+            //   _Mstr_Club_F = new Ui.Club.MSTR_CLUB_F { _DefaultGateway = this };
          }
          else if (value == "main_subs_f")
          {
-            if (_Main_Subs_F == null)
-               _Main_Subs_F = new Ui.MainSubStat.MAIN_SUBS_F { _DefaultGateway = this };
+            //if (_Main_Subs_F == null)
+            //   _Main_Subs_F = new Ui.MainSubStat.MAIN_SUBS_F { _DefaultGateway = this };
          }
          else if (value == "rqst_type_f")
          {
-            if (_Rqst_Type_F == null)
-               _Rqst_Type_F = new Ui.RequestType.RQST_TYPE_F { _DefaultGateway = this };
+            //if (_Rqst_Type_F == null)
+            //   _Rqst_Type_F = new Ui.RequestType.RQST_TYPE_F { _DefaultGateway = this };
          }
          else if (value == "rqtr_type_f")
          {
-            if (_Rqtr_Type_F == null)
-               _Rqtr_Type_F = new Ui.RequesterType.RQTR_TYPE_F { _DefaultGateway = this };
+            //if (_Rqtr_Type_F == null)
+            //   _Rqtr_Type_F = new Ui.RequesterType.RQTR_TYPE_F { _DefaultGateway = this };
          }
          //else if (value == "adm_rqst_f")
          //{
@@ -348,8 +348,8 @@ namespace System.Scsc.Code
          }
          else if (value == "pay_cash_f")
          {
-            if (_Pay_Cash_F == null)
-               _Pay_Cash_F = new Ui.Cash.PAY_CASH_F { _DefaultGateway = this };
+            //if (_Pay_Cash_F == null)
+            //   _Pay_Cash_F = new Ui.Cash.PAY_CASH_F { _DefaultGateway = this };
          }
          else if (value == "cal_expn_f")
          {
@@ -368,38 +368,38 @@ namespace System.Scsc.Code
          }
          else if (value == "exm_totl_f")
          {
-            if (_Exm_Totl_F == null)
-               _Exm_Totl_F = new Ui.Exam.EXM_TOTL_F { _DefaultGateway = this };
+            //if (_Exm_Totl_F == null)
+            //   _Exm_Totl_F = new Ui.Exam.EXM_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "psf_totl_f")
          {
-            if (_Psf_Totl_F == null)
-               _Psf_Totl_F = new Ui.PhysicalFitness.PSF_TOTL_F { _DefaultGateway = this };
+            //if (_Psf_Totl_F == null)
+            //   _Psf_Totl_F = new Ui.PhysicalFitness.PSF_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "clc_totl_f")
          {
-            if (_Clc_Totl_F == null)
-               _Clc_Totl_F = new Ui.CalculateCalorie.CLC_TOTL_F { _DefaultGateway = this };
+            //if (_Clc_Totl_F == null)
+            //   _Clc_Totl_F = new Ui.CalculateCalorie.CLC_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "hrz_totl_f")
          {
-            if (_Hrz_Totl_F == null)
-               _Hrz_Totl_F = new Ui.HeartZone.HRZ_TOTL_F { _DefaultGateway = this };
+            //if (_Hrz_Totl_F == null)
+            //   _Hrz_Totl_F = new Ui.HeartZone.HRZ_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "cmc_totl_f")
          {
-            if (_Cmc_Totl_F == null)
-               _Cmc_Totl_F = new Ui.ChangeMethodCategory.CMC_TOTL_F { _DefaultGateway = this };
+            //if (_Cmc_Totl_F == null)
+            //   _Cmc_Totl_F = new Ui.ChangeMethodCategory.CMC_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "tst_totl_f")
          {
-            if (_Tst_Totl_F == null)
-               _Tst_Totl_F = new Ui.Test.TST_TOTL_F { _DefaultGateway = this };
+            //if (_Tst_Totl_F == null)
+            //   _Tst_Totl_F = new Ui.Test.TST_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "cmp_totl_f")
          {
-            if (_Cmp_Totl_F == null)
-               _Cmp_Totl_F = new Ui.Campitition.CMP_TOTL_F { _DefaultGateway = this };
+            //if (_Cmp_Totl_F == null)
+            //   _Cmp_Totl_F = new Ui.Campitition.CMP_TOTL_F { _DefaultGateway = this };
          }
          //else if (value == "com_totl_f")
          //{
@@ -408,8 +408,8 @@ namespace System.Scsc.Code
          //}
          else if (value == "mcc_totl_f")
          {
-            if (_Mcc_Totl_F == null)
-               _Mcc_Totl_F = new Ui.MethodClubCard.MCC_TOTL_F { _DefaultGateway = this };
+            //if (_Mcc_Totl_F == null)
+            //   _Mcc_Totl_F = new Ui.MethodClubCard.MCC_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "ins_totl_f")
          {
@@ -468,8 +468,8 @@ namespace System.Scsc.Code
          }
          else if (value == "acn_list_f")
          {
-            if (_Acn_List_F == null)
-               _Acn_List_F = new Ui.ReportManager.ACN_LIST_F { _DefaultGateway = this };
+            //if (_Acn_List_F == null)
+            //   _Acn_List_F = new Ui.ReportManager.ACN_LIST_F { _DefaultGateway = this };
          }
          else if (value == "oic_totl_f")
          {
@@ -488,18 +488,18 @@ namespace System.Scsc.Code
          }
          else if (value == "oic_srzh_f")
          {
-            if (_Oic_Srzh_F == null)
-               _Oic_Srzh_F = new Ui.OtherIncome.OIC_SRZH_F { _DefaultGateway = this };
+            //if (_Oic_Srzh_F == null)
+            //   _Oic_Srzh_F = new Ui.OtherIncome.OIC_SRZH_F { _DefaultGateway = this };
          }
          else if (value == "oic_sone_f")
          {
-            if (_Oic_Sone_F == null)
-               _Oic_Sone_F = new Ui.OtherIncome.OIC_SONE_F { _DefaultGateway = this };
+            //if (_Oic_Sone_F == null)
+            //   _Oic_Sone_F = new Ui.OtherIncome.OIC_SONE_F { _DefaultGateway = this };
          }
          else if (value == "oic_smor_f")
          {
-            if (_Oic_Smor_F == null)
-               _Oic_Smor_F = new Ui.OtherIncome.OIC_SMOR_F { _DefaultGateway = this };
+            //if (_Oic_Smor_F == null)
+            //   _Oic_Smor_F = new Ui.OtherIncome.OIC_SMOR_F { _DefaultGateway = this };
          }
          else if (value == "bas_cpr_f")
          {
@@ -533,18 +533,18 @@ namespace System.Scsc.Code
          }
          else if(value == "rfd_totl_f")
          {
-            if (_Rfd_Totl_F == null)
-               _Rfd_Totl_F = new Ui.Financial.RFD_TOTL_F { _DefaultGateway = this };
+            //if (_Rfd_Totl_F == null)
+            //   _Rfd_Totl_F = new Ui.Financial.RFD_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "glr_totl_f")
          {
-            if (_Glr_Totl_F == null)
-               _Glr_Totl_F = new Ui.ChangeRials.GLR_TOTL_F { _DefaultGateway = this };
+            //if (_Glr_Totl_F == null)
+            //   _Glr_Totl_F = new Ui.ChangeRials.GLR_TOTL_F { _DefaultGateway = this };
          }
          else if (value == "oic_smsn_f")
          {
-            if (_Oic_Smsn_F == null)
-               _Oic_Smsn_F = new Ui.OtherIncome.OIC_SMSN_F { _DefaultGateway = this };
+            //if (_Oic_Smsn_F == null)
+            //   _Oic_Smsn_F = new Ui.OtherIncome.OIC_SMSN_F { _DefaultGateway = this };
          }
          else if(value == "chos_clas_f")
          {
@@ -608,8 +608,8 @@ namespace System.Scsc.Code
          }
          else if (value == "adm_hrsr_f")
          {
-            if (_Adm_Hrsr_F == null)
-               _Adm_Hrsr_F = new Ui.HumanResource.ADM_HRSR_F { _DefaultGateway = this };
+            //if (_Adm_Hrsr_F == null)
+            //   _Adm_Hrsr_F = new Ui.HumanResource.ADM_HRSR_F { _DefaultGateway = this };
          }
          else if (value == "adm_brsr_f")
          {
@@ -623,8 +623,8 @@ namespace System.Scsc.Code
          }
          else if (value == "adm_hrsc_f")
          {
-            if (_Adm_Hrsc_F == null)
-               _Adm_Hrsc_F = new Ui.HumanResource.ADM_HRSC_F { _DefaultGateway = this };
+            //if (_Adm_Hrsc_F == null)
+            //   _Adm_Hrsc_F = new Ui.HumanResource.ADM_HRSC_F { _DefaultGateway = this };
          }
          else if(value == "adm_mbfz_f")
          {
@@ -643,13 +643,13 @@ namespace System.Scsc.Code
          }
          else if(value == "dap_pivt_f")
          {
-            if (_Dap_Pivt_F == null)
-               _Dap_Pivt_F = new Ui.DataAnalysis.DAP_PIVT_F { _DefaultGateway = this };
+            //if (_Dap_Pivt_F == null)
+            //   _Dap_Pivt_F = new Ui.DataAnalysis.DAP_PIVT_F { _DefaultGateway = this };
          }
          else if(value == "dap_chrt_f")
          {
-            if (_Dap_Chrt_F == null)
-               _Dap_Chrt_F = new Ui.DataAnalysis.DAP_CHRT_F { _DefaultGateway = this };
+            //if (_Dap_Chrt_F == null)
+            //   _Dap_Chrt_F = new Ui.DataAnalysis.DAP_CHRT_F { _DefaultGateway = this };
          }
          else if (value == "cnf_stng_f")
          {
@@ -658,8 +658,8 @@ namespace System.Scsc.Code
          }
          else if (value == "dap_dshb_f")
          {
-            if (_Dap_Dshb_F == null)
-               _Dap_Dshb_F = new Ui.DataAnalysis.DAP_DSHB_F { _DefaultGateway = this };
+            //if (_Dap_Dshb_F == null)
+            //   _Dap_Dshb_F = new Ui.DataAnalysis.DAP_DSHB_F { _DefaultGateway = this };
          }
          else if (value == "lsi_fdlf_f")
          {
@@ -755,23 +755,23 @@ namespace System.Scsc.Code
          }
          else if (value == "show_omrq_f")
          {
-            if (_Show_Omrq_F == null)
-               _Show_Omrq_F = new Ui.OtherIncome.ShowChanges.SHOW_OMRQ_F { _DefaultGateway = this };
+            //if (_Show_Omrq_F == null)
+            //   _Show_Omrq_F = new Ui.OtherIncome.ShowChanges.SHOW_OMRQ_F { _DefaultGateway = this };
          }
          else if (value == "show_emrq_f")
          {
-            if (_Show_Emrq_F == null)
-               _Show_Emrq_F = new Ui.OtherExpense.ShowChanges.SHOW_EMRQ_F { _DefaultGateway = this };
+            //if (_Show_Emrq_F == null)
+            //   _Show_Emrq_F = new Ui.OtherExpense.ShowChanges.SHOW_EMRQ_F { _DefaultGateway = this };
          }
          else if (value == "show_rfdt_f")
          {
-            if (_Show_Rfdt_F == null)
-               _Show_Rfdt_F = new Ui.Financial.ShowChanges.SHOW_RFDT_F { _DefaultGateway = this };
+            //if (_Show_Rfdt_F == null)
+            //   _Show_Rfdt_F = new Ui.Financial.ShowChanges.SHOW_RFDT_F { _DefaultGateway = this };
          }
          else if (value == "show_glrl_f")
          {
-            if (_Show_Glrl_F == null)
-               _Show_Glrl_F = new Ui.ChangeRials.ShowChanges.SHOW_GLRL_F { _DefaultGateway = this };
+            //if (_Show_Glrl_F == null)
+            //   _Show_Glrl_F = new Ui.ChangeRials.ShowChanges.SHOW_GLRL_F { _DefaultGateway = this };
          }
          
          job.Status = StatusType.Successful;

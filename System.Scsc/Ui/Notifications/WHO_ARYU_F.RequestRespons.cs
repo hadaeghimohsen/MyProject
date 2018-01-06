@@ -17,7 +17,7 @@ namespace System.Scsc.Ui.Notifications
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
-      private string Fga_Uprv_U, Fga_Urgn_U;
+      //private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       int Sleeping = 1;
       int step = 15;

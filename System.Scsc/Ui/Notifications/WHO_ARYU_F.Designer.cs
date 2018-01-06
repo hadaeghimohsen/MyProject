@@ -39,15 +39,14 @@
          System.Windows.Forms.Label label5;
          System.Windows.Forms.Label label6;
          System.Windows.Forms.Label label7;
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
          System.Windows.Forms.Label label8;
-         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
          this.Lbl_AmntType = new System.Windows.Forms.Label();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -96,6 +95,11 @@
          this.panel5 = new System.Windows.Forms.Panel();
          this.SaveAttnDesc_Txt = new DevExpress.XtraEditors.SimpleButton();
          this.TotlAttnTime_Lbl = new DevExpress.XtraEditors.TextEdit();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.PrintDefault_Butn = new System.Windows.Forms.ToolStripButton();
+         this.Print_Butn = new System.Windows.Forms.ToolStripButton();
+         this.PrintSetting_Butn = new System.Windows.Forms.ToolStripButton();
+         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          eXIT_TIMELabel = new System.Windows.Forms.Label();
          eNTR_TIMELabel = new System.Windows.Forms.Label();
          label13 = new System.Windows.Forms.Label();
@@ -107,7 +111,6 @@
          label6 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
-         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EXIT_TIMETextEdit.Properties)).BeginInit();
@@ -128,6 +131,7 @@
          this.panel4.SuspendLayout();
          this.panel5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.TotlAttnTime_Lbl.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // eXIT_TIMELabel
@@ -222,11 +226,6 @@
          label6.Text = "بدن سازی";
          label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // AttnBs1
-         // 
-         this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
-         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
-         // 
          // label7
          // 
          label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Category_Belt.CTGY_DESC", true));
@@ -240,6 +239,15 @@
          label7.TabIndex = 26;
          label7.Text = "12 جلسه ای";
          label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label8
+         // 
+         label8.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         label8.Image = global::System.Scsc.Properties.Resources.IMAGE_1121;
+         label8.Location = new System.Drawing.Point(348, 258);
+         label8.Name = "label8";
+         label8.Size = new System.Drawing.Size(38, 41);
+         label8.TabIndex = 30;
          // 
          // Lbl_AmntType
          // 
@@ -497,7 +505,11 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.SRCH_BUTN01,
-            this.RqstBnExit1});
+            this.RqstBnExit1,
+            this.toolStripSeparator1,
+            this.PrintDefault_Butn,
+            this.Print_Butn,
+            this.PrintSetting_Butn});
          this.AttnBn1.Location = new System.Drawing.Point(0, 501);
          this.AttnBn1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.AttnBn1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -740,16 +752,16 @@
          this.DresNumb_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DresNumb_Butn.Name = "DresNumb_Butn";
          this.DresNumb_Butn.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem7.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem7.Appearance.Options.UseImage = true;
-         toolTipTitleItem7.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem7.Text = "تحویل کلید به اعضا";
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
+         toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Text = "تحویل کلید به اعضا";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip7.Items.Add(toolTipTitleItem7);
-         superToolTip7.Items.Add(toolTipItem7);
-         this.DresNumb_Butn.SuperTip = superToolTip7;
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.DresNumb_Butn.SuperTip = superToolTip1;
          this.DresNumb_Butn.TabIndex = 81;
          this.DresNumb_Butn.Click += new System.EventHandler(this.DresNumb_Butn_Click);
          // 
@@ -898,27 +910,18 @@
          this.SaveAttnDesc_Txt.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveAttnDesc_Txt.Name = "SaveAttnDesc_Txt";
          this.SaveAttnDesc_Txt.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem8.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem8.Text = "تحویل کلید به اعضا";
-         toolTipItem8.LeftIndent = 6;
-         toolTipItem8.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
+         toolTipTitleItem2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem2.Text = "تحویل کلید به اعضا";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip8.Items.Add(toolTipTitleItem8);
-         superToolTip8.Items.Add(toolTipItem8);
-         this.SaveAttnDesc_Txt.SuperTip = superToolTip8;
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.SaveAttnDesc_Txt.SuperTip = superToolTip2;
          this.SaveAttnDesc_Txt.TabIndex = 81;
          this.SaveAttnDesc_Txt.Click += new System.EventHandler(this.SaveAttnDesc_Txt_Click);
-         // 
-         // label8
-         // 
-         label8.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label8.Image = global::System.Scsc.Properties.Resources.IMAGE_1121;
-         label8.Location = new System.Drawing.Point(348, 258);
-         label8.Name = "label8";
-         label8.Size = new System.Drawing.Size(38, 41);
-         label8.TabIndex = 30;
          // 
          // TotlAttnTime_Lbl
          // 
@@ -942,6 +945,43 @@
          this.TotlAttnTime_Lbl.Size = new System.Drawing.Size(67, 46);
          this.TotlAttnTime_Lbl.TabIndex = 24;
          this.TotlAttnTime_Lbl.ToolTip = "مدت زمان حضور در باشگاه";
+         // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
+         // 
+         // PrintDefault_Butn
+         // 
+         this.PrintDefault_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.PrintDefault_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.PrintDefault_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.PrintDefault_Butn.Name = "PrintDefault_Butn";
+         this.PrintDefault_Butn.Size = new System.Drawing.Size(44, 44);
+         this.PrintDefault_Butn.Text = "toolStripButton1";
+         // 
+         // Print_Butn
+         // 
+         this.Print_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.Print_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1090;
+         this.Print_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.Print_Butn.Name = "Print_Butn";
+         this.Print_Butn.Size = new System.Drawing.Size(44, 44);
+         this.Print_Butn.Text = "toolStripButton2";
+         // 
+         // PrintSetting_Butn
+         // 
+         this.PrintSetting_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.PrintSetting_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
+         this.PrintSetting_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.PrintSetting_Butn.Name = "PrintSetting_Butn";
+         this.PrintSetting_Butn.Size = new System.Drawing.Size(44, 44);
+         this.PrintSetting_Butn.Text = "toolStripButton3";
+         // 
+         // AttnBs1
+         // 
+         this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
+         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
          // 
          // WHO_ARYU_F
          // 
@@ -972,7 +1012,6 @@
          this.Name = "WHO_ARYU_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(906, 548);
-         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EXIT_TIMETextEdit.Properties)).EndInit();
@@ -997,6 +1036,7 @@
          this.panel4.ResumeLayout(false);
          this.panel5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.TotlAttnTime_Lbl.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1053,6 +1093,10 @@
       private Windows.Forms.RichTextBox AttnDesc_Txt;
       private DevExpress.XtraEditors.SimpleButton SaveAttnDesc_Txt;
       private DevExpress.XtraEditors.TextEdit TotlAttnTime_Lbl;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator1;
+      private Windows.Forms.ToolStripButton PrintDefault_Butn;
+      private Windows.Forms.ToolStripButton Print_Butn;
+      private Windows.Forms.ToolStripButton PrintSetting_Butn;
 
    }
 }

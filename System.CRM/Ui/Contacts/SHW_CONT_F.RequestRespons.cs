@@ -80,6 +80,8 @@ namespace System.CRM.Ui.Contacts
             FrstName_Txt.Focus();
             FrstName_Txt.Text = LastName_Txt.Text = CellPhon_Txt.Text = TellPhon_Txt.Text = NatlCode_Txt.Text = ServNo_Txt.Text = PostAddr_Txt.Text = CordX_Txt.Text = CordY_Txt.Text = Radius_Txt.Text = EmalAddr_Txt.Text = "";
             BothSex_Rb.Checked = true;
+            ConfDate_Dat.Value = null;
+            MainStat_Lov.EditValue = SubStat_Lov.EditValue = null;
             tc_master.SelectedTab = tp_002;
          }
          else if (keyData == Keys.Escape)
@@ -203,8 +205,9 @@ namespace System.CRM.Ui.Contacts
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DsstgBs.DataSource = iCRM.D_SSTGs;
-         DslonBs.DataSource = iCRM.D_SLONs;         
+         //DsstgBs.DataSource = iCRM.D_SSTGs;
+         //DslonBs.DataSource = iCRM.D_SLONs;         
+         MsttBs.DataSource = iCRM.Main_States;
          job.Status = StatusType.Successful;
       }      
 

@@ -119,6 +119,10 @@ namespace System.Scsc.Ui.Notifications
             Lbl_AccessControl.ForeColor = Color.GreenYellow;
             DRES_NUMB_Txt.Properties.ReadOnly = false;
             DresNumb_Butn.Enabled = true;
+
+            // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
+            if (iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
+               PrintDefault_Butn_Click(null, null);
          }
 
          if(gateControl)
@@ -480,12 +484,6 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            if (!AttnDate_Date.Value.HasValue)
-            {
-               AttnDate_Date.Focus();
-               return;
-            }
-
             var attn = AttnBs1.Current as Data.Attendance;
             if (attn == null) return;
 
@@ -493,7 +491,7 @@ namespace System.Scsc.Ui.Notifications
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Code = {0}", attn.CODE))}
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("a.Code = {0}", attn.CODE))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -511,7 +509,7 @@ namespace System.Scsc.Ui.Notifications
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Code = {0}", attn.CODE))}
+                       new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("a.Code = {0}", attn.CODE))}
                     });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -523,10 +521,10 @@ namespace System.Scsc.Ui.Notifications
          Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
                  new List<Job>
-                  {
+                 {
                      new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
-                  });
+                 });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 

@@ -597,7 +597,8 @@ namespace System.Scsc.Ui.Notifications
                )
             );
 
-            var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
 
             if(Lov_FileName2.EditValue != null)
@@ -738,7 +739,8 @@ namespace System.Scsc.Ui.Notifications
             );
 
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error );
             
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
@@ -867,7 +869,9 @@ namespace System.Scsc.Ui.Notifications
             );
 
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
@@ -993,7 +997,8 @@ namespace System.Scsc.Ui.Notifications
                )
             );
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error );
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
@@ -1069,7 +1074,8 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -1144,7 +1150,8 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -1197,7 +1204,8 @@ namespace System.Scsc.Ui.Notifications
          }catch(Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
 
@@ -1260,7 +1268,8 @@ namespace System.Scsc.Ui.Notifications
          }catch(Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
 

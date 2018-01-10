@@ -97,7 +97,8 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception exc)
          {
-            MsgBox.Show(exc.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //MsgBox.Show(exc.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, exc.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -120,7 +121,8 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {

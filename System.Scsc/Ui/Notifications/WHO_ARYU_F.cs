@@ -390,7 +390,8 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             Lbl_Dresser.BackColor = Color.Tomato;
-            MsgBox.Show(exc.Message, "خطای ثبت کمد شماره کمد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //MsgBox.Show(exc.Message, "خطای ثبت کمد شماره کمد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, exc.Message, "خطای ثبت کمد شماره کمد", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -468,7 +469,8 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception exc)
          {
-            MsgBox.Show(exc.Message, "برای ثبت اطلاعات توضیحات با خطا مواجه شد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //MsgBox.Show(exc.Message, "برای ثبت اطلاعات توضیحات با خطا مواجه شد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, exc.Message, "برای ثبت اطلاعات توضیحات با خطا مواجه شد", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {

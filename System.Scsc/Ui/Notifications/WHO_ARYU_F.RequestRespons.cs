@@ -117,7 +117,7 @@ namespace System.Scsc.Ui.Notifications
 
          //Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          //Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
-         //Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)

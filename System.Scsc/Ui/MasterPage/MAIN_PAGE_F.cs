@@ -724,21 +724,32 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             if(!recycleService)
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
-                        new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
-                        {
-                           Input = 
-                           new XElement("Fighter",
-                              new XAttribute("enrollnumber", EnrollNumber),
-                              new XAttribute("isnewenroll", true)
-                           )
-                        }
-                     })
-               );
+            {
+               Job _InteractWithScsc =
+                  new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 123 /* Execute Adm_FIGH_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
+                  });
+               _DefaultGateway.Gateway(_InteractWithScsc);
+
+               //_DefaultGateway.Gateway(
+               //   new Job(SendType.External, "localhost",
+               //      new List<Job>
+               //      {
+               //         new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
+               //         new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
+               //         {
+               //            Input = 
+               //            new XElement("Fighter",
+               //               new XAttribute("enrollnumber", EnrollNumber),
+               //               new XAttribute("isnewenroll", true)
+               //            )
+               //         }
+               //      })
+               //);
+            }               
             else
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }

@@ -68,7 +68,7 @@ namespace System.Scsc.Ui.Notifications
                      iScsc.Attendances
                      .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)
                         && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
-                        && a.MBSP_RWNO_DNRM == mbsprwno
+                        && a.MBSP_RWNO_DNRM == (mbsprwno == null ? a.MBSP_RWNO_DNRM : mbsprwno)
                         && a.EXIT_TIME == null
                       )
                      .OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
@@ -78,7 +78,7 @@ namespace System.Scsc.Ui.Notifications
                         iScsc.Attendances
                         .Where(a => a.FIGH_FILE_NO == Convert.ToInt64(fileno)
                            && a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date
-                           && a.MBSP_RWNO_DNRM == mbsprwno
+                           && a.MBSP_RWNO_DNRM == (mbsprwno == null ? a.MBSP_RWNO_DNRM : mbsprwno)
                            && a.EXIT_TIME != null
                          )
                         .OrderByDescending(a => a.EXIT_TIME).FirstOrDefault();

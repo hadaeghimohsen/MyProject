@@ -119,6 +119,7 @@
          this.Btn_AdmReserve.TabIndex = 0;
          this.Btn_AdmReserve.Text = "ثبت نام رزروی";
          this.Btn_AdmReserve.UseVisualStyleBackColor = true;
+         this.Btn_AdmReserve.Visible = false;
          // 
          // Btn_AdmGroupSession
          // 
@@ -131,6 +132,7 @@
          this.Btn_AdmGroupSession.TabIndex = 0;
          this.Btn_AdmGroupSession.Text = "ثبت نام سانس گروهی ";
          this.Btn_AdmGroupSession.UseVisualStyleBackColor = true;
+         this.Btn_AdmGroupSession.Visible = false;
          this.Btn_AdmGroupSession.Click += new System.EventHandler(this.Btn_AdmGroupSession_Click);
          // 
          // Btn_AdmNumbSession
@@ -144,6 +146,7 @@
          this.Btn_AdmNumbSession.TabIndex = 0;
          this.Btn_AdmNumbSession.Text = "ثبت نام جلسه ای";
          this.Btn_AdmNumbSession.UseVisualStyleBackColor = true;
+         this.Btn_AdmNumbSession.Visible = false;
          this.Btn_AdmNumbSession.Click += new System.EventHandler(this.Btn_AdmNumbSession_Click);
          // 
          // tb_master
@@ -186,6 +189,7 @@
          this.Btn_CoachAdmission.TabIndex = 1;
          this.Btn_CoachAdmission.Text = "ثبت نام مربی";
          this.Btn_CoachAdmission.UseVisualStyleBackColor = true;
+         this.Btn_CoachAdmission.Visible = false;
          this.Btn_CoachAdmission.Click += new System.EventHandler(this.Btn_CoachAdmission_Click);
          // 
          // Btn_ComposeAdmission
@@ -198,6 +202,7 @@
          this.Btn_ComposeAdmission.TabIndex = 0;
          this.Btn_ComposeAdmission.Text = "ثبت نام جلسات ترکیبی";
          this.Btn_ComposeAdmission.UseVisualStyleBackColor = true;
+         this.Btn_ComposeAdmission.Visible = false;
          this.Btn_ComposeAdmission.Click += new System.EventHandler(this.Btn_ComposeAdmission_Click);
          // 
          // tp_002
@@ -224,6 +229,7 @@
          this.Btn_IncNumbSession.TabIndex = 2;
          this.Btn_IncNumbSession.Text = "تمدید جلسات ترکیبی";
          this.Btn_IncNumbSession.UseVisualStyleBackColor = true;
+         this.Btn_IncNumbSession.Visible = false;
          this.Btn_IncNumbSession.Click += new System.EventHandler(this.Btn_IncNumbSession_Click);
          // 
          // Btn_ApproveExitBlocking

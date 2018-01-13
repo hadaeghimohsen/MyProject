@@ -20,7 +20,10 @@ namespace System.Scsc.Ui.ReportManager
 
       private void vc_reportviewer_Close(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 04 /* Execute UnPaint */, SendType.SelfToUserInterface));
+         //_DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 04 /* Execute UnPaint */, SendType.SelfToUserInterface));
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+         );
       }
    }
 }

@@ -62,7 +62,10 @@ namespace System.Scsc.Ui.ReportManager
 
       private void mb_back_Click(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 04 /* Execute Un_Paint */, SendType.SelfToUserInterface) );
+         //_DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 04 /* Execute Un_Paint */, SendType.SelfToUserInterface) );
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+         );
       }
    }
 }

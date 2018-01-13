@@ -98,6 +98,22 @@ namespace System.Scsc.Ui.Settings
          }
          else if (keyData == Keys.Escape)
          {
+            // 1396/10/23 * 
+            switch (Modul_Name)
+            {
+               case "WHO_ARYU_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {                           
+                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),                           
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+            Modul_Name = "";
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }

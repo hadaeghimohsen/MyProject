@@ -46,7 +46,7 @@
          this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(738, 629);
+         this.tabControl1.Size = new System.Drawing.Size(1025, 629);
          this.tabControl1.TabIndex = 0;
          // 
          // tabPage1
@@ -56,7 +56,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 22);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(730, 603);
+         this.tabPage1.Size = new System.Drawing.Size(1017, 603);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "نمایش گزارش";
          // 
@@ -67,11 +67,12 @@
          this.vc_reportviewer.IgnoreApplyStyle = false;
          this.vc_reportviewer.Location = new System.Drawing.Point(3, 3);
          this.vc_reportviewer.Name = "vc_reportviewer";
+         this.vc_reportviewer.PageViewMode = Stimulsoft.Report.Viewer.StiPageViewMode.SinglePage;
          this.vc_reportviewer.Report = null;
          this.vc_reportviewer.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.vc_reportviewer.ShowToolbar = false;
          this.vc_reportviewer.ShowZoom = true;
-         this.vc_reportviewer.Size = new System.Drawing.Size(724, 597);
+         this.vc_reportviewer.Size = new System.Drawing.Size(1011, 597);
          this.vc_reportviewer.TabIndex = 0;
          this.vc_reportviewer.Close += new System.EventHandler(this.vc_reportviewer_Close);
          // 
@@ -83,7 +84,7 @@
          this.Controls.Add(this.tabControl1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "RPT_MNGR_F";
-         this.Size = new System.Drawing.Size(783, 675);
+         this.Size = new System.Drawing.Size(1070, 675);
          this.tabControl1.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.ResumeLayout(false);

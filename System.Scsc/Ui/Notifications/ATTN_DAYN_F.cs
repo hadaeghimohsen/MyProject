@@ -59,6 +59,7 @@ namespace System.Scsc.Ui.Notifications
                      new Job(SendType.External, "localhost",
                         new List<Job>
                         {
+                           new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){ Input = Keys.Escape },
                            new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
                            new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
                            {
@@ -66,7 +67,8 @@ namespace System.Scsc.Ui.Notifications
                               new XElement("Fighter",
                                  new XAttribute("fileno", attn.FIGH_FILE_NO),
                                  new XAttribute("attndate",attn.ATTN_DATE.Date),
-                                 new XAttribute("attncode", attn.CODE)
+                                 new XAttribute("attncode", attn.CODE),
+                                 new XAttribute("formcaller", GetType().Name)
                               )
                            }
                         })

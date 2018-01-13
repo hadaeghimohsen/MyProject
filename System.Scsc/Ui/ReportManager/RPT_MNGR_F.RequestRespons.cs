@@ -75,6 +75,21 @@ namespace System.Scsc.Ui.ReportManager
          }
          else if (keyData == Keys.Escape)
          {
+            switch (ModualName)
+            {
+               case "WHO_ARYU_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {                           
+                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),                           
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+            ModualName = "";
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }

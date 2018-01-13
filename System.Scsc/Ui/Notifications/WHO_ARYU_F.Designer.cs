@@ -41,12 +41,12 @@
          System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label8;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
-         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
          this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Lbl_AmntType = new System.Windows.Forms.Label();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -72,11 +72,12 @@
          this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
          this.SRCH_BUTN01 = new System.Windows.Forms.ToolStripButton();
-         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.PrintDefault_Butn = new System.Windows.Forms.ToolStripButton();
          this.Print_Butn = new System.Windows.Forms.ToolStripButton();
          this.PrintSetting_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.PrivSesn_Pn = new System.Windows.Forms.Panel();
          this.EndPrivSesn_Date = new Atf.UI.DateTimeSelector();
          this.StrtPrivSesn_Date = new Atf.UI.DateTimeSelector();
@@ -100,7 +101,6 @@
          this.panel5 = new System.Windows.Forms.Panel();
          this.SaveAttnDesc_Txt = new DevExpress.XtraEditors.SimpleButton();
          this.TotlAttnTime_Lbl = new DevExpress.XtraEditors.TextEdit();
-         this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
          eXIT_TIMELabel = new System.Windows.Forms.Label();
          eNTR_TIMELabel = new System.Windows.Forms.Label();
          label13 = new System.Windows.Forms.Label();
@@ -606,18 +606,6 @@
          this.SRCH_BUTN01.Size = new System.Drawing.Size(44, 44);
          this.SRCH_BUTN01.Text = "جستجو";
          // 
-         // RqstBnExit1
-         // 
-         this.RqstBnExit1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.RqstBnExit1.Image = global::System.Scsc.Properties.Resources.IMAGE_1058;
-         this.RqstBnExit1.ImageTransparentColor = System.Drawing.Color.Magenta;
-         this.RqstBnExit1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-         this.RqstBnExit1.Name = "RqstBnExit1";
-         this.RqstBnExit1.Size = new System.Drawing.Size(44, 44);
-         this.RqstBnExit1.Text = "toolStripButton3";
-         this.RqstBnExit1.ToolTipText = "خروج";
-         this.RqstBnExit1.Click += new System.EventHandler(this.RqstBnExit1_Click);
-         // 
          // toolStripSeparator1
          // 
          this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -630,7 +618,7 @@
          this.PrintDefault_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.PrintDefault_Butn.Name = "PrintDefault_Butn";
          this.PrintDefault_Butn.Size = new System.Drawing.Size(44, 44);
-         this.PrintDefault_Butn.Text = "toolStripButton1";
+         this.PrintDefault_Butn.ToolTipText = "نمایش و چاپ گزارش پیش فرض";
          this.PrintDefault_Butn.Click += new System.EventHandler(this.PrintDefault_Butn_Click);
          // 
          // Print_Butn
@@ -640,7 +628,7 @@
          this.Print_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Print_Butn.Name = "Print_Butn";
          this.Print_Butn.Size = new System.Drawing.Size(44, 44);
-         this.Print_Butn.Text = "toolStripButton2";
+         this.Print_Butn.ToolTipText = "انتخاب گزارش";
          this.Print_Butn.Click += new System.EventHandler(this.Print_Butn_Click);
          // 
          // PrintSetting_Butn
@@ -650,8 +638,25 @@
          this.PrintSetting_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.PrintSetting_Butn.Name = "PrintSetting_Butn";
          this.PrintSetting_Butn.Size = new System.Drawing.Size(44, 44);
-         this.PrintSetting_Butn.Text = "toolStripButton3";
+         this.PrintSetting_Butn.ToolTipText = "تنظیمات چاپ";
          this.PrintSetting_Butn.Click += new System.EventHandler(this.PrintSetting_Butn_Click);
+         // 
+         // toolStripSeparator2
+         // 
+         this.toolStripSeparator2.Name = "toolStripSeparator2";
+         this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
+         // 
+         // RqstBnExit1
+         // 
+         this.RqstBnExit1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnExit1.Image = global::System.Scsc.Properties.Resources.IMAGE_1058;
+         this.RqstBnExit1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnExit1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnExit1.Name = "RqstBnExit1";
+         this.RqstBnExit1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnExit1.Text = "toolStripButton3";
+         this.RqstBnExit1.ToolTipText = "خروج";
+         this.RqstBnExit1.Click += new System.EventHandler(this.RqstBnExit1_Click);
          // 
          // PrivSesn_Pn
          // 
@@ -794,16 +799,16 @@
          this.DresNumb_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DresNumb_Butn.Name = "DresNumb_Butn";
          this.DresNumb_Butn.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem5.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem5.Text = "تحویل کلید به اعضا";
-         toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
+         toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Text = "تحویل کلید به اعضا";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip5.Items.Add(toolTipTitleItem5);
-         superToolTip5.Items.Add(toolTipItem5);
-         this.DresNumb_Butn.SuperTip = superToolTip5;
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.DresNumb_Butn.SuperTip = superToolTip1;
          this.DresNumb_Butn.TabIndex = 81;
          this.DresNumb_Butn.Click += new System.EventHandler(this.DresNumb_Butn_Click);
          // 
@@ -952,16 +957,16 @@
          this.SaveAttnDesc_Txt.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveAttnDesc_Txt.Name = "SaveAttnDesc_Txt";
          this.SaveAttnDesc_Txt.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem6.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem6.Text = "تحویل کلید به اعضا";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
+         toolTipTitleItem2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem2.Text = "تحویل کلید به اعضا";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip6.Items.Add(toolTipTitleItem6);
-         superToolTip6.Items.Add(toolTipItem6);
-         this.SaveAttnDesc_Txt.SuperTip = superToolTip6;
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.SaveAttnDesc_Txt.SuperTip = superToolTip2;
          this.SaveAttnDesc_Txt.TabIndex = 81;
          this.SaveAttnDesc_Txt.Click += new System.EventHandler(this.SaveAttnDesc_Txt_Click);
          // 
@@ -987,11 +992,6 @@
          this.TotlAttnTime_Lbl.Size = new System.Drawing.Size(67, 46);
          this.TotlAttnTime_Lbl.TabIndex = 24;
          this.TotlAttnTime_Lbl.ToolTip = "مدت زمان حضور در باشگاه";
-         // 
-         // toolStripSeparator2
-         // 
-         this.toolStripSeparator2.Name = "toolStripSeparator2";
-         this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
          // 
          // WHO_ARYU_F
          // 

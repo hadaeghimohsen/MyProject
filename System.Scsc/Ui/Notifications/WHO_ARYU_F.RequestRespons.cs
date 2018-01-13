@@ -26,6 +26,7 @@ namespace System.Scsc.Ui.Notifications
       long? attncode = 0;
       bool gateControl = false;
       private short? mbsprwno;
+      private string formcaller = "";
 
       public void SendRequest(Job job)
       {
@@ -73,6 +74,21 @@ namespace System.Scsc.Ui.Notifications
 
          if (keyData == Keys.Escape)
          {
+            switch (formcaller)
+            {               
+               case "ATTN_DAYN_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 141 /* Execute WHO_ARYU_F */),
+                           //new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -276,6 +292,11 @@ namespace System.Scsc.Ui.Notifications
                mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
             else
                mbsprwno = null;
+
+            if (xinput.Attribute("formcaller") != null)
+               formcaller = xinput.Attribute("formcaller").Value;
+            else
+               formcaller = "";
 
             if (xinput.Attribute("gatecontrol") != null)
                gateControl = true;

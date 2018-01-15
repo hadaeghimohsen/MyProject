@@ -302,10 +302,12 @@ namespace System.Scsc.Ui.MasterPage
 
             if (Sp_GateAttn.IsOpen)
             {
+               AttnType_Lov.EditValue = "001";
                GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;               
             }
             else
             {
+               AttnType_Lov.EditValue = null;
                GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;               
             }            
          }
@@ -368,6 +370,17 @@ namespace System.Scsc.Ui.MasterPage
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception ) { }
+      }
+
+      private void Error_Gate()
+      {
+         try
+         {
+            // Error This Gate                        
+            Sp_GateAttn.Write("error");
+            //MessageBox.Show("Gate is Close");
+         }
+         catch (Exception) { }
       }
       #endregion
 
@@ -433,193 +446,201 @@ namespace System.Scsc.Ui.MasterPage
       bool bIsConnected = false;
       void Start_FingerPrint()
       {
-         _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost", "DefaultGateway:DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-               {
-                  AfterChangedOutput =
-                  new Action<object>((output) =>
+         try
+         {
+            _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost", "DefaultGateway:DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                   {
-                     var host = output as XElement;
-
-                     #region 1st Device
-                     if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CONCT == host.Attribute("cpu").Value))
+                     AfterChangedOutput =
+                     new Action<object>((output) =>
                      {
-                        var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CONCT == host.Attribute("cpu").Value).FirstOrDefault();
+                        var host = output as XElement;
 
-                        if (fingerPrintSetting == null) return;
-
-                        if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
-
-                        if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
+                        #region 1st Device
+                        if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CONCT == host.Attribute("cpu").Value))
                         {
-                           Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
-                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
-                           Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CONCT == host.Attribute("cpu").Value).FirstOrDefault();
 
-                           if (!bIsConnected)
-                           {
-                              AttnType_Lov.EditValue = "001";
-                              bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
-                              // fire event for fetch 
-                              axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
-                              // New code 
-                              axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
-                           }
-                           if (bIsConnected == true)
-                           {
-                              Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
-                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-                              Tsp_AttnSys.ForeColor = Color.Green;
-                              int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                              axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                           }
-                           else
-                           {
-                              Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
-                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                              Tsp_AttnSys.ForeColor = Color.Red;
-                           }
+                           if (fingerPrintSetting == null) return;
 
-                           AttendanceSystemAlert_Butn.SuperTip =
-                              SuperToolTipAttnButn(
-                                 new XElement("System",
-                                    new XAttribute("device", "Attn"),
-                                    new XAttribute("ip", fingerPrintSetting.IP_ADDR),
-                                    new XAttribute("stat", bIsConnected),
-                                    host
-                                 )
-                              );
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
+                           {
+                              Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
+                              Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+
+                              if (!bIsConnected)
+                              {
+                                 AttnType_Lov.EditValue = "001";
+                                 bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                 // fire event for fetch 
+                                 axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                 // New code 
+                                 axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                              }
+                              if (bIsConnected == true)
+                              {
+                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                 Tsp_AttnSys.ForeColor = Color.Green;
+                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                 axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                              }
+                              else
+                              {
+                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                 Tsp_AttnSys.ForeColor = Color.Red;
+                              }
+
+                              AttendanceSystemAlert_Butn.SuperTip =
+                                 SuperToolTipAttnButn(
+                                    new XElement("System",
+                                       new XAttribute("device", "Attn"),
+                                       new XAttribute("ip", fingerPrintSetting.IP_ADDR),
+                                       new XAttribute("stat", bIsConnected),
+                                       host
+                                    )
+                                 );
+                           }
                         }
-                     }
-                     #endregion
-                     #region 2nd Device
-                     else if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value))
-                     {
-                        var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value).FirstOrDefault();
-
-                        if (fingerPrintSetting == null) return;
-
-                        if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
-
-                        if (fingerPrintSetting.IP_ADR2 != null && fingerPrintSetting.PORT_NUM2 != null)
+                        #endregion
+                        #region 2nd Device
+                        else if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value))
                         {
-                           Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
-                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
-                           Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value).FirstOrDefault();
 
-                           if (!bIsConnected)
-                           {
-                              AttnType_Lov.EditValue = "001";
-                              bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
-                              // fire event for fetch 
-                              axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
-                              // New code 
-                              axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
-                           }
-                           if (bIsConnected == true)
-                           {
-                              Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
-                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-                              Tsp_AttnSys.ForeColor = Color.Green;
-                              int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                              axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                           }
-                           else
-                           {
-                              Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
-                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                              Tsp_AttnSys.ForeColor = Color.Red;
-                           }
+                           if (fingerPrintSetting == null) return;
 
-                           AttendanceSystemAlert_Butn.SuperTip =
-                              SuperToolTipAttnButn(
-                                 new XElement("System",
-                                    new XAttribute("device", "Attn"),
-                                    new XAttribute("ip", fingerPrintSetting.IP_ADR2),
-                                    new XAttribute("stat", bIsConnected),
-                                    host
-                                 )
-                              );
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           if (fingerPrintSetting.IP_ADR2 != null && fingerPrintSetting.PORT_NUM2 != null)
+                           {
+                              Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
+                              Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+
+                              if (!bIsConnected)
+                              {
+                                 AttnType_Lov.EditValue = "001";
+                                 bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
+                                 // fire event for fetch 
+                                 axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                 // New code 
+                                 axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                              }
+                              if (bIsConnected == true)
+                              {
+                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                 Tsp_AttnSys.ForeColor = Color.Green;
+                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                 axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                              }
+                              else
+                              {
+                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                 Tsp_AttnSys.ForeColor = Color.Red;
+                              }
+
+                              AttendanceSystemAlert_Butn.SuperTip =
+                                 SuperToolTipAttnButn(
+                                    new XElement("System",
+                                       new XAttribute("device", "Attn"),
+                                       new XAttribute("ip", fingerPrintSetting.IP_ADR2),
+                                       new XAttribute("stat", bIsConnected),
+                                       host
+                                    )
+                                 );
+                           }
                         }
-                     }
-                     #endregion
-                     #region other wise
-                     else if(iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && (s.ATN1_EVNT_ACTN_TYPE == "002" || s.ATN2_EVNT_ACTN_TYPE == "002" || s.ATN3_EVNT_ACTN_TYPE == "003")))
-                     {
-                        var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_SYST_TYPE == "002").FirstOrDefault();
-
-                        if (fingerPrintSetting == null) return;
-
-                        if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
-
-                        if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
+                        #endregion
+                        #region other wise
+                        else if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && (s.ATN1_EVNT_ACTN_TYPE == "002" || s.ATN2_EVNT_ACTN_TYPE == "002" || s.ATN3_EVNT_ACTN_TYPE == "003")))
                         {
-                           Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
-                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
-                           Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_SYST_TYPE == "002").FirstOrDefault();
 
-                           if (!bIsConnected)
-                           {
-                              bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
-                              // fire event for fetch 
-                              axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
-                              // New code 
-                              axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
-                           }
-                           if (bIsConnected == true)
-                           {
-                              AttnType_Lov.EditValue = "002";
-                              Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
-                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-                              Tsp_AttnSys.ForeColor = Color.Green;
-                              int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                              axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                           }
-                           else
-                           {
-                              AttnType_Lov.EditValue = null;
-                              Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
-                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                              Tsp_AttnSys.ForeColor = Color.Red;
-                           }
+                           if (fingerPrintSetting == null) return;
 
-                           AttendanceSystemAlert_Butn.SuperTip =
-                              SuperToolTipAttnButn(
-                                 new XElement("System",
-                                    new XAttribute("device", "Attn"),
-                                    new XAttribute("ip", fingerPrintSetting.IP_ADDR),
-                                    new XAttribute("stat", bIsConnected),
-                                    host
-                                 )
-                              );
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
+                           {
+                              Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
+                              Tsp_AttnSys.ForeColor = SystemColors.ControlText;
+
+                              if (!bIsConnected)
+                              {
+                                 bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                 // fire event for fetch 
+                                 axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                 // New code 
+                                 axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                              }
+                              if (bIsConnected == true)
+                              {
+                                 AttnType_Lov.EditValue = "002";
+                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                 Tsp_AttnSys.ForeColor = Color.Green;
+                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                 axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                              }
+                              else
+                              {
+                                 AttnType_Lov.EditValue = null;
+                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                 Tsp_AttnSys.ForeColor = Color.Red;
+                              }
+
+                              AttendanceSystemAlert_Butn.SuperTip =
+                                 SuperToolTipAttnButn(
+                                    new XElement("System",
+                                       new XAttribute("device", "Attn"),
+                                       new XAttribute("ip", fingerPrintSetting.IP_ADDR),
+                                       new XAttribute("stat", bIsConnected),
+                                       host
+                                    )
+                                 );
+                           }
                         }
-                     }
-                     #endregion
-                     else
-                     {
-                        this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
-                        Tsp_AttnSys.Text = "***";
-                     }
-                  })
-               }
-            );
+                        #endregion
+                        else
+                        {
+                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
+                           Tsp_AttnSys.Text = "***";
+                        }
+                     })
+                  }
+               );
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       void axCZKEM1_OnHIDNum(int CardNumber)
       {
-         CardNumb_Text.Text = CardNumber.ToString();
-         var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
-         if (control == null) return;
-         if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F" || control.Name == "BAS_ADCH_F" || control.Name == "OIC_SMSN_F")
+         try
          {
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
+            CardNumb_Text.Text = CardNumber.ToString();
+            var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
+            if (control == null) return;
+            if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F" || control.Name == "BAS_ADCH_F" || control.Name == "OIC_SMSN_F")
+            {
+               Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                {
                   new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumber))}
                });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+               _DefaultGateway.Gateway(_InteractWithScsc);
+            }
          }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
       
       private void axCZKEM1_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
@@ -633,138 +654,144 @@ namespace System.Scsc.Ui.MasterPage
          //else { enrollnumber = EnrollNumber; enrolldate = DateTime.Now; }
          //ExtCode.ScreenSaver.KillScreenSaver();
 
-         if (InvokeRequired)
-            Invoke(new Action(() => OnAttTransactionEx(EnrollNumber)));
-         else
-            OnAttTransactionEx(EnrollNumber);
+         try
+         {
+            if (InvokeRequired)
+               Invoke(new Action(() => OnAttTransactionEx(EnrollNumber)));
+            else
+               OnAttTransactionEx(EnrollNumber);
             return;
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void OnAttTransactionEx(string EnrollNumber)
       {
-         if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "002"; }
-         if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
-
-         if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-            return;
-         oldenrollnumber = EnrollNumber;
-
-         bool recycleService = false;
-
-         FngrPrnt_Txt.Text = EnrollNumber;
-         if (
-            !iScsc.Fighters
-            .Any(f =>
-               //Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && 
-               f.FNGR_PRNT_DNRM == EnrollNumber &&
-               Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 &&
-               !(f.FGPB_TYPE_DNRM == "002" && f.FGPB_TYPE_DNRM == "003")
-            //(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&                              
-            )
-         )
+         try
          {
-            var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
+            if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "002"; }
+            if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
 
-            if (figh != null && Convert.ToInt32(figh.ACTV_TAG_DNRM ?? "101") <= 100)
+            if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+               return;
+            oldenrollnumber = EnrollNumber;
+
+            bool recycleService = false;
+
+            FngrPrnt_Txt.Text = EnrollNumber;
+            if (
+               !iScsc.Fighters
+               .Any(f =>
+                  //Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && 
+                  f.FNGR_PRNT_DNRM == EnrollNumber &&
+                  Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 &&
+                  !(f.FGPB_TYPE_DNRM == "002" && f.FGPB_TYPE_DNRM == "003")
+               //(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&                              
+               )
+            )
             {
-               if (MessageBox.Show(this, "هنرجو مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد هنرجو هستید؟", "حضور مجدد هنرجوی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
+
+               if (figh != null && Convert.ToInt32(figh.ACTV_TAG_DNRM ?? "101") <= 100)
                {
-                  // 1396/09/04 * بازیابی کد انگشتی یا کارتی هنرجو
-                  var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == figh.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
-                  if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت هنرجو {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
-                     fighhist.FNGR_PRNT = "";
-
-                  if (fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به هنرجو اختصاص دهید", "الحاق انگشتی یا کارت جدید به هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                  if (MessageBox.Show(this, "هنرجو مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد هنرجو هستید؟", "حضور مجدد هنرجوی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                   {
-                  getfngrprnt:
-                     fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
-                     if (fighhist.FNGR_PRNT == "")
-                        goto getfngrprnt;
-                  }
+                     // 1396/09/04 * بازیابی کد انگشتی یا کارتی هنرجو
+                     var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == figh.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
+                     if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت هنرجو {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                        fighhist.FNGR_PRNT = "";
 
-                  // این قسمت برنامه باید با واحد مربوطه انتقال یابد که پراکندگی کد وجود نداشته باشد
-                  #region Disable To Enabled
-                  iScsc.AET_RQST_F(
-                     new XElement("Process",
-                        new XElement("Request",
-                           new XAttribute("rqid", 0),
-                           new XAttribute("rqtpcode", "014"),
-                           new XAttribute("rqttcode", "004"),
-                           new XElement("Request_Row",
-                              new XAttribute("fileno", figh.FILE_NO),
-                              new XElement("Fighter_Public",
-                                 new XElement("Actv_Tag", "101"),
-                                 new XElement("Fngr_Prnt", fighhist.FNGR_PRNT.ToUpper())
+                     if (fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به هنرجو اختصاص دهید", "الحاق انگشتی یا کارت جدید به هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                     {
+                     getfngrprnt:
+                        fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
+                        if (fighhist.FNGR_PRNT == "")
+                           goto getfngrprnt;
+                     }
+
+                     // این قسمت برنامه باید با واحد مربوطه انتقال یابد که پراکندگی کد وجود نداشته باشد
+                     #region Disable To Enabled
+                     iScsc.AET_RQST_F(
+                        new XElement("Process",
+                           new XElement("Request",
+                              new XAttribute("rqid", 0),
+                              new XAttribute("rqtpcode", "014"),
+                              new XAttribute("rqttcode", "004"),
+                              new XElement("Request_Row",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XElement("Fighter_Public",
+                                    new XElement("Actv_Tag", "101"),
+                                    new XElement("Fngr_Prnt", fighhist.FNGR_PRNT.ToUpper())
+                                 )
                               )
                            )
                         )
-                     )
-                  );
+                     );
 
-                  var Rqst = iScsc.Requests.FirstOrDefault(r => r.Request_Rows.Any(rr => rr.FIGH_FILE_NO == figh.FILE_NO) && r.RQTP_CODE == "014" && r.RQTT_CODE == "004");
+                     var Rqst = iScsc.Requests.FirstOrDefault(r => r.Request_Rows.Any(rr => rr.FIGH_FILE_NO == figh.FILE_NO) && r.RQTP_CODE == "014" && r.RQTT_CODE == "004");
 
-                  iScsc.AET_SAVE_F(
-                     new XElement("Process",
-                        new XElement("Request",
-                           new XAttribute("rqid", Rqst.RQID),
-                           new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
-                           new XAttribute("regncode", Rqst.REGN_CODE),
-                           new XElement("Request_Row",
-                              new XAttribute("fileno", figh.FILE_NO)
+                     iScsc.AET_SAVE_F(
+                        new XElement("Process",
+                           new XElement("Request",
+                              new XAttribute("rqid", Rqst.RQID),
+                              new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
+                              new XAttribute("regncode", Rqst.REGN_CODE),
+                              new XElement("Request_Row",
+                                 new XAttribute("fileno", figh.FILE_NO)
+                              )
                            )
                         )
-                     )
-                  );
-                  #endregion
+                     );
+                     #endregion
 
-                  recycleService = true;
+                     recycleService = true;
+                  }
+                  else
+                     return;
                }
-               else
-                  return;
-            }
 
-            if(!recycleService)
-            {
-               Job _InteractWithScsc =
-                  new Job(SendType.External, "Localhost",
-                  new List<Job>
+               if (!recycleService)
+               {
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                     new List<Job>
                   {
                      new Job(SendType.Self, 123 /* Execute Adm_FIGH_F */),
                      new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
                   });
-               _DefaultGateway.Gateway(_InteractWithScsc);
+                  _DefaultGateway.Gateway(_InteractWithScsc);
 
-               //_DefaultGateway.Gateway(
-               //   new Job(SendType.External, "localhost",
-               //      new List<Job>
-               //      {
-               //         new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
-               //         new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
-               //         {
-               //            Input = 
-               //            new XElement("Fighter",
-               //               new XAttribute("enrollnumber", EnrollNumber),
-               //               new XAttribute("isnewenroll", true)
-               //            )
-               //         }
-               //      })
-               //);
-            }               
+                  //_DefaultGateway.Gateway(
+                  //   new Job(SendType.External, "localhost",
+                  //      new List<Job>
+                  //      {
+                  //         new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
+                  //         new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
+                  //         {
+                  //            Input = 
+                  //            new XElement("Fighter",
+                  //               new XAttribute("enrollnumber", EnrollNumber),
+                  //               new XAttribute("isnewenroll", true)
+                  //            )
+                  //         }
+                  //      })
+                  //);
+               }
+               else
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
+                  );
+            }
             else
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
-               );
-         }
-         else
-         {
-            var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
-            // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
-            var mbsp = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001" || mb.Request_Row.RQTT_CODE == "004") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM));
-            if (mbsp.Count() >= 2)
             {
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost",
-                     new List<Job>
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
+               // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
+               var mbsp = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001" || mb.Request_Row.RQTT_CODE == "004") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM));
+               if (mbsp.Count() >= 2)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
                         {
                            new Job(SendType.Self, 152 /* Execute Chos_Mbsp_F */),
                            new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 10 /* Execute Actn_CalF_F*/ )
@@ -777,21 +804,23 @@ namespace System.Scsc.Ui.MasterPage
                               )
                            }
                         }
-                  )
-               );
-            }
-            else
-            {
-               Job _InteractWithScsc =
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
+                     )
+                  );
+               }
+               else
+               {
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
                      {
                         new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
                         new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 1))}
                      });
-               _DefaultGateway.Gateway(_InteractWithScsc);
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+               }
             }
          }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       void Stop_FingerPrint()

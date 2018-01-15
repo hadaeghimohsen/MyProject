@@ -340,9 +340,13 @@ namespace System.Scsc.Ui.MasterPage
             {
                Open_Gate();
             }
-            else
+            else if ((job.Input as XElement).Attribute("gateactn").Value == "close")
             {
                Close_Gate();
+            }
+            else if((job.Input as XElement).Attribute("gateactn").Value == "error")
+            {
+               Error_Gate();
             }
          }         
 

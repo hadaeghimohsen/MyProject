@@ -592,13 +592,23 @@ namespace System.Scsc.Ui.Notifications
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request",
+                              new XAttribute("type", "gatecontrol"),
+                              new XAttribute("gateactn", "error")
+                           )
+                     }
                   }
                )
             );
 
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            DialogResult result = DialogResult.None;
+            if(mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "002")
+                result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
 
             if(Lov_FileName2.EditValue != null)
@@ -733,14 +743,24 @@ namespace System.Scsc.Ui.Notifications
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request",
+                              new XAttribute("type", "gatecontrol"),
+                              new XAttribute("gateactn", "error")
+                           )
+                     }
                   }
                )
             );
 
             //MessageBox.Show(ex.Message);
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error );
+            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            DialogResult result = DialogResult.None;
+            if (mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "002")
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
@@ -863,14 +883,24 @@ namespace System.Scsc.Ui.Notifications
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request",
+                              new XAttribute("type", "gatecontrol"),
+                              new XAttribute("gateactn", "error")
+                           )
+                     }
                   }
                )
             );
 
             //MessageBox.Show(ex.Message);
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            DialogResult result = DialogResult.None;
+            if (mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "002")
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
@@ -992,13 +1022,25 @@ namespace System.Scsc.Ui.Notifications
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 42 /* Execute ShowMessageOnLCD */){Input = new XElement("Message", "قرارداد شما خارج از تعهدات می باشد")}
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request",
+                              new XAttribute("type", "gatecontrol"),
+                              new XAttribute("gateactn", "error")
+                           )
+                     }
                   }
                )
             );
+
             //MessageBox.Show(ex.Message);
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error );
+            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            DialogResult result = DialogResult.None;
+            if (mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "002")
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",

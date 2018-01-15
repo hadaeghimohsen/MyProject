@@ -1565,14 +1565,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Method> Methods
-		{
-			get
-			{
-				return this.GetTable<Method>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Club_Method> Club_Methods
 		{
 			get
@@ -1626,6 +1618,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Setting>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Method> Methods
+		{
+			get
+			{
+				return this.GetTable<Method>();
 			}
 		}
 		
@@ -1994,21 +1994,6 @@ namespace System.Scsc.Data
 			this.DEL_CTGY_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
-		private void InsertMethod(Method obj)
-		{
-			this.INS_MTOD_P(obj.MTOD_DESC, ((System.Nullable<long>)(obj.MTOD_CODE)), obj.EPIT_TYPE, obj.DFLT_STAT, obj.MTOD_STAT);
-		}
-		
-		private void UpdateMethod(Method obj)
-		{
-			this.UPD_MTOD_P(((System.Nullable<long>)(obj.CODE)), obj.MTOD_DESC, ((System.Nullable<long>)(obj.MTOD_CODE)), obj.EPIT_TYPE, obj.DFLT_STAT, obj.MTOD_STAT);
-		}
-		
-		private void DeleteMethod(Method obj)
-		{
-			this.DEL_MTOD_P(((System.Nullable<long>)(obj.CODE)));
-		}
-		
 		private void InsertCalculate_Expense_Coach(Calculate_Expense_Coach obj)
 		{
 			this.INS_CEXC_P(((System.Nullable<long>)(obj.COCH_FILE_NO)), ((System.Nullable<long>)(obj.EPIT_CODE)), obj.RQTT_CODE, obj.COCH_DEG, ((System.Nullable<long>)(obj.EXTP_CODE)), ((System.Nullable<long>)(obj.MTOD_CODE)), ((System.Nullable<long>)(obj.CTGY_CODE)), obj.CALC_TYPE, ((System.Nullable<long>)(obj.AMNT)), ((System.Nullable<double>)(obj.PRCT_VALU)), obj.STAT);
@@ -2039,6 +2024,21 @@ namespace System.Scsc.Data
 		private void DeletePayment_Detail(Payment_Detail obj)
 		{
 			this.DEL_PYDT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)));
+		}
+		
+		private void InsertMethod(Method obj)
+		{
+			this.INS_MTOD_P(obj.MTOD_DESC, ((System.Nullable<long>)(obj.MTOD_CODE)), obj.EPIT_TYPE, obj.DFLT_STAT, obj.MTOD_STAT, obj.CHCK_ATTN_ALRM);
+		}
+		
+		private void UpdateMethod(Method obj)
+		{
+			this.UPD_MTOD_P(((System.Nullable<long>)(obj.CODE)), obj.MTOD_DESC, ((System.Nullable<long>)(obj.MTOD_CODE)), obj.EPIT_TYPE, obj.DFLT_STAT, obj.MTOD_STAT, obj.CHCK_ATTN_ALRM);
+		}
+		
+		private void DeleteMethod(Method obj)
+		{
+			this.DEL_MTOD_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Saved_Request", IsComposable=true)]
@@ -3803,20 +3803,6 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_MTOD_P")]
-		public int INS_MTOD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Desc", DbType="NVarChar(250)")] string mtod_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Code", DbType="BigInt")] System.Nullable<long> mtod_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Epit_Type", DbType="VarChar(3)")] string epit_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Stat", DbType="VarChar(3)")] string mtod_Stat)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mtod_Desc, mtod_Code, epit_Type, dflt_Stat, mtod_Stat);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_MTOD_P")]
-		public int UPD_MTOD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Desc", DbType="NVarChar(250)")] string mtod_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Code", DbType="BigInt")] System.Nullable<long> mtod_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Epit_Type", DbType="VarChar(3)")] string epit_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Stat", DbType="VarChar(3)")] string mtod_Stat)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mtod_Desc, mtod_Code, epit_Type, dflt_Stat, mtod_Stat);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_PYDT_P")]
 		public int INS_PYDT_P(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PYMT_CASH_CODE", DbType="BigInt")] System.Nullable<long> pYMT_CASH_CODE, 
@@ -3928,6 +3914,20 @@ namespace System.Scsc.Data
 		public int INS_ATTN_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Club_Code", DbType="BigInt")] System.Nullable<long> club_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Figh_File_No", DbType="BigInt")] System.Nullable<long> figh_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Date", DbType="Date")] System.Nullable<System.DateTime> attn_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CochFileNo", DbType="BigInt")] System.Nullable<long> cochFileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_TYPE", DbType="VarChar(3)")] string attn_TYPE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MbspRwno", DbType="SmallInt")] System.Nullable<short> mbspRwno)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), club_Code, figh_File_No, attn_Date, cochFileNo, attn_TYPE, mbspRwno);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_MTOD_P")]
+		public int INS_MTOD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Desc", DbType="NVarChar(250)")] string mtod_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Code", DbType="BigInt")] System.Nullable<long> mtod_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Epit_Type", DbType="VarChar(3)")] string epit_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Stat", DbType="VarChar(3)")] string mtod_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Chck_Attn_Alrm", DbType="VarChar(3)")] string chck_Attn_Alrm)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mtod_Desc, mtod_Code, epit_Type, dflt_Stat, mtod_Stat, chck_Attn_Alrm);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_MTOD_P")]
+		public int UPD_MTOD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Desc", DbType="NVarChar(250)")] string mtod_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Code", DbType="BigInt")] System.Nullable<long> mtod_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Epit_Type", DbType="VarChar(3)")] string epit_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mtod_Stat", DbType="VarChar(3)")] string mtod_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Chck_Attn_Alrm", DbType="VarChar(3)")] string chck_Attn_Alrm)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mtod_Desc, mtod_Code, epit_Type, dflt_Stat, mtod_Stat, chck_Attn_Alrm);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -13525,9 +13525,9 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -13571,8 +13571,8 @@ namespace System.Scsc.Data
 		{
 			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Method = default(EntityRef<Method>);
 			this._Fighter = default(EntityRef<Fighter>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -13986,40 +13986,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Test", Storage="_Method", ThisKey="CTGY_MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Tests.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Tests.Add(this);
-						this._CTGY_MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._CTGY_MTOD_CODE = default(long);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Test", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Fighter Fighter
 		{
@@ -14050,6 +14016,40 @@ namespace System.Scsc.Data
 						this._FIGH_FILE_NO = default(long);
 					}
 					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Test", Storage="_Method", ThisKey="CTGY_MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Tests.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Tests.Add(this);
+						this._CTGY_MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._CTGY_MTOD_CODE = default(long);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -32952,13 +32952,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Club_Method> _Club_Method;
 		
 		private EntityRef<Fighter> _Fighter;
 		
 		private EntityRef<Member_Ship> _Member_Ship;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -33017,10 +33017,10 @@ namespace System.Scsc.Data
 			this._Session = default(EntityRef<Session>);
 			this._Expense = default(EntityRef<Expense>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Method = default(EntityRef<Method>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -33622,40 +33622,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session_Meeting", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Session_Meetings.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Session_Meetings.Add(this);
-						this._MTOD_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Session_Meeting", Storage="_Club_Method", ThisKey="CBMT_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Club_Method Club_Method
 		{
@@ -33762,6 +33728,40 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session_Meeting", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Session_Meetings.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Session_Meetings.Add(this);
+						this._MTOD_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -33837,13 +33837,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Club_Method> _Club_Method;
 		
 		private EntityRef<Fighter> _Fighter;
 		
 		private EntityRef<Member_Ship> _Member_Ship;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -33897,10 +33897,10 @@ namespace System.Scsc.Data
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
 			this._Expense = default(EntityRef<Expense>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Method = default(EntityRef<Method>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -34430,40 +34430,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Sessions.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Sessions.Add(this);
-						this._MTOD_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Session", Storage="_Club_Method", ThisKey="CBMT_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Club_Method Club_Method
 		{
@@ -34566,6 +34532,40 @@ namespace System.Scsc.Data
 						this._MBSP_RWNO = default(short);
 					}
 					this.SendPropertyChanged("Member_Ship");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Sessions.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Sessions.Add(this);
+						this._MTOD_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -39983,11 +39983,11 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Club_Method> _Club_Method;
 		
 		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -40053,9 +40053,9 @@ namespace System.Scsc.Data
 			this._Requester_Type = default(EntityRef<Requester_Type>);
 			this._Regulation = default(EntityRef<Regulation>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Method = default(EntityRef<Method>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Fighter = default(EntityRef<Fighter>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -40792,40 +40792,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Aggregation_Operation", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Aggregation_Operations.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Aggregation_Operations.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Aggregation_Operation", Storage="_Club_Method", ThisKey="CBMT_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Club_Method Club_Method
 		{
@@ -40890,6 +40856,40 @@ namespace System.Scsc.Data
 						this._COCH_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Aggregation_Operation", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Aggregation_Operations.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Aggregation_Operations.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -41673,11 +41673,11 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Fighter> _Fighter;
 		
 		private EntityRef<Fighter> _Fighter1;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -41812,9 +41812,9 @@ namespace System.Scsc.Data
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
 			this._Club = default(EntityRef<Club>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Method = default(EntityRef<Method>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Fighter1 = default(EntityRef<Fighter>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -43318,40 +43318,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Fighter Fighter
 		{
@@ -43416,6 +43382,40 @@ namespace System.Scsc.Data
 						this._INTR_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Fighter1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -49539,13 +49539,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Fighter> _Fighter;
 		
 		private EntityRef<Fighter> _Fighter1;
 		
 		private EntityRef<Member_Ship> _Member_Ship;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -49630,10 +49630,10 @@ namespace System.Scsc.Data
 			this._Club = default(EntityRef<Club>);
 			this._Session = default(EntityRef<Session>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Method = default(EntityRef<Method>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Fighter1 = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -50497,40 +50497,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Attendance", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Attendances.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Attendances.Add(this);
-						this._MTOD_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance", Storage="_Fighter", ThisKey="COCH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Fighter Fighter
 		{
@@ -50633,6 +50599,40 @@ namespace System.Scsc.Data
 						this._MBSP_RWNO_DNRM = default(Nullable<short>);
 					}
 					this.SendPropertyChanged("Member_Ship");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Attendance", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Attendances.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Attendances.Add(this);
+						this._MTOD_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -52963,713 +52963,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Method")]
-	public partial class Method : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _CODE;
-		
-		private string _MTOD_DESC;
-		
-		private System.Nullable<long> _MTOD_CODE;
-		
-		private string _NATL_CODE;
-		
-		private string _EPIT_TYPE;
-		
-		private string _DFLT_STAT;
-		
-		private string _MTOD_STAT;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Test> _Tests;
-		
-		private EntitySet<Session_Meeting> _Session_Meetings;
-		
-		private EntitySet<Session> _Sessions;
-		
-		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
-		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
-		private EntitySet<Attendance> _Attendances;
-		
-		private EntitySet<Expense> _Expenses;
-		
-		private EntitySet<Category_Belt> _Category_Belts;
-		
-		private EntitySet<Method> _Methods;
-		
-		private EntitySet<Club_Method> _Club_Methods;
-		
-		private EntitySet<Fighter> _Fighters;
-		
-		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
-		
-		private EntitySet<Payment_Detail> _Payment_Details;
-		
-		private EntityRef<Method> _Method1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnMTOD_DESCChanging(string value);
-    partial void OnMTOD_DESCChanged();
-    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODEChanged();
-    partial void OnNATL_CODEChanging(string value);
-    partial void OnNATL_CODEChanged();
-    partial void OnEPIT_TYPEChanging(string value);
-    partial void OnEPIT_TYPEChanged();
-    partial void OnDFLT_STATChanging(string value);
-    partial void OnDFLT_STATChanged();
-    partial void OnMTOD_STATChanging(string value);
-    partial void OnMTOD_STATChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Method()
-		{
-			this._Tests = new EntitySet<Test>(new Action<Test>(this.attach_Tests), new Action<Test>(this.detach_Tests));
-			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
-			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
-			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
-			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
-			this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
-			this._Category_Belts = new EntitySet<Category_Belt>(new Action<Category_Belt>(this.attach_Category_Belts), new Action<Category_Belt>(this.detach_Category_Belts));
-			this._Methods = new EntitySet<Method>(new Action<Method>(this.attach_Methods), new Action<Method>(this.detach_Methods));
-			this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
-			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
-			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
-			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
-			this._Method1 = default(EntityRef<Method>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_DESC", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string MTOD_DESC
-		{
-			get
-			{
-				return this._MTOD_DESC;
-			}
-			set
-			{
-				if ((this._MTOD_DESC != value))
-				{
-					this.OnMTOD_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_DESC = value;
-					this.SendPropertyChanged("MTOD_DESC");
-					this.OnMTOD_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt")]
-		public System.Nullable<long> MTOD_CODE
-		{
-			get
-			{
-				return this._MTOD_CODE;
-			}
-			set
-			{
-				if ((this._MTOD_CODE != value))
-				{
-					if (this._Method1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMTOD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE = value;
-					this.SendPropertyChanged("MTOD_CODE");
-					this.OnMTOD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(2)")]
-		public string NATL_CODE
-		{
-			get
-			{
-				return this._NATL_CODE;
-			}
-			set
-			{
-				if ((this._NATL_CODE != value))
-				{
-					this.OnNATL_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._NATL_CODE = value;
-					this.SendPropertyChanged("NATL_CODE");
-					this.OnNATL_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EPIT_TYPE", DbType="VarChar(3)")]
-		public string EPIT_TYPE
-		{
-			get
-			{
-				return this._EPIT_TYPE;
-			}
-			set
-			{
-				if ((this._EPIT_TYPE != value))
-				{
-					this.OnEPIT_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._EPIT_TYPE = value;
-					this.SendPropertyChanged("EPIT_TYPE");
-					this.OnEPIT_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
-		public string DFLT_STAT
-		{
-			get
-			{
-				return this._DFLT_STAT;
-			}
-			set
-			{
-				if ((this._DFLT_STAT != value))
-				{
-					this.OnDFLT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DFLT_STAT = value;
-					this.SendPropertyChanged("DFLT_STAT");
-					this.OnDFLT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_STAT", DbType="VarChar(3)")]
-		public string MTOD_STAT
-		{
-			get
-			{
-				return this._MTOD_STAT;
-			}
-			set
-			{
-				if ((this._MTOD_STAT != value))
-				{
-					this.OnMTOD_STATChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_STAT = value;
-					this.SendPropertyChanged("MTOD_STAT");
-					this.OnMTOD_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Test", Storage="_Tests", ThisKey="CODE", OtherKey="CTGY_MTOD_CODE")]
-		public EntitySet<Test> Tests
-		{
-			get
-			{
-				return this._Tests;
-			}
-			set
-			{
-				this._Tests.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session_Meeting", Storage="_Session_Meetings", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
-		public EntitySet<Session_Meeting> Session_Meetings
-		{
-			get
-			{
-				return this._Session_Meetings;
-			}
-			set
-			{
-				this._Session_Meetings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session", Storage="_Sessions", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
-		public EntitySet<Session> Sessions
-		{
-			get
-			{
-				return this._Sessions;
-			}
-			set
-			{
-				this._Sessions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Aggregation_Operation", Storage="_Aggregation_Operations", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Aggregation_Operation> Aggregation_Operations
-		{
-			get
-			{
-				return this._Aggregation_Operations;
-			}
-			set
-			{
-				this._Aggregation_Operations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Attendance", Storage="_Attendances", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
-		public EntitySet<Attendance> Attendances
-		{
-			get
-			{
-				return this._Attendances;
-			}
-			set
-			{
-				this._Attendances.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Expense", Storage="_Expenses", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Expense> Expenses
-		{
-			get
-			{
-				return this._Expenses;
-			}
-			set
-			{
-				this._Expenses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Category_Belt", Storage="_Category_Belts", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Category_Belt> Category_Belts
-		{
-			get
-			{
-				return this._Category_Belts;
-			}
-			set
-			{
-				this._Category_Belts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Method> Methods
-		{
-			get
-			{
-				return this._Methods;
-			}
-			set
-			{
-				this._Methods.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Club_Method", Storage="_Club_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Club_Method> Club_Methods
-		{
-			get
-			{
-				return this._Club_Methods;
-			}
-			set
-			{
-				this._Club_Methods.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
-		public EntitySet<Fighter> Fighters
-		{
-			get
-			{
-				return this._Fighters;
-			}
-			set
-			{
-				this._Fighters.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Calculate_Expense_Coach", Storage="_Calculate_Expense_Coaches", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Calculate_Expense_Coach> Calculate_Expense_Coaches
-		{
-			get
-			{
-				return this._Calculate_Expense_Coaches;
-			}
-			set
-			{
-				this._Calculate_Expense_Coaches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Payment_Detail", Storage="_Payment_Details", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
-		public EntitySet<Payment_Detail> Payment_Details
-		{
-			get
-			{
-				return this._Payment_Details;
-			}
-			set
-			{
-				this._Payment_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Method1", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method1
-		{
-			get
-			{
-				return this._Method1.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method1.Entity;
-				if (((previousValue != value) 
-							|| (this._Method1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method1.Entity = null;
-						previousValue.Methods.Remove(this);
-					}
-					this._Method1.Entity = value;
-					if ((value != null))
-					{
-						value.Methods.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Tests(Test entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Tests(Test entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Session_Meetings(Session_Meeting entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Session_Meetings(Session_Meeting entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Sessions(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Sessions(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Aggregation_Operations(Aggregation_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Aggregation_Operations(Aggregation_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Attendances(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Attendances(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Expenses(Expense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Expenses(Expense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Category_Belts(Category_Belt entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Category_Belts(Category_Belt entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Methods(Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method1 = this;
-		}
-		
-		private void detach_Methods(Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method1 = null;
-		}
-		
-		private void attach_Club_Methods(Club_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Club_Methods(Club_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_Payment_Details(Payment_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Payment_Details(Payment_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Club_Method")]
 	public partial class Club_Method : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -53728,9 +53021,9 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Club> _Club;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -53786,8 +53079,8 @@ namespace System.Scsc.Data
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Club = default(EntityRef<Club>);
-			this._Method = default(EntityRef<Method>);
 			this._Fighter = default(EntityRef<Fighter>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -54302,40 +53595,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Club_Method", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Club_Methods.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Club_Methods.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Club_Method", Storage="_Fighter", ThisKey="COCH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Fighter Fighter
 		{
@@ -54366,6 +53625,40 @@ namespace System.Scsc.Data
 						this._COCH_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Club_Method", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Club_Methods.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Club_Methods.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -54643,13 +53936,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Fighter> _Fighter1;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Region> _Region;
 		
 		private EntityRef<Request> _Request;
 		
 		private EntityRef<Sub_Unit> _Sub_Unit;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -54817,10 +54110,10 @@ namespace System.Scsc.Data
 			this._Club = default(EntityRef<Club>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Fighter1 = default(EntityRef<Fighter>);
-			this._Method = default(EntityRef<Method>);
 			this._Region = default(EntityRef<Region>);
 			this._Request = default(EntityRef<Request>);
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -56599,40 +55892,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._MTOD_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
 		public Region Region
 		{
@@ -56742,6 +56001,40 @@ namespace System.Scsc.Data
 						this._SUNT_CODE_DNRM = default(string);
 					}
 					this.SendPropertyChanged("Sub_Unit");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._MTOD_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -57634,9 +56927,9 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Fighter> _Fighter;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Requester_Type> _Requester_Type;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -57682,8 +56975,8 @@ namespace System.Scsc.Data
 			this._Expense_Item = default(EntityRef<Expense_Item>);
 			this._Expense_Type = default(EntityRef<Expense_Type>);
 			this._Fighter = default(EntityRef<Fighter>);
-			this._Method = default(EntityRef<Method>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -58167,40 +57460,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Calculate_Expense_Coach", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Calculate_Expense_Coaches.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Calculate_Expense_Coaches.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Requester_Type_Calculate_Expense_Coach", Storage="_Requester_Type", ThisKey="RQTT_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Requester_Type Requester_Type
 		{
@@ -58231,6 +57490,40 @@ namespace System.Scsc.Data
 						this._RQTT_CODE = default(string);
 					}
 					this.SendPropertyChanged("Requester_Type");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Calculate_Expense_Coach", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Calculate_Expense_Coaches.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Calculate_Expense_Coaches.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -58342,11 +57635,11 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Fighter> _Fighter;
 		
-		private EntityRef<Method> _Method;
-		
 		private EntityRef<Payment> _Payment;
 		
 		private EntityRef<Request_Row> _Request_Row;
+		
+		private EntityRef<Method> _Method;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -58429,9 +57722,9 @@ namespace System.Scsc.Data
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Expense = default(EntityRef<Expense>);
 			this._Fighter = default(EntityRef<Fighter>);
-			this._Method = default(EntityRef<Method>);
 			this._Payment = default(EntityRef<Payment>);
 			this._Request_Row = default(EntityRef<Request_Row>);
+			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
 		
@@ -59323,40 +58616,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Payment_Detail", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Payment_Details.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Details.Add(this);
-						this._MTOD_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Detail", Storage="_Payment", ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey="CASH_CODE,RQST_RQID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Payment Payment
 		{
@@ -59425,6 +58684,40 @@ namespace System.Scsc.Data
 						this._RQRO_RWNO = default(Nullable<short>);
 					}
 					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Payment_Detail", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Payment_Details.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Details.Add(this);
+						this._MTOD_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}
@@ -61209,6 +60502,737 @@ namespace System.Scsc.Data
 					this._ATTN_PRNT_STAT = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Method")]
+	public partial class Method : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _MTOD_DESC;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private string _NATL_CODE;
+		
+		private string _EPIT_TYPE;
+		
+		private string _DFLT_STAT;
+		
+		private string _MTOD_STAT;
+		
+		private string _CHCK_ATTN_ALRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Test> _Tests;
+		
+		private EntitySet<Session_Meeting> _Session_Meetings;
+		
+		private EntitySet<Session> _Sessions;
+		
+		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
+		
+		private EntitySet<Attendance> _Attendances;
+		
+		private EntitySet<Expense> _Expenses;
+		
+		private EntitySet<Category_Belt> _Category_Belts;
+		
+		private EntitySet<Club_Method> _Club_Methods;
+		
+		private EntitySet<Fighter> _Fighters;
+		
+		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
+		
+		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Method> _Methods;
+		
+		private EntityRef<Method> _Method1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnMTOD_DESCChanging(string value);
+    partial void OnMTOD_DESCChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnNATL_CODEChanging(string value);
+    partial void OnNATL_CODEChanged();
+    partial void OnEPIT_TYPEChanging(string value);
+    partial void OnEPIT_TYPEChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnMTOD_STATChanging(string value);
+    partial void OnMTOD_STATChanged();
+    partial void OnCHCK_ATTN_ALRMChanging(string value);
+    partial void OnCHCK_ATTN_ALRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Method()
+		{
+			this._Tests = new EntitySet<Test>(new Action<Test>(this.attach_Tests), new Action<Test>(this.detach_Tests));
+			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
+			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
+			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
+			this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
+			this._Category_Belts = new EntitySet<Category_Belt>(new Action<Category_Belt>(this.attach_Category_Belts), new Action<Category_Belt>(this.detach_Category_Belts));
+			this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
+			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
+			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
+			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Methods = new EntitySet<Method>(new Action<Method>(this.attach_Methods), new Action<Method>(this.detach_Methods));
+			this._Method1 = default(EntityRef<Method>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_DESC", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string MTOD_DESC
+		{
+			get
+			{
+				return this._MTOD_DESC;
+			}
+			set
+			{
+				if ((this._MTOD_DESC != value))
+				{
+					this.OnMTOD_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_DESC = value;
+					this.SendPropertyChanged("MTOD_DESC");
+					this.OnMTOD_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt")]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					if (this._Method1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(2)")]
+		public string NATL_CODE
+		{
+			get
+			{
+				return this._NATL_CODE;
+			}
+			set
+			{
+				if ((this._NATL_CODE != value))
+				{
+					this.OnNATL_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._NATL_CODE = value;
+					this.SendPropertyChanged("NATL_CODE");
+					this.OnNATL_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EPIT_TYPE", DbType="VarChar(3)")]
+		public string EPIT_TYPE
+		{
+			get
+			{
+				return this._EPIT_TYPE;
+			}
+			set
+			{
+				if ((this._EPIT_TYPE != value))
+				{
+					this.OnEPIT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._EPIT_TYPE = value;
+					this.SendPropertyChanged("EPIT_TYPE");
+					this.OnEPIT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_STAT", DbType="VarChar(3)")]
+		public string MTOD_STAT
+		{
+			get
+			{
+				return this._MTOD_STAT;
+			}
+			set
+			{
+				if ((this._MTOD_STAT != value))
+				{
+					this.OnMTOD_STATChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_STAT = value;
+					this.SendPropertyChanged("MTOD_STAT");
+					this.OnMTOD_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_ATTN_ALRM", DbType="VarChar(3)")]
+		public string CHCK_ATTN_ALRM
+		{
+			get
+			{
+				return this._CHCK_ATTN_ALRM;
+			}
+			set
+			{
+				if ((this._CHCK_ATTN_ALRM != value))
+				{
+					this.OnCHCK_ATTN_ALRMChanging(value);
+					this.SendPropertyChanging();
+					this._CHCK_ATTN_ALRM = value;
+					this.SendPropertyChanged("CHCK_ATTN_ALRM");
+					this.OnCHCK_ATTN_ALRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Test", Storage="_Tests", ThisKey="CODE", OtherKey="CTGY_MTOD_CODE")]
+		public EntitySet<Test> Tests
+		{
+			get
+			{
+				return this._Tests;
+			}
+			set
+			{
+				this._Tests.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session_Meeting", Storage="_Session_Meetings", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
+		public EntitySet<Session_Meeting> Session_Meetings
+		{
+			get
+			{
+				return this._Session_Meetings;
+			}
+			set
+			{
+				this._Session_Meetings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Session", Storage="_Sessions", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
+		public EntitySet<Session> Sessions
+		{
+			get
+			{
+				return this._Sessions;
+			}
+			set
+			{
+				this._Sessions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Aggregation_Operation", Storage="_Aggregation_Operations", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Aggregation_Operation> Aggregation_Operations
+		{
+			get
+			{
+				return this._Aggregation_Operations;
+			}
+			set
+			{
+				this._Aggregation_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Attendance", Storage="_Attendances", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
+		public EntitySet<Attendance> Attendances
+		{
+			get
+			{
+				return this._Attendances;
+			}
+			set
+			{
+				this._Attendances.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Expense", Storage="_Expenses", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Expense> Expenses
+		{
+			get
+			{
+				return this._Expenses;
+			}
+			set
+			{
+				this._Expenses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Category_Belt", Storage="_Category_Belts", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Category_Belt> Category_Belts
+		{
+			get
+			{
+				return this._Category_Belts;
+			}
+			set
+			{
+				this._Category_Belts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Club_Method", Storage="_Club_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Club_Method> Club_Methods
+		{
+			get
+			{
+				return this._Club_Methods;
+			}
+			set
+			{
+				this._Club_Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
+		public EntitySet<Fighter> Fighters
+		{
+			get
+			{
+				return this._Fighters;
+			}
+			set
+			{
+				this._Fighters.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Calculate_Expense_Coach", Storage="_Calculate_Expense_Coaches", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Calculate_Expense_Coach> Calculate_Expense_Coaches
+		{
+			get
+			{
+				return this._Calculate_Expense_Coaches;
+			}
+			set
+			{
+				this._Calculate_Expense_Coaches.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Payment_Detail", Storage="_Payment_Details", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
+		public EntitySet<Payment_Detail> Payment_Details
+		{
+			get
+			{
+				return this._Payment_Details;
+			}
+			set
+			{
+				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Method> Methods
+		{
+			get
+			{
+				return this._Methods;
+			}
+			set
+			{
+				this._Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Method1", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method1
+		{
+			get
+			{
+				return this._Method1.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method1.Entity;
+				if (((previousValue != value) 
+							|| (this._Method1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method1.Entity = null;
+						previousValue.Methods.Remove(this);
+					}
+					this._Method1.Entity = value;
+					if ((value != null))
+					{
+						value.Methods.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tests(Test entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Tests(Test entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Session_Meetings(Session_Meeting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Session_Meetings(Session_Meeting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Sessions(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Sessions(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Aggregation_Operations(Aggregation_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Aggregation_Operations(Aggregation_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Expenses(Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Expenses(Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Category_Belts(Category_Belt entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Category_Belts(Category_Belt entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Club_Methods(Club_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Club_Methods(Club_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Methods(Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method1 = this;
+		}
+		
+		private void detach_Methods(Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method1 = null;
 		}
 	}
 	

@@ -235,15 +235,6 @@
          this.ExpnRqtt_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.ExpnRqtp_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-         this.panel5 = new System.Windows.Forms.Panel();
-         this.PrintSettingMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.PrintMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.PrintDefaultMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.RequeryMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DeleteMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.SaveMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.AddMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
          this.Mtod_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -258,6 +249,15 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.panel5 = new System.Windows.Forms.Panel();
+         this.PrintSettingMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PrintMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PrintDefaultMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.RequeryMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DeleteMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.SaveMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.AddMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.tp_004 = new System.Windows.Forms.TabPage();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -512,6 +512,7 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.Coach_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Club_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.colCHCK_ATTN_ALRM = new DevExpress.XtraGrid.Columns.GridColumn();
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          sHBA_ACNTLabel = new System.Windows.Forms.Label();
@@ -586,10 +587,10 @@
          this.panel7.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnRqtt_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnRqtp_Lov.Properties)).BeginInit();
-         this.panel5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodActn_Butn)).BeginInit();
+         this.panel5.SuspendLayout();
          this.tp_004.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl7)).BeginInit();
          this.splitContainerControl7.SuspendLayout();
@@ -862,8 +863,8 @@
          this.colMTOD_STAT1.Name = "colMTOD_STAT1";
          this.colMTOD_STAT1.OptionsColumn.FixedWidth = true;
          this.colMTOD_STAT1.Visible = true;
-         this.colMTOD_STAT1.VisibleIndex = 1;
-         this.colMTOD_STAT1.Width = 65;
+         this.colMTOD_STAT1.VisibleIndex = 2;
+         this.colMTOD_STAT1.Width = 54;
          // 
          // repositoryItemLookUpEdit8
          // 
@@ -3041,6 +3042,153 @@
          this.labelControl11.TabIndex = 59;
          this.labelControl11.Text = "زیرگروه ورزشی";
          // 
+         // gridControl3
+         // 
+         this.gridControl3.DataSource = this.MtodBs1;
+         this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl3.Location = new System.Drawing.Point(0, 84);
+         this.gridControl3.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl3.MainView = this.Mtod_Gv;
+         this.gridControl3.Name = "gridControl3";
+         this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit8,
+            this.MtodActn_Butn});
+         this.gridControl3.Size = new System.Drawing.Size(408, 515);
+         this.gridControl3.TabIndex = 58;
+         this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Mtod_Gv});
+         // 
+         // Mtod_Gv
+         // 
+         this.Mtod_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Gv.Appearance.FocusedRow.Options.UseFont = true;
+         this.Mtod_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Mtod_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Mtod_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Mtod_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Gv.Appearance.Row.Options.UseFont = true;
+         this.Mtod_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Mtod_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Mtod_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCODE2,
+            this.colMTOD_DESC,
+            this.colMTOD_CODE,
+            this.colNATL_CODE,
+            this.colEPIT_TYPE,
+            this.colCRET_BY2,
+            this.colCRET_DATE2,
+            this.colMDFY_BY2,
+            this.colMDFY_DATE2,
+            this.colMethod1,
+            this.gridColumn30,
+            this.colMTOD_STAT1,
+            this.colCHCK_ATTN_ALRM});
+         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition5.Appearance.Options.UseBackColor = true;
+         styleFormatCondition5.ApplyToRow = true;
+         styleFormatCondition5.Column = this.colMTOD_STAT1;
+         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition5.Value1 = "001";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Column = this.colMTOD_STAT1;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition6.Value1 = "002";
+         this.Mtod_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition5,
+            styleFormatCondition6});
+         this.Mtod_Gv.GridControl = this.gridControl3;
+         this.Mtod_Gv.Name = "Mtod_Gv";
+         this.Mtod_Gv.OptionsFind.AlwaysVisible = true;
+         this.Mtod_Gv.OptionsFind.FindDelay = 100;
+         this.Mtod_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Mtod_Gv.OptionsView.ShowDetailButtons = false;
+         this.Mtod_Gv.OptionsView.ShowGroupPanel = false;
+         this.Mtod_Gv.OptionsView.ShowIndicator = false;
+         // 
+         // colCODE2
+         // 
+         this.colCODE2.FieldName = "CODE";
+         this.colCODE2.Name = "colCODE2";
+         // 
+         // colMTOD_DESC
+         // 
+         this.colMTOD_DESC.Caption = "نام سرگروه ورزشی";
+         this.colMTOD_DESC.FieldName = "MTOD_DESC";
+         this.colMTOD_DESC.Name = "colMTOD_DESC";
+         this.colMTOD_DESC.Visible = true;
+         this.colMTOD_DESC.VisibleIndex = 4;
+         this.colMTOD_DESC.Width = 182;
+         // 
+         // colMTOD_CODE
+         // 
+         this.colMTOD_CODE.FieldName = "MTOD_CODE";
+         this.colMTOD_CODE.Name = "colMTOD_CODE";
+         // 
+         // colNATL_CODE
+         // 
+         this.colNATL_CODE.FieldName = "NATL_CODE";
+         this.colNATL_CODE.Name = "colNATL_CODE";
+         // 
+         // colEPIT_TYPE
+         // 
+         this.colEPIT_TYPE.FieldName = "EPIT_TYPE";
+         this.colEPIT_TYPE.Name = "colEPIT_TYPE";
+         // 
+         // colCRET_BY2
+         // 
+         this.colCRET_BY2.Caption = " ";
+         this.colCRET_BY2.ColumnEdit = this.MtodActn_Butn;
+         this.colCRET_BY2.FieldName = "CRET_BY";
+         this.colCRET_BY2.Name = "colCRET_BY2";
+         this.colCRET_BY2.OptionsColumn.FixedWidth = true;
+         this.colCRET_BY2.Visible = true;
+         this.colCRET_BY2.VisibleIndex = 3;
+         this.colCRET_BY2.Width = 31;
+         // 
+         // MtodActn_Butn
+         // 
+         this.MtodActn_Butn.AutoHeight = false;
+         this.MtodActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("MtodActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "فعال یا غیرفعال", null, null, true)});
+         this.MtodActn_Butn.Name = "MtodActn_Butn";
+         this.MtodActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.MtodActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.MtodActn_Butn_ButtonClick);
+         // 
+         // colCRET_DATE2
+         // 
+         this.colCRET_DATE2.FieldName = "CRET_DATE";
+         this.colCRET_DATE2.Name = "colCRET_DATE2";
+         // 
+         // colMDFY_BY2
+         // 
+         this.colMDFY_BY2.FieldName = "MDFY_BY";
+         this.colMDFY_BY2.Name = "colMDFY_BY2";
+         // 
+         // colMDFY_DATE2
+         // 
+         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
+         // 
+         // colMethod1
+         // 
+         this.colMethod1.FieldName = "Method1";
+         this.colMethod1.Name = "colMethod1";
+         // 
+         // gridColumn30
+         // 
+         this.gridColumn30.Caption = "پیش فرض";
+         this.gridColumn30.ColumnEdit = this.repositoryItemLookUpEdit8;
+         this.gridColumn30.FieldName = "DFLT_STAT";
+         this.gridColumn30.Name = "gridColumn30";
+         this.gridColumn30.OptionsColumn.FixedWidth = true;
+         this.gridColumn30.Visible = true;
+         this.gridColumn30.VisibleIndex = 1;
+         this.gridColumn30.Width = 60;
+         // 
          // panel5
          // 
          this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -3211,152 +3359,6 @@
          this.labelControl9.Size = new System.Drawing.Size(408, 36);
          this.labelControl9.TabIndex = 30;
          this.labelControl9.Text = "سرگروه ورزشی";
-         // 
-         // gridControl3
-         // 
-         this.gridControl3.DataSource = this.MtodBs1;
-         this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl3.Location = new System.Drawing.Point(0, 84);
-         this.gridControl3.LookAndFeel.SkinName = "Office 2013 Dark Gray";
-         this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl3.MainView = this.Mtod_Gv;
-         this.gridControl3.Name = "gridControl3";
-         this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit8,
-            this.MtodActn_Butn});
-         this.gridControl3.Size = new System.Drawing.Size(408, 515);
-         this.gridControl3.TabIndex = 58;
-         this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.Mtod_Gv});
-         // 
-         // Mtod_Gv
-         // 
-         this.Mtod_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Mtod_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Mtod_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Mtod_Gv.Appearance.HeaderPanel.Options.UseFont = true;
-         this.Mtod_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.Mtod_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Mtod_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Mtod_Gv.Appearance.Row.Options.UseFont = true;
-         this.Mtod_Gv.Appearance.Row.Options.UseTextOptions = true;
-         this.Mtod_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Mtod_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCODE2,
-            this.colMTOD_DESC,
-            this.colMTOD_CODE,
-            this.colNATL_CODE,
-            this.colEPIT_TYPE,
-            this.colCRET_BY2,
-            this.colCRET_DATE2,
-            this.colMDFY_BY2,
-            this.colMDFY_DATE2,
-            this.colMethod1,
-            this.gridColumn30,
-            this.colMTOD_STAT1});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colMTOD_STAT1;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "001";
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Column = this.colMTOD_STAT1;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = "002";
-         this.Mtod_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6});
-         this.Mtod_Gv.GridControl = this.gridControl3;
-         this.Mtod_Gv.Name = "Mtod_Gv";
-         this.Mtod_Gv.OptionsFind.AlwaysVisible = true;
-         this.Mtod_Gv.OptionsFind.FindDelay = 100;
-         this.Mtod_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Mtod_Gv.OptionsView.ShowDetailButtons = false;
-         this.Mtod_Gv.OptionsView.ShowGroupPanel = false;
-         this.Mtod_Gv.OptionsView.ShowIndicator = false;
-         // 
-         // colCODE2
-         // 
-         this.colCODE2.FieldName = "CODE";
-         this.colCODE2.Name = "colCODE2";
-         // 
-         // colMTOD_DESC
-         // 
-         this.colMTOD_DESC.Caption = "نام سرگروه ورزشی";
-         this.colMTOD_DESC.FieldName = "MTOD_DESC";
-         this.colMTOD_DESC.Name = "colMTOD_DESC";
-         this.colMTOD_DESC.Visible = true;
-         this.colMTOD_DESC.VisibleIndex = 3;
-         this.colMTOD_DESC.Width = 301;
-         // 
-         // colMTOD_CODE
-         // 
-         this.colMTOD_CODE.FieldName = "MTOD_CODE";
-         this.colMTOD_CODE.Name = "colMTOD_CODE";
-         // 
-         // colNATL_CODE
-         // 
-         this.colNATL_CODE.FieldName = "NATL_CODE";
-         this.colNATL_CODE.Name = "colNATL_CODE";
-         // 
-         // colEPIT_TYPE
-         // 
-         this.colEPIT_TYPE.FieldName = "EPIT_TYPE";
-         this.colEPIT_TYPE.Name = "colEPIT_TYPE";
-         // 
-         // colCRET_BY2
-         // 
-         this.colCRET_BY2.Caption = " ";
-         this.colCRET_BY2.ColumnEdit = this.MtodActn_Butn;
-         this.colCRET_BY2.FieldName = "CRET_BY";
-         this.colCRET_BY2.Name = "colCRET_BY2";
-         this.colCRET_BY2.OptionsColumn.FixedWidth = true;
-         this.colCRET_BY2.Visible = true;
-         this.colCRET_BY2.VisibleIndex = 2;
-         this.colCRET_BY2.Width = 31;
-         // 
-         // MtodActn_Butn
-         // 
-         this.MtodActn_Butn.AutoHeight = false;
-         this.MtodActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("MtodActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "فعال یا غیرفعال", null, null, true)});
-         this.MtodActn_Butn.Name = "MtodActn_Butn";
-         this.MtodActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-         this.MtodActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.MtodActn_Butn_ButtonClick);
-         // 
-         // colCRET_DATE2
-         // 
-         this.colCRET_DATE2.FieldName = "CRET_DATE";
-         this.colCRET_DATE2.Name = "colCRET_DATE2";
-         // 
-         // colMDFY_BY2
-         // 
-         this.colMDFY_BY2.FieldName = "MDFY_BY";
-         this.colMDFY_BY2.Name = "colMDFY_BY2";
-         // 
-         // colMDFY_DATE2
-         // 
-         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
-         // 
-         // colMethod1
-         // 
-         this.colMethod1.FieldName = "Method1";
-         this.colMethod1.Name = "colMethod1";
-         // 
-         // gridColumn30
-         // 
-         this.gridColumn30.Caption = "پیش فرض";
-         this.gridColumn30.ColumnEdit = this.repositoryItemLookUpEdit8;
-         this.gridColumn30.FieldName = "DFLT_STAT";
-         this.gridColumn30.Name = "gridColumn30";
-         this.gridColumn30.OptionsColumn.FixedWidth = true;
-         this.gridColumn30.Visible = true;
-         this.gridColumn30.VisibleIndex = 0;
-         this.gridColumn30.Width = 61;
          // 
          // labelControl4
          // 
@@ -6276,6 +6278,18 @@
          this.Club_Butn.Text = "باشگاه و شیفت های باشگاه";
          this.Club_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
+         // colCHCK_ATTN_ALRM
+         // 
+         this.colCHCK_ATTN_ALRM.Caption = "نمایش هشدار";
+         this.colCHCK_ATTN_ALRM.ColumnEdit = this.repositoryItemLookUpEdit8;
+         this.colCHCK_ATTN_ALRM.FieldName = "CHCK_ATTN_ALRM";
+         this.colCHCK_ATTN_ALRM.Name = "colCHCK_ATTN_ALRM";
+         this.colCHCK_ATTN_ALRM.ToolTip = "برای آن دسته از ورزش هایی مانند استخر که اپراتور حضور ندارد می توانید پیام هشدار " +
+    "را به دستگاه ارسال کنید و هیچ پیام خطایی روی سیستم مشاهده نشود";
+         this.colCHCK_ATTN_ALRM.Visible = true;
+         this.colCHCK_ATTN_ALRM.VisibleIndex = 0;
+         this.colCHCK_ATTN_ALRM.Width = 79;
+         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6351,10 +6365,10 @@
          this.panel7.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnRqtt_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnRqtp_Lov.Properties)).EndInit();
-         this.panel5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodActn_Butn)).EndInit();
+         this.panel5.ResumeLayout(false);
          this.tp_004.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl7)).EndInit();
          this.splitContainerControl7.ResumeLayout(false);
@@ -6847,6 +6861,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit;
       private Windows.Forms.LinkLabel CochInfo_Lnk;
       private DevExpress.XtraEditors.SimpleButton CochInfo_Butn;
+      private DevExpress.XtraGrid.Columns.GridColumn colCHCK_ATTN_ALRM;
 
    }
 }

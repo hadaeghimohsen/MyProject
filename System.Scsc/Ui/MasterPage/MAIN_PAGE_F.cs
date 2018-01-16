@@ -347,6 +347,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
             // Open This Gate
             var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
             if (gateAttnStng == null) return;
@@ -361,6 +362,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Yellow;
             // Close This Gate
             var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
             if (gateAttnStng == null) return;
@@ -376,6 +378,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
             // Error This Gate                        
             Sp_GateAttn.Write("error");
             //MessageBox.Show("Gate is Close");
@@ -444,6 +447,7 @@ namespace System.Scsc.Ui.MasterPage
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
       bool bIsConnected = false;
+      XElement xHost = null;
       void Start_FingerPrint()
       {
          try
@@ -456,6 +460,7 @@ namespace System.Scsc.Ui.MasterPage
                      {
                         var host = output as XElement;
 
+                        xHost = host;
                         #region 1st Device
                         if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CONCT == host.Attribute("cpu").Value))
                         {
@@ -669,20 +674,23 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "002"; }
+            if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "003"; }
             if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
 
-            if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-               return;
+            // 1396/10/26 * اگر سیستم به صورتی باشد که نرم افزار اپراتور پشت آن قرار ندارد
+            if(iScsc.Computer_Actions.FirstOrDefault(ca => ca.COMP_NAME == xHost.Attribute("name").Value).CHCK_DOBL_ATTN_STAT == "002")
+               if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                  return;
+            
             oldenrollnumber = EnrollNumber;
 
             bool recycleService = false;
 
             FngrPrnt_Txt.Text = EnrollNumber;
+            
             if (
                !iScsc.Fighters
                .Any(f =>
-                  //Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && 
                   f.FNGR_PRNT_DNRM == EnrollNumber &&
                   Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 &&
                   !(f.FGPB_TYPE_DNRM == "002" && f.FGPB_TYPE_DNRM == "003")
@@ -755,10 +763,10 @@ namespace System.Scsc.Ui.MasterPage
                   Job _InteractWithScsc =
                      new Job(SendType.External, "Localhost",
                      new List<Job>
-                  {
-                     new Job(SendType.Self, 123 /* Execute Adm_FIGH_F */),
-                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
-                  });
+                     {
+                        new Job(SendType.Self, 123 /* Execute Adm_FIGH_F */),
+                        new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
+                     });
                   _DefaultGateway.Gateway(_InteractWithScsc);
 
                   //_DefaultGateway.Gateway(
@@ -786,7 +794,22 @@ namespace System.Scsc.Ui.MasterPage
             {
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
                // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
-               var mbsp = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001" || mb.Request_Row.RQTT_CODE == "004") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM));
+               // 1396/10/26 * بررسی اینکه سیستمی که اپرداتور ندارد
+               var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
+
+               var mbsp = 
+                  iScsc.Member_Ships
+                  .Where(mb => 
+                     mb.FIGH_FILE_NO == figh.FILE_NO && 
+                     mb.RECT_CODE == "004" && 
+                     mb.TYPE == "001" && 
+                     mb.VALD_TYPE == "002" &&                      
+                     (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM) &&
+                     (  
+                        (host.CHCK_ATTN_ALRM == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date)/* اگر سیستم اپراتور دارد */ ||
+                        (mb.Fighter_Public.Method.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ && mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date && mb.RWNO == (figh.Member_Ships.Where(mbt => mbt.RECT_CODE == "004" && mbt.TYPE == "001" && mbt.VALD_TYPE == "002" && mbt.END_DATE.Value.Date >= DateTime.Now.Date && mbt.Fighter_Public.Method.CHCK_ATTN_ALRM == "002").Min(mbt => mbt.RWNO))) /* اگر سیستم اپراتور ندارد باید دوره هایی که نیاز به اپراتور ندارد نمایش داده شود و مربوط به ماه جاری باشد */
+                     )
+                  );
                if (mbsp.Count() >= 2)
                {
                   _DefaultGateway.Gateway(
@@ -812,10 +835,10 @@ namespace System.Scsc.Ui.MasterPage
                   Job _InteractWithScsc =
                      new Job(SendType.External, "Localhost",
                         new List<Job>
-                     {
-                        new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                        new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 1))}
-                     });
+                        {
+                           new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 1))}
+                        });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }
             }

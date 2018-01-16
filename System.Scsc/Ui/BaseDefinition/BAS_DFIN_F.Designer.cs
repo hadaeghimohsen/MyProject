@@ -249,6 +249,7 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCHCK_ATTN_ALRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel5 = new System.Windows.Forms.Panel();
          this.PrintSettingMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PrintMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -512,7 +513,6 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.Coach_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Club_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.colCHCK_ATTN_ALRM = new DevExpress.XtraGrid.Columns.GridColumn();
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          sHBA_ACNTLabel = new System.Windows.Forms.Label();
@@ -3188,6 +3188,18 @@
          this.gridColumn30.Visible = true;
          this.gridColumn30.VisibleIndex = 1;
          this.gridColumn30.Width = 60;
+         // 
+         // colCHCK_ATTN_ALRM
+         // 
+         this.colCHCK_ATTN_ALRM.Caption = "عدم حضور اپراتور";
+         this.colCHCK_ATTN_ALRM.ColumnEdit = this.repositoryItemLookUpEdit8;
+         this.colCHCK_ATTN_ALRM.FieldName = "CHCK_ATTN_ALRM";
+         this.colCHCK_ATTN_ALRM.Name = "colCHCK_ATTN_ALRM";
+         this.colCHCK_ATTN_ALRM.ToolTip = "برای آن دسته از ورزش هایی مانند استخر که اپراتور حضور ندارد می توانید پیام هشدار " +
+    "را به دستگاه ارسال کنید و هیچ پیام خطایی روی سیستم مشاهده نشود";
+         this.colCHCK_ATTN_ALRM.Visible = true;
+         this.colCHCK_ATTN_ALRM.VisibleIndex = 0;
+         this.colCHCK_ATTN_ALRM.Width = 79;
          // 
          // panel5
          // 
@@ -6277,18 +6289,6 @@
          this.Club_Butn.Tag = "6";
          this.Club_Butn.Text = "باشگاه و شیفت های باشگاه";
          this.Club_Butn.Click += new System.EventHandler(this.RightButns_Click);
-         // 
-         // colCHCK_ATTN_ALRM
-         // 
-         this.colCHCK_ATTN_ALRM.Caption = "نمایش هشدار";
-         this.colCHCK_ATTN_ALRM.ColumnEdit = this.repositoryItemLookUpEdit8;
-         this.colCHCK_ATTN_ALRM.FieldName = "CHCK_ATTN_ALRM";
-         this.colCHCK_ATTN_ALRM.Name = "colCHCK_ATTN_ALRM";
-         this.colCHCK_ATTN_ALRM.ToolTip = "برای آن دسته از ورزش هایی مانند استخر که اپراتور حضور ندارد می توانید پیام هشدار " +
-    "را به دستگاه ارسال کنید و هیچ پیام خطایی روی سیستم مشاهده نشود";
-         this.colCHCK_ATTN_ALRM.Visible = true;
-         this.colCHCK_ATTN_ALRM.VisibleIndex = 0;
-         this.colCHCK_ATTN_ALRM.Width = 79;
          // 
          // BAS_DFIN_F
          // 

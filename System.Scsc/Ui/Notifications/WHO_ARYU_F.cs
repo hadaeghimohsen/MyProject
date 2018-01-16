@@ -302,6 +302,9 @@ namespace System.Scsc.Ui.Notifications
 
       private void MoreInfo_Butn_Click(object sender, EventArgs e)
       {
+         //string fc = formcaller;
+         formcaller = "";
+
          RqstBnExit1_Click(null, null);
          var attn = AttnBs1.Current as Data.Attendance;
          _DefaultGateway.Gateway(
@@ -424,7 +427,7 @@ namespace System.Scsc.Ui.Notifications
             // ذخیره کردن شماره کمد و توضیحات ورودی
             iScsc.SubmitChanges();
 
-            var chosbutn = MessageBox.Show(this, "حضوری همراه به صورت هزینه دار با کسر جلسه برای عضو ثبت شود؟", "ثبت حضوری همراه", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading);
+            var chosbutn = MessageBox.Show(this, "حضوری همراه به صورت هزینه دار با کسر جلسه برای عضو ثبت شود؟", "ثبت حضوری همراه", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading);
             switch (chosbutn)
 	         {
 		         case DialogResult.Cancel:

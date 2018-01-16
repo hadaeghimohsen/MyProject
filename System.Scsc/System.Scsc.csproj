@@ -984,6 +984,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Club_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Club_Method_Weekday.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Committee.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Computer_Action.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Department.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Diseases_Type.datasource" />

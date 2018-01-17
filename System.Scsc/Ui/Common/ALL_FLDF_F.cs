@@ -1189,8 +1189,81 @@ namespace System.Scsc.Ui.Common
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
             Attn_gv.ActiveFilterString = string.Format("MBSP_RWNO_DNRM = '{0}' AND ATTN_STAT = '002'", mbsp.RWNO);
+
+            long? rqid = 0;
+            if(mbsp.RWNO == 1)            
+               rqid = mbsp.Request_Row.Request.Request1.RQID;
+            else
+               rqid = mbsp.RQRO_RQST_RQID;
+
+            ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
+            DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+            PymtAmnt_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
          }
          catch{
+         }
+      }
+
+      private void MbspInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            int RouterMethod = 105;
+            string RouterGateway = "SHOW_UCRQ_F";
+
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                  {
+                     new Job(SendType.Self, RouterMethod /* Execute RouterMethod */),
+                     new Job(SendType.SelfToUserInterface, RouterGateway, 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Request", 
+                              new XAttribute("rqid", mbsp.RQRO_RQST_RQID), 
+                              new XElement("Request_Row", 
+                                 new XAttribute("fighfileno", mbsp.FIGH_FILE_NO)
+                              )
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }catch{}
+      }
+
+      private void MbspValdType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            if(mbsp.VALD_TYPE == "002")
+            {
+               if (MessageBox.Show(this, "آیا با غیرفعال کردن دوره موافق هستید؟", "غیرفعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+               iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '001' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
+            }
+            else if(mbsp.VALD_TYPE == "001")
+            {
+               if (MessageBox.Show(this, "آیا با فعال کردن دوره موافق هستید؟", "فعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+               iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '002' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

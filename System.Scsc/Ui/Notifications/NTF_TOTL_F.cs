@@ -25,6 +25,7 @@ namespace System.Scsc.Ui.Notifications
 
       private bool requry = false;
       private short mbsprwno;
+      private string compname = "", chckattnalrm = "";
 
       private void Execute_Query()
       {
@@ -577,6 +578,10 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
+                  if(mbsprwno == 0)
+                  {
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
+                  }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
@@ -605,9 +610,10 @@ namespace System.Scsc.Ui.Notifications
             );
 
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
-            if(mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "001")
+            // منشی پشت سیستم حضور دارد
+            if( /*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
                 result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
 
@@ -728,6 +734,10 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
+                  if (mbsprwno == 0)
+                  {
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
+                  }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
@@ -757,9 +767,9 @@ namespace System.Scsc.Ui.Notifications
 
             //MessageBox.Show(ex.Message);
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
-            if (mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "001")
+            if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
                result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             
 
@@ -868,6 +878,10 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
+                  if (mbsprwno == 0)
+                  {
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
+                  }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
@@ -897,9 +911,9 @@ namespace System.Scsc.Ui.Notifications
 
             //MessageBox.Show(ex.Message);
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
-            if (mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "001")
+            if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
                result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
@@ -1007,6 +1021,10 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
+                  if (mbsprwno == 0)
+                  {
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
+                  }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Lov_FileName2.EditValue;
                }
@@ -1036,9 +1054,9 @@ namespace System.Scsc.Ui.Notifications
 
             //MessageBox.Show(ex.Message);
             //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
+            //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
-            if (mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM == "001")
+            if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
                result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)

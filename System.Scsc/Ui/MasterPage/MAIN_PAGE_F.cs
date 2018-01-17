@@ -797,26 +797,54 @@ namespace System.Scsc.Ui.MasterPage
                // 1396/10/26 * بررسی اینکه سیستمی که اپرداتور ندارد
                var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
 
-               var mbsp = 
-                  from mb in iScsc.Member_Ships
-                  join fp in iScsc.Fighter_Publics on mb.FIGH_FILE_NO equals fp.FIGH_FILE_NO
-                  join mt in iScsc.Methods on fp.MTOD_CODE equals mt.CODE
-                  where mb.FIGH_FILE_NO == figh.FILE_NO 
-                     && mb.RECT_CODE == "004"
-                     && mb.TYPE == "001"
-                     && mb.VALD_TYPE == "002"
-                     && fp.RECT_CODE == "004"
-                     && fp.RWNO == mb.FGPB_RWNO_DNRM
-                     && (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM) 
-                     && (
-                           (host.CHCK_ATTN_ALRM == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date)/* اگر سیستم اپراتور دارد */ 
-                        || (
-                              mt.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ && 
-                              mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date
-                           )
+               var mbsp =
+                  iScsc.ExecuteQuery<Data.Member_Ship>(
+                     host.CHCK_ATTN_ALRM == "001" ? 
+                        /* منشی پشت سیستم حضور دارد */
+                        string.Format(@"SELECT ms.*
+                                          FROM Member_Ship ms
+                                         WHERE ms.Figh_File_No = {0}
+                                           AND ms.Rect_Code = '004'
+                                           AND ms.Type = '001'
+                                           AND ms.Vald_Type = '002'
+                                           AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
+                                           AND (CAST(ms.End_Date AS DATE) > CAST(GETDATE() AS DATE))
+                                       ", figh.FILE_NO) 
+                        :
+                        /* منشی پشت سیستم حضور ندارد */
+                        string.Format(@"SELECT ms.*
+                                          FROM Member_Ship ms, Fighter_Public fp, Method mt
+                                         WHERE ms.Figh_File_No = {0}
+                                           AND ms.Figh_File_No = fp.Figh_File_No
+                                           AND fp.Mtod_Code = mt.Code
+                                           AND ms.Rect_Code = '004'
+                                           AND ms.Type = '001'
+                                           AND ms.Vald_Type = '002'
+                                           AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
+                                           AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
+                                           AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
+                                           AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
+                                       ", figh.FILE_NO) 
+                  ).ToList<Data.Member_Ship>();
+                  //from mb in iScsc.Member_Ships
+                  //join fp in iScsc.Fighter_Publics on mb.FIGH_FILE_NO equals fp.FIGH_FILE_NO
+                  //join mt in iScsc.Methods on fp.MTOD_CODE equals mt.CODE
+                  //where mb.FIGH_FILE_NO == figh.FILE_NO 
+                  //   && mb.RECT_CODE == "004"
+                  //   && mb.TYPE == "001"
+                  //   && mb.VALD_TYPE == "002"
+                  //   && fp.RECT_CODE == "004"
+                  //   && fp.RWNO == mb.FGPB_RWNO_DNRM
+                  //   && (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM) 
+                  //   && (
+                  //         (host.CHCK_ATTN_ALRM == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date)/* اگر سیستم اپراتور دارد */ 
+                  //      || (
+                  //            mt.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ && 
+                  //            mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date
+                  //         )
 
-                     )
-                  select mb;
+                  //   )
+                  //select mb;
                   //iScsc.Member_Ships
                   //.Where(mb => 
                   //   mb.FIGH_FILE_NO == figh.FILE_NO && 
@@ -855,28 +883,44 @@ namespace System.Scsc.Ui.MasterPage
                }
                else
                {
+                  // 1396/10/27 * منشی پشت سیستم حضور ندارد
                   if(host.CHCK_ATTN_ALRM == "002")
                   {
                      mbsp =
-                        from mb in iScsc.Member_Ships
-                        join fp in iScsc.Fighter_Publics on mb.FIGH_FILE_NO equals fp.FIGH_FILE_NO
-                        join mt in iScsc.Methods on fp.MTOD_CODE equals mt.CODE
-                        where mb.FIGH_FILE_NO == figh.FILE_NO
-                           && mb.RECT_CODE == "004"
-                           && mb.TYPE == "001"
-                           && mb.VALD_TYPE == "002"
-                           && fp.RECT_CODE == "004"
-                           && fp.RWNO == mb.FGPB_RWNO_DNRM
-                           //&& (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
-                           && (
-                                 (
-                                    mt.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ &&
-                                    mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date //&&
-                                    //mb.RWNO == (figh.Member_Ships.Where(mbt => mbt.RECT_CODE == "004" && mbt.TYPE == "001" && mbt.VALD_TYPE == "002" && mbt.END_DATE.Value.Date >= DateTime.Now.Date && mbt.STRT_DATE.Value.Date <= DateTime.Now.Date && mbt.Fighter_Public.Method.CHCK_ATTN_ALRM == "002").Max(mbt => mbt.RWNO)) 
-                                 )
+                        iScsc.ExecuteQuery<Data.Member_Ship>(
+                           string.Format(@"SELECT TOP 1 ms.*
+                                             FROM Member_Ship ms, Fighter_Public fp, Method mt
+                                            WHERE ms.Figh_File_No = {0}
+                                              AND ms.Figh_File_No = fp.Figh_File_No
+                                              AND fp.Mtod_Code = mt.Code
+                                              AND ms.Rect_Code = '004'
+                                              AND ms.Type = '001'
+                                              AND ms.Vald_Type = '002'
+                                              AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
+                                              AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code                                           
+                                              AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
+                                            ORDER BY ms.Rwno DESC
+                                       ", figh.FILE_NO) 
+                        ).ToList<Data.Member_Ship>();
+                        //from mb in iScsc.Member_Ships
+                        //join fp in iScsc.Fighter_Publics on mb.FIGH_FILE_NO equals fp.FIGH_FILE_NO
+                        //join mt in iScsc.Methods on fp.MTOD_CODE equals mt.CODE
+                        //where mb.FIGH_FILE_NO == figh.FILE_NO
+                        //   && mb.RECT_CODE == "004"
+                        //   && mb.TYPE == "001"
+                        //   && mb.VALD_TYPE == "002"
+                        //   && fp.RECT_CODE == "004"
+                        //   && fp.RWNO == mb.FGPB_RWNO_DNRM
+                        //   //&& (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
+                        //   && (
+                        //         (
+                        //            mt.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ &&
+                        //            mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date //&&
+                        //            //mb.RWNO == (figh.Member_Ships.Where(mbt => mbt.RECT_CODE == "004" && mbt.TYPE == "001" && mbt.VALD_TYPE == "002" && mbt.END_DATE.Value.Date >= DateTime.Now.Date && mbt.STRT_DATE.Value.Date <= DateTime.Now.Date && mbt.Fighter_Public.Method.CHCK_ATTN_ALRM == "002").Max(mbt => mbt.RWNO)) 
+                        //         )
 
-                           )
-                        select mb;
+                        //   )
+                        //select mb;
                         //iScsc.Member_Ships
                         //.Where(mb =>
                         //   mb.FIGH_FILE_NO == figh.FILE_NO &&
@@ -898,7 +942,7 @@ namespace System.Scsc.Ui.MasterPage
                         new List<Job>
                         {
                            new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 1))}
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 0), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM))}
                         });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }

@@ -893,7 +893,7 @@
          this.Gb_Mbsp.Controls.Add(label3);
          this.Gb_Mbsp.Controls.Add(this.STRT_DATE);
          this.Gb_Mbsp.Controls.Add(label20);
-         this.Gb_Mbsp.Location = new System.Drawing.Point(14, 516);
+         this.Gb_Mbsp.Location = new System.Drawing.Point(14, 160);
          this.Gb_Mbsp.Name = "Gb_Mbsp";
          this.Gb_Mbsp.Size = new System.Drawing.Size(1134, 86);
          this.Gb_Mbsp.TabIndex = 27;
@@ -1427,7 +1427,7 @@
          this.Gb_Expense.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
-         this.Gb_Expense.Location = new System.Drawing.Point(14, 160);
+         this.Gb_Expense.Location = new System.Drawing.Point(14, 252);
          this.Gb_Expense.Name = "Gb_Expense";
          this.Gb_Expense.Size = new System.Drawing.Size(388, 350);
          this.Gb_Expense.TabIndex = 2;
@@ -1879,7 +1879,7 @@
          this.Gb_Info.Controls.Add(this.SEX_TYPE_LookUpEdit);
          this.Gb_Info.Controls.Add(lAST_NAMELabel);
          this.Gb_Info.Controls.Add(fRST_NAMELabel);
-         this.Gb_Info.Location = new System.Drawing.Point(408, 160);
+         this.Gb_Info.Location = new System.Drawing.Point(408, 252);
          this.Gb_Info.Name = "Gb_Info";
          this.Gb_Info.Size = new System.Drawing.Size(740, 350);
          this.Gb_Info.TabIndex = 0;

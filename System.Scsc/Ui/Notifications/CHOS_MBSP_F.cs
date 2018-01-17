@@ -33,9 +33,10 @@ namespace System.Scsc.Ui.Notifications
                   mb => mb.FIGH_FILE_NO == Convert.ToInt64(fileno) &&
                         mb.TYPE == "001" &&
                         mb.RECT_CODE == "004" && 
+                        mb.VALD_TYPE == "002" &&
                         mb.END_DATE.Value.Date >= DateTime.Now.Date &&
-                        (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") &&
-                        (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
+                        //(mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") &&
+                        (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
                );
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }

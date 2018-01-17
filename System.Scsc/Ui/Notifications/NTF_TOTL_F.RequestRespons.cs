@@ -236,6 +236,15 @@ namespace System.Scsc.Ui.Notifications
                else
                   mbsprwno = 0;
 
+               if (input.Attribute("compname") != null)
+                  compname = input.Attribute("compname").Value;
+               else
+                  compname = "";
+
+               if (input.Attribute("chckattnalrm") != null)
+                  chckattnalrm = input.Attribute("chckattnalrm").Value;
+               else
+                  chckattnalrm = "";
 
                if (input.Attribute("barcodedata") != null && input.Attribute("barcodedata").Value != "")
                {

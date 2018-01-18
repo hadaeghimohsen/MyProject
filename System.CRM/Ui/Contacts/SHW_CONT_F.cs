@@ -25,6 +25,7 @@ namespace System.CRM.Ui.Contacts
          path.AddEllipse(0, 0, Lb_FilterCount.Width, Lb_FilterCount.Height);
 
          this.Lb_FilterCount.Region = new Region(path);
+         ImageProfile_Butn.ImageVisiable = Tag_Butn.ImageVisiable = ServCont_Butn.ImageVisiable = AddInfo_Butn.ImageVisiable = true;
       }
 
       private bool requery = false;

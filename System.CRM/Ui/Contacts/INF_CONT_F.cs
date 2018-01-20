@@ -2176,5 +2176,44 @@ namespace System.CRM.Ui.Contacts
             )
          );
       }
+
+      private void ImageProfile_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = iCRM.VF_Request_Changing(null, fileno, null, null).FirstOrDefault(r => r.RQTP_CODE == "001");
+            if (rqst == null) return;            
+
+            var result = (
+                     from r in iCRM.Regulations
+                     join rqrq in iCRM.Request_Requesters on r equals rqrq.Regulation
+                     join rqdc in iCRM.Request_Documents on rqrq equals rqdc.Request_Requester
+                     join rcdc in iCRM.Receive_Documents on rqdc equals rcdc.Request_Document
+                     where r.TYPE == "001"
+                        && r.REGL_STAT == "002"
+                        && rqrq.RQTP_CODE == rqst.RQTP_CODE
+                        && rqrq.RQTT_CODE == rqst.RQTT_CODE
+                        && rqdc.DCMT_DSID == 13962055684640 // عکس 4*3
+                        && rcdc.RQRO_RQST_RQID == rqst.RQID
+                        && rcdc.RQRO_RWNO == 1
+                     select rcdc).FirstOrDefault();
+            if (result == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self,  41 /* Execute Serv_Camr_F */),
+                     new Job(SendType.SelfToUserInterface, "SERV_CAMR_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = result                           
+                     }
+                  }
+               )
+            );
+
+         }
+         catch { }
+      }
    }
 }

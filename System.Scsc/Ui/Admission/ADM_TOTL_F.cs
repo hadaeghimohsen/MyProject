@@ -108,6 +108,9 @@ namespace System.Scsc.Ui.Admission
 
                RqstBs3.Position = rqstindex;
 
+               // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+               FighBs3.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
+
                if (RqstBs3.Count == 0 || (RqstBs3.Count == 1 && RqstBs3.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
                {
                   DefaultTabPage003();

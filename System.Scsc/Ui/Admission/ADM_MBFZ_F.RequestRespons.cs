@@ -238,7 +238,7 @@ namespace System.Scsc.Ui.Admission
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006" || f.FGPB_TYPE_DNRM == "009") && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 );
+         //**FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006" || f.FGPB_TYPE_DNRM == "009") && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 );
          if (isFirstLoaded) goto finishcommand;
          #region Rqsw block
          try
@@ -291,7 +291,8 @@ namespace System.Scsc.Ui.Admission
                      figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == (job.Input as XElement).Attribute("enrollnumber").Value).FirstOrDefault();
                   else
                      figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64((job.Input as XElement).Attribute("fileno").Value)).FirstOrDefault();
-                  FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;                  
+                  FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
+                  Btn_RqstRqt3_Click(null, null);
                }
             }
             else

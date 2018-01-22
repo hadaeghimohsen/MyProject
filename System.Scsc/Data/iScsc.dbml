@@ -5441,6 +5441,34 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
+    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="MbspRwno" Parameter="mbspRwno" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId80" Name="dbo.INS_MTOD_P" Method="INS_MTOD_P">
+    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId81" Name="dbo.UPD_MTOD_P" Method="UPD_MTOD_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.VF$Last_Info_Deleted_Fighter" Method="VF_Last_Info_Deleted_Fighter" IsComposable="true">
     <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="FrstName" Parameter="frstName" Type="System.String" DbType="NVarChar(250)" />
@@ -5450,6 +5478,8 @@
     <Parameter Name="CellPhon" Parameter="cellPhon" Type="System.String" DbType="VarChar(11)" />
     <Parameter Name="TellPhon" Parameter="tellPhon" Type="System.String" DbType="VarChar(11)" />
     <Parameter Name="SexType" Parameter="sexType" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ServNo" Parameter="servNo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="GlobCode" Parameter="globCode" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="VF_Last_Info_Deleted_FighterResult">
       <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
@@ -5529,6 +5559,8 @@
     <Parameter Name="CellPhon" Parameter="cellPhon" Type="System.String" DbType="VarChar(11)" />
     <Parameter Name="TellPhon" Parameter="tellPhon" Type="System.String" DbType="VarChar(11)" />
     <Parameter Name="SexType" Parameter="sexType" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ServNo" Parameter="servNo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="GlobCode" Parameter="globCode" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="VF_Last_Info_FighterResult">
       <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
@@ -5598,33 +5630,5 @@
       <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
-    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="MbspRwno" Parameter="mbspRwno" Type="System.Int16" DbType="SmallInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId80" Name="dbo.INS_MTOD_P" Method="INS_MTOD_P">
-    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId81" Name="dbo.UPD_MTOD_P" Method="UPD_MTOD_P">
-    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
   </Function>
 </Database>

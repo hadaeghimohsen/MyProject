@@ -190,6 +190,10 @@
          this.CellPhon_Txt = new System.Windows.Forms.TextBox();
          this.NatlCode_Txt = new System.Windows.Forms.TextBox();
          this.FrstName_Txt = new System.Windows.Forms.TextBox();
+         this.GlobCode_Txt = new System.Windows.Forms.TextBox();
+         this.ServNo_Txt = new System.Windows.Forms.TextBox();
+         this.label7 = new System.Windows.Forms.Label();
+         this.label8 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).BeginInit();
@@ -1473,14 +1477,18 @@
          this.splitContainerControl1.Panel1.Controls.Add(this.Men_Rb);
          this.splitContainerControl1.Panel1.Controls.Add(this.label2);
          this.splitContainerControl1.Panel1.Controls.Add(this.label6);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label8);
          this.splitContainerControl1.Panel1.Controls.Add(this.label4);
          this.splitContainerControl1.Panel1.Controls.Add(this.label5);
+         this.splitContainerControl1.Panel1.Controls.Add(this.label7);
          this.splitContainerControl1.Panel1.Controls.Add(this.label3);
          this.splitContainerControl1.Panel1.Controls.Add(this.label1);
          this.splitContainerControl1.Panel1.Controls.Add(this.LastName_Txt);
          this.splitContainerControl1.Panel1.Controls.Add(this.TellPhon_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ServNo_Txt);
          this.splitContainerControl1.Panel1.Controls.Add(this.FngrPrnt_Txt);
          this.splitContainerControl1.Panel1.Controls.Add(this.CellPhon_Txt);
+         this.splitContainerControl1.Panel1.Controls.Add(this.GlobCode_Txt);
          this.splitContainerControl1.Panel1.Controls.Add(this.NatlCode_Txt);
          this.splitContainerControl1.Panel1.Controls.Add(this.FrstName_Txt);
          this.splitContainerControl1.Panel1.Text = "Panel1";
@@ -1514,10 +1522,10 @@
          this.BothSex_Rb.AutoSize = true;
          this.BothSex_Rb.Checked = true;
          this.BothSex_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BothSex_Rb.Location = new System.Drawing.Point(375, 5);
+         this.BothSex_Rb.Location = new System.Drawing.Point(204, 5);
          this.BothSex_Rb.Name = "BothSex_Rb";
          this.BothSex_Rb.Size = new System.Drawing.Size(91, 18);
-         this.BothSex_Rb.TabIndex = 8;
+         this.BothSex_Rb.TabIndex = 10;
          this.BothSex_Rb.TabStop = true;
          this.BothSex_Rb.Text = "همه جنسیت";
          this.BothSex_Rb.UseVisualStyleBackColor = true;
@@ -1527,10 +1535,10 @@
          this.Women_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Women_Rb.AutoSize = true;
          this.Women_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Women_Rb.Location = new System.Drawing.Point(477, 33);
+         this.Women_Rb.Location = new System.Drawing.Point(306, 33);
          this.Women_Rb.Name = "Women_Rb";
          this.Women_Rb.Size = new System.Drawing.Size(37, 18);
-         this.Women_Rb.TabIndex = 7;
+         this.Women_Rb.TabIndex = 9;
          this.Women_Rb.Text = "زن";
          this.Women_Rb.UseVisualStyleBackColor = true;
          // 
@@ -1539,10 +1547,10 @@
          this.Men_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Men_Rb.AutoSize = true;
          this.Men_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Men_Rb.Location = new System.Drawing.Point(472, 5);
+         this.Men_Rb.Location = new System.Drawing.Point(301, 5);
          this.Men_Rb.Name = "Men_Rb";
          this.Men_Rb.Size = new System.Drawing.Size(42, 18);
-         this.Men_Rb.TabIndex = 6;
+         this.Men_Rb.TabIndex = 8;
          this.Men_Rb.Text = "مرد";
          this.Men_Rb.UseVisualStyleBackColor = true;
          // 
@@ -1562,7 +1570,7 @@
          this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label6.AutoSize = true;
          this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label6.Location = new System.Drawing.Point(615, 35);
+         this.label6.Location = new System.Drawing.Point(444, 35);
          this.label6.Name = "label6";
          this.label6.Size = new System.Drawing.Size(62, 14);
          this.label6.TabIndex = 11;
@@ -1584,7 +1592,7 @@
          this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label5.AutoSize = true;
          this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label5.Location = new System.Drawing.Point(615, 7);
+         this.label5.Location = new System.Drawing.Point(444, 7);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(70, 14);
          this.label5.TabIndex = 13;
@@ -1625,10 +1633,10 @@
          // 
          this.TellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TellPhon_Txt.Location = new System.Drawing.Point(520, 32);
+         this.TellPhon_Txt.Location = new System.Drawing.Point(349, 32);
          this.TellPhon_Txt.Name = "TellPhon_Txt";
          this.TellPhon_Txt.Size = new System.Drawing.Size(89, 22);
-         this.TellPhon_Txt.TabIndex = 5;
+         this.TellPhon_Txt.TabIndex = 7;
          // 
          // FngrPrnt_Txt
          // 
@@ -1643,10 +1651,10 @@
          // 
          this.CellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CellPhon_Txt.Location = new System.Drawing.Point(520, 4);
+         this.CellPhon_Txt.Location = new System.Drawing.Point(349, 4);
          this.CellPhon_Txt.Name = "CellPhon_Txt";
          this.CellPhon_Txt.Size = new System.Drawing.Size(89, 22);
-         this.CellPhon_Txt.TabIndex = 4;
+         this.CellPhon_Txt.TabIndex = 6;
          // 
          // NatlCode_Txt
          // 
@@ -1665,6 +1673,46 @@
          this.FrstName_Txt.Name = "FrstName_Txt";
          this.FrstName_Txt.Size = new System.Drawing.Size(144, 22);
          this.FrstName_Txt.TabIndex = 0;
+         // 
+         // GlobCode_Txt
+         // 
+         this.GlobCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GlobCode_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GlobCode_Txt.Location = new System.Drawing.Point(520, 4);
+         this.GlobCode_Txt.Name = "GlobCode_Txt";
+         this.GlobCode_Txt.Size = new System.Drawing.Size(89, 22);
+         this.GlobCode_Txt.TabIndex = 4;
+         // 
+         // ServNo_Txt
+         // 
+         this.ServNo_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ServNo_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ServNo_Txt.Location = new System.Drawing.Point(520, 32);
+         this.ServNo_Txt.Name = "ServNo_Txt";
+         this.ServNo_Txt.Size = new System.Drawing.Size(89, 22);
+         this.ServNo_Txt.TabIndex = 5;
+         // 
+         // label7
+         // 
+         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label7.AutoSize = true;
+         this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label7.Location = new System.Drawing.Point(615, 7);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(72, 14);
+         this.label7.TabIndex = 14;
+         this.label7.Text = "کد پرسنلی :";
+         // 
+         // label8
+         // 
+         this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label8.AutoSize = true;
+         this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label8.Location = new System.Drawing.Point(615, 35);
+         this.label8.Name = "label8";
+         this.label8.Size = new System.Drawing.Size(70, 14);
+         this.label8.TabIndex = 12;
+         this.label8.Text = "کد اشتراک :";
          // 
          // LSI_FLDF_F
          // 
@@ -1842,5 +1890,9 @@
       private Windows.Forms.TextBox FrstName_Txt;
       private Windows.Forms.RadioButton BothSex_Rb;
       private Windows.Forms.Button Search_Butn;
+      private Windows.Forms.Label label8;
+      private Windows.Forms.Label label7;
+      private Windows.Forms.TextBox ServNo_Txt;
+      private Windows.Forms.TextBox GlobCode_Txt;
    }
 }

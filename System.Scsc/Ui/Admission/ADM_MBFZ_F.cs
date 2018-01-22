@@ -53,6 +53,9 @@ namespace System.Scsc.Ui.Admission
 
                RqstBs1.Position = rqstindex;
 
+               // 1396/11/02 * بدست آوردن اطلاعات مشترکین در فرآیند بلوکه
+               FighBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
+
                if (RqstBs1.Count == 0 || (RqstBs1.Count == 1 && RqstBs1.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
                {
                   DefaultTabPage003();

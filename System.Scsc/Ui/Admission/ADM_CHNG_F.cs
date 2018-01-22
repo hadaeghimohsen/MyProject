@@ -45,6 +45,9 @@ namespace System.Scsc.Ui.Admission
                      rqst =>
                         rqst.RQST_DATE
                   );
+
+            // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+            FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
          }         
       }
 

@@ -128,7 +128,7 @@ namespace System.Scsc.Ui.Common
                         new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 02 /* Execute Set */),
                         new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 07 /* Execute Load_Data */),                        
                         new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("fngrprnt", fighhist.FNGR_PRNT))},
-                        new Job(SendType.SelfToUserInterface, "LSI_FDLF_F", 07 /* Execute Load_Data */),
+                        new Job(SendType.SelfToUserInterface, "LSI_FDLF_F", 07 /* Execute Load_Data */){Input = new XElement("LoadData", new XAttribute("requery", "1"))},
                      })
                );
                break;
@@ -226,7 +226,7 @@ namespace System.Scsc.Ui.Common
             vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text);
             vF_Last_Info_FighterResultGridControl.Focus();
          }
-         catch { }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
    }
 }

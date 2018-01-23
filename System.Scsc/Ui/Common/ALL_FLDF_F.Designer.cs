@@ -99,6 +99,9 @@
          System.Windows.Forms.Label label62;
          System.Windows.Forms.Label label63;
          System.Windows.Forms.Label label64;
+         System.Windows.Forms.Label label35;
+         System.Windows.Forms.Label label36;
+         System.Windows.Forms.Label label37;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ALL_FLDF_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
@@ -131,6 +134,12 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
@@ -187,15 +196,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-         System.Windows.Forms.Label label35;
-         System.Windows.Forms.Label label36;
-         System.Windows.Forms.Label label37;
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOTL_DEBT_PYMT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -275,6 +275,12 @@
          this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTNRMND = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.DscnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.ExpnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.MbspInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.MbspValdType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.cELL_PHON_DNRMTextBox = new System.Windows.Forms.TextBox();
          this.tELL_PHON_DNRMTextBox = new System.Windows.Forms.TextBox();
@@ -588,12 +594,6 @@
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DDebtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.panel1 = new System.Windows.Forms.Panel();
-         this.MbspValdType_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.ExpnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.DscnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.MbspInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          fILE_NOLabel = new System.Windows.Forms.Label();
          nAME_DNRMLabel = new System.Windows.Forms.Label();
          fATH_NAME_DNRMLabel = new System.Windows.Forms.Label();
@@ -691,6 +691,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+         this.panel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).BeginInit();
          this.groupBox2.SuspendLayout();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -782,10 +786,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit9.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).BeginInit();
-         this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // fILE_NOLabel
@@ -1583,6 +1583,36 @@
          // 
          this.DActvBs.DataSource = typeof(System.Scsc.Data.D_ACTV);
          // 
+         // label35
+         // 
+         label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label35.AutoSize = true;
+         label35.Location = new System.Drawing.Point(534, 12);
+         label35.Name = "label35";
+         label35.Size = new System.Drawing.Size(86, 14);
+         label35.TabIndex = 19;
+         label35.Text = "کل مبلغ هزینه :";
+         // 
+         // label36
+         // 
+         label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label36.AutoSize = true;
+         label36.Location = new System.Drawing.Point(331, 12);
+         label36.Name = "label36";
+         label36.Size = new System.Drawing.Size(91, 14);
+         label36.TabIndex = 19;
+         label36.Text = "کل مبلغ تخفیف :";
+         // 
+         // label37
+         // 
+         label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label37.AutoSize = true;
+         label37.Location = new System.Drawing.Point(119, 12);
+         label37.Name = "label37";
+         label37.Size = new System.Drawing.Size(100, 14);
+         label37.TabIndex = 19;
+         label37.Text = "کل مبلغ پرداختی :";
+         // 
          // HL_INVSDCMT
          // 
          this.HL_INVSDCMT.AutoHeight = false;
@@ -1610,6 +1640,7 @@
          this.tb_master.SelectedIndex = 0;
          this.tb_master.Size = new System.Drawing.Size(1205, 633);
          this.tb_master.TabIndex = 0;
+         this.tb_master.SelectedIndexChanged += new System.EventHandler(this.tb_master_SelectedIndexChanged);
          // 
          // tp_001
          // 
@@ -2503,6 +2534,121 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "تعویض کردن هزینه و کلاس", null, null, true)});
          this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
          this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         // 
+         // panel1
+         // 
+         this.panel1.Controls.Add(this.PymtAmnt_Txt);
+         this.panel1.Controls.Add(this.DscnAmnt_Txt);
+         this.panel1.Controls.Add(label37);
+         this.panel1.Controls.Add(this.ExpnAmnt_Txt);
+         this.panel1.Controls.Add(label36);
+         this.panel1.Controls.Add(this.MbspInfo_Butn);
+         this.panel1.Controls.Add(this.MbspValdType_Butn);
+         this.panel1.Controls.Add(label35);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.panel1.Location = new System.Drawing.Point(3, 318);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(631, 72);
+         this.panel1.TabIndex = 11;
+         // 
+         // PymtAmnt_Txt
+         // 
+         this.PymtAmnt_Txt.EditValue = "0";
+         this.PymtAmnt_Txt.Location = new System.Drawing.Point(13, 9);
+         this.PymtAmnt_Txt.Name = "PymtAmnt_Txt";
+         this.PymtAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PymtAmnt_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PymtAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PymtAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PymtAmnt_Txt.Properties.Mask.EditMask = "n0";
+         this.PymtAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.PymtAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.PymtAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.PymtAmnt_Txt.Properties.ReadOnly = true;
+         this.PymtAmnt_Txt.Size = new System.Drawing.Size(100, 22);
+         this.PymtAmnt_Txt.TabIndex = 35;
+         // 
+         // DscnAmnt_Txt
+         // 
+         this.DscnAmnt_Txt.EditValue = "0";
+         this.DscnAmnt_Txt.Location = new System.Drawing.Point(225, 9);
+         this.DscnAmnt_Txt.Name = "DscnAmnt_Txt";
+         this.DscnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DscnAmnt_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DscnAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.DscnAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.DscnAmnt_Txt.Properties.Mask.EditMask = "n0";
+         this.DscnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.DscnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.DscnAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.DscnAmnt_Txt.Properties.ReadOnly = true;
+         this.DscnAmnt_Txt.Size = new System.Drawing.Size(100, 22);
+         this.DscnAmnt_Txt.TabIndex = 35;
+         // 
+         // ExpnAmnt_Txt
+         // 
+         this.ExpnAmnt_Txt.EditValue = "0";
+         this.ExpnAmnt_Txt.Location = new System.Drawing.Point(428, 9);
+         this.ExpnAmnt_Txt.Name = "ExpnAmnt_Txt";
+         this.ExpnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ExpnAmnt_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ExpnAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ExpnAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ExpnAmnt_Txt.Properties.Mask.EditMask = "n0";
+         this.ExpnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.ExpnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.ExpnAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ExpnAmnt_Txt.Properties.ReadOnly = true;
+         this.ExpnAmnt_Txt.Size = new System.Drawing.Size(100, 22);
+         this.ExpnAmnt_Txt.TabIndex = 35;
+         // 
+         // MbspInfo_Butn
+         // 
+         this.MbspInfo_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.MbspInfo_Butn.Appearance.Options.UseBackColor = true;
+         this.MbspInfo_Butn.Image = ((System.Drawing.Image)(resources.GetObject("MbspInfo_Butn.Image")));
+         this.MbspInfo_Butn.Location = new System.Drawing.Point(119, 37);
+         this.MbspInfo_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.MbspInfo_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.MbspInfo_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MbspInfo_Butn.Name = "MbspInfo_Butn";
+         this.MbspInfo_Butn.Size = new System.Drawing.Size(99, 29);
+         toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+         toolTipTitleItem12.Appearance.Options.UseImage = true;
+         toolTipTitleItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem12.Image")));
+         toolTipTitleItem12.Text = "انصراف درخواست";
+         toolTipItem7.LeftIndent = 6;
+         toolTipItem7.Text = "شما می توانید برای درخواست های ناتمام و بلاتکلیف از همینجا انصراف بزنید.";
+         superToolTip7.Items.Add(toolTipTitleItem12);
+         superToolTip7.Items.Add(toolTipItem7);
+         this.MbspInfo_Butn.SuperTip = superToolTip7;
+         this.MbspInfo_Butn.TabIndex = 34;
+         this.MbspInfo_Butn.Text = "اطلاعات دوره";
+         this.MbspInfo_Butn.Click += new System.EventHandler(this.MbspInfo_Butn_Click);
+         // 
+         // MbspValdType_Butn
+         // 
+         this.MbspValdType_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.MbspValdType_Butn.Appearance.Options.UseBackColor = true;
+         this.MbspValdType_Butn.Image = ((System.Drawing.Image)(resources.GetObject("MbspValdType_Butn.Image")));
+         this.MbspValdType_Butn.Location = new System.Drawing.Point(14, 37);
+         this.MbspValdType_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.MbspValdType_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.MbspValdType_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MbspValdType_Butn.Name = "MbspValdType_Butn";
+         this.MbspValdType_Butn.Size = new System.Drawing.Size(99, 29);
+         toolTipTitleItem13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+         toolTipTitleItem13.Appearance.Options.UseImage = true;
+         toolTipTitleItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem13.Image")));
+         toolTipTitleItem13.Text = "انصراف درخواست";
+         toolTipItem8.LeftIndent = 6;
+         toolTipItem8.Text = "شما می توانید برای درخواست های ناتمام و بلاتکلیف از همینجا انصراف بزنید.";
+         superToolTip8.Items.Add(toolTipTitleItem13);
+         superToolTip8.Items.Add(toolTipItem8);
+         this.MbspValdType_Butn.SuperTip = superToolTip8;
+         this.MbspValdType_Butn.TabIndex = 34;
+         this.MbspValdType_Butn.Text = "وضعیت دوره";
+         this.MbspValdType_Butn.Click += new System.EventHandler(this.MbspValdType_Butn_Click);
          // 
          // groupBox2
          // 
@@ -6271,151 +6417,6 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // panel1
-         // 
-         this.panel1.Controls.Add(this.PymtAmnt_Txt);
-         this.panel1.Controls.Add(this.DscnAmnt_Txt);
-         this.panel1.Controls.Add(label37);
-         this.panel1.Controls.Add(this.ExpnAmnt_Txt);
-         this.panel1.Controls.Add(label36);
-         this.panel1.Controls.Add(this.MbspInfo_Butn);
-         this.panel1.Controls.Add(this.MbspValdType_Butn);
-         this.panel1.Controls.Add(label35);
-         this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.panel1.Location = new System.Drawing.Point(3, 318);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(631, 72);
-         this.panel1.TabIndex = 11;
-         // 
-         // MbspValdType_Butn
-         // 
-         this.MbspValdType_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.MbspValdType_Butn.Appearance.Options.UseBackColor = true;
-         this.MbspValdType_Butn.Image = ((System.Drawing.Image)(resources.GetObject("MbspValdType_Butn.Image")));
-         this.MbspValdType_Butn.Location = new System.Drawing.Point(14, 37);
-         this.MbspValdType_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.MbspValdType_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-         this.MbspValdType_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.MbspValdType_Butn.Name = "MbspValdType_Butn";
-         this.MbspValdType_Butn.Size = new System.Drawing.Size(99, 29);
-         toolTipTitleItem13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
-         toolTipTitleItem13.Appearance.Options.UseImage = true;
-         toolTipTitleItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem13.Image")));
-         toolTipTitleItem13.Text = "انصراف درخواست";
-         toolTipItem8.LeftIndent = 6;
-         toolTipItem8.Text = "شما می توانید برای درخواست های ناتمام و بلاتکلیف از همینجا انصراف بزنید.";
-         superToolTip8.Items.Add(toolTipTitleItem13);
-         superToolTip8.Items.Add(toolTipItem8);
-         this.MbspValdType_Butn.SuperTip = superToolTip8;
-         this.MbspValdType_Butn.TabIndex = 34;
-         this.MbspValdType_Butn.Text = "وضعیت دوره";
-         this.MbspValdType_Butn.Click += new System.EventHandler(this.MbspValdType_Butn_Click);
-         // 
-         // ExpnAmnt_Txt
-         // 
-         this.ExpnAmnt_Txt.EditValue = "0";
-         this.ExpnAmnt_Txt.Location = new System.Drawing.Point(428, 9);
-         this.ExpnAmnt_Txt.Name = "ExpnAmnt_Txt";
-         this.ExpnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ExpnAmnt_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ExpnAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ExpnAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ExpnAmnt_Txt.Properties.Mask.EditMask = "n0";
-         this.ExpnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.ExpnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.ExpnAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ExpnAmnt_Txt.Properties.ReadOnly = true;
-         this.ExpnAmnt_Txt.Size = new System.Drawing.Size(100, 22);
-         this.ExpnAmnt_Txt.TabIndex = 35;
-         // 
-         // label35
-         // 
-         label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label35.AutoSize = true;
-         label35.Location = new System.Drawing.Point(534, 12);
-         label35.Name = "label35";
-         label35.Size = new System.Drawing.Size(86, 14);
-         label35.TabIndex = 19;
-         label35.Text = "کل مبلغ هزینه :";
-         // 
-         // label36
-         // 
-         label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label36.AutoSize = true;
-         label36.Location = new System.Drawing.Point(331, 12);
-         label36.Name = "label36";
-         label36.Size = new System.Drawing.Size(91, 14);
-         label36.TabIndex = 19;
-         label36.Text = "کل مبلغ تخفیف :";
-         // 
-         // DscnAmnt_Txt
-         // 
-         this.DscnAmnt_Txt.EditValue = "0";
-         this.DscnAmnt_Txt.Location = new System.Drawing.Point(225, 9);
-         this.DscnAmnt_Txt.Name = "DscnAmnt_Txt";
-         this.DscnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DscnAmnt_Txt.Properties.Appearance.Options.UseFont = true;
-         this.DscnAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.DscnAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.DscnAmnt_Txt.Properties.Mask.EditMask = "n0";
-         this.DscnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.DscnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.DscnAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.DscnAmnt_Txt.Properties.ReadOnly = true;
-         this.DscnAmnt_Txt.Size = new System.Drawing.Size(100, 22);
-         this.DscnAmnt_Txt.TabIndex = 35;
-         // 
-         // label37
-         // 
-         label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label37.AutoSize = true;
-         label37.Location = new System.Drawing.Point(119, 12);
-         label37.Name = "label37";
-         label37.Size = new System.Drawing.Size(100, 14);
-         label37.TabIndex = 19;
-         label37.Text = "کل مبلغ پرداختی :";
-         // 
-         // PymtAmnt_Txt
-         // 
-         this.PymtAmnt_Txt.EditValue = "0";
-         this.PymtAmnt_Txt.Location = new System.Drawing.Point(13, 9);
-         this.PymtAmnt_Txt.Name = "PymtAmnt_Txt";
-         this.PymtAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.PymtAmnt_Txt.Properties.Appearance.Options.UseFont = true;
-         this.PymtAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.PymtAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.PymtAmnt_Txt.Properties.Mask.EditMask = "n0";
-         this.PymtAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.PymtAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.PymtAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PymtAmnt_Txt.Properties.ReadOnly = true;
-         this.PymtAmnt_Txt.Size = new System.Drawing.Size(100, 22);
-         this.PymtAmnt_Txt.TabIndex = 35;
-         // 
-         // MbspInfo_Butn
-         // 
-         this.MbspInfo_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.MbspInfo_Butn.Appearance.Options.UseBackColor = true;
-         this.MbspInfo_Butn.Image = ((System.Drawing.Image)(resources.GetObject("MbspInfo_Butn.Image")));
-         this.MbspInfo_Butn.Location = new System.Drawing.Point(119, 37);
-         this.MbspInfo_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.MbspInfo_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-         this.MbspInfo_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.MbspInfo_Butn.Name = "MbspInfo_Butn";
-         this.MbspInfo_Butn.Size = new System.Drawing.Size(99, 29);
-         toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
-         toolTipTitleItem12.Appearance.Options.UseImage = true;
-         toolTipTitleItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem12.Image")));
-         toolTipTitleItem12.Text = "انصراف درخواست";
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "شما می توانید برای درخواست های ناتمام و بلاتکلیف از همینجا انصراف بزنید.";
-         superToolTip7.Items.Add(toolTipTitleItem12);
-         superToolTip7.Items.Add(toolTipItem7);
-         this.MbspInfo_Butn.SuperTip = superToolTip7;
-         this.MbspInfo_Butn.TabIndex = 34;
-         this.MbspInfo_Butn.Text = "اطلاعات دوره";
-         this.MbspInfo_Butn.Click += new System.EventHandler(this.MbspInfo_Butn_Click);
-         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6455,6 +6456,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+         this.panel1.ResumeLayout(false);
+         this.panel1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).EndInit();
          this.groupBox2.ResumeLayout(false);
          this.groupBox2.PerformLayout();
          this.groupBox1.ResumeLayout(false);
@@ -6564,11 +6570,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).EndInit();
-         this.panel1.ResumeLayout(false);
-         this.panel1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }

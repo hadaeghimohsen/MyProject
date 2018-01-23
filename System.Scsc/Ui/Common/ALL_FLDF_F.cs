@@ -1266,5 +1266,34 @@ namespace System.Scsc.Ui.Common
                Execute_Query();
          }
       }
+
+      private void tb_master_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         
+         //vF_SavePaymentsBs.DataSource = iScsc.VF_Payments(null, null, fileno, null, null, null, null).OrderByDescending(p => p.ISSU_DATE);        
+         //AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+
+         switch (tb_master.SelectedIndex)
+         {
+            case 1:
+               vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
+               break;
+            case 2:
+               vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
+               ShowCrntReglYear_Butn_Click(null, null);
+               break;
+            case 3:
+               vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno);;
+               break;
+            case 4:
+               vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
+               break;
+            case 5:
+               AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+               break;
+            default:
+               break;
+         }
+      }
    }
 }

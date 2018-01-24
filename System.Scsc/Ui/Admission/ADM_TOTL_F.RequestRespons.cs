@@ -17,9 +17,10 @@ namespace System.Scsc.Ui.Admission
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
-      private string formCaller;
+      private string formCaller = "";
       private bool isFirstLoaded = false;
       private string CurrentUser;
+      
 
 
       public void SendRequest(Job job)
@@ -106,6 +107,7 @@ namespace System.Scsc.Ui.Admission
             {
                case "CFG_STNG_F":
                case "BAS_CPR_F":
+               case "AMD_TOTL_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
                   );
@@ -362,6 +364,12 @@ namespace System.Scsc.Ui.Admission
                   FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   RQTT_CODE_LookUpEdit3.EditValue = "001";//figh.FGPB_TYPE_DNRM;
                   Btn_RqstRqt3_Click(null, null);
+
+                  // 1396/11/04
+                  if ((job.Input as XElement).Attribute("formcaller") != null)
+                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  else
+                     formCaller = "";
                }
 
             }

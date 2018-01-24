@@ -45,6 +45,9 @@ namespace System.Scsc.Ui.Common
             case 07:
                LoadData(job);
                break;
+            case 08:
+               LoadDataSource(job);
+               break;
             case 10:
                Actn_CalF_P(job);
                break;
@@ -291,6 +294,15 @@ namespace System.Scsc.Ui.Common
          }
          catch { }
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 08
+      /// </summary>
+      /// <param name="job"></param>
+      private void LoadDataSource(Job job)
+      {
+         Refresh_Butn_Click(null, null);
       }
 
       /// <summary>

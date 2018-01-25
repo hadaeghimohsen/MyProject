@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.Admission
       int Sleeping = 1;
       int step = 15;
       private string CurrentUser;
+      private string formCaller = "";
 
       public void SendRequest(Job job)
       {
@@ -68,6 +69,16 @@ namespace System.Scsc.Ui.Admission
 
          if (keyData == Keys.Escape)
          {
+            switch (formCaller)
+            {
+               case "ALL_FLDF_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                  );
+                  break;
+               default:
+                  break;
+            }
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -251,6 +262,12 @@ namespace System.Scsc.Ui.Admission
             mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
          }
          Execute_Query();
+
+         // 1396/11/04
+         if ((job.Input as XElement).Attribute("formcaller") != null)
+            formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+         else
+            formCaller = "";
          job.Status = StatusType.Successful;
       }
    }

@@ -21,7 +21,6 @@ namespace System.Scsc.Ui.Admission
       private bool isFirstLoaded = false;
       private string CurrentUser;
 
-
       public void SendRequest(Job job)
       {
          switch (job.Method)
@@ -101,7 +100,17 @@ namespace System.Scsc.Ui.Admission
             #endregion
          }
          else if (keyData == Keys.Escape)
-         {            
+         {
+            switch (formCaller)
+            {
+               case "ALL_FLDF_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                  );
+                  break;
+               default:
+                  break;
+            }
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -293,6 +302,12 @@ namespace System.Scsc.Ui.Admission
                      figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64((job.Input as XElement).Attribute("fileno").Value)).FirstOrDefault();
                   FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   Btn_RqstRqt3_Click(null, null);
+
+                  // 1396/11/04
+                  if ((job.Input as XElement).Attribute("formcaller") != null)
+                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  else
+                     formCaller = "";
                }
             }
             else

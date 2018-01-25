@@ -331,7 +331,7 @@ namespace System.Scsc.Ui.Common
                new List<Job>
                {
                   new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))}
+                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
                })
          );
       }
@@ -1041,7 +1041,7 @@ namespace System.Scsc.Ui.Common
                new List<Job>
                {
                   new Job(SendType.Self, 133 /* Execute Adm_Mbfz_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_MBFZ_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "block"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+                  new Job(SendType.SelfToUserInterface, "ADM_MBFZ_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "block"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
                })
          );
       }
@@ -1172,7 +1172,8 @@ namespace System.Scsc.Ui.Common
                         Input = 
                            new XElement("Fighter",
                               new XAttribute("fileno", fileno),
-                              new XAttribute("mbsprwno", mbsp.RWNO)
+                              new XAttribute("mbsprwno", mbsp.RWNO),
+                              new XAttribute("formcaller", GetType().Name)
                            )
                      }
                   }

@@ -107,7 +107,7 @@ namespace System.Scsc.Ui.Admission
             {
                case "CFG_STNG_F":
                case "BAS_CPR_F":
-               case "AMD_TOTL_F":
+               case "ALL_FLDF_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
                   );

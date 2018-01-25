@@ -19,10 +19,10 @@ namespace System.Scsc.Ui.Admission
       private List<long?> Fga_Uclb_U;
       private bool isFirstLoaded = false;
       private string CurrentUser;
-          
+      private string formCaller;   
 
       public void SendRequest(Job job)
-      {
+      {         
          switch (job.Method)
          {
             case 00:
@@ -98,6 +98,16 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.Escape)
          {
+            switch (formCaller)
+            {
+               case "ALL_FLDF_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                  );
+                  break;
+               default:
+                  break;
+            }
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -302,6 +312,12 @@ namespace System.Scsc.Ui.Admission
                   var figh = iScsc.Fighters.First(f => f.FILE_NO == Convert.ToInt64(xinput.Attribute("fileno").Value));
 
                   RqstBs1.Position = RqstBs1.List.OfType<Data.Request>().ToList().FindIndex(r => r.RQID == figh.RQST_RQID);
+
+                  // 1396/11/04
+                  if ((job.Input as XElement).Attribute("formcaller") != null)
+                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  else
+                     formCaller = "";
                }
                break;
             case "setcard":

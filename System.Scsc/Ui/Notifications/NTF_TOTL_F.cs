@@ -613,7 +613,7 @@ namespace System.Scsc.Ui.Notifications
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             // منشی پشت سیستم حضور دارد
-            if( /*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
+            if( /*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm  == "001")
                 result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
 

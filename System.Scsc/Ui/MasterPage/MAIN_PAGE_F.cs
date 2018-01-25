@@ -768,22 +768,6 @@ namespace System.Scsc.Ui.MasterPage
                         new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
                      });
                   _DefaultGateway.Gateway(_InteractWithScsc);
-
-                  //_DefaultGateway.Gateway(
-                  //   new Job(SendType.External, "localhost",
-                  //      new List<Job>
-                  //      {
-                  //         new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
-                  //         new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
-                  //         {
-                  //            Input = 
-                  //            new XElement("Fighter",
-                  //               new XAttribute("enrollnumber", EnrollNumber),
-                  //               new XAttribute("isnewenroll", true)
-                  //            )
-                  //         }
-                  //      })
-                  //);
                }
                else
                   _DefaultGateway.Gateway(
@@ -796,6 +780,66 @@ namespace System.Scsc.Ui.MasterPage
                // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
                // 1396/10/26 * بررسی اینکه سیستمی که اپرداتور ندارد
                var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
+
+               var mbfz =
+                  iScsc.ExecuteQuery<Data.Member_Ship>(
+                     string.Format(
+                        @"SELECT M.*
+                            FROM Fighter f, Member_Ship m
+                           WHERE F.File_No = M.Figh_File_No
+                             AND F.Mbfz_Rwno_Dnrm = M.Rwno
+                             AND M.Rect_Code = '004'
+                             AND M.Vald_Type = '002'
+                             AND F.File_No = {0}
+                             AND CAST(GETDATE() AS DATE) BETWEEN M.STRT_DATE AND M.END_DATE
+                        ", figh.FILE_NO
+                     )
+                  );
+
+               if (mbfz.Count() >= 1)
+               {
+                  // 1396/08/01 * 16:02
+                  // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Request",
+                                    new XAttribute("type", "gatecontrol"),
+                                    new XAttribute("gateactn", "error")
+                                 )
+                           }
+                        }
+                     )
+                  );
+
+                  DialogResult result = DialogResult.None;
+                  if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ host.CHCK_ATTN_ALRM == "001")
+                     result = MessageBox.Show(this, "هشدار!!!\n\rعضو مربوطه کد خود را بلوکه کرده است." + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+
+                  if (result == DialogResult.Yes)
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 99 /* Execute New_Fngr_F */),
+                              new Job(SendType.SelfToUserInterface, "NEW_FNGR_F", 10 /* Execute Actn_CalF_F*/ )
+                              {
+                                 Input = 
+                                 new XElement("Fighter",
+                                    new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM),
+                                    new XAttribute("isnewenroll", false)
+                                 )
+                              }
+                           })
+                     );
+
+                  return;
+               }
 
                var mbsp =
                   iScsc.ExecuteQuery<Data.Member_Ship>(
@@ -826,41 +870,7 @@ namespace System.Scsc.Ui.MasterPage
                                            AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
                                        ", figh.FILE_NO) 
                   ).ToList<Data.Member_Ship>();
-                  //from mb in iScsc.Member_Ships
-                  //join fp in iScsc.Fighter_Publics on mb.FIGH_FILE_NO equals fp.FIGH_FILE_NO
-                  //join mt in iScsc.Methods on fp.MTOD_CODE equals mt.CODE
-                  //where mb.FIGH_FILE_NO == figh.FILE_NO 
-                  //   && mb.RECT_CODE == "004"
-                  //   && mb.TYPE == "001"
-                  //   && mb.VALD_TYPE == "002"
-                  //   && fp.RECT_CODE == "004"
-                  //   && fp.RWNO == mb.FGPB_RWNO_DNRM
-                  //   && (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM) 
-                  //   && (
-                  //         (host.CHCK_ATTN_ALRM == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date)/* اگر سیستم اپراتور دارد */ 
-                  //      || (
-                  //            mt.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ && 
-                  //            mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date
-                  //         )
 
-                  //   )
-                  //select mb;
-                  //iScsc.Member_Ships
-                  //.Where(mb => 
-                  //   mb.FIGH_FILE_NO == figh.FILE_NO && 
-                  //   mb.RECT_CODE == "004" && 
-                  //   mb.TYPE == "001" && 
-                  //   mb.VALD_TYPE == "002" &&                      
-                  //   (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM) &&
-                  //   (  
-                  //      (host.CHCK_ATTN_ALRM == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date)/* اگر سیستم اپراتور دارد */ ||
-                  //      (  mb.FGPB_RWNO_DNRM != null && 
-                  //         mb.Fighter_Public.Method.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ && 
-                  //         mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date && 
-                  //         mb.RWNO == (figh.Member_Ships.Where(mbt => mbt.RECT_CODE == "004" && mbt.TYPE == "001" && mbt.VALD_TYPE == "002" && mbt.END_DATE.Value.Date >= DateTime.Now.Date && mbt.Fighter_Public.Method.CHCK_ATTN_ALRM == "002").Min(mbt => mbt.RWNO))
-                  //      ) /* اگر سیستم اپراتور ندارد باید دوره هایی که نیاز به اپراتور ندارد نمایش داده شود و مربوط به ماه جاری باشد */                           
-                  //   )
-                  //);
                if (mbsp.Count() >= 2)
                {
                   _DefaultGateway.Gateway(
@@ -901,41 +911,7 @@ namespace System.Scsc.Ui.MasterPage
                                               AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
                                             ORDER BY ms.Rwno DESC
                                        ", figh.FILE_NO) 
-                        ).ToList<Data.Member_Ship>();
-                        //from mb in iScsc.Member_Ships
-                        //join fp in iScsc.Fighter_Publics on mb.FIGH_FILE_NO equals fp.FIGH_FILE_NO
-                        //join mt in iScsc.Methods on fp.MTOD_CODE equals mt.CODE
-                        //where mb.FIGH_FILE_NO == figh.FILE_NO
-                        //   && mb.RECT_CODE == "004"
-                        //   && mb.TYPE == "001"
-                        //   && mb.VALD_TYPE == "002"
-                        //   && fp.RECT_CODE == "004"
-                        //   && fp.RWNO == mb.FGPB_RWNO_DNRM
-                        //   //&& (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
-                        //   && (
-                        //         (
-                        //            mt.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ &&
-                        //            mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date //&&
-                        //            //mb.RWNO == (figh.Member_Ships.Where(mbt => mbt.RECT_CODE == "004" && mbt.TYPE == "001" && mbt.VALD_TYPE == "002" && mbt.END_DATE.Value.Date >= DateTime.Now.Date && mbt.STRT_DATE.Value.Date <= DateTime.Now.Date && mbt.Fighter_Public.Method.CHCK_ATTN_ALRM == "002").Max(mbt => mbt.RWNO)) 
-                        //         )
-
-                        //   )
-                        //select mb;
-                        //iScsc.Member_Ships
-                        //.Where(mb =>
-                        //   mb.FIGH_FILE_NO == figh.FILE_NO &&
-                        //   mb.RECT_CODE == "004" &&
-                        //   mb.TYPE == "001" &&
-                        //   mb.VALD_TYPE == "002" &&
-                        //   //(mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM) &&
-                        //   (  
-                        //      mb.FGPB_RWNO_DNRM != null && 
-                        //      mb.Fighter_Public.Method.CHCK_ATTN_ALRM == "002" /* ورزشی که نیاز به اپراتور ندارد */ && 
-                        //      //mb.STRT_DATE.Value.Date <= DateTime.Now.Date && mb.END_DATE.Value.Date >= DateTime.Now.Date && 
-                        //      mb.RWNO == (figh.Member_Ships.Where(mbt => mbt.RECT_CODE == "004" && mbt.TYPE == "001" && mbt.VALD_TYPE == "002" && mbt.END_DATE.Value.Date >= DateTime.Now.Date && mbt.STRT_DATE.Value.Date <= DateTime.Now.Date && mbt.Fighter_Public.Method.CHCK_ATTN_ALRM == "002").Max(mbt => mbt.RWNO)) 
-                        //      /* اگر سیستم اپراتور ندارد باید دوره هایی که نیاز به اپراتور ندارد نمایش داده شود و مربوط به ماه جاری باشد */
-                        //   )
-                        //);
+                        ).ToList<Data.Member_Ship>();                        
                   }
                   Job _InteractWithScsc =
                      new Job(SendType.External, "Localhost",

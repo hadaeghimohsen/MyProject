@@ -244,7 +244,7 @@ namespace System.Scsc.Ui.Notifications
                if (input.Attribute("chckattnalrm") != null)
                   chckattnalrm = input.Attribute("chckattnalrm").Value;
                else
-                  chckattnalrm = "";
+                  chckattnalrm = "001";
 
                if (input.Attribute("barcodedata") != null && input.Attribute("barcodedata").Value != "")
                {

@@ -213,12 +213,14 @@ namespace System.Scsc.Ui.BaseDefinition
          if(xinput != null)
          {
             code = Convert.ToInt64(xinput.Attribute("code").Value);
-            if(xinput.Attribute("showonly") !=null)
-            {
-               SubmitChange_Butn.Visible = true;
-               if(xinput.Attribute("showonly").Value == "002")
-                  SubmitChange_Butn.Visible = false;
-            }
+            //if(xinput.Attribute("showonly") !=null)
+            //{
+            //   SubmitChange_Butn.Visible = true;
+            //   if(xinput.Attribute("showonly").Value == "002")
+            //      SubmitChange_Butn.Visible = false;
+            //}
+            //else
+            //   SubmitChange_Butn.Visible = true;
          }
          Execute_Query();
          job.Status = StatusType.Successful;

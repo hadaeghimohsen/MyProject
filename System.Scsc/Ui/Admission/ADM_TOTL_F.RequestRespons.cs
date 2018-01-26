@@ -115,6 +115,7 @@ namespace System.Scsc.Ui.Admission
                default:
                   break;
             }
+            formCaller = "";
             job.Next =
                new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 04 /* Execute UnPaint */);
          }

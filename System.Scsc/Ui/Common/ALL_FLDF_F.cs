@@ -1242,6 +1242,12 @@ namespace System.Scsc.Ui.Common
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
 
+            if(mbsp.TYPE == "005")
+            {
+               MessageBox.Show(this, "شما اجازه غیرفعال کردن رکورد بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               return;
+            }           
+
             if(mbsp.VALD_TYPE == "002")
             {
                if (MessageBox.Show(this, "آیا با غیرفعال کردن دوره موافق هستید؟", "غیرفعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
@@ -1250,6 +1256,12 @@ namespace System.Scsc.Ui.Common
             }
             else if(mbsp.VALD_TYPE == "001")
             {
+               if(MbspBs.List.OfType<Data.Member_Ship>().Any(m => m.RWNO > mbsp.RWNO && m.TYPE == "005"))
+               {
+                  MessageBox.Show(this, "شما اجازه فعال کردن دوره ابطال شده توسط فرآیند بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  return;
+               }
+
                if (MessageBox.Show(this, "آیا با فعال کردن دوره موافق هستید؟", "فعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '002' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));

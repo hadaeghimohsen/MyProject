@@ -111,6 +111,8 @@ namespace System.Scsc.Ui.Admission
                default:
                   break;
             }
+
+            formCaller = "";
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }

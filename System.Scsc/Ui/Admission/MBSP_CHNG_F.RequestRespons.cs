@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -247,6 +249,7 @@ namespace System.Scsc.Ui.Admission
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         DDytpBs1.DataSource = iScsc.D_DYTPs;
          job.Status = StatusType.Successful;
       }
 
@@ -261,6 +264,27 @@ namespace System.Scsc.Ui.Admission
          {
             fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
             mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
+
+            try
+            {
+               UserProFile_Rb.ImageProfile = null;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
+
+               //Pb_FighImg.Visible = true;
+
+               if (InvokeRequired)
+                  Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+               else
+                  UserProFile_Rb.ImageProfile = bm;
+            }
+            catch
+            { //Pb_FighImg.Visible = false;
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            }
          }
          Execute_Query();
 

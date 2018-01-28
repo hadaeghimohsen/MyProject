@@ -39,6 +39,15 @@ namespace System.Scsc.Ui.Admission
             Mbsp004Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RWNO == mbsprwno && mb.RECT_CODE == "004" && mb.FIGH_FILE_NO == fileno);
             var mbsp = Mbsp004Bs.Current as Data.Member_Ship;
 
+            var cbmt = mbsp.Fighter_Public.Club_Method;
+            CochName_Txt.EditValue = cbmt.Fighter.NAME_DNRM;
+            MtodDesc_Txt.EditValue = mbsp.Fighter_Public.Method.MTOD_DESC;
+            CtgyDesc_Txt.EditValue = mbsp.Fighter_Public.Category_Belt.CTGY_DESC;
+            StrtTime_Txt.EditValue = cbmt.STRT_TIME.ToString().Substring(0, 5);
+            EndTime_Txt.EditValue = cbmt.END_TIME.ToString().Substring(0, 5);
+
+            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002" && cm.MTOD_CODE == mbsp.Fighter_Public.MTOD_CODE);
+
             Mbsp002Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RQRO_RQST_RQID == mbsp.RQRO_RQST_RQID && mb.RECT_CODE == "002" && mb.FIGH_FILE_NO == fileno);
          }
          catch (Exception ) { }
@@ -113,6 +122,8 @@ namespace System.Scsc.Ui.Admission
             var mbspnew = Mbsp002Bs.Current as Data.Member_Ship;
             if (mbspnew == null) return;
 
+            if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "") { CBMT_CODE_GridLookUpEdit.Focus(); return; }
+
             iScsc.MBSP_SCHG_P(
                new XElement("Process",
                   new XElement("Request",
@@ -120,6 +131,9 @@ namespace System.Scsc.Ui.Admission
                      new XElement("Request_Row",
                         new XAttribute("fileno", mbspnew.FIGH_FILE_NO),
                         new XAttribute("rwno", mbspnew.RQRO_RWNO)                        
+                     ),
+                     new XElement("Member_Ship",
+                        new XAttribute("cbmtcode", CBMT_CODE_GridLookUpEdit.EditValue)
                      )
                   )
                )
@@ -143,6 +157,22 @@ namespace System.Scsc.Ui.Admission
       private void MbspCncl_Butn_Click(object sender, EventArgs e)
       {
 
+      }
+
+      private void CBMT_CODE_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cb => cb.CODE == (long)e.NewValue);
+            MtodDescN_Txt.EditValue = MtodDesc_Txt.Text;
+            CtgyDescN_Txt.EditValue = CtgyDesc_Txt.Text;
+            StrtTimeN_Txt.EditValue = cbmt.STRT_TIME.ToString().Substring(0, 5);
+            EndTimeN_Txt.EditValue = cbmt.END_TIME.ToString().Substring(0, 5);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

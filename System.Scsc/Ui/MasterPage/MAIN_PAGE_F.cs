@@ -852,7 +852,7 @@ namespace System.Scsc.Ui.MasterPage
                                            AND ms.Type = '001'
                                            AND ms.Vald_Type = '002'
                                            AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
-                                           AND (CAST(ms.End_Date AS DATE) > CAST(GETDATE() AS DATE))
+                                           AND (CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
                                        ", figh.FILE_NO) 
                         :
                         /* منشی پشت سیستم حضور ندارد */

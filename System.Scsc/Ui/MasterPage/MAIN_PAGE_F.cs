@@ -698,6 +698,7 @@ namespace System.Scsc.Ui.MasterPage
                )
             )
             {
+               #region Check Disabled Fighter
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
 
                if (figh != null && Convert.ToInt32(figh.ACTV_TAG_DNRM ?? "101") <= 100)
@@ -773,14 +774,27 @@ namespace System.Scsc.Ui.MasterPage
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
                   );
+               #endregion
             }
             else
             {
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
+               if(figh == null)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", EnrollNumber))}
+                        })
+                  );
+               }
                // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
                // 1396/10/26 * بررسی اینکه سیستمی که اپرداتور ندارد
                var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
 
+               #region Check Freez Fighter
                var mbfz =
                   iScsc.ExecuteQuery<Data.Member_Ship>(
                      string.Format(
@@ -840,7 +854,9 @@ namespace System.Scsc.Ui.MasterPage
 
                   return;
                }
+               #endregion
 
+               #region Check Any Member_Ship
                var mbsp =
                   iScsc.ExecuteQuery<Data.Member_Ship>(
                      host.CHCK_ATTN_ALRM == "001" ? 
@@ -922,6 +938,7 @@ namespace System.Scsc.Ui.MasterPage
                         });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }
+               #endregion
             }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
@@ -2329,9 +2346,9 @@ namespace System.Scsc.Ui.MasterPage
                   Job _InteractWithScsc =
                   new Job(SendType.External, "Localhost",
                      new List<Job>
-                  {
-                     new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
-                  });
+                     {
+                        new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
+                     });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }
             }

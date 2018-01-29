@@ -18,6 +18,7 @@ namespace System.Scsc.Ui.Notifications
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       private bool isFirstLoaded = false;
+      private string formStatus = "";
 
       public void SendRequest(Job job)
       {
@@ -117,6 +118,7 @@ namespace System.Scsc.Ui.Notifications
       {
          if (job.Input == null || (job.Input != null && (job.Input as XElement).Attribute("actntype").Value != "JustRunInBackground"))
          {
+            formStatus = "RunInForeground";
             Job _Paint = new Job(SendType.External, "Desktop",
                new List<Job>
                {
@@ -128,6 +130,7 @@ namespace System.Scsc.Ui.Notifications
          }
          else
          {
+            formStatus = "JustRunInBackground";
             Dt_CrntDate2R.Value = DateTime.Now;
          }
 

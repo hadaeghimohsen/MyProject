@@ -32,8 +32,11 @@ namespace System.Scsc.Ui.Notifications
          if (tb_master.SelectedPage == tp_002)
          {
             Pb_FileNo2.PickChecked = true;
-            FighBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-            CochBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+            if (formStatus == "RunInForeground")
+            {
+               FighBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+               CochBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+            }
          }
       }
 
@@ -531,26 +534,26 @@ namespace System.Scsc.Ui.Notifications
          {
             if (Pb_FileNo2.PickChecked && Convert.ToInt64(Nud_FileNo2.EditValue) > 0)
             {
-               if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
-               {
+               //if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
+               //{
                   
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost",
-                        new List<Job>
-                     {
-                        new Job(SendType.Self, 115 /* Execute CHOS_CLAS_F */),
-                        new Job(SendType.SelfToUserInterface, "CHOS_CLAS_F", 10 /* Execute Actn_CalF_F*/ )
-                        {
-                           Input = 
-                           new XElement("Fighter",
-                              new XAttribute("fileno", Nud_FileNo2.EditValue)
-                           )
-                        }
-                     })
-                  );
-               }
-               else
+               //   /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+               //   _DefaultGateway.Gateway(
+               //      new Job(SendType.External, "localhost",
+               //         new List<Job>
+               //      {
+               //         new Job(SendType.Self, 115 /* Execute CHOS_CLAS_F */),
+               //         new Job(SendType.SelfToUserInterface, "CHOS_CLAS_F", 10 /* Execute Actn_CalF_F*/ )
+               //         {
+               //            Input = 
+               //            new XElement("Fighter",
+               //               new XAttribute("fileno", Nud_FileNo2.EditValue)
+               //            )
+               //         }
+               //      })
+               //   );
+               //}
+               //else
                {
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
@@ -558,25 +561,25 @@ namespace System.Scsc.Ui.Notifications
             }
             else if (Pb_FileName2.PickChecked && (Lov_FileName2.Text != "" /**/ || Lov_FileName2.EditValue != null))
             {
-               if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
-               {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost",
-                        new List<Job>
-                     {
-                        new Job(SendType.Self, 115 /* Execute CHOS_CLAS_F */),
-                        new Job(SendType.SelfToUserInterface, "CHOS_CLAS_F", 10 /* Execute Actn_CalF_F*/ )
-                        {
-                           Input = 
-                           new XElement("Fighter",
-                              new XAttribute("fileno", Lov_FileName2.EditValue)
-                           )
-                        }
-                     })
-                  );
-               }
-               else
+               //if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
+               //{
+               //   /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+               //   _DefaultGateway.Gateway(
+               //      new Job(SendType.External, "localhost",
+               //         new List<Job>
+               //      {
+               //         new Job(SendType.Self, 115 /* Execute CHOS_CLAS_F */),
+               //         new Job(SendType.SelfToUserInterface, "CHOS_CLAS_F", 10 /* Execute Actn_CalF_F*/ )
+               //         {
+               //            Input = 
+               //            new XElement("Fighter",
+               //               new XAttribute("fileno", Lov_FileName2.EditValue)
+               //            )
+               //         }
+               //      })
+               //   );
+               //}
+               //else
                {
                   if(mbsprwno == 0)
                   {
@@ -646,10 +649,13 @@ namespace System.Scsc.Ui.Notifications
             if(requry)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
-               if (InvokeRequired)
-                  Invoke(new Action(() => Btn_Search_Click(null, null) ));
-               else
-                  Btn_Search_Click(null, null);
+               if (formStatus == "RunInForeground")
+               {
+                  if (InvokeRequired)
+                     Invoke(new Action(() => Btn_Search_Click(null, null)));
+                  else
+                     Btn_Search_Click(null, null);
+               }
                requry = false;
 
                /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
@@ -666,7 +672,7 @@ namespace System.Scsc.Ui.Notifications
                               Input = 
                               new XElement("Fighter",
                                  new XAttribute("fileno", fileno),
-                                 new XAttribute("attndate", (AttnBs2.Current as Data.Attendance).ATTN_DATE),
+                                 new XAttribute("attndate", /*(AttnBs2.Current as Data.Attendance).ATTN_DATE*/ DateTime.Now.Date),
                                  new XAttribute("gatecontrol", "true"),
                                  new XAttribute("mbsprwno", mbsprwno)
                               )

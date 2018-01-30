@@ -67,5 +67,10 @@ namespace System.Scsc.Ui.ReportManager
             new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
          );
       }
+
+      private void Rptlrfm_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         mb_SelectReport_Click(null, null);
+      }
    }
 }

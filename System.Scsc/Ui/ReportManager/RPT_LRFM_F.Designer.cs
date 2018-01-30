@@ -119,6 +119,7 @@
          this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMDUL_NAME, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colSECT_NAME, DevExpress.Data.ColumnSortOrder.Ascending)});
+         this.gridView1.DoubleClick += new System.EventHandler(this.Rptlrfm_Gv_DoubleClick);
          // 
          // colCODE
          // 

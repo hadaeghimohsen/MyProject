@@ -241,7 +241,7 @@ namespace System.Scsc.Ui.ReportManager
                s.Print(false);
             }
          }
-         catch { }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
          job.Status = StatusType.Successful;
       }
 

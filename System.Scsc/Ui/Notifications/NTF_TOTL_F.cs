@@ -624,7 +624,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if(FighBs2.List.Count == 0)
                   Execute_Query();
-               Lov_FileName2.Tag = FighBs2.List.OfType<Data.Fighter>().First(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue)).FNGR_PRNT_DNRM;
+               //Lov_FileName2.Tag = FighBs2.List.OfType<Data.Fighter>().First(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue)).FNGR_PRNT_DNRM;
             }
 
             if(Lov_FileName2.Tag != null && result == DialogResult.Yes)

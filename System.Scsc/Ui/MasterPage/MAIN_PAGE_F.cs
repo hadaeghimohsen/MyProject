@@ -862,13 +862,17 @@ namespace System.Scsc.Ui.MasterPage
                      host.CHCK_ATTN_ALRM == "001" ? 
                         /* منشی پشت سیستم حضور دارد */
                         string.Format(@"SELECT ms.*
-                                          FROM Member_Ship ms
+                                          FROM Member_Ship ms, Fighter_Public fp, Method mt
                                          WHERE ms.Figh_File_No = {0}
+                                           AND ms.Figh_File_No = fp.Figh_File_No
+                                           AND fp.Mtod_Code = mt.Code
                                            AND ms.Rect_Code = '004'
                                            AND ms.Type = '001'
                                            AND ms.Vald_Type = '002'
+                                           AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
+                                           AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
                                            AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
-                                           AND (CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
+                                           AND (mt.Chck_Attn_Alrm = '001' AND CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
                                        ", figh.FILE_NO) 
                         :
                         /* منشی پشت سیستم حضور ندارد */
@@ -2361,6 +2365,10 @@ namespace System.Scsc.Ui.MasterPage
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
                );
+            }
+            else if(e.Button.Index == 3)
+            {
+               axCZKEM1_OnAttTransactionEx(CardNumb_Text.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
             }
          }
          catch (Exception )

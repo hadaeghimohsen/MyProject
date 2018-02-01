@@ -29,15 +29,31 @@ namespace System.Scsc.Ui.Notifications
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             MbspBs.DataSource =
-               iScsc.Member_Ships.Where(
-                  mb => mb.FIGH_FILE_NO == Convert.ToInt64(fileno) &&
-                        mb.TYPE == "001" &&
-                        mb.RECT_CODE == "004" && 
-                        mb.VALD_TYPE == "002" &&
-                        mb.END_DATE.Value.Date >= DateTime.Now.Date &&
-                        //(mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") &&
-                        (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
-               );
+               //iScsc.Member_Ships.Where(
+               //   mb => mb.FIGH_FILE_NO == Convert.ToInt64(fileno) &&
+               //         mb.TYPE == "001" &&
+               //         mb.RECT_CODE == "004" && 
+               //         mb.VALD_TYPE == "002" &&
+               //         mb.END_DATE.Value.Date >= DateTime.Now.Date &&
+               //         //(mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") &&
+               //         (mb.NUMB_OF_ATTN_MONT == 0 || mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)
+               //);
+               iScsc.ExecuteQuery<Data.Member_Ship>(                     
+                  /* منشی پشت سیستم حضور دارد */
+                  string.Format(@"SELECT ms.*
+                                    FROM Member_Ship ms, Fighter_Public fp, Method mt
+                                    WHERE ms.Figh_File_No = {0}
+                                       AND ms.Figh_File_No = fp.Figh_File_No
+                                       AND fp.Mtod_Code = mt.Code
+                                       AND ms.Rect_Code = '004'
+                                       AND ms.Type = '001'
+                                       AND ms.Vald_Type = '002'
+                                       AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
+                                       AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
+                                       AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
+                                       AND (m.Chck_Attn_Alrm = '001' AND CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
+                                 ", fileno)
+                  ).ToList<Data.Member_Ship>();
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }

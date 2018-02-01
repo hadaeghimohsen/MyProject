@@ -134,6 +134,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             var fngrprnt = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
 
+            CardNumb_Text.Text = fngrprnt.ToString();
             axCZKEM1_OnAttTransactionEx(fngrprnt.ToString(), 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
          }
          else if (keyData == Keys.Escape)

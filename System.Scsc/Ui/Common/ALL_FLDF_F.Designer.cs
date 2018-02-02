@@ -197,6 +197,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.Windows.Forms.Label label38;
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOTL_DEBT_PYMT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -600,6 +601,7 @@
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DDebtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
+         this.textBox9 = new System.Windows.Forms.TextBox();
          fILE_NOLabel = new System.Windows.Forms.Label();
          nAME_DNRMLabel = new System.Windows.Forms.Label();
          fATH_NAME_DNRMLabel = new System.Windows.Forms.Label();
@@ -673,6 +675,7 @@
          label35 = new System.Windows.Forms.Label();
          label36 = new System.Windows.Forms.Label();
          label37 = new System.Windows.Forms.Label();
+         label38 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -999,9 +1002,9 @@
          label18.AutoSize = true;
          label18.Location = new System.Drawing.Point(368, 93);
          label18.Name = "label18";
-         label18.Size = new System.Drawing.Size(75, 14);
+         label18.Size = new System.Drawing.Size(92, 14);
          label18.TabIndex = 14;
-         label18.Text = "حکم جهانی :";
+         label18.Text = "شماره پرسنلی :";
          // 
          // label19
          // 
@@ -1689,7 +1692,7 @@
          this.UserProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-         this.UserProFile_Rb.ImageVisiable = true;
+         this.UserProFile_Rb.ImageVisiable = false;
          this.UserProFile_Rb.Location = new System.Drawing.Point(1090, 19);
          this.UserProFile_Rb.Name = "UserProFile_Rb";
          this.UserProFile_Rb.NormalBorderColor = System.Drawing.Color.Black;
@@ -3769,7 +3772,9 @@
          this.groupBox11.Controls.Add(this.CordY_Txt);
          this.groupBox11.Controls.Add(this.CordX_Txt);
          this.groupBox11.Controls.Add(this.textBox20);
+         this.groupBox11.Controls.Add(this.textBox9);
          this.groupBox11.Controls.Add(this.textBox21);
+         this.groupBox11.Controls.Add(label38);
          this.groupBox11.Controls.Add(this.textBox22);
          this.groupBox11.Controls.Add(label24);
          this.groupBox11.Controls.Add(label25);
@@ -6520,6 +6525,26 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // label38
+         // 
+         label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label38.AutoSize = true;
+         label38.Location = new System.Drawing.Point(263, 120);
+         label38.Name = "label38";
+         label38.Size = new System.Drawing.Size(60, 14);
+         label38.TabIndex = 8;
+         label38.Text = "کد تلگرام :";
+         // 
+         // textBox9
+         // 
+         this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "CHAT_ID_DNRM", true));
+         this.textBox9.Location = new System.Drawing.Point(157, 117);
+         this.textBox9.Name = "textBox9";
+         this.textBox9.ReadOnly = true;
+         this.textBox9.Size = new System.Drawing.Size(100, 22);
+         this.textBox9.TabIndex = 9;
+         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7083,5 +7108,6 @@
       private Windows.Forms.ImageList imageList1;
       private DevExpress.XtraEditors.SimpleButton Print_Butn;
       private DevExpress.XtraEditors.SimpleButton PrintDefault_Butn;
+      private Windows.Forms.TextBox textBox9;
    }
 }

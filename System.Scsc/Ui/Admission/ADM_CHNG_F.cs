@@ -184,7 +184,8 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Hist_Desc", HistDesc_TextEdit.EditValue ?? ""),
                               new XElement("Intr_File_No", INTR_FILE_NOLookUpEdit.EditValue ?? ""),
                               new XElement("Dpst_Acnt_Slry_Bank", DpstAcntSlryBank_Text2.EditValue ?? ""),
-                              new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? "")
+                              new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? ""),
+                              new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? "")
                            )
                         )
                      )

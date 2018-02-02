@@ -194,6 +194,7 @@
          this.GlobCode_Txt = new System.Windows.Forms.TextBox();
          this.NatlCode_Txt = new System.Windows.Forms.TextBox();
          this.FrstName_Txt = new System.Windows.Forms.TextBox();
+         this.colCHAT_ID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).BeginInit();
@@ -240,7 +241,7 @@
          this.colDEBT_DNRM.OptionsColumn.FixedWidth = true;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDEBT_DNRM.Visible = true;
-         this.colDEBT_DNRM.VisibleIndex = 6;
+         this.colDEBT_DNRM.VisibleIndex = 7;
          this.colDEBT_DNRM.Width = 105;
          // 
          // colEND_DATE
@@ -508,7 +509,8 @@
             this.colREMN_ATTN_MONT_DNRM,
             this.colSUNT_DESC,
             this.gridColumn1,
-            this.colTYPE});
+            this.colTYPE,
+            this.colCHAT_ID_DNRM});
          this.PBLC.CustomizationFormBounds = new System.Drawing.Rectangle(908, 429, 216, 176);
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
@@ -760,7 +762,7 @@
          this.colCELL_PHON_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
          this.colCELL_PHON_DNRM.Visible = true;
          this.colCELL_PHON_DNRM.VisibleIndex = 1;
-         this.colCELL_PHON_DNRM.Width = 28;
+         this.colCELL_PHON_DNRM.Width = 73;
          // 
          // colTELL_PHON_DNRM
          // 
@@ -772,7 +774,7 @@
          this.colTELL_PHON_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
          this.colTELL_PHON_DNRM.Visible = true;
          this.colTELL_PHON_DNRM.VisibleIndex = 0;
-         this.colTELL_PHON_DNRM.Width = 25;
+         this.colTELL_PHON_DNRM.Width = 66;
          // 
          // colINSR_NUMB_DNRM
          // 
@@ -801,7 +803,7 @@
          this.colNATL_CODE.Name = "colNATL_CODE";
          this.colNATL_CODE.OptionsColumn.FixedWidth = true;
          this.colNATL_CODE.Visible = true;
-         this.colNATL_CODE.VisibleIndex = 5;
+         this.colNATL_CODE.VisibleIndex = 6;
          // 
          // colGLOB_CODE
          // 
@@ -894,7 +896,7 @@
          this.colInvsFileNo.OptionsColumn.FixedWidth = true;
          this.colInvsFileNo.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
          this.colInvsFileNo.Visible = true;
-         this.colInvsFileNo.VisibleIndex = 9;
+         this.colInvsFileNo.VisibleIndex = 10;
          this.colInvsFileNo.Width = 30;
          // 
          // HL_INVSFILENO
@@ -914,7 +916,7 @@
          this.colFNGR_PRNT_DNRM.OptionsColumn.FixedWidth = true;
          this.colFNGR_PRNT_DNRM.OptionsColumn.ReadOnly = true;
          this.colFNGR_PRNT_DNRM.Visible = true;
-         this.colFNGR_PRNT_DNRM.VisibleIndex = 3;
+         this.colFNGR_PRNT_DNRM.VisibleIndex = 4;
          this.colFNGR_PRNT_DNRM.Width = 71;
          // 
          // colCOCH_FILE_NO
@@ -945,7 +947,7 @@
          this.colActn.Name = "colActn";
          this.colActn.OptionsColumn.FixedWidth = true;
          this.colActn.Visible = true;
-         this.colActn.VisibleIndex = 4;
+         this.colActn.VisibleIndex = 5;
          this.colActn.Width = 152;
          // 
          // colActn_Butn
@@ -1018,8 +1020,8 @@
          this.colFRST_NAME.OptionsColumn.AllowEdit = false;
          this.colFRST_NAME.OptionsColumn.ReadOnly = true;
          this.colFRST_NAME.Visible = true;
-         this.colFRST_NAME.VisibleIndex = 7;
-         this.colFRST_NAME.Width = 25;
+         this.colFRST_NAME.VisibleIndex = 8;
+         this.colFRST_NAME.Width = 88;
          // 
          // colLAST_NAME
          // 
@@ -1029,8 +1031,8 @@
          this.colLAST_NAME.OptionsColumn.AllowEdit = false;
          this.colLAST_NAME.OptionsColumn.ReadOnly = true;
          this.colLAST_NAME.Visible = true;
-         this.colLAST_NAME.VisibleIndex = 8;
-         this.colLAST_NAME.Width = 42;
+         this.colLAST_NAME.VisibleIndex = 9;
+         this.colLAST_NAME.Width = 157;
          // 
          // colSTRT_DATE
          // 
@@ -1096,7 +1098,7 @@
          this.colSUNT_DESC.OptionsColumn.ReadOnly = true;
          this.colSUNT_DESC.Visible = true;
          this.colSUNT_DESC.VisibleIndex = 2;
-         this.colSUNT_DESC.Width = 45;
+         this.colSUNT_DESC.Width = 142;
          // 
          // gridColumn1
          // 
@@ -1696,6 +1698,15 @@
          this.FrstName_Txt.Size = new System.Drawing.Size(144, 22);
          this.FrstName_Txt.TabIndex = 0;
          // 
+         // colCHAT_ID_DNRM
+         // 
+         this.colCHAT_ID_DNRM.Caption = "کد تلگرام";
+         this.colCHAT_ID_DNRM.FieldName = "CHAT_ID_DNRM";
+         this.colCHAT_ID_DNRM.Name = "colCHAT_ID_DNRM";
+         this.colCHAT_ID_DNRM.Visible = true;
+         this.colCHAT_ID_DNRM.VisibleIndex = 3;
+         this.colCHAT_ID_DNRM.Width = 108;
+         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1876,5 +1887,6 @@
       private Windows.Forms.Label label7;
       private Windows.Forms.TextBox ServNo_Txt;
       private Windows.Forms.TextBox GlobCode_Txt;
+      private DevExpress.XtraGrid.Columns.GridColumn colCHAT_ID_DNRM;
    }
 }

@@ -3889,12 +3889,6 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$All_Info_Fighters", IsComposable=true)]
-		public IQueryable<VF_All_Info_FightersResult> VF_All_Info_Fighters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo)
-		{
-			return this.CreateMethodCallQuery<VF_All_Info_FightersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MBSP_TCHG_P")]
 		public int MBSP_TCHG_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -3928,6 +3922,12 @@ namespace System.Scsc.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, mtod_Desc, mtod_Code, epit_Type, dflt_Stat, mtod_Stat, chck_Attn_Alrm);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$All_Info_Fighters", IsComposable=true)]
+		public IQueryable<VF_All_Info_FightersResult> VF_All_Info_Fighters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo)
+		{
+			return this.CreateMethodCallQuery<VF_All_Info_FightersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Deleted_Fighter", IsComposable=true)]
@@ -57115,6 +57115,8 @@ namespace System.Scsc.Data
 		
 		private string _GLOB_CODE_DNRM;
 		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -57319,6 +57321,8 @@ namespace System.Scsc.Data
     partial void OnNATL_CODE_DNRMChanged();
     partial void OnGLOB_CODE_DNRMChanging(string value);
     partial void OnGLOB_CODE_DNRMChanged();
+    partial void OnCHAT_ID_DNRMChanging(System.Nullable<long> value);
+    partial void OnCHAT_ID_DNRMChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -58694,6 +58698,26 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this.OnCHAT_ID_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID_DNRM = value;
+					this.SendPropertyChanged("CHAT_ID_DNRM");
+					this.OnCHAT_ID_DNRMChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
@@ -59783,6 +59807,8 @@ namespace System.Scsc.Data
 		
 		private string _DPST_ACNT_SLRY;
 		
+		private System.Nullable<long> _CHAT_ID;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -59929,6 +59955,8 @@ namespace System.Scsc.Data
     partial void OnDPST_ACNT_SLRY_BANKChanged();
     partial void OnDPST_ACNT_SLRYChanging(string value);
     partial void OnDPST_ACNT_SLRYChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -61101,6 +61129,26 @@ namespace System.Scsc.Data
 					this._DPST_ACNT_SLRY = value;
 					this.SendPropertyChanged("DPST_ACNT_SLRY");
 					this.OnDPST_ACNT_SLRYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
 				}
 			}
 		}
@@ -71125,6 +71173,8 @@ namespace System.Scsc.Data
 		
 		private long _FILE_NO;
 		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
 		private int _RWNO;
 		
 		private string _REGN_PRVN_CODE;
@@ -71245,6 +71295,22 @@ namespace System.Scsc.Data
 				if ((this._FILE_NO != value))
 				{
 					this._FILE_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this._CHAT_ID_DNRM = value;
 				}
 			}
 		}
@@ -72113,6 +72179,8 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<long> _RQST_RQID;
 		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
 		private string _NAME_DNRM;
 		
 		private string _FATH_NAME_DNRM;
@@ -72443,6 +72511,22 @@ namespace System.Scsc.Data
 				if ((this._RQST_RQID != value))
 				{
 					this._RQST_RQID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this._CHAT_ID_DNRM = value;
 				}
 			}
 		}
@@ -73327,6 +73411,8 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<long> _RQST_RQID;
 		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
 		private string _NAME_DNRM;
 		
 		private string _FATH_NAME_DNRM;
@@ -73657,6 +73743,22 @@ namespace System.Scsc.Data
 				if ((this._RQST_RQID != value))
 				{
 					this._RQST_RQID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this._CHAT_ID_DNRM = value;
 				}
 			}
 		}

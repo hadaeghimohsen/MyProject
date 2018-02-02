@@ -197,7 +197,7 @@ namespace System.Scsc.Ui.Admission
                //}
                //else
                {
-                  fighterGridControl.Visible = false;
+                  //fighterGridControl.Visible = false;
                   /*
                    * ثبت هنرجوی جدید در سیستم
                    */

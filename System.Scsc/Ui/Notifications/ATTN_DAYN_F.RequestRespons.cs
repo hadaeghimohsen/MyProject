@@ -239,7 +239,8 @@ namespace System.Scsc.Ui.Notifications
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
-      {         
+      {
+         CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
          job.Status = StatusType.Successful;
       }
 

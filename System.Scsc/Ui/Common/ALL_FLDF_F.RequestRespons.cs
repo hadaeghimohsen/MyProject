@@ -184,6 +184,7 @@ namespace System.Scsc.Ui.Common
             Tc_Info.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             */
             tb_master.SelectedTab = tp_001;
+            UserProFile_Rb.ImageVisiable = true;
 
             fileno = Convert.ToInt64((job.Input as XElement).Attributes("fileno").First().Value);
             try

@@ -3252,6 +3252,7 @@
       <Column Name="SERV_NO_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NATL_CODE_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="GLOB_CODE_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -3346,6 +3347,7 @@
       <Column Name="CNTR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="DPST_ACNT_SLRY_BANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DPST_ACNT_SLRY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -5380,10 +5382,47 @@
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.MBSP_TCHG_P" Method="MBSP_TCHG_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MBSP_SCHG_P" Method="MBSP_SCHG_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
+    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="MbspRwno" Parameter="mbspRwno" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId80" Name="dbo.INS_MTOD_P" Method="INS_MTOD_P">
+    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId81" Name="dbo.UPD_MTOD_P" Method="UPD_MTOD_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.VF$All_Info_Fighters" Method="VF_All_Info_Fighters" IsComposable="true">
     <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
     <ElementType Name="VF_All_Info_FightersResult">
       <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -5438,42 +5477,6 @@
       <Column Name="CBMT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.MBSP_TCHG_P" Method="MBSP_TCHG_P">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.MBSP_SCHG_P" Method="MBSP_SCHG_P">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
-    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="MbspRwno" Parameter="mbspRwno" Type="System.Int16" DbType="SmallInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId80" Name="dbo.INS_MTOD_P" Method="INS_MTOD_P">
-    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId81" Name="dbo.UPD_MTOD_P" Method="UPD_MTOD_P">
-    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.VF$Last_Info_Deleted_Fighter" Method="VF_Last_Info_Deleted_Fighter" IsComposable="true">
     <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="FrstName" Parameter="frstName" Type="System.String" DbType="NVarChar(250)" />
@@ -5500,6 +5503,7 @@
       <Column Name="PSFN_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="FATH_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -5581,6 +5585,7 @@
       <Column Name="PSFN_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="FATH_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />

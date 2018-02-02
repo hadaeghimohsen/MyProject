@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label cASH_STATLabel;
          System.Windows.Forms.Label tYPELabel;
          System.Windows.Forms.Label bANK_BRNC_CODELabel1;
@@ -41,6 +42,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.Windows.Forms.Label label3;
+         System.Windows.Forms.Label label14;
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -50,28 +54,32 @@
          this.LastName_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrint_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.Mtod_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.MtodBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.SexType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
-         this.MtodBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.GetMaxFngrPrint_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.CardNum_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.Chat_Id_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
          cASH_STATLabel = new System.Windows.Forms.Label();
          tYPELabel = new System.Windows.Forms.Label();
          bANK_BRNC_CODELabel1 = new System.Windows.Forms.Label();
          bANK_NAMELabel = new System.Windows.Forms.Label();
          label1 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
+         label3 = new System.Windows.Forms.Label();
+         label14 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrPrint_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MtodBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SexType_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MtodBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNum_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // cASH_STATLabel
@@ -101,7 +109,7 @@
          bANK_BRNC_CODELabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          bANK_BRNC_CODELabel1.AutoSize = true;
          bANK_BRNC_CODELabel1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         bANK_BRNC_CODELabel1.Location = new System.Drawing.Point(489, 396);
+         bANK_BRNC_CODELabel1.Location = new System.Drawing.Point(489, 436);
          bANK_BRNC_CODELabel1.Name = "bANK_BRNC_CODELabel1";
          bANK_BRNC_CODELabel1.Size = new System.Drawing.Size(85, 28);
          bANK_BRNC_CODELabel1.TabIndex = 54;
@@ -123,7 +131,7 @@
          label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label1.AutoSize = true;
          label1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label1.Location = new System.Drawing.Point(488, 436);
+         label1.Location = new System.Drawing.Point(488, 476);
          label1.Name = "label1";
          label1.Size = new System.Drawing.Size(57, 28);
          label1.TabIndex = 54;
@@ -191,7 +199,7 @@
          this.SubmitChange_Butn.Appearance.Options.UseFont = true;
          this.SubmitChange_Butn.Appearance.Options.UseForeColor = true;
          this.SubmitChange_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.SubmitChange_Butn.Location = new System.Drawing.Point(35, 485);
+         this.SubmitChange_Butn.Location = new System.Drawing.Point(35, 580);
          this.SubmitChange_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SubmitChange_Butn.Name = "SubmitChange_Butn";
@@ -315,7 +323,7 @@
          // Mtod_Lov
          // 
          this.Mtod_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Mtod_Lov.Location = new System.Drawing.Point(297, 393);
+         this.Mtod_Lov.Location = new System.Drawing.Point(297, 433);
          this.Mtod_Lov.Name = "Mtod_Lov";
          this.Mtod_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Mtod_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -357,7 +365,7 @@
          // SexType_Lov
          // 
          this.SexType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.SexType_Lov.Location = new System.Drawing.Point(297, 433);
+         this.SexType_Lov.Location = new System.Drawing.Point(297, 473);
          this.SexType_Lov.Name = "SexType_Lov";
          this.SexType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.SexType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -443,7 +451,7 @@
          this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(129, 335);
+         this.labelControl3.Location = new System.Drawing.Point(129, 375);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(416, 52);
          this.labelControl3.TabIndex = 18;
@@ -481,19 +489,74 @@
          this.CardNum_Txt.Size = new System.Drawing.Size(132, 30);
          this.CardNum_Txt.TabIndex = 2;
          // 
+         // Chat_Id_TextEdit
+         // 
+         this.Chat_Id_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Chat_Id_TextEdit.EditValue = "";
+         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(351, 334);
+         this.Chat_Id_TextEdit.Name = "Chat_Id_TextEdit";
+         this.Chat_Id_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.Chat_Id_TextEdit.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.Chat_Id_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Chat_Id_TextEdit.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.Chat_Id_TextEdit.Properties.Appearance.Options.UseBackColor = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.Options.UseBorderColor = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.Options.UseFont = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.Options.UseForeColor = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Chat_Id_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.White;
+         this.Chat_Id_TextEdit.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.Chat_Id_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Chat_Id_TextEdit.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.Chat_Id_TextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.Chat_Id_TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+         this.Chat_Id_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Chat_Id_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Chat_Id_TextEdit.Properties.NullValuePrompt = "شماره انگشتی";
+         this.Chat_Id_TextEdit.Properties.NullValuePromptShowForEmptyValue = true;
+         this.Chat_Id_TextEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.Chat_Id_TextEdit.Size = new System.Drawing.Size(132, 30);
+         this.Chat_Id_TextEdit.TabIndex = 2;
+         // 
+         // label3
+         // 
+         label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label3.AutoSize = true;
+         label3.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         label3.Location = new System.Drawing.Point(489, 337);
+         label3.Name = "label3";
+         label3.Size = new System.Drawing.Size(70, 28);
+         label3.TabIndex = 53;
+         label3.Text = "کد تلگرام :";
+         // 
+         // label14
+         // 
+         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         label14.Location = new System.Drawing.Point(319, 340);
+         label14.Name = "label14";
+         label14.Size = new System.Drawing.Size(26, 19);
+         label14.TabIndex = 73;
+         label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
+         // 
          // BAS_ADCH_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.Controls.Add(label14);
          this.Controls.Add(cASH_STATLabel);
          this.Controls.Add(tYPELabel);
          this.Controls.Add(label1);
          this.Controls.Add(bANK_BRNC_CODELabel1);
+         this.Controls.Add(label3);
          this.Controls.Add(label2);
          this.Controls.Add(bANK_NAMELabel);
          this.Controls.Add(this.SexType_Lov);
          this.Controls.Add(this.Mtod_Lov);
+         this.Controls.Add(this.Chat_Id_TextEdit);
          this.Controls.Add(this.CardNum_Txt);
          this.Controls.Add(this.FngrPrint_Text);
          this.Controls.Add(this.LastName_Text);
@@ -507,16 +570,17 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "BAS_ADCH_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(597, 542);
+         this.Size = new System.Drawing.Size(597, 637);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrPrint_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MtodBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SexType_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MtodBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNum_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -540,6 +604,7 @@
       private DevExpress.XtraEditors.LabelControl labelControl2;
       private DevExpress.XtraEditors.LabelControl labelControl3;
       private DevExpress.XtraEditors.ButtonEdit CardNum_Txt;
+      private DevExpress.XtraEditors.ButtonEdit Chat_Id_TextEdit;
 
    }
 }

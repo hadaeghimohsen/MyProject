@@ -249,6 +249,7 @@ namespace System.Scsc.Ui.Admission
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         UserProFile_Rb.ImageVisiable = true;
          DDytpBs1.DataSource = iScsc.D_DYTPs;
          job.Status = StatusType.Successful;
       }

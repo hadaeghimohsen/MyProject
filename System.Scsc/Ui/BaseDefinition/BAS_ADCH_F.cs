@@ -86,7 +86,8 @@ namespace System.Scsc.Ui.BaseDefinition
                         new XElement("Blod_grop", ""),
                         new XElement("Fngr_Prnt", FngrPrint_Text.Text),
                         new XElement("Dpst_Acnt_Slry_Bank", ""),
-                        new XElement("Dpst_Acnt_Slry", "")
+                        new XElement("Dpst_Acnt_Slry", ""),
+                        new XElement("Chat_Id", Chat_Id_TextEdit.Text)
                      )
                   )
                )

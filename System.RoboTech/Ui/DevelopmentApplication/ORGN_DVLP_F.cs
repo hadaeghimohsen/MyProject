@@ -302,6 +302,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             {
                ROBO_RBID = robo.RBID,
                MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
                ROOT_MENU = "001",
                MENU_TEXT = "🔺 بازگشت",
                MNUS_DESC = "بازگشت",
@@ -309,7 +311,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STAT = "002",
                CMND_PLAC = "001",
                STEP_BACK = "002",
-               STEP_BACK_USSD_CODE = "",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE.Substring(0, menu.USSD_CODE.LastIndexOf('*') - 1) + "#",
                CLMN = 1,
                CMND_TYPE = "000"
             };
@@ -693,14 +695,17 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             var robo = RoboBs.Current as Data.Robot;
             var menu = RmnusBs.Current as Data.Menu_Ussd;
+            var menutext = Microsoft.VisualBasic.Interaction.InputBox("نام منو", "لطفا متن منو را وارد کنید");
 
-            var StepBack = new Data.Menu_Ussd()
+            var SubMenu = new Data.Menu_Ussd()
             {
                ROBO_RBID = robo.RBID,
                MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
                ROOT_MENU = "001",
-               MENU_TEXT = "زیر منو",
-               MNUS_DESC = "زیر منو",
+               MENU_TEXT = menutext,
+               MNUS_DESC = menutext,
                CMND_FIRE = "001",
                STAT = "002",
                CMND_PLAC = "001",
@@ -710,7 +715,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                CMND_TYPE = "000"
             };
 
-            RmnusBs.Add(StepBack);
+            RmnusBs.Add(SubMenu);
             RmnusBs.EndEdit();
             iRoboTech.SubmitChanges();
             requery = true;
@@ -738,13 +743,17 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var robo = RoboBs.Current as Data.Robot;
             var menu = RmnusBs.Current as Data.Menu_Ussd;
 
+            var menutext = Microsoft.VisualBasic.Interaction.InputBox("نام منو", "لطفا متن منو را وارد کنید");
+
             var StepBack = new Data.Menu_Ussd()
             {
                ROBO_RBID = robo.RBID,
                MNUS_MUID = menu == null ? null : (long?)menu.MNUS_MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussd1.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.Menu_Ussd1.USSD_CODE.Substring(0, menu.Menu_Ussd1.USSD_CODE.Length - 1), menu.Menu_Ussd1.Menu_Ussds.Count),
                ROOT_MENU = "001",
-               MENU_TEXT = "زیر منو",
-               MNUS_DESC = "زیر منو",
+               MENU_TEXT = menutext,
+               MNUS_DESC = menutext,
                CMND_FIRE = "001",
                STAT = "002",
                CMND_PLAC = "001",

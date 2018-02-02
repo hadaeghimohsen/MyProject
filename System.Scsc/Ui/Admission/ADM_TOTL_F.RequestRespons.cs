@@ -271,6 +271,7 @@ namespace System.Scsc.Ui.Admission
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         UserProFile_Rb.ImageVisiable = true;
          //**FighBs3.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006" || f.FGPB_TYPE_DNRM == "009") && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 );
          if (isFirstLoaded) goto finishcommand;
          #region Rqsw block

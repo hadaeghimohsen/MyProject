@@ -311,7 +311,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STAT = "002",
                CMND_PLAC = "001",
                STEP_BACK = "002",
-               STEP_BACK_USSD_CODE = menu.USSD_CODE.Substring(0, menu.USSD_CODE.LastIndexOf('*') - 1) + "#",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
                CLMN = 1,
                CMND_TYPE = "000"
             };

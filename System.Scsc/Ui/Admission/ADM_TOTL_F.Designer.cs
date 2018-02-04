@@ -2398,7 +2398,7 @@
          this.Gb_Expense3.Controls.Add(this.bn_PaymentMethods3);
          this.Gb_Expense3.Location = new System.Drawing.Point(106, 246);
          this.Gb_Expense3.Name = "Gb_Expense3";
-         this.Gb_Expense3.Size = new System.Drawing.Size(1005, 375);
+         this.Gb_Expense3.Size = new System.Drawing.Size(1005, 304);
          this.Gb_Expense3.TabIndex = 2;
          this.Gb_Expense3.TabStop = false;
          this.Gb_Expense3.Text = "اعلام هزینه";
@@ -2433,7 +2433,7 @@
          this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit2});
-         this.gridControl5.Size = new System.Drawing.Size(531, 191);
+         this.gridControl5.Size = new System.Drawing.Size(531, 118);
          this.gridControl5.TabIndex = 19;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView8});
@@ -2885,7 +2885,7 @@
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
-         this.gridControl1.Size = new System.Drawing.Size(450, 191);
+         this.gridControl1.Size = new System.Drawing.Size(450, 118);
          this.gridControl1.TabIndex = 14;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});

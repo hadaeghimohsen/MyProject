@@ -360,7 +360,7 @@ namespace System.Scsc.Ui.MasterPage
          finally
          {
             System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-            opengatesound.PlaySync();            
+            opengatesound.Play();            
          }
       }
 
@@ -381,7 +381,7 @@ namespace System.Scsc.Ui.MasterPage
          finally
          {
             System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-            closegatesound.PlaySync();
+            closegatesound.Play();
          }
       }
 
@@ -399,7 +399,7 @@ namespace System.Scsc.Ui.MasterPage
          finally
          {
             System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-            errorgatesound.PlaySync();
+            errorgatesound.Play();
          }
       }
       #endregion

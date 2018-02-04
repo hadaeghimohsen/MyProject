@@ -56,8 +56,10 @@ namespace System.Scsc.Ui.Admission
       }
 
       private void Btn_ApproveOneMonth_Click(object sender, EventArgs e)
-      {
+      {         
          if (iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == Lbl_FingerPrint.Text && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+
+         Btn_Back_Click(null, null);
 
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
@@ -129,7 +131,14 @@ namespace System.Scsc.Ui.Admission
                )
             );
 
-            MessageBox.Show(this, "عضو مورد نظر از حالت بلوکه خارج شد. لطفا حضور غیاب را دوباره تکرار کنید.");
+            //MessageBox.Show(this, "عضو مورد نظر از حالت بلوکه خارج شد. لطفا حضور غیاب را دوباره تکرار کنید.");
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                        
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "accesscontrol"), new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM))}
+                  })
+            );
 
             Btn_Back_Click(null, null);
          }

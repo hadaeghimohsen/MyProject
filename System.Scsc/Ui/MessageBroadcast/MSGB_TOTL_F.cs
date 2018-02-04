@@ -23,11 +23,27 @@ namespace System.Scsc.Ui.MessageBroadcast
          InitializeComponent();
       }
 
+      private bool requery = false;
+
       private void Btn_Back_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
          );
+      }
+
+      private void Execute_Query()
+      {
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         MsgbBs1.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "001");
+         MsgbBs2.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "003");
+         MsgbBs3.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "004");
+         MsgbBs4.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "002");
+         MsgbBs5.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "005");
+         MsgbBs6.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "006");
+         MsgbBs7.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "007");
+         MsgbBs8.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "008");
+         requery = false;
       }
 
       private void Msgb_Text00X_TextChanged(object sender, EventArgs e)
@@ -301,15 +317,33 @@ namespace System.Scsc.Ui.MessageBroadcast
          PhonNumber_CheckedComboBoxEdit005.Properties.GetItems().OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = Windows.Forms.CheckState.Checked);
       }
 
+
       private void Btn_Save_Click(object sender, EventArgs e)
       {
          try
          {
+            MsgbBs1.EndEdit();
+            MsgbBs2.EndEdit();
+            MsgbBs3.EndEdit();
+            MsgbBs4.EndEdit();
+            MsgbBs5.EndEdit();
+            MsgbBs6.EndEdit();
+            MsgbBs7.EndEdit();
+            MsgbBs8.EndEdit();
+
             iScsc.SubmitChanges();
+            requery = true;
          }
          catch
          {
             MessageBox.Show("خطا در ذخیره سازی اطلاعات");
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
          }
       }
 
@@ -928,11 +962,5 @@ namespace System.Scsc.Ui.MessageBroadcast
          }
          catch { }
       }
-
-
-      
-
-      
-
    }
 }

@@ -1855,27 +1855,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Message_Broadcast" Member="Message_Broadcasts">
-    <Type Name="Message_Broadcast">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MSGB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INSR_FNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INSR_CNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CLUB_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="DEBT_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="MSGB_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Club_Message_Broadcast" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.D$LNTP" Member="D_LNTPs">
     <Type Name="D_LNTP">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -2545,7 +2524,6 @@
       <Association Name="Club_Misc_Expense" Member="Misc_Expenses" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Misc_Expense" />
       <Association Name="Club_Account" Member="Accounts" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Account" />
       <Association Name="Club_Dresser" Member="Dressers" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Dresser" />
-      <Association Name="Club_Message_Broadcast" Member="Message_Broadcasts" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Message_Broadcast" />
       <Association Name="Club_Account_Detail" Member="Account_Details" ThisKey="CODE" OtherKey="ACTN_CLUB_CODE" Type="Account_Detail" />
       <Association Name="Club_Club" Member="Clubs" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Club" />
       <Association Name="Club_Payment" Member="Payments" ThisKey="CODE" OtherKey="CLUB_CODE_DNRM" Type="Payment" />
@@ -2554,6 +2532,7 @@
       <Association Name="Club_Setting" Member="Settings" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Setting" />
       <Association Name="Club_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CLUB_CODE_DNRM" Type="Fighter" />
       <Association Name="Club_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Fighter_Public" />
+      <Association Name="Club_Message_Broadcast" Member="Message_Broadcasts" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Message_Broadcast" />
       <Association Name="Club_Club" Member="Club1" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Region_Club" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -3365,6 +3344,28 @@
       <Association Name="Region_Fighter_Public" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Row_Fighter_Public" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Sub_Unit_Fighter_Public" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Message_Broadcast" Member="Message_Broadcasts">
+    <Type Name="Message_Broadcast">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MSGB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TELG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INSR_FNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INSR_CNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CLUB_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DEBT_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MSGB_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Club_Message_Broadcast" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">

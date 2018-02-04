@@ -2148,10 +2148,10 @@ namespace System.RoboTech.Controller
                }
                else if (menucmndtype.CMND_TYPE == "020")
                {
-                  #region Invite Friend                  
+                  #region Invite Friend
                   chat.Runed = false;
                   await Bot.SendTextMessageAsync(e.Message.Chat.Id, 
-                           string.Format("{0}\n\rhttps://telegram.me/{1}?start={2}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان", robot.NAME, e.Message.Chat.Id),
+                           string.Format("{0}\n\rhttps://telegram.me/{1}?start={2}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان", robot.NAME.Substring(1), e.Message.Chat.Id),
                            ParseMode.Default,
                            replyToMessageId:
                            e.Message.MessageId,

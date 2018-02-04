@@ -239,7 +239,8 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Sunt_Code", SUNT_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Cord_X", CORD_XTextEdit.EditValue ?? ""),
                                     new XElement("Cord_Y", CORD_YTextEdit.EditValue ?? ""),
-                                    //new XElement("Mtod_Code", MtodCode_LookupEdit001.EditValue ?? ""),
+                                    new XElement("Glob_Code", Glob_Code_TextEdit.EditValue ?? ""),
+                                    new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? ""),
                                     new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? ""),
                                     new XElement("Most_Debt_Clng", SE_MostDebtClngAmnt.Value),
                                     new XElement("Serv_No", SERV_NO_TextEdit.EditValue ?? "")

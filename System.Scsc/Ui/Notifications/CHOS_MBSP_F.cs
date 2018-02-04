@@ -51,7 +51,7 @@ namespace System.Scsc.Ui.Notifications
                                        AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
                                        AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
                                        AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
-                                       AND (m.Chck_Attn_Alrm = '001' AND CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
+                                       AND (mt.Chck_Attn_Alrm = '001' AND CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
                                  ", fileno)
                   ).ToList<Data.Member_Ship>();
          }

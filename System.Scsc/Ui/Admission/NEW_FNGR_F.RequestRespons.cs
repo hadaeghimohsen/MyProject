@@ -194,6 +194,26 @@ namespace System.Scsc.Ui.Admission
                   else
                   {
                      tb_master.TabPages.Add(tp_002);
+
+                     // 1396/11/15 * بررسی اینکه آیا مشترک بلوکه شده یا نه
+                     var mbfz =
+                        iScsc.ExecuteQuery<Data.Member_Ship>(
+                           string.Format(
+                              @"SELECT M.*
+                                  FROM Fighter f, Member_Ship m
+                                 WHERE F.File_No = M.Figh_File_No
+                                   AND F.Mbfz_Rwno_Dnrm = M.Rwno
+                                   AND M.Rect_Code = '004'
+                                   AND M.Vald_Type = '002'
+                                   AND F.Fngr_Prnt_Dnrm = {0}
+                                   AND CAST(GETDATE() AS DATE) BETWEEN M.STRT_DATE AND M.END_DATE
+                              ", Lbl_FingerPrint.Text
+                           )
+                        );
+                     if (mbfz.Count() == 0)
+                        Btn_ApproveOneMonth_Click(null, null);
+                     else
+                        Btn_ApproveExitBlocking_Click(null, null);
                   }
                }));
          }

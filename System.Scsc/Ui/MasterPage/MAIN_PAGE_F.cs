@@ -354,8 +354,14 @@ namespace System.Scsc.Ui.MasterPage
 
             if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
             Sp_GateAttn.Write("in");
+
             //MessageBox.Show("Gate is Open");
          }catch(Exception ){}
+         finally
+         {
+            System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+            opengatesound.PlaySync();            
+         }
       }
 
       private void Close_Gate()
@@ -372,6 +378,11 @@ namespace System.Scsc.Ui.MasterPage
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception ) { }
+         finally
+         {
+            System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+            closegatesound.PlaySync();
+         }
       }
 
       private void Error_Gate()
@@ -381,9 +392,15 @@ namespace System.Scsc.Ui.MasterPage
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
             // Error This Gate                        
             Sp_GateAttn.Write("error");
+
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception) { }
+         finally
+         {
+            System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+            errorgatesound.PlaySync();
+         }
       }
       #endregion
 
@@ -761,14 +778,40 @@ namespace System.Scsc.Ui.MasterPage
 
                if (!recycleService)
                {
-                  Job _InteractWithScsc =
-                     new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 123 /* Execute Adm_FIGH_F */),
-                        new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
-                     });
-                  _DefaultGateway.Gateway(_InteractWithScsc);
+                  // 1396/11/15 * اگر سیستم منشی داشته باشد
+                  var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
+                  if (host.CHCK_ATTN_ALRM == "001")
+                  {
+                     Job _InteractWithScsc =
+                        new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 123 /* Execute Adm_FIGH_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", EnrollNumber))}
+                        });
+                     _DefaultGateway.Gateway(_InteractWithScsc);
+                  }
+                  //else
+                  {
+                     // ارسال پیام خطا در برای دستگاه
+                     // 1396/11/15 * 16:45
+                     // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                              {
+                                 Input = 
+                                    new XElement("Request",
+                                       new XAttribute("type", "gatecontrol"),
+                                       new XAttribute("gateactn", "error")
+                                    )
+                              }
+                           }
+                        )
+                     );
+                  }
                }
                else
                   _DefaultGateway.Gateway(

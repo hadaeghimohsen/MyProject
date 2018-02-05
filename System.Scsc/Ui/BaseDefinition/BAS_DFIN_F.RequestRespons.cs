@@ -203,7 +203,7 @@ namespace System.Scsc.Ui.BaseDefinition
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          RqtpBs1.DataSource = iScsc.Request_Types;
          RqttBs1.DataSource = iScsc.Requester_Types;
-
+         DCyclBs1.DataSource = iScsc.D_CYCLs;
          job.Status = StatusType.Successful;
       }
 

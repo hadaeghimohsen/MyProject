@@ -138,6 +138,12 @@ namespace System.Scsc.Ui.BaseDefinition
             //}
             //CreateClubMenu();
          }
+         else if(Tb_Master.SelectedTab == tp_007)
+         {
+            int hldy = HldyBs.Position;
+            HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Year == DateTime.Now.Year);
+            HldyBs.Position = hldy;
+         }
 
          requery = false;
       }

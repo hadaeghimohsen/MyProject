@@ -1072,6 +1072,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Gain_Loss_Rial.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Group_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Heart_Zone.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Holiday.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Image_Document.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.iScscDataContext.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Main_State.datasource" />

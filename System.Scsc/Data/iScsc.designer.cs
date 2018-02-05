@@ -224,6 +224,9 @@ namespace System.Scsc.Data
     partial void InsertMessage_Broadcast(Message_Broadcast instance);
     partial void UpdateMessage_Broadcast(Message_Broadcast instance);
     partial void DeleteMessage_Broadcast(Message_Broadcast instance);
+    partial void InsertHoliday(Holiday instance);
+    partial void UpdateHoliday(Holiday instance);
+    partial void DeleteHoliday(Holiday instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -1637,6 +1640,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Message_Broadcast>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Holiday> Holidays
+		{
+			get
+			{
+				return this.GetTable<Holiday>();
 			}
 		}
 		
@@ -61689,6 +61700,236 @@ namespace System.Scsc.Data
 						this._CLUB_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Club");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Holidays")]
+	public partial class Holiday : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private System.Nullable<int> _YEAR;
+		
+		private string _CYCL;
+		
+		private System.Nullable<System.DateTime> _HLDY_DATE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnYEARChanging(System.Nullable<int> value);
+    partial void OnYEARChanged();
+    partial void OnCYCLChanging(string value);
+    partial void OnCYCLChanged();
+    partial void OnHLDY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnHLDY_DATEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Holiday()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="Int")]
+		public System.Nullable<int> YEAR
+		{
+			get
+			{
+				return this._YEAR;
+			}
+			set
+			{
+				if ((this._YEAR != value))
+				{
+					this.OnYEARChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR = value;
+					this.SendPropertyChanged("YEAR");
+					this.OnYEARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL", DbType="VarChar(3)")]
+		public string CYCL
+		{
+			get
+			{
+				return this._CYCL;
+			}
+			set
+			{
+				if ((this._CYCL != value))
+				{
+					this.OnCYCLChanging(value);
+					this.SendPropertyChanging();
+					this._CYCL = value;
+					this.SendPropertyChanged("CYCL");
+					this.OnCYCLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HLDY_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> HLDY_DATE
+		{
+			get
+			{
+				return this._HLDY_DATE;
+			}
+			set
+			{
+				if ((this._HLDY_DATE != value))
+				{
+					this.OnHLDY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._HLDY_DATE = value;
+					this.SendPropertyChanged("HLDY_DATE");
+					this.OnHLDY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
 				}
 			}
 		}

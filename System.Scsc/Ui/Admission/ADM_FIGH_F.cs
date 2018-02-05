@@ -85,6 +85,7 @@ namespace System.Scsc.Ui.Admission
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
                //DefaultTabPage001();
                RqstBnASav1.Enabled = false;
+               RQTT_CODE_LookUpEdit1.EditValue = "001";
             }
          }
          catch
@@ -93,6 +94,7 @@ namespace System.Scsc.Ui.Admission
             //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
             //DefaultTabPage001();
             RqstBnASav1.Enabled = false;
+            RQTT_CODE_LookUpEdit1.EditValue = "001";
          }
       }
 
@@ -104,6 +106,9 @@ namespace System.Scsc.Ui.Admission
             rqstindex = RqstBs1.Position;
 
             if (FNGR_PRNT_TextEdit.Text == "") { MaxF_Butn001_Click(null, null); }
+
+            if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
+               RQTT_CODE_LookUpEdit1.EditValue = "001";
 
             if (Rqst == null || Rqst.RQID >= 0)
             {
@@ -450,6 +455,9 @@ namespace System.Scsc.Ui.Admission
                //if (rqst == null) return;
 
                //long mtodcode = 0;//(long)MtodCode_LookupEdit001.EditValue;
+               if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
+                  RQTT_CODE_LookUpEdit1.EditValue = "001";
+
                long ctgycode = (long)CtgyCode_LookupEdit001.EditValue;
                string rqttcode = (string)RQTT_CODE_LookUpEdit1.EditValue;
                var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();

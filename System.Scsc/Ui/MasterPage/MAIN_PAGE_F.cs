@@ -398,7 +398,7 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception) { }
          finally
          {
-            System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+            System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
             errorgatesound.Play();
          }
       }

@@ -3374,6 +3374,8 @@
       <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="HLDY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WEEK_DAY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="HLDY_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -5653,5 +5655,8 @@
       <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.SAVE_FRDY_P" Method="SAVE_FRDY_P">
+    <Return Type="System.Int32" />
   </Function>
 </Database>

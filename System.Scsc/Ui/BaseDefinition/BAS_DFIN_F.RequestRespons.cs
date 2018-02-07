@@ -204,6 +204,8 @@ namespace System.Scsc.Ui.BaseDefinition
          RqtpBs1.DataSource = iScsc.Request_Types;
          RqttBs1.DataSource = iScsc.Requester_Types;
          DCyclBs1.DataSource = iScsc.D_CYCLs;
+         DWkdyBs1.DataSource = iScsc.D_WKDies;
+
          job.Status = StatusType.Successful;
       }
 

@@ -649,20 +649,22 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             CardNumb_Text.Text = CardNumber.ToString();
-            var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
-            if (control == null) return;
-            if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F" || control.Name == "BAS_ADCH_F" || control.Name == "OIC_SMSN_F")
+            //var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
+            //if (control == null) return;
+            //if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F" || control.Name == "BAS_ADCH_F" || control.Name == "OIC_SMSN_F")
             {
                Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
-               {
-                  new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumber))}
-               });
+                  {
+                     //new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumber))}
+                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))},
+                     new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
+                  });
                _DefaultGateway.Gateway(_InteractWithScsc);
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { /*MessageBox.Show(exc.Message);*/ }
       }
       
       private void axCZKEM1_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
@@ -2386,15 +2388,16 @@ namespace System.Scsc.Ui.MasterPage
 
             if (e.Button.Index == 0 || e.Button.Index == 1)
             {
-               var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
-               if (control == null) return;
-               if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F")
+               //var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
+               //if (control == null) return;
+               //if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F")
                {
                   Job _InteractWithScsc =
                   new Job(SendType.External, "Localhost",
                      new List<Job>
                      {
-                        new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
+                        new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))},
+                        new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
                      });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }

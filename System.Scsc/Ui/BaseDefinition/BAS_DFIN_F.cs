@@ -141,7 +141,7 @@ namespace System.Scsc.Ui.BaseDefinition
          else if(Tb_Master.SelectedTab == tp_007)
          {
             int hldy = HldyBs.Position;
-            HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Year == DateTime.Now.Year);
+            HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Year == DateTime.Now.Year && h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
             HldyBs.Position = hldy;
          }
 
@@ -1627,6 +1627,90 @@ namespace System.Scsc.Ui.BaseDefinition
       private void CochInfo_Lnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
       {
          CochInfo_Butn_Click(null, null);
+      }
+
+      private void SaveFriday_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.SAVE_FRDY_P();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void AddHldy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (HldyBs.List.OfType<Data.Holiday>().Any(h => h.CODE == 0)) return;
+
+            HldyBs.AddNew();
+            var hldy = HldyBs.Current as Data.Holiday;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveHldy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            HldyBs.EndEdit();
+            Hldy_gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void DelHldy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            HldyBs.EndEdit();
+            Hldy_gv.PostEditor();
+
+            var hldy = HldyBs.Current as Data.Holiday;
+            if (hldy == null || hldy.CODE == 0) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Holidays WHERE Code = {0}", hldy.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
       }
    }
 }

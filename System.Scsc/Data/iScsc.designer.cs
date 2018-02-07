@@ -3952,6 +3952,13 @@ namespace System.Scsc.Data
 		{
 			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SAVE_FRDY_P")]
+		public int SAVE_FRDY_P()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Campitition")]
@@ -61739,6 +61746,10 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _HLDY_DATE;
 		
+		private string _WEEK_DAY;
+		
+		private string _HLDY_DESC;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -61759,6 +61770,10 @@ namespace System.Scsc.Data
     partial void OnCYCLChanged();
     partial void OnHLDY_DATEChanging(System.Nullable<System.DateTime> value);
     partial void OnHLDY_DATEChanged();
+    partial void OnWEEK_DAYChanging(string value);
+    partial void OnWEEK_DAYChanged();
+    partial void OnHLDY_DESCChanging(string value);
+    partial void OnHLDY_DESCChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -61850,6 +61865,46 @@ namespace System.Scsc.Data
 					this._HLDY_DATE = value;
 					this.SendPropertyChanged("HLDY_DATE");
 					this.OnHLDY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEEK_DAY", DbType="VarChar(3)")]
+		public string WEEK_DAY
+		{
+			get
+			{
+				return this._WEEK_DAY;
+			}
+			set
+			{
+				if ((this._WEEK_DAY != value))
+				{
+					this.OnWEEK_DAYChanging(value);
+					this.SendPropertyChanging();
+					this._WEEK_DAY = value;
+					this.SendPropertyChanged("WEEK_DAY");
+					this.OnWEEK_DAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HLDY_DESC", DbType="NVarChar(100)")]
+		public string HLDY_DESC
+		{
+			get
+			{
+				return this._HLDY_DESC;
+			}
+			set
+			{
+				if ((this._HLDY_DESC != value))
+				{
+					this.OnHLDY_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._HLDY_DESC = value;
+					this.SendPropertyChanged("HLDY_DESC");
+					this.OnHLDY_DESCChanged();
 				}
 			}
 		}

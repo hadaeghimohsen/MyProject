@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(STNG_DFIN_F));
@@ -39,7 +40,7 @@
          this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
          this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
          this.StngStorage_Gv = new DevExpress.XtraGrid.GridControl();
-         this.StngBs = new System.Windows.Forms.BindingSource();
+         this.StngBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBACK_UP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,7 +55,7 @@
          this.UpldFilePath_TextButn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DfltStng_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.StngBn = new System.Windows.Forms.BindingNavigator();
+         this.StngBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +69,7 @@
          this.DelIscg_Butn = new System.Windows.Forms.ToolStripButton();
          this.StngSubmitChange_Butn = new System.Windows.Forms.ToolStripButton();
          this.FilePath_Fbd = new System.Windows.Forms.FolderBrowserDialog();
+         this.colINQR_FRMT = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -192,7 +194,8 @@
             this.colBACK_UP_OPTN_PATH_ADRS,
             this.colBACK_UP_ROOT_PATH,
             this.colUPLD_FILE,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.colINQR_FRMT});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -479,6 +482,14 @@
          // 
          this.FilePath_Fbd.SelectedPath = "\\\\localhost";
          // 
+         // colINQR_FRMT
+         // 
+         this.colINQR_FRMT.Caption = "فرمت شماره";
+         this.colINQR_FRMT.FieldName = "INQR_FRMT";
+         this.colINQR_FRMT.Name = "colINQR_FRMT";
+         this.colINQR_FRMT.Visible = true;
+         this.colINQR_FRMT.VisibleIndex = 6;
+         // 
          // STNG_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -548,5 +559,6 @@
       private Windows.Forms.FolderBrowserDialog FilePath_Fbd;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit DfltStng_Butn;
+      private DevExpress.XtraGrid.Columns.GridColumn colINQR_FRMT;
    }
 }

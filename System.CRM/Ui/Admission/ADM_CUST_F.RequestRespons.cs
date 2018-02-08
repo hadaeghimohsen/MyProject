@@ -292,7 +292,7 @@ namespace System.CRM.Ui.Admission
                   tp_001.Text = "ثبت مشتری احتمالی";
                   break;
                case "002":
-                  tp_001.Text = "ثبت خریدار";
+                  tp_001.Text = "اطلاعات شخص";
                   break;
                default:
                   break;

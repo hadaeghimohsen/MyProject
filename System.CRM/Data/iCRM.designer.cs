@@ -53827,6 +53827,8 @@ namespace System.CRM.Data
 		
 		private string _REGN_CODE;
 		
+		private string _PROJ_INQR_CODE;
+		
 		private System.Nullable<long> _PROJ_RQST_RQID;
 		
 		private System.Nullable<long> _RQST_RQID;
@@ -53881,7 +53883,7 @@ namespace System.CRM.Data
 		
 		private string _SORC_TYPE;
 		
-		private string _RQST_COLR;
+		private string _COLR;
 		
 		private string _CRET_BY;
 		
@@ -53943,6 +53945,8 @@ namespace System.CRM.Data
     partial void OnREGN_PRVN_CODEChanged();
     partial void OnREGN_CODEChanging(string value);
     partial void OnREGN_CODEChanged();
+    partial void OnPROJ_INQR_CODEChanging(string value);
+    partial void OnPROJ_INQR_CODEChanged();
     partial void OnPROJ_RQST_RQIDChanging(System.Nullable<long> value);
     partial void OnPROJ_RQST_RQIDChanged();
     partial void OnRQST_RQIDChanging(System.Nullable<long> value);
@@ -54103,6 +54107,26 @@ namespace System.CRM.Data
 					this._REGN_CODE = value;
 					this.SendPropertyChanged("REGN_CODE");
 					this.OnREGN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROJ_INQR_CODE", DbType="VarChar(50)")]
+		public string PROJ_INQR_CODE
+		{
+			get
+			{
+				return this._PROJ_INQR_CODE;
+			}
+			set
+			{
+				if ((this._PROJ_INQR_CODE != value))
+				{
+					this.OnPROJ_INQR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._PROJ_INQR_CODE = value;
+					this.SendPropertyChanged("PROJ_INQR_CODE");
+					this.OnPROJ_INQR_CODEChanged();
 				}
 			}
 		}
@@ -54683,20 +54707,20 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_COLR", DbType="VarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COLR", DbType="VarChar(30)")]
 		public string COLR
 		{
 			get
 			{
-				return this._RQST_COLR;
+				return this._COLR;
 			}
 			set
 			{
-				if ((this._RQST_COLR != value))
+				if ((this._COLR != value))
 				{
 					this.OnCOLRChanging(value);
 					this.SendPropertyChanging();
-					this._RQST_COLR = value;
+					this._COLR = value;
 					this.SendPropertyChanged("COLR");
 					this.OnCOLRChanged();
 				}
@@ -55435,6 +55459,8 @@ namespace System.CRM.Data
 		
 		private string _RUN_QURY;
 		
+		private string _INQR_FRMT;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -55459,6 +55485,8 @@ namespace System.CRM.Data
     partial void OnUPLD_FILEChanged();
     partial void OnRUN_QURYChanging(string value);
     partial void OnRUN_QURYChanged();
+    partial void OnINQR_FRMTChanging(string value);
+    partial void OnINQR_FRMTChanged();
     #endregion
 		
 		public Setting()
@@ -55662,6 +55690,26 @@ namespace System.CRM.Data
 					this._RUN_QURY = value;
 					this.SendPropertyChanged("RUN_QURY");
 					this.OnRUN_QURYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INQR_FRMT", DbType="VarChar(20)")]
+		public string INQR_FRMT
+		{
+			get
+			{
+				return this._INQR_FRMT;
+			}
+			set
+			{
+				if ((this._INQR_FRMT != value))
+				{
+					this.OnINQR_FRMTChanging(value);
+					this.SendPropertyChanging();
+					this._INQR_FRMT = value;
+					this.SendPropertyChanged("INQR_FRMT");
+					this.OnINQR_FRMTChanged();
 				}
 			}
 		}

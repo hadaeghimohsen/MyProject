@@ -239,7 +239,6 @@
          // 
          // rb_stngdfin
          // 
-         this.rb_stngdfin.Enabled = false;
          this.rb_stngdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_stngdfin.LargeImage")));
          this.rb_stngdfin.Name = "rb_stngdfin";
          this.rb_stngdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -248,7 +247,6 @@
          // 
          // rb_regndfin
          // 
-         this.rb_regndfin.Enabled = false;
          this.rb_regndfin.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1153;
          this.rb_regndfin.Name = "rb_regndfin";
          this.rb_regndfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -257,7 +255,6 @@
          // 
          // rb_epitdfin
          // 
-         this.rb_epitdfin.Enabled = false;
          this.rb_epitdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_epitdfin.LargeImage")));
          this.rb_epitdfin.Name = "rb_epitdfin";
          this.rb_epitdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -266,7 +263,6 @@
          // 
          // rb_btrfdifn
          // 
-         this.rb_btrfdifn.Enabled = false;
          this.rb_btrfdifn.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1123;
          this.rb_btrfdifn.Name = "rb_btrfdifn";
          this.rb_btrfdifn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -275,7 +271,6 @@
          // 
          // rb_cashdfin
          // 
-         this.rb_cashdfin.Enabled = false;
          this.rb_cashdfin.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1104;
          this.rb_cashdfin.Name = "rb_cashdfin";
          this.rb_cashdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -292,7 +287,6 @@
          // 
          // rb_orgndfin
          // 
-         this.rb_orgndfin.Enabled = false;
          this.rb_orgndfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_orgndfin.LargeImage")));
          this.rb_orgndfin.Name = "rb_orgndfin";
          this.rb_orgndfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -309,7 +303,6 @@
          // 
          // rb_isicdfin
          // 
-         this.rb_isicdfin.Enabled = false;
          this.rb_isicdfin.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_isicdfin.LargeImage")));
          this.rb_isicdfin.Name = "rb_isicdfin";
          this.rb_isicdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
@@ -343,7 +336,6 @@
          // 
          // ribbonGroup2
          // 
-         this.ribbonGroup2.Enabled = false;
          this.ribbonGroup2.Items.Add(this.rb_crgldfin);
          this.ribbonGroup2.Items.Add(this.ribbonButton7);
          this.ribbonGroup2.Name = "ribbonGroup2";

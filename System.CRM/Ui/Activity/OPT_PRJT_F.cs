@@ -40,7 +40,7 @@ namespace System.CRM.Ui.Activity
                t.RQTT_CODE == "004" &&
                t.RQID == (rqid != null ? rqid : t.RQID) &&
                t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno)
-            );
+            ).OrderBy(r => r.RQST_DATE.Value.Date);
 
          RqstBs.Position = rqst;
          RqroBs.Position = rqro;
@@ -109,6 +109,9 @@ namespace System.CRM.Ui.Activity
             iCRM.OPR_PSAV_P(
                new XElement("Project",
                   new XAttribute("rqstrqid", 0),
+                  new XAttribute("projinqrcode", rqst.PROJ_INQR_CODE ?? ""),
+                  new XAttribute("lettno", rqst.LETT_NO ?? ""),
+                  new XAttribute("lettdate", rqst.LETT_DATE.HasValue ? rqst.LETT_DATE.Value.ToString("yyyy-MM-dd") : DateTime.Now.ToString("yyyy-MM-dd")),
                   new XAttribute("servfileno", fileno),
                   new XAttribute("rqrorqstrqid", rqst.RQID),                  
                   new XAttribute("rqstdesc", rqst.RQST_DESC),
@@ -302,6 +305,23 @@ namespace System.CRM.Ui.Activity
                      }
                )
             );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CreateInqueryCode_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var stng = iCRM.Settings.FirstOrDefault(s => s.DFLT_STAT == "002");
+            if (stng == null || (stng.INQR_FRMT ?? "") == "") return;
+
+            var rqst = RqstBs.Current as Data.Request;
+
+            rqst.PROJ_INQR_CODE = string.Format("{0}{1}", stng.INQR_FRMT, iCRM.Requests.Count(r => r.RQTP_CODE == "013") + 1);
          }
          catch (Exception exc)
          {

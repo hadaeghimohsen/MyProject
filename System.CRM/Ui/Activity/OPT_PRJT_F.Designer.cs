@@ -185,6 +185,13 @@
          this.colJob_Personnel = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colJob_Personnel1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+         this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+         this.LettDate_Date = new Atf.UI.DateTimeSelector();
+         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+         this.LettNo_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+         this.ProjInqrCode_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
          this.label1 = new System.Windows.Forms.Label();
          this.RqstBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -201,9 +208,9 @@
          this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-         this.RqstDesc_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.RqstDesc_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.SelectColor_Butn = new System.MaxUi.RoundedButton();
+         this.CreateInqueryCode_Butn = new C1.Win.C1Input.C1Button();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel2.SuspendLayout();
@@ -238,9 +245,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
          this.panelControl8.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.LettNo_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ProjInqrCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn)).BeginInit();
          this.RqstBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RqstDesc_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CreateInqueryCode_Butn)).BeginInit();
          this.SuspendLayout();
          // 
          // colREC_STAT
@@ -340,7 +350,7 @@
          // 
          this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainerControl1.Horizontal = false;
-         this.splitContainerControl1.Location = new System.Drawing.Point(0, 116);
+         this.splitContainerControl1.Location = new System.Drawing.Point(0, 251);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.gridControl1);
          this.splitContainerControl1.Panel1.Controls.Add(this.panelControl2);
@@ -348,8 +358,8 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.gridControl10);
          this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(533, 477);
-         this.splitContainerControl1.SplitterPosition = 238;
+         this.splitContainerControl1.Size = new System.Drawing.Size(533, 342);
+         this.splitContainerControl1.SplitterPosition = 164;
          this.splitContainerControl1.TabIndex = 12;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
@@ -367,7 +377,7 @@
             this.repositoryItemTimeEdit1,
             this.RecStat_Butn,
             this.Serv_Lov});
-         this.gridControl1.Size = new System.Drawing.Size(533, 198);
+         this.gridControl1.Size = new System.Drawing.Size(533, 124);
          this.gridControl1.TabIndex = 12;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1126,7 +1136,7 @@
             this.persianRepositoryItemDateEdit10,
             this.repositoryItemTimeEdit10,
             this.Actn_Butn});
-         this.gridControl10.Size = new System.Drawing.Size(533, 194);
+         this.gridControl10.Size = new System.Drawing.Size(533, 133);
          this.gridControl10.TabIndex = 11;
          this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1460,6 +1470,13 @@
          // 
          this.panelControl8.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panelControl8.Appearance.Options.UseBackColor = true;
+         this.panelControl8.Controls.Add(this.CreateInqueryCode_Butn);
+         this.panelControl8.Controls.Add(this.labelControl7);
+         this.panelControl8.Controls.Add(this.LettDate_Date);
+         this.panelControl8.Controls.Add(this.labelControl6);
+         this.panelControl8.Controls.Add(this.LettNo_Txt);
+         this.panelControl8.Controls.Add(this.labelControl5);
+         this.panelControl8.Controls.Add(this.ProjInqrCode_Txt);
          this.panelControl8.Controls.Add(this.SelectColor_Butn);
          this.panelControl8.Controls.Add(this.label1);
          this.panelControl8.Controls.Add(this.RqstBn);
@@ -1472,8 +1489,144 @@
          this.panelControl8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl8.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl8.Name = "panelControl8";
-         this.panelControl8.Size = new System.Drawing.Size(533, 116);
-         this.panelControl8.TabIndex = 10;
+         this.panelControl8.Size = new System.Drawing.Size(533, 251);
+         this.panelControl8.TabIndex = 0;
+         // 
+         // labelControl7
+         // 
+         this.labelControl7.AllowHtmlString = true;
+         this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl7.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl7.Location = new System.Drawing.Point(119, 116);
+         this.labelControl7.Name = "labelControl7";
+         this.labelControl7.Size = new System.Drawing.Size(113, 27);
+         this.labelControl7.TabIndex = 13;
+         this.labelControl7.Text = "<color=red>*</color> تاریخ دریافت نامه";
+         // 
+         // LettDate_Date
+         // 
+         this.LettDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LettDate_Date.CustomFormat = "dd/MM/yyyy";
+         this.LettDate_Date.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs, "LETT_DATE", true));
+         this.LettDate_Date.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LettDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.LettDate_Date.Location = new System.Drawing.Point(13, 116);
+         this.LettDate_Date.Name = "LettDate_Date";
+         this.LettDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.LettDate_Date.Size = new System.Drawing.Size(100, 24);
+         this.LettDate_Date.TabIndex = 3;
+         this.LettDate_Date.UsePersianFormat = true;
+         // 
+         // labelControl6
+         // 
+         this.labelControl6.AllowHtmlString = true;
+         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl6.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl6.Location = new System.Drawing.Point(424, 116);
+         this.labelControl6.Name = "labelControl6";
+         this.labelControl6.Size = new System.Drawing.Size(85, 27);
+         this.labelControl6.TabIndex = 11;
+         this.labelControl6.Text = "<color=red>*</color> شماره نامه";
+         // 
+         // LettNo_Txt
+         // 
+         this.LettNo_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LettNo_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "LETT_NO", true));
+         this.LettNo_Txt.EditValue = "";
+         this.LettNo_Txt.Location = new System.Drawing.Point(236, 114);
+         this.LettNo_Txt.Name = "LettNo_Txt";
+         this.LettNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.LettNo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.LettNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LettNo_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.LettNo_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.LettNo_Txt.Properties.Appearance.Options.UseFont = true;
+         this.LettNo_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.LettNo_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.LettNo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.LettNo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.LettNo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.LettNo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.LettNo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.LettNo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.LettNo_Txt.Properties.NullText = "شماره نامه";
+         this.LettNo_Txt.Properties.NullValuePrompt = "شماره نامه";
+         this.LettNo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.LettNo_Txt.Size = new System.Drawing.Size(182, 32);
+         this.LettNo_Txt.TabIndex = 2;
+         // 
+         // labelControl5
+         // 
+         this.labelControl5.AllowHtmlString = true;
+         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl5.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl5.Location = new System.Drawing.Point(424, 78);
+         this.labelControl5.Name = "labelControl5";
+         this.labelControl5.Size = new System.Drawing.Size(85, 27);
+         this.labelControl5.TabIndex = 9;
+         this.labelControl5.Text = "<color=red>*</color> شماره داخلی";
+         // 
+         // ProjInqrCode_Txt
+         // 
+         this.ProjInqrCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ProjInqrCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "PROJ_INQR_CODE", true));
+         this.ProjInqrCode_Txt.EditValue = "";
+         this.ProjInqrCode_Txt.Location = new System.Drawing.Point(236, 76);
+         this.ProjInqrCode_Txt.Name = "ProjInqrCode_Txt";
+         this.ProjInqrCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.ProjInqrCode_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.ProjInqrCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ProjInqrCode_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.ProjInqrCode_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.ProjInqrCode_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ProjInqrCode_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.ProjInqrCode_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.ProjInqrCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ProjInqrCode_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.ProjInqrCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ProjInqrCode_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.ProjInqrCode_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.ProjInqrCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ProjInqrCode_Txt.Properties.NullText = "شماره داخلی";
+         this.ProjInqrCode_Txt.Properties.NullValuePrompt = "شماره داخلی";
+         this.ProjInqrCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ProjInqrCode_Txt.Size = new System.Drawing.Size(182, 32);
+         this.ProjInqrCode_Txt.TabIndex = 1;
+         // 
+         // SelectColor_Butn
+         // 
+         this.SelectColor_Butn.Active = true;
+         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SelectColor_Butn.Caption = "";
+         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.ImageProfile = null;
+         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.SelectColor_Butn.ImageVisiable = false;
+         this.SelectColor_Butn.Location = new System.Drawing.Point(13, 40);
+         this.SelectColor_Butn.Name = "SelectColor_Butn";
+         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
+         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
+         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.SelectColor_Butn.TabIndex = 7;
+         this.SelectColor_Butn.Tooltip = null;
+         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
          // 
          // label1
          // 
@@ -1483,7 +1636,7 @@
          this.label1.Location = new System.Drawing.Point(236, 42);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(182, 31);
-         this.label1.TabIndex = 6;
+         this.label1.TabIndex = 0;
          this.label1.Text = "0";
          this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -1615,6 +1768,7 @@
          this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl1.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl1.Location = new System.Drawing.Point(424, 45);
@@ -1629,9 +1783,10 @@
          this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl3.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(424, 78);
+         this.labelControl3.Location = new System.Drawing.Point(424, 155);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(80, 27);
          this.labelControl3.TabIndex = 5;
@@ -1642,7 +1797,7 @@
          this.RqstDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqstDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "RQST_DESC", true));
          this.RqstDesc_Txt.EditValue = "";
-         this.RqstDesc_Txt.Location = new System.Drawing.Point(13, 76);
+         this.RqstDesc_Txt.Location = new System.Drawing.Point(13, 152);
          this.RqstDesc_Txt.Name = "RqstDesc_Txt";
          this.RqstDesc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.RqstDesc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1659,8 +1814,8 @@
          this.RqstDesc_Txt.Properties.NullText = "عنوان پروژه";
          this.RqstDesc_Txt.Properties.NullValuePrompt = "عنوان پروژه";
          this.RqstDesc_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.RqstDesc_Txt.Size = new System.Drawing.Size(405, 32);
-         this.RqstDesc_Txt.TabIndex = 0;
+         this.RqstDesc_Txt.Size = new System.Drawing.Size(405, 93);
+         this.RqstDesc_Txt.TabIndex = 4;
          // 
          // panel3
          // 
@@ -1671,29 +1826,15 @@
          this.panel3.Size = new System.Drawing.Size(18, 635);
          this.panel3.TabIndex = 8;
          // 
-         // SelectColor_Butn
+         // CreateInqueryCode_Butn
          // 
-         this.SelectColor_Butn.Active = true;
-         this.SelectColor_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.SelectColor_Butn.Caption = "";
-         this.SelectColor_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.SelectColor_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.SelectColor_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.SelectColor_Butn.HoverColorA = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.HoverColorB = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.ImageProfile = null;
-         this.SelectColor_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.SelectColor_Butn.ImageVisiable = false;
-         this.SelectColor_Butn.Location = new System.Drawing.Point(13, 40);
-         this.SelectColor_Butn.Name = "SelectColor_Butn";
-         this.SelectColor_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.SelectColor_Butn.NormalColorA = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.NormalColorB = System.Drawing.Color.GreenYellow;
-         this.SelectColor_Butn.Size = new System.Drawing.Size(30, 30);
-         this.SelectColor_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.SelectColor_Butn.TabIndex = 7;
-         this.SelectColor_Butn.Tooltip = null;
-         this.SelectColor_Butn.Click += new System.EventHandler(this.SelectColor_Butn_Click);
+         this.CreateInqueryCode_Butn.Location = new System.Drawing.Point(197, 75);
+         this.CreateInqueryCode_Butn.Name = "CreateInqueryCode_Butn";
+         this.CreateInqueryCode_Butn.Size = new System.Drawing.Size(35, 33);
+         this.CreateInqueryCode_Butn.TabIndex = 38;
+         this.CreateInqueryCode_Butn.Text = "...";
+         this.CreateInqueryCode_Butn.UseVisualStyleBackColor = true;
+         this.CreateInqueryCode_Butn.Click += new System.EventHandler(this.CreateInqueryCode_Butn_Click);
          // 
          // OPT_PRJT_F
          // 
@@ -1742,10 +1883,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
          this.panelControl8.ResumeLayout(false);
          this.panelControl8.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.LettNo_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ProjInqrCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn)).EndInit();
          this.RqstBn.ResumeLayout(false);
          this.RqstBn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RqstDesc_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CreateInqueryCode_Butn)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -1760,7 +1904,6 @@
       private Windows.Forms.Panel panel3;
       private Windows.Forms.BindingSource RqstBs;
       private DevExpress.XtraEditors.LabelControl labelControl3;
-      private DevExpress.XtraEditors.TextEdit RqstDesc_Txt;
       private DevExpress.XtraGrid.GridControl gridControl10;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit10;
@@ -1917,6 +2060,14 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest11;
       private MaxUi.RoundedButton AddRqro_Butn;
       private MaxUi.RoundedButton SelectColor_Butn;
+      private DevExpress.XtraEditors.LabelControl labelControl6;
+      private DevExpress.XtraEditors.TextEdit LettNo_Txt;
+      private DevExpress.XtraEditors.LabelControl labelControl5;
+      private DevExpress.XtraEditors.TextEdit ProjInqrCode_Txt;
+      private DevExpress.XtraEditors.LabelControl labelControl7;
+      private Atf.UI.DateTimeSelector LettDate_Date;
+      private DevExpress.XtraEditors.MemoEdit RqstDesc_Txt;
+      private C1.Win.C1Input.C1Button CreateInqueryCode_Butn;
 
    }
 }

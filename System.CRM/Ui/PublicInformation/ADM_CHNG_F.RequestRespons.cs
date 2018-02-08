@@ -281,7 +281,7 @@ namespace System.CRM.Ui.PublicInformation
                      tp_001.Text = "ثبت مشتری احتمالی";
                      break;
                   case "002":
-                     tp_001.Text = "ثبت خریدار";
+                     tp_001.Text = "اطلاعات شخص";
                      break;
                   default:
                      break;
@@ -305,8 +305,10 @@ namespace System.CRM.Ui.PublicInformation
             var srpb = SrpbBs1.Current as Data.Service_Public;
             if (xinput.Attribute("outputtype").Value == "servcord")
             {
+               //MessageBox.Show(xinput.ToString());
+
                var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
-               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);               
 
                if (cordx != srpb.CORD_X && cordy != srpb.CORD_Y)
                {

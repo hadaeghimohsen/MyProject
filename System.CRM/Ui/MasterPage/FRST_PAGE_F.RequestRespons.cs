@@ -445,6 +445,12 @@ namespace System.CRM.Ui.MasterPage
             if(xinput != null)
             {
                var rqtpcode = xinput.Attribute("rqtpcode").Value;
+
+               if (xinput.Attribute("projrqstrqid") != null)
+                  projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+               else
+                  projrqstrqid = 0;
+
                if(rqtpcode == "001")
                {
 
@@ -477,7 +483,8 @@ namespace System.CRM.Ui.MasterPage
                               new XElement("Service", 
                                  new XAttribute("fileno", logc.SERV_FILE_NO), 
                                  new XAttribute("lcid", logc.LCID),
-                                 new XAttribute("formcaller", GetType().Name)
+                                 new XAttribute("formcaller", GetType().Name),
+                                 new XAttribute("projrqstrqid", projrqstrqid)
                               )
                          },
                        })
@@ -500,7 +507,8 @@ namespace System.CRM.Ui.MasterPage
                                     new XAttribute("fileno", sndf.SERV_FILE_NO), 
                                     new XAttribute("sendfiletype", "edit"), 
                                     new XAttribute("sfid", sndf.SFID), 
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            },
                         })
@@ -524,7 +532,8 @@ namespace System.CRM.Ui.MasterPage
                                     new XAttribute("appointmenttype", "edit"), 
                                     new XAttribute("apid", apon.APID), 
                                     new XAttribute("rqrorqstrqid", apon.RQRO_RQST_RQID),
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            },
                         })
@@ -548,7 +557,8 @@ namespace System.CRM.Ui.MasterPage
                                     new XAttribute("fileno", note.SERV_FILE_NO), 
                                     new XAttribute("ntid", note.NTID), 
                                     new XAttribute("rqrorqstrqid", note.RQRO_RQST_RQID),
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            },
                         })
@@ -572,7 +582,8 @@ namespace System.CRM.Ui.MasterPage
                                     new XAttribute("tasktype", "edit"), 
                                     new XAttribute("tkid", task.TKID), 
                                     new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID),
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            },
                         })
@@ -594,7 +605,8 @@ namespace System.CRM.Ui.MasterPage
                               new XElement("Service", 
                                  new XAttribute("fileno", emal.SERV_FILE_NO), 
                                  new XAttribute("emid", emal.EMID),
-                                 new XAttribute("formcaller", GetType().Name)
+                                 new XAttribute("formcaller", GetType().Name),
+                                 new XAttribute("projrqstrqid", projrqstrqid)
                               )
                          },
                        })
@@ -617,7 +629,8 @@ namespace System.CRM.Ui.MasterPage
                                  new XAttribute("fileno", pymt.SERV_FILE_NO), 
                                  new XAttribute("cashcode", pymt.CASH_CODE), 
                                  new XAttribute("rqid", pymt.RQST_RQID), 
-                                 new XAttribute("formcaller", GetType().Name)
+                                 new XAttribute("formcaller", GetType().Name),
+                                 new XAttribute("projrqstrqid", projrqstrqid)
                               )
                          },
                        })
@@ -640,7 +653,8 @@ namespace System.CRM.Ui.MasterPage
                                     new XAttribute("fileno", mesg.SERV_FILE_NO), 
                                     new XAttribute("msid", mesg.MSID), 
                                     new XAttribute("cellphon", mesg.CELL_PHON ?? ""),
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            },
                         })

@@ -257,6 +257,12 @@ namespace System.CRM.Ui.FileServerStorage
             //else
             //   tkid = 0;
 
+            if (xinput.Attribute("projrqstrqid") != null)
+               projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+            else
+               projrqstrqid = 0;
+
+
             if (xinput.Attribute("cmid") != null)
                cmid = Convert.ToInt64(xinput.Attribute("cmid").Value);
             else

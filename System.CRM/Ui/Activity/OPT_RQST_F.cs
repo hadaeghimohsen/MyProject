@@ -21,7 +21,7 @@ namespace System.CRM.Ui.Activity
          InitializeComponent();
       }
 
-      private long fileno, rqid;
+      private long fileno, rqid, projrqstrqid;
       private XElement xinput;
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -53,7 +53,8 @@ namespace System.CRM.Ui.Activity
                               new XAttribute("fileno", fileno), 
                               new XAttribute("rqstrqid", rqid),
                               new XAttribute("lcid", 0),
-                              new XAttribute("formcaller", GetType().Name)
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("projrqstrqid", projrqstrqid)
                            )
                      },
                   })
@@ -74,7 +75,8 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("fileno", fileno), 
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("sendfiletype", "new"),
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid)
                         )
                      },
                   })
@@ -94,7 +96,8 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("fileno", fileno), 
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("appointmenttype", "new"),
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid)
                         )
                      },
                   })
@@ -114,7 +117,8 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("fileno", fileno), 
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("ntid", "0"),
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid)
                         )
                      },
                   })
@@ -134,7 +138,8 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("fileno", fileno), 
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("tasktype", "new"),
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid)
                         )
                      },
                   })
@@ -155,6 +160,7 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("emid", 0),
                            new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid),
                            new XAttribute("toemail", iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno).EMAL_ADRS_DNRM ?? "")
                         )
                    },
@@ -176,7 +182,8 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("cashcode", 0), 
                            new XAttribute("rqid", 0), 
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid)
                         )
                    },
                  })
@@ -197,7 +204,8 @@ namespace System.CRM.Ui.Activity
                            new XAttribute("rqstrqid", rqid),
                            new XAttribute("msid", 0), 
                            new XAttribute("cellphon", iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno).CELL_PHON_DNRM ?? ""),
-                           new XAttribute("formcaller", GetType().Name)
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("projrqstrqid", projrqstrqid)
                         )
                      },
                   })

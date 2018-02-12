@@ -24,7 +24,7 @@ namespace System.CRM.Ui.MasterPage
          this.Lb_iTask.Region = this.Lb_oTask.Region = this.Lb_Mention.Region = this.Lb_Notification.Region = new Region(path);
       }
 
-      private long fileno;
+      private long fileno, projrqstrqid;
       private string formCaller;
 
       private void Execute_Query()

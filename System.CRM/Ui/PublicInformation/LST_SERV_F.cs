@@ -22,6 +22,7 @@ namespace System.CRM.Ui.PublicInformation
       }
 
       private bool requery = false;
+      private long projrqstrqid;
       private XElement xinput;
 
       private void Execute_Query()
@@ -87,6 +88,7 @@ namespace System.CRM.Ui.PublicInformation
                // Update FileNo in Xml variable               
                xinput.Attribute("fileno").Value = serv.FILE_NO.ToString();
                xinput.Attribute("formcaller").Value = GetType().Name;
+               xinput.Attribute("projrqstrqid").Value = projrqstrqid.ToString(); ;
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
                      new List<Job>

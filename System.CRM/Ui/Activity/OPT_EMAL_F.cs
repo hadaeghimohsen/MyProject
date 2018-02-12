@@ -124,7 +124,7 @@ namespace System.CRM.Ui.Activity
          catch (Exception exc)
          {
             requery = false;
-            iCRM.SaveException(exc);
+            iCRM.SaveException(exc);            
          }
          finally
          {
@@ -217,6 +217,7 @@ namespace System.CRM.Ui.Activity
                               new XElement("Service", 
                                  new XAttribute("fileno", emal.SERV_FILE_NO), 
                                  new XAttribute("rqstrqid", emal.RQRO_RQST_RQID),
+                                 new XAttribute("projrqstrqid", projrqstrqid),
                                  //new XAttribute("tasktype", "new"),
                                  new XAttribute("formcaller", GetType().Name)
                               )
@@ -279,7 +280,7 @@ namespace System.CRM.Ui.Activity
                                           )
                                        ),
                                        new XElement("Attachments",
-                                          iCRM.Send_Files.Where(em => em.SERV_FILE_NO == fileno && em.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Emails.FirstOrDefault().EMID == emal.EMID)).
+                                          iCRM.Send_Files.Where(em => em.SERV_FILE_NO == fileno && em.Request_Row.Request.Request2.Request_Rows.Any(rr => rr.Emails.FirstOrDefault().EMID == emal.EMID)).
                                           Select(f => 
                                              new XElement("File", 
                                                 new XAttribute("path", f.FILE_SRVR_LINK)
@@ -320,7 +321,8 @@ namespace System.CRM.Ui.Activity
                               Input = 
                                  new XElement("Request",
                                     new XAttribute("fileno", emal.SERV_FILE_NO),
-                                    new XAttribute("rqid", emal.RQRO_RQST_RQID)
+                                    new XAttribute("rqid", emal.RQRO_RQST_RQID),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            }                     
                         }
@@ -341,7 +343,8 @@ namespace System.CRM.Ui.Activity
                                  new XElement("Request",
                                     new XAttribute("fileno", ""),
                                     new XAttribute("rqid", emal.RQRO_RQST_RQID),
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            }                     
                         }

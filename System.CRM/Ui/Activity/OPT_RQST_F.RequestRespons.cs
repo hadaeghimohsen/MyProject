@@ -215,9 +215,18 @@ namespace System.CRM.Ui.Activity
             fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
             if (xinput.Attribute("rqid") != null)
                rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
+            else
+               rqid = 0;
 
             if (xinput.Attribute("formcaller") != null)
                FormCaller = xinput.Attribute("formcaller").Value;
+            else
+               FormCaller = "";
+
+            if (xinput.Attribute("projrqstrqid") != null)
+               projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+            else
+               projrqstrqid = 0;
          }
          job.Status = StatusType.Successful;
       }

@@ -356,5 +356,144 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void MbspValdType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            if (mbsp.TYPE == "005")
+            {
+               MessageBox.Show(this, "شما اجازه غیرفعال کردن رکورد بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               return;
+            }
+
+            if (mbsp.VALD_TYPE == "002")
+            {
+               if (MessageBox.Show(this, "آیا با غیرفعال کردن دوره موافق هستید؟", "غیرفعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+               iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '001' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
+            }
+            else if (mbsp.VALD_TYPE == "001")
+            {
+               if (MbspBs.List.OfType<Data.Member_Ship>().Any(m => m.RWNO > mbsp.RWNO && m.TYPE == "005"))
+               {
+                  MessageBox.Show(this, "شما اجازه فعال کردن دوره ابطال شده توسط فرآیند بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  return;
+               }
+
+               if (MessageBox.Show(this, "آیا با فعال کردن دوره موافق هستید؟", "فعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+               iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '002' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
+            }
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            Mbsp_gv.TopRowIndex = 0;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+      }
+
+      private void MbspInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            int RouterMethod = 105;
+            string RouterGateway = "SHOW_UCRQ_F";
+
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                  {
+                     new Job(SendType.Self, RouterMethod /* Execute RouterMethod */),
+                     new Job(SendType.SelfToUserInterface, RouterGateway, 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Request", 
+                              new XAttribute("rqid", mbsp.RQRO_RQST_RQID), 
+                              new XElement("Request_Row", 
+                                 new XAttribute("fighfileno", mbsp.FIGH_FILE_NO)
+                              )
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch { }
+      }
+
+      private void AttnMbsp_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  try
+                  {
+
+                     Job _InteractWithScsc =
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                              new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO))}
+                           });
+                     _DefaultGateway.Gateway(_InteractWithScsc);
+
+                     iScsc = new Data.iScscDataContext(ConnectionString);
+                     MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+                     Mbsp_gv.TopRowIndex = 0;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+                  break;
+               case 1:
+                  try
+                  {
+                     if (figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004") return;
+
+                     var fp = mbsp.Fighter_Public;
+                     iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Mtod_Code_Dnrm = {0}, Ctgy_Code_Dnrm = {1}, Cbmt_Code_Dnrm = {2} WHERE File_No = {3};", fp.MTOD_CODE, fp.CTGY_CODE, fp.CBMT_CODE, fp.FIGH_FILE_NO));
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                              new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
+                           })
+                     );
+                  }
+                  catch (Exception exc) { MessageBox.Show(exc.Message); }
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            
+         }
+      }
    }
 }

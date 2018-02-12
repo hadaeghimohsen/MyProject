@@ -161,6 +161,8 @@ namespace System.CRM.Ui.Contacts
          if (serv == null) return;
          var note = NoteBs.Current as Data.Note;
          if (note == null) return;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -174,6 +176,7 @@ namespace System.CRM.Ui.Contacts
                            new XAttribute("fileno", serv.FILE_NO), 
                            new XAttribute("ntid", note.NTID), 
                            new XAttribute("rqrorqstrqid", note.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -564,6 +567,9 @@ namespace System.CRM.Ui.Contacts
             var serv = ServBs.Current as Data.Service;
             if (serv == null) return;
 
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             var _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -575,6 +581,7 @@ namespace System.CRM.Ui.Contacts
                      new XElement("Service", 
                         new XAttribute("fileno", serv.FILE_NO), 
                         new XAttribute("lcid", logc.LCID),
+                        new XAttribute("projrqstrqid", rqstproj.RQID),
                         new XAttribute("formcaller", GetType().Name)
                      )
                   },
@@ -702,6 +709,9 @@ namespace System.CRM.Ui.Contacts
             var serv = ServBs.Current as Data.Service;
             if (serv == null) return;
 
+            var rqstproj = RqstProjBs.Current as Data.Request;
+            if (rqstproj == null) return;
+
             var _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -713,6 +723,7 @@ namespace System.CRM.Ui.Contacts
                        new XElement("Service", 
                           new XAttribute("fileno", serv.FILE_NO), 
                           new XAttribute("emid", emal.EMID),
+                          new XAttribute("projrqstrqid", rqstproj.RQID),
                           new XAttribute("formcaller", GetType().Name)
                        )
                     },
@@ -761,6 +772,9 @@ namespace System.CRM.Ui.Contacts
          if (serv == null) return;
          var task = TaskBs.Current as Data.Task;
          if (task == null) return;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
+
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -775,6 +789,7 @@ namespace System.CRM.Ui.Contacts
                            new XAttribute("tasktype", "edit"), 
                            new XAttribute("tkid", task.TKID), 
                            new XAttribute("rqrorqstrqid", task.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -823,6 +838,8 @@ namespace System.CRM.Ui.Contacts
          if (serv == null) return;
          var apon = AponBs.Current as Data.Appointment;
          if (apon == null) return;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -837,6 +854,7 @@ namespace System.CRM.Ui.Contacts
                            new XAttribute("appointmenttype", "edit"), 
                            new XAttribute("apid", apon.APID), 
                            new XAttribute("rqrorqstrqid", apon.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -884,6 +902,8 @@ namespace System.CRM.Ui.Contacts
          if (serv == null) return;
          var sndf = FileBs.Current as Data.Send_File;
          if (sndf == null) return;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -898,6 +918,7 @@ namespace System.CRM.Ui.Contacts
                            new XAttribute("sendfiletype", "edit"), 
                            new XAttribute("sfid", sndf.SFID), 
                            new XAttribute("rqrorqstrqid", sndf.RQRO_RQST_RQID),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -946,6 +967,8 @@ namespace System.CRM.Ui.Contacts
          if (serv == null) return;
          var mesg = MesgBs.Current as Data.Message;
          if (mesg == null) return;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
@@ -959,6 +982,7 @@ namespace System.CRM.Ui.Contacts
                            new XAttribute("fileno", serv.FILE_NO), 
                            new XAttribute("msid", mesg.MSID), 
                            new XAttribute("cellphon", serv.CELL_PHON_DNRM ?? ""),
+                           new XAttribute("projrqstrqid", rqstproj.RQID),
                            new XAttribute("formcaller", GetType().Name)
                         )
                   },
@@ -1033,6 +1057,7 @@ namespace System.CRM.Ui.Contacts
                                  new XAttribute("fileno", serv.FILE_NO), 
                                  new XAttribute("rqstrqid", pymt.RQID),
                                  new XAttribute("emid", 0),
+                                 new XAttribute("projrqstrqid", rqstproj.RQID),
                                  new XAttribute("formcaller", GetType().Name),
                                  new XAttribute("toemail", serv.EMAL_ADRS_DNRM ?? "")
                               )
@@ -1058,6 +1083,7 @@ namespace System.CRM.Ui.Contacts
                                  new XAttribute("fileno", serv.FILE_NO), 
                                  new XAttribute("rqstrqid", pymt.RQID),
                                  new XAttribute("lcid", 0),
+                                 new XAttribute("projrqstrqid", rqstproj.RQID),
                                  new XAttribute("formcaller", GetType().Name)
                               )
                          },
@@ -1672,6 +1698,8 @@ namespace System.CRM.Ui.Contacts
       private void RqstRelatedService_Butn_Click(object sender, EventArgs e)
       {
          var xinput = (sender as RoundedButton).Tag as XElement;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost", "FRST_PAGE_F", 100 /* ShowRequest */, SendType.SelfToUserInterface)
@@ -1679,7 +1707,8 @@ namespace System.CRM.Ui.Contacts
                Input =
                   new XElement("Request",
                      new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
-                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value),
+                     new XAttribute("projrqstrqid", rqstproj.RQID)
                   )
             }
          );

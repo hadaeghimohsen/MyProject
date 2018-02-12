@@ -412,6 +412,8 @@ namespace System.CRM.Ui.Admission
          {
             var Rqst = RqstBs1.Current as Data.Request;
 
+            if (Rqst == null) return;
+
             if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
             {
                //Btn_RqstDelete1.Visible = true; Btn_RqstSav1.Visible = false;
@@ -445,6 +447,8 @@ namespace System.CRM.Ui.Admission
                return;
 
             var rqst = RqstBs1.Current as Data.Request;
+
+            if (rqst == null) return;
 
             if (rqst.RQID == 0)
             {
@@ -510,29 +514,46 @@ namespace System.CRM.Ui.Admission
 
       private void RqstBs1_AddingNew(object sender, AddingNewEventArgs e)
       {
-         if(cntycode == null || prvncode == null || regncode == null)
+         try
          {
-            var prsn = iCRM.Job_Personnels.FirstOrDefault(p => p.USER_NAME == CurrentUser).Service;
-            cntycode = prsn.REGN_PRVN_CNTY_CODE;
-            prvncode = prsn.REGN_PRVN_CODE;
-            regncode = prsn.REGN_CODE;
+            if (cntycode == null || prvncode == null || regncode == null)
+            {
+               var prsn = iCRM.Job_Personnels.FirstOrDefault(p => p.USER_NAME == CurrentUser).Service;
+               cntycode = prsn.REGN_PRVN_CNTY_CODE;
+               prvncode = prsn.REGN_PRVN_CODE;
+               regncode = prsn.REGN_CODE;
+            }
+            if (compcode == 0)
+            {
+               var comps = iCRM.Companies.Where(c => c.REGN_PRVN_CNTY_CODE == cntycode && c.REGN_PRVN_CODE == prvncode && c.REGN_CODE == regncode && c.RECD_STAT == "002");
+               if (comps.Count() == 1)
+                  compcode = comps.FirstOrDefault().CODE;
+               else
+               {
+                  if (comps.Any(c => c.DFLT_STAT == "002"))
+                     compcode = comps.FirstOrDefault(c => c.DFLT_STAT == "002").CODE;
+                  else
+                     compcode = comps.FirstOrDefault().CODE;
+                  //iCRM.Companies.FirstOrDefault(c => c.REGN_PRVN_CNTY_CODE == cntycode && c.REGN_PRVN_CODE == prvncode && c.REGN_CODE == regncode && c.RECD_STAT == "002" && c.DFLT_STAT == "002").CODE;
+               }
+            }
+
+            if (cntycode != null && cntycode.Length != 1)
+               CntyCode_Lov.SelectedValue = cntycode;
+
+            if (prvncode != null && prvncode.Length != 1)
+               PrvnCode_Lov.SelectedValue = prvncode;
+
+            if (regncode != null && regncode.Length != 1)
+               RegnCode_Lov.SelectedValue = regncode;
+
+            if (compcode != 0)
+               CompCode_Lov.SelectedValue = compcode;
          }
-         if(compcode == 0)
+         catch (Exception exc)
          {
-            compcode = iCRM.Companies.FirstOrDefault(c => c.REGN_PRVN_CNTY_CODE == cntycode && c.REGN_PRVN_CODE == prvncode && c.REGN_CODE == regncode && c.RECD_STAT == "002" && c.DFLT_STAT == "002").CODE;
+            iCRM.SaveException(exc);
          }
-
-         if (cntycode != null && cntycode.Length != 1)
-            CntyCode_Lov.SelectedValue = cntycode;
-
-         if (prvncode != null && prvncode.Length != 1)
-            PrvnCode_Lov.SelectedValue = prvncode;
-
-         if (regncode != null && regncode.Length != 1)
-            RegnCode_Lov.SelectedValue = regncode;
-
-         if (compcode != 0)
-            CompCode_Lov.SelectedValue = compcode;
       }
 
       private void FindGoogleMap_Butn_Click(object sender, EventArgs e)

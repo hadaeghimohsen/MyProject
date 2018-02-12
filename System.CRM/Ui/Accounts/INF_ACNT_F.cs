@@ -1524,6 +1524,8 @@ namespace System.CRM.Ui.Acounts
       private void RqstRelatedService_Butn_Click(object sender, EventArgs e)
       {
          var xinput = (sender as RoundedButton).Tag as XElement;
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost", "FRST_PAGE_F", 100 /* ShowRequest */, SendType.SelfToUserInterface)
@@ -1531,7 +1533,8 @@ namespace System.CRM.Ui.Acounts
                Input =
                   new XElement("Request",
                      new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
-                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value),
+                     new XAttribute("projrqstrqid", rqstproj.RQID)
                   )
             }
          );

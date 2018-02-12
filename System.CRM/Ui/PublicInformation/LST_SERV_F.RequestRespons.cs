@@ -302,6 +302,12 @@ namespace System.CRM.Ui.PublicInformation
          if(xinput != null)
          {
             FormCaller = xinput.Attribute("formcaller").Value;
+
+            if (xinput.Attribute("projrqstrqid") != null)
+               projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+            else
+               projrqstrqid = 0;
+
             Execute_Query();
          }
          

@@ -351,7 +351,8 @@ namespace System.CRM.Ui.Activity
                               Input = 
                                  new XElement("Request",
                                     new XAttribute("fileno", sndf.SERV_FILE_NO),
-                                    new XAttribute("rqid", sndf.RQRO_RQST_RQID)
+                                    new XAttribute("rqid", sndf.RQRO_RQST_RQID),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            }                     
                         }
@@ -372,7 +373,8 @@ namespace System.CRM.Ui.Activity
                                  new XElement("Request",
                                     new XAttribute("fileno", ""),
                                     new XAttribute("rqid", sndf.RQRO_RQST_RQID),
-                                    new XAttribute("formcaller", GetType().Name)
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("projrqstrqid", projrqstrqid)
                                  )
                            }                     
                         }

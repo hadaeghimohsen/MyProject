@@ -23,7 +23,7 @@ namespace System.CRM.Ui.FileServerStorage
 
       private bool requery = false;
       private long fileno;
-      private long rqstrqid;
+      private long rqstrqid, projrqstrqid;
       //private long emid;
       //private long tkid;
       private long cmid;
@@ -72,7 +72,7 @@ namespace System.CRM.Ui.FileServerStorage
                      ( 
                         //sf.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Emails.FirstOrDefault().EMID == emid) ||
                         //sf.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Tasks.FirstOrDefault().TKID == tkid) ||
-                        sf.Request_Row.Request.Request1.RQID == rqstrqid ||
+                        sf.Request_Row.Request.Request2.RQID == rqstrqid ||
                         sf.CMNT_CMID == cmid
                      )
                );
@@ -152,6 +152,7 @@ namespace System.CRM.Ui.FileServerStorage
                         new XAttribute("rqstrqid", rqstrqid),
                         new XAttribute("cmid", cmid),
                         new XAttribute("sendfiletype", "new"),
+                        new XAttribute("projrqstrqid", projrqstrqid),
                         //new XAttribute("sendtype", "001"),
                         new XAttribute("formcaller", GetType().Name)
                      )

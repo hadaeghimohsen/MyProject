@@ -102,6 +102,7 @@
          System.Windows.Forms.Label label35;
          System.Windows.Forms.Label label36;
          System.Windows.Forms.Label label37;
+         System.Windows.Forms.Label label38;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ALL_FLDF_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
@@ -197,7 +198,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label label38;
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOTL_DEBT_PYMT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -357,6 +357,7 @@
          this.CordY_Txt = new System.Windows.Forms.TextBox();
          this.CordX_Txt = new System.Windows.Forms.TextBox();
          this.textBox20 = new System.Windows.Forms.TextBox();
+         this.textBox9 = new System.Windows.Forms.TextBox();
          this.textBox21 = new System.Windows.Forms.TextBox();
          this.textBox22 = new System.Windows.Forms.TextBox();
          this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -601,7 +602,6 @@
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DDebtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.textBox9 = new System.Windows.Forms.TextBox();
          fILE_NOLabel = new System.Windows.Forms.Label();
          nAME_DNRMLabel = new System.Windows.Forms.Label();
          fATH_NAME_DNRMLabel = new System.Windows.Forms.Label();
@@ -1628,6 +1628,16 @@
          // 
          this.DActvBs.DataSource = typeof(System.Scsc.Data.D_ACTV);
          // 
+         // label38
+         // 
+         label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label38.AutoSize = true;
+         label38.Location = new System.Drawing.Point(263, 120);
+         label38.Name = "label38";
+         label38.Size = new System.Drawing.Size(60, 14);
+         label38.TabIndex = 8;
+         label38.Text = "کد تلگرام :";
+         // 
          // HL_INVSDCMT
          // 
          this.HL_INVSDCMT.AutoHeight = false;
@@ -2296,7 +2306,7 @@
          // 
          this.Mbsp_gc.DataSource = this.MbspBs;
          this.Mbsp_gc.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Mbsp_gc.Location = new System.Drawing.Point(3, 18);
+         this.Mbsp_gc.Location = new System.Drawing.Point(3, 90);
          this.Mbsp_gc.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.Mbsp_gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Mbsp_gc.MainView = this.gridView1;
@@ -2651,8 +2661,8 @@
          this.panel1.Controls.Add(this.MbspInfo_Butn);
          this.panel1.Controls.Add(this.MbspValdType_Butn);
          this.panel1.Controls.Add(label35);
-         this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.panel1.Location = new System.Drawing.Point(3, 318);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel1.Location = new System.Drawing.Point(3, 18);
          this.panel1.Name = "panel1";
          this.panel1.Size = new System.Drawing.Size(631, 72);
          this.panel1.TabIndex = 11;
@@ -3912,6 +3922,16 @@
          this.textBox20.ReadOnly = true;
          this.textBox20.Size = new System.Drawing.Size(177, 22);
          this.textBox20.TabIndex = 12;
+         // 
+         // textBox9
+         // 
+         this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "CHAT_ID_DNRM", true));
+         this.textBox9.Location = new System.Drawing.Point(157, 117);
+         this.textBox9.Name = "textBox9";
+         this.textBox9.ReadOnly = true;
+         this.textBox9.Size = new System.Drawing.Size(100, 22);
+         this.textBox9.TabIndex = 9;
          // 
          // textBox21
          // 
@@ -6524,26 +6544,6 @@
          this.Btn_Back.TextColor = System.Drawing.Color.Black;
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
-         // 
-         // label38
-         // 
-         label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label38.AutoSize = true;
-         label38.Location = new System.Drawing.Point(263, 120);
-         label38.Name = "label38";
-         label38.Size = new System.Drawing.Size(60, 14);
-         label38.TabIndex = 8;
-         label38.Text = "کد تلگرام :";
-         // 
-         // textBox9
-         // 
-         this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "CHAT_ID_DNRM", true));
-         this.textBox9.Location = new System.Drawing.Point(157, 117);
-         this.textBox9.Name = "textBox9";
-         this.textBox9.ReadOnly = true;
-         this.textBox9.Size = new System.Drawing.Size(100, 22);
-         this.textBox9.TabIndex = 9;
          // 
          // ALL_FLDF_F
          // 

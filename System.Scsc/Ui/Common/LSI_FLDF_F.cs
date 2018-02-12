@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using DevExpress.XtraEditors;
+using System.IO;
 
 namespace System.Scsc.Ui.Common
 {
@@ -278,10 +279,82 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
+            MbspBs.List.Clear();
+            ExpnAmnt_Txt.Text = PymtAmnt_Txt.Text = DscnAmnt_Txt.Text = "";
+
             vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text);
             vF_Last_Info_FighterResultGridControl.Focus();
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+
+            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            Mbsp_gv.TopRowIndex = 0;
+
+            UserProFile_Rb.ImageProfile = null;
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+
+            //Pb_FighImg.Visible = true;
+
+            if (InvokeRequired)
+               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+            else
+               UserProFile_Rb.ImageProfile = bm;
+         }
+         catch
+         { //Pb_FighImg.Visible = false;
+            UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+         }
+      }
+
+      private void MbspBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;            
+
+            long? rqid = 0;
+            if (mbsp.RWNO == 1)
+               rqid = mbsp.Request_Row.Request.Request1.RQID;
+            else
+               rqid = mbsp.RQRO_RQST_RQID;
+
+            ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
+            DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+            PymtAmnt_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+         }
+         catch
+         {
+         }
+      }
+
+      private void GlobCodeDnrm_Txt_DoubleClick(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.F11 }
+            );
+
+            GlobCode_Txt.Text = GlobCodeDnrm_Txt.Text;
+            Search_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

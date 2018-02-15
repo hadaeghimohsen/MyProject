@@ -441,13 +441,17 @@ namespace System.CRM.Ui.Contacts
       private void EditService_Butn_Click(object sender, EventArgs e)
       {
          var serv = ServBs.Current as Data.Service;
+         if (serv == null) return;
+
+         var rqstproj = RqstProjBs.Current as Data.Request;
+         if (rqstproj == null) return;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
                   new Job(SendType.Self, 13 /* Execute Adm_Chng_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Service", new XAttribute("type", "changeinfo"), new XAttribute("fileno", fileno), new XAttribute("auto", "true"), new XAttribute("srpbtype", serv.SRPB_TYPE_DNRM))}
+                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Service", new XAttribute("type", "changeinfo"), new XAttribute("fileno", fileno), new XAttribute("auto", "true"), new XAttribute("srpbtype", serv.SRPB_TYPE_DNRM), new XAttribute("projrqstrqid", rqstproj.RQID))}
                })
          );
       }

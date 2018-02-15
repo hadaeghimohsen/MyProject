@@ -450,7 +450,8 @@ namespace System.CRM.Ui.Activity
                Input =
                   new XElement("Request",
                      new XAttribute("rqtpcode", xinput.Attribute("rqtpcode").Value),
-                     new XAttribute("rqid", xinput.Attribute("rqid").Value)
+                     new XAttribute("rqid", xinput.Attribute("rqid").Value),
+                     new XAttribute("projrqstrqid", projrqstrqid)
                   )
             }
          );
@@ -466,9 +467,9 @@ namespace System.CRM.Ui.Activity
             if (rqst.Request_Row != null && rqst.Request_Row.Request.RQST_RQID != null)
             {
                RqstFolw_Butn.Visible = true;
-               RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request1.Request_Type.RQTP_DESC);
+               RqstFolw_Butn.Tooltip = string.Format("درخواست پیرو {0}", rqst.Request_Row.Request.Request2.Request_Type.RQTP_DESC);
                RqstFolw_Butn.Tag =
-                  new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request1.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request1.RQID));
+                  new XElement("Request", new XAttribute("rqtpcode", rqst.Request_Row.Request.Request2.RQTP_CODE), new XAttribute("rqid", rqst.Request_Row.Request.Request2.RQID));
             }
             else
             {

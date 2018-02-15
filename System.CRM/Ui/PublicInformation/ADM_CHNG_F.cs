@@ -24,6 +24,7 @@ namespace System.CRM.Ui.PublicInformation
       private int rqstindx = 0;
       private bool reloading = false;
       private string srpbtype;
+      private long projrqstrqid;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -148,7 +149,8 @@ namespace System.CRM.Ui.PublicInformation
                      new XElement("Request",
                         new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
                         new XAttribute("rqtpcode", "002"),
-                        new XAttribute("rqttcode", "004"),                        
+                        new XAttribute("rqttcode", "004"),
+                        new XAttribute("projrqstrqid", projrqstrqid),
                         new XElement("Service",
                            new XAttribute("fileno", srpb == null ? fileno : srpb.SERV_FILE_NO)
                         )
@@ -167,6 +169,7 @@ namespace System.CRM.Ui.PublicInformation
                         new XAttribute("cntycode", rqst == null || rqst.RQID == 0 ? CntyCode_Lov.SelectedValue : srpb.REGN_PRVN_CNTY_CODE),
                         new XAttribute("prvncode", rqst == null || rqst.RQID == 0 ? PrvnCode_Lov.SelectedValue : srpb.REGN_PRVN_CODE),
                         new XAttribute("regncode", rqst == null || rqst.RQID == 0 ? RegnCode_Lov.SelectedValue : srpb.REGN_CODE),
+                        new XAttribute("projrqstrqid", rqst == null || rqst.RQID == 0 ? projrqstrqid : rqst.PROJ_RQST_RQID),
                         new XElement("Service",
                            new XAttribute("fileno", srpb == null ? fileno : srpb.SERV_FILE_NO),
                            new XElement("Service_Public",
@@ -425,6 +428,8 @@ namespace System.CRM.Ui.PublicInformation
          try
          {
             var Rqst = RqstBs1.Current as Data.Request;
+
+            if (Rqst == null) return;
 
             if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
             {

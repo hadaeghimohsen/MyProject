@@ -274,6 +274,11 @@ namespace System.CRM.Ui.PublicInformation
                   RqstBs1.Position = RqstBs1.List.OfType<Data.Request>().ToList().FindIndex(r => r.RQID == figh.RQST_RQID);
                }
 
+               if (xinput.Attribute("projrqstrqid") != null)
+                  projrqstrqid = Convert.ToInt64(xinput.Attribute("projrqstrqid").Value);
+               else
+                  projrqstrqid = 0;
+
                SrpbType_Lov.SelectedValue = srpbtype = xinput.Attribute("srpbtype").Value;
                switch (srpbtype)
                {

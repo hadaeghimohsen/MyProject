@@ -12,7 +12,7 @@ namespace System.CRM.ExceptionHandlings
    {
       public static void SaveException(this CRM.Data.iCRMDataContext iCRM, Exception e)
       {
-         MessageBox.Show(e.Message);
+         //MessageBox.Show(e.Message);
       }
    }
 }

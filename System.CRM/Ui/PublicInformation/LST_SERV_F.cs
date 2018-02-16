@@ -141,18 +141,26 @@ namespace System.CRM.Ui.PublicInformation
          FormCaller = "";
          Btn_Back_Click(null, null);
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 58 /* Execute Add_Serv_F */),
-                  new Job(SendType.SelfToUserInterface, "ADD_SERV_F", 10 /* Execute Actn_CalF_P */)
-                  {
-                     Input = new XElement("Request", new XAttribute("rqid", xinput.Attribute("rqid").Value), new XAttribute("formcaller", GetType().Name))
-                  }
-               }
-            )
-         );
+         //_DefaultGateway.Gateway(
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.Self, 58 /* Execute Add_Serv_F */),
+         //         new Job(SendType.SelfToUserInterface, "ADD_SERV_F", 10 /* Execute Actn_CalF_P */)
+         //         {
+         //            Input = new XElement("Request", new XAttribute("rqid", xinput.Attribute("rqid").Value), new XAttribute("formcaller", GetType().Name))
+         //         }
+         //      }
+         //   )
+         //);
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 11 /* Execute Adm_Cust_F */),                
+                new Job(SendType.SelfToUserInterface, "ADM_CUST_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Lead", new XAttribute("srpbtype", "002"), new XAttribute("formcaller", GetType().Name), new XAttribute("rqstrqid", xinput.Attribute("rqid").Value))},
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
    }
 }

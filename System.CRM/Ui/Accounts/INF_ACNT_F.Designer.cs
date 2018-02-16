@@ -923,9 +923,9 @@
          this.linkLabel8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CompBs, "END_TIME", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "t"));
          this.linkLabel8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.linkLabel8.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel8.Location = new System.Drawing.Point(379, 75);
+         this.linkLabel8.Location = new System.Drawing.Point(379, 80);
          this.linkLabel8.Name = "linkLabel8";
-         this.linkLabel8.Size = new System.Drawing.Size(55, 27);
+         this.linkLabel8.Size = new System.Drawing.Size(55, 22);
          this.linkLabel8.TabIndex = 20;
          this.linkLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -984,9 +984,9 @@
          this.linkLabel7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CompBs, "STRT_TIME", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "t"));
          this.linkLabel7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.linkLabel7.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel7.Location = new System.Drawing.Point(538, 75);
+         this.linkLabel7.Location = new System.Drawing.Point(538, 80);
          this.linkLabel7.Name = "linkLabel7";
-         this.linkLabel7.Size = new System.Drawing.Size(51, 27);
+         this.linkLabel7.Size = new System.Drawing.Size(51, 22);
          this.linkLabel7.TabIndex = 20;
          this.linkLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 

@@ -279,6 +279,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
+            iScsc = new Data.iScscDataContext(ConnectionString);
             MbspBs.List.Clear();
             ExpnAmnt_Txt.Text = PymtAmnt_Txt.Text = DscnAmnt_Txt.Text = "";
 

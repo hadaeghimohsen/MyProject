@@ -32,11 +32,11 @@ namespace System.Scsc.Ui.Notifications
       private void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         AttnDate_Date.Value = AttnDate_Date.Value.HasValue ? AttnDate_Date.Value.Value : DateTime.Now;
+         FromAttnDate_Date.Value = FromAttnDate_Date.Value.HasValue ? FromAttnDate_Date.Value.Value : DateTime.Now;
          AttnBs1.DataSource =
             iScsc.Attendances
             .Where(a => 
-               a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date &&
+               a.ATTN_DATE.Date == FromAttnDate_Date.Value.Value.Date &&
                a.ATTN_STAT == "002" &&
                Fga_Uclb_U.Contains(a.CLUB_CODE)
             );
@@ -140,9 +140,9 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            if (!AttnDate_Date.Value.HasValue)
+            if (!FromAttnDate_Date.Value.HasValue)
             {
-               AttnDate_Date.Focus();
+               FromAttnDate_Date.Focus();
                return;
             }
 
@@ -151,7 +151,7 @@ namespace System.Scsc.Ui.Notifications
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -167,7 +167,7 @@ namespace System.Scsc.Ui.Notifications
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", AttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date = '{0}'", FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }

@@ -108,7 +108,7 @@ namespace System.Scsc.Ui.Notifications
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
-         AttnDate_Date.Value = DateTime.Now;
+         FromAttnDate_Date.Value = DateTime.Now;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -241,6 +241,9 @@ namespace System.Scsc.Ui.Notifications
       private void LoadData(Job job)
       {
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
+         CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101);
+         MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+         CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002");
          job.Status = StatusType.Successful;
       }
 
@@ -253,7 +256,7 @@ namespace System.Scsc.Ui.Notifications
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+            FromAttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
          }
          if(isPainted)
             Execute_Query();

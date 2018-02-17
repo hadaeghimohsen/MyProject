@@ -1712,5 +1712,48 @@ namespace System.Scsc.Ui.BaseDefinition
             }
          }
       }
+
+      private void AcptDuplClass_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var sorccochfileno = CochBs1.Current as Data.Fighter;
+            if (sorccochfileno == null) return;
+
+            var trgtcochfileno = DupCoch_Lov.EditValue;
+            if (trgtcochfileno == null || trgtcochfileno.ToString() == "") return;
+
+            iScsc.DUP_CSCC_P(
+               new XElement("Duplicate",
+                  new XAttribute("sorccochfileno", sorccochfileno.FILE_NO),
+                  new XAttribute("trgtcochfileno", trgtcochfileno)
+               )
+            );
+
+            DuplicateClass_Pn.Visible = false;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void CnclDuplClas_Butn_Click(object sender, EventArgs e)
+      {
+         DuplicateClass_Pn.Visible = false;
+      }
+
+      private void DuplicateClass_Butn_Click(object sender, EventArgs e)
+      {
+         DuplicateClass_Pn.Visible = !DuplicateClass_Pn.Visible;
+      }
    }
 }

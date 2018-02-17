@@ -215,7 +215,22 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (requery)
             {
-               FrstName_Text.Text = LastName_Text.Text = FngrPrint_Text.Text = Chat_Id_TextEdit.Text = "";               
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("TabPage",
+                                 new XAttribute("showtabpage", "tp_005")
+                              )
+                        }
+                     }
+                  )
+               );
+               FrstName_Text.Text = LastName_Text.Text = FngrPrint_Text.Text = Chat_Id_TextEdit.Text = "";
+               FrstName_Text.Focus();
                requery = false;
             }
          }

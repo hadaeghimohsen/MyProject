@@ -110,6 +110,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
                MtodBs1.DataSource = iScsc.Methods;
+               ClubBs1.DataSource = iScsc.Clubs;
                //CreateCoachMenu();
             }
             else
@@ -1723,10 +1724,14 @@ namespace System.Scsc.Ui.BaseDefinition
             var trgtcochfileno = DupCoch_Lov.EditValue;
             if (trgtcochfileno == null || trgtcochfileno.ToString() == "") return;
 
+            var trgtclubcode = Club_Lov.EditValue;
+            if (trgtclubcode == null || trgtclubcode.ToString() == "") return;
+
             iScsc.DUP_CSCC_P(
                new XElement("Duplicate",
                   new XAttribute("sorccochfileno", sorccochfileno.FILE_NO),
-                  new XAttribute("trgtcochfileno", trgtcochfileno)
+                  new XAttribute("trgtcochfileno", trgtcochfileno),
+                  new XAttribute("trgtclubcode", trgtclubcode)
                )
             );
 
@@ -1753,6 +1758,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void DuplicateClass_Butn_Click(object sender, EventArgs e)
       {
+         DupCoch_Lov.EditValue = null;
+         Club_Lov.EditValue = null;
          DuplicateClass_Pn.Visible = !DuplicateClass_Pn.Visible;
       }
    }

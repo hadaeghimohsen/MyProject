@@ -67,6 +67,11 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             job.Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
+         else if(keyData == Keys.Enter)
+         {
+            if(!SubmitChange_Butn.Focused || !SaveNewCoch_Butn.Focused)
+               SendKeys.Send("{TAB}");
+         }
 
 
          job.Status = StatusType.Successful;

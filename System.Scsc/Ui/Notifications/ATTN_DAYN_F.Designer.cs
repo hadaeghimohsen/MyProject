@@ -28,24 +28,25 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label cBMT_CODELabel;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ATTN_DAYN_F));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          System.Windows.Forms.Label label1;
          System.Windows.Forms.Label label2;
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ATTN_DAYN_F));
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          this.colEXIT_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.colDFLT_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.AttnBs1 = new System.Windows.Forms.BindingSource();
+         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.attendanceGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,6 +56,8 @@
          this.colMBSP_RWNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMBSP_RECT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCOCH_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.CochBs = new System.Windows.Forms.BindingSource(this.components);
          this.colATTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colENTR_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOTL_SESN = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,10 +74,21 @@
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colMTOD_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.MtodBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCTGY_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.CtgyBs = new System.Windows.Forms.BindingSource(this.components);
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.ClearCbmt_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Cbmt_Pkb = new System.MaxUi.NewPickBtn();
+         this.Coch_Pkb = new System.MaxUi.NewPickBtn();
+         this.Mtod_Pkb = new System.MaxUi.NewPickBtn();
+         this.ToAttnDate_Date = new Atf.UI.DateTimeSelector();
+         this.FromAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,23 +108,14 @@
          this.colTIME_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCBMT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PrintSetting_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.Print_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PrintDefault_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FromAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
          this.Reload_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
-         this.CochBs = new System.Windows.Forms.BindingSource();
-         this.MtodBs = new System.Windows.Forms.BindingSource();
-         this.CtgyBs = new System.Windows.Forms.BindingSource();
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.ToAttnDate_Date = new Atf.UI.DateTimeSelector();
-         this.newPickBtn1 = new System.MaxUi.NewPickBtn();
-         this.newPickBtn2 = new System.MaxUi.NewPickBtn();
-         this.newPickBtn3 = new System.MaxUi.NewPickBtn();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          cBMT_CODELabel = new System.Windows.Forms.Label();
          label1 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
@@ -118,18 +123,21 @@
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actn_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MtodBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
+         this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cBMT_CODEGridLookUpEditView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MtodBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).BeginInit();
-         this.groupBox1.SuspendLayout();
          this.SuspendLayout();
          // 
          // cBMT_CODELabel
@@ -143,6 +151,30 @@
          cBMT_CODELabel.Size = new System.Drawing.Size(86, 14);
          cBMT_CODELabel.TabIndex = 38;
          cBMT_CODELabel.Text = "برنامه کلاسی :";
+         // 
+         // label1
+         // 
+         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label1.AutoSize = true;
+         label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         label1.Location = new System.Drawing.Point(341, 30);
+         label1.Name = "label1";
+         label1.Size = new System.Drawing.Size(48, 14);
+         label1.TabIndex = 38;
+         label1.Text = "از تاریخ :";
+         // 
+         // label2
+         // 
+         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label2.AutoSize = true;
+         label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         label2.Location = new System.Drawing.Point(166, 30);
+         label2.Name = "label2";
+         label2.Size = new System.Drawing.Size(48, 14);
+         label2.TabIndex = 38;
+         label2.Text = "تا تاریخ :";
          // 
          // colEXIT_TIME
          // 
@@ -160,7 +192,7 @@
          // 
          this.repositoryItemTimeEdit1.AutoHeight = false;
          this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
          this.repositoryItemTimeEdit1.Mask.EditMask = "HH:mm:ss";
          this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
@@ -203,9 +235,12 @@
          this.attendanceGridControl.Name = "attendanceGridControl";
          this.attendanceGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1,
-            this.Actn_Butn});
+            this.Actn_Butn,
+            this.repositoryItemLookUpEdit1,
+            this.repositoryItemLookUpEdit2,
+            this.repositoryItemLookUpEdit3});
          this.attendanceGridControl.Size = new System.Drawing.Size(741, 410);
-         this.attendanceGridControl.TabIndex = 2;
+         this.attendanceGridControl.TabIndex = 0;
          this.attendanceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
          // 
@@ -246,19 +281,19 @@
             this.gridColumn1,
             this.colMTOD_CODE_DNRM,
             this.colCTGY_CODE_DNRM});
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colEXIT_TIME;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colEXIT_TIME;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colEXIT_TIME;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colEXIT_TIME;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
          this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition4,
-            styleFormatCondition5});
+            styleFormatCondition1,
+            styleFormatCondition2});
          this.gridView1.GridControl = this.attendanceGridControl;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
@@ -311,12 +346,28 @@
          // colCOCH_FILE_NO
          // 
          this.colCOCH_FILE_NO.Caption = "مربی";
+         this.colCOCH_FILE_NO.ColumnEdit = this.repositoryItemLookUpEdit1;
          this.colCOCH_FILE_NO.FieldName = "COCH_FILE_NO";
          this.colCOCH_FILE_NO.Name = "colCOCH_FILE_NO";
          this.colCOCH_FILE_NO.OptionsColumn.AllowEdit = false;
          this.colCOCH_FILE_NO.OptionsColumn.ReadOnly = true;
          this.colCOCH_FILE_NO.Visible = true;
          this.colCOCH_FILE_NO.VisibleIndex = 4;
+         // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.DataSource = this.CochBs;
+         this.repositoryItemLookUpEdit1.DisplayMember = "NAME_DNRM";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.NullText = "";
+         this.repositoryItemLookUpEdit1.ValueMember = "FILE_NO";
+         // 
+         // CochBs
+         // 
+         this.CochBs.DataSource = typeof(System.Scsc.Data.Fighter);
          // 
          // colATTN_TYPE
          // 
@@ -410,10 +461,10 @@
          // 
          this.Actn_Butn.AutoHeight = false;
          this.Actn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "نمایش اطلاعات ورود / خروج ", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1222, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "ثبت شماره کمد", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "نمایش اطلاعات اعضا", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "خروج دستی", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "نمایش اطلاعات ورود / خروج ", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1222, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "ثبت شماره کمد", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "نمایش اطلاعات اعضا", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "خروج دستی", null, null, true)});
          this.Actn_Butn.Name = "Actn_Butn";
          this.Actn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Actn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Actn_Butn_ButtonClick);
@@ -421,6 +472,7 @@
          // colMTOD_CODE_DNRM
          // 
          this.colMTOD_CODE_DNRM.Caption = "ورزش";
+         this.colMTOD_CODE_DNRM.ColumnEdit = this.repositoryItemLookUpEdit2;
          this.colMTOD_CODE_DNRM.FieldName = "MTOD_CODE_DNRM";
          this.colMTOD_CODE_DNRM.Name = "colMTOD_CODE_DNRM";
          this.colMTOD_CODE_DNRM.OptionsColumn.AllowEdit = false;
@@ -428,15 +480,44 @@
          this.colMTOD_CODE_DNRM.Visible = true;
          this.colMTOD_CODE_DNRM.VisibleIndex = 3;
          // 
+         // repositoryItemLookUpEdit2
+         // 
+         this.repositoryItemLookUpEdit2.AutoHeight = false;
+         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit2.DataSource = this.MtodBs;
+         this.repositoryItemLookUpEdit2.DisplayMember = "MTOD_DESC";
+         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
+         this.repositoryItemLookUpEdit2.ValueMember = "CODE";
+         // 
+         // MtodBs
+         // 
+         this.MtodBs.DataSource = typeof(System.Scsc.Data.Method);
+         // 
          // colCTGY_CODE_DNRM
          // 
          this.colCTGY_CODE_DNRM.Caption = "رسته ورزشی";
+         this.colCTGY_CODE_DNRM.ColumnEdit = this.repositoryItemLookUpEdit3;
          this.colCTGY_CODE_DNRM.FieldName = "CTGY_CODE_DNRM";
          this.colCTGY_CODE_DNRM.Name = "colCTGY_CODE_DNRM";
          this.colCTGY_CODE_DNRM.OptionsColumn.AllowEdit = false;
          this.colCTGY_CODE_DNRM.OptionsColumn.ReadOnly = true;
          this.colCTGY_CODE_DNRM.Visible = true;
          this.colCTGY_CODE_DNRM.VisibleIndex = 2;
+         // 
+         // repositoryItemLookUpEdit3
+         // 
+         this.repositoryItemLookUpEdit3.AutoHeight = false;
+         this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit3.DataSource = this.CtgyBs;
+         this.repositoryItemLookUpEdit3.DisplayMember = "CTGY_DESC";
+         this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
+         this.repositoryItemLookUpEdit3.ValueMember = "CODE";
+         // 
+         // CtgyBs
+         // 
+         this.CtgyBs.DataSource = typeof(System.Scsc.Data.Category_Belt);
          // 
          // splitContainerControl1
          // 
@@ -463,6 +544,149 @@
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
+         // groupBox1
+         // 
+         this.groupBox1.Controls.Add(this.ClearCbmt_Butn);
+         this.groupBox1.Controls.Add(this.Cbmt_Pkb);
+         this.groupBox1.Controls.Add(this.Mtod_Pkb);
+         this.groupBox1.Controls.Add(this.Coch_Pkb);
+         this.groupBox1.Controls.Add(this.ToAttnDate_Date);
+         this.groupBox1.Controls.Add(label2);
+         this.groupBox1.Controls.Add(this.FromAttnDate_Date);
+         this.groupBox1.Controls.Add(label1);
+         this.groupBox1.Controls.Add(cBMT_CODELabel);
+         this.groupBox1.Controls.Add(this.CBMT_CODE_GridLookUpEdit);
+         this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.groupBox1.Location = new System.Drawing.Point(59, 3);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(440, 90);
+         this.groupBox1.TabIndex = 4;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "پارامتر های حضور و غیاب";
+         // 
+         // ClearCbmt_Butn
+         // 
+         this.ClearCbmt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ClearCbmt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.ClearCbmt_Butn.Appearance.Options.UseBackColor = true;
+         this.ClearCbmt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ClearCbmt_Butn.Image")));
+         this.ClearCbmt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ClearCbmt_Butn.Location = new System.Drawing.Point(195, 56);
+         this.ClearCbmt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.ClearCbmt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ClearCbmt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ClearCbmt_Butn.Name = "ClearCbmt_Butn";
+         this.ClearCbmt_Butn.Size = new System.Drawing.Size(24, 20);
+         this.ClearCbmt_Butn.TabIndex = 41;
+         this.ClearCbmt_Butn.Click += new System.EventHandler(this.ClearCbmt_Butn_Click);
+         // 
+         // Cbmt_Pkb
+         // 
+         this.Cbmt_Pkb.BackColor = System.Drawing.Color.Transparent;
+         this.Cbmt_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Cbmt_Pkb.Disabled = false;
+         this.Cbmt_Pkb.First = null;
+         this.Cbmt_Pkb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cbmt_Pkb.ForceSelect = false;
+         this.Cbmt_Pkb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Cbmt_Pkb.ImageIndexPickDown = 2;
+         this.Cbmt_Pkb.ImageIndexPickUp = 2;
+         this.Cbmt_Pkb.ImageList = null;
+         this.Cbmt_Pkb.Location = new System.Drawing.Point(60, 55);
+         this.Cbmt_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.Cbmt_Pkb.Name = "Cbmt_Pkb";
+         this.Cbmt_Pkb.Next = null;
+         this.Cbmt_Pkb.PickChecked = true;
+         this.Cbmt_Pkb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cbmt_Pkb.PickDownText = "3";
+         this.Cbmt_Pkb.PickDownTextColor = System.Drawing.Color.Empty;
+         this.Cbmt_Pkb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cbmt_Pkb.PickUpText = "3";
+         this.Cbmt_Pkb.PickUpTextColor = System.Drawing.Color.Empty;
+         this.Cbmt_Pkb.Size = new System.Drawing.Size(30, 21);
+         this.Cbmt_Pkb.TabIndex = 5;
+         this.Cbmt_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Coch_Pkb
+         // 
+         this.Coch_Pkb.BackColor = System.Drawing.Color.Transparent;
+         this.Coch_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Coch_Pkb.Disabled = false;
+         this.Coch_Pkb.First = null;
+         this.Coch_Pkb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coch_Pkb.ForceSelect = false;
+         this.Coch_Pkb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Coch_Pkb.ImageIndexPickDown = 0;
+         this.Coch_Pkb.ImageIndexPickUp = 0;
+         this.Coch_Pkb.ImageList = null;
+         this.Coch_Pkb.Location = new System.Drawing.Point(132, 55);
+         this.Coch_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.Coch_Pkb.Name = "Coch_Pkb";
+         this.Coch_Pkb.Next = null;
+         this.Coch_Pkb.PickChecked = false;
+         this.Coch_Pkb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coch_Pkb.PickDownText = "1";
+         this.Coch_Pkb.PickDownTextColor = System.Drawing.Color.Empty;
+         this.Coch_Pkb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coch_Pkb.PickUpText = "1";
+         this.Coch_Pkb.PickUpTextColor = System.Drawing.Color.Empty;
+         this.Coch_Pkb.Size = new System.Drawing.Size(30, 21);
+         this.Coch_Pkb.TabIndex = 3;
+         this.Coch_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Mtod_Pkb
+         // 
+         this.Mtod_Pkb.BackColor = System.Drawing.Color.Transparent;
+         this.Mtod_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Mtod_Pkb.Disabled = false;
+         this.Mtod_Pkb.First = null;
+         this.Mtod_Pkb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Pkb.ForceSelect = false;
+         this.Mtod_Pkb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Mtod_Pkb.ImageIndexPickDown = 1;
+         this.Mtod_Pkb.ImageIndexPickUp = 1;
+         this.Mtod_Pkb.ImageList = null;
+         this.Mtod_Pkb.Location = new System.Drawing.Point(96, 55);
+         this.Mtod_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.Mtod_Pkb.Name = "Mtod_Pkb";
+         this.Mtod_Pkb.Next = null;
+         this.Mtod_Pkb.PickChecked = false;
+         this.Mtod_Pkb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Pkb.PickDownText = "2";
+         this.Mtod_Pkb.PickDownTextColor = System.Drawing.Color.Empty;
+         this.Mtod_Pkb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Pkb.PickUpText = "2";
+         this.Mtod_Pkb.PickUpTextColor = System.Drawing.Color.Empty;
+         this.Mtod_Pkb.Size = new System.Drawing.Size(30, 21);
+         this.Mtod_Pkb.TabIndex = 4;
+         this.Mtod_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // ToAttnDate_Date
+         // 
+         this.ToAttnDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToAttnDate_Date.CustomFormat = "dd/MM/yyyy";
+         this.ToAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ToAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.ToAttnDate_Date.Location = new System.Drawing.Point(50, 23);
+         this.ToAttnDate_Date.Name = "ToAttnDate_Date";
+         this.ToAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.ToAttnDate_Date.Size = new System.Drawing.Size(112, 27);
+         this.ToAttnDate_Date.TabIndex = 1;
+         this.ToAttnDate_Date.UsePersianFormat = true;
+         // 
+         // FromAttnDate_Date
+         // 
+         this.FromAttnDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromAttnDate_Date.CustomFormat = "dd/MM/yyyy";
+         this.FromAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FromAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.FromAttnDate_Date.Location = new System.Drawing.Point(225, 23);
+         this.FromAttnDate_Date.Name = "FromAttnDate_Date";
+         this.FromAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.FromAttnDate_Date.Size = new System.Drawing.Size(112, 27);
+         this.FromAttnDate_Date.TabIndex = 0;
+         this.FromAttnDate_Date.UsePersianFormat = true;
+         // 
          // CBMT_CODE_GridLookUpEdit
          // 
          this.CBMT_CODE_GridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -475,7 +699,7 @@
          this.CBMT_CODE_GridLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CBMT_CODE_GridLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CBMT_CODE_GridLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.CBMT_CODE_GridLookUpEdit.Properties.DataSource = this.CbmtBs1;
          this.CBMT_CODE_GridLookUpEdit.Properties.DisplayMember = "Fighter.NAME_DNRM";
          this.CBMT_CODE_GridLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -485,7 +709,7 @@
          this.CBMT_CODE_GridLookUpEdit.Properties.ValueMember = "CODE";
          this.CBMT_CODE_GridLookUpEdit.Properties.View = this.cBMT_CODEGridLookUpEditView;
          this.CBMT_CODE_GridLookUpEdit.Size = new System.Drawing.Size(112, 22);
-         this.CBMT_CODE_GridLookUpEdit.TabIndex = 37;
+         this.CBMT_CODE_GridLookUpEdit.TabIndex = 2;
          // 
          // CbmtBs1
          // 
@@ -521,14 +745,14 @@
             this.colDFLT_STAT,
             this.colCBMT_DESC});
          this.cBMT_CODEGridLookUpEditView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colDFLT_STAT;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "002";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colDFLT_STAT;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "002";
          this.cBMT_CODEGridLookUpEditView.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition3});
          this.cBMT_CODEGridLookUpEditView.Name = "cBMT_CODEGridLookUpEditView";
          this.cBMT_CODEGridLookUpEditView.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.cBMT_CODEGridLookUpEditView.OptionsView.RowAutoHeight = true;
@@ -668,7 +892,7 @@
          this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintSetting_Butn.Name = "PrintSetting_Butn";
          this.PrintSetting_Butn.Size = new System.Drawing.Size(34, 34);
-         this.PrintSetting_Butn.TabIndex = 36;
+         this.PrintSetting_Butn.TabIndex = 3;
          this.PrintSetting_Butn.ToolTip = "انتخاب گزارش";
          this.PrintSetting_Butn.Click += new System.EventHandler(this.PrintSetting_Butn_Click);
          // 
@@ -698,7 +922,7 @@
          this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Print_Butn.Name = "Print_Butn";
          this.Print_Butn.Size = new System.Drawing.Size(34, 34);
-         this.Print_Butn.TabIndex = 35;
+         this.Print_Butn.TabIndex = 2;
          this.Print_Butn.ToolTip = "انتخاب گزارش";
          this.Print_Butn.Click += new System.EventHandler(this.Print_Butn_Click);
          // 
@@ -718,23 +942,9 @@
          this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintDefault_Butn.Name = "PrintDefault_Butn";
          this.PrintDefault_Butn.Size = new System.Drawing.Size(34, 34);
-         this.PrintDefault_Butn.TabIndex = 34;
+         this.PrintDefault_Butn.TabIndex = 1;
          this.PrintDefault_Butn.ToolTip = "انتخاب گزارش پیش فرض";
          this.PrintDefault_Butn.Click += new System.EventHandler(this.PrintDefault_Butn_Click);
-         // 
-         // FromAttnDate_Date
-         // 
-         this.FromAttnDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FromAttnDate_Date.CustomFormat = "dd/MM/yyyy";
-         this.FromAttnDate_Date.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.AttnBs1, "ATTN_DATE", true));
-         this.FromAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.FromAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromAttnDate_Date.Location = new System.Drawing.Point(225, 23);
-         this.FromAttnDate_Date.Name = "FromAttnDate_Date";
-         this.FromAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.FromAttnDate_Date.Size = new System.Drawing.Size(112, 27);
-         this.FromAttnDate_Date.TabIndex = 29;
-         this.FromAttnDate_Date.UsePersianFormat = true;
          // 
          // labelControl1
          // 
@@ -762,7 +972,7 @@
          this.Btn_AutoExitAttn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Btn_AutoExitAttn.Name = "Btn_AutoExitAttn";
          this.Btn_AutoExitAttn.Size = new System.Drawing.Size(45, 40);
-         this.Btn_AutoExitAttn.TabIndex = 0;
+         this.Btn_AutoExitAttn.TabIndex = 6;
          this.Btn_AutoExitAttn.Click += new System.EventHandler(this.Btn_AutoExitAttn_Click);
          // 
          // Reload_Butn
@@ -777,7 +987,7 @@
          this.Reload_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Reload_Butn.Name = "Reload_Butn";
          this.Reload_Butn.Size = new System.Drawing.Size(45, 40);
-         this.Reload_Butn.TabIndex = 0;
+         this.Reload_Butn.TabIndex = 5;
          this.Reload_Butn.Click += new System.EventHandler(this.Reload_Butn_Click);
          // 
          // DSxtpBs1
@@ -787,156 +997,6 @@
          // DDytpBs1
          // 
          this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
-         // 
-         // CochBs
-         // 
-         this.CochBs.DataSource = typeof(System.Scsc.Data.Fighter);
-         // 
-         // MtodBs
-         // 
-         this.MtodBs.DataSource = typeof(System.Scsc.Data.Method);
-         // 
-         // CtgyBs
-         // 
-         this.CtgyBs.DataSource = typeof(System.Scsc.Data.Category_Belt);
-         // 
-         // groupBox1
-         // 
-         this.groupBox1.Controls.Add(this.newPickBtn3);
-         this.groupBox1.Controls.Add(this.newPickBtn2);
-         this.groupBox1.Controls.Add(this.newPickBtn1);
-         this.groupBox1.Controls.Add(this.ToAttnDate_Date);
-         this.groupBox1.Controls.Add(label2);
-         this.groupBox1.Controls.Add(this.FromAttnDate_Date);
-         this.groupBox1.Controls.Add(label1);
-         this.groupBox1.Controls.Add(cBMT_CODELabel);
-         this.groupBox1.Controls.Add(this.CBMT_CODE_GridLookUpEdit);
-         this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.groupBox1.Location = new System.Drawing.Point(59, 3);
-         this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(440, 90);
-         this.groupBox1.TabIndex = 39;
-         this.groupBox1.TabStop = false;
-         this.groupBox1.Text = "پارامتر های حضور و غیاب";
-         // 
-         // label1
-         // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         label1.Location = new System.Drawing.Point(341, 30);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(48, 14);
-         label1.TabIndex = 38;
-         label1.Text = "از تاریخ :";
-         // 
-         // label2
-         // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         label2.Location = new System.Drawing.Point(166, 30);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(48, 14);
-         label2.TabIndex = 38;
-         label2.Text = "تا تاریخ :";
-         // 
-         // ToAttnDate_Date
-         // 
-         this.ToAttnDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ToAttnDate_Date.CustomFormat = "dd/MM/yyyy";
-         this.ToAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ToAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.ToAttnDate_Date.Location = new System.Drawing.Point(50, 23);
-         this.ToAttnDate_Date.Name = "ToAttnDate_Date";
-         this.ToAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.ToAttnDate_Date.Size = new System.Drawing.Size(112, 27);
-         this.ToAttnDate_Date.TabIndex = 29;
-         this.ToAttnDate_Date.UsePersianFormat = true;
-         this.ToAttnDate_Date.Value = new System.DateTime(2018, 2, 17, 0, 0, 0, 0);
-         // 
-         // newPickBtn1
-         // 
-         this.newPickBtn1.BackColor = System.Drawing.Color.Transparent;
-         this.newPickBtn1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.newPickBtn1.Disabled = false;
-         this.newPickBtn1.First = null;
-         this.newPickBtn1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn1.ForceSelect = false;
-         this.newPickBtn1.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.newPickBtn1.ImageIndexPickDown = 0;
-         this.newPickBtn1.ImageIndexPickUp = 0;
-         this.newPickBtn1.ImageList = null;
-         this.newPickBtn1.Location = new System.Drawing.Point(196, 56);
-         this.newPickBtn1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.newPickBtn1.Name = "newPickBtn1";
-         this.newPickBtn1.Next = null;
-         this.newPickBtn1.PickChecked = false;
-         this.newPickBtn1.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn1.PickDownText = null;
-         this.newPickBtn1.PickDownTextColor = System.Drawing.Color.Empty;
-         this.newPickBtn1.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn1.PickUpText = null;
-         this.newPickBtn1.PickUpTextColor = System.Drawing.Color.Empty;
-         this.newPickBtn1.Size = new System.Drawing.Size(21, 21);
-         this.newPickBtn1.TabIndex = 40;
-         this.newPickBtn1.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // newPickBtn2
-         // 
-         this.newPickBtn2.BackColor = System.Drawing.Color.Transparent;
-         this.newPickBtn2.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.newPickBtn2.Disabled = false;
-         this.newPickBtn2.First = null;
-         this.newPickBtn2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn2.ForceSelect = false;
-         this.newPickBtn2.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.newPickBtn2.ImageIndexPickDown = 0;
-         this.newPickBtn2.ImageIndexPickUp = 0;
-         this.newPickBtn2.ImageList = null;
-         this.newPickBtn2.Location = new System.Drawing.Point(169, 56);
-         this.newPickBtn2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.newPickBtn2.Name = "newPickBtn2";
-         this.newPickBtn2.Next = null;
-         this.newPickBtn2.PickChecked = false;
-         this.newPickBtn2.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn2.PickDownText = null;
-         this.newPickBtn2.PickDownTextColor = System.Drawing.Color.Empty;
-         this.newPickBtn2.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn2.PickUpText = null;
-         this.newPickBtn2.PickUpTextColor = System.Drawing.Color.Empty;
-         this.newPickBtn2.Size = new System.Drawing.Size(21, 21);
-         this.newPickBtn2.TabIndex = 40;
-         this.newPickBtn2.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // newPickBtn3
-         // 
-         this.newPickBtn3.BackColor = System.Drawing.Color.Transparent;
-         this.newPickBtn3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.newPickBtn3.Disabled = false;
-         this.newPickBtn3.First = null;
-         this.newPickBtn3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn3.ForceSelect = false;
-         this.newPickBtn3.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.newPickBtn3.ImageIndexPickDown = 0;
-         this.newPickBtn3.ImageIndexPickUp = 0;
-         this.newPickBtn3.ImageList = null;
-         this.newPickBtn3.Location = new System.Drawing.Point(142, 56);
-         this.newPickBtn3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.newPickBtn3.Name = "newPickBtn3";
-         this.newPickBtn3.Next = null;
-         this.newPickBtn3.PickChecked = false;
-         this.newPickBtn3.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn3.PickDownText = null;
-         this.newPickBtn3.PickDownTextColor = System.Drawing.Color.Empty;
-         this.newPickBtn3.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.newPickBtn3.PickUpText = null;
-         this.newPickBtn3.PickUpTextColor = System.Drawing.Color.Empty;
-         this.newPickBtn3.Size = new System.Drawing.Size(21, 21);
-         this.newPickBtn3.TabIndex = 40;
-         this.newPickBtn3.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // ATTN_DAYN_F
          // 
@@ -952,19 +1012,22 @@
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actn_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MtodBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cBMT_CODEGridLookUpEditView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MtodBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).EndInit();
-         this.groupBox1.ResumeLayout(false);
-         this.groupBox1.PerformLayout();
          this.ResumeLayout(false);
 
       }
@@ -1038,8 +1101,12 @@
       private Windows.Forms.BindingSource CtgyBs;
       private Windows.Forms.GroupBox groupBox1;
       private Atf.UI.DateTimeSelector ToAttnDate_Date;
-      private MaxUi.NewPickBtn newPickBtn3;
-      private MaxUi.NewPickBtn newPickBtn2;
-      private MaxUi.NewPickBtn newPickBtn1;
+      private MaxUi.NewPickBtn Cbmt_Pkb;
+      private MaxUi.NewPickBtn Mtod_Pkb;
+      private MaxUi.NewPickBtn Coch_Pkb;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
+      private DevExpress.XtraEditors.SimpleButton ClearCbmt_Butn;
    }
 }

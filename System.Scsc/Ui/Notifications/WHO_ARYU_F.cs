@@ -291,6 +291,8 @@ namespace System.Scsc.Ui.Notifications
 
          DRES_NUMB_Txt.Focus();
 
+         RemindAttn_Txt.EditValue = attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM;
+
       }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)

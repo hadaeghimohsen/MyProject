@@ -31,15 +31,45 @@ namespace System.Scsc.Ui.Notifications
 
       private void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         FromAttnDate_Date.Value = FromAttnDate_Date.Value.HasValue ? FromAttnDate_Date.Value.Value : DateTime.Now;
-         AttnBs1.DataSource =
-            iScsc.Attendances
-            .Where(a => 
-               a.ATTN_DATE.Date == FromAttnDate_Date.Value.Value.Date &&
-               a.ATTN_STAT == "002" &&
-               Fga_Uclb_U.Contains(a.CLUB_CODE)
-            );
+         try
+         {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+
+            FromAttnDate_Date.Value = FromAttnDate_Date.Value.HasValue ? FromAttnDate_Date.Value.Value : DateTime.Now;
+            if (!ToAttnDate_Date.Value.HasValue)
+               ToAttnDate_Date.Value = FromAttnDate_Date.Value;
+
+            if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "")
+               AttnBs1.DataSource =
+                  iScsc.Attendances
+                  .Where(a =>
+                     a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
+                     a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
+                     a.ATTN_STAT == "002" &&
+                     Fga_Uclb_U.Contains(a.CLUB_CODE)
+                  );
+            else
+            {
+               var cbmtcode = (long?)CBMT_CODE_GridLookUpEdit.EditValue;
+               var cbmtobj = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == cbmtcode);
+
+               AttnBs1.DataSource =
+                  iScsc.Attendances
+                  .Where(a =>
+                     a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
+                     a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
+                     (Coch_Pkb.PickChecked == false || a.COCH_FILE_NO == cbmtobj.COCH_FILE_NO) &&
+                     (Mtod_Pkb.PickChecked == false || a.MTOD_CODE_DNRM == cbmtobj.MTOD_CODE) &&
+                     (Cbmt_Pkb.PickChecked == false || a.CBMT_CODE_DNRM == cbmtobj.CODE) &&
+                     a.ATTN_STAT == "002" &&
+                     Fga_Uclb_U.Contains(a.CLUB_CODE)
+                  );
+            }
+         }catch(Exception exc)
+         {
+            CBMT_CODE_GridLookUpEdit.EditValue = null;
+            Execute_Query();
+         }
       }
 
       private void Reload_Butn_Click(object sender, EventArgs e)
@@ -185,6 +215,11 @@ namespace System.Scsc.Ui.Notifications
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
                   });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void ClearCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         CBMT_CODE_GridLookUpEdit.EditValue = null;
       }
    }
 }

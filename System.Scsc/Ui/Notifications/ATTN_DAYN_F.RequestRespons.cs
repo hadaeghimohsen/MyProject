@@ -74,8 +74,8 @@ namespace System.Scsc.Ui.Notifications
          }
          else if (keyData == Keys.Enter)
          {
-            //if (!(Btn_Search.Focused))
-            //   SendKeys.Send("{TAB}");
+            if (!(Reload_Butn.Focused))
+               SendKeys.Send("{TAB}");
          }
          
          job.Status = StatusType.Successful;
@@ -256,7 +256,7 @@ namespace System.Scsc.Ui.Notifications
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            FromAttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+            ToAttnDate_Date.Value = FromAttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
          }
          if(isPainted)
             Execute_Query();

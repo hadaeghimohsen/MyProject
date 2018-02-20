@@ -109,7 +109,7 @@
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(69, 23);
          this.label1.TabIndex = 4;
-         this.label1.Text = "12:45 pm";
+         this.label1.Text = "Ver 2.5";
          this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // Lb_ShowLoginDesc
@@ -135,13 +135,14 @@
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(685, 32);
          this.label3.TabIndex = 4;
-         this.label3.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - Telephone : 3 842 1422";
+         this.label3.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - 0935 744 5978\r\n";
          this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
          // 
          // pictureBox1
          // 
          this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.pictureBox1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1483;
+         this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+         this.pictureBox1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1619;
          this.pictureBox1.Location = new System.Drawing.Point(356, 53);
          this.pictureBox1.Name = "pictureBox1";
          this.pictureBox1.Size = new System.Drawing.Size(50, 50);

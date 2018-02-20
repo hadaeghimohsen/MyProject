@@ -1008,6 +1008,9 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1506.png">
       <Link>Resources\IMAGE_1506.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1619.jpg">
+      <Link>Resources\IMAGE_1619.jpg</Link>
+    </Content>
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronDown.png" />
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronLeft.png" />
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronRight.png" />

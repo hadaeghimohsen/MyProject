@@ -39,12 +39,12 @@
          this.linkLabel4 = new System.Windows.Forms.LinkLabel();
          this.linkLabel5 = new System.Windows.Forms.LinkLabel();
          this.label4 = new System.Windows.Forms.Label();
-         this.pictureBox2 = new System.Windows.Forms.PictureBox();
          this.label5 = new System.Windows.Forms.Label();
          this.label6 = new System.Windows.Forms.Label();
-         this.User_RondButn = new System.MaxUi.RoundedButton();
          this.Cancel_Lbl = new System.Windows.Forms.Label();
          this.SwitchUser_RondButn = new System.MaxUi.RoundedButton();
+         this.pictureBox2 = new System.Windows.Forms.PictureBox();
+         this.User_RondButn = new System.MaxUi.RoundedButton();
          ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.te_password.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -222,17 +222,6 @@
          this.label4.TabIndex = 9;
          this.label4.Text = "© 1392 Anar Team Corporation";
          // 
-         // pictureBox2
-         // 
-         this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.pictureBox2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1483;
-         this.pictureBox2.Location = new System.Drawing.Point(380, 63);
-         this.pictureBox2.Name = "pictureBox2";
-         this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-         this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.pictureBox2.TabIndex = 15;
-         this.pictureBox2.TabStop = false;
-         // 
          // label5
          // 
          this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -242,7 +231,7 @@
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(69, 23);
          this.label5.TabIndex = 13;
-         this.label5.Text = "12:45 pm";
+         this.label5.Text = "Ver 2.5";
          this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label6
@@ -255,29 +244,8 @@
          this.label6.Name = "label6";
          this.label6.Size = new System.Drawing.Size(685, 32);
          this.label6.TabIndex = 14;
-         this.label6.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - Telephone : 3 842 1422";
+         this.label6.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - 0935 744 5978\r\n";
          this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-         // 
-         // User_RondButn
-         // 
-         this.User_RondButn.Active = true;
-         this.User_RondButn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.User_RondButn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.User_RondButn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.User_RondButn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.User_RondButn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.User_RondButn.HoverColorA = System.Drawing.Color.LightGray;
-         this.User_RondButn.HoverColorB = System.Drawing.Color.LightGray;
-         this.User_RondButn.ImageProfile = global::System.DataGuard.Properties.Resources.IMAGE_1429;
-         this.User_RondButn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.User_RondButn.Location = new System.Drawing.Point(334, 183);
-         this.User_RondButn.Name = "User_RondButn";
-         this.User_RondButn.NormalBorderColor = System.Drawing.Color.Black;
-         this.User_RondButn.NormalColorA = System.Drawing.Color.White;
-         this.User_RondButn.NormalColorB = System.Drawing.Color.White;
-         this.User_RondButn.Size = new System.Drawing.Size(150, 150);
-         this.User_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.User_RondButn.TabIndex = 12;
          // 
          // Cancel_Lbl
          // 
@@ -296,6 +264,7 @@
          this.SwitchUser_RondButn.Active = true;
          this.SwitchUser_RondButn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
          this.SwitchUser_RondButn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.SwitchUser_RondButn.Caption = "";
          this.SwitchUser_RondButn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
          this.SwitchUser_RondButn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.SwitchUser_RondButn.HoverBorderColor = System.Drawing.Color.Gold;
@@ -303,6 +272,7 @@
          this.SwitchUser_RondButn.HoverColorB = System.Drawing.Color.LightGray;
          this.SwitchUser_RondButn.ImageProfile = global::System.DataGuard.Properties.Resources.IMAGE_1482;
          this.SwitchUser_RondButn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.SwitchUser_RondButn.ImageVisiable = true;
          this.SwitchUser_RondButn.Location = new System.Drawing.Point(384, 533);
          this.SwitchUser_RondButn.Name = "SwitchUser_RondButn";
          this.SwitchUser_RondButn.NormalBorderColor = System.Drawing.Color.Black;
@@ -311,7 +281,43 @@
          this.SwitchUser_RondButn.Size = new System.Drawing.Size(50, 50);
          this.SwitchUser_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.SwitchUser_RondButn.TabIndex = 18;
+         this.SwitchUser_RondButn.Tooltip = null;
          this.SwitchUser_RondButn.Click += new System.EventHandler(this.LastUserLogin_RondButn_Click);
+         // 
+         // pictureBox2
+         // 
+         this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.pictureBox2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1619;
+         this.pictureBox2.Location = new System.Drawing.Point(380, 63);
+         this.pictureBox2.Name = "pictureBox2";
+         this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+         this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.pictureBox2.TabIndex = 15;
+         this.pictureBox2.TabStop = false;
+         // 
+         // User_RondButn
+         // 
+         this.User_RondButn.Active = true;
+         this.User_RondButn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.User_RondButn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.User_RondButn.Caption = "";
+         this.User_RondButn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.User_RondButn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.User_RondButn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.User_RondButn.HoverColorA = System.Drawing.Color.LightGray;
+         this.User_RondButn.HoverColorB = System.Drawing.Color.LightGray;
+         this.User_RondButn.ImageProfile = global::System.DataGuard.Properties.Resources.IMAGE_1429;
+         this.User_RondButn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.User_RondButn.ImageVisiable = true;
+         this.User_RondButn.Location = new System.Drawing.Point(334, 183);
+         this.User_RondButn.Name = "User_RondButn";
+         this.User_RondButn.NormalBorderColor = System.Drawing.Color.Black;
+         this.User_RondButn.NormalColorA = System.Drawing.Color.White;
+         this.User_RondButn.NormalColorB = System.Drawing.Color.White;
+         this.User_RondButn.Size = new System.Drawing.Size(150, 150);
+         this.User_RondButn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.User_RondButn.TabIndex = 12;
+         this.User_RondButn.Tooltip = null;
          // 
          // Login
          // 

@@ -21,6 +21,7 @@ namespace System.RoboTech.Ui.Action
       }
 
       private bool requery = false;
+      private bool robotStarted = false;
 
       List<iRobot> iRobots;
 
@@ -44,6 +45,7 @@ namespace System.RoboTech.Ui.Action
          );
       }
 
+      
       private void StrtBot_Butn_Click(object sender, EventArgs e)
       {
          // آیا اجازه اجرا کردن ربات بر روی این سرور را داریم یا خیر
@@ -53,6 +55,10 @@ namespace System.RoboTech.Ui.Action
          {
             iRobots = new List<iRobot>();
          }
+
+         if (robotStarted) return;
+
+         robotStarted = true;
 
          OrgnBs.MoveFirst();
          foreach (var orgn in OrgnBs.List.OfType<Data.Organ>())
@@ -70,7 +76,7 @@ namespace System.RoboTech.Ui.Action
       }
 
       private void StopRobot_Butn_Click(object sender, EventArgs e)
-      {
+      {         
          foreach (var robot in iRobots)
          {
             ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoping\r\n", robot.Me.Username);
@@ -78,7 +84,9 @@ namespace System.RoboTech.Ui.Action
             ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoped\r\n", robot.Me.Username);
          }
 
-         iRobots.Clear();         
+         iRobots.Clear();
+
+         robotStarted = false;
       }
    }
 }

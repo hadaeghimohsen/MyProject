@@ -1427,6 +1427,9 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1551.png">
       <Link>Resources\IMAGE_1551.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1619.png">
+      <Link>Resources\IMAGE_1619.png</Link>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

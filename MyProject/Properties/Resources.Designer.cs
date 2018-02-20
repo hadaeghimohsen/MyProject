@@ -151,6 +151,45 @@ namespace MyProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameter {0} can&apos;t be null.
+        /// </summary>
+        internal static string IDS_ArgumentException {
+            get {
+                return ResourceManager.GetString("IDS_ArgumentException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value of &apos;{0}&apos; is not valid for &apos;{1}&apos;. &apos;Value&apos; should be between &apos;{2}&apos; and &apos;{3}&apos;.
+        ///Parameter name: {1}.
+        /// </summary>
+        internal static string IDS_InvalidBoundArgument {
+            get {
+                return ResourceManager.GetString("IDS_InvalidBoundArgument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value of &apos;{0}&apos; is not valid for &apos;{1}&apos;. &apos;Maximum&apos; must be greater than or equal to 0.
+        ///Parameter name: {1}.
+        /// </summary>
+        internal static string IDS_InvalidLowBoundArgument {
+            get {
+                return ResourceManager.GetString("IDS_InvalidLowBoundArgument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value of &apos;{0}&apos; is not valid for &apos;{1}&apos;. &apos;{1}&apos; must be greater than or equal to {2}.
+        ///Parameter name: {1}.
+        /// </summary>
+        internal static string IDS_InvalidOperationExceptionInteger {
+            get {
+                return ResourceManager.GetString("IDS_InvalidOperationExceptionInteger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap IMAGE_1002 {
@@ -1649,61 +1688,22 @@ namespace MyProject.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Parameter {0} can&apos;t be null.
+        ///   Looks up a localized string similar to CREATE TABLE [Cache] (
+        ///    [Ip] varchar(15) PRIMARY KEY NOT NULL,
+        ///    [CountryName] text NOT NULL,
+        ///    [RegionName] text NOT NULL,
+        ///    [City] text NOT NULL,
+        ///    [Latitude] float NOT NULL,
+        ///    [Longitude] float NOT NULL,
+        ///    [Time] datetime NOT NULL
+        ///);.
         /// </summary>
-        internal static string IDS_ArgumentException
-        {
-           get
-           {
-              return ResourceManager.GetString("IDS_ArgumentException", resourceCulture);
-           }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Value of &apos;{0}&apos; is not valid for &apos;{1}&apos;. &apos;Value&apos; should be between &apos;{2}&apos; and &apos;{3}&apos;.
-        ///Parameter name: {1}.
-        /// </summary>
-        internal static string IDS_InvalidBoundArgument
-        {
-           get
-           {
-              return ResourceManager.GetString("IDS_InvalidBoundArgument", resourceCulture);
-           }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Value of &apos;{0}&apos; is not valid for &apos;{1}&apos;. &apos;Maximum&apos; must be greater than or equal to 0.
-        ///Parameter name: {1}.
-        /// </summary>
-        internal static string IDS_InvalidLowBoundArgument
-        {
-           get
-           {
-              return ResourceManager.GetString("IDS_InvalidLowBoundArgument", resourceCulture);
-           }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Value of &apos;{0}&apos; is not valid for &apos;{1}&apos;. &apos;{1}&apos; must be greater than or equal to {2}.
-        ///Parameter name: {1}.
-        /// </summary>
-        internal static string IDS_InvalidOperationExceptionInteger
-        {
-           get
-           {
-              return ResourceManager.GetString("IDS_InvalidOperationExceptionInteger", resourceCulture);
-           }
-        }
-
-        internal static System.Drawing.Bitmap ListViewItemSorter
-        {
-           get
-           {
-              object obj = ResourceManager.GetObject("ListViewItemSorter", resourceCulture);
-              return ((System.Drawing.Bitmap)(obj));
-           }
+        internal static string IpCacheCreateDb {
+            get {
+                return ResourceManager.GetString("IpCacheCreateDb", resourceCulture);
+            }
         }
     }
 }

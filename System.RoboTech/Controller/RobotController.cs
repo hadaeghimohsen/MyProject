@@ -14,6 +14,7 @@ namespace System.RoboTech.Controller
          try
          {
             Data.iRoboTechDataContext iRobot = new Data.iRoboTechDataContext(connectionString);
+            iRobot.CommandTimeout = 18000;
             XElement xResult = new XElement("Respons", "0");
             iRobot.Analisis_Message_P(x, ref xResult);
             return xResult;

@@ -61,7 +61,7 @@
          this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
          this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton3.Location = new System.Drawing.Point(452, 152);
+         this.simpleButton3.Location = new System.Drawing.Point(452, 385);
          this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton3.Name = "simpleButton3";
@@ -99,7 +99,7 @@
          this.Logout_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Logout_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1003;
          this.Logout_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Logout_Butn.Location = new System.Drawing.Point(328, 152);
+         this.Logout_Butn.Location = new System.Drawing.Point(328, 385);
          this.Logout_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Logout_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Logout_Butn.Name = "Logout_Butn";
@@ -136,7 +136,7 @@
          this.Shutdown_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Shutdown_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1002;
          this.Shutdown_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Shutdown_Butn.Location = new System.Drawing.Point(193, 152);
+         this.Shutdown_Butn.Location = new System.Drawing.Point(193, 385);
          this.Shutdown_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Shutdown_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Shutdown_Butn.Name = "Shutdown_Butn";
@@ -165,25 +165,25 @@
          this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Brown;
-         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1412;
+         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1619;
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Location = new System.Drawing.Point(237, 8);
+         this.labelControl1.Location = new System.Drawing.Point(157, 69);
          this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(265, 99);
+         this.labelControl1.Size = new System.Drawing.Size(424, 258);
          this.labelControl1.TabIndex = 8;
          this.labelControl1.Text = "نرم افزار جامع انار";
          // 
          // labelControl2
          // 
          this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl2.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
          this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-         this.labelControl2.Location = new System.Drawing.Point(212, 113);
+         this.labelControl2.Location = new System.Drawing.Point(212, 346);
          this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(314, 16);
+         this.labelControl2.Size = new System.Drawing.Size(337, 26);
          this.labelControl2.TabIndex = 9;
          this.labelControl2.Text = "در حال حاضر از نرم افزار چکاری را می خواهید انجام دهید؟";
          // 
@@ -199,7 +199,7 @@
          this.Cancel_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Cancel_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Cancel_Butn.Image")));
          this.Cancel_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Cancel_Butn.Location = new System.Drawing.Point(325, 276);
+         this.Cancel_Butn.Location = new System.Drawing.Point(325, 509);
          this.Cancel_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Cancel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Cancel_Butn.Name = "Cancel_Butn";
@@ -220,7 +220,7 @@
          this.Controls.Add(this.Cancel_Butn);
          this.Controls.Add(this.Shutdown_Butn);
          this.Name = "Shutdown";
-         this.Size = new System.Drawing.Size(739, 323);
+         this.Size = new System.Drawing.Size(739, 610);
          this.ResumeLayout(false);
          this.PerformLayout();
 

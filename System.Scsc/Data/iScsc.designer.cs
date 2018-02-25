@@ -61382,6 +61382,8 @@ namespace System.Scsc.Data
 		
 		private string _SHAR_MBSP_STAT;
 		
+		private string _RUN_RBOT;
+		
 		public Setting()
 		{
 		}
@@ -62150,6 +62152,22 @@ namespace System.Scsc.Data
 				if ((this._SHAR_MBSP_STAT != value))
 				{
 					this._SHAR_MBSP_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_RBOT", DbType="VarChar(3)")]
+		public string RUN_RBOT
+		{
+			get
+			{
+				return this._RUN_RBOT;
+			}
+			set
+			{
+				if ((this._RUN_RBOT != value))
+				{
+					this._RUN_RBOT = value;
 				}
 			}
 		}

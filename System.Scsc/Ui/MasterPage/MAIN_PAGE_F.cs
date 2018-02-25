@@ -37,80 +37,92 @@ namespace System.Scsc.Ui.MasterPage
 
       private DevExpress.Utils.SuperToolTip SuperToolTipAttnButn(XElement xdata)
       {
-         DevExpress.Utils.SuperToolTip SuperToolTips = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem HeaderAttnButn_Tooltip = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem DetialAttnButn_Tooltip = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem FooterAttnButn_Tooltip = new DevExpress.Utils.ToolTipTitleItem();
-
-         if (xdata.Attribute("device").Value == "Attn")
+         try
          {
-            /*
-             * <System device="Attn" ip="192.168.100.203">
-             *    <Computer ip="192.168.100.204" name="Mohsen-Lt">
-             * </System>
-             */
-            HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-            HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-            HeaderAttnButn_Tooltip.Text = string.Format("IP : {0}\r\nوضعیت : {1}", xdata.Attribute("ip").Value, Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
-            DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-            DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-            DetialAttnButn_Tooltip.LeftIndent = 6;
-            DetialAttnButn_Tooltip.Text = string.Format("IP : {0}\r\nComputer Name : {1}", xdata.Element("Computer").Attribute("ip").Value, xdata.Element("Computer").Attribute("name").Value);
-            FooterAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-            FooterAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            FooterAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-            FooterAttnButn_Tooltip.LeftIndent = 6;
-            FooterAttnButn_Tooltip.Text = string.Format("تیم پشتیبانی\r\nوضعیت اینترنت : {0}", CheckInternetConnection() ? "قعال" : "غیرفعال");
+            DevExpress.Utils.SuperToolTip SuperToolTips = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem HeaderAttnButn_Tooltip = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem DetialAttnButn_Tooltip = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipTitleItem FooterAttnButn_Tooltip = new DevExpress.Utils.ToolTipTitleItem();
 
-            SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
-            SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
-            SuperToolTips.Items.Add(FooterAttnButn_Tooltip);
+            if (xdata.Attribute("device").Value == "Attn")
+            {
+               /*
+                * <System device="Attn" ip="192.168.100.203">
+                *    <Computer ip="192.168.100.204" name="Mohsen-Lt">
+                * </System>
+                */
+               HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+               HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+               HeaderAttnButn_Tooltip.Text = string.Format("IP : {0}\r\nوضعیت : {1}", xdata.Attribute("ip").Value, Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+               DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+               DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+               DetialAttnButn_Tooltip.LeftIndent = 6;
+               DetialAttnButn_Tooltip.Text = string.Format("IP : {0}\r\nComputer Name : {1}", xdata.Element("Computer").Attribute("ip").Value, xdata.Element("Computer").Attribute("name").Value);
+               FooterAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+               FooterAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               FooterAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+               FooterAttnButn_Tooltip.LeftIndent = 6;
+               FooterAttnButn_Tooltip.Text = string.Format("تیم پشتیبانی\r\nوضعیت اینترنت : {0}", CheckInternetConnection() ? "قعال" : "غیرفعال");
+
+               SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+               SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
+               SuperToolTips.Items.Add(FooterAttnButn_Tooltip);
+            }
+            else if (xdata.Attribute("device").Value == "Gate")
+            {
+               HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
+               HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
+               HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه گیت : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+               //DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+               //DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               //DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+               //DetialAttnButn_Tooltip.LeftIndent = 6;
+               //DetialAttnButn_Tooltip.Text = "ارتباط متصل";
+               //FooterAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+               //FooterAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               //FooterAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+               //FooterAttnButn_Tooltip.LeftIndent = 6;
+               //FooterAttnButn_Tooltip.Text = string.Format("تیم پشتیبانی\r\nوضعیت اینترنت : {0}", CheckInternetConnection() ? "قعال" : "غیرفعال");
+
+               SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+               //SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
+               //SuperToolTips.Items.Add(FooterAttnButn_Tooltip);
+            }
+            else if (xdata.Attribute("device").Value == "ExpnExtr")
+            {
+               HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+               HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+               HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+
+               SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+            }
+            else if (xdata.Attribute("device").Value == "AttnDvic")
+            {
+               HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+               HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+               HeaderAttnButn_Tooltip.Text = xdata.Attribute("desc").Value;
+
+               SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+            }
+            else if (xdata.Attribute("device").Value == "TlgrmBot")
+            {
+               HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+               HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
+               HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+               HeaderAttnButn_Tooltip.Text = xdata.Attribute("desc").Value;
+
+               SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
+            }
+
+
+            return SuperToolTips;
          }
-         else if (xdata.Attribute("device").Value == "Gate")
-         {
-            HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
-            HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
-            HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه گیت : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
-            //DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-            //DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            //DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-            //DetialAttnButn_Tooltip.LeftIndent = 6;
-            //DetialAttnButn_Tooltip.Text = "ارتباط متصل";
-            //FooterAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-            //FooterAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            //FooterAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-            //FooterAttnButn_Tooltip.LeftIndent = 6;
-            //FooterAttnButn_Tooltip.Text = string.Format("تیم پشتیبانی\r\nوضعیت اینترنت : {0}", CheckInternetConnection() ? "قعال" : "غیرفعال");
-
-            SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
-            //SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
-            //SuperToolTips.Items.Add(FooterAttnButn_Tooltip);
-         }
-         else if (xdata.Attribute("device").Value == "ExpnExtr")
-         {
-            HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
-            HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
-            HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
-
-            SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
-         }
-         else if (xdata.Attribute("device").Value == "AttnDvic")
-         {
-            HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
-            HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
-            HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
-            HeaderAttnButn_Tooltip.Text = xdata.Attribute("desc").Value;
-
-            SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
-         }
-
-         
-
-         return SuperToolTips;
+         catch { return null; }
       }
 
       #region BarCode
@@ -460,6 +472,58 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
       #endregion
+
+      #region Telegram Bot
+      private void Start_TlgrmBot()
+      {
+         var TlgrmBotSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+         try
+         {
+            if (TlgrmBotSetting == null) return;
+
+            if (TlgrmBotSetting.RUN_RBOT == "001") { TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196; return; }
+
+            // Check Telegram Bot
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", 
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "DefaultGateway",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "RoboTech",
+                              new List<Job>
+                              {
+                                 new Job(SendType.Self, 01 /* Execute GetUi */){Input = "strt_robo_f"},
+                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 02 /* Execute Set */),
+                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 07 /* Execute Load_Data */),
+                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Robot", new XAttribute("runrobot", "start"))}
+                              }
+                           )
+                        }
+                     )
+                  }
+               )
+            );
+            
+         }
+         catch
+         {
+            TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         }
+         finally
+         {
+            TlgrmBot_Butn.SuperTip =
+               SuperToolTipAttnButn(
+                  new XElement("System",
+                     new XAttribute("device", "TlgrmBot"),
+                     new XAttribute("stat", TlgrmBotSetting.RUN_RBOT == "002" ? true : false)
+                  )
+               );
+         }
+      }
+      #endregion
+
 
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
@@ -1009,6 +1073,7 @@ namespace System.Scsc.Ui.MasterPage
          Start_BarCode();
          Start_GateAttn();
          Start_ExpnExtr();
+         Start_TlgrmBot();
          Tm_FingerPrintWorker.Enabled = false;
       }
       #endregion

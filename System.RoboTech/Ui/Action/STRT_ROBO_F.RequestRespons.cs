@@ -203,6 +203,17 @@ namespace System.RoboTech.Ui.Action
          {
             var xinput = job.Input as XElement;
             if (xinput == null) { job.Status = StatusType.Successful; return; }
+            else
+            {
+               switch (xinput.Attribute("runrobot").Value)
+               {
+                  case "start":
+                     StrtBot_Butn_Click(null, null);
+                     break;
+                  default:
+                     break;
+               }
+            }
             //switch (xinput.Attribute("type").Value)
             //{
             //   case "companyzoom":

@@ -112,7 +112,8 @@ namespace System.Scsc.Ui.Settings
 
                      new XAttribute("runqury", Stng.RUN_QURY ?? "001"),
                      new XAttribute("attnprntstat", Stng.ATTN_PRNT_STAT ?? "001"),
-                     new XAttribute("sharmbspstat", Stng.ATTN_PRNT_STAT ?? "001")
+                     new XAttribute("sharmbspstat", Stng.SHAR_MBSP_STAT ?? "001"),
+                     new XAttribute("runrbot", Stng.RUN_RBOT ?? "001")
                   )
                )
             );
@@ -121,89 +122,6 @@ namespace System.Scsc.Ui.Settings
          catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if (requery)
-            {
-               Execute_Query();
-               requery = false;
-            }
-         }
-      }
-
-      private void DresBn_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
-      {
-         try
-         {
-            DresBs1.EndEdit();
-
-            switch (e.Button.ButtonType)
-            {
-               case DevExpress.XtraEditors.NavigatorButtonType.Append:
-                  break;
-               case DevExpress.XtraEditors.NavigatorButtonType.Remove:
-                  e.Handled = true;
-                  if (MessageBox.Show(this, "آیا با پاک کردن کمد باشگاه موافقید؟", "حذف کمد باشگاه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-                  iScsc.STNG_SAVE_P(
-                     new XElement("Config",
-                        new XAttribute("type", "014"),
-                        new XElement("Delete",
-                           new XElement("Dresser",
-                              new XAttribute("code", (DresBs1.Current as Data.Dresser).CODE)
-                           )
-                        )
-                     )
-                  );
-                  requery = true;
-                  break;
-               case DevExpress.XtraEditors.NavigatorButtonType.CancelEdit:
-                  requery = true;
-                  break;
-               case DevExpress.XtraEditors.NavigatorButtonType.EndEdit:
-                  var crnt = DresBs1.Current as Data.Dresser;
-
-                  if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
-                  iScsc.STNG_SAVE_P(
-                     new XElement("Config",
-                        new XAttribute("type", "014"),
-                        DresBs1.List.OfType<Data.Dresser>().Where(c => c.CRET_BY == null).Select(d =>
-                           new XElement("Insert",
-                              new XElement("Dresser",
-                                 new XAttribute("clubcode", d.CLUB_CODE ?? (StngBs1.Current as Data.Setting).CLUB_CODE),
-                                 new XAttribute("dresnumb", d.DRES_NUMB ?? 0),
-                                 new XAttribute("desc", d.DESC ?? ""),
-                                 new XAttribute("resstat", d.REC_STAT ?? "002")
-                              )
-                           )
-                        ),
-                        crnt.CRET_BY != null ?
-                           new XElement("Update",
-                              new XElement("Dresser",
-                                 new XAttribute("code", crnt.CODE),
-                                 new XAttribute("dresnumb", crnt.DRES_NUMB ?? 0),
-                                 new XAttribute("desc", crnt.DESC ?? ""),
-                                 new XAttribute("resstat", crnt.REC_STAT ?? "002")
-                              )
-                           ) : new XElement("Update")
-                     )
-                  );
-                  requery = true;
-                  break;
-            }
-         }
-         catch (SqlException se)
-         {
-            switch (se.Number)
-            {
-               case 515:
-                  MessageBox.Show("لطفا گزینه های ستاره دار را حتما وارد کنید");
-                  break;
-               default:
-                  MessageBox.Show("خطا در انجام عملیات لطفا بررسی کنید");
-                  break;
-            }
          }
          finally
          {
@@ -415,9 +333,7 @@ namespace System.Scsc.Ui.Settings
          {
             var crnt = StngBs1.Current as Data.Setting;
 
-            if (crnt == null) return;
-
-            DresBs1.DataSource = iScsc.Dressers.Where(d => d.CLUB_CODE == crnt.CLUB_CODE);
+            if (crnt == null) return;            
          }
          catch (Exception exc)
          {

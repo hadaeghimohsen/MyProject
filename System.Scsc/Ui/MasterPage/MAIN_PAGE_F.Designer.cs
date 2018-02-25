@@ -301,6 +301,7 @@
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
          this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
          this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          this.statusStrip1.SuspendLayout();
@@ -1634,6 +1635,7 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.spc_desktop.Panel2.Controls.Add(this.TlgrmBot_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.BackGrnd_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.AttnType_Lov);
          this.spc_desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
@@ -1669,7 +1671,7 @@
          this.BackGrnd_Butn.ImageProfile = null;
          this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.BackGrnd_Butn.ImageVisiable = false;
-         this.BackGrnd_Butn.Location = new System.Drawing.Point(788, 8);
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(761, 8);
          this.BackGrnd_Butn.Name = "BackGrnd_Butn";
          this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.DimGray;
@@ -2536,6 +2538,23 @@
          // 
          this.Sp_GateAttn.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Sp_GateAttn_DataReceived);
          // 
+         // TlgrmBot_Butn
+         // 
+         this.TlgrmBot_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.TlgrmBot_Butn.Appearance.BorderColor = System.Drawing.Color.White;
+         this.TlgrmBot_Butn.Appearance.Options.UseBackColor = true;
+         this.TlgrmBot_Butn.Appearance.Options.UseBorderColor = true;
+         this.TlgrmBot_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(787, 5);
+         this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
+         this.TlgrmBot_Butn.Size = new System.Drawing.Size(30, 27);
+         this.TlgrmBot_Butn.TabIndex = 18;
+         // 
          // MAIN_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2781,5 +2800,6 @@
       private Windows.Forms.BindingSource DaeatBs;
       private DevExpress.XtraEditors.SimpleButton ShowInfo_Butn;
       private MaxUi.RoundedButton BackGrnd_Butn;
+      private DevExpress.XtraEditors.SimpleButton TlgrmBot_Butn;
    }
 }

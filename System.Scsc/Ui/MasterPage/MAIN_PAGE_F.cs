@@ -1000,6 +1000,20 @@ namespace System.Scsc.Ui.MasterPage
                                        ", figh.FILE_NO) 
                   ).ToList<Data.Member_Ship>();
 
+               // 1396/12/11 * اصلاح حضور و غیاب مربیان
+               if(figh.FGPB_TYPE_DNRM == "003")
+               {
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", 1), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM))}
+                        });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+                  return;
+               }
+
                if (mbsp.Count() >= 2)
                {
                   _DefaultGateway.Gateway(

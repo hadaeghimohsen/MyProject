@@ -281,6 +281,7 @@ namespace System.Scsc.Ui.Common
             DActvBs.DataSource = iScsc.D_ACTVs;
             DRcmtBs.DataSource = iScsc.D_RCMTs;
             DAtypBs.DataSource = iScsc.D_ATYPs;
+            SuntBs1.DataSource = iScsc.Sub_Units;
 
             /*vF_TestBs.DataSource = iScsc.VF_Test(fileno);
             vF_CampititionBs.DataSource = iScsc.VF_Campitition(fileno);

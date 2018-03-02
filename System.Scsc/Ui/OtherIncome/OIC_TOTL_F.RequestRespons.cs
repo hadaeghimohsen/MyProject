@@ -247,6 +247,7 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         UserProFile_Rb.ImageVisiable = true;
          #region Rqsw block
          //FighsBs1.DataSource = iScsc.VF_Fighters(new XElement("Fighter")).Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006"));
          FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
@@ -257,6 +258,7 @@ namespace System.Scsc.Ui.OtherIncome
          DYsnoBs1.DataSource = iScsc.D_YSNOs;
          DDytpBs.DataSource = iScsc.D_DYTPs;
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
+         SuntBs1.DataSource = iScsc.Sub_Units;
 
          Execute_Query();         
          #endregion

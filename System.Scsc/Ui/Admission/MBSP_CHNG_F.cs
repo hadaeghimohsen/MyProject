@@ -81,6 +81,14 @@ namespace System.Scsc.Ui.Admission
             StrtDate_DateTime002.CommitChanges();
             EndDate_DateTime002.CommitChanges();
 
+            if (!StrtDate_DateTime002.Value.HasValue) { StrtDate_DateTime002.Focus(); return; }
+            if (!EndDate_DateTime002.Value.HasValue) { EndDate_DateTime002.Focus(); return; }
+
+            if (StrtDate_DateTime002.Value.Value.Date > EndDate_DateTime002.Value.Value.Date)
+            {
+               throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
+            }
+
             iScsc.MBSP_TCHG_P(
                new XElement("Process",
                   new XElement("Request",

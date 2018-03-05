@@ -206,6 +206,17 @@ namespace System.Scsc.Ui.Admission
                   /*
                    * ثبت هنرجوی جدید در سیستم
                    */
+                  StrtDate_DateTime001.CommitChanges();
+                  EndDate_DateTime001.CommitChanges();
+
+                  if (!StrtDate_DateTime001.Value.HasValue) { StrtDate_DateTime001.Focus(); return; }
+                  if (!EndDate_DateTime001.Value.HasValue) { EndDate_DateTime001.Focus(); return; }
+
+                  if (StrtDate_DateTime001.Value.Value.Date > EndDate_DateTime001.Value.Value.Date)
+                  {
+                     throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
+                  }
+
                   if (NumbOfMontDnrm_TextEdit001.Text.Trim() == "")
                      NumbOfMontDnrm_TextEdit001.Text = "1";
 

@@ -169,7 +169,7 @@ namespace System.CRM.Ui.PublicInformation
                         new XAttribute("cntycode", rqst == null || rqst.RQID == 0 ? CntyCode_Lov.SelectedValue : srpb.REGN_PRVN_CNTY_CODE),
                         new XAttribute("prvncode", rqst == null || rqst.RQID == 0 ? PrvnCode_Lov.SelectedValue : srpb.REGN_PRVN_CODE),
                         new XAttribute("regncode", rqst == null || rqst.RQID == 0 ? RegnCode_Lov.SelectedValue : srpb.REGN_CODE),
-                        new XAttribute("projrqstrqid", rqst == null || rqst.RQID == 0 ? projrqstrqid : rqst.PROJ_RQST_RQID),
+                        //new XAttribute("projrqstrqid", rqst == null || rqst.RQID == 0 ? projrqstrqid : rqst.PROJ_RQST_RQID),
                         new XElement("Service",
                            new XAttribute("fileno", srpb == null ? fileno : srpb.SERV_FILE_NO),
                            new XElement("Service_Public",

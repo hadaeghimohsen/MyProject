@@ -229,6 +229,7 @@
          this.FrstName_Txt = new System.Windows.Forms.TextBox();
          this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.Ballon_Tip = new System.Windows.Forms.ToolTip(this.components);
+         this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.LeadsSearch_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DslonBs)).BeginInit();
@@ -268,6 +269,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.MainStat_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsttBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).BeginInit();
+         this.splitContainerControl4.SuspendLayout();
          this.SuspendLayout();
          // 
          // colSERV_STAT
@@ -819,7 +822,7 @@
          // 
          // tp_001
          // 
-         this.tp_001.Controls.Add(this.splitContainerControl2);
+         this.tp_001.Controls.Add(this.splitContainerControl4);
          this.tp_001.Location = new System.Drawing.Point(4, 25);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
@@ -833,7 +836,7 @@
          this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
          this.splitContainerControl2.IsSplitterFixed = true;
-         this.splitContainerControl2.Location = new System.Drawing.Point(3, 3);
+         this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl2.Name = "splitContainerControl2";
          this.splitContainerControl2.Panel1.Controls.Add(this.splitContainerControl3);
          this.splitContainerControl2.Panel1.Text = "Panel1";
@@ -844,7 +847,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.ServCont_Butn);
          this.splitContainerControl2.Panel2.Controls.Add(this.ImageProfile_Butn);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(354, 585);
+         this.splitContainerControl2.Size = new System.Drawing.Size(354, 387);
          this.splitContainerControl2.SplitterPosition = 111;
          this.splitContainerControl2.TabIndex = 2;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -859,7 +862,7 @@
          this.splitContainerControl3.Panel1.Text = "Panel1";
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl5);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(238, 585);
+         this.splitContainerControl3.Size = new System.Drawing.Size(238, 387);
          this.splitContainerControl3.SplitterPosition = 208;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -1191,7 +1194,7 @@
          this.gridControl5.Name = "gridControl5";
          this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit4});
-         this.gridControl5.Size = new System.Drawing.Size(238, 372);
+         this.gridControl5.Size = new System.Drawing.Size(238, 174);
          this.gridControl5.TabIndex = 2;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1365,7 +1368,7 @@
          this.gridControl2.Padding = new System.Windows.Forms.Padding(3);
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(102, 389);
+         this.gridControl2.Size = new System.Drawing.Size(102, 315);
          this.gridControl2.TabIndex = 1;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2076,6 +2079,20 @@
          this.Ballon_Tip.ReshowDelay = 0;
          this.Ballon_Tip.ShowAlways = true;
          // 
+         // splitContainerControl4
+         // 
+         this.splitContainerControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl4.Horizontal = false;
+         this.splitContainerControl4.Location = new System.Drawing.Point(3, 3);
+         this.splitContainerControl4.Name = "splitContainerControl4";
+         this.splitContainerControl4.Panel1.Controls.Add(this.splitContainerControl2);
+         this.splitContainerControl4.Panel1.Text = "Panel1";
+         this.splitContainerControl4.Panel2.Text = "Panel2";
+         this.splitContainerControl4.Size = new System.Drawing.Size(354, 585);
+         this.splitContainerControl4.SplitterPosition = 387;
+         this.splitContainerControl4.TabIndex = 3;
+         this.splitContainerControl4.Text = "splitContainerControl4";
+         // 
          // SHW_CONT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2126,6 +2143,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.MainStat_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsttBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).EndInit();
+         this.splitContainerControl4.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -2288,5 +2307,6 @@
       private Windows.Forms.Label label13;
       private Windows.Forms.BindingSource MsttBs;
       private Windows.Forms.BindingSource SsttBs;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
    }
 }

@@ -726,6 +726,11 @@ namespace System.Scsc.Code
             if (_Chos_Mbsp_F == null)
                _Chos_Mbsp_F = new Ui.Notifications.CHOS_MBSP_F { _DefaultGateway = this };
          }
+         else if(value ==  "glr_indc_f")
+         {
+            if (_Glr_Indc_F == null)
+               _Glr_Indc_F = new Ui.ChangeRials.GLR_INDC_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4424,6 +4429,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 153
+      /// </summary>
+      /// <param name="job"></param>
+      private void Glr_Indc_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "glr_indc_f"},
+                  new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

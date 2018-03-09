@@ -546,6 +546,15 @@
     <Compile Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_INDC_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_INDC_F.Designer.cs">
+      <DependentUpon>GLR_INDC_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_INDC_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Common\ALL_FLDF_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1283,6 +1292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.resx">
       <DependentUpon>SHOW_CTRQ_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeRials\GLR_INDC_F.resx">
+      <DependentUpon>GLR_INDC_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\ALL_FLDF_F.resx">
       <DependentUpon>ALL_FLDF_F.cs</DependentUpon>

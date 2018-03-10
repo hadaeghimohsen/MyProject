@@ -19,7 +19,6 @@ namespace System.Scsc.Ui.ChangeRials
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       private string formCaller;
-      private bool isFirstLoaded = false;
       private string CurrentUser;
 
 
@@ -105,8 +104,7 @@ namespace System.Scsc.Ui.ChangeRials
          {
             switch (formCaller)
             {
-               case "CFG_STNG_F":
-               case "BAS_CPR_F":
+               case "ALL_FLDF_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
                   );
@@ -114,6 +112,7 @@ namespace System.Scsc.Ui.ChangeRials
                default:
                   break;
             }
+            formCaller = "";
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -246,22 +245,7 @@ namespace System.Scsc.Ui.ChangeRials
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         //FighBs3.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006") && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-         if (isFirstLoaded) goto finishcommand;
-         #region Rqsw block
-         try
-         {
-            DSxtpBs1.DataSource = iScsc.D_SXTPs;
-            isFirstLoaded = true;
-         }
-         catch { }
-         ClubBs1.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
-         MtodBs1.DataSource = iScsc.Methods.Where(m => m.EPIT_TYPE == "001");
-         vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
-      //Execute_Query();
-         #endregion
-
-      finishcommand:
+         DRcmtBs1.DataSource = iScsc.D_RCMTs;
          job.Status = StatusType.Successful;
       }
 
@@ -269,12 +253,7 @@ namespace System.Scsc.Ui.ChangeRials
       /// Code 08
       /// </summary>
       private void LoadDataSource(Job job)
-      {
-         try
-         {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-         }
-         catch { }
+      {         
          job.Status = StatusType.Successful;
       }
 
@@ -286,40 +265,19 @@ namespace System.Scsc.Ui.ChangeRials
       {
          try
          {
-            //tb_master.TabPages.Clear();
-            switch ((job.Input as XElement).Attribute("type").Value)
-            {
-               case "fighter":
-                  //tb_master.TabPages.Add(tp_001);
-                  tb_master.SelectedTab = tp_001;
-                  break;
-               case "coach":
-                  //tb_master.TabPages.Add(tp_002);
-                  //tb_master.SelectedTab = tp_002;
-                  break;
-               case "renewcontract":
-                  //tb_master.TabPages.Add(tp_003);
-                  //tb_master.SelectedTab = tp_003;
-                  break;
-            }
-            if ((job.Input as XElement).Attribute("enrollnumber") != null)
-            {
-               if ((job.Input as XElement).Attribute("type").Value == "fighter")
-               {
-                  
-               }
-               if ((job.Input as XElement).Attribute("type").Value == "coach")
-               {
-                  //Insr_Numb_TextEdit2.Text = Fngr_Prnt_TextEdit2.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
-                  //Insr_Date_PersianDateEdit2.Value = DateTime.Now;
-               }
-               else if ((job.Input as XElement).Attribute("type").Value == "renewcontract")
-               {
-                  var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == (job.Input as XElement).Attribute("enrollnumber").Value).FirstOrDefault();
-                  //FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
-                  //RQTT_CODE_LookUpEdit3.EditValue = figh.FGPB_TYPE_DNRM;
-               }
+            var xinput = job.Input as XElement;
 
+            if (xinput.Attribute("formcaller") != null)
+               formCaller = xinput.Attribute("formcaller").Value;
+            else
+               formCaller = "";
+            if (xinput.Attribute("type").Value == "newrequest")
+            {
+               if (RqstBs1.Count > 0 && (RqstBs1.Current as Data.Request).RQID > 0)
+                  RqstBs1.AddNew();
+
+               FIGH_FILE_NOLookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("fileno").Value);
+               Btn_RqstRqt1_Click(null, null);               
             }
             else
                Execute_Query();

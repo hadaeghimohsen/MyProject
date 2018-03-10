@@ -1353,5 +1353,51 @@ namespace System.Scsc.Ui.Common
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
+
+      private void GlrIndc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
+                     new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Request", 
+                              new XAttribute("type", "newrequest"), 
+                              new XAttribute("fileno", fileno),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OthrIncome_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                     new List<Job>
+                  {                  
+                     new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                     new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", fileno)))}
+                  })
+            );
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

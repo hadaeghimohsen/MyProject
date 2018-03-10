@@ -2699,6 +2699,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1616.png">
       <Link>Resources\IMAGE_1616.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1620.png">
+      <Link>Resources\IMAGE_1620.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1621.png">
+      <Link>Resources\IMAGE_1621.png</Link>
+    </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

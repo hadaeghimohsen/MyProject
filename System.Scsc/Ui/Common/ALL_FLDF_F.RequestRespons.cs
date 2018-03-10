@@ -206,12 +206,18 @@ namespace System.Scsc.Ui.Common
             catch { //Pb_FighImg.Visible = false;
                UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; 
             }
+
             // 1395/11/26 * اگر مشترک غیرفعال باشد باید از لیست مربوط به مشترکین غیرفعال استفاده کرد
             var crntinfo = iScsc.Fighters.First(f => f.FILE_NO == fileno);
             if (Convert.ToInt32(crntinfo.ACTV_TAG_DNRM) <= 100)
                vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(fileno, null, null, null, null, null, null, null, null, null);
             else
                vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Fighter(fileno, null, null, null, null, null, null, null, null, null);
+
+            if (crntinfo.SEX_TYPE_DNRM == "001")
+               nAME_DNRMLabel.Image = System.Scsc.Properties.Resources.IMAGE_1620;
+            else
+               nAME_DNRMLabel.Image = System.Scsc.Properties.Resources.IMAGE_1621;
 
             //vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
             //////vF_SavePaymentsBs.DataSource = iScsc.VF_Payments(null, null, fileno, null, null, null, null).OrderByDescending(p => p.ISSU_DATE);

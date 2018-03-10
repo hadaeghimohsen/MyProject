@@ -27,8 +27,7 @@ namespace System.Scsc.Ui.ChangeRials
       private int rqstindex = default(int);
 
       private void Execute_Query()
-      {
-         setOnDebt = false;
+      {         
          try
          {
             if (tb_master.SelectedTab == tp_001)
@@ -57,6 +56,7 @@ namespace System.Scsc.Ui.ChangeRials
             }
          }
          catch { }
+         finally { requery = false; }
       }
 
       private void RqstBs1_CurrentChanged(object sender, EventArgs e)
@@ -202,7 +202,6 @@ namespace System.Scsc.Ui.ChangeRials
          }
       }
 
-      bool setOnDebt = false;
       private void Btn_RqstSav1_Click(object sender, EventArgs e)
       {
          try
@@ -210,20 +209,20 @@ namespace System.Scsc.Ui.ChangeRials
             var Rqst = RqstBs1.Current as Data.Request;
             if (Rqst != null && Rqst.RQST_STAT == "001")
             {
-               iScsc.BYR_TSAV_F(
+               var glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;
+               if(glrl.AMNT > GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT))
+                  throw (new Exception("مبلغ کل وارد شده با مبلغ های پرداختی یکسان نمی باشد، لطفا بررسی و اصلاح نمایید"));
+
+               if (MessageBox.Show(this, "آیا با ذخیره کردن تغییرات ریالی موافق هستید؟", "ذخیره کردن تغییرات ریالی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               iScsc.GLR_TSAV_P(
                   new XElement("Process",
                      new XElement("Request",
-                        new XAttribute("rqid", Rqst.RQID),
-                        new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
-                        new XAttribute("regncode", Rqst.REGN_CODE),
-                        new XElement("Fighter",
-                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-                        )
+                        new XAttribute("rqid", Rqst.RQID)
                      )
                   )
                );
-               requery = true;
-               tc_pblc.SelectedTab = tp_pblcinfo;
+               requery = true;            
             }
          }
          catch (Exception ex)
@@ -233,13 +232,7 @@ namespace System.Scsc.Ui.ChangeRials
          finally
          {
             if (requery)
-            {
-               //Get_Current_Record();
                Execute_Query();
-               //Set_Current_Record();
-               //Create_Record();
-               requery = false;
-            }
          }
       }
 
@@ -422,7 +415,18 @@ namespace System.Scsc.Ui.ChangeRials
       {
          try
          {
-            
+            if(GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Any(g => g.RWNO == 0))return;
+
+            var glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;
+            if(glrl == null)return;
+
+            if (GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT) >= glrl.AMNT) return;
+
+            GlrdBs1.AddNew();
+            var glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
+            glrd.GLRL_GLID = glrl.GLID;
+            glrd.RCPT_MTOD = "003";
+            glrd.AMNT = glrl.AMNT - (GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT));
          }
          catch (Exception exc)
          {
@@ -432,7 +436,38 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void DelAmnt_Butn_Click(object sender, EventArgs e)
       {
+         try
+         {
+            var Glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
+            if (Glrd == null) return;
 
+            if (MessageBox.Show(this, "آیا با حذف ردیف پرداختی سپرده موافق هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_GLRD_P(
+               new XElement("Gain_Loss_Rail_Detail",
+                  new XAttribute("glrlglid", Glrd.GLRL_GLID),
+                  new XAttribute("rwno", Glrd.RWNO)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
       }
    }
 }

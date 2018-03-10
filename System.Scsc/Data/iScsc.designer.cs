@@ -3959,6 +3959,20 @@ namespace System.Scsc.Data
 			return this.CreateMethodCallQuery<VF_All_Info_FightersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DUP_CSCC_P")]
+		public int DUP_CSCC_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_GLRD_P")]
+		public int DEL_GLRD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Deleted_Fighter", IsComposable=true)]
 		public IQueryable<VF_Last_Info_Deleted_FighterResult> VF_Last_Info_Deleted_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode)
 		{
@@ -3969,13 +3983,6 @@ namespace System.Scsc.Data
 		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode)
 		{
 			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DUP_CSCC_P")]
-		public int DUP_CSCC_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -73206,6 +73213,8 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<long> _DEBT_DNRM;
 		
+		private System.Nullable<long> _DPST_AMNT_DNRM;
+		
 		private System.Nullable<long> _BUFE_DEBT_DNTM;
 		
 		private string _REGN_PRVN_CODE;
@@ -73372,6 +73381,22 @@ namespace System.Scsc.Data
 				if ((this._DEBT_DNRM != value))
 				{
 					this._DEBT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DPST_AMNT_DNRM
+		{
+			get
+			{
+				return this._DPST_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._DPST_AMNT_DNRM != value))
+				{
+					this._DPST_AMNT_DNRM = value;
 				}
 			}
 		}
@@ -74456,6 +74481,8 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<long> _DEBT_DNRM;
 		
+		private System.Nullable<long> _DPST_AMNT_DNRM;
+		
 		private System.Nullable<long> _BUFE_DEBT_DNTM;
 		
 		private string _REGN_PRVN_CODE;
@@ -74622,6 +74649,22 @@ namespace System.Scsc.Data
 				if ((this._DEBT_DNRM != value))
 				{
 					this._DEBT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DPST_AMNT_DNRM
+		{
+			get
+			{
+				return this._DPST_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._DPST_AMNT_DNRM != value))
+				{
+					this._DPST_AMNT_DNRM = value;
 				}
 			}
 		}

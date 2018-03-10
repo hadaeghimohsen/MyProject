@@ -30,12 +30,9 @@
       {
          this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label fILE_NOLabel;
-         System.Windows.Forms.Label nAME_DNRMLabel;
-         System.Windows.Forms.Label fATH_NAME_DNRMLabel;
          System.Windows.Forms.Label bRTH_DATE_DNRMLabel;
          System.Windows.Forms.Label cELL_PHON_DNRMLabel;
          System.Windows.Forms.Label tELL_PHON_DNRMLabel;
-         System.Windows.Forms.Label sEX_TYPELabel;
          System.Windows.Forms.Label nATL_CODELabel;
          System.Windows.Forms.Label rQST_RQIDLabel;
          System.Windows.Forms.Label fIGH_STATLabel;
@@ -68,7 +65,6 @@
          System.Windows.Forms.Label label2;
          System.Windows.Forms.Label aCTV_TAGLabel;
          System.Windows.Forms.Label aCTV_TAGLabel1;
-         System.Windows.Forms.Label bLOD_GROPLabel;
          System.Windows.Forms.Label bLOD_GROPLabel1;
          System.Windows.Forms.Label label3;
          System.Windows.Forms.Label label4;
@@ -105,6 +101,7 @@
          System.Windows.Forms.Label label38;
          System.Windows.Forms.Label label39;
          System.Windows.Forms.Label sUNT_CODELabel;
+         System.Windows.Forms.Label label40;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ALL_FLDF_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
@@ -168,6 +165,14 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
@@ -201,14 +206,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOTL_DEBT_PYMT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -221,6 +218,7 @@
          this.colATTN_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit14 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DActvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.nAME_DNRMLabel = new System.Windows.Forms.Label();
          this.HL_INVSDCMT = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
@@ -310,17 +308,17 @@
          this.Btn_Insr = new DevExpress.XtraEditors.SimpleButton();
          this.UpdateDebt_Btn = new DevExpress.XtraEditors.SimpleButton();
          this.Del_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.GlrIndc_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.OthrIncome_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pony_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.aCTV_TAGTextBox = new System.Windows.Forms.TextBox();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
          this.iNSR_NUMB_DNRMTextBox = new System.Windows.Forms.TextBox();
          this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
-         this.bLOD_GROPTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.nATL_CODETextBox = new System.Windows.Forms.TextBox();
-         this.sEX_TYPETextBox = new System.Windows.Forms.TextBox();
+         this.DpstAmntDnrm_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DebtDnrm_TextBox = new DevExpress.XtraEditors.TextEdit();
-         this.fATH_NAME_DNRMTextBox = new System.Windows.Forms.TextBox();
          this.nAME_DNRMTextBox = new System.Windows.Forms.TextBox();
          this.fILE_NOTextBox = new System.Windows.Forms.TextBox();
          this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -617,15 +615,10 @@
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DDebtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.OthrIncome_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.GlrIndc_Butn = new DevExpress.XtraEditors.SimpleButton();
          fILE_NOLabel = new System.Windows.Forms.Label();
-         nAME_DNRMLabel = new System.Windows.Forms.Label();
-         fATH_NAME_DNRMLabel = new System.Windows.Forms.Label();
          bRTH_DATE_DNRMLabel = new System.Windows.Forms.Label();
          cELL_PHON_DNRMLabel = new System.Windows.Forms.Label();
          tELL_PHON_DNRMLabel = new System.Windows.Forms.Label();
-         sEX_TYPELabel = new System.Windows.Forms.Label();
          nATL_CODELabel = new System.Windows.Forms.Label();
          rQST_RQIDLabel = new System.Windows.Forms.Label();
          fIGH_STATLabel = new System.Windows.Forms.Label();
@@ -658,7 +651,6 @@
          label2 = new System.Windows.Forms.Label();
          aCTV_TAGLabel = new System.Windows.Forms.Label();
          aCTV_TAGLabel1 = new System.Windows.Forms.Label();
-         bLOD_GROPLabel = new System.Windows.Forms.Label();
          bLOD_GROPLabel1 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
          label4 = new System.Windows.Forms.Label();
@@ -695,6 +687,7 @@
          label38 = new System.Windows.Forms.Label();
          label39 = new System.Windows.Forms.Label();
          sUNT_CODELabel = new System.Windows.Forms.Label();
+         label40 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -727,7 +720,7 @@
          this.groupBox2.SuspendLayout();
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.bLOD_GROPTextEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DpstAmntDnrm_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DebtDnrm_TextBox.Properties)).BeginInit();
          this.tabPage2.SuspendLayout();
          this.groupBox13.SuspendLayout();
@@ -830,31 +823,11 @@
          fILE_NOLabel.TabIndex = 0;
          fILE_NOLabel.Text = "شماره پرونده :";
          // 
-         // nAME_DNRMLabel
-         // 
-         nAME_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         nAME_DNRMLabel.AutoSize = true;
-         nAME_DNRMLabel.Location = new System.Drawing.Point(446, 53);
-         nAME_DNRMLabel.Name = "nAME_DNRMLabel";
-         nAME_DNRMLabel.Size = new System.Drawing.Size(63, 14);
-         nAME_DNRMLabel.TabIndex = 2;
-         nAME_DNRMLabel.Text = "نام هنرجو :";
-         // 
-         // fATH_NAME_DNRMLabel
-         // 
-         fATH_NAME_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         fATH_NAME_DNRMLabel.AutoSize = true;
-         fATH_NAME_DNRMLabel.Location = new System.Drawing.Point(446, 79);
-         fATH_NAME_DNRMLabel.Name = "fATH_NAME_DNRMLabel";
-         fATH_NAME_DNRMLabel.Size = new System.Drawing.Size(47, 14);
-         fATH_NAME_DNRMLabel.TabIndex = 4;
-         fATH_NAME_DNRMLabel.Text = "نام پدر :";
-         // 
          // bRTH_DATE_DNRMLabel
          // 
          bRTH_DATE_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          bRTH_DATE_DNRMLabel.AutoSize = true;
-         bRTH_DATE_DNRMLabel.Location = new System.Drawing.Point(446, 105);
+         bRTH_DATE_DNRMLabel.Location = new System.Drawing.Point(446, 79);
          bRTH_DATE_DNRMLabel.Name = "bRTH_DATE_DNRMLabel";
          bRTH_DATE_DNRMLabel.Size = new System.Drawing.Size(59, 14);
          bRTH_DATE_DNRMLabel.TabIndex = 6;
@@ -879,16 +852,6 @@
          tELL_PHON_DNRMLabel.Size = new System.Drawing.Size(99, 14);
          tELL_PHON_DNRMLabel.TabIndex = 10;
          tELL_PHON_DNRMLabel.Text = "شماره تلفن ثابت :";
-         // 
-         // sEX_TYPELabel
-         // 
-         sEX_TYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         sEX_TYPELabel.AutoSize = true;
-         sEX_TYPELabel.Location = new System.Drawing.Point(197, 79);
-         sEX_TYPELabel.Name = "sEX_TYPELabel";
-         sEX_TYPELabel.Size = new System.Drawing.Size(55, 14);
-         sEX_TYPELabel.TabIndex = 12;
-         sEX_TYPELabel.Text = "جنسیت :";
          // 
          // nATL_CODELabel
          // 
@@ -922,21 +885,21 @@
          // 
          iNSR_NUMB_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          iNSR_NUMB_DNRMLabel.AutoSize = true;
-         iNSR_NUMB_DNRMLabel.Location = new System.Drawing.Point(446, 162);
+         iNSR_NUMB_DNRMLabel.Location = new System.Drawing.Point(446, 110);
          iNSR_NUMB_DNRMLabel.Name = "iNSR_NUMB_DNRMLabel";
-         iNSR_NUMB_DNRMLabel.Size = new System.Drawing.Size(60, 14);
+         iNSR_NUMB_DNRMLabel.Size = new System.Drawing.Size(73, 14);
          iNSR_NUMB_DNRMLabel.TabIndex = 17;
-         iNSR_NUMB_DNRMLabel.Text = "بیمه نامه :";
+         iNSR_NUMB_DNRMLabel.Text = "شماره بیمه :";
          // 
          // iNSR_DATE_DNRMLabel
          // 
          iNSR_DATE_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          iNSR_DATE_DNRMLabel.AutoSize = true;
-         iNSR_DATE_DNRMLabel.Location = new System.Drawing.Point(199, 162);
+         iNSR_DATE_DNRMLabel.Location = new System.Drawing.Point(445, 137);
          iNSR_DATE_DNRMLabel.Name = "iNSR_DATE_DNRMLabel";
-         iNSR_DATE_DNRMLabel.Size = new System.Drawing.Size(92, 14);
+         iNSR_DATE_DNRMLabel.Size = new System.Drawing.Size(62, 14);
          iNSR_DATE_DNRMLabel.TabIndex = 18;
-         iNSR_DATE_DNRMLabel.Text = "تاریخ اعتبار بیمه :";
+         iNSR_DATE_DNRMLabel.Text = "تاریخ بیمه :";
          // 
          // label5
          // 
@@ -1207,16 +1170,6 @@
          aCTV_TAGLabel1.TabIndex = 21;
          aCTV_TAGLabel1.Text = "شاخص فعالیت :";
          // 
-         // bLOD_GROPLabel
-         // 
-         bLOD_GROPLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bLOD_GROPLabel.AutoSize = true;
-         bLOD_GROPLabel.Location = new System.Drawing.Point(446, 134);
-         bLOD_GROPLabel.Name = "bLOD_GROPLabel";
-         bLOD_GROPLabel.Size = new System.Drawing.Size(69, 14);
-         bLOD_GROPLabel.TabIndex = 19;
-         bLOD_GROPLabel.Text = "گروه خونی :";
-         // 
          // bLOD_GROPLabel1
          // 
          bLOD_GROPLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1250,7 +1203,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(200, 134);
+         label6.Location = new System.Drawing.Point(200, 138);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(73, 14);
          label6.TabIndex = 19;
@@ -1310,7 +1263,7 @@
          // 
          label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label34.AutoSize = true;
-         label34.Location = new System.Drawing.Point(200, 106);
+         label34.Location = new System.Drawing.Point(200, 110);
          label34.Name = "label34";
          label34.Size = new System.Drawing.Size(45, 14);
          label34.TabIndex = 17;
@@ -1556,6 +1509,36 @@
          label38.TabIndex = 8;
          label38.Text = "کد تلگرام :";
          // 
+         // label39
+         // 
+         label39.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         label39.AutoSize = true;
+         label39.Location = new System.Drawing.Point(364, 9);
+         label39.Name = "label39";
+         label39.Size = new System.Drawing.Size(70, 14);
+         label39.TabIndex = 6;
+         label39.Text = "کد اشتراک :";
+         // 
+         // sUNT_CODELabel
+         // 
+         sUNT_CODELabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         sUNT_CODELabel.AutoSize = true;
+         sUNT_CODELabel.Location = new System.Drawing.Point(161, 8);
+         sUNT_CODELabel.Name = "sUNT_CODELabel";
+         sUNT_CODELabel.Size = new System.Drawing.Size(112, 14);
+         sUNT_CODELabel.TabIndex = 70;
+         sUNT_CODELabel.Text = "شرکت طرف قرارداد :";
+         // 
+         // label40
+         // 
+         label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label40.AutoSize = true;
+         label40.Location = new System.Drawing.Point(200, 82);
+         label40.Name = "label40";
+         label40.Size = new System.Drawing.Size(73, 14);
+         label40.TabIndex = 17;
+         label40.Text = "مبلغ سپرده :";
+         // 
          // colVALD_TYPE
          // 
          this.colVALD_TYPE.Caption = "gridColumn20";
@@ -1660,25 +1643,17 @@
          // 
          this.DActvBs.DataSource = typeof(System.Scsc.Data.D_ACTV);
          // 
-         // label39
+         // nAME_DNRMLabel
          // 
-         label39.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         label39.AutoSize = true;
-         label39.Location = new System.Drawing.Point(364, 9);
-         label39.Name = "label39";
-         label39.Size = new System.Drawing.Size(70, 14);
-         label39.TabIndex = 6;
-         label39.Text = "کد اشتراک :";
-         // 
-         // sUNT_CODELabel
-         // 
-         sUNT_CODELabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         sUNT_CODELabel.AutoSize = true;
-         sUNT_CODELabel.Location = new System.Drawing.Point(161, 8);
-         sUNT_CODELabel.Name = "sUNT_CODELabel";
-         sUNT_CODELabel.Size = new System.Drawing.Size(112, 14);
-         sUNT_CODELabel.TabIndex = 70;
-         sUNT_CODELabel.Text = "شرکت طرف قرارداد :";
+         this.nAME_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.nAME_DNRMLabel.Image = global::System.Scsc.Properties.Resources.IMAGE_1621;
+         this.nAME_DNRMLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.nAME_DNRMLabel.Location = new System.Drawing.Point(446, 52);
+         this.nAME_DNRMLabel.Name = "nAME_DNRMLabel";
+         this.nAME_DNRMLabel.Size = new System.Drawing.Size(79, 18);
+         this.nAME_DNRMLabel.TabIndex = 2;
+         this.nAME_DNRMLabel.Text = "فامیلی :";
+         this.nAME_DNRMLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
          // HL_INVSDCMT
          // 
@@ -2856,26 +2831,22 @@
          this.groupBox1.Controls.Add(this.OthrIncome_Butn);
          this.groupBox1.Controls.Add(this.Pony_Butn);
          this.groupBox1.Controls.Add(label6);
-         this.groupBox1.Controls.Add(bLOD_GROPLabel);
          this.groupBox1.Controls.Add(this.aCTV_TAGTextBox);
          this.groupBox1.Controls.Add(iNSR_DATE_DNRMLabel);
          this.groupBox1.Controls.Add(this.textEdit1);
          this.groupBox1.Controls.Add(iNSR_NUMB_DNRMLabel);
          this.groupBox1.Controls.Add(this.dateTimeSelector3);
+         this.groupBox1.Controls.Add(label40);
          this.groupBox1.Controls.Add(label34);
          this.groupBox1.Controls.Add(this.iNSR_NUMB_DNRMTextBox);
          this.groupBox1.Controls.Add(this.dateTimeSelector2);
-         this.groupBox1.Controls.Add(this.bLOD_GROPTextEdit);
          this.groupBox1.Controls.Add(aCTV_TAGLabel);
          this.groupBox1.Controls.Add(nATL_CODELabel);
          this.groupBox1.Controls.Add(this.nATL_CODETextBox);
-         this.groupBox1.Controls.Add(sEX_TYPELabel);
-         this.groupBox1.Controls.Add(this.sEX_TYPETextBox);
          this.groupBox1.Controls.Add(bRTH_DATE_DNRMLabel);
-         this.groupBox1.Controls.Add(fATH_NAME_DNRMLabel);
+         this.groupBox1.Controls.Add(this.DpstAmntDnrm_Txt);
          this.groupBox1.Controls.Add(this.DebtDnrm_TextBox);
-         this.groupBox1.Controls.Add(this.fATH_NAME_DNRMTextBox);
-         this.groupBox1.Controls.Add(nAME_DNRMLabel);
+         this.groupBox1.Controls.Add(this.nAME_DNRMLabel);
          this.groupBox1.Controls.Add(this.nAME_DNRMTextBox);
          this.groupBox1.Controls.Add(fILE_NOLabel);
          this.groupBox1.Controls.Add(this.fILE_NOTextBox);
@@ -2892,7 +2863,7 @@
          this.TrnsFngrPrnt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.TrnsFngrPrnt_Butn.Appearance.Options.UseBackColor = true;
          this.TrnsFngrPrnt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("TrnsFngrPrnt_Butn.Image")));
-         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(279, 130);
+         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(279, 134);
          this.TrnsFngrPrnt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.TrnsFngrPrnt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TrnsFngrPrnt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2920,7 +2891,7 @@
          this.Refresh_Butn.Appearance.Options.UseBackColor = true;
          this.Refresh_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Refresh_Butn.Image")));
          this.Refresh_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Refresh_Butn.Location = new System.Drawing.Point(17, 50);
+         this.Refresh_Butn.Location = new System.Drawing.Point(16, 24);
          this.Refresh_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Refresh_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Refresh_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2950,7 +2921,7 @@
          this.ClearFingerPrint_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.ClearFingerPrint_Butn.Appearance.Options.UseBackColor = true;
          this.ClearFingerPrint_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ClearFingerPrint_Butn.Image")));
-         this.ClearFingerPrint_Butn.Location = new System.Drawing.Point(30, 129);
+         this.ClearFingerPrint_Butn.Location = new System.Drawing.Point(30, 133);
          this.ClearFingerPrint_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.ClearFingerPrint_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ClearFingerPrint_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2966,7 +2937,7 @@
          this.AttnActn_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.AttnActn_Butn.Appearance.Options.UseBackColor = true;
          this.AttnActn_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AttnActn_Butn.Image")));
-         this.AttnActn_Butn.Location = new System.Drawing.Point(61, 130);
+         this.AttnActn_Butn.Location = new System.Drawing.Point(61, 134);
          this.AttnActn_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.AttnActn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AttnActn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2995,13 +2966,14 @@
          this.Btn_Insr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Btn_Insr.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Btn_Insr.Appearance.Options.UseBackColor = true;
+         this.Btn_Insr.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.Btn_Insr.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Insr.Image")));
-         this.Btn_Insr.Location = new System.Drawing.Point(2, 159);
+         this.Btn_Insr.Location = new System.Drawing.Point(340, 162);
          this.Btn_Insr.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Btn_Insr.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_Insr.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Btn_Insr.Name = "Btn_Insr";
-         this.Btn_Insr.Size = new System.Drawing.Size(86, 23);
+         this.Btn_Insr.Size = new System.Drawing.Size(100, 23);
          toolTipTitleItem20.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
          toolTipTitleItem20.Appearance.Options.UseImage = true;
          toolTipTitleItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem20.Image")));
@@ -3027,7 +2999,7 @@
          this.UpdateDebt_Btn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.UpdateDebt_Btn.Appearance.Options.UseBackColor = true;
          this.UpdateDebt_Btn.Image = ((System.Drawing.Image)(resources.GetObject("UpdateDebt_Btn.Image")));
-         this.UpdateDebt_Btn.Location = new System.Drawing.Point(251, 101);
+         this.UpdateDebt_Btn.Location = new System.Drawing.Point(251, 105);
          this.UpdateDebt_Btn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.UpdateDebt_Btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UpdateDebt_Btn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -3057,7 +3029,7 @@
          this.Del_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Del_Butn.Appearance.Options.UseBackColor = true;
          this.Del_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Del_Butn.Image")));
-         this.Del_Butn.Location = new System.Drawing.Point(30, 23);
+         this.Del_Butn.Location = new System.Drawing.Point(61, 24);
          this.Del_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Del_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Del_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -3083,13 +3055,74 @@
          this.Del_Butn.Visible = false;
          this.Del_Butn.Click += new System.EventHandler(this.Del_Butn_Click);
          // 
+         // GlrIndc_Butn
+         // 
+         this.GlrIndc_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GlrIndc_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.GlrIndc_Butn.Appearance.Options.UseBackColor = true;
+         this.GlrIndc_Butn.Image = ((System.Drawing.Image)(resources.GetObject("GlrIndc_Butn.Image")));
+         this.GlrIndc_Butn.Location = new System.Drawing.Point(61, 78);
+         this.GlrIndc_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.GlrIndc_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.GlrIndc_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.GlrIndc_Butn.Name = "GlrIndc_Butn";
+         this.GlrIndc_Butn.Size = new System.Drawing.Size(25, 25);
+         toolTipTitleItem26.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
+         toolTipTitleItem26.Appearance.Options.UseImage = true;
+         toolTipTitleItem26.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem26.Image")));
+         toolTipTitleItem26.Text = "عملیات تغییرات ریالی";
+         toolTipItem15.LeftIndent = 6;
+         toolTipItem15.Text = "شما می توانید با سپرده گذاری یا برداشت سپرده از مبلغ موجود سپرده خدمات دریافت کنی" +
+    "د";
+         toolTipTitleItem27.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem27.Appearance.Options.UseImage = true;
+         toolTipTitleItem27.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem27.LeftIndent = 6;
+         toolTipTitleItem27.Text = "واحد مالی";
+         superToolTip15.Items.Add(toolTipTitleItem26);
+         superToolTip15.Items.Add(toolTipItem15);
+         superToolTip15.Items.Add(toolTipTitleItem27);
+         this.GlrIndc_Butn.SuperTip = superToolTip15;
+         this.GlrIndc_Butn.TabIndex = 33;
+         this.GlrIndc_Butn.Click += new System.EventHandler(this.GlrIndc_Butn_Click);
+         // 
+         // OthrIncome_Butn
+         // 
+         this.OthrIncome_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OthrIncome_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OthrIncome_Butn.Appearance.Options.UseBackColor = true;
+         this.OthrIncome_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1223;
+         this.OthrIncome_Butn.Location = new System.Drawing.Point(30, 106);
+         this.OthrIncome_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OthrIncome_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OthrIncome_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OthrIncome_Butn.Name = "OthrIncome_Butn";
+         this.OthrIncome_Butn.Size = new System.Drawing.Size(25, 25);
+         toolTipTitleItem28.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image18")));
+         toolTipTitleItem28.Appearance.Options.UseImage = true;
+         toolTipTitleItem28.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem28.Image")));
+         toolTipTitleItem28.Text = "نمایش لیست بدهی اعضا";
+         toolTipItem16.LeftIndent = 6;
+         toolTipItem16.Text = "برای تسویه حساب بدهی های اعضا می توانید از این گزینه استفاده کنید";
+         toolTipTitleItem29.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem29.Appearance.Options.UseImage = true;
+         toolTipTitleItem29.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
+         toolTipTitleItem29.LeftIndent = 6;
+         toolTipTitleItem29.Text = "واحد مالی";
+         superToolTip16.Items.Add(toolTipTitleItem28);
+         superToolTip16.Items.Add(toolTipItem16);
+         superToolTip16.Items.Add(toolTipTitleItem29);
+         this.OthrIncome_Butn.SuperTip = superToolTip16;
+         this.OthrIncome_Butn.TabIndex = 33;
+         this.OthrIncome_Butn.Click += new System.EventHandler(this.OthrIncome_Butn_Click);
+         // 
          // Pony_Butn
          // 
          this.Pony_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Pony_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Pony_Butn.Appearance.Options.UseBackColor = true;
          this.Pony_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Pony_Butn.Image")));
-         this.Pony_Butn.Location = new System.Drawing.Point(82, 102);
+         this.Pony_Butn.Location = new System.Drawing.Point(61, 107);
          this.Pony_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Pony_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Pony_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -3117,17 +3150,17 @@
          // 
          this.aCTV_TAGTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.aCTV_TAGTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "ACTV_TAG", true));
-         this.aCTV_TAGTextBox.Location = new System.Drawing.Point(61, 24);
+         this.aCTV_TAGTextBox.Location = new System.Drawing.Point(92, 24);
          this.aCTV_TAGTextBox.Name = "aCTV_TAGTextBox";
          this.aCTV_TAGTextBox.ReadOnly = true;
-         this.aCTV_TAGTextBox.Size = new System.Drawing.Size(133, 22);
+         this.aCTV_TAGTextBox.Size = new System.Drawing.Size(102, 22);
          this.aCTV_TAGTextBox.TabIndex = 17;
          // 
          // textEdit1
          // 
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterBs, "FNGR_PRNT_DNRM", true));
-         this.textEdit1.Location = new System.Drawing.Point(92, 130);
+         this.textEdit1.Location = new System.Drawing.Point(92, 134);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit1.Properties.Appearance.Options.UseFont = true;
@@ -3148,7 +3181,7 @@
          this.dateTimeSelector3.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.vF_Last_Info_FighterBs, "BRTH_DATE_DNRM", true));
          this.dateTimeSelector3.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector3.Location = new System.Drawing.Point(340, 104);
+         this.dateTimeSelector3.Location = new System.Drawing.Point(340, 78);
          this.dateTimeSelector3.Name = "dateTimeSelector3";
          this.dateTimeSelector3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector3.Size = new System.Drawing.Size(100, 23);
@@ -3159,7 +3192,7 @@
          // 
          this.iNSR_NUMB_DNRMTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.iNSR_NUMB_DNRMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "INSR_NUMB_DNRM", true));
-         this.iNSR_NUMB_DNRMTextBox.Location = new System.Drawing.Point(293, 159);
+         this.iNSR_NUMB_DNRMTextBox.Location = new System.Drawing.Point(293, 107);
          this.iNSR_NUMB_DNRMTextBox.Name = "iNSR_NUMB_DNRMTextBox";
          this.iNSR_NUMB_DNRMTextBox.ReadOnly = true;
          this.iNSR_NUMB_DNRMTextBox.Size = new System.Drawing.Size(147, 22);
@@ -3172,54 +3205,49 @@
          this.dateTimeSelector2.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.vF_Last_Info_FighterBs, "INSR_DATE_DNRM", true));
          this.dateTimeSelector2.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector2.Location = new System.Drawing.Point(94, 159);
+         this.dateTimeSelector2.Location = new System.Drawing.Point(340, 134);
          this.dateTimeSelector2.Name = "dateTimeSelector2";
          this.dateTimeSelector2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector2.Size = new System.Drawing.Size(100, 23);
          this.dateTimeSelector2.TabIndex = 31;
          this.dateTimeSelector2.UsePersianFormat = true;
          // 
-         // bLOD_GROPTextEdit
-         // 
-         this.bLOD_GROPTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.bLOD_GROPTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterBs, "BLOD_GROP", true));
-         this.bLOD_GROPTextEdit.Location = new System.Drawing.Point(340, 131);
-         this.bLOD_GROPTextEdit.Name = "bLOD_GROPTextEdit";
-         this.bLOD_GROPTextEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.bLOD_GROPTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.bLOD_GROPTextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.bLOD_GROPTextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.bLOD_GROPTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.bLOD_GROPTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.bLOD_GROPTextEdit.Properties.ReadOnly = true;
-         this.bLOD_GROPTextEdit.Size = new System.Drawing.Size(100, 22);
-         this.bLOD_GROPTextEdit.TabIndex = 20;
-         // 
          // nATL_CODETextBox
          // 
          this.nATL_CODETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.nATL_CODETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "NATL_CODE", true));
-         this.nATL_CODETextBox.Location = new System.Drawing.Point(61, 50);
+         this.nATL_CODETextBox.Location = new System.Drawing.Point(92, 50);
          this.nATL_CODETextBox.Name = "nATL_CODETextBox";
          this.nATL_CODETextBox.ReadOnly = true;
-         this.nATL_CODETextBox.Size = new System.Drawing.Size(133, 22);
+         this.nATL_CODETextBox.Size = new System.Drawing.Size(102, 22);
          this.nATL_CODETextBox.TabIndex = 14;
          // 
-         // sEX_TYPETextBox
+         // DpstAmntDnrm_Txt
          // 
-         this.sEX_TYPETextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.sEX_TYPETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "SEX_TYPE", true));
-         this.sEX_TYPETextBox.Location = new System.Drawing.Point(61, 76);
-         this.sEX_TYPETextBox.Name = "sEX_TYPETextBox";
-         this.sEX_TYPETextBox.ReadOnly = true;
-         this.sEX_TYPETextBox.Size = new System.Drawing.Size(133, 22);
-         this.sEX_TYPETextBox.TabIndex = 13;
+         this.DpstAmntDnrm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DpstAmntDnrm_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterBs, "DPST_AMNT_DNRM", true));
+         this.DpstAmntDnrm_Txt.Location = new System.Drawing.Point(92, 78);
+         this.DpstAmntDnrm_Txt.Name = "DpstAmntDnrm_Txt";
+         this.DpstAmntDnrm_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.DpstAmntDnrm_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DpstAmntDnrm_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.DpstAmntDnrm_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DpstAmntDnrm_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.DpstAmntDnrm_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.DpstAmntDnrm_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.DpstAmntDnrm_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DpstAmntDnrm_Txt.Properties.Mask.EditMask = "n0";
+         this.DpstAmntDnrm_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.DpstAmntDnrm_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.DpstAmntDnrm_Txt.Properties.ReadOnly = true;
+         this.DpstAmntDnrm_Txt.Size = new System.Drawing.Size(102, 22);
+         this.DpstAmntDnrm_Txt.TabIndex = 4;
          // 
          // DebtDnrm_TextBox
          // 
          this.DebtDnrm_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DebtDnrm_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterBs, "DEBT_DNRM", true));
-         this.DebtDnrm_TextBox.Location = new System.Drawing.Point(113, 102);
+         this.DebtDnrm_TextBox.Location = new System.Drawing.Point(92, 106);
          this.DebtDnrm_TextBox.Name = "DebtDnrm_TextBox";
          this.DebtDnrm_TextBox.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.DebtDnrm_TextBox.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3233,18 +3261,8 @@
          this.DebtDnrm_TextBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.DebtDnrm_TextBox.Properties.Mask.UseMaskAsDisplayFormat = true;
          this.DebtDnrm_TextBox.Properties.ReadOnly = true;
-         this.DebtDnrm_TextBox.Size = new System.Drawing.Size(81, 22);
+         this.DebtDnrm_TextBox.Size = new System.Drawing.Size(102, 22);
          this.DebtDnrm_TextBox.TabIndex = 4;
-         // 
-         // fATH_NAME_DNRMTextBox
-         // 
-         this.fATH_NAME_DNRMTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.fATH_NAME_DNRMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "FATH_NAME_DNRM", true));
-         this.fATH_NAME_DNRMTextBox.Location = new System.Drawing.Point(293, 76);
-         this.fATH_NAME_DNRMTextBox.Name = "fATH_NAME_DNRMTextBox";
-         this.fATH_NAME_DNRMTextBox.ReadOnly = true;
-         this.fATH_NAME_DNRMTextBox.Size = new System.Drawing.Size(147, 22);
-         this.fATH_NAME_DNRMTextBox.TabIndex = 5;
          // 
          // nAME_DNRMTextBox
          // 
@@ -6669,66 +6687,6 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // OthrIncome_Butn
-         // 
-         this.OthrIncome_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OthrIncome_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.OthrIncome_Butn.Appearance.Options.UseBackColor = true;
-         this.OthrIncome_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1223;
-         this.OthrIncome_Butn.Location = new System.Drawing.Point(51, 101);
-         this.OthrIncome_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.OthrIncome_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.OthrIncome_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.OthrIncome_Butn.Name = "OthrIncome_Butn";
-         this.OthrIncome_Butn.Size = new System.Drawing.Size(25, 25);
-         toolTipTitleItem28.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image18")));
-         toolTipTitleItem28.Appearance.Options.UseImage = true;
-         toolTipTitleItem28.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem28.Image")));
-         toolTipTitleItem28.Text = "نمایش لیست بدهی اعضا";
-         toolTipItem16.LeftIndent = 6;
-         toolTipItem16.Text = "برای تسویه حساب بدهی های اعضا می توانید از این گزینه استفاده کنید";
-         toolTipTitleItem29.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem29.Appearance.Options.UseImage = true;
-         toolTipTitleItem29.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem29.LeftIndent = 6;
-         toolTipTitleItem29.Text = "واحد مالی";
-         superToolTip16.Items.Add(toolTipTitleItem28);
-         superToolTip16.Items.Add(toolTipItem16);
-         superToolTip16.Items.Add(toolTipTitleItem29);
-         this.OthrIncome_Butn.SuperTip = superToolTip16;
-         this.OthrIncome_Butn.TabIndex = 33;
-         this.OthrIncome_Butn.Click += new System.EventHandler(this.Pony_Butn_Click);
-         // 
-         // GlrIndc_Butn
-         // 
-         this.GlrIndc_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GlrIndc_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.GlrIndc_Butn.Appearance.Options.UseBackColor = true;
-         this.GlrIndc_Butn.Image = ((System.Drawing.Image)(resources.GetObject("GlrIndc_Butn.Image")));
-         this.GlrIndc_Butn.Location = new System.Drawing.Point(20, 101);
-         this.GlrIndc_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.GlrIndc_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.GlrIndc_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.GlrIndc_Butn.Name = "GlrIndc_Butn";
-         this.GlrIndc_Butn.Size = new System.Drawing.Size(25, 25);
-         toolTipTitleItem26.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
-         toolTipTitleItem26.Appearance.Options.UseImage = true;
-         toolTipTitleItem26.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem26.Image")));
-         toolTipTitleItem26.Text = "نمایش لیست بدهی اعضا";
-         toolTipItem15.LeftIndent = 6;
-         toolTipItem15.Text = "برای تسویه حساب بدهی های اعضا می توانید از این گزینه استفاده کنید";
-         toolTipTitleItem27.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem27.Appearance.Options.UseImage = true;
-         toolTipTitleItem27.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
-         toolTipTitleItem27.LeftIndent = 6;
-         toolTipTitleItem27.Text = "واحد مالی";
-         superToolTip15.Items.Add(toolTipTitleItem26);
-         superToolTip15.Items.Add(toolTipItem15);
-         superToolTip15.Items.Add(toolTipTitleItem27);
-         this.GlrIndc_Butn.SuperTip = superToolTip15;
-         this.GlrIndc_Butn.TabIndex = 33;
-         this.GlrIndc_Butn.Click += new System.EventHandler(this.Pony_Butn_Click);
-         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6779,7 +6737,7 @@
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.bLOD_GROPTextEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DpstAmntDnrm_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DebtDnrm_TextBox.Properties)).EndInit();
          this.tabPage2.ResumeLayout(false);
          this.tabPage2.PerformLayout();
@@ -6902,8 +6860,6 @@
       private Windows.Forms.TextBox cELL_PHON_DNRMTextBox;
       private Windows.Forms.TextBox tELL_PHON_DNRMTextBox;
       private Windows.Forms.TextBox nATL_CODETextBox;
-      private Windows.Forms.TextBox sEX_TYPETextBox;
-      private Windows.Forms.TextBox fATH_NAME_DNRMTextBox;
       private Windows.Forms.TextBox nAME_DNRMTextBox;
       private Windows.Forms.GroupBox groupBox3;
       private Windows.Forms.GroupBox groupBox4;
@@ -7019,7 +6975,6 @@
       private Windows.Forms.TextBox aCTV_TAGTextBox1;
       private Windows.Forms.GroupBox groupBox7;
       private MaxUi.NewMaxBtn FighBnDefaultPrint;
-      private DevExpress.XtraEditors.TextEdit bLOD_GROPTextEdit;
       private DevExpress.XtraEditors.TextEdit bLOD_GROPTextEdit1;
       private MaxUi.NewMaxBtn Btn_Back;
       private MaxUi.NewMaxBtn FighBnSettingPrint;
@@ -7302,5 +7257,7 @@
       private Windows.Forms.BindingSource SuntBs1;
       private DevExpress.XtraEditors.SimpleButton OthrIncome_Butn;
       private DevExpress.XtraEditors.SimpleButton GlrIndc_Butn;
+      private DevExpress.XtraEditors.TextEdit DpstAmntDnrm_Txt;
+      private Windows.Forms.Label nAME_DNRMLabel;
    }
 }

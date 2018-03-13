@@ -527,5 +527,13 @@ namespace System.CRM.Ui.Activity
             }
          }
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var logc = LogcBs.Current as Data.Log_Call;
+         if (logc == null) return;
+
+         logc.LOG_DATE = DateTime.Now;
+      }
    }
 }

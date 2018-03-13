@@ -504,5 +504,13 @@ namespace System.CRM.Ui.Activity
             }
          );
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var sndf = SndfBs.Current as Data.Send_File;
+         if (sndf == null) return;
+
+         sndf.SEND_DATE = DateTime.Now;
+      }
    }
 }

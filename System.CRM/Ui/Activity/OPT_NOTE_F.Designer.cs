@@ -126,6 +126,7 @@
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel3 = new System.Windows.Forms.Panel();
+         this.NoReminder1_Butn = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
          this.panelControl5.SuspendLayout();
          this.panel1.SuspendLayout();
@@ -422,6 +423,7 @@
          // 
          this.panelControl8.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.panelControl8.Appearance.Options.UseBackColor = true;
+         this.panelControl8.Controls.Add(this.NoReminder1_Butn);
          this.panelControl8.Controls.Add(this.SelectColor_Butn);
          this.panelControl8.Controls.Add(this.InfoServ_Butn);
          this.panelControl8.Controls.Add(this.Mesg_Date);
@@ -1025,6 +1027,23 @@
          this.panel3.Size = new System.Drawing.Size(18, 422);
          this.panel3.TabIndex = 8;
          // 
+         // NoReminder1_Butn
+         // 
+         this.NoReminder1_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.NoReminder1_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NoReminder1_Butn.Appearance.Options.UseBackColor = true;
+         this.NoReminder1_Butn.Appearance.Options.UseFont = true;
+         this.NoReminder1_Butn.Image = ((System.Drawing.Image)(resources.GetObject("NoReminder1_Butn.Image")));
+         this.NoReminder1_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.NoReminder1_Butn.Location = new System.Drawing.Point(175, 43);
+         this.NoReminder1_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.NoReminder1_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.NoReminder1_Butn.Name = "NoReminder1_Butn";
+         this.NoReminder1_Butn.Size = new System.Drawing.Size(23, 24);
+         this.NoReminder1_Butn.TabIndex = 22;
+         this.NoReminder1_Butn.ToolTip = "نیازی به یادآوری نیست";
+         this.NoReminder1_Butn.Click += new System.EventHandler(this.NoReminder1_Butn_Click);
+         // 
          // OPT_NOTE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1150,6 +1169,7 @@
       private DevExpress.XtraEditors.SimpleButton Cancel_Butn;
       private MaxUi.RoundedButton RqstFolw_Butn;
       private MaxUi.RoundedButton SelectColor_Butn;
+      private DevExpress.XtraEditors.SimpleButton NoReminder1_Butn;
 
    }
 }

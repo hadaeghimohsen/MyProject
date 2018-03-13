@@ -159,8 +159,8 @@ namespace System.Scsc.Ui.Admission
             StrtDate_DateTime003.CommitChanges();
             EndDate_DateTime003.CommitChanges();
 
-            if (!StrtDate_DateTime003.Value.HasValue) { StrtDate_DateTime003.Focus(); return; }
-            if (!EndDate_DateTime003.Value.HasValue) { EndDate_DateTime003.Focus(); return; }
+            if (!StrtDate_DateTime003.Value.HasValue) { StrtDate_DateTime003.Value = DateTime.Now; StrtDate_DateTime003.Focus(); }
+            if (!EndDate_DateTime003.Value.HasValue) { EndDate_DateTime003.Value = DateTime.Now.AddDays(7); EndDate_DateTime003.Focus(); }
 
             if (StrtDate_DateTime003.Value.Value.Date > EndDate_DateTime003.Value.Value.Date)
             {

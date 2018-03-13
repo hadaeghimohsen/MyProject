@@ -474,5 +474,21 @@ namespace System.CRM.Ui.Activity
             }
          }
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var apon = AponBs.Current as Data.Appointment;
+         if(apon == null)return;
+
+         apon.FROM_DATE = DateTime.Now;
+      }
+
+      private void NoReminder2_Butn_Click(object sender, EventArgs e)
+      {
+         var apon = AponBs.Current as Data.Appointment;
+         if (apon == null) return;
+
+         apon.TO_DATE = DateTime.Now;
+      }
    }
 }

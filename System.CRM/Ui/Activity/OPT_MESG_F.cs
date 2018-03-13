@@ -539,5 +539,13 @@ namespace System.CRM.Ui.Activity
             }
          }
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var mesg = MesgBs.Current as Data.Message;
+         if (mesg == null) return;
+
+         mesg.MESG_DATE = DateTime.Now;
+      }
    }
 }

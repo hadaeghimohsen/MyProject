@@ -395,5 +395,13 @@ namespace System.CRM.Ui.Activity
             }
          }
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var note = NoteBs.Current as Data.Note;
+         if (note == null) return;
+
+         note.NOTE_DATE = DateTime.Now;
+      }
    }
 }

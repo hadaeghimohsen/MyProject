@@ -562,5 +562,13 @@ namespace System.CRM.Ui.Activity
             }
          }
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var emal = EmalBs.Current as Data.Email;
+         if (emal == null) return;
+
+         emal.SEND_DATE = DateTime.Now;
+      }
    }
 }

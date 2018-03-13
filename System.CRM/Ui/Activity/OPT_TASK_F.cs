@@ -685,5 +685,13 @@ namespace System.CRM.Ui.Activity
          task.SUBJ_DESC = Subject_Txt.Text;
          task.TASK_CMNT = Subject_Txt.Text;
       }
+
+      private void NoReminder1_Butn_Click(object sender, EventArgs e)
+      {
+         var task = TaskBs.Current as Data.Task;
+         if (task == null) return;
+
+         task.DUE_DATE = DateTime.Now;
+      }
    }
 }

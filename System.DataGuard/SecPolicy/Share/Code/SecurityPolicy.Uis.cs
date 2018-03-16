@@ -46,6 +46,7 @@ namespace System.DataGuard.SecPolicy.Share.Code
       internal Ui.SettingsMailServer _SettingsMailServer { get; set; }
       internal Ui.SettingsAccountSetEmailAddress _SettingsAccountSetEmailAddress { get; set; }
       internal Ui.SettingsSendEmail _SettingsSendEmail { get; set; }
+      internal Ui.SettingsNewPos _SettingsNewPos { get; set; }
 
    }
 }

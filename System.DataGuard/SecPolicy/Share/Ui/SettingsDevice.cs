@@ -67,6 +67,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             ActiveSessionBs.DataSource = iProject.Active_Sessions.Where(a => a.RWNO == iProject.Active_Sessions.Where(at => at.USGW_GTWY_MAC_ADRS == a.USGW_GTWY_MAC_ADRS && at.USGW_USER_ID == a.USGW_USER_ID && at.USGW_RWNO == a.USGW_RWNO && at.AUDS_ID == a.AUDS_ID && at.ACTN_DATE.Value.Date == a.ACTN_DATE.Value.Date).Max(at => at.RWNO));
             CreateActiveSessionMenu();
          }
+         else if(Tb_Master.SelectedTab == tp_003)
+         {
+            PosBs.DataSource = iProject.Pos_Devices;
+            CreatePosMenu();
+         }
       }
 
       private string MtoS(DateTime dt)
@@ -104,6 +109,86 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             ActiveSessionList_Flp.Controls.Add(activesession);
          }
 
+      }
+
+      private void CreatePosMenu()
+      {
+         PosList_Flp.Controls.Clear();
+         foreach (var item in PosBs.List.OfType<Data.Pos_Device>())
+         {
+            var pos = new SimpleButton();
+            pos.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
+            pos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+               | System.Windows.Forms.AnchorStyles.Right)));
+            if (item.POS_STAT == "002")
+            {
+               pos.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+               pos.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            }
+            else
+            {
+               pos.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+               pos.Appearance.BorderColor = System.Drawing.Color.Silver;
+            }
+            pos.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pos.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            pos.Appearance.Options.UseBackColor = true;
+            pos.Appearance.Options.UseBorderColor = true;
+            pos.Appearance.Options.UseFont = true;
+            pos.Appearance.Options.UseForeColor = true;
+            pos.Appearance.Options.UseTextOptions = true;
+            pos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            pos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            pos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            pos.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
+            pos.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            pos.Location = new System.Drawing.Point(306, 3);
+            pos.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            pos.LookAndFeel.UseDefaultLookAndFeel = false;
+            pos.Name = "simpleButton2";
+            pos.Size = new System.Drawing.Size(215, 59);
+            pos.TabIndex = 1;
+            pos.Tag = item;
+            pos.Click += Pos_Click;
+            pos.Text = string.Format("{0}  {1}<br><color=Gray><size=9>{2}</size></color><br>" + "<color=Green><size=9>{3}</size></color><br>", item.POS_DESC, item.POS_DFLT == "002" ? "<b>*</b>" : "", iProject.D_BANKs.FirstOrDefault(b => item.BANK_TYPE == b.VALU).DOMN_DESC + " : " + item.BNKB_CODE, "شماره حساب : " + item.BNKA_ACNT_NUMB);
+            
+            PosList_Flp.Controls.Add(pos);
+         }
+      }
+
+      void Pos_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pos = (sender as SimpleButton).Tag as Data.Pos_Device;
+            if (pos == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 37 /* Execute DoWork4SettingsNewPos */),
+                     new Job(SendType.SelfToUserInterface, "SettingsNewPos", 10 /* Execute ActionCallWindow */){Input = pos}
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NewPos_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 37 /* Execute DoWork4SettingsNewPos */),
+               }
+            )
+         );
       }
 
    }

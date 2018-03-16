@@ -255,6 +255,15 @@
     <Compile Include="SecPolicy\Share\Ui\ActionCenter.Designer.cs">
       <DependentUpon>ActionCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNewPos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNewPos.Designer.cs">
+      <DependentUpon>SettingsNewPos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsNewPos.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsSendEmail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -482,12 +491,6 @@
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\ControlPanel.RequestRespons.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SecPolicy\Share\Ui\POSConfig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SecPolicy\Share\Ui\POSConfig.Designer.cs">
-      <DependentUpon>POSConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SecurityManagment.cs">
       <SubType>UserControl</SubType>
@@ -735,9 +738,6 @@
     <EmbeddedResource Include="SecPolicy\Share\Ui\ControlPanel.resx">
       <DependentUpon>ControlPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecPolicy\Share\Ui\POSConfig.resx">
-      <DependentUpon>POSConfig.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SecurityManagment.resx">
       <DependentUpon>SecurityManagment.cs</DependentUpon>
     </EmbeddedResource>
@@ -746,6 +746,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsNewPos.resx">
+      <DependentUpon>SettingsNewPos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSendEmail.resx">
       <DependentUpon>SettingsSendEmail.cs</DependentUpon>
@@ -869,9 +872,6 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Access_User_Datasource.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Action_Center.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Active_Session.datasource" />
-    <None Include="Properties\DataSources\System.DataGuard.Data.Bank.datasource" />
-    <None Include="Properties\DataSources\System.DataGuard.Data.Bank_Account.datasource" />
-    <None Include="Properties\DataSources\System.DataGuard.Data.Bank_Branch.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Box_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.CRM_Privilege.datasource" />
@@ -879,9 +879,12 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.DataSource.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_ACST.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_ACTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_AUTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_BANK.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_BKGT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_BMPL.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_CNTP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_DLMT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_ESRV.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_LNTP.datasource" />
@@ -902,7 +905,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance_User_Gateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance_User_Qiuck_Action.datasource" />
-    <None Include="Properties\DataSources\System.DataGuard.Data.Pos_Subsystem.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Pos_Device.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Province.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Region.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Report_Privilege.datasource" />
@@ -1429,6 +1432,9 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1619.png">
       <Link>Resources\IMAGE_1619.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1622.png">
+      <Link>Resources\IMAGE_1622.png</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>

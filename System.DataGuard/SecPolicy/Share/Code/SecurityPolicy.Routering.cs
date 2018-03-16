@@ -144,6 +144,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
             case 36:
                DoWork4SettingsSendEmail(job);
                break;
+            case 37:
+               DoWork4SettingsNewPos(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -261,6 +264,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
                break;
             case "SettingsSendEmail":
                _SettingsSendEmail.SendRequest(job);
+               break;
+            case "SettingsNewPos":
+               _SettingsNewPos.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

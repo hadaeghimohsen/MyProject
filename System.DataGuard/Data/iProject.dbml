@@ -106,75 +106,6 @@
       <Association Name="User_Action_Center" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="Global.Bank" Member="Banks">
-    <Type Name="Bank">
-      <Column Name="CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BANK_DESC" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TITL" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Bank_Bank_Branch" Member="Bank_Branches" ThisKey="CODE" OtherKey="BANK_CODE" Type="Bank_Branch" />
-    </Type>
-  </Table>
-  <Table Name="Global.Bank_Branch" Member="Bank_Branches">
-    <Type Name="Bank_Branch">
-      <Column Name="BANK_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="ADDR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TEL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="HEAD_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Bank_Branch_Bank_Account" Member="Bank_Accounts" ThisKey="BANK_CODE,CODE" OtherKey="BNKB_BANK_CODE,BNKB_CODE" Type="Bank_Account" />
-      <Association Name="Bank_Bank_Branch" Member="Bank" ThisKey="BANK_CODE" OtherKey="CODE" Type="Bank" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="Global.Bank_Account" Member="Bank_Accounts">
-    <Type Name="Bank_Account">
-      <Column Name="BNKB_BANK_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ACNT_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ACNT_TYPE" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="OWNR_TYPE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-      <Column Name="SHBA_ACNT" Type="System.String" DbType="VarChar(26)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Bank_Account_Pos_Subsystem" Member="Pos_Subsystems" ThisKey="BNKB_BANK_CODE,BNKB_CODE,ACNT_NUMB" OtherKey="BNKA_BNKB_BANK_CODE,BNKA_BNKB_CODE,BNKA_ACNT_NUMB" Type="Pos_Subsystem" />
-      <Association Name="Bank_Branch_Bank_Account" Member="Bank_Branch" ThisKey="BNKB_BANK_CODE,BNKB_CODE" OtherKey="BANK_CODE,CODE" Type="Bank_Branch" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="Global.Pos_Subsystem" Member="Pos_Subsystems">
-    <Type Name="Pos_Subsystem">
-      <Column Name="BNKA_BNKB_BANK_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BNKA_BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="POS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_AMNT_EDIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_DATA_ON_DEVC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILL_RSLT_DATA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="POS_CNCT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Bank_Account_Pos_Subsystem" Member="Bank_Account" ThisKey="BNKA_BNKB_BANK_CODE,BNKA_BNKB_CODE,BNKA_ACNT_NUMB" OtherKey="BNKB_BANK_CODE,BNKB_CODE,ACNT_NUMB" Type="Bank_Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Sub_System_Pos_Subsystem" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="DataGuard.V#Computers" Member="V_Computers">
     <Type Name="V_Computer">
       <Column Name="IP_DNRM" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
@@ -797,7 +728,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Sub_System_Package" Member="Packages" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Package" />
       <Association Name="Sub_System_Action_Center" Member="Action_Centers" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Action_Center" />
-      <Association Name="Sub_System_Pos_Subsystem" Member="Pos_Subsystems" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Pos_Subsystem" />
       <Association Name="Sub_System_Sub_System_Item" Member="Sub_System_Items" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System_Item" />
       <Association Name="Sub_System_DataSource" Member="DataSources" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="DataSource" />
       <Association Name="Sub_System_Box_Privilege" Member="Box_Privileges" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Box_Privilege" />
@@ -867,6 +797,49 @@
       <Association Name="User_Role_User" Member="Role_Users" ThisKey="ID" OtherKey="UserID" Type="Role_User" />
       <Association Name="User_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="USER_ID" Type="Access_User_Datasource" />
       <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$CNTP" Member="D_CNTPs">
+    <Type Name="D_CNTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$BANK" Member="D_BANKs">
+    <Type Name="D_BANK">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$ACTV" Member="D_ACTVs">
+    <Type Name="D_ACTV">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Global.Pos_Device" Member="Pos_Devices">
+    <Type Name="Pos_Device">
+      <Column Name="PSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BANK_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SHBA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="POS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_AMNT_EDIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_DATA_ON_DEVC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILL_RSLT_DATA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="POS_CNCT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRNT_SALE" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PRNT_CUST" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">
@@ -1008,5 +981,9 @@
       <Column Name="is_sysadmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="actual_login_name" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="Global.SavePosDevice" Method="SavePosDevice">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

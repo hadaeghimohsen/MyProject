@@ -45,18 +45,6 @@ namespace System.DataGuard.Data
     partial void InsertAction_Center(Action_Center instance);
     partial void UpdateAction_Center(Action_Center instance);
     partial void DeleteAction_Center(Action_Center instance);
-    partial void InsertBank(Bank instance);
-    partial void UpdateBank(Bank instance);
-    partial void DeleteBank(Bank instance);
-    partial void InsertBank_Branch(Bank_Branch instance);
-    partial void UpdateBank_Branch(Bank_Branch instance);
-    partial void DeleteBank_Branch(Bank_Branch instance);
-    partial void InsertBank_Account(Bank_Account instance);
-    partial void UpdateBank_Account(Bank_Account instance);
-    partial void DeleteBank_Account(Bank_Account instance);
-    partial void InsertPos_Subsystem(Pos_Subsystem instance);
-    partial void UpdatePos_Subsystem(Pos_Subsystem instance);
-    partial void DeletePos_Subsystem(Pos_Subsystem instance);
     partial void InsertPackage_Instance(Package_Instance instance);
     partial void UpdatePackage_Instance(Package_Instance instance);
     partial void DeletePackage_Instance(Package_Instance instance);
@@ -146,6 +134,9 @@ namespace System.DataGuard.Data
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertPos_Device(Pos_Device instance);
+    partial void UpdatePos_Device(Pos_Device instance);
+    partial void DeletePos_Device(Pos_Device instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -215,38 +206,6 @@ namespace System.DataGuard.Data
 			get
 			{
 				return this.GetTable<Action_Center>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Bank> Banks
-		{
-			get
-			{
-				return this.GetTable<Bank>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Bank_Branch> Bank_Branches
-		{
-			get
-			{
-				return this.GetTable<Bank_Branch>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Bank_Account> Bank_Accounts
-		{
-			get
-			{
-				return this.GetTable<Bank_Account>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Pos_Subsystem> Pos_Subsystems
-		{
-			get
-			{
-				return this.GetTable<Pos_Subsystem>();
 			}
 		}
 		
@@ -634,6 +593,38 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<D_CNTP> D_CNTPs
+		{
+			get
+			{
+				return this.GetTable<D_CNTP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_BANK> D_BANKs
+		{
+			get
+			{
+				return this.GetTable<D_BANK>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_ACTV> D_ACTVs
+		{
+			get
+			{
+				return this.GetTable<D_ACTV>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Pos_Device> Pos_Devices
+		{
+			get
+			{
+				return this.GetTable<Pos_Device>();
+			}
+		}
+		
 		private void UpdateSub_System(Sub_System obj)
 		{
 			this.UpdateSubSystem(((System.Nullable<int>)(obj.SUB_SYS)), obj.STAT, obj.INST_STAT, ((System.Nullable<System.DateTime>)(obj.INST_DATE)), obj.LICN_TYPE, ((System.Nullable<System.DateTime>)(obj.LICN_TRIL_DATE)), obj.LICN_DESC, obj.SUB_DESC, obj.JOBS_STAT, ((System.Nullable<int>)(obj.FREQ_INTR)));
@@ -828,6 +819,13 @@ namespace System.DataGuard.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((ISingleResult<InstallOrUninstallJobResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.SavePosDevice")]
+		public int SavePosDevice([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -3190,1528 +3188,6 @@ namespace System.DataGuard.Data
 						this._USER_ID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Bank")]
-	public partial class Bank : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CODE;
-		
-		private string _BANK_DESC;
-		
-		private string _TITL;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Bank_Branch> _Bank_Branches;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(string value);
-    partial void OnCODEChanged();
-    partial void OnBANK_DESCChanging(string value);
-    partial void OnBANK_DESCChanged();
-    partial void OnTITLChanging(string value);
-    partial void OnTITLChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Bank()
-		{
-			this._Bank_Branches = new EntitySet<Bank_Branch>(new Action<Bank_Branch>(this.attach_Bank_Branches), new Action<Bank_Branch>(this.detach_Bank_Branches));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_DESC", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BANK_DESC
-		{
-			get
-			{
-				return this._BANK_DESC;
-			}
-			set
-			{
-				if ((this._BANK_DESC != value))
-				{
-					this.OnBANK_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._BANK_DESC = value;
-					this.SendPropertyChanged("BANK_DESC");
-					this.OnBANK_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TITL", DbType="NVarChar(3)")]
-		public string TITL
-		{
-			get
-			{
-				return this._TITL;
-			}
-			set
-			{
-				if ((this._TITL != value))
-				{
-					this.OnTITLChanging(value);
-					this.SendPropertyChanging();
-					this._TITL = value;
-					this.SendPropertyChanged("TITL");
-					this.OnTITLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bank_Bank_Branch", Storage="_Bank_Branches", ThisKey="CODE", OtherKey="BANK_CODE")]
-		public EntitySet<Bank_Branch> Bank_Branches
-		{
-			get
-			{
-				return this._Bank_Branches;
-			}
-			set
-			{
-				this._Bank_Branches.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Bank_Branches(Bank_Branch entity)
-		{
-			this.SendPropertyChanging();
-			entity.Bank = this;
-		}
-		
-		private void detach_Bank_Branches(Bank_Branch entity)
-		{
-			this.SendPropertyChanging();
-			entity.Bank = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Bank_Branch")]
-	public partial class Bank_Branch : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _BANK_CODE;
-		
-		private string _CODE;
-		
-		private string _NAME;
-		
-		private string _STAT;
-		
-		private string _ADDR;
-		
-		private string _TEL;
-		
-		private string _HEAD_CODE;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Bank_Account> _Bank_Accounts;
-		
-		private EntityRef<Bank> _Bank;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBANK_CODEChanging(string value);
-    partial void OnBANK_CODEChanged();
-    partial void OnCODEChanging(string value);
-    partial void OnCODEChanged();
-    partial void OnNAMEChanging(string value);
-    partial void OnNAMEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnADDRChanging(string value);
-    partial void OnADDRChanged();
-    partial void OnTELChanging(string value);
-    partial void OnTELChanged();
-    partial void OnHEAD_CODEChanging(string value);
-    partial void OnHEAD_CODEChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Bank_Branch()
-		{
-			this._Bank_Accounts = new EntitySet<Bank_Account>(new Action<Bank_Account>(this.attach_Bank_Accounts), new Action<Bank_Account>(this.detach_Bank_Accounts));
-			this._Bank = default(EntityRef<Bank>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_CODE", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BANK_CODE
-		{
-			get
-			{
-				return this._BANK_CODE;
-			}
-			set
-			{
-				if ((this._BANK_CODE != value))
-				{
-					if (this._Bank.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBANK_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._BANK_CODE = value;
-					this.SendPropertyChanged("BANK_CODE");
-					this.OnBANK_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this.OnNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._NAME = value;
-					this.SendPropertyChanged("NAME");
-					this.OnNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDR", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ADDR
-		{
-			get
-			{
-				return this._ADDR;
-			}
-			set
-			{
-				if ((this._ADDR != value))
-				{
-					this.OnADDRChanging(value);
-					this.SendPropertyChanging();
-					this._ADDR = value;
-					this.SendPropertyChanged("ADDR");
-					this.OnADDRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEL", DbType="VarChar(10)")]
-		public string TEL
-		{
-			get
-			{
-				return this._TEL;
-			}
-			set
-			{
-				if ((this._TEL != value))
-				{
-					this.OnTELChanging(value);
-					this.SendPropertyChanging();
-					this._TEL = value;
-					this.SendPropertyChanged("TEL");
-					this.OnTELChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HEAD_CODE", DbType="VarChar(6)")]
-		public string HEAD_CODE
-		{
-			get
-			{
-				return this._HEAD_CODE;
-			}
-			set
-			{
-				if ((this._HEAD_CODE != value))
-				{
-					this.OnHEAD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._HEAD_CODE = value;
-					this.SendPropertyChanged("HEAD_CODE");
-					this.OnHEAD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bank_Branch_Bank_Account", Storage="_Bank_Accounts", ThisKey="BANK_CODE,CODE", OtherKey="BNKB_BANK_CODE,BNKB_CODE")]
-		public EntitySet<Bank_Account> Bank_Accounts
-		{
-			get
-			{
-				return this._Bank_Accounts;
-			}
-			set
-			{
-				this._Bank_Accounts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bank_Bank_Branch", Storage="_Bank", ThisKey="BANK_CODE", OtherKey="CODE", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Bank Bank
-		{
-			get
-			{
-				return this._Bank.Entity;
-			}
-			set
-			{
-				Bank previousValue = this._Bank.Entity;
-				if (((previousValue != value) 
-							|| (this._Bank.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Bank.Entity = null;
-						previousValue.Bank_Branches.Remove(this);
-					}
-					this._Bank.Entity = value;
-					if ((value != null))
-					{
-						value.Bank_Branches.Add(this);
-						this._BANK_CODE = value.CODE;
-					}
-					else
-					{
-						this._BANK_CODE = default(string);
-					}
-					this.SendPropertyChanged("Bank");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Bank_Accounts(Bank_Account entity)
-		{
-			this.SendPropertyChanging();
-			entity.Bank_Branch = this;
-		}
-		
-		private void detach_Bank_Accounts(Bank_Account entity)
-		{
-			this.SendPropertyChanging();
-			entity.Bank_Branch = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Bank_Account")]
-	public partial class Bank_Account : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _BNKB_BANK_CODE;
-		
-		private string _BNKB_CODE;
-		
-		private string _ACNT_NUMB;
-		
-		private string _ACNT_NAME;
-		
-		private string _ACNT_TYPE;
-		
-		private string _OWNR_TYPE;
-		
-		private string _SHBA_ACNT;
-		
-		private string _CRET_BY;
-		
-		private System.DateTime _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Pos_Subsystem> _Pos_Subsystems;
-		
-		private EntityRef<Bank_Branch> _Bank_Branch;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBNKB_BANK_CODEChanging(string value);
-    partial void OnBNKB_BANK_CODEChanged();
-    partial void OnBNKB_CODEChanging(string value);
-    partial void OnBNKB_CODEChanged();
-    partial void OnACNT_NUMBChanging(string value);
-    partial void OnACNT_NUMBChanged();
-    partial void OnACNT_NAMEChanging(string value);
-    partial void OnACNT_NAMEChanged();
-    partial void OnACNT_TYPEChanging(string value);
-    partial void OnACNT_TYPEChanged();
-    partial void OnOWNR_TYPEChanging(string value);
-    partial void OnOWNR_TYPEChanged();
-    partial void OnSHBA_ACNTChanging(string value);
-    partial void OnSHBA_ACNTChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.DateTime value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Bank_Account()
-		{
-			this._Pos_Subsystems = new EntitySet<Pos_Subsystem>(new Action<Pos_Subsystem>(this.attach_Pos_Subsystems), new Action<Pos_Subsystem>(this.detach_Pos_Subsystems));
-			this._Bank_Branch = default(EntityRef<Bank_Branch>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKB_BANK_CODE", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BNKB_BANK_CODE
-		{
-			get
-			{
-				return this._BNKB_BANK_CODE;
-			}
-			set
-			{
-				if ((this._BNKB_BANK_CODE != value))
-				{
-					if (this._Bank_Branch.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBNKB_BANK_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._BNKB_BANK_CODE = value;
-					this.SendPropertyChanged("BNKB_BANK_CODE");
-					this.OnBNKB_BANK_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKB_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BNKB_CODE
-		{
-			get
-			{
-				return this._BNKB_CODE;
-			}
-			set
-			{
-				if ((this._BNKB_CODE != value))
-				{
-					if (this._Bank_Branch.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBNKB_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._BNKB_CODE = value;
-					this.SendPropertyChanged("BNKB_CODE");
-					this.OnBNKB_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACNT_NUMB", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ACNT_NUMB
-		{
-			get
-			{
-				return this._ACNT_NUMB;
-			}
-			set
-			{
-				if ((this._ACNT_NUMB != value))
-				{
-					this.OnACNT_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._ACNT_NUMB = value;
-					this.SendPropertyChanged("ACNT_NUMB");
-					this.OnACNT_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACNT_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ACNT_NAME
-		{
-			get
-			{
-				return this._ACNT_NAME;
-			}
-			set
-			{
-				if ((this._ACNT_NAME != value))
-				{
-					this.OnACNT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._ACNT_NAME = value;
-					this.SendPropertyChanged("ACNT_NAME");
-					this.OnACNT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACNT_TYPE", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string ACNT_TYPE
-		{
-			get
-			{
-				return this._ACNT_TYPE;
-			}
-			set
-			{
-				if ((this._ACNT_TYPE != value))
-				{
-					this.OnACNT_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ACNT_TYPE = value;
-					this.SendPropertyChanged("ACNT_TYPE");
-					this.OnACNT_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OWNR_TYPE", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
-		public string OWNR_TYPE
-		{
-			get
-			{
-				return this._OWNR_TYPE;
-			}
-			set
-			{
-				if ((this._OWNR_TYPE != value))
-				{
-					this.OnOWNR_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._OWNR_TYPE = value;
-					this.SendPropertyChanged("OWNR_TYPE");
-					this.OnOWNR_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_ACNT", DbType="VarChar(26)")]
-		public string SHBA_ACNT
-		{
-			get
-			{
-				return this._SHBA_ACNT;
-			}
-			set
-			{
-				if ((this._SHBA_ACNT != value))
-				{
-					this.OnSHBA_ACNTChanging(value);
-					this.SendPropertyChanging();
-					this._SHBA_ACNT = value;
-					this.SendPropertyChanged("SHBA_ACNT");
-					this.OnSHBA_ACNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime NOT NULL")]
-		public System.DateTime CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bank_Account_Pos_Subsystem", Storage="_Pos_Subsystems", ThisKey="BNKB_BANK_CODE,BNKB_CODE,ACNT_NUMB", OtherKey="BNKA_BNKB_BANK_CODE,BNKA_BNKB_CODE,BNKA_ACNT_NUMB")]
-		public EntitySet<Pos_Subsystem> Pos_Subsystems
-		{
-			get
-			{
-				return this._Pos_Subsystems;
-			}
-			set
-			{
-				this._Pos_Subsystems.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bank_Branch_Bank_Account", Storage="_Bank_Branch", ThisKey="BNKB_BANK_CODE,BNKB_CODE", OtherKey="BANK_CODE,CODE", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Bank_Branch Bank_Branch
-		{
-			get
-			{
-				return this._Bank_Branch.Entity;
-			}
-			set
-			{
-				Bank_Branch previousValue = this._Bank_Branch.Entity;
-				if (((previousValue != value) 
-							|| (this._Bank_Branch.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Bank_Branch.Entity = null;
-						previousValue.Bank_Accounts.Remove(this);
-					}
-					this._Bank_Branch.Entity = value;
-					if ((value != null))
-					{
-						value.Bank_Accounts.Add(this);
-						this._BNKB_BANK_CODE = value.BANK_CODE;
-						this._BNKB_CODE = value.CODE;
-					}
-					else
-					{
-						this._BNKB_BANK_CODE = default(string);
-						this._BNKB_CODE = default(string);
-					}
-					this.SendPropertyChanged("Bank_Branch");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Pos_Subsystems(Pos_Subsystem entity)
-		{
-			this.SendPropertyChanging();
-			entity.Bank_Account = this;
-		}
-		
-		private void detach_Pos_Subsystems(Pos_Subsystem entity)
-		{
-			this.SendPropertyChanging();
-			entity.Bank_Account = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Pos_Subsystem")]
-	public partial class Pos_Subsystem : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _BNKA_BNKB_BANK_CODE;
-		
-		private string _BNKA_BNKB_CODE;
-		
-		private string _BNKA_ACNT_NUMB;
-		
-		private int _SUB_SYS;
-		
-		private string _POS_STAT;
-		
-		private string _POS_DFLT;
-		
-		private string _SEND_AMNT_EDIT;
-		
-		private string _SEND_DATA_ON_DEVC;
-		
-		private string _FILL_RSLT_DATA;
-		
-		private string _POS_CNCT_TYPE;
-		
-		private string _IP_ADRS;
-		
-		private string _COMM_PORT;
-		
-		private System.Nullable<int> _BAND_RATE;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Bank_Account> _Bank_Account;
-		
-		private EntityRef<Sub_System> _Sub_System;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBNKA_BNKB_BANK_CODEChanging(string value);
-    partial void OnBNKA_BNKB_BANK_CODEChanged();
-    partial void OnBNKA_BNKB_CODEChanging(string value);
-    partial void OnBNKA_BNKB_CODEChanged();
-    partial void OnBNKA_ACNT_NUMBChanging(string value);
-    partial void OnBNKA_ACNT_NUMBChanged();
-    partial void OnSUB_SYSChanging(int value);
-    partial void OnSUB_SYSChanged();
-    partial void OnPOS_STATChanging(string value);
-    partial void OnPOS_STATChanged();
-    partial void OnPOS_DFLTChanging(string value);
-    partial void OnPOS_DFLTChanged();
-    partial void OnSEND_AMNT_EDITChanging(string value);
-    partial void OnSEND_AMNT_EDITChanged();
-    partial void OnSEND_DATA_ON_DEVCChanging(string value);
-    partial void OnSEND_DATA_ON_DEVCChanged();
-    partial void OnFILL_RSLT_DATAChanging(string value);
-    partial void OnFILL_RSLT_DATAChanged();
-    partial void OnPOS_CNCT_TYPEChanging(string value);
-    partial void OnPOS_CNCT_TYPEChanged();
-    partial void OnIP_ADRSChanging(string value);
-    partial void OnIP_ADRSChanged();
-    partial void OnCOMM_PORTChanging(string value);
-    partial void OnCOMM_PORTChanged();
-    partial void OnBAND_RATEChanging(System.Nullable<int> value);
-    partial void OnBAND_RATEChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Pos_Subsystem()
-		{
-			this._Bank_Account = default(EntityRef<Bank_Account>);
-			this._Sub_System = default(EntityRef<Sub_System>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_BNKB_BANK_CODE", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BNKA_BNKB_BANK_CODE
-		{
-			get
-			{
-				return this._BNKA_BNKB_BANK_CODE;
-			}
-			set
-			{
-				if ((this._BNKA_BNKB_BANK_CODE != value))
-				{
-					if (this._Bank_Account.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBNKA_BNKB_BANK_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._BNKA_BNKB_BANK_CODE = value;
-					this.SendPropertyChanged("BNKA_BNKB_BANK_CODE");
-					this.OnBNKA_BNKB_BANK_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_BNKB_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BNKA_BNKB_CODE
-		{
-			get
-			{
-				return this._BNKA_BNKB_CODE;
-			}
-			set
-			{
-				if ((this._BNKA_BNKB_CODE != value))
-				{
-					if (this._Bank_Account.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBNKA_BNKB_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._BNKA_BNKB_CODE = value;
-					this.SendPropertyChanged("BNKA_BNKB_CODE");
-					this.OnBNKA_BNKB_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_ACNT_NUMB", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BNKA_ACNT_NUMB
-		{
-			get
-			{
-				return this._BNKA_ACNT_NUMB;
-			}
-			set
-			{
-				if ((this._BNKA_ACNT_NUMB != value))
-				{
-					if (this._Bank_Account.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBNKA_ACNT_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._BNKA_ACNT_NUMB = value;
-					this.SendPropertyChanged("BNKA_ACNT_NUMB");
-					this.OnBNKA_ACNT_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SUB_SYS
-		{
-			get
-			{
-				return this._SUB_SYS;
-			}
-			set
-			{
-				if ((this._SUB_SYS != value))
-				{
-					if (this._Sub_System.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUB_SYSChanging(value);
-					this.SendPropertyChanging();
-					this._SUB_SYS = value;
-					this.SendPropertyChanged("SUB_SYS");
-					this.OnSUB_SYSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_STAT", DbType="VarChar(3)")]
-		public string POS_STAT
-		{
-			get
-			{
-				return this._POS_STAT;
-			}
-			set
-			{
-				if ((this._POS_STAT != value))
-				{
-					this.OnPOS_STATChanging(value);
-					this.SendPropertyChanging();
-					this._POS_STAT = value;
-					this.SendPropertyChanged("POS_STAT");
-					this.OnPOS_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DFLT", DbType="VarChar(3)")]
-		public string POS_DFLT
-		{
-			get
-			{
-				return this._POS_DFLT;
-			}
-			set
-			{
-				if ((this._POS_DFLT != value))
-				{
-					this.OnPOS_DFLTChanging(value);
-					this.SendPropertyChanging();
-					this._POS_DFLT = value;
-					this.SendPropertyChanged("POS_DFLT");
-					this.OnPOS_DFLTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_AMNT_EDIT", DbType="VarChar(3)")]
-		public string SEND_AMNT_EDIT
-		{
-			get
-			{
-				return this._SEND_AMNT_EDIT;
-			}
-			set
-			{
-				if ((this._SEND_AMNT_EDIT != value))
-				{
-					this.OnSEND_AMNT_EDITChanging(value);
-					this.SendPropertyChanging();
-					this._SEND_AMNT_EDIT = value;
-					this.SendPropertyChanged("SEND_AMNT_EDIT");
-					this.OnSEND_AMNT_EDITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_DATA_ON_DEVC", DbType="VarChar(3)")]
-		public string SEND_DATA_ON_DEVC
-		{
-			get
-			{
-				return this._SEND_DATA_ON_DEVC;
-			}
-			set
-			{
-				if ((this._SEND_DATA_ON_DEVC != value))
-				{
-					this.OnSEND_DATA_ON_DEVCChanging(value);
-					this.SendPropertyChanging();
-					this._SEND_DATA_ON_DEVC = value;
-					this.SendPropertyChanged("SEND_DATA_ON_DEVC");
-					this.OnSEND_DATA_ON_DEVCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILL_RSLT_DATA", DbType="VarChar(3)")]
-		public string FILL_RSLT_DATA
-		{
-			get
-			{
-				return this._FILL_RSLT_DATA;
-			}
-			set
-			{
-				if ((this._FILL_RSLT_DATA != value))
-				{
-					this.OnFILL_RSLT_DATAChanging(value);
-					this.SendPropertyChanging();
-					this._FILL_RSLT_DATA = value;
-					this.SendPropertyChanged("FILL_RSLT_DATA");
-					this.OnFILL_RSLT_DATAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_CNCT_TYPE", DbType="VarChar(3)")]
-		public string POS_CNCT_TYPE
-		{
-			get
-			{
-				return this._POS_CNCT_TYPE;
-			}
-			set
-			{
-				if ((this._POS_CNCT_TYPE != value))
-				{
-					this.OnPOS_CNCT_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._POS_CNCT_TYPE = value;
-					this.SendPropertyChanged("POS_CNCT_TYPE");
-					this.OnPOS_CNCT_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(15)")]
-		public string IP_ADRS
-		{
-			get
-			{
-				return this._IP_ADRS;
-			}
-			set
-			{
-				if ((this._IP_ADRS != value))
-				{
-					this.OnIP_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._IP_ADRS = value;
-					this.SendPropertyChanged("IP_ADRS");
-					this.OnIP_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT", DbType="VarChar(15)")]
-		public string COMM_PORT
-		{
-			get
-			{
-				return this._COMM_PORT;
-			}
-			set
-			{
-				if ((this._COMM_PORT != value))
-				{
-					this.OnCOMM_PORTChanging(value);
-					this.SendPropertyChanging();
-					this._COMM_PORT = value;
-					this.SendPropertyChanged("COMM_PORT");
-					this.OnCOMM_PORTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int")]
-		public System.Nullable<int> BAND_RATE
-		{
-			get
-			{
-				return this._BAND_RATE;
-			}
-			set
-			{
-				if ((this._BAND_RATE != value))
-				{
-					this.OnBAND_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._BAND_RATE = value;
-					this.SendPropertyChanged("BAND_RATE");
-					this.OnBAND_RATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bank_Account_Pos_Subsystem", Storage="_Bank_Account", ThisKey="BNKA_BNKB_BANK_CODE,BNKA_BNKB_CODE,BNKA_ACNT_NUMB", OtherKey="BNKB_BANK_CODE,BNKB_CODE,ACNT_NUMB", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Bank_Account Bank_Account
-		{
-			get
-			{
-				return this._Bank_Account.Entity;
-			}
-			set
-			{
-				Bank_Account previousValue = this._Bank_Account.Entity;
-				if (((previousValue != value) 
-							|| (this._Bank_Account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Bank_Account.Entity = null;
-						previousValue.Pos_Subsystems.Remove(this);
-					}
-					this._Bank_Account.Entity = value;
-					if ((value != null))
-					{
-						value.Pos_Subsystems.Add(this);
-						this._BNKA_BNKB_BANK_CODE = value.BNKB_BANK_CODE;
-						this._BNKA_BNKB_CODE = value.BNKB_CODE;
-						this._BNKA_ACNT_NUMB = value.ACNT_NUMB;
-					}
-					else
-					{
-						this._BNKA_BNKB_BANK_CODE = default(string);
-						this._BNKA_BNKB_CODE = default(string);
-						this._BNKA_ACNT_NUMB = default(string);
-					}
-					this.SendPropertyChanged("Bank_Account");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Pos_Subsystem", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Sub_System Sub_System
-		{
-			get
-			{
-				return this._Sub_System.Entity;
-			}
-			set
-			{
-				Sub_System previousValue = this._Sub_System.Entity;
-				if (((previousValue != value) 
-							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sub_System.Entity = null;
-						previousValue.Pos_Subsystems.Remove(this);
-					}
-					this._Sub_System.Entity = value;
-					if ((value != null))
-					{
-						value.Pos_Subsystems.Add(this);
-						this._SUB_SYS = value.SUB_SYS;
-					}
-					else
-					{
-						this._SUB_SYS = default(int);
-					}
-					this.SendPropertyChanged("Sub_System");
 				}
 			}
 		}
@@ -16337,8 +14813,6 @@ namespace System.DataGuard.Data
 		
 		private EntitySet<Action_Center> _Action_Centers;
 		
-		private EntitySet<Pos_Subsystem> _Pos_Subsystems;
-		
 		private EntitySet<Sub_System_Item> _Sub_System_Items;
 		
 		private EntitySet<DataSource> _DataSources;
@@ -16403,7 +14877,6 @@ namespace System.DataGuard.Data
 		{
 			this._Packages = new EntitySet<Package>(new Action<Package>(this.attach_Packages), new Action<Package>(this.detach_Packages));
 			this._Action_Centers = new EntitySet<Action_Center>(new Action<Action_Center>(this.attach_Action_Centers), new Action<Action_Center>(this.detach_Action_Centers));
-			this._Pos_Subsystems = new EntitySet<Pos_Subsystem>(new Action<Pos_Subsystem>(this.attach_Pos_Subsystems), new Action<Pos_Subsystem>(this.detach_Pos_Subsystems));
 			this._Sub_System_Items = new EntitySet<Sub_System_Item>(new Action<Sub_System_Item>(this.attach_Sub_System_Items), new Action<Sub_System_Item>(this.detach_Sub_System_Items));
 			this._DataSources = new EntitySet<DataSource>(new Action<DataSource>(this.attach_DataSources), new Action<DataSource>(this.detach_DataSources));
 			this._Box_Privileges = new EntitySet<Box_Privilege>(new Action<Box_Privilege>(this.attach_Box_Privileges), new Action<Box_Privilege>(this.detach_Box_Privileges));
@@ -16878,19 +15351,6 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Pos_Subsystem", Storage="_Pos_Subsystems", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Pos_Subsystem> Pos_Subsystems
-		{
-			get
-			{
-				return this._Pos_Subsystems;
-			}
-			set
-			{
-				this._Pos_Subsystems.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Sub_System_Item", Storage="_Sub_System_Items", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
 		public EntitySet<Sub_System_Item> Sub_System_Items
 		{
@@ -16995,18 +15455,6 @@ namespace System.DataGuard.Data
 		}
 		
 		private void detach_Action_Centers(Action_Center entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Pos_Subsystems(Pos_Subsystem entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Pos_Subsystems(Pos_Subsystem entity)
 		{
 			this.SendPropertyChanging();
 			entity.Sub_System = null;
@@ -18257,6 +16705,683 @@ namespace System.DataGuard.Data
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.D$CNTP")]
+	public partial class D_CNTP
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_CNTP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.D$BANK")]
+	public partial class D_BANK
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_BANK()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.D$ACTV")]
+	public partial class D_ACTV
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_ACTV()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Pos_Device")]
+	public partial class Pos_Device : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _PSID;
+		
+		private string _BANK_TYPE;
+		
+		private string _BNKB_CODE;
+		
+		private string _BNKA_ACNT_NUMB;
+		
+		private string _SHBA_CODE;
+		
+		private string _POS_DESC;
+		
+		private string _POS_STAT;
+		
+		private string _POS_DFLT;
+		
+		private string _SEND_AMNT_EDIT;
+		
+		private string _SEND_DATA_ON_DEVC;
+		
+		private string _FILL_RSLT_DATA;
+		
+		private string _POS_CNCT_TYPE;
+		
+		private string _IP_ADRS;
+		
+		private string _COMM_PORT;
+		
+		private System.Nullable<int> _BAND_RATE;
+		
+		private string _PRNT_SALE;
+		
+		private string _PRNT_CUST;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPSIDChanging(long value);
+    partial void OnPSIDChanged();
+    partial void OnBANK_TYPEChanging(string value);
+    partial void OnBANK_TYPEChanged();
+    partial void OnBNKB_CODEChanging(string value);
+    partial void OnBNKB_CODEChanged();
+    partial void OnBNKA_ACNT_NUMBChanging(string value);
+    partial void OnBNKA_ACNT_NUMBChanged();
+    partial void OnSHBA_CODEChanging(string value);
+    partial void OnSHBA_CODEChanged();
+    partial void OnPOS_DESCChanging(string value);
+    partial void OnPOS_DESCChanged();
+    partial void OnPOS_STATChanging(string value);
+    partial void OnPOS_STATChanged();
+    partial void OnPOS_DFLTChanging(string value);
+    partial void OnPOS_DFLTChanged();
+    partial void OnSEND_AMNT_EDITChanging(string value);
+    partial void OnSEND_AMNT_EDITChanged();
+    partial void OnSEND_DATA_ON_DEVCChanging(string value);
+    partial void OnSEND_DATA_ON_DEVCChanged();
+    partial void OnFILL_RSLT_DATAChanging(string value);
+    partial void OnFILL_RSLT_DATAChanged();
+    partial void OnPOS_CNCT_TYPEChanging(string value);
+    partial void OnPOS_CNCT_TYPEChanged();
+    partial void OnIP_ADRSChanging(string value);
+    partial void OnIP_ADRSChanged();
+    partial void OnCOMM_PORTChanging(string value);
+    partial void OnCOMM_PORTChanged();
+    partial void OnBAND_RATEChanging(System.Nullable<int> value);
+    partial void OnBAND_RATEChanged();
+    partial void OnPRNT_SALEChanging(string value);
+    partial void OnPRNT_SALEChanged();
+    partial void OnPRNT_CUSTChanging(string value);
+    partial void OnPRNT_CUSTChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Pos_Device()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long PSID
+		{
+			get
+			{
+				return this._PSID;
+			}
+			set
+			{
+				if ((this._PSID != value))
+				{
+					this.OnPSIDChanging(value);
+					this.SendPropertyChanging();
+					this._PSID = value;
+					this.SendPropertyChanged("PSID");
+					this.OnPSIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string BANK_TYPE
+		{
+			get
+			{
+				return this._BANK_TYPE;
+			}
+			set
+			{
+				if ((this._BANK_TYPE != value))
+				{
+					this.OnBANK_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._BANK_TYPE = value;
+					this.SendPropertyChanged("BANK_TYPE");
+					this.OnBANK_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKB_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string BNKB_CODE
+		{
+			get
+			{
+				return this._BNKB_CODE;
+			}
+			set
+			{
+				if ((this._BNKB_CODE != value))
+				{
+					this.OnBNKB_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._BNKB_CODE = value;
+					this.SendPropertyChanged("BNKB_CODE");
+					this.OnBNKB_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_ACNT_NUMB", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string BNKA_ACNT_NUMB
+		{
+			get
+			{
+				return this._BNKA_ACNT_NUMB;
+			}
+			set
+			{
+				if ((this._BNKA_ACNT_NUMB != value))
+				{
+					this.OnBNKA_ACNT_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._BNKA_ACNT_NUMB = value;
+					this.SendPropertyChanged("BNKA_ACNT_NUMB");
+					this.OnBNKA_ACNT_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_CODE", DbType="VarChar(50)")]
+		public string SHBA_CODE
+		{
+			get
+			{
+				return this._SHBA_CODE;
+			}
+			set
+			{
+				if ((this._SHBA_CODE != value))
+				{
+					this.OnSHBA_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SHBA_CODE = value;
+					this.SendPropertyChanged("SHBA_CODE");
+					this.OnSHBA_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DESC", DbType="NVarChar(250)")]
+		public string POS_DESC
+		{
+			get
+			{
+				return this._POS_DESC;
+			}
+			set
+			{
+				if ((this._POS_DESC != value))
+				{
+					this.OnPOS_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._POS_DESC = value;
+					this.SendPropertyChanged("POS_DESC");
+					this.OnPOS_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_STAT", DbType="VarChar(3)")]
+		public string POS_STAT
+		{
+			get
+			{
+				return this._POS_STAT;
+			}
+			set
+			{
+				if ((this._POS_STAT != value))
+				{
+					this.OnPOS_STATChanging(value);
+					this.SendPropertyChanging();
+					this._POS_STAT = value;
+					this.SendPropertyChanged("POS_STAT");
+					this.OnPOS_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DFLT", DbType="VarChar(3)")]
+		public string POS_DFLT
+		{
+			get
+			{
+				return this._POS_DFLT;
+			}
+			set
+			{
+				if ((this._POS_DFLT != value))
+				{
+					this.OnPOS_DFLTChanging(value);
+					this.SendPropertyChanging();
+					this._POS_DFLT = value;
+					this.SendPropertyChanged("POS_DFLT");
+					this.OnPOS_DFLTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_AMNT_EDIT", DbType="VarChar(3)")]
+		public string SEND_AMNT_EDIT
+		{
+			get
+			{
+				return this._SEND_AMNT_EDIT;
+			}
+			set
+			{
+				if ((this._SEND_AMNT_EDIT != value))
+				{
+					this.OnSEND_AMNT_EDITChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_AMNT_EDIT = value;
+					this.SendPropertyChanged("SEND_AMNT_EDIT");
+					this.OnSEND_AMNT_EDITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_DATA_ON_DEVC", DbType="VarChar(3)")]
+		public string SEND_DATA_ON_DEVC
+		{
+			get
+			{
+				return this._SEND_DATA_ON_DEVC;
+			}
+			set
+			{
+				if ((this._SEND_DATA_ON_DEVC != value))
+				{
+					this.OnSEND_DATA_ON_DEVCChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_DATA_ON_DEVC = value;
+					this.SendPropertyChanged("SEND_DATA_ON_DEVC");
+					this.OnSEND_DATA_ON_DEVCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILL_RSLT_DATA", DbType="VarChar(3)")]
+		public string FILL_RSLT_DATA
+		{
+			get
+			{
+				return this._FILL_RSLT_DATA;
+			}
+			set
+			{
+				if ((this._FILL_RSLT_DATA != value))
+				{
+					this.OnFILL_RSLT_DATAChanging(value);
+					this.SendPropertyChanging();
+					this._FILL_RSLT_DATA = value;
+					this.SendPropertyChanged("FILL_RSLT_DATA");
+					this.OnFILL_RSLT_DATAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_CNCT_TYPE", DbType="VarChar(3)")]
+		public string POS_CNCT_TYPE
+		{
+			get
+			{
+				return this._POS_CNCT_TYPE;
+			}
+			set
+			{
+				if ((this._POS_CNCT_TYPE != value))
+				{
+					this.OnPOS_CNCT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._POS_CNCT_TYPE = value;
+					this.SendPropertyChanged("POS_CNCT_TYPE");
+					this.OnPOS_CNCT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(15)")]
+		public string IP_ADRS
+		{
+			get
+			{
+				return this._IP_ADRS;
+			}
+			set
+			{
+				if ((this._IP_ADRS != value))
+				{
+					this.OnIP_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._IP_ADRS = value;
+					this.SendPropertyChanged("IP_ADRS");
+					this.OnIP_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT", DbType="VarChar(15)")]
+		public string COMM_PORT
+		{
+			get
+			{
+				return this._COMM_PORT;
+			}
+			set
+			{
+				if ((this._COMM_PORT != value))
+				{
+					this.OnCOMM_PORTChanging(value);
+					this.SendPropertyChanging();
+					this._COMM_PORT = value;
+					this.SendPropertyChanged("COMM_PORT");
+					this.OnCOMM_PORTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int")]
+		public System.Nullable<int> BAND_RATE
+		{
+			get
+			{
+				return this._BAND_RATE;
+			}
+			set
+			{
+				if ((this._BAND_RATE != value))
+				{
+					this.OnBAND_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._BAND_RATE = value;
+					this.SendPropertyChanged("BAND_RATE");
+					this.OnBAND_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRNT_SALE", DbType="NVarChar(250)")]
+		public string PRNT_SALE
+		{
+			get
+			{
+				return this._PRNT_SALE;
+			}
+			set
+			{
+				if ((this._PRNT_SALE != value))
+				{
+					this.OnPRNT_SALEChanging(value);
+					this.SendPropertyChanging();
+					this._PRNT_SALE = value;
+					this.SendPropertyChanged("PRNT_SALE");
+					this.OnPRNT_SALEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRNT_CUST", DbType="NVarChar(250)")]
+		public string PRNT_CUST
+		{
+			get
+			{
+				return this._PRNT_CUST;
+			}
+			set
+			{
+				if ((this._PRNT_CUST != value))
+				{
+					this.OnPRNT_CUSTChanging(value);
+					this.SendPropertyChanging();
+					this._PRNT_CUST = value;
+					this.SendPropertyChanged("PRNT_CUST");
+					this.OnPRNT_CUSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

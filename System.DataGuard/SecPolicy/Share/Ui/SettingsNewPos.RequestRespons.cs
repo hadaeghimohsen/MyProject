@@ -1,5 +1,10 @@
-﻿using System;
+﻿using DirectShowLib;
+using Emgu.CV;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.IO.Ports;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -10,12 +15,13 @@ using System.Windows.Forms;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
-   partial class SettingsDevice : ISendRequest
+   partial class SettingsNewPos : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iProjectDataContext iProject;
       private string ConnectionString;
       private string CurrentUser;
+      private Data.Pos_Device Pos_Device;
 
 
       public void SendRequest(Job job)
@@ -42,6 +48,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                break;
             case 07:
                LoadData(job);
+               break;
+            case 08:
+               LoadDataAsync(job);
                break;
             case 10:
                ActionCallWindow(job);
@@ -118,12 +127,26 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
+         //job.Next =
+         //   new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
+         //   {
+         //      Next = new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */)
+         //      {
+         //         Input = new List<object> { "DataGuard:SecurityPolicy:" + GetType().Name, this },
+         //         Next = new Job(SendType.SelfToUserInterface, "Wall", 00 /* PastManualOnWall */)
+         //         {
+         //            Input = new List<object> { this, "cntrhrz:normal" },
+         //            //Next = new Job(SendType.SelfToUserInterface, "Wall", 19 /* Execute SetClearForm */)
+         //         }
+         //      }
+         //   };
+
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { "DataGuard:SecurityPolicy:" + GetType().Name, this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 01 /* Execute PastOnWall */){ Input = this }               
+               new Job(SendType.SelfToUserInterface, "Wall", 00 /* Execute PastManualOnWall */){ Input = new List<object> { this, "cntrhrz:normal" } }
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -151,30 +174,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private void CheckSecurity(Job job)
       {
-         Job _InteractWithJob =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.External, "Commons",
-                     new List<Job>
-                     {
-                        #region Access Privilege
-                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
-                        {
-                           Input = new List<string> {"<Privilege>31</Privilege><Sub_Sys>0</Sub_Sys>", "DataGuard"},
-                           AfterChangedOutput = new Action<object>((output) => {
-                              if ((bool)output)
-                                 return;
-                              #region Show Error
-                              job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 31 امنیتی", "خطا دسترسی");
-                              #endregion                           
-                           })
-                        },
-                        #endregion                        
-                     })                     
-                  });
-         _DefaultGateway.Gateway(_InteractWithJob);
+         job.Status = StatusType.Successful;
       }
 
       /// <summary>
@@ -183,28 +183,45 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         //Execute_Query();
+         DBankBs.DataSource = iProject.D_BANKs;
+         DActvBs.DataSource = iProject.D_ACTVs;
+         DYsnoBs.DataSource = iProject.D_YSNOs;
+         DCntpBs.DataSource = iProject.D_CNTPs;
+         ComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
+
+         PosBs.List.Clear();
+         PosBs.AddNew();
+         Header_Txt.Text = "پایانه فروش جدید";
          job.Status = StatusType.Successful;
       }
 
       /// <summary>
-      /// Code 07
+      /// Code 08
+      /// </summary>
+      /// <param name="job"></param>
+      private void LoadDataAsync(Job job)
+      {         
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 10
       /// </summary>
       /// <param name="job"></param>
       private void ActionCallWindow(Job job)
       {
-         if(job.Input == null)
-            SwitchButtonsTabPage(ClientList_Butn);
+         if (job.Input != null)
+         {
+            Pos_Device = job.Input as Data.Pos_Device;
+            Header_Txt.Text = "نمایش اطلاعات پایانه فروش";
+         }
          else
          {
-            switch (job.Input as string)
-            {
-               case "Pos_Butn":
-                  SwitchButtonsTabPage(Pos_Butn);
-                  break;
-               default:
-                  break;
-            }
+            Pos_Device = null;
          }
+
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

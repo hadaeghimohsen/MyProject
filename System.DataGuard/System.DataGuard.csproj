@@ -255,11 +255,20 @@
     <Compile Include="SecPolicy\Share\Ui\ActionCenter.Designer.cs">
       <DependentUpon>ActionCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPaymentPos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPaymentPos.Designer.cs">
+      <DependentUpon>SettingsPaymentPos.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsNewPos.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsNewPos.Designer.cs">
       <DependentUpon>SettingsNewPos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsPaymentPos.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsNewPos.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -746,6 +755,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsPaymentPos.resx">
+      <DependentUpon>SettingsPaymentPos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsNewPos.resx">
       <DependentUpon>SettingsNewPos.cs</DependentUpon>

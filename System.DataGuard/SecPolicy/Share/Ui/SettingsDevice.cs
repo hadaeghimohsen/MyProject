@@ -167,8 +167,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.Self, 37 /* Execute DoWork4SettingsNewPos */),
-                     new Job(SendType.SelfToUserInterface, "SettingsNewPos", 10 /* Execute ActionCallWindow */){Input = pos}
+                     new Job(SendType.Self, 38 /* Execute DoWork4SettingsPaymentPos */),
+                     new Job(SendType.SelfToUserInterface, "SettingsPaymentPos", 10 /* Execute ActionCallWindow */){Input = pos}
                   }
                )
             );

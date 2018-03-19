@@ -931,6 +931,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.ServiceDef_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Sub_System.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Sub_System_Item.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Transaction_Log.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Gateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Privilege.datasource" />
@@ -1441,6 +1442,12 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1551.png">
       <Link>Resources\IMAGE_1551.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1577.png">
+      <Link>Resources\IMAGE_1577.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1603.png">
+      <Link>Resources\IMAGE_1603.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1619.png">
       <Link>Resources\IMAGE_1619.png</Link>

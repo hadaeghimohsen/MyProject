@@ -127,26 +127,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
-         //job.Next =
-         //   new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
-         //   {
-         //      Next = new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */)
-         //      {
-         //         Input = new List<object> { "DataGuard:SecurityPolicy:" + GetType().Name, this },
-         //         Next = new Job(SendType.SelfToUserInterface, "Wall", 00 /* PastManualOnWall */)
-         //         {
-         //            Input = new List<object> { this, "cntrhrz:normal" },
-         //            //Next = new Job(SendType.SelfToUserInterface, "Wall", 19 /* Execute SetClearForm */)
-         //         }
-         //      }
-         //   };
-
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { "DataGuard:SecurityPolicy:" + GetType().Name, this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 00 /* Execute PastManualOnWall */){ Input = new List<object> { this, "cntrhrz:normal" } }
+               new Job(SendType.SelfToUserInterface, "Wall", 01 /* Execute PastOnWall */){ Input = this }               
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -184,15 +170,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private void LoadData(Job job)
       {
          //Execute_Query();
-         DBankBs.DataSource = iProject.D_BANKs;
-         DActvBs.DataSource = iProject.D_ACTVs;
-         DYsnoBs.DataSource = iProject.D_YSNOs;
-         DCntpBs.DataSource = iProject.D_CNTPs;
-         ComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
-
-         PosBs.List.Clear();
-         PosBs.AddNew();
-         Header_Txt.Text = "پایانه فروش جدید";
+         DBankBs.DataSource = iProject.D_BANKs;      
          job.Status = StatusType.Successful;
       }
 
@@ -214,14 +192,14 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          if (job.Input != null)
          {
             Pos_Device = job.Input as Data.Pos_Device;
-            Header_Txt.Text = "نمایش اطلاعات پایانه فروش";
          }
          else
          {
             Pos_Device = null;
          }
 
-         Execute_Query();
+         //Execute_Query();
+         RightButns_Click(PosPymt_Butn, null);
          job.Status = StatusType.Successful;
       }
    }

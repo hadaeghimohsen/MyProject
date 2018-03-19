@@ -1653,6 +1653,26 @@ namespace System.DataGuard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1577 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1577", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1603 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1603", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGE_1619 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1619", resourceCulture);

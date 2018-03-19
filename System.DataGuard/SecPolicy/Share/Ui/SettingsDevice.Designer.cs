@@ -142,7 +142,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(952, 432);
+         this.tp_001.Size = new System.Drawing.Size(952, 402);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "سیستم های متصل";
@@ -154,7 +154,7 @@
          this.ActiveSessionList_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
          this.ActiveSessionList_Flp.Location = new System.Drawing.Point(3, 3);
          this.ActiveSessionList_Flp.Name = "ActiveSessionList_Flp";
-         this.ActiveSessionList_Flp.Size = new System.Drawing.Size(946, 426);
+         this.ActiveSessionList_Flp.Size = new System.Drawing.Size(946, 396);
          this.ActiveSessionList_Flp.TabIndex = 1;
          // 
          // simpleButton1
@@ -185,7 +185,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(952, 432);
+         this.tp_002.Size = new System.Drawing.Size(952, 402);
          this.tp_002.TabIndex = 1;
          this.tp_002.Tag = "2";
          this.tp_002.Text = "دستگاه های جانبی متصل";

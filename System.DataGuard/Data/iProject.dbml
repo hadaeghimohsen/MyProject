@@ -734,6 +734,7 @@
       <Association Name="Sub_System_User_Privilege" Member="User_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="User_Privilege" />
       <Association Name="Sub_System_Role" Member="Roles" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Role" />
       <Association Name="Sub_System_Role_Privilege" Member="Role_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="Role_Privilege" />
+      <Association Name="Sub_System_Transaction_Log" Member="Transaction_Logs" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Transaction_Log" />
     </Type>
     <UpdateFunction FunctionId="FunctionId1">
       <Argument Parameter="sub_Sys" Member="SUB_SYS" />
@@ -840,6 +841,33 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Pos_Device_Transaction_Log" Member="Transaction_Logs" ThisKey="PSID" OtherKey="POSD_PSID" Type="Transaction_Log" />
+    </Type>
+  </Table>
+  <Table Name="Global.Transaction_Log" Member="Transaction_Logs">
+    <Type Name="Transaction_Log">
+      <Column Name="POSD_PSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TRAN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ISSU_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RESP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="FLOW_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="REF_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SERL_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
+      <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

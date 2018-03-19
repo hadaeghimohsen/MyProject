@@ -33,6 +33,39 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
+      List<TabPage> listTabPages;
+      private void SwitchButtonsTabPage(object sender)
+      {
+         try
+         {
+            #region Action on Buttons
+            SimpleButton butn = sender as SimpleButton;
+            var flowlayout = butn.Parent as FlowLayoutPanel;
+            foreach (SimpleButton b in flowlayout.Controls)
+            {
+               b.ForeColor = Color.FromArgb(64, 64, 64);
+            }
+            butn.ForeColor = Color.DodgerBlue;
+            #endregion
+            #region Action on TabControl
+            if (listTabPages == null)
+               listTabPages = Tb_Master.TabPages.OfType<TabPage>().ToList();
+
+            var selectedtabpage = listTabPages.Where(t => t.Tag == butn.Tag).First();
+            Tb_Master.TabPages.Clear();
+            Tb_Master.TabPages.Add(selectedtabpage);
+            #endregion
+         }
+         catch { }
+         finally { Execute_Query(); }
+      }
+
+      private void RightButns_Click(object sender, EventArgs e)
+      {
+         SwitchButtonsTabPage(sender);
+      }
+
+
       private void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
@@ -40,57 +73,29 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             PosBs.DataSource = iProject.Pos_Devices.FirstOrDefault(p => p.PSID == Pos_Device.PSID);
          }
-         else
-         {
-            PosBs.List.Clear();
-            PosBs.AddNew();
-         }
       }
 
-      private void Save_Butn_Click(object sender, EventArgs e)
+      private void PosInfo_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            var pos = PosBs.Current as Data.Pos_Device;           
-
-            iProject.SavePosDevice(
-               new XElement("Pos",
-                  new XAttribute("psid", pos == null ? 0 : pos.PSID),
-                  new XAttribute("banktype", BankType_Lov.EditValue),
-                  new XAttribute("bnkbcode", BnkbCode_Txt.Text),
-                  new XAttribute("bnkaacntnumb", BnkaAcntNumb_Txt.Text),
-                  new XAttribute("shbacode", ShbaCode_Txt.Text),
-                  new XAttribute("posdesc", PosDesc_Txt.Text),
-                  new XAttribute("posstat", PosStat_Lov.EditValue),
-                  new XAttribute("posdflt", PosDfltStat_Lov.EditValue),
-                  new XAttribute("poscncttype", PosCnctType_Lov.EditValue),
-                  new XAttribute("ipadrs", IPAdrs_Txt.Text),
-                  new XAttribute("commport", ComPortName_Txt.Text),
-                  new XAttribute("bandrate", BandRate_Txt.Text),
-                  new XAttribute("prntsale", PrntSale_Txt.Text),
-                  new XAttribute("prntcust", PrntCust_Txt.Text)
-               )
-            );
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.SelfToUserInterface, "SettingsDevice", 10 /* Execute ActionCallWindows */){Input = "Pos_Butn"}
+                     new Job(SendType.Self, 37 /* Execute DoWork4SettingsNewPos */),
+                     new Job(SendType.SelfToUserInterface, "SettingsNewPos", 10 /* Execute ActionCallWindow */){Input = pos}
                   }
                )
             );
-            Back_Butn_Click(null, null);
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
          }
-      }
-
-      private void ComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
-      {
-         ComPortName_Txt.Text = ComPortName_Lov.Text;
-      }
+      }      
    }
 }

@@ -28,6 +28,7 @@
       <Association Name="Gateway_User_Gateway" Member="User_Gateways" ThisKey="MAC_ADRS" OtherKey="GTWY_MAC_ADRS" Type="User_Gateway" />
       <Association Name="Gateway_Gateway_Public" Member="Gateway_Publics" ThisKey="MAC_ADRS" OtherKey="GTWY_MAC_ADRS" Type="Gateway_Public" />
       <Association Name="Gateway_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="MAC_ADRS" OtherKey="HOST_NAME" Type="Access_User_Datasource" />
+      <Association Name="Gateway_Transaction_Log" Member="Transaction_Logs" ThisKey="MAC_ADRS" OtherKey="GTWY_MAC_ADRS" Type="Transaction_Log" />
     </Type>
   </Table>
   <Table Name="DataGuard.User_Gateway" Member="User_Gateways">
@@ -837,6 +838,7 @@
       <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PRNT_SALE" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="PRNT_CUST" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AUTO_COMM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -848,14 +850,17 @@
     <Type Name="Transaction_Log">
       <Column Name="POSD_PSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
       <Column Name="RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TRAN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="PAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="ISSU_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="RESP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RESP_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
@@ -866,6 +871,7 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Gateway_Transaction_Log" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
       <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
       <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
@@ -1012,6 +1018,10 @@
   </Function>
   <Function Name="Global.SavePosDevice" Method="SavePosDevice">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.SaveTransactionLog" Method="SaveTransactionLog">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -4330,14 +4330,14 @@
          // 
          this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainerControl1.Horizontal = false;
-         this.splitContainerControl1.Location = new System.Drawing.Point(3, 28);
+         this.splitContainerControl1.Location = new System.Drawing.Point(3, 35);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.vF_PaymentsResultGridControl);
          this.splitContainerControl1.Panel1.Controls.Add(this.GustInfo_Pn);
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1191, 575);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1191, 568);
          this.splitContainerControl1.SplitterPosition = 272;
          this.splitContainerControl1.TabIndex = 15;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -4795,7 +4795,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.PydtDesc_TextEdit);
          this.splitContainerControl2.Panel2.Controls.Add(this.labelControl3);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1191, 298);
+         this.splitContainerControl2.Size = new System.Drawing.Size(1191, 291);
          this.splitContainerControl2.SplitterPosition = 541;
          this.splitContainerControl2.TabIndex = 0;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -4811,7 +4811,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl3.Panel2.Controls.Add(this.labelControl2);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(541, 298);
+         this.splitContainerControl3.Size = new System.Drawing.Size(541, 291);
          this.splitContainerControl3.SplitterPosition = 282;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -4828,7 +4828,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl3.Size = new System.Drawing.Size(282, 281);
+         this.gridControl3.Size = new System.Drawing.Size(282, 274);
          this.gridControl3.TabIndex = 11;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});
@@ -5065,7 +5065,7 @@
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(254, 281);
+         this.gridControl4.Size = new System.Drawing.Size(254, 274);
          this.gridControl4.TabIndex = 13;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView13});
@@ -5256,7 +5256,7 @@
          this.payment_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_RCTP,
             this.Pydt_Butn});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(645, 259);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(645, 252);
          this.payment_DetailsGridControl.TabIndex = 9;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -5539,7 +5539,7 @@
          // 
          this.PydtDesc_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtsBs1, "PYDT_DESC", true));
          this.PydtDesc_TextEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(0, 276);
+         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(0, 269);
          this.PydtDesc_TextEdit.Name = "PydtDesc_TextEdit";
          this.PydtDesc_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydtDesc_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -5575,6 +5575,7 @@
          this.PaymentsBn.BindingSource = this.vF_SavePaymentsBs;
          this.PaymentsBn.CountItem = this.bindingNavigatorCountItem1;
          this.PaymentsBn.DeleteItem = this.bindingNavigatorDeleteItem1;
+         this.PaymentsBn.ImageScalingSize = new System.Drawing.Size(20, 20);
          this.PaymentsBn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem1,
             this.bindingNavigatorMovePreviousItem1,
@@ -5602,7 +5603,7 @@
          this.PaymentsBn.Name = "PaymentsBn";
          this.PaymentsBn.PositionItem = this.bindingNavigatorPositionItem1;
          this.PaymentsBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.PaymentsBn.Size = new System.Drawing.Size(1191, 25);
+         this.PaymentsBn.Size = new System.Drawing.Size(1191, 32);
          this.PaymentsBn.TabIndex = 1;
          this.PaymentsBn.Text = "bindingNavigator1";
          // 
@@ -5613,14 +5614,14 @@
          this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
          this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem1";
          this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 29);
          this.bindingNavigatorAddNewItem1.Text = "Add new";
          this.bindingNavigatorAddNewItem1.Visible = false;
          // 
          // bindingNavigatorCountItem1
          // 
          this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
-         this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 29);
          this.bindingNavigatorCountItem1.Text = "of {0}";
          this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
          // 
@@ -5631,7 +5632,7 @@
          this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
          this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
          this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(24, 29);
          this.bindingNavigatorDeleteItem1.Text = "Delete";
          this.bindingNavigatorDeleteItem1.Visible = false;
          // 
@@ -5641,7 +5642,7 @@
          this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
          this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
          this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 29);
          this.bindingNavigatorMoveFirstItem1.Text = "Move first";
          // 
          // bindingNavigatorMovePreviousItem1
@@ -5650,13 +5651,13 @@
          this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
          this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
          this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 29);
          this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
          // 
          // bindingNavigatorSeparator3
          // 
          this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
-         this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 25);
+         this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 32);
          // 
          // bindingNavigatorPositionItem1
          // 
@@ -5670,7 +5671,7 @@
          // bindingNavigatorSeparator4
          // 
          this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
-         this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 25);
+         this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 32);
          // 
          // bindingNavigatorMoveNextItem1
          // 
@@ -5678,7 +5679,7 @@
          this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
          this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
          this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 29);
          this.bindingNavigatorMoveNextItem1.Text = "Move next";
          // 
          // bindingNavigatorMoveLastItem1
@@ -5687,13 +5688,13 @@
          this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
          this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
          this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 29);
          this.bindingNavigatorMoveLastItem1.Text = "Move last";
          // 
          // bindingNavigatorSeparator5
          // 
          this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
-         this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
+         this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 32);
          // 
          // PymtSave_Butn
          // 
@@ -5701,7 +5702,7 @@
          this.PymtSave_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
          this.PymtSave_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.PymtSave_Butn.Name = "PymtSave_Butn";
-         this.PymtSave_Butn.Size = new System.Drawing.Size(23, 22);
+         this.PymtSave_Butn.Size = new System.Drawing.Size(24, 29);
          this.PymtSave_Butn.Text = "ویرایش و ذخیره کردن صورتحساب";
          this.PymtSave_Butn.Click += new System.EventHandler(this.PymtSave_Butn_Click);
          // 
@@ -5711,14 +5712,14 @@
          this.CmpsRcpt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1103;
          this.CmpsRcpt_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.CmpsRcpt_Butn.Name = "CmpsRcpt_Butn";
-         this.CmpsRcpt_Butn.Size = new System.Drawing.Size(23, 22);
+         this.CmpsRcpt_Butn.Size = new System.Drawing.Size(24, 29);
          this.CmpsRcpt_Butn.Text = "دریافت مرکب";
          this.CmpsRcpt_Butn.Click += new System.EventHandler(this.CmpsRcpt_Butn_Click);
          // 
          // toolStripSeparator4
          // 
          this.toolStripSeparator4.Name = "toolStripSeparator4";
-         this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+         this.toolStripSeparator4.Size = new System.Drawing.Size(6, 32);
          // 
          // Tsb_ShowRqtp16
          // 
@@ -5726,7 +5727,7 @@
          this.Tsb_ShowRqtp16.Image = global::System.Scsc.Properties.Resources.IMAGE_1137;
          this.Tsb_ShowRqtp16.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Tsb_ShowRqtp16.Name = "Tsb_ShowRqtp16";
-         this.Tsb_ShowRqtp16.Size = new System.Drawing.Size(23, 22);
+         this.Tsb_ShowRqtp16.Size = new System.Drawing.Size(24, 29);
          this.Tsb_ShowRqtp16.Text = "صورتحساب های متفرقه";
          this.Tsb_ShowRqtp16.Click += new System.EventHandler(this.Tsb_ShowRqtp16_Click);
          // 
@@ -5736,14 +5737,14 @@
          this.Tsb_ClearRqtp.Image = global::System.Scsc.Properties.Resources.IMAGE_1123;
          this.Tsb_ClearRqtp.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Tsb_ClearRqtp.Name = "Tsb_ClearRqtp";
-         this.Tsb_ClearRqtp.Size = new System.Drawing.Size(23, 22);
+         this.Tsb_ClearRqtp.Size = new System.Drawing.Size(24, 29);
          this.Tsb_ClearRqtp.Text = "تمام صورتحساب ها";
          this.Tsb_ClearRqtp.Click += new System.EventHandler(this.Tsb_ClearRqtp_Click);
          // 
          // toolStripSeparator5
          // 
          this.toolStripSeparator5.Name = "toolStripSeparator5";
-         this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+         this.toolStripSeparator5.Size = new System.Drawing.Size(6, 32);
          // 
          // toolStripDropDownButton1
          // 
@@ -5754,7 +5755,7 @@
          this.toolStripDropDownButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1072;
          this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-         this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+         this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 29);
          this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
          // 
          // ShowCrntReglYear_Butn

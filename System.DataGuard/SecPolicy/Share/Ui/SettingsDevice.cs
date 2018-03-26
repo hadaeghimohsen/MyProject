@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using DevExpress.XtraEditors;
 using System.Globalization;
+using System.Xml.Linq;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -150,7 +151,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             pos.TabIndex = 1;
             pos.Tag = item;
             pos.Click += Pos_Click;
-            pos.Text = string.Format("{0}  {1}<br><color=Gray><size=9>{2}</size></color><br>" + "<color=Green><size=9>{3}</size></color><br>", item.POS_DESC, item.POS_DFLT == "002" ? "<b>*</b>" : "", iProject.D_BANKs.FirstOrDefault(b => item.BANK_TYPE == b.VALU).DOMN_DESC + " : " + item.BNKB_CODE, "شماره حساب : " + item.BNKA_ACNT_NUMB);
+            pos.Text = string.Format("{0}  {1}{4}<br><color=Gray><size=9>{2}</size></color><br>" + "<color=Green><size=9>{3}</size></color><br>", item.POS_DESC, item.POS_DFLT == "002" ? "<b>*</b>" : "", iProject.D_BANKs.FirstOrDefault(b => item.BANK_TYPE == b.VALU).DOMN_DESC + " : " + item.BNKB_CODE, "شماره حساب : " + item.BNKA_ACNT_NUMB, item.AUTO_COMM == "002" ? "<b>@</b>" : "");
             
             PosList_Flp.Controls.Add(pos);
          }
@@ -168,7 +169,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   new List<Job>
                   {
                      new Job(SendType.Self, 38 /* Execute DoWork4SettingsPaymentPos */),
-                     new Job(SendType.SelfToUserInterface, "SettingsPaymentPos", 10 /* Execute ActionCallWindow */){Input = pos}
+                     new Job(SendType.SelfToUserInterface, "SettingsPaymentPos", 10 /* Execute ActionCallWindow */)
+                     {
+                        Input = 
+                           new XElement("Pos",
+                              new XAttribute("psid", pos.PSID)
+                           )
+                     }
                   }
                )
             );

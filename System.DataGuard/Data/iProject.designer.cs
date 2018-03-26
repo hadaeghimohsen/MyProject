@@ -838,6 +838,14 @@ namespace System.DataGuard.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.SaveTransactionLog")]
+		public int SaveTransactionLog([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] ref System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			x = ((System.Xml.Linq.XElement)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Gateway")]
@@ -898,6 +906,8 @@ namespace System.DataGuard.Data
 		
 		private EntitySet<Access_User_Datasource> _Access_User_Datasources;
 		
+		private EntitySet<Transaction_Log> _Transaction_Logs;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -955,6 +965,7 @@ namespace System.DataGuard.Data
 			this._User_Gateways = new EntitySet<User_Gateway>(new Action<User_Gateway>(this.attach_User_Gateways), new Action<User_Gateway>(this.detach_User_Gateways));
 			this._Gateway_Publics = new EntitySet<Gateway_Public>(new Action<Gateway_Public>(this.attach_Gateway_Publics), new Action<Gateway_Public>(this.detach_Gateway_Publics));
 			this._Access_User_Datasources = new EntitySet<Access_User_Datasource>(new Action<Access_User_Datasource>(this.attach_Access_User_Datasources), new Action<Access_User_Datasource>(this.detach_Access_User_Datasources));
+			this._Transaction_Logs = new EntitySet<Transaction_Log>(new Action<Transaction_Log>(this.attach_Transaction_Logs), new Action<Transaction_Log>(this.detach_Transaction_Logs));
 			OnCreated();
 		}
 		
@@ -1457,6 +1468,19 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gateway_Transaction_Log", Storage="_Transaction_Logs", ThisKey="MAC_ADRS", OtherKey="GTWY_MAC_ADRS")]
+		public EntitySet<Transaction_Log> Transaction_Logs
+		{
+			get
+			{
+				return this._Transaction_Logs;
+			}
+			set
+			{
+				this._Transaction_Logs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1508,6 +1532,18 @@ namespace System.DataGuard.Data
 		}
 		
 		private void detach_Access_User_Datasources(Access_User_Datasource entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gateway = null;
+		}
+		
+		private void attach_Transaction_Logs(Transaction_Log entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gateway = this;
+		}
+		
+		private void detach_Transaction_Logs(Transaction_Log entity)
 		{
 			this.SendPropertyChanging();
 			entity.Gateway = null;
@@ -16922,6 +16958,8 @@ namespace System.DataGuard.Data
 		
 		private string _PRNT_CUST;
 		
+		private string _AUTO_COMM;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -16970,6 +17008,8 @@ namespace System.DataGuard.Data
     partial void OnPRNT_SALEChanged();
     partial void OnPRNT_CUSTChanging(string value);
     partial void OnPRNT_CUSTChanged();
+    partial void OnAUTO_COMMChanging(string value);
+    partial void OnAUTO_COMMChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -17326,6 +17366,26 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO_COMM", DbType="VarChar(3)")]
+		public string AUTO_COMM
+		{
+			get
+			{
+				return this._AUTO_COMM;
+			}
+			set
+			{
+				if ((this._AUTO_COMM != value))
+				{
+					this.OnAUTO_COMMChanging(value);
+					this.SendPropertyChanging();
+					this._AUTO_COMM = value;
+					this.SendPropertyChanged("AUTO_COMM");
+					this.OnAUTO_COMMChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
@@ -17462,9 +17522,13 @@ namespace System.DataGuard.Data
 		
 		private System.Nullable<int> _SUB_SYS;
 		
+		private string _GTWY_MAC_ADRS;
+		
 		private System.Nullable<long> _RQID;
 		
 		private string _RQTP_CODE;
+		
+		private System.Nullable<int> _RWNO;
 		
 		private long _TLID;
 		
@@ -17477,6 +17541,8 @@ namespace System.DataGuard.Data
 		private System.Nullable<System.DateTime> _ISSU_DATE;
 		
 		private string _RESP_CODE;
+		
+		private string _RESP_DESC;
 		
 		private string _TERM_NO;
 		
@@ -17498,6 +17564,8 @@ namespace System.DataGuard.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
+		private EntityRef<Gateway> _Gateway;
+		
 		private EntityRef<Pos_Device> _Pos_Device;
 		
 		private EntityRef<Sub_System> _Sub_System;
@@ -17510,10 +17578,14 @@ namespace System.DataGuard.Data
     partial void OnPOSD_PSIDChanged();
     partial void OnSUB_SYSChanging(System.Nullable<int> value);
     partial void OnSUB_SYSChanged();
+    partial void OnGTWY_MAC_ADRSChanging(string value);
+    partial void OnGTWY_MAC_ADRSChanged();
     partial void OnRQIDChanging(System.Nullable<long> value);
     partial void OnRQIDChanged();
     partial void OnRQTP_CODEChanging(string value);
     partial void OnRQTP_CODEChanged();
+    partial void OnRWNOChanging(System.Nullable<int> value);
+    partial void OnRWNOChanged();
     partial void OnTLIDChanging(long value);
     partial void OnTLIDChanged();
     partial void OnTRAN_DATEChanging(System.Nullable<System.DateTime> value);
@@ -17526,6 +17598,8 @@ namespace System.DataGuard.Data
     partial void OnISSU_DATEChanged();
     partial void OnRESP_CODEChanging(string value);
     partial void OnRESP_CODEChanged();
+    partial void OnRESP_DESCChanging(string value);
+    partial void OnRESP_DESCChanged();
     partial void OnTERM_NOChanging(string value);
     partial void OnTERM_NOChanged();
     partial void OnTRAN_NOChanging(string value);
@@ -17550,6 +17624,7 @@ namespace System.DataGuard.Data
 		
 		public Transaction_Log()
 		{
+			this._Gateway = default(EntityRef<Gateway>);
 			this._Pos_Device = default(EntityRef<Pos_Device>);
 			this._Sub_System = default(EntityRef<Sub_System>);
 			OnCreated();
@@ -17603,6 +17678,30 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GTWY_MAC_ADRS", DbType="VarChar(17)")]
+		public string GTWY_MAC_ADRS
+		{
+			get
+			{
+				return this._GTWY_MAC_ADRS;
+			}
+			set
+			{
+				if ((this._GTWY_MAC_ADRS != value))
+				{
+					if (this._Gateway.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGTWY_MAC_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._GTWY_MAC_ADRS = value;
+					this.SendPropertyChanged("GTWY_MAC_ADRS");
+					this.OnGTWY_MAC_ADRSChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQID", DbType="BigInt")]
 		public System.Nullable<long> RQID
 		{
@@ -17639,6 +17738,26 @@ namespace System.DataGuard.Data
 					this._RQTP_CODE = value;
 					this.SendPropertyChanged("RQTP_CODE");
 					this.OnRQTP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int")]
+		public System.Nullable<int> RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
 				}
 			}
 		}
@@ -17759,6 +17878,26 @@ namespace System.DataGuard.Data
 					this._RESP_CODE = value;
 					this.SendPropertyChanged("RESP_CODE");
 					this.OnRESP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RESP_DESC", DbType="NVarChar(100)")]
+		public string RESP_DESC
+		{
+			get
+			{
+				return this._RESP_DESC;
+			}
+			set
+			{
+				if ((this._RESP_DESC != value))
+				{
+					this.OnRESP_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._RESP_DESC = value;
+					this.SendPropertyChanged("RESP_DESC");
+					this.OnRESP_DESCChanged();
 				}
 			}
 		}
@@ -17959,6 +18098,40 @@ namespace System.DataGuard.Data
 					this._MDFY_DATE = value;
 					this.SendPropertyChanged("MDFY_DATE");
 					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gateway_Transaction_Log", Storage="_Gateway", ThisKey="GTWY_MAC_ADRS", OtherKey="MAC_ADRS", IsForeignKey=true)]
+		public Gateway Gateway
+		{
+			get
+			{
+				return this._Gateway.Entity;
+			}
+			set
+			{
+				Gateway previousValue = this._Gateway.Entity;
+				if (((previousValue != value) 
+							|| (this._Gateway.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Gateway.Entity = null;
+						previousValue.Transaction_Logs.Remove(this);
+					}
+					this._Gateway.Entity = value;
+					if ((value != null))
+					{
+						value.Transaction_Logs.Add(this);
+						this._GTWY_MAC_ADRS = value.MAC_ADRS;
+					}
+					else
+					{
+						this._GTWY_MAC_ADRS = default(string);
+					}
+					this.SendPropertyChanged("Gateway");
 				}
 			}
 		}

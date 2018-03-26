@@ -68,7 +68,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   new XAttribute("commport", ComPortName_Txt.Text),
                   new XAttribute("bandrate", BandRate_Txt.Text),
                   new XAttribute("prntsale", PrntSale_Txt.Text),
-                  new XAttribute("prntcust", PrntCust_Txt.Text)
+                  new XAttribute("prntcust", PrntCust_Txt.Text),
+                  new XAttribute("autocomm", AutoComm_Lov.EditValue)
                )
             );
 

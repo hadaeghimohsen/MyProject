@@ -14,6 +14,9 @@ using Emgu.CV.Structure;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Xml.Linq;
+using SSP1126.PcPos.BaseClasses;
+using SSP1126.PcPos.Infrastructure;
+using Intek.PcPosLibrary;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -25,11 +28,19 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       }
 
       private bool requery = false;
+      private int? subsys;
+      private string gtwymacadrs;
+      private long? rqid;
+      private string rqtpcode;
+      private string router;
+      private int? callback;
+
+      private long? Tlid; // Transaction_Log
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute DoWork4Settings */, SendType.SelfToUserInterface) { Input = Keys.Escape }            
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute DoWork4Settings */, SendType.SelfToUserInterface) { Input = Keys.Escape }
          );
       }
 
@@ -65,13 +76,27 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-
       private void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
          if (Pos_Device != null)
          {
             PosBs.DataSource = iProject.Pos_Devices.FirstOrDefault(p => p.PSID == Pos_Device.PSID);
+         }
+
+         if (Tb_Master.SelectedTab == tp_002)
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+
+            TranBs.DataSource =
+               iProject.Transaction_Logs.Where(
+                  t => t.TRAN_DATE.Value.Date >= FromTranDate_Dt.Value.Value.Date &&
+                       t.TRAN_DATE.Value.Date <= ToTranDate_Dt.Value.Value.Date &&
+                       t.PAY_STAT == (PayConf_Rb.Checked ? "002" : (PayAll_Rb.Checked ? t.PAY_STAT : "001")) &&
+                       t.POSD_PSID == pos.PSID
+
+               );
          }
       }
 
@@ -96,6 +121,231 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             MessageBox.Show(exc.Message);
          }
-      }      
+      }
+
+      private void PosPayment_Butn_Click(object sender, EventArgs e)
+      {
+         var pos = PosBs.Current as Data.Pos_Device;
+         if (pos == null) return;
+
+         Tlid = 0;
+         PayResult_Lb.Appearance.Image = null;
+
+         switch (pos.BANK_TYPE)
+         {
+            case "001":
+               SamanPcPos();
+               break;
+            case "002":
+               ParsianPcPos();
+               break;
+            case "003":
+               break;
+         }
+      }
+
+      #region Saman Pos Bank
+      #region Variable
+      private PcPosFactory _PcPosFactory;
+      private TransactionType _TranType;
+      #endregion
+      private void SamanPcPos()
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+
+            if (_PcPosFactory == null)
+            {
+               _PcPosFactory = new PcPosFactory();
+               _PcPosFactory.CardSwiped += SamanPosClient_CardSwiped;
+               _PcPosFactory.PosResultReceived += SamanPosClient_PosResultReceived;
+            }
+
+            _TranType = TransactionType.Purchase;
+
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  _PcPosFactory.SetCom(pos.COMM_PORT);
+                  break;
+               case "002":
+                  _PcPosFactory.SetLan(pos.IP_ADRS);
+                  break;
+            }
+
+            _PcPosFactory.Initialization(ResponseLanguage.Persian, 0, AsyncType.Sync);
+
+            PosResult posResult = _PcPosFactory.PosStarterPurchaseInit();
+            if (posResult != null)
+               SamanPosClient_CardSwiped(posResult);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+         }
+      }
+
+      private void SamanPosClient_CardSwiped(PosResult posResult)
+      {
+         try
+         {
+            if (posResult == null) return;
+
+            posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0);
+
+            Tlid = SamanPcPos_SaveTransactionLog(posResult);
+
+            if (posResult != null)
+               SamanPosClient_PosResultReceived(posResult);
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+
+      private void SamanPosClient_PosResultReceived(PosResult posResult)
+      {
+         try
+         {
+            if (posResult == null) return;
+
+            Tlid = SamanPcPos_SaveTransactionLog(posResult);
+
+            switch (posResult.ResponseCode)
+            {
+               case "00":
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                  break;
+               default:
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+
+      private long? SamanPcPos_SaveTransactionLog(PosResult posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", posResult.ResponseCode ?? ""),
+                     new XAttribute("respdesc", posResult.ResponseDescription ?? ""),
+                     new XAttribute("cardno", posResult.CardNumberMask ?? ""),
+                     new XAttribute("termno", posResult.TerminalId ?? ""),
+                     new XAttribute("serlno", posResult.SerialId ?? ""),
+                     new XAttribute("flowno", posResult.TraceNumber ?? ""),
+                     new XAttribute("refno", posResult.RRN ?? "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+      #endregion
+
+      #region Parsian Pos Bank
+      #region Variable
+      BTLV _Btlv;
+      #endregion
+      private void ParsianPcPos()
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+
+            
+            _Btlv = new BTLV();            
+
+            Tlid = ParsianPcPos_SaveTransactionLog(_Btlv);
+            bool result = false;
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  break;
+               case "002":                  
+                  result = _Btlv.SetLan(pos.IP_ADRS, (int)pos.BAND_RATE, Convert.ToInt64( Amnt_Txt.EditValue ), pos.PRNT_CUST, pos.PRNT_SALE, "", "");
+                  break;
+            }
+            Tlid = ParsianPcPos_SaveTransactionLog(_Btlv); 
+           
+            if(result)
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+            else
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+         }
+      }
+
+      private long? ParsianPcPos_SaveTransactionLog(BTLV posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", posResult.GetRespCode() ?? ""),
+                     new XAttribute("respdesc", ""),
+                     new XAttribute("cardno", posResult.GetCardNo() ?? ""),
+                     new XAttribute("termno", posResult.GetTerminalId() ?? ""),
+                     new XAttribute("serlno", posResult.GetSerialId() ?? ""),
+                     new XAttribute("flowno", posResult.GetTraceNo() ?? ""),
+                     new XAttribute("refno", posResult.GetRRN() ?? "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+      #endregion
+
+      #region Mellat Pos Bank
+      private void MellatPcPos()
+      {
+
+      }
+      #endregion
    }
 }

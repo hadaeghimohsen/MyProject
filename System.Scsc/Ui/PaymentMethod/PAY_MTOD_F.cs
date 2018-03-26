@@ -40,6 +40,8 @@ namespace System.Scsc.Ui.PaymentMethod
             {
                case DevExpress.XtraEditors.NavigatorButtonType.Append:
                   e.Handled = true;
+                  if (PmmtBs1.List.OfType<Data.Payment_Method>().Any(p => p.RWNO == 0)) return;
+
                   PmmtBs1.AddNew();
                   var crntp = PmmtBs1.Current as Data.Payment_Method;
                   crntp.AMNT = (long)Te_TotlRemnAmnt.EditValue;
@@ -193,6 +195,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
       private void PydsAdd_Butn_Click(object sender, EventArgs e)
       {
+         if (PydsBs2.List.OfType<Data.Payment_Discount>().Any(p => p.RWNO == 0)) return;
          PydsBs2.AddNew();
       }
 
@@ -206,9 +209,12 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if (MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            iScsc.Payment_Discounts.DeleteOnSubmit(pyds);
+            if (pyds.RWNO != 0)
+            {
+               iScsc.Payment_Discounts.DeleteOnSubmit(pyds);
 
-            iScsc.SubmitChanges();
+               iScsc.SubmitChanges();
+            }
             requery = true;
          }
          catch (Exception ex)

@@ -283,8 +283,8 @@
          this.simpleButton2.Size = new System.Drawing.Size(215, 59);
          this.simpleButton2.TabIndex = 1;
          this.simpleButton2.Tag = "1";
-         this.simpleButton2.Text = "POS I  </b>*</b><br><color=Gray><size=9>بانک صادرات، شعبه 1247</size></color><br>" +
-    "<color=Green><size=9>شماره حساب : 1236548759</size></color><br>";
+         this.simpleButton2.Text = "POS I  </b>*</b></b>@</b><br><color=Gray><size=9>بانک صادرات، شعبه 1247</size></c" +
+    "olor><br><color=Green><size=9>شماره حساب : 1236548759</size></color><br>";
          // 
          // simpleButton3
          // 

@@ -550,8 +550,6 @@
          this.colAMNT_TYPE.ColumnEdit = this.repositoryItemLookUpEdit2;
          this.colAMNT_TYPE.FieldName = "AMNT_TYPE";
          this.colAMNT_TYPE.Name = "colAMNT_TYPE";
-         this.colAMNT_TYPE.OptionsColumn.AllowEdit = false;
-         this.colAMNT_TYPE.OptionsColumn.ReadOnly = true;
          this.colAMNT_TYPE.Visible = true;
          this.colAMNT_TYPE.VisibleIndex = 1;
          this.colAMNT_TYPE.Width = 96;

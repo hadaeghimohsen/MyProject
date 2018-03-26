@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -21,6 +22,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private Data.iProjectDataContext iProject;
       private string ConnectionString;
       private string CurrentUser;
+      private XElement HostNameInfo;
+      private XElement Xinput;
       private Data.Pos_Device Pos_Device;
 
 
@@ -72,6 +75,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
 
          }
+         else if (keyData == Keys.Enter)
+         {
+            SendKeys.Send("{TAB}");
+         }
          else if (keyData == Keys.Escape)
          {
             job.Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
@@ -117,6 +124,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
          ConnectionString = GetConnectionString.Output.ToString();
          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
+
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+
+         HostNameInfo = (XElement)GetHostInfo.Output;
+         gtwymacadrs = HostNameInfo.Attribute("cpu").Value;
 
          job.Status = StatusType.Successful;
       }
@@ -189,17 +202,60 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private void ActionCallWindow(Job job)
       {
-         if (job.Input != null)
+         Xinput = job.Input as XElement;
+         if (Xinput != null)
          {
-            Pos_Device = job.Input as Data.Pos_Device;
+            Pos_Device = iProject.Pos_Devices.FirstOrDefault(p => p.PSID == Convert.ToInt64(Xinput.Attribute("psid").Value));
+            if (Xinput.Attribute("subsys") != null)
+               subsys = Convert.ToInt32(Xinput.Attribute("subsys").Value);
+            else
+               subsys = null;            
+
+            if (Xinput.Attribute("rqid") != null)
+               rqid = Convert.ToInt64(Xinput.Attribute("rqid").Value);
+            else
+               rqid = null;
+
+            if (Xinput.Attribute("rqtpcode") != null)
+               rqtpcode = Xinput.Attribute("rqtpcode").Value;
+            else
+               rqtpcode = null;
+
+            if (Xinput.Attribute("router") != null)
+               router = Xinput.Attribute("router").Value;
+            else
+               router = null;
+
+            if (Xinput.Attribute("callback") != null)
+               callback = Convert.ToInt32(Xinput.Attribute("callback").Value);
+            else
+               callback = null;
+
+            if (Xinput.Attribute("amnt") != null)
+               Amnt_Txt.EditValue = Xinput.Attribute("amnt").Value;
+            else
+               Amnt_Txt.EditValue = 1000;
          }
          else
          {
             Pos_Device = null;
+            subsys = null;
+            rqid = null;
+            rqtpcode = null;
+            router = null;
+            callback = null;
+            Amnt_Txt.EditValue = 0;
          }
 
+         FromTranDate_Dt.Value = ToTranDate_Dt.Value = DateTime.Now;
+
+         PayResult_Lb.Appearance.Image = null;
          //Execute_Query();
          RightButns_Click(PosPymt_Butn, null);
+
+         if (Pos_Device != null && Pos_Device.AUTO_COMM == "002")
+            PosPayment_Butn_Click(null, null);
+
          job.Status = StatusType.Successful;
       }
    }

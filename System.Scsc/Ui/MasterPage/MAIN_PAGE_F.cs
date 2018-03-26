@@ -2463,7 +2463,13 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            if (CardNumb_Text.Text == "") return;
+
+            if (CardNumb_Text.Text == "")
+            {
+               if (FngrPrnt_Txt.Text == "") return;
+               else if (FngrPrnt_Txt.Text != "")
+                  CardNumb_Text.Text = FngrPrnt_Txt.Text;
+            }
 
             if (e.Button.Index == 0 || e.Button.Index == 1)
             {
@@ -2479,6 +2485,8 @@ namespace System.Scsc.Ui.MasterPage
                         new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}
                      });
                   _DefaultGateway.Gateway(_InteractWithScsc);
+
+                  CardNumb_Text.Text = "";
                }
             }
             else if(e.Button.Index == 2)
@@ -2494,12 +2502,10 @@ namespace System.Scsc.Ui.MasterPage
             else if(e.Button.Index == 3)
             {
                axCZKEM1_OnAttTransactionEx(CardNumb_Text.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
-            }
+            }            
          }
          catch (Exception )
-         {
-
-         }
+         { CardNumb_Text.Text = ""; }
       }
 
       private void AttendanceSystemAlert_Butn_Click(object sender, EventArgs e)

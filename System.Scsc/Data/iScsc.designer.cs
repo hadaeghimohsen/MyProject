@@ -1662,6 +1662,14 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<V_Pos_Device> V_Pos_Devices
+		{
+			get
+			{
+				return this.GetTable<V_Pos_Device>();
+			}
+		}
+		
 		private void InsertCountry(Country obj)
 		{
 			this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -62726,6 +62734,159 @@ namespace System.Scsc.Data
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Pos_Device")]
+	public partial class V_Pos_Device
+	{
+		
+		private long _PSID;
+		
+		private string _BANK_NAME;
+		
+		private string _BANK_TYPE;
+		
+		private string _BNKB_CODE;
+		
+		private string _BNKA_ACNT_NUMB;
+		
+		private string _SHBA_CODE;
+		
+		private string _POS_DESC;
+		
+		private string _POS_DFLT;
+		
+		public V_Pos_Device()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSID", DbType="BigInt NOT NULL")]
+		public long PSID
+		{
+			get
+			{
+				return this._PSID;
+			}
+			set
+			{
+				if ((this._PSID != value))
+				{
+					this._PSID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string BANK_NAME
+		{
+			get
+			{
+				return this._BANK_NAME;
+			}
+			set
+			{
+				if ((this._BANK_NAME != value))
+				{
+					this._BANK_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string BANK_TYPE
+		{
+			get
+			{
+				return this._BANK_TYPE;
+			}
+			set
+			{
+				if ((this._BANK_TYPE != value))
+				{
+					this._BANK_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKB_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string BNKB_CODE
+		{
+			get
+			{
+				return this._BNKB_CODE;
+			}
+			set
+			{
+				if ((this._BNKB_CODE != value))
+				{
+					this._BNKB_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_ACNT_NUMB", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string BNKA_ACNT_NUMB
+		{
+			get
+			{
+				return this._BNKA_ACNT_NUMB;
+			}
+			set
+			{
+				if ((this._BNKA_ACNT_NUMB != value))
+				{
+					this._BNKA_ACNT_NUMB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_CODE", DbType="VarChar(50)")]
+		public string SHBA_CODE
+		{
+			get
+			{
+				return this._SHBA_CODE;
+			}
+			set
+			{
+				if ((this._SHBA_CODE != value))
+				{
+					this._SHBA_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DESC", DbType="NVarChar(250)")]
+		public string POS_DESC
+		{
+			get
+			{
+				return this._POS_DESC;
+			}
+			set
+			{
+				if ((this._POS_DESC != value))
+				{
+					this._POS_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DFLT", DbType="VarChar(3)")]
+		public string POS_DFLT
+		{
+			get
+			{
+				return this._POS_DFLT;
+			}
+			set
+			{
+				if ((this._POS_DFLT != value))
+				{
+					this._POS_DFLT = value;
+				}
 			}
 		}
 	}

@@ -1370,7 +1370,7 @@
          label10.Name = "label10";
          label10.Size = new System.Drawing.Size(250, 13);
          label10.TabIndex = 11;
-         label10.Text = "اختصاص کلید به هنرجو به صورت اتوماتیک انجام شود؟";
+         label10.Text = "اختصاص کلید به مشتری به صورت اتوماتیک انجام شود؟";
          // 
          // rEC_STATLabel
          // 

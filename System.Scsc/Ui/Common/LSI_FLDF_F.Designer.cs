@@ -925,7 +925,7 @@
          // 
          // colNAME_DNRM
          // 
-         this.colNAME_DNRM.Caption = "نام هنرجو";
+         this.colNAME_DNRM.Caption = "نام مشتری";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Name = "colNAME_DNRM";
          this.colNAME_DNRM.OptionsColumn.FixedWidth = true;
@@ -1034,7 +1034,7 @@
          // 
          // colTYPE_DESC
          // 
-         this.colTYPE_DESC.Caption = "نوع هنرجو";
+         this.colTYPE_DESC.Caption = "نوع مشتری";
          this.colTYPE_DESC.FieldName = "TYPE_DESC";
          this.colTYPE_DESC.Name = "colTYPE_DESC";
          this.colTYPE_DESC.OptionsColumn.AllowEdit = false;
@@ -1153,32 +1153,32 @@
          this.colActn_Butn.AutoHeight = false;
          toolTipTitleItem1.Text = "تمدید کارت عضویت باشگاه";
          toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای هنرجویانی که دوره ثبت نام یا تمدید فعلی آنها به پایان رسیده می توانید برای ت" +
+         toolTipItem1.Text = "برای مشترییانی که دوره ثبت نام یا تمدید فعلی آنها به پایان رسیده می توانید برای ت" +
     "مدید مجدد اقدام نمایید.";
          toolTipTitleItem2.LeftIndent = 6;
          toolTipTitleItem2.Text = "واحد اعتبار و قراردادها";
          superToolTip1.Items.Add(toolTipTitleItem1);
          superToolTip1.Items.Add(toolTipItem1);
          superToolTip1.Items.Add(toolTipTitleItem2);
-         toolTipTitleItem3.Text = "حذف موقت هنرجو";
+         toolTipTitleItem3.Text = "حذف موقت مشتری";
          toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "به دلیل عدم حضور هنرجو به باشگاه و ساده کردن لیست هنرجویان شما می توانید به صورت " +
+         toolTipItem2.Text = "به دلیل عدم حضور مشتری به باشگاه و ساده کردن لیست مشترییان شما می توانید به صورت " +
     "موقت فرد را در حالت بایگانی قرار دهید که اگر دوباره نیاز به بازگردانی بود دوباره" +
     " هنرحوی مورد نظر را فعال کنید.";
          toolTipTitleItem4.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem4.Appearance.Options.UseImage = true;
          toolTipTitleItem4.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "واحد نظارت و عملکرد هنرجویان";
+         toolTipTitleItem4.Text = "واحد نظارت و عملکرد مشترییان";
          superToolTip2.Items.Add(toolTipTitleItem3);
          superToolTip2.Items.Add(toolTipItem2);
          superToolTip2.Items.Add(toolTipTitleItem4);
-         toolTipTitleItem5.Text = "تغییر مشخصات عمومی هنرجو";
+         toolTipTitleItem5.Text = "تغییر مشخصات عمومی مشتری";
          toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "شما می توانید به راحتی اطلاعات عمومی هنرجو که شامل نام و نام خانوادگی، شماره تلفن" +
+         toolTipItem3.Text = "شما می توانید به راحتی اطلاعات عمومی مشتری که شامل نام و نام خانوادگی، شماره تلفن" +
     "، آدرس و ... تغییر دهید";
          toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "واحد آمار و امور هنرجویان";
+         toolTipTitleItem6.Text = "واحد آمار و امور مشترییان";
          superToolTip3.Items.Add(toolTipTitleItem5);
          superToolTip3.Items.Add(toolTipItem3);
          superToolTip3.Items.Add(toolTipTitleItem6);

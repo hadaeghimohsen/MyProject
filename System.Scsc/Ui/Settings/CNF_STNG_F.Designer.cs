@@ -551,7 +551,7 @@
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(248, 14);
          label7.TabIndex = 4;
-         label7.Text = "نمایش اطلاعات تردد هنرجویان قابل رویت باشد :";
+         label7.Text = "نمایش اطلاعات تردد مشترییان قابل رویت باشد :";
          // 
          // tRY_VALD_SBMTLabel
          // 
@@ -560,7 +560,7 @@
          tRY_VALD_SBMTLabel.Name = "tRY_VALD_SBMTLabel";
          tRY_VALD_SBMTLabel.Size = new System.Drawing.Size(211, 14);
          tRY_VALD_SBMTLabel.TabIndex = 10;
-         tRY_VALD_SBMTLabel.Text = "در هر شرایطی تمدید هنرجو انجام پذیرد :";
+         tRY_VALD_SBMTLabel.Text = "در هر شرایطی تمدید مشتری انجام پذیرد :";
          // 
          // mOST_DEBT_CLNG_AMNTLabel
          // 
@@ -578,7 +578,7 @@
          dEBT_CHCK_STATLabel.Name = "dEBT_CHCK_STATLabel";
          dEBT_CHCK_STATLabel.Size = new System.Drawing.Size(258, 14);
          dEBT_CHCK_STATLabel.TabIndex = 11;
-         dEBT_CHCK_STATLabel.Text = "میزان بدهی برای حضورغیاب هنرجویان لحاظ گردد :";
+         dEBT_CHCK_STATLabel.Text = "میزان بدهی برای حضورغیاب مشترییان لحاظ گردد :";
          // 
          // cASH_STATLabel
          // 

@@ -529,7 +529,7 @@ namespace System.Scsc.Ui.Admission
                if (rqst == null) return;
 
                if (rqst.Request_Rows.First().Fighter_Publics.FirstOrDefault(fp => fp.RECT_CODE == "001").FNGR_PRNT != ""
-                && MessageBox.Show(this, "آیا می خواهید کد انگشتی هنرجو تغییر دهید؟", "تغییر کد انگشتی هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes
+                && MessageBox.Show(this, "آیا می خواهید کد انگشتی مشتری تغییر دهید؟", "تغییر کد انگشتی مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes
                ) return;
                FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
             }

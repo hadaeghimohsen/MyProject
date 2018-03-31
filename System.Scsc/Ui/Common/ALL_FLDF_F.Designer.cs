@@ -879,7 +879,7 @@
          fIGH_STATLabel.Name = "fIGH_STATLabel";
          fIGH_STATLabel.Size = new System.Drawing.Size(84, 14);
          fIGH_STATLabel.TabIndex = 2;
-         fIGH_STATLabel.Text = "وضعیت هنرجو :";
+         fIGH_STATLabel.Text = "وضعیت مشتری :";
          // 
          // iNSR_NUMB_DNRMLabel
          // 
@@ -939,7 +939,7 @@
          label13.Name = "label13";
          label13.Size = new System.Drawing.Size(64, 14);
          label13.TabIndex = 19;
-         label13.Text = "نوع هنرجو :";
+         label13.Text = "نوع مشتری :";
          // 
          // label14
          // 
@@ -1119,7 +1119,7 @@
          label31.Name = "label31";
          label31.Size = new System.Drawing.Size(63, 14);
          label31.TabIndex = 2;
-         label31.Text = "نام هنرجو :";
+         label31.Text = "نام مشتری :";
          // 
          // label32
          // 
@@ -1704,7 +1704,7 @@
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
          this.tp_001.Size = new System.Drawing.Size(1197, 606);
          this.tp_001.TabIndex = 0;
-         this.tp_001.Text = "اطلاعات فعلی هنرجو";
+         this.tp_001.Text = "اطلاعات فعلی مشتری";
          // 
          // UserProFile_Rb
          // 
@@ -1751,7 +1751,7 @@
          toolTipItem1.Appearance.Options.UseImage = true;
          toolTipItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem1.Image")));
          toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "شما می توانید به راحتی اطلاعات عمومی هنرجو که شامل نام و نام خانوادگی، شماره تلفن" +
+         toolTipItem1.Text = "شما می توانید به راحتی اطلاعات عمومی مشتری که شامل نام و نام خانوادگی، شماره تلفن" +
     "، آدرس و ... تغییر دهید";
          toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
          toolTipTitleItem2.Appearance.Options.UseImage = true;
@@ -1891,7 +1891,7 @@
          // 
          this.FighBnPrint.BackColor = System.Drawing.Color.Transparent;
          this.FighBnPrint.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.FighBnPrint.Caption = "چاپ خلاصه پرونده هنرجو";
+         this.FighBnPrint.Caption = "چاپ خلاصه پرونده مشتری";
          this.FighBnPrint.Disabled = false;
          this.FighBnPrint.EnterColor = System.Drawing.Color.Transparent;
          this.FighBnPrint.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1946,7 +1946,7 @@
          toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
          toolTipTitleItem3.Appearance.Options.UseImage = true;
          toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "تمدید قرارداد هنرجو";
+         toolTipTitleItem3.Text = "تمدید قرارداد مشتری";
          toolTipItem2.LeftIndent = 6;
          toolTipItem2.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد تمدید ماهیانه می توانید از این مسیر " +
     "به صورت ساده و آسان اقدام کنید";
@@ -1954,7 +1954,7 @@
          toolTipTitleItem4.Appearance.Options.UseImage = true;
          toolTipTitleItem4.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "واحد نظارت و قرارداد هنرجویان";
+         toolTipTitleItem4.Text = "واحد نظارت و قرارداد مشترییان";
          superToolTip2.Items.Add(toolTipTitleItem3);
          superToolTip2.Items.Add(toolTipItem2);
          superToolTip2.Items.Add(toolTipTitleItem4);
@@ -1982,14 +1982,14 @@
          toolTipTitleItem5.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
          toolTipTitleItem5.Appearance.Options.UseImage = true;
          toolTipTitleItem5.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
-         toolTipTitleItem5.Text = "بلوکه کردن هنرجو";
+         toolTipTitleItem5.Text = "بلوکه کردن مشتری";
          toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "برای بلوکه کردن هنرجو برای مدت محدود می توانید از این گزینه استفاده کنید";
+         toolTipItem3.Text = "برای بلوکه کردن مشتری برای مدت محدود می توانید از این گزینه استفاده کنید";
          toolTipTitleItem6.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem6.Appearance.Options.UseImage = true;
          toolTipTitleItem6.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "واحد نظارت و قرارداد هنرجویان";
+         toolTipTitleItem6.Text = "واحد نظارت و قرارداد مشترییان";
          superToolTip3.Items.Add(toolTipTitleItem5);
          superToolTip3.Items.Add(toolTipItem3);
          superToolTip3.Items.Add(toolTipTitleItem6);
@@ -2056,7 +2056,7 @@
          toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
          toolTipTitleItem7.Appearance.Options.UseImage = true;
          toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
-         toolTipTitleItem7.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
+         toolTipTitleItem7.Text = "تمدید قرارداد جلسه خصوصی با مربی مشتری";
          toolTipItem4.LeftIndent = 6;
          toolTipItem4.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
     " این مسیر به صورت ساده و آسان اقدام کنید";
@@ -2064,7 +2064,7 @@
          toolTipTitleItem8.Appearance.Options.UseImage = true;
          toolTipTitleItem8.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem8.LeftIndent = 6;
-         toolTipTitleItem8.Text = "واحد نظارت و قرارداد هنرجویان";
+         toolTipTitleItem8.Text = "واحد نظارت و قرارداد مشترییان";
          superToolTip4.Items.Add(toolTipTitleItem7);
          superToolTip4.Items.Add(toolTipItem4);
          superToolTip4.Items.Add(toolTipTitleItem8);
@@ -2165,7 +2165,7 @@
          toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
          toolTipTitleItem9.Appearance.Options.UseImage = true;
          toolTipTitleItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem9.Image")));
-         toolTipTitleItem9.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
+         toolTipTitleItem9.Text = "تمدید قرارداد جلسه خصوصی با مربی مشتری";
          toolTipItem5.LeftIndent = 6;
          toolTipItem5.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
     " این مسیر به صورت ساده و آسان اقدام کنید";
@@ -2173,7 +2173,7 @@
          toolTipTitleItem10.Appearance.Options.UseImage = true;
          toolTipTitleItem10.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem10.LeftIndent = 6;
-         toolTipTitleItem10.Text = "واحد نظارت و قرارداد هنرجویان";
+         toolTipTitleItem10.Text = "واحد نظارت و قرارداد مشترییان";
          superToolTip5.Items.Add(toolTipTitleItem9);
          superToolTip5.Items.Add(toolTipItem5);
          superToolTip5.Items.Add(toolTipTitleItem10);
@@ -2795,7 +2795,7 @@
          this.groupBox2.Size = new System.Drawing.Size(287, 87);
          this.groupBox2.TabIndex = 12;
          this.groupBox2.TabStop = false;
-         this.groupBox2.Text = "اطلاعات دسترسی به هنرجو :";
+         this.groupBox2.Text = "اطلاعات دسترسی به مشتری :";
          // 
          // cELL_PHON_DNRMTextBox
          // 
@@ -2977,14 +2977,14 @@
          toolTipTitleItem20.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
          toolTipTitleItem20.Appearance.Options.UseImage = true;
          toolTipTitleItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem20.Image")));
-         toolTipTitleItem20.Text = "تمدید بیمه هنرجو";
+         toolTipTitleItem20.Text = "تمدید بیمه مشتری";
          toolTipItem12.LeftIndent = 6;
-         toolTipItem12.Text = "برای ثبت اطلاعات بیمه نامه هنرجو می توانید از دکمه استفاده کنید";
+         toolTipItem12.Text = "برای ثبت اطلاعات بیمه نامه مشتری می توانید از دکمه استفاده کنید";
          toolTipTitleItem21.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
          toolTipTitleItem21.Appearance.Options.UseImage = true;
          toolTipTitleItem21.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
          toolTipTitleItem21.LeftIndent = 6;
-         toolTipTitleItem21.Text = "واحد بیمه و رفاه هنرجویان";
+         toolTipTitleItem21.Text = "واحد بیمه و رفاه مشترییان";
          superToolTip12.Items.Add(toolTipTitleItem20);
          superToolTip12.Items.Add(toolTipItem12);
          superToolTip12.Items.Add(toolTipTitleItem21);
@@ -3038,7 +3038,7 @@
          toolTipTitleItem24.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
          toolTipTitleItem24.Appearance.Options.UseImage = true;
          toolTipTitleItem24.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem24.Image")));
-         toolTipTitleItem24.Text = "تمدید قرارداد جلسه خصوصی با مربی هنرجو";
+         toolTipTitleItem24.Text = "تمدید قرارداد جلسه خصوصی با مربی مشتری";
          toolTipItem14.LeftIndent = 6;
          toolTipItem14.Text = "برای اصلاح تاریخ، تعداد جلسات و یا شارژ مجدد جلسه خصوصی مربی ماهیانه می توانید از" +
     " این مسیر به صورت ساده و آسان اقدام کنید";
@@ -3046,7 +3046,7 @@
          toolTipTitleItem25.Appearance.Options.UseImage = true;
          toolTipTitleItem25.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem25.LeftIndent = 6;
-         toolTipTitleItem25.Text = "واحد نظارت و قرارداد هنرجویان";
+         toolTipTitleItem25.Text = "واحد نظارت و قرارداد مشترییان";
          superToolTip14.Items.Add(toolTipTitleItem24);
          superToolTip14.Items.Add(toolTipItem14);
          superToolTip14.Items.Add(toolTipTitleItem25);
@@ -3301,7 +3301,7 @@
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
          this.tabPage2.Size = new System.Drawing.Size(1197, 606);
          this.tabPage2.TabIndex = 1;
-         this.tabPage2.Text = "سوابق کلی هنرجو";
+         this.tabPage2.Text = "سوابق کلی مشتری";
          // 
          // groupBox13
          // 
@@ -3855,7 +3855,7 @@
          this.groupBox11.Size = new System.Drawing.Size(639, 288);
          this.groupBox11.TabIndex = 18;
          this.groupBox11.TabStop = false;
-         this.groupBox11.Text = "اطلاعات دسترسی به هنرجو :";
+         this.groupBox11.Text = "اطلاعات دسترسی به مشتری :";
          // 
          // simpleButton1
          // 
@@ -4324,7 +4324,7 @@
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
          this.tp_003.Size = new System.Drawing.Size(1197, 606);
          this.tp_003.TabIndex = 2;
-         this.tp_003.Text = "صورتحساب های هنرجو";
+         this.tp_003.Text = "صورتحساب های مشتری";
          // 
          // splitContainerControl1
          // 
@@ -6523,7 +6523,7 @@
          // 
          // colFIGH_FILE_NO2
          // 
-         this.colFIGH_FILE_NO2.Caption = "نام هنرجو";
+         this.colFIGH_FILE_NO2.Caption = "نام مشتری";
          this.colFIGH_FILE_NO2.FieldName = "Fighter1.NAME_DNRM";
          this.colFIGH_FILE_NO2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.colFIGH_FILE_NO2.Name = "colFIGH_FILE_NO2";

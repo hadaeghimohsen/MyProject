@@ -300,7 +300,7 @@
          fIGH_FILE_NOLabel.Name = "fIGH_FILE_NOLabel";
          fIGH_FILE_NOLabel.Size = new System.Drawing.Size(70, 14);
          fIGH_FILE_NOLabel.TabIndex = 17;
-         fIGH_FILE_NOLabel.Text = "نام هنرجو *:";
+         fIGH_FILE_NOLabel.Text = "نام مشتری *:";
          // 
          // label1
          // 

@@ -537,7 +537,7 @@ namespace System.Scsc.Ui.Notifications
                //if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                //{
                   
-               //   /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+               //   /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                //   _DefaultGateway.Gateway(
                //      new Job(SendType.External, "localhost",
                //         new List<Job>
@@ -563,7 +563,7 @@ namespace System.Scsc.Ui.Notifications
             {
                //if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                //{
-               //   /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+               //   /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                //   _DefaultGateway.Gateway(
                //      new Job(SendType.External, "localhost",
                //         new List<Job>
@@ -696,7 +696,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -722,7 +722,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -840,7 +840,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -866,7 +866,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -983,7 +983,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -1009,7 +1009,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* نمایش فرم مربوط به هنرجویات چند جلسه ای ترکیبی */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -1209,7 +1209,7 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            if (MessageBox.Show(this, "با خروج دستی همه هنرجویان موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "با خروج دستی همه مشترییان موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.AUTO_AEXT_P(new XElement("Process"));
             requry = true;
          }
@@ -1291,7 +1291,7 @@ namespace System.Scsc.Ui.Notifications
                case 1:
                   if (attn.EXIT_TIME == null)
                   {
-                     if (MessageBox.Show(this, "با خروج دستی هنرجو موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", mbsprwno == 0 ? null : (short?)mbsprwno);
                      Btn_Search_Click(null, null);
                   }
@@ -1299,12 +1299,12 @@ namespace System.Scsc.Ui.Notifications
                case 2:
                   if(attn.ATTN_STAT == "002")
                   {
-                     if (MessageBox.Show(this, "با ابطال رکورد هنرجو هنرجو موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "با ابطال رکورد مشتری مشتری موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.UPD_ATTN_P(
                         new XElement("Process",
                            new XElement("Attendance",
                               new XAttribute("code", attn.CODE),
-                              new XAttribute("type", "001") // ابطال رکورد هنرجو
+                              new XAttribute("type", "001") // ابطال رکورد مشتری
                            )
                         )
                      );

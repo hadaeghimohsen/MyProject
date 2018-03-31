@@ -259,6 +259,7 @@ namespace System.Scsc.Ui.OtherIncome
          DDytpBs.DataSource = iScsc.D_DYTPs;
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
+         VPosBs1.DataSource = iScsc.V_Pos_Devices;
 
          Execute_Query();         
          #endregion
@@ -280,7 +281,10 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         var fileno = (job.Input as XElement).Element("Request_Row").Attribute("fileno").Value;
+         string fileno = "";
+         if ((job.Input as XElement).Element("Request_Row") != null)
+            fileno = (job.Input as XElement).Element("Request_Row").Attribute("fileno").Value;
+
          switch ((job.Input as XElement).Attribute("type").Value)
          {
             case "01":
@@ -294,7 +298,11 @@ namespace System.Scsc.Ui.OtherIncome
                   Btn_RqstBnARqt1_Click(null, null);
                }
                break;            
+            case "refresh":
+               Execute_Query();
+               break;
          }
+            
          job.Status = StatusType.Successful;
       }
 
@@ -304,52 +312,59 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void Pay_Oprt_F(Job job)
       {
-         XElement RcevXData = job.Input as XElement;
-
-         var rqtpcode = RcevXData.Element("Request").Attribute("rqtpcode").Value;
-         var rqid = RcevXData.Element("Request").Attribute("rqid").Value;
-         var fileno = RcevXData.Element("Request").Attribute("fileno").Value;
-         var cashcode = RcevXData.Element("Request").Element("Payment").Attribute("cashcode").Value;
-         var amnt = RcevXData.Element("Request").Element("Payment").Attribute("amnt").Value;
-         var termno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("termno").Value;
-         var cardno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("cardno").Value;
-         var flowno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("flowno").Value;
-         var refno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("refno").Value;
-         var actndate = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("actndate").Value;
-
-         if (rqtpcode == "016")
+         try
          {
+            XElement RcevXData = job.Input as XElement;
+
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            var rqtpcode = rqst.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+            var rqid = rqst.RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+            var fileno = rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+            var cashcode = rqst.Payments.FirstOrDefault().CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               amnt /= 10;
+
             iScsc.PAY_MSAV_P(
-                  new XElement("Payment",
-                     new XAttribute("actntype", "CheckoutWithPOS"),
-                     new XElement("Insert",
-                        new XElement("Payment_Method",
-                           new XAttribute("cashcode", cashcode),
-                           new XAttribute("rqstrqid", rqid),
-                           new XAttribute("amnt", amnt),
-                           new XAttribute("termno", termno),
-                           new XAttribute("cardno", cardno),
-                           new XAttribute("flowno", flowno),
-                           new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
-                        )
+               new XElement("Payment",
+                  new XAttribute("actntype", "CheckoutWithPOS"),
+                  new XElement("Insert",
+                     new XElement("Payment_Method",
+                        new XAttribute("cashcode", cashcode),
+                        new XAttribute("rqstrqid", rqid),
+                        new XAttribute("amnt", amnt),
+                        new XAttribute("termno", termno),
+                        new XAttribute("tranno", tranno),
+                        new XAttribute("cardno", cardno),
+                        new XAttribute("flowno", flowno),
+                        new XAttribute("refno", refno),
+                        new XAttribute("actndate", actndate)
                      )
                   )
-               );
+               )
+            );
 
             /* Loop For Print After Pay */
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "PrntAftrPay"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", rqid))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            RqstBnPrintAfterPay_Click(null, null);
 
             /* End Request */
             Btn_RqstBnASav1_Click(null, null);
          }
-
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
          job.Status = StatusType.Successful;
       }
    }

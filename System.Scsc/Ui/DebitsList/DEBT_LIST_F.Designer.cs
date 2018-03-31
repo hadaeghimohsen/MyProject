@@ -655,7 +655,7 @@
          // 
          // colNAME_DNRM
          // 
-         this.colNAME_DNRM.Caption = "نام هنرجو";
+         this.colNAME_DNRM.Caption = "نام مشتری";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Name = "colNAME_DNRM";
          this.colNAME_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -767,7 +767,7 @@
          // 
          // colTYPE_DESC
          // 
-         this.colTYPE_DESC.Caption = "نوع هنرجو";
+         this.colTYPE_DESC.Caption = "نوع مشتری";
          this.colTYPE_DESC.FieldName = "TYPE_DESC";
          this.colTYPE_DESC.Name = "colTYPE_DESC";
          this.colTYPE_DESC.OptionsColumn.AllowEdit = false;

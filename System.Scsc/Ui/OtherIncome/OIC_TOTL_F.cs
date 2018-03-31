@@ -437,7 +437,19 @@ namespace System.Scsc.Ui.OtherIncome
             var pymt = PymtsBs1.Current as Data.Payment;
 
             _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost", "", 86 /* Execute Pay_Mtod_F */, SendType.Self) { Input = pymt }
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 86 /* Execute Pay_Mtod_F */){Input = pymt},
+                     new Job(SendType.SelfToUserInterface, "PAY_MTOD_F", 10 /* Execute Actn_CalF_F*/)
+                     {
+                        Input = 
+                           new XElement("Payment_Method",
+                              new XAttribute("callerform", GetType().Name)
+                           )
+                     }
+                  }
+               )
             );
          }
       }
@@ -456,7 +468,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 
@@ -992,26 +1004,85 @@ namespace System.Scsc.Ui.OtherIncome
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
 
-               foreach (Data.Payment pymt in PymtsBs1)
+               if (UsePos_Cb.Checked)
                {
-                  iScsc.PAY_MSAV_P(
-                     new XElement("Payment",
-                        new XAttribute("actntype", "CheckoutWithPOS"),
-                        new XElement("Insert",
-                           new XElement("Payment_Method",
-                              new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                  foreach (Data.Payment pymt in PymtsBs1)
+                  {
+                     var amnt = ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+                     if (amnt == 0) return;
+
+                     var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+                     long psid;
+                     if (Pos_Lov.EditValue == null)
+                     {
+                        var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                        if (posdflts.Count() == 1)
+                           Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                        else
+                        {
+                           Pos_Lov.Focus();
+                           return;
+                        }
+                     }
+                     else
+                     {
+                        psid = (long)Pos_Lov.EditValue;
+                     }
+
+                     if (regl.AMNT_TYPE == "002")
+                        amnt *= 10;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.External, "Commons",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 34 /* Execute PosPayment */)
+                                    {
+                                       Input = 
+                                          new XElement("PosRequest",
+                                             new XAttribute("psid", psid),
+                                             new XAttribute("subsys", 5),
+                                             new XAttribute("rqid", pymt.RQST_RQID),
+                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("router", GetType().Name),
+                                             new XAttribute("callback", 20),
+                                             new XAttribute("amnt", amnt)
+                                          )
+                                    }
+                                 }
+                              )                     
+                           }
+                        )
+                     );
+                  }
+               }
+               else
+               {
+                  foreach (Data.Payment pymt in PymtsBs1)
+                  {
+                     iScsc.PAY_MSAV_P(
+                        new XElement("Payment",
+                           new XAttribute("actntype", "CheckoutWithPOS"),
+                           new XElement("Insert",
+                              new XElement("Payment_Method",
+                                 new XAttribute("cashcode", pymt.CASH_CODE),
+                                 new XAttribute("rqstrqid", pymt.RQST_RQID)
+                              )
                            )
                         )
-                     )
-                  );
+                     );
+                  }
+
+                  /* Loop For Print After Pay */
+                  RqstBnPrintAfterPay_Click(null, null);
+
+                  /* End Request */
+                  Btn_RqstBnASav1_Click(null, null);
                }
-
-               /* Loop For Print After Pay */
-               RqstBnPrintAfterPay_Click(null, null);
-
-               /* End Request */
-               Btn_RqstBnASav1_Click(null, null);
             }
          }
          catch (SqlException se)

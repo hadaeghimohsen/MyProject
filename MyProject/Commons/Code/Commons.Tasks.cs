@@ -970,5 +970,56 @@ namespace MyProject.Commons.Code
             job.Status = StatusType.Successful;
          }
       }
+
+      /// <summary>
+      /// Code 33
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4PosSettings(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy", 01 /* Execute GetUi */, SendType.Self){Input = "settingsdevice"},
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsDevice", 02 /* Execute Set */, SendType.SelfToUserInterface),
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsDevice", 07 /* Execute Load */, SendType.SelfToUserInterface),
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsDevice", 03 /* Execute Paint */, SendType.SelfToUserInterface),
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsDevice", 10 /* Execute ActionCallWindows */, SendType.SelfToUserInterface){Input = job.Input}
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 34
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4PaymentPos(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy", 01 /* Execute GetUi */, SendType.Self){Input = "settingspaymentpos"},
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsPaymentPos", 02 /* Execute Set */, SendType.SelfToUserInterface),
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsPaymentPos", 07 /* Execute Load */, SendType.SelfToUserInterface),
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsPaymentPos", 03 /* Execute Paint */, SendType.SelfToUserInterface),
+                  new Job(SendType.External,"Program", "DataGuard:SecurityPolicy:SettingsPaymentPos", 10 /* Execute ActionCallWindows */, SendType.SelfToUserInterface){Input = job.Input}
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
    }
 }

@@ -891,7 +891,7 @@
          this.tp_004.Location = new System.Drawing.Point(5, 29);
          this.tp_004.Name = "tp_004";
          this.tp_004.Size = new System.Drawing.Size(775, 498);
-         this.tp_004.Text = "گزارش هنرجویان / مربیان";
+         this.tp_004.Text = "گزارش مشترییان / مربیان";
          // 
          // splitContainer4
          // 
@@ -1495,7 +1495,7 @@
          this.tp_007.Location = new System.Drawing.Point(5, 29);
          this.tp_007.Name = "tp_007";
          this.tp_007.Size = new System.Drawing.Size(775, 498);
-         this.tp_007.Text = "آمار هنرجویان / مربیان";
+         this.tp_007.Text = "آمار مشترییان / مربیان";
          // 
          // splitContainer7
          // 

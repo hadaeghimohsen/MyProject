@@ -1474,7 +1474,7 @@
          toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
          toolTipTitleItem1.Text = "فعال و غیر فعال کردن آیتم هزینه";
          toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای محاسبه هزینه برای هنرجو شما می توانید آیتم های هزینه را فعال یا غیرفعال کنید" +
+         toolTipItem1.Text = "برای محاسبه هزینه برای مشتری شما می توانید آیتم های هزینه را فعال یا غیرفعال کنید" +
     " که در زمان محاسبه هزینه آیتم در فاکتور هزینه قرار گیرد یا خیر";
          toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
          toolTipTitleItem2.Appearance.Options.UseImage = true;

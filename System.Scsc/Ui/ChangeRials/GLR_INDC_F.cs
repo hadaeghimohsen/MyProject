@@ -180,7 +180,7 @@ namespace System.Scsc.Ui.ChangeRials
                      )
                   )
                );
-               //MessageBox.Show(this, "هنرجو حذف گردید!");
+               //MessageBox.Show(this, "مشتری حذف گردید!");
             }
             requery = true;
             tc_pblc.SelectedTab = tp_pblcinfo;

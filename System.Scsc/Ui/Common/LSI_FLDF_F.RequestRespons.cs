@@ -232,7 +232,7 @@ namespace System.Scsc.Ui.Common
           */
          switch (x.Attribute("showlist").Value)
          {
-            case "001": //  هنرجویان
+            case "001": //  مشترییان
                PBLC.ActiveFilterString = "TYPE != '003'";
                break;
             case "003":

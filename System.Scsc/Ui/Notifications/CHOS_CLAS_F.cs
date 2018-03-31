@@ -60,7 +60,7 @@ namespace System.Scsc.Ui.Notifications
             return;
 
          RemnDay_TextEdit.EditValue = (mbsp.END_DATE.Value - mbsp.STRT_DATE.Value).Days;
-         // 1396/10/06 * اگر تاریخ هنرجو تمام شده باشد باید دوباره تمدید کند
+         // 1396/10/06 * اگر تاریخ مشتری تمام شده باشد باید دوباره تمدید کند
          ClasList_Splp.Visible = true;
          if(mbsp.END_DATE.Value.Date < DateTime.Now.Date)
          {

@@ -40,7 +40,7 @@ namespace System.Scsc.Ui.FingerPrint
                      f.Member_Ships.FirstOrDefault(m => 
                         m.RWNO == f.MBSP_RWNO_DNRM && 
                         m.RECT_CODE == "004").END_DATE <= DateTime.Now.AddMonths(-1 * Convert.ToInt32(Txt_Mnth01.Text)) ||
-                     Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") <= 100 // هنرجو غیرفعال باشد
+                     Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") <= 100 // مشتری غیرفعال باشد
                   )
                );
          }
@@ -70,7 +70,7 @@ namespace System.Scsc.Ui.FingerPrint
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با غیرفعال کردن هنرجویان موافقید", "غیرفعال کردن هنرجویان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با غیرفعال کردن مشترییان موافقید", "غیرفعال کردن مشترییان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
 
             int[] selRows = ((GridView)fighterGridControl.MainView).GetSelectedRows();
             foreach (int i in selRows)
@@ -129,7 +129,7 @@ namespace System.Scsc.Ui.FingerPrint
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با حذف کردن کد اثر انگشتی هنرجویان موافقید", "حذف کردن کد اثر انگشتی هنرجویان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن کد اثر انگشتی مشترییان موافقید", "حذف کردن کد اثر انگشتی مشترییان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
 
             int[] selRows = ((GridView)fighterGridControl.MainView).GetSelectedRows();
             foreach (int i in selRows)
@@ -238,7 +238,7 @@ namespace System.Scsc.Ui.FingerPrint
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با فعال کردن هنرجویان موافقید", "فعال کردن هنرجویان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با فعال کردن مشترییان موافقید", "فعال کردن مشترییان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
 
             int[] selRows = ((GridView)fighterGridControl.MainView).GetSelectedRows();
             foreach (int i in selRows)
@@ -297,7 +297,7 @@ namespace System.Scsc.Ui.FingerPrint
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با بازگردانی کد اثر انگشتی هنرجویان موافقید", "بازگردانی کد اثر انگشتی هنرجویان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با بازگردانی کد اثر انگشتی مشترییان موافقید", "بازگردانی کد اثر انگشتی مشترییان", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
 
             int[] selRows = ((GridView)fighterGridControl.MainView).GetSelectedRows();
             foreach (int i in selRows)

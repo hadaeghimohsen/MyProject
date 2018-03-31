@@ -668,7 +668,7 @@
          // 
          this.gridBand1.AppearanceHeader.Options.UseTextOptions = true;
          this.gridBand1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.gridBand1.Caption = "لیست جلسات هنرجو";
+         this.gridBand1.Caption = "لیست جلسات مشتری";
          this.gridBand1.Columns.Add(this.colMBSP_FIGH_FILE_NO);
          this.gridBand1.Columns.Add(this.colMBSP_RECT_CODE);
          this.gridBand1.Columns.Add(this.colMBSP_RWNO);
@@ -1226,7 +1226,7 @@
          // 
          this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
          this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.gridBand2.Caption = "لیست حضوری های هنرجو";
+         this.gridBand2.Caption = "لیست حضوری های مشتری";
          this.gridBand2.Columns.Add(this.colMBSP_FIGH_FILE_NO1);
          this.gridBand2.Columns.Add(this.colMBSP_RECT_CODE1);
          this.gridBand2.Columns.Add(this.colMBSP_RWNO1);

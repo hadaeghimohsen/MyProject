@@ -213,7 +213,7 @@ namespace System.Scsc.Ui.Common
                case 1:
                   if (attn.EXIT_TIME == null)
                   {
-                     if (MessageBox.Show(this, "با خروج دستی هنرجو موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", attn.MBSP_RWNO_DNRM);
                      iScsc = new Data.iScscDataContext(ConnectionString);
                      AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
@@ -222,12 +222,12 @@ namespace System.Scsc.Ui.Common
                case 2:
                   if (attn.ATTN_STAT == "002")
                   {
-                     if (MessageBox.Show(this, "با ابطال رکورد هنرجو هنرجو موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "با ابطال رکورد مشتری مشتری موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.UPD_ATTN_P(
                         new XElement("Process",
                            new XElement("Attendance",
                               new XAttribute("code", attn.CODE),
-                              new XAttribute("type", "001") // ابطال رکورد هنرجو
+                              new XAttribute("type", "001") // ابطال رکورد مشتری
                            )
                         )
                      );
@@ -353,7 +353,7 @@ namespace System.Scsc.Ui.Common
          //      });
          //_DefaultGateway.Gateway(_InteractWithScsc);
 
-         if (MessageBox.Show(this, "آیا با حذف هنرجو موافق هستید؟", "عملیات حذف موقت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+         if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
                new List<Job>

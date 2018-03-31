@@ -257,7 +257,7 @@ namespace System.Scsc.Ui.Document
          }
          switch (xdata.Attribute("type").Value)
          {
-            case "001": // فعال سازی عکس برای هنرجو
+            case "001": // فعال سازی عکس برای مشتری
                TC_Dcmt.SelectedTab = tp_003;
                if(filterInfoCollection.Count > 0)
                {

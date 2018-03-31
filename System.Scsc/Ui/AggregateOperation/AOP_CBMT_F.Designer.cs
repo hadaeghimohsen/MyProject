@@ -427,7 +427,7 @@
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
          this.tabPage1.Size = new System.Drawing.Size(905, 535);
          this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "پارامتر عملیات جابه جایی کلاس هنرجویان";
+         this.tabPage1.Text = "پارامتر عملیات جابه جایی کلاس مشترییان";
          // 
          // splitContainer1
          // 
@@ -1841,7 +1841,7 @@
          this.groupBox2.Size = new System.Drawing.Size(500, 529);
          this.groupBox2.TabIndex = 0;
          this.groupBox2.TabStop = false;
-         this.groupBox2.Text = "نتیجه عملیات برای هنرجویان";
+         this.groupBox2.Text = "نتیجه عملیات برای مشترییان";
          // 
          // aggregation_Operation_DetailsGridControl
          // 

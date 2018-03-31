@@ -142,7 +142,7 @@ namespace System.Scsc.Ui.Notifications
                )
             );
 
-         // 1395/12/11 * چک کردن وضعیت بدهی هنرجو
+         // 1395/12/11 * چک کردن وضعیت بدهی مشتری
          //if(attn.Fighter1.DEBT_DNRM > 0)
          if (attn.DEBT_DNRM > 0)
          {

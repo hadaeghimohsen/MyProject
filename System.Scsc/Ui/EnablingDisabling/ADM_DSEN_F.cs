@@ -426,7 +426,7 @@ namespace System.Scsc.Ui.EnablingDisabling
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 

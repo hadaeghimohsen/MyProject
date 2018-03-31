@@ -1892,7 +1892,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          /*
           * در این قسمت بعد از اینکه کاربر درون دستگاه تعریف شد باید برای اولین بار در سیستم عمل ثبت نام صورت پذیرد
-          * این حالت اولیه زمانی رخ میدهد که ما هیچ هنرجویی با این شماره اثر انگشت درون سیستم تعریف نشده باشد
+          * این حالت اولیه زمانی رخ میدهد که ما هیچ مشترییی با این شماره اثر انگشت درون سیستم تعریف نشده باشد
           */
          //EnrollNumber = Microsof2t.VisualBasic.Interaction.InputBox("لطفا کد کاربری خود را وارد کنید");
          //if (enrollnumber == EnrollNumber && enrolldate.AddSeconds(5) <= DateTime.Now) { enrollnumber = ""; return; }
@@ -1914,7 +1914,7 @@ namespace System.Scsc.Ui.MasterPage
 
             if (figh != null &&  Convert.ToInt32(figh.ACTV_TAG_DNRM ?? "101") <= 100)
             {
-               if (MessageBox.Show(this, "هنرجو مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد هنرجو هستید؟", "حضور مجدد هنرجوی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               if (MessageBox.Show(this, "مشتری مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد مشتری هستید؟", "حضور مجدد مشتریی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                {
                   // این قسمت برنامه باید با واحد مربوطه انتقال یابد که پراکندگی کد وجود نداشته باشد
                   #region Disable To Enabled

@@ -253,7 +253,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          //Execute_Query();
          RightButns_Click(PosPymt_Butn, null);
 
-         if (Pos_Device != null && Pos_Device.AUTO_COMM == "002")
+         if (Pos_Device != null && router != null && Pos_Device.AUTO_COMM == "002")
             PosPayment_Butn_Click(null, null);
 
          job.Status = StatusType.Successful;

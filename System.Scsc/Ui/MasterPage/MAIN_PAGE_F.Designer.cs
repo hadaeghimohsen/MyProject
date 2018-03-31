@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -216,12 +215,12 @@
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DaeatBs = new System.Windows.Forms.BindingSource();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FIGH_FILE_NOLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -296,12 +295,12 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
+         this.Sp_Barcode = new System.IO.Ports.SerialPort();
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          this.statusStrip1.SuspendLayout();
@@ -656,7 +655,7 @@
          // 
          // bbi_flstbutn
          // 
-         this.bbi_flstbutn.Caption = "لیست هنرجویان";
+         this.bbi_flstbutn.Caption = "لیست مشترییان";
          this.bbi_flstbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_flstbutn.Glyph")));
          this.bbi_flstbutn.Id = 18;
          this.bbi_flstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_flstbutn.LargeGlyph")));
@@ -798,7 +797,7 @@
          // 
          // bbi_frkdbutn
          // 
-         this.bbi_frkdbutn.Caption = "هنرجویان راکد";
+         this.bbi_frkdbutn.Caption = "مشترییان راکد";
          this.bbi_frkdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_frkdbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_frkdbutn.Glyph")));
          this.bbi_frkdbutn.Id = 33;
@@ -938,7 +937,7 @@
          // 
          // bbi_agcbbutn
          // 
-         this.bbi_agcbbutn.Caption = "تغییر برنامه ساعت کلاسی هنرجویان";
+         this.bbi_agcbbutn.Caption = "تغییر برنامه ساعت کلاسی مشترییان";
          this.bbi_agcbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_agcbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_agcbbutn.Glyph")));
          this.bbi_agcbbutn.Id = 46;
@@ -1023,7 +1022,7 @@
          // 
          // bbi_feinbutn
          // 
-         this.bbi_feinbutn.Caption = "پایان بیمه هنرجویان";
+         this.bbi_feinbutn.Caption = "پایان بیمه مشترییان";
          this.bbi_feinbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_feinbutn.Id = 57;
          this.bbi_feinbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1099;
@@ -1436,7 +1435,7 @@
          this.ribbonPageGroup9.ItemLinks.Add(this.bbi_feinbutn);
          this.ribbonPageGroup9.ItemLinks.Add(this.bbi_femtbutn);
          this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-         this.ribbonPageGroup9.Text = "هنرجویان";
+         this.ribbonPageGroup9.Text = "مشترییان";
          this.ribbonPageGroup9.Visible = false;
          // 
          // ribbonPageCategory4
@@ -1503,7 +1502,7 @@
          // ribbonPageGroup15
          // 
          this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-         this.ribbonPageGroup15.Text = "هنرجویان";
+         this.ribbonPageGroup15.Text = "مشترییان";
          // 
          // ribbonPageGroup16
          // 
@@ -1811,9 +1810,9 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceDropDown.Options.UseFont = true;
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         toolTipTitleItem8.Text = "تمدید قرارداد هنرجو";
+         toolTipTitleItem8.Text = "تمدید قرارداد مشتری";
          toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "تمدید دوره ثبت نام هنرجو";
+         toolTipItem7.Text = "تمدید دوره ثبت نام مشتری";
          superToolTip7.Items.Add(toolTipTitleItem8);
          superToolTip7.Items.Add(toolTipItem7);
          toolTipTitleItem9.Text = "تغییر مشخصات عمومی";
@@ -1821,14 +1820,14 @@
          toolTipItem8.Text = "اصلاح و تغییر اطلاعات غیر ریالی مشترک";
          superToolTip8.Items.Add(toolTipTitleItem9);
          superToolTip8.Items.Add(toolTipItem8);
-         toolTipTitleItem10.Text = "حذف هنرجو";
+         toolTipTitleItem10.Text = "حذف مشتری";
          toolTipItem9.LeftIndent = 6;
-         toolTipItem9.Text = "بایگانی کردن اطلاعات هنرجویان راکد";
+         toolTipItem9.Text = "بایگانی کردن اطلاعات مشترییان راکد";
          superToolTip9.Items.Add(toolTipTitleItem10);
          superToolTip9.Items.Add(toolTipItem9);
-         toolTipTitleItem11.Text = "اطلاعات عمومی هنرجو";
+         toolTipTitleItem11.Text = "اطلاعات عمومی مشتری";
          toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "سابقه کامل از اطلاعات هنرجو و مربی و صورتحساب ها";
+         toolTipItem10.Text = "سابقه کامل از اطلاعات مشتری و مربی و صورتحساب ها";
          superToolTip10.Items.Add(toolTipTitleItem11);
          superToolTip10.Items.Add(toolTipItem10);
          toolTipTitleItem12.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
@@ -1836,12 +1835,12 @@
          toolTipTitleItem12.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
          toolTipTitleItem12.Text = "فروشگاه";
          toolTipItem11.LeftIndent = 6;
-         toolTipItem11.Text = "فروش محصولات مورد نیاز هنرجو";
+         toolTipItem11.Text = "فروش محصولات مورد نیاز مشتری";
          superToolTip11.Items.Add(toolTipTitleItem12);
          superToolTip11.Items.Add(toolTipItem11);
          toolTipTitleItem13.Text = "بازیابی مجدد اطلاعات";
          toolTipItem12.LeftIndent = 6;
-         toolTipItem12.Text = "بروزرسانی کردن اطلاعات هنرجویان بعد از تغییرات";
+         toolTipItem12.Text = "بروزرسانی کردن اطلاعات مشترییان بعد از تغییرات";
          superToolTip12.Items.Add(toolTipTitleItem13);
          superToolTip12.Items.Add(toolTipItem12);
          this.FIGH_FILE_NOLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1857,7 +1856,7 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FIGH_FILE_NOLookUpEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FIGH_FILE_NOLookUpEdit.Properties.NullText = "";
-         this.FIGH_FILE_NOLookUpEdit.Properties.NullValuePrompt = "هنرجو و مربیان";
+         this.FIGH_FILE_NOLookUpEdit.Properties.NullValuePrompt = "مشتری و مربیان";
          this.FIGH_FILE_NOLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
          this.FIGH_FILE_NOLookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(1000, 1000);
          this.FIGH_FILE_NOLookUpEdit.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -2520,13 +2519,15 @@
          this.ShowDesktop_Butn.Appearance.Options.UseBorderColor = true;
          this.ShowDesktop_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.ShowDesktop_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.ShowDesktop_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ShowDesktop_Butn.Image")));
+         this.ShowDesktop_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.ShowDesktop_Butn.Location = new System.Drawing.Point(1074, 5);
          this.ShowDesktop_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowDesktop_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowDesktop_Butn.Name = "ShowDesktop_Butn";
          this.ShowDesktop_Butn.Size = new System.Drawing.Size(24, 27);
          this.ShowDesktop_Butn.TabIndex = 6;
-         this.ShowDesktop_Butn.ToolTip = "خالی کردن صفحه نمایش از فرم های در حال اجرا";
+         this.ShowDesktop_Butn.ToolTip = "نمایش صفحه میزکار";
          this.ShowDesktop_Butn.Click += new System.EventHandler(this.ShowDesktop_Butn_Click);
          // 
          // Sp_Barcode

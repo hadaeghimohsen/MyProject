@@ -847,7 +847,7 @@
          toolTipTitleItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
          toolTipTitleItem3.Text = "فروشگاه";
          toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "فروش محصولات مورد نیاز هنرجو";
+         toolTipItem2.Text = "فروش محصولات مورد نیاز مشتری";
          superToolTip3.Items.Add(toolTipTitleItem3);
          superToolTip3.Items.Add(toolTipItem2);
          toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
@@ -855,7 +855,7 @@
          toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
          toolTipTitleItem4.Text = "بازیابی مجدد اطلاعات";
          toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "بروزرسانی کردن اطلاعات هنرجویان بعد از تغییرات";
+         toolTipItem3.Text = "بروزرسانی کردن اطلاعات مشترییان بعد از تغییرات";
          superToolTip4.Items.Add(toolTipTitleItem4);
          superToolTip4.Items.Add(toolTipItem3);
          this.ExpnDesk_GridLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1150,7 +1150,7 @@
          toolTipTitleItem7.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
          toolTipTitleItem7.Text = "فروشگاه";
          toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "فروش محصولات مورد نیاز هنرجو";
+         toolTipItem5.Text = "فروش محصولات مورد نیاز مشتری";
          superToolTip7.Items.Add(toolTipTitleItem7);
          superToolTip7.Items.Add(toolTipItem5);
          toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
@@ -1158,7 +1158,7 @@
          toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
          toolTipTitleItem8.Text = "بازیابی مجدد اطلاعات";
          toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "بروزرسانی کردن اطلاعات هنرجویان بعد از تغییرات";
+         toolTipItem6.Text = "بروزرسانی کردن اطلاعات مشترییان بعد از تغییرات";
          superToolTip8.Items.Add(toolTipTitleItem8);
          superToolTip8.Items.Add(toolTipItem6);
          toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
@@ -2122,7 +2122,7 @@
          toolTipTitleItem12.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
          toolTipTitleItem12.Text = "فروشگاه";
          toolTipItem9.LeftIndent = 6;
-         toolTipItem9.Text = "فروش محصولات مورد نیاز هنرجو";
+         toolTipItem9.Text = "فروش محصولات مورد نیاز مشتری";
          superToolTip12.Items.Add(toolTipTitleItem12);
          superToolTip12.Items.Add(toolTipItem9);
          toolTipTitleItem13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
@@ -2130,7 +2130,7 @@
          toolTipTitleItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem13.Image")));
          toolTipTitleItem13.Text = "بازیابی مجدد اطلاعات";
          toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "بروزرسانی کردن اطلاعات هنرجویان بعد از تغییرات";
+         toolTipItem10.Text = "بروزرسانی کردن اطلاعات مشترییان بعد از تغییرات";
          superToolTip13.Items.Add(toolTipTitleItem13);
          superToolTip13.Items.Add(toolTipItem10);
          this.TransExpense2Another_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

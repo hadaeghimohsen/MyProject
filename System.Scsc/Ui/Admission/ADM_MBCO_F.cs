@@ -109,7 +109,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انصراف تمدید هنرجو مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با انصراف تمدید مشتری مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -128,7 +128,7 @@ namespace System.Scsc.Ui.Admission
                      )
                   )
                );
-               //MessageBox.Show(this, "تمدید هنرجو لغو گردید");
+               //MessageBox.Show(this, "تمدید مشتری لغو گردید");
             }
             requery = true;
          }
@@ -399,7 +399,7 @@ namespace System.Scsc.Ui.Admission
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 

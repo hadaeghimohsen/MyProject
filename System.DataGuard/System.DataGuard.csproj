@@ -104,6 +104,9 @@
       <HintPath>..\packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="POS_PC">
+      <HintPath>..\..\..\Utility\Tools\POS\Melat\Simulator &amp; DLL\Simulator\POS_PC.dll</HintPath>
+    </Reference>
     <Reference Include="SSP1126.PcPos">
       <HintPath>..\..\..\Utility\Tools\POS\Saman\PC to POS Saman 96-05-19\PC to POS Saman 96-05-19\SSP1126\SSP1126 - 1.3.0.0-960320\SSP1126 - 1.3.0.0 - 960320\Tester Source Code\bin\Debug\SSP1126.PcPos.dll</HintPath>
     </Reference>

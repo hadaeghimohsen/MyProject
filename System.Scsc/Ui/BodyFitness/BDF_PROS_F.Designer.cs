@@ -721,7 +721,7 @@
          fILE_NOLabel1.Name = "fILE_NOLabel1";
          fILE_NOLabel1.Size = new System.Drawing.Size(70, 14);
          fILE_NOLabel1.TabIndex = 21;
-         fILE_NOLabel1.Text = "نام هنرجو *:";
+         fILE_NOLabel1.Text = "نام مشتری *:";
          // 
          // label1
          // 
@@ -1643,7 +1643,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CONF_DATE", "CONF_DATE", 70, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FIGH_STAT", "FIGH_STAT", 65, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RQST_RQID", "RQST_RQID", 69, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME_DNRM", "نام هنرجو", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME_DNRM", "نام مشتری", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FATH_NAME_DNRM", "نام پدر", 105, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SEX_TYPE_DNRM", "جنسیت", 93, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BRTH_DATE_DNRM", "تاریخ تولد", 103, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -2612,7 +2612,7 @@
          this.groupBox6.Size = new System.Drawing.Size(1068, 273);
          this.groupBox6.TabIndex = 2;
          this.groupBox6.TabStop = false;
-         this.groupBox6.Text = "برنامه حرکتی هنرجو :";
+         this.groupBox6.Text = "برنامه حرکتی مشتری :";
          // 
          // tabControl3
          // 
@@ -2634,7 +2634,7 @@
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
          this.tabPage1.Size = new System.Drawing.Size(1054, 225);
          this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "برنامه هنرجو";
+         this.tabPage1.Text = "برنامه مشتری";
          this.tabPage1.UseVisualStyleBackColor = true;
          // 
          // body_Fitness_MovementsGridControl

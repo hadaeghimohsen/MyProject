@@ -46,6 +46,7 @@ namespace System.Scsc.Ui.PaymentMethod
                   var crntp = PmmtBs1.Current as Data.Payment_Method;
                   crntp.AMNT = (long)Te_TotlRemnAmnt.EditValue;
                   crntp.RCPT_MTOD = "003";
+                  RcptMtod_Lov_EditValueChanging(null, null);
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
@@ -62,7 +63,7 @@ namespace System.Scsc.Ui.PaymentMethod
                   requery = true;
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.CancelEdit:
-                  requery = true;
+                  requery = true;                  
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.EndEdit:
                   /* اگر از اطلاعاتی که می خواهیم ذخیره کنیم یکی از طریق پوز باشد باید ابتدا عملیات پوز را انجام دهیم 
@@ -106,14 +107,14 @@ namespace System.Scsc.Ui.PaymentMethod
                   //   MessageBox.Show("عملیات پرداخت کارت خوان ناموفق بوده");
                   //   return;
                   //}
-                  // 1395/08/10 * چک کردن این مبلغ پرداختی از سپرده هنرجو بیشتر نباشد
+                  // 1395/08/10 * چک کردن این مبلغ پرداختی از سپرده مشتری بیشتر نباشد
                   var figh = iScsc.Fighters.First(f => f.Request_Rows.Any(rr => rr.RQST_RQID == (PymtBs1.Current as Data.Payment).RQST_RQID));
                   if (figh.DEBT_DNRM < 0)
                   {
                      var crntpay = PmmtBs1.Current as Data.Payment_Method;
                      if (iScsc.Payment_Methods.Where(pm => pm.PYMT_RQST_RQID == (PymtBs1.Current as Data.Payment).RQST_RQID && pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) + (crntpay.RCPT_MTOD == "005" ? crntpay.AMNT : 0) > -1 * figh.DEBT_DNRM)
                      {
-                        MessageBox.Show(this, "مبلغ برداشتی از حساب هنرجو بیش از مبلغ سپرده می باشد", "");
+                        MessageBox.Show(this, "مبلغ برداشتی از حساب مشتری بیش از مبلغ سپرده می باشد", "");
                         return;
                      }
                   }
@@ -181,6 +182,7 @@ namespace System.Scsc.Ui.PaymentMethod
             if (requery)
             {
                Execute_Query();
+               PosToolsVisiable(false);
                requery = false;
             }
          }
@@ -254,6 +256,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
       private void PydtAdd_Butn_Click(object sender, EventArgs e)
       {
+         if (PydtBs3.List.OfType<Data.Payment_Detail>().Any(p => p.CODE == 0)) return;
          PydtBs3.AddNew();
          var pydt = PydtBs3.Current as Data.Payment_Detail;
          var pymt = PymtBs1.Current as Data.Payment;
@@ -275,9 +278,12 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if (MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            iScsc.Payment_Details.DeleteOnSubmit(pydt);
+            if (pydt.CODE != 0)
+            {
+               iScsc.Payment_Details.DeleteOnSubmit(pydt);
 
-            iScsc.SubmitChanges();
+               iScsc.SubmitChanges();
+            }
             requery = true;
          }
          catch (Exception ex)
@@ -343,7 +349,7 @@ namespace System.Scsc.Ui.PaymentMethod
             {
                if ((long)DEBT_DNRMTextEdit.EditValue + Convert.ToInt64(e.NewValue) > 0)
                {
-                  MessageBox.Show("میزان مبلغ وارد شده برای تخفیف از میزان سپرده هنرجو بیشتر می باشد");
+                  MessageBox.Show("میزان مبلغ وارد شده برای تخفیف از میزان سپرده مشتری بیشتر می باشد");
                   e.Cancel = true;
                }
                else
@@ -365,7 +371,7 @@ namespace System.Scsc.Ui.PaymentMethod
             var pymt = iScsc.Payments.FirstOrDefault(p => p == PymtBs1.Current);
             if(pymt.SUM_EXPN_PRIC <= 0)
             {
-               MessageBox.Show("هزینه برای هنرجو صفر میباشد. نیازی به محاسبه تخفیف مانده حساب نیست");
+               MessageBox.Show("هزینه برای مشتری صفر میباشد. نیازی به محاسبه تخفیف مانده حساب نیست");
                return;
             }
 
@@ -409,6 +415,8 @@ namespace System.Scsc.Ui.PaymentMethod
 
       private void AddPmtc_Butn_Click(object sender, EventArgs e)
       {
+         if (PmtcBs4.List.OfType<Data.Payment_Check>().Any(p => p.RWNO == 0)) return;
+
          PmtcBs4.AddNew();
          var pmtc = PmtcBs4.Current as Data.Payment_Check;
          var pymt = PymtBs1.Current as Data.Payment;
@@ -429,9 +437,12 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if (MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            iScsc.Payment_Checks.DeleteOnSubmit(pmtc);
+            if (pmtc.RWNO != 0)
+            {
+               iScsc.Payment_Checks.DeleteOnSubmit(pmtc);
 
-            iScsc.SubmitChanges();
+               iScsc.SubmitChanges();
+            }
             requery = true;
          }
          catch (Exception ex)
@@ -498,7 +509,7 @@ namespace System.Scsc.Ui.PaymentMethod
                var crntpay = PmmtBs1.Current as Data.Payment_Method;
                if (iScsc.Payment_Methods.Where(pm => pm.PYMT_RQST_RQID == (PymtBs1.Current as Data.Payment).RQST_RQID && pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) + (crntpay.RCPT_MTOD == "005" ? crntpay.AMNT : 0) > -1 * figh.DEBT_DNRM)
                {
-                  MessageBox.Show(this, "مبلغ برداشتی از حساب هنرجو بیش از مبلغ سپرده می باشد", "");
+                  MessageBox.Show(this, "مبلغ برداشتی از حساب مشتری بیش از مبلغ سپرده می باشد", "");
                   return;
                }
             }
@@ -678,6 +689,100 @@ namespace System.Scsc.Ui.PaymentMethod
                requery = false;
             }
          }
-      }      
+      }
+
+      private void RcptMtod_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {            
+            var pmmt = PmmtBs1.Current as Data.Payment_Method;
+            if (pmmt == null) return;
+
+            if (pmmt.RWNO == 0 && e == null && RcptMtod_Lov.EditValue.ToString() == "003") 
+               PosToolsVisiable(true); 
+            else if(pmmt.RWNO == 0 && e != null && e.NewValue.ToString() == "003")
+               PosToolsVisiable(true); 
+            else { PosToolsVisiable(false); }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PosToolsVisiable(bool value)
+      {
+         SendPos_Butn.Visible = value;
+      }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
+
+      private void SendPos_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = PymtBs1.Current as Data.Payment;
+            if(pymt == null)return;
+
+            if ((long)Amnt_Txt.EditValue == 0) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            long psid;
+            if(Pos_Lov.EditValue == null)
+            {
+               var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+               if (posdflts.Count() == 1)
+                  Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+               else
+               {
+                  Pos_Lov.Focus();
+                  return;
+               }
+            }
+            else
+            {
+               psid = (long)Pos_Lov.EditValue;
+            }
+
+            if (regl.AMNT_TYPE == "002")
+               Amnt_Txt.EditValue = (long)Amnt_Txt.EditValue * 10;
+            
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 34 /* Execute PosPayment */)
+                           {
+                              Input = 
+                                 new XElement("PosRequest",
+                                    new XAttribute("psid", psid),
+                                    new XAttribute("subsys", 5),
+                                    new XAttribute("rqid", pymt.RQST_RQID),
+                                    new XAttribute("rqtpcode", ""),
+                                    new XAttribute("router", GetType().Name),
+                                    new XAttribute("callback", 20),
+                                    new XAttribute("amnt", (long)Amnt_Txt.EditValue )
+                                 )
+                           }
+                        }
+                     )                     
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

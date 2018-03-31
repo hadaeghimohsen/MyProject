@@ -1057,7 +1057,7 @@
          label16.Name = "label16";
          label16.Size = new System.Drawing.Size(63, 14);
          label16.TabIndex = 32;
-         label16.Text = "نام هنرجو :";
+         label16.Text = "نام مشتری :";
          // 
          // label17
          // 
@@ -1498,7 +1498,7 @@
          this.tp_001.Location = new System.Drawing.Point(5, 29);
          this.tp_001.Name = "tp_001";
          this.tp_001.Size = new System.Drawing.Size(1143, 464);
-         this.tp_001.Text = "پایان قرارداد هنرجویان";
+         this.tp_001.Text = "پایان قرارداد مشترییان";
          // 
          // Dt_CrntDate1R
          // 
@@ -2033,7 +2033,7 @@
          // 
          // colNAME_DNRM
          // 
-         this.colNAME_DNRM.Caption = "نام هنرجو";
+         this.colNAME_DNRM.Caption = "نام مشتری";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.colNAME_DNRM.Name = "colNAME_DNRM";
@@ -2127,7 +2127,7 @@
          // 
          // colFGPB_TYPE_DNRM
          // 
-         this.colFGPB_TYPE_DNRM.Caption = "نوع هنرجو";
+         this.colFGPB_TYPE_DNRM.Caption = "نوع مشتری";
          this.colFGPB_TYPE_DNRM.ColumnEdit = this.repositoryItemLookUpEdit2;
          this.colFGPB_TYPE_DNRM.FieldName = "FGPB_TYPE_DNRM";
          this.colFGPB_TYPE_DNRM.Name = "colFGPB_TYPE_DNRM";
@@ -2269,8 +2269,8 @@
          this.PblcInfo1_Butn.AutoHeight = false;
          this.PblcInfo1_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PblcInfo1_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "مشاهده اطلاعات عمومی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PblcInfo1_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "تمدید هنرجو", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PblcInfo1_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "حذف هنرجو", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PblcInfo1_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "تمدید مشتری", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PblcInfo1_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "حذف مشتری", null, null, true)});
          this.PblcInfo1_Butn.Name = "PblcInfo1_Butn";
          this.PblcInfo1_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.PblcInfo1_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.PblcInfo1_Butn_ButtonClick);
@@ -2293,7 +2293,7 @@
          this.tp_002.Location = new System.Drawing.Point(5, 29);
          this.tp_002.Name = "tp_002";
          this.tp_002.Size = new System.Drawing.Size(1143, 464);
-         this.tp_002.Text = "حضورغیاب هنرجویان";
+         this.tp_002.Text = "حضورغیاب مشترییان";
          // 
          // Dt_CrntDate2R
          // 
@@ -2510,7 +2510,7 @@
          // 
          // colFIGH_FILE_NO1
          // 
-         this.colFIGH_FILE_NO1.Caption = "نام هنرجو";
+         this.colFIGH_FILE_NO1.Caption = "نام مشتری";
          this.colFIGH_FILE_NO1.FieldName = "Fighter1.NAME_DNRM";
          this.colFIGH_FILE_NO1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.colFIGH_FILE_NO1.Name = "colFIGH_FILE_NO1";
@@ -3001,7 +3001,7 @@
          // 
          // colATTN_FIGH_FILE_NO
          // 
-         this.colATTN_FIGH_FILE_NO.Caption = "نام هنرجو";
+         this.colATTN_FIGH_FILE_NO.Caption = "نام مشتری";
          this.colATTN_FIGH_FILE_NO.ColumnEdit = this.repositoryItemLookUpEdit8;
          this.colATTN_FIGH_FILE_NO.FieldName = "Attendance.FIGH_FILE_NO";
          this.colATTN_FIGH_FILE_NO.Name = "colATTN_FIGH_FILE_NO";
@@ -3146,7 +3146,7 @@
          // 
          // gridColumn201
          // 
-         this.gridColumn201.Caption = "نام هنرجو";
+         this.gridColumn201.Caption = "نام مشتری";
          this.gridColumn201.FieldName = "Fighter1.NAME_DNRM";
          this.gridColumn201.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.gridColumn201.Name = "gridColumn201";
@@ -3932,7 +3932,7 @@
          // 
          // gridColumn161
          // 
-         this.gridColumn161.Caption = "نوع هنرجو";
+         this.gridColumn161.Caption = "نوع مشتری";
          this.gridColumn161.FieldName = "FGPB_TYPE_DNRM";
          this.gridColumn161.Name = "gridColumn161";
          // 
@@ -4431,7 +4431,7 @@
          // 
          // colFGPB_TYPE_DNRM1
          // 
-         this.colFGPB_TYPE_DNRM1.Caption = "نوع هنرجو";
+         this.colFGPB_TYPE_DNRM1.Caption = "نوع مشتری";
          this.colFGPB_TYPE_DNRM1.FieldName = "FGPB_TYPE_DNRM";
          this.colFGPB_TYPE_DNRM1.Name = "colFGPB_TYPE_DNRM1";
          // 
@@ -4673,7 +4673,7 @@
          this.tp_003.Location = new System.Drawing.Point(5, 29);
          this.tp_003.Name = "tp_003";
          this.tp_003.Size = new System.Drawing.Size(1143, 464);
-         this.tp_003.Text = "پایان قرارداد حق عضویت سبک هنرجویان";
+         this.tp_003.Text = "پایان قرارداد حق عضویت سبک مشترییان";
          // 
          // Dt_CrntDate3R
          // 
@@ -5105,7 +5105,7 @@
          // 
          // gridColumn18
          // 
-         this.gridColumn18.Caption = "نام هنرجو";
+         this.gridColumn18.Caption = "نام مشتری";
          this.gridColumn18.FieldName = "NAME_DNRM";
          this.gridColumn18.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.gridColumn18.Name = "gridColumn18";
@@ -5180,7 +5180,7 @@
          // 
          // gridColumn24
          // 
-         this.gridColumn24.Caption = "نوع هنرجو";
+         this.gridColumn24.Caption = "نوع مشتری";
          this.gridColumn24.ColumnEdit = this.repositoryItemLookUpEdit4;
          this.gridColumn24.FieldName = "FGPB_TYPE_DNRM";
          this.gridColumn24.Name = "gridColumn24";
@@ -5317,7 +5317,7 @@
          this.tp_004.Location = new System.Drawing.Point(5, 29);
          this.tp_004.Name = "tp_004";
          this.tp_004.Size = new System.Drawing.Size(1143, 464);
-         this.tp_004.Text = "قرارداد حق بیمه هنرجویان";
+         this.tp_004.Text = "قرارداد حق بیمه مشترییان";
          // 
          // Dt_CrntDate4R
          // 
@@ -5779,7 +5779,7 @@
          // 
          // gridColumn63
          // 
-         this.gridColumn63.Caption = "نام هنرجو";
+         this.gridColumn63.Caption = "نام مشتری";
          this.gridColumn63.FieldName = "NAME_DNRM";
          this.gridColumn63.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.gridColumn63.Name = "gridColumn63";
@@ -5854,7 +5854,7 @@
          // 
          // gridColumn69
          // 
-         this.gridColumn69.Caption = "نوع هنرجو";
+         this.gridColumn69.Caption = "نوع مشتری";
          this.gridColumn69.ColumnEdit = this.repositoryItemLookUpEdit6;
          this.gridColumn69.FieldName = "FGPB_TYPE_DNRM";
          this.gridColumn69.Name = "gridColumn69";
@@ -6424,7 +6424,7 @@
          // 
          // gridColumn108
          // 
-         this.gridColumn108.Caption = "نام هنرجو";
+         this.gridColumn108.Caption = "نام مشتری";
          this.gridColumn108.FieldName = "NAME_DNRM";
          this.gridColumn108.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.gridColumn108.Name = "gridColumn108";
@@ -6499,7 +6499,7 @@
          // 
          // gridColumn114
          // 
-         this.gridColumn114.Caption = "نوع هنرجو";
+         this.gridColumn114.Caption = "نوع مشتری";
          this.gridColumn114.ColumnEdit = this.repositoryItemLookUpEdit10;
          this.gridColumn114.FieldName = "FGPB_TYPE_DNRM";
          this.gridColumn114.Name = "gridColumn114";

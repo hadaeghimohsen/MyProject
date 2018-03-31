@@ -255,7 +255,7 @@
          // 
          this.tile31.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
          this.tile31.Name = "tile31";
-         this.tile31.Text = "لیست هنرجویان";
+         this.tile31.Text = "لیست مشترییان";
          // 
          // tile28
          // 
@@ -279,13 +279,13 @@
          // 
          this.tile47.Image = global::System.Scsc.Properties.Resources.IMAGE_1057;
          this.tile47.Name = "tile47";
-         this.tile47.Text = "حذف هنرجو";
+         this.tile47.Text = "حذف مشتری";
          // 
          // tile48
          // 
          this.tile48.Image = global::System.Scsc.Properties.Resources.IMAGE_1079;
          this.tile48.Name = "tile48";
-         this.tile48.Text = "بازیابی هنرجو";
+         this.tile48.Text = "بازیابی مشتری";
          // 
          // tile49
          // 
@@ -558,7 +558,7 @@
          // 
          this.tile22.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
          this.tile22.Name = "tile22";
-         this.tile22.Text = "لیست هنرجویان";
+         this.tile22.Text = "لیست مشترییان";
          // 
          // group1
          // 

@@ -3413,6 +3413,18 @@
       <Association Name="Gain_Loss_Rial_Gain_Loss_Rail_Detail" Member="Gain_Loss_Rial" ThisKey="GLRL_GLID" OtherKey="GLID" Type="Gain_Loss_Rial" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.V#Pos_Device" Member="V_Pos_Devices">
+    <Type Name="V_Pos_Device">
+      <Column Name="PSID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BANK_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="BANK_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SHBA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RqtpCode" Parameter="rqtpCode" Type="System.String" DbType="VarChar(3)" />

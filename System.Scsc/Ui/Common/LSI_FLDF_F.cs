@@ -129,7 +129,7 @@ namespace System.Scsc.Ui.Common
                //   );
                break;
             case 2:
-               if (MessageBox.Show(this, "آیا با حذف هنرجو موافق هستید؟", "عملیات حذف موقت هنرجو", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>

@@ -114,8 +114,10 @@ namespace System.CRM.Ui.Deals
                   )
                );
 
+               var serv = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno);
+
                _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno)) }
+                  new Job(SendType.External, "localhost", FormCaller, 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Service", new XAttribute("fileno", fileno), new XAttribute("code", serv.COMP_CODE_DNRM)) }
                );
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }

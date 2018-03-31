@@ -637,7 +637,7 @@
          iNSR_FNAM_STATLabel.Name = "iNSR_FNAM_STATLabel";
          iNSR_FNAM_STATLabel.Size = new System.Drawing.Size(174, 14);
          iNSR_FNAM_STATLabel.TabIndex = 17;
-         iNSR_FNAM_STATLabel.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         iNSR_FNAM_STATLabel.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // iNSR_CNAM_STATLabel
          // 
@@ -707,7 +707,7 @@
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(174, 14);
          label7.TabIndex = 29;
-         label7.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label7.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // label8
          // 
@@ -757,7 +757,7 @@
          label18.Name = "label18";
          label18.Size = new System.Drawing.Size(174, 14);
          label18.TabIndex = 49;
-         label18.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label18.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // label19
          // 
@@ -807,7 +807,7 @@
          label28.Name = "label28";
          label28.Size = new System.Drawing.Size(174, 14);
          label28.TabIndex = 49;
-         label28.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label28.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // label29
          // 
@@ -867,7 +867,7 @@
          label39.Name = "label39";
          label39.Size = new System.Drawing.Size(174, 14);
          label39.TabIndex = 67;
-         label39.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label39.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // label40
          // 
@@ -967,7 +967,7 @@
          label63.Name = "label63";
          label63.Size = new System.Drawing.Size(174, 14);
          label63.TabIndex = 32;
-         label63.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label63.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // label64
          // 
@@ -1027,7 +1027,7 @@
          label72.Name = "label72";
          label72.Size = new System.Drawing.Size(174, 14);
          label72.TabIndex = 50;
-         label72.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label72.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // label73
          // 
@@ -1914,7 +1914,7 @@
          this.label13.Name = "label13";
          this.label13.Size = new System.Drawing.Size(81, 14);
          this.label13.TabIndex = 25;
-         this.label13.Text = "انتخاب هنرجو :";
+         this.label13.Text = "انتخاب مشتری :";
          // 
          // Figh_CheckedComboBoxEdit002
          // 
@@ -2674,7 +2674,7 @@
          this.label49.Name = "label49";
          this.label49.Size = new System.Drawing.Size(81, 14);
          this.label49.TabIndex = 25;
-         this.label49.Text = "انتخاب هنرجو :";
+         this.label49.Text = "انتخاب مشتری :";
          // 
          // Figh_CheckedComboBoxEdit003
          // 
@@ -3438,7 +3438,7 @@
          this.label53.Name = "label53";
          this.label53.Size = new System.Drawing.Size(81, 14);
          this.label53.TabIndex = 25;
-         this.label53.Text = "انتخاب هنرجو :";
+         this.label53.Text = "انتخاب مشتری :";
          // 
          // Figh_CheckedComboBoxEdit004
          // 
@@ -4233,7 +4233,7 @@
          this.label57.Name = "label57";
          this.label57.Size = new System.Drawing.Size(81, 14);
          this.label57.TabIndex = 25;
-         this.label57.Text = "انتخاب هنرجو :";
+         this.label57.Text = "انتخاب مشتری :";
          // 
          // Figh_CheckedComboBoxEdit005
          // 
@@ -5480,7 +5480,7 @@
          label81.Name = "label81";
          label81.Size = new System.Drawing.Size(174, 14);
          label81.TabIndex = 68;
-         label81.Text = "نام هنرجو در اول پیام قرار بگیری ؟";
+         label81.Text = "نام مشتری در اول پیام قرار بگیری ؟";
          // 
          // lookUpEdit33
          // 

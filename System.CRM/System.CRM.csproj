@@ -2151,6 +2151,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1618.png">
       <Link>Resources\IMAGE_1618.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1623.png">
+      <Link>Resources\IMAGE_1623.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1624.jpg">
+      <Link>Resources\IMAGE_1624.jpg</Link>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">

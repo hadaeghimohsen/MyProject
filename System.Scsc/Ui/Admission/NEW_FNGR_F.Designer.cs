@@ -93,7 +93,7 @@
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(726, 59);
          this.label4.TabIndex = 0;
-         this.label4.Text = "هنرجوی جاری درون سیستم تعریف نشده، نحوه ثبت نام کاربر را مشخص کنید تا وارد ثبت نا" +
+         this.label4.Text = "مشتریی جاری درون سیستم تعریف نشده، نحوه ثبت نام کاربر را مشخص کنید تا وارد ثبت نا" +
     "م اولیه شویم:";
          // 
          // Btn_AdmOneMonth
@@ -266,7 +266,7 @@
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(726, 59);
          this.label5.TabIndex = 1;
-         this.label5.Text = "هنرجوی جاری در سیستم فاقد اعتبار زمانی می باشد. لطفا برای تمدید اعتبار گزینه مورد" +
+         this.label5.Text = "مشتریی جاری در سیستم فاقد اعتبار زمانی می باشد. لطفا برای تمدید اعتبار گزینه مورد" +
     " نظر را انتخاب کنید :";
          // 
          // Btn_Back

@@ -552,13 +552,13 @@
          toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
          toolTipTitleItem7.Text = "کاربر گرامی";
          toolTipItem4.LeftIndent = 6;
-         toolTipItem4.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
+         toolTipItem4.Text = "برای تمدید قرارداد مشترییان و ثبت هزینه در حسابداری مشتری به عنوان مبلغ بدهی قرار" +
     "داد";
          toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
          toolTipTitleItem8.Appearance.Options.UseImage = true;
          toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
          toolTipTitleItem8.LeftIndent = 6;
-         toolTipTitleItem8.Text = "عملیات تمدید قرارداد هنرجویان";
+         toolTipTitleItem8.Text = "عملیات تمدید قرارداد مشترییان";
          superToolTip4.Items.Add(toolTipTitleItem7);
          superToolTip4.Items.Add(toolTipItem4);
          superToolTip4.Items.Add(toolTipSeparatorItem4);
@@ -566,7 +566,7 @@
          this.simpleButton2.SuperTip = superToolTip4;
          this.simpleButton2.TabIndex = 7;
          this.simpleButton2.Tag = "1";
-         this.simpleButton2.Text = "تغییر برنامه کلاسی هنرجویان";
+         this.simpleButton2.Text = "تغییر برنامه کلاسی مشترییان";
          // 
          // simpleButton1
          // 
@@ -593,13 +593,13 @@
          toolTipTitleItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem9.Image")));
          toolTipTitleItem9.Text = "کاربر گرامی";
          toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
+         toolTipItem5.Text = "برای تمدید قرارداد مشترییان و ثبت هزینه در حسابداری مشتری به عنوان مبلغ بدهی قرار" +
     "داد";
          toolTipTitleItem10.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
          toolTipTitleItem10.Appearance.Options.UseImage = true;
          toolTipTitleItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem10.Image")));
          toolTipTitleItem10.LeftIndent = 6;
-         toolTipTitleItem10.Text = "عملیات تمدید قرارداد هنرجویان";
+         toolTipTitleItem10.Text = "عملیات تمدید قرارداد مشترییان";
          superToolTip5.Items.Add(toolTipTitleItem9);
          superToolTip5.Items.Add(toolTipItem5);
          superToolTip5.Items.Add(toolTipSeparatorItem5);
@@ -634,13 +634,13 @@
          toolTipTitleItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem11.Image")));
          toolTipTitleItem11.Text = "کاربر گرامی";
          toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "برای تمدید قرارداد هنرجویان و ثبت هزینه در حسابداری هنرجو به عنوان مبلغ بدهی قرار" +
+         toolTipItem6.Text = "برای تمدید قرارداد مشترییان و ثبت هزینه در حسابداری مشتری به عنوان مبلغ بدهی قرار" +
     "داد";
          toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
          toolTipTitleItem12.Appearance.Options.UseImage = true;
          toolTipTitleItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem12.Image")));
          toolTipTitleItem12.LeftIndent = 6;
-         toolTipTitleItem12.Text = "عملیات تمدید قرارداد هنرجویان";
+         toolTipTitleItem12.Text = "عملیات تمدید قرارداد مشترییان";
          superToolTip6.Items.Add(toolTipTitleItem11);
          superToolTip6.Items.Add(toolTipItem6);
          superToolTip6.Items.Add(toolTipSeparatorItem6);
@@ -648,7 +648,7 @@
          this.AopMbspF_Butn.SuperTip = superToolTip6;
          this.AopMbspF_Butn.TabIndex = 7;
          this.AopMbspF_Butn.Tag = "1";
-         this.AopMbspF_Butn.Text = "تمدید قرارداد هنرجویان";
+         this.AopMbspF_Butn.Text = "تمدید قرارداد مشترییان";
          this.AopMbspF_Butn.Click += new System.EventHandler(this.AopMbspF_Butn_Click);
          // 
          // backstageViewPage4
@@ -982,15 +982,15 @@
          // 
          // rt_adm_createfighter
          // 
-         this.rt_adm_createfighter.AccessibleDescription = "ثبت نام هنرجو";
-         this.rt_adm_createfighter.AccessibleName = "ثبت نام هنرجو";
+         this.rt_adm_createfighter.AccessibleDescription = "ثبت نام مشتری";
+         this.rt_adm_createfighter.AccessibleName = "ثبت نام مشتری";
          this.rt_adm_createfighter.AutoSize = true;
          this.rt_adm_createfighter.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rt_adm_createfighter.Image = global::System.Scsc.Properties.Resources.IMAGE_1054;
          this.rt_adm_createfighter.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
          this.rt_adm_createfighter.Name = "rt_adm_createfighter";
          this.rt_adm_createfighter.Tag = "1";
-         this.rt_adm_createfighter.Text = "ثبت نام هنرجو";
+         this.rt_adm_createfighter.Text = "ثبت نام مشتری";
          this.rt_adm_createfighter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
          this.rt_adm_createfighter.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_adm_createfighter.Click += new System.EventHandler(this.rmi_adm_createfighter_Click);
@@ -1011,22 +1011,22 @@
          // 
          // rt_adm_renewcontract
          // 
-         this.rt_adm_renewcontract.AccessibleDescription = "تمدید قرارداد هنرجو";
-         this.rt_adm_renewcontract.AccessibleName = "تمدید قرارداد هنرجو";
+         this.rt_adm_renewcontract.AccessibleDescription = "تمدید قرارداد مشتری";
+         this.rt_adm_renewcontract.AccessibleName = "تمدید قرارداد مشتری";
          this.rt_adm_renewcontract.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rt_adm_renewcontract.Image = global::System.Scsc.Properties.Resources.IMAGE_1077;
          this.rt_adm_renewcontract.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
          this.rt_adm_renewcontract.Name = "rt_adm_renewcontract";
          this.rt_adm_renewcontract.Tag = "3";
-         this.rt_adm_renewcontract.Text = "تمدید قرارداد هنرجو";
+         this.rt_adm_renewcontract.Text = "تمدید قرارداد مشتری";
          this.rt_adm_renewcontract.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
          this.rt_adm_renewcontract.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_adm_renewcontract.Click += new System.EventHandler(this.rmi_adm_renewcontract_Click);
          // 
          // radButtonElement8
          // 
-         this.radButtonElement8.AccessibleDescription = "هنرجوی مهمان";
-         this.radButtonElement8.AccessibleName = "هنرجوی مهمان";
+         this.radButtonElement8.AccessibleDescription = "مشتریی مهمان";
+         this.radButtonElement8.AccessibleName = "مشتریی مهمان";
          this.radButtonElement8.Image = global::System.Scsc.Properties.Resources.IMAGE_1109;
          this.radButtonElement8.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.radButtonElement8.Name = "radButtonElement8";
@@ -1052,8 +1052,8 @@
          // 
          // rt_adm_delete
          // 
-         this.rt_adm_delete.AccessibleDescription = "لغو قرارداد هنرجو - مربی";
-         this.rt_adm_delete.AccessibleName = "لغو قرارداد هنرجو - مربی";
+         this.rt_adm_delete.AccessibleDescription = "لغو قرارداد مشتری - مربی";
+         this.rt_adm_delete.AccessibleName = "لغو قرارداد مشتری - مربی";
          this.rt_adm_delete.AutoSize = true;
          this.rt_adm_delete.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
          this.rt_adm_delete.FlipText = false;
@@ -1064,7 +1064,7 @@
          this.rt_adm_delete.ShouldPaint = false;
          this.rt_adm_delete.StretchHorizontally = true;
          this.rt_adm_delete.Tag = "5";
-         this.rt_adm_delete.Text = "حذف هنرجو - مربی";
+         this.rt_adm_delete.Text = "حذف مشتری - مربی";
          this.rt_adm_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
          this.rt_adm_delete.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_adm_delete.Click += new System.EventHandler(this.rmi_adm_delete_Click);
@@ -1085,28 +1085,28 @@
          // 
          // rt_adm_recycle
          // 
-         this.rt_adm_recycle.AccessibleDescription = "بازیابی هنرجویان حذف شده";
-         this.rt_adm_recycle.AccessibleName = "بازیابی هنرجویان حذف شده";
+         this.rt_adm_recycle.AccessibleDescription = "بازیابی مشترییان حذف شده";
+         this.rt_adm_recycle.AccessibleName = "بازیابی مشترییان حذف شده";
          this.rt_adm_recycle.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rt_adm_recycle.Image = global::System.Scsc.Properties.Resources.IMAGE_1079;
          this.rt_adm_recycle.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
          this.rt_adm_recycle.Name = "rt_adm_recycle";
          this.rt_adm_recycle.Tag = "6";
-         this.rt_adm_recycle.Text = "بازیابی هنرجویان حذف شده";
+         this.rt_adm_recycle.Text = "بازیابی مشترییان حذف شده";
          this.rt_adm_recycle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
          this.rt_adm_recycle.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_adm_recycle.Click += new System.EventHandler(this.rmi_adm_recycle_Click);
          // 
          // rt_adm_allfighters
          // 
-         this.rt_adm_allfighters.AccessibleDescription = "لیست هنرجویان و مربیان";
-         this.rt_adm_allfighters.AccessibleName = "لیست هنرجویان و مربیان";
+         this.rt_adm_allfighters.AccessibleDescription = "لیست مشترییان و مربیان";
+         this.rt_adm_allfighters.AccessibleName = "لیست مشترییان و مربیان";
          this.rt_adm_allfighters.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rt_adm_allfighters.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
          this.rt_adm_allfighters.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.rt_adm_allfighters.Name = "rt_adm_allfighters";
          this.rt_adm_allfighters.Tag = "7";
-         this.rt_adm_allfighters.Text = "لیست هنرجویان و مربیان";
+         this.rt_adm_allfighters.Text = "لیست مشترییان و مربیان";
          this.rt_adm_allfighters.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.rt_adm_allfighters.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_adm_allfighters.Click += new System.EventHandler(this.rmi_adm_listallfighter_Click);
@@ -1878,14 +1878,14 @@
          // 
          // rt_figters_report
          // 
-         this.rt_figters_report.AccessibleDescription = "هنرجویان / مربیان";
-         this.rt_figters_report.AccessibleName = "هنرجویان / مربیان";
+         this.rt_figters_report.AccessibleDescription = "مشترییان / مربیان";
+         this.rt_figters_report.AccessibleName = "مشترییان / مربیان";
          this.rt_figters_report.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rt_figters_report.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
          this.rt_figters_report.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.rt_figters_report.Name = "rt_figters_report";
          this.rt_figters_report.Tag = "29";
-         this.rt_figters_report.Text = "هنرجویان / مربیان";
+         this.rt_figters_report.Text = "مشترییان / مربیان";
          this.rt_figters_report.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.rt_figters_report.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_figters_report.Click += new System.EventHandler(this.rt_figters_report_Click);
@@ -1933,14 +1933,14 @@
          // 
          // rt_fighter_statistics
          // 
-         this.rt_fighter_statistics.AccessibleDescription = "هنرجویان / مربیان";
-         this.rt_fighter_statistics.AccessibleName = "هنرجویان / مربیان";
+         this.rt_fighter_statistics.AccessibleDescription = "مشترییان / مربیان";
+         this.rt_fighter_statistics.AccessibleName = "مشترییان / مربیان";
          this.rt_fighter_statistics.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rt_fighter_statistics.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
          this.rt_fighter_statistics.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.rt_fighter_statistics.Name = "rt_fighter_statistics";
          this.rt_fighter_statistics.Tag = "32";
-         this.rt_fighter_statistics.Text = "هنرجویان / مربیان";
+         this.rt_fighter_statistics.Text = "مشترییان / مربیان";
          this.rt_fighter_statistics.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.rt_fighter_statistics.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_fighter_statistics.Click += new System.EventHandler(this.rt_fighter_statistics_Click);
@@ -2019,26 +2019,26 @@
          // 
          // rt_club_endfigh
          // 
-         this.rt_club_endfigh.AccessibleDescription = "پایان قرارداد هنرجو";
-         this.rt_club_endfigh.AccessibleName = "پایان قرارداد هنرجو";
+         this.rt_club_endfigh.AccessibleDescription = "پایان قرارداد مشتری";
+         this.rt_club_endfigh.AccessibleName = "پایان قرارداد مشتری";
          this.rt_club_endfigh.Image = global::System.Scsc.Properties.Resources.IMAGE_1109;
          this.rt_club_endfigh.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.rt_club_endfigh.Name = "rt_club_endfigh";
          this.rt_club_endfigh.Tag = "34";
-         this.rt_club_endfigh.Text = "پایان قرارداد هنرجو";
+         this.rt_club_endfigh.Text = "پایان قرارداد مشتری";
          this.rt_club_endfigh.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.rt_club_endfigh.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_club_endfigh.Click += new System.EventHandler(this.rt_club_endfigh_Click);
          // 
          // rt_club_attn
          // 
-         this.rt_club_attn.AccessibleDescription = "حضور و غیاب هنرجویان";
-         this.rt_club_attn.AccessibleName = "حضور و غیاب هنرجویان";
+         this.rt_club_attn.AccessibleDescription = "حضور و غیاب مشترییان";
+         this.rt_club_attn.AccessibleName = "حضور و غیاب مشترییان";
          this.rt_club_attn.Image = global::System.Scsc.Properties.Resources.IMAGE_1112;
          this.rt_club_attn.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.rt_club_attn.Name = "rt_club_attn";
          this.rt_club_attn.Tag = "35";
-         this.rt_club_attn.Text = "حضور و غیاب هنرجویان";
+         this.rt_club_attn.Text = "حضور و غیاب مشترییان";
          this.rt_club_attn.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.rt_club_attn.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rt_club_attn.Click += new System.EventHandler(this.rt_club_attn_Click);
@@ -2116,13 +2116,13 @@
          // 
          // tr_ins_endfigh
          // 
-         this.tr_ins_endfigh.AccessibleDescription = "پایان قرارداد بیمه هنرجویان";
-         this.tr_ins_endfigh.AccessibleName = "پایان قرارداد بیمه هنرجویان";
+         this.tr_ins_endfigh.AccessibleDescription = "پایان قرارداد بیمه مشترییان";
+         this.tr_ins_endfigh.AccessibleName = "پایان قرارداد بیمه مشترییان";
          this.tr_ins_endfigh.Image = global::System.Scsc.Properties.Resources.IMAGE_1111;
          this.tr_ins_endfigh.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.tr_ins_endfigh.Name = "tr_ins_endfigh";
          this.tr_ins_endfigh.Tag = "37";
-         this.tr_ins_endfigh.Text = "قرارداد بیمه هنرجویان";
+         this.tr_ins_endfigh.Text = "قرارداد بیمه مشترییان";
          this.tr_ins_endfigh.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.tr_ins_endfigh.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.tr_ins_endfigh.Click += new System.EventHandler(this.tr_ins_endfigh_Click);
@@ -2191,14 +2191,14 @@
          // 
          // radRibbonBarGroup27
          // 
-         this.radRibbonBarGroup27.AccessibleDescription = "ویژه هنرجویان متفرقه";
-         this.radRibbonBarGroup27.AccessibleName = "ویژه هنرجویان متفرقه";
+         this.radRibbonBarGroup27.AccessibleDescription = "ویژه مشترییان متفرقه";
+         this.radRibbonBarGroup27.AccessibleName = "ویژه مشترییان متفرقه";
          this.radRibbonBarGroup27.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.rt_bdfnormal,
             this.radButtonElement5,
             this.radButtonElement7});
          this.radRibbonBarGroup27.Name = "radRibbonBarGroup27";
-         this.radRibbonBarGroup27.Text = "ویژه هنرجویان متفرقه";
+         this.radRibbonBarGroup27.Text = "ویژه مشترییان متفرقه";
          this.radRibbonBarGroup27.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          // 
          // rt_bdfnormal
@@ -2593,11 +2593,11 @@
          // 
          // rmi_adm_createfighter
          // 
-         this.rmi_adm_createfighter.AccessibleDescription = "ثبت نام هنرجو";
-         this.rmi_adm_createfighter.AccessibleName = "ثبت نام هنرجو";
+         this.rmi_adm_createfighter.AccessibleDescription = "ثبت نام مشتری";
+         this.rmi_adm_createfighter.AccessibleName = "ثبت نام مشتری";
          this.rmi_adm_createfighter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.rmi_adm_createfighter.Name = "rmi_adm_createfighter";
-         this.rmi_adm_createfighter.Text = "ثبت نام هنرجو";
+         this.rmi_adm_createfighter.Text = "ثبت نام مشتری";
          this.rmi_adm_createfighter.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rmi_adm_createfighter.Click += new System.EventHandler(this.rmi_adm_createfighter_Click);
          // 
@@ -2613,11 +2613,11 @@
          // 
          // rmi_adm_renewcontract
          // 
-         this.rmi_adm_renewcontract.AccessibleDescription = "تمدید قرارداد هنرجو";
-         this.rmi_adm_renewcontract.AccessibleName = "تمدید قرارداد هنرجو";
+         this.rmi_adm_renewcontract.AccessibleDescription = "تمدید قرارداد مشتری";
+         this.rmi_adm_renewcontract.AccessibleName = "تمدید قرارداد مشتری";
          this.rmi_adm_renewcontract.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.rmi_adm_renewcontract.Name = "rmi_adm_renewcontract";
-         this.rmi_adm_renewcontract.Text = "تمدید قرارداد هنرجو";
+         this.rmi_adm_renewcontract.Text = "تمدید قرارداد مشتری";
          this.rmi_adm_renewcontract.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rmi_adm_renewcontract.Click += new System.EventHandler(this.rmi_adm_renewcontract_Click);
          // 
@@ -2632,11 +2632,11 @@
          // 
          // rmi_adm_delete
          // 
-         this.rmi_adm_delete.AccessibleDescription = "لغو قرارداد مربی - هنرجو";
-         this.rmi_adm_delete.AccessibleName = "لغو قرارداد مربی - هنرجو";
+         this.rmi_adm_delete.AccessibleDescription = "لغو قرارداد مربی - مشتری";
+         this.rmi_adm_delete.AccessibleName = "لغو قرارداد مربی - مشتری";
          this.rmi_adm_delete.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.rmi_adm_delete.Name = "rmi_adm_delete";
-         this.rmi_adm_delete.Text = "لغو قرارداد مربی - هنرجو";
+         this.rmi_adm_delete.Text = "لغو قرارداد مربی - مشتری";
          this.rmi_adm_delete.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rmi_adm_delete.Click += new System.EventHandler(this.rmi_adm_delete_Click);
          // 
@@ -2652,21 +2652,21 @@
          // 
          // rmi_adm_recycle
          // 
-         this.rmi_adm_recycle.AccessibleDescription = "بازیابی هنرجویان حذف شده";
-         this.rmi_adm_recycle.AccessibleName = "بازیابی هنرجویان حذف شده";
+         this.rmi_adm_recycle.AccessibleDescription = "بازیابی مشترییان حذف شده";
+         this.rmi_adm_recycle.AccessibleName = "بازیابی مشترییان حذف شده";
          this.rmi_adm_recycle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.rmi_adm_recycle.Name = "rmi_adm_recycle";
-         this.rmi_adm_recycle.Text = "بازیابی هنرجویان حذف شده";
+         this.rmi_adm_recycle.Text = "بازیابی مشترییان حذف شده";
          this.rmi_adm_recycle.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rmi_adm_recycle.Click += new System.EventHandler(this.rmi_adm_recycle_Click);
          // 
          // rmi_adm_listallfighter
          // 
-         this.rmi_adm_listallfighter.AccessibleDescription = "لیست هنرجویان و مربیان";
-         this.rmi_adm_listallfighter.AccessibleName = "لیست هنرجویان و مربیان";
+         this.rmi_adm_listallfighter.AccessibleDescription = "لیست مشترییان و مربیان";
+         this.rmi_adm_listallfighter.AccessibleName = "لیست مشترییان و مربیان";
          this.rmi_adm_listallfighter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.rmi_adm_listallfighter.Name = "rmi_adm_listallfighter";
-         this.rmi_adm_listallfighter.Text = "لیست هنرجویان و مربیان";
+         this.rmi_adm_listallfighter.Text = "لیست مشترییان و مربیان";
          this.rmi_adm_listallfighter.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          this.rmi_adm_listallfighter.Click += new System.EventHandler(this.rmi_adm_listallfighter_Click);
          // 
@@ -3097,25 +3097,25 @@
          // 
          // radRibbonBarGroup19
          // 
-         this.radRibbonBarGroup19.AccessibleDescription = "حضورغیاب هنرجویان";
-         this.radRibbonBarGroup19.AccessibleName = "حضورغیاب هنرجویان";
+         this.radRibbonBarGroup19.AccessibleDescription = "حضورغیاب مشترییان";
+         this.radRibbonBarGroup19.AccessibleName = "حضورغیاب مشترییان";
          this.radRibbonBarGroup19.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radButtonElement1});
          this.radRibbonBarGroup19.Margin = new System.Windows.Forms.Padding(0);
          this.radRibbonBarGroup19.MaxSize = new System.Drawing.Size(0, 0);
          this.radRibbonBarGroup19.MinSize = new System.Drawing.Size(0, 0);
          this.radRibbonBarGroup19.Name = "radRibbonBarGroup19";
-         this.radRibbonBarGroup19.Text = "حضورغیاب هنرجویان";
+         this.radRibbonBarGroup19.Text = "حضورغیاب مشترییان";
          this.radRibbonBarGroup19.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          // 
          // radButtonElement1
          // 
-         this.radButtonElement1.AccessibleDescription = "ثبت حضور غیاب هنرجویان";
-         this.radButtonElement1.AccessibleName = "ثبت حضور غیاب هنرجویان";
+         this.radButtonElement1.AccessibleDescription = "ثبت حضور غیاب مشترییان";
+         this.radButtonElement1.AccessibleName = "ثبت حضور غیاب مشترییان";
          this.radButtonElement1.Image = global::System.Scsc.Properties.Resources.IMAGE_1112;
          this.radButtonElement1.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.radButtonElement1.Name = "radButtonElement1";
-         this.radButtonElement1.Text = "ثبت حضور غیاب هنرجویان";
+         this.radButtonElement1.Text = "ثبت حضور غیاب مشترییان";
          this.radButtonElement1.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
          this.radButtonElement1.Visibility = Telerik.WinControls.ElementVisibility.Visible;
          // 

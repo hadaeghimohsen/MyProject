@@ -259,12 +259,12 @@
          this.radGroupBox3.Controls.Add(label1);
          this.radGroupBox3.Controls.Add(this.Txt_MnthRemnd01);
          this.radGroupBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.radGroupBox3.HeaderText = "آخرین اطلاعات هنرجو ";
+         this.radGroupBox3.HeaderText = "آخرین اطلاعات مشتری ";
          this.radGroupBox3.Location = new System.Drawing.Point(6, 331);
          this.radGroupBox3.Name = "radGroupBox3";
          this.radGroupBox3.Size = new System.Drawing.Size(770, 68);
          this.radGroupBox3.TabIndex = 5;
-         this.radGroupBox3.Text = "آخرین اطلاعات هنرجو ";
+         this.radGroupBox3.Text = "آخرین اطلاعات مشتری ";
          // 
          // Dt_EndDate01
          // 
@@ -551,7 +551,7 @@
          // 
          // colNAME_DNRM
          // 
-         this.colNAME_DNRM.Caption = "نام هنرجو";
+         this.colNAME_DNRM.Caption = "نام مشتری";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.colNAME_DNRM.Name = "colNAME_DNRM";
@@ -611,7 +611,7 @@
          // 
          // colFGPB_TYPE_DNRM
          // 
-         this.colFGPB_TYPE_DNRM.Caption = "نوع هنرجو";
+         this.colFGPB_TYPE_DNRM.Caption = "نوع مشتری";
          this.colFGPB_TYPE_DNRM.ColumnEdit = this.FGTP_LOV;
          this.colFGPB_TYPE_DNRM.FieldName = "FGPB_TYPE_DNRM";
          this.colFGPB_TYPE_DNRM.Name = "colFGPB_TYPE_DNRM";
@@ -966,7 +966,7 @@
          this.ACTV_BUTN001.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.ACTV_BUTN001.Name = "ACTV_BUTN001";
          this.ACTV_BUTN001.Size = new System.Drawing.Size(44, 44);
-         this.ACTV_BUTN001.Text = "بازگردانی هنرجو";
+         this.ACTV_BUTN001.Text = "بازگردانی مشتری";
          this.ACTV_BUTN001.Click += new System.EventHandler(this.ACTV_BUTN001_Click);
          // 
          // RCVF_BUTN001

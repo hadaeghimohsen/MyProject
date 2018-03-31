@@ -703,7 +703,7 @@
          // 
          // colNAME_DNRM
          // 
-         this.colNAME_DNRM.Caption = "نام هنرجو";
+         this.colNAME_DNRM.Caption = "نام مشتری";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Name = "colNAME_DNRM";
          this.colNAME_DNRM.OptionsColumn.FixedWidth = true;
@@ -818,7 +818,7 @@
          // 
          // colTYPE_DESC
          // 
-         this.colTYPE_DESC.Caption = "نوع هنرجو";
+         this.colTYPE_DESC.Caption = "نوع مشتری";
          this.colTYPE_DESC.FieldName = "TYPE_DESC";
          this.colTYPE_DESC.Name = "colTYPE_DESC";
          this.colTYPE_DESC.OptionsColumn.AllowEdit = false;
@@ -940,7 +940,7 @@
          toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
          toolTipTitleItem1.Text = "تمدید کارت عضویت باشگاه";
          toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای هنرجویانی که دوره ثبت نام یا تمدید فعلی آنها به پایان رسیده می توانید برای ت" +
+         toolTipItem1.Text = "برای مشترییانی که دوره ثبت نام یا تمدید فعلی آنها به پایان رسیده می توانید برای ت" +
     "مدید مجدد اقدام نمایید.";
          toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
          toolTipTitleItem2.Appearance.Options.UseImage = true;
@@ -953,36 +953,36 @@
          toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
          toolTipTitleItem3.Appearance.Options.UseImage = true;
          toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "برگشت اطلاعات هنرجو";
+         toolTipTitleItem3.Text = "برگشت اطلاعات مشتری";
          toolTipItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
          toolTipItem2.Appearance.Options.UseImage = true;
          toolTipItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem2.Image")));
          toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "به دلیل حضور هنرجو به باشگاه و ثبت مجدد خدمات باشگاه برای هنرجویان شما می توانید " +
+         toolTipItem2.Text = "به دلیل حضور مشتری به باشگاه و ثبت مجدد خدمات باشگاه برای مشترییان شما می توانید " +
     "به افرادی که به صورت موقت در حالت بایگانی قرار گرفته اند از لیست خارج کنید";
          toolTipTitleItem4.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem4.Appearance.Options.UseImage = true;
          toolTipTitleItem4.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "واحد نظارت و عملکرد هنرجویان";
+         toolTipTitleItem4.Text = "واحد نظارت و عملکرد مشترییان";
          superToolTip2.Items.Add(toolTipTitleItem3);
          superToolTip2.Items.Add(toolTipItem2);
          superToolTip2.Items.Add(toolTipTitleItem4);
          toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
          toolTipTitleItem5.Appearance.Options.UseImage = true;
          toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
-         toolTipTitleItem5.Text = "تغییر مشخصات عمومی هنرجو";
+         toolTipTitleItem5.Text = "تغییر مشخصات عمومی مشتری";
          toolTipItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
          toolTipItem3.Appearance.Options.UseImage = true;
          toolTipItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem3.Image")));
          toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "شما می توانید به راحتی اطلاعات عمومی هنرجو که شامل نام و نام خانوادگی، شماره تلفن" +
+         toolTipItem3.Text = "شما می توانید به راحتی اطلاعات عمومی مشتری که شامل نام و نام خانوادگی، شماره تلفن" +
     "، آدرس و ... تغییر دهید";
          toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
          toolTipTitleItem6.Appearance.Options.UseImage = true;
          toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
          toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "واحد آمار و امور هنرجویان";
+         toolTipTitleItem6.Text = "واحد آمار و امور مشترییان";
          superToolTip3.Items.Add(toolTipTitleItem5);
          superToolTip3.Items.Add(toolTipItem3);
          superToolTip3.Items.Add(toolTipTitleItem6);

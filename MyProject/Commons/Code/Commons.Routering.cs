@@ -147,6 +147,12 @@ namespace MyProject.Commons.Code
             case 32:
                DoWork4SendFeedBack(job);
                break;
+            case 33:
+               DoWork4PosSettings(job);
+               break;
+            case 34:
+               DoWork4PaymentPos(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

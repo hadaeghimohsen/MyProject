@@ -517,7 +517,7 @@
          rQTT_CODELabel.Name = "rQTT_CODELabel";
          rQTT_CODELabel.Size = new System.Drawing.Size(64, 14);
          rQTT_CODELabel.TabIndex = 17;
-         rQTT_CODELabel.Text = "نوع هنرجو :";
+         rQTT_CODELabel.Text = "نوع مشتری :";
          // 
          // bRTH_DATELabel
          // 
@@ -805,7 +805,7 @@
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
          this.tp_001.Size = new System.Drawing.Size(1163, 484);
          this.tp_001.TabIndex = 0;
-         this.tp_001.Text = "تغییر فعالیت هنرجو";
+         this.tp_001.Text = "تغییر فعالیت مشتری";
          // 
          // groupBox1
          // 
@@ -2376,7 +2376,7 @@
          this.RQTT_CODE_LookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SUB_SYS", "SUB_SYS", 53, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RQTT_DESC", "نوع هنرجو", 69, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RQTT_DESC", "نوع مشتری", 69, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CRET_BY", "CRET_BY", 54, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CRET_DATE", "CRET_DATE", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDFY_BY", "MDFY_BY", 55, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),

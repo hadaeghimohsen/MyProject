@@ -425,7 +425,7 @@ namespace System.Scsc.Ui.BodyFitness
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 
@@ -688,7 +688,7 @@ namespace System.Scsc.Ui.BodyFitness
             //long _sumticks = BfmmBs1.List.OfType<Data.Body_Fitness_Movement>().Sum(b => (b.TIME_PER_SET.Value.Ticks + b.REST_TIME_IN_SET.Value.Ticks) * b.NUMB_OF_MOVE_IN_SET.Value * b.CONT.Value);
             //if(crntbdft.TOTL_EXRS_TIME.Value.CompareTo(new TimeSpan(_sumticks)) == -1)
             //{
-            //   throw new Exception("تعداد حرکات برنامه ورزشی هنرجو از میزان مدت تمرین بیشتر شده");
+            //   throw new Exception("تعداد حرکات برنامه ورزشی مشتری از میزان مدت تمرین بیشتر شده");
             //}
 
             if(crntbdft.PRE_MOVE_CHCK == "002")
@@ -812,7 +812,7 @@ namespace System.Scsc.Ui.BodyFitness
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 

@@ -17,6 +17,7 @@ using System.Xml.Linq;
 using SSP1126.PcPos.BaseClasses;
 using SSP1126.PcPos.Infrastructure;
 using Intek.PcPosLibrary;
+using POS_PC;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -98,6 +99,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
                );
          }
+
+         requery = false;
       }
 
       private void PosInfo_Butn_Click(object sender, EventArgs e)
@@ -140,7 +143,43 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                ParsianPcPos();
                break;
             case "003":
+               MellatPcPos();
                break;
+         }
+      }
+
+      private void SendCallBack2Router()
+      {
+         try
+         {
+            var tlog = iProject.Transaction_Logs.FirstOrDefault(t => t.TLID == Tlid);
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", string.Format("DataGuard:Program:{0}:{1}", iProject.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subsys).SCHM_NAME, router), (int)callback /* Execute CallBack Method  */, SendType.SelfToUserInterface)
+               {
+                  Input = 
+                     new XElement("PosRespons",
+                        new XAttribute("amnt", tlog.AMNT),
+                        new XAttribute("termno", tlog.TERM_NO),
+                        new XAttribute("tranno", tlog.SERL_NO),
+                        new XAttribute("cardno", tlog.CARD_NO),
+                        new XAttribute("flowno", tlog.FLOW_NO),
+                        new XAttribute("refno", tlog.REF_NO),
+                        new XAttribute("actndate", tlog.ISSU_DATE)
+                     )
+               }
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Back_Butn_Click(null, null);
          }
       }
 
@@ -219,6 +258,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             {
                case "00":
                   PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                  SendCallBack2Router();
                   break;
                default:
                   PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
@@ -226,7 +266,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             }
          }
          catch (Exception exc)
-         {
+         {            
             throw exc;
          }
       }
@@ -291,17 +331,20 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   result = _Btlv.SetLan(pos.IP_ADRS, (int)pos.BAND_RATE, Convert.ToInt64( Amnt_Txt.EditValue ), pos.PRNT_CUST, pos.PRNT_SALE, "", "");
                   break;
             }
-            Tlid = ParsianPcPos_SaveTransactionLog(_Btlv); 
-           
-            if(result)
+            Tlid = ParsianPcPos_SaveTransactionLog(_Btlv);
+
+            if (result)
+            {
                PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+               SendCallBack2Router();
+            }
             else
-               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
-            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
          }
       }
 
@@ -342,9 +385,89 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       #endregion
 
       #region Mellat Pos Bank
+      #region Variable
+      Transaction _MellatPcPos;
+      #endregion
       private void MellatPcPos()
       {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
 
+            _MellatPcPos = new Transaction();
+
+            Tlid = MellatPcPos_SaveTransactionLog(_MellatPcPos);
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  _MellatPcPos.PC_PORT_Name = pos.COMM_PORT;
+                  _MellatPcPos.PC_PORT_BaudRate = (int)pos.BAND_RATE;
+                  break;
+               case "002":
+                  break;
+            }
+
+            _MellatPcPos.PC_PORT_ReadTimeout = 180000;
+            Transaction.return_codes retCode;
+            do
+            {
+               retCode = _MellatPcPos.Debits_Goods_And_Service(Amnt_Txt.EditValue.ToString(), "", "");
+
+               Tlid = MellatPcPos_SaveTransactionLog(_MellatPcPos);
+
+               if(retCode == Transaction.return_codes.RET_OK)
+               {
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                  SendCallBack2Router();
+               }
+               else
+               {
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+               }
+
+            } while (Globals.POSPC_CommunicationType.ToUpper() == "TCP/IP" && !_MellatPcPos.IS_FATAL_ERROR(retCode));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+         }
+      }
+
+      private long? MellatPcPos_SaveTransactionLog(Transaction posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", posResult.ReasonCode ?? ""),
+                     new XAttribute("respdesc", ""),
+                     new XAttribute("cardno", posResult.PAN ?? ""),
+                     new XAttribute("termno", posResult.TerminalNo ?? ""),
+                     new XAttribute("serlno", posResult.SerialTransaction ?? ""),
+                     new XAttribute("flowno", posResult.TraceNumber ?? ""),
+                     new XAttribute("refno", "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
       }
       #endregion
    }

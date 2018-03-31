@@ -156,7 +156,7 @@ namespace System.Scsc.Ui.OtherIncome
                         )
                      );
                else if (Rqst.RQST_STAT == "002") return;
-               //MessageBox.Show(this, "هنرجوی جدید در سیستم ثبت گردید");
+               //MessageBox.Show(this, "مشتریی جدید در سیستم ثبت گردید");
                requery = true;
 
             }
@@ -203,7 +203,7 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   )
                );
-               //MessageBox.Show(this, "هنرجو حذف گردید!");
+               //MessageBox.Show(this, "مشتری حذف گردید!");
             }
             requery = true;
             tc_pblc.SelectedTab = tp_pblcinfo;

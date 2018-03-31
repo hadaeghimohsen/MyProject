@@ -2266,7 +2266,7 @@
          // 
          // colNAME_DNRM
          // 
-         this.colNAME_DNRM.Caption = "نام هنرجو";
+         this.colNAME_DNRM.Caption = "نام مشتری";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Name = "colNAME_DNRM";
          this.colNAME_DNRM.OptionsColumn.FixedWidth = true;
@@ -2377,7 +2377,7 @@
          // 
          // colTYPE_DESC
          // 
-         this.colTYPE_DESC.Caption = "نوع هنرجو";
+         this.colTYPE_DESC.Caption = "نوع مشتری";
          this.colTYPE_DESC.FieldName = "TYPE_DESC";
          this.colTYPE_DESC.Name = "colTYPE_DESC";
          this.colTYPE_DESC.OptionsColumn.AllowEdit = false;
@@ -2507,7 +2507,7 @@
          toolTipTitleItem18.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem18.Image")));
          toolTipTitleItem18.Text = "تمدید کارت عضویت باشگاه";
          toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "برای هنرجویانی که دوره ثبت نام یا تمدید فعلی آنها به پایان رسیده می توانید برای ت" +
+         toolTipItem10.Text = "برای مشترییانی که دوره ثبت نام یا تمدید فعلی آنها به پایان رسیده می توانید برای ت" +
     "مدید مجدد اقدام نمایید.";
          toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
          toolTipTitleItem19.Appearance.Options.UseImage = true;
@@ -2520,37 +2520,37 @@
          toolTipTitleItem20.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
          toolTipTitleItem20.Appearance.Options.UseImage = true;
          toolTipTitleItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem20.Image")));
-         toolTipTitleItem20.Text = "حذف موقت هنرجو";
+         toolTipTitleItem20.Text = "حذف موقت مشتری";
          toolTipItem11.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
          toolTipItem11.Appearance.Options.UseImage = true;
          toolTipItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem11.Image")));
          toolTipItem11.LeftIndent = 6;
-         toolTipItem11.Text = "به دلیل عدم حضور هنرجو به باشگاه و ساده کردن لیست هنرجویان شما می توانید به صورت " +
+         toolTipItem11.Text = "به دلیل عدم حضور مشتری به باشگاه و ساده کردن لیست مشترییان شما می توانید به صورت " +
     "موقت فرد را در حالت بایگانی قرار دهید که اگر دوباره نیاز به بازگردانی بود دوباره" +
     " هنرحوی مورد نظر را فعال کنید.";
          toolTipTitleItem21.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem21.Appearance.Options.UseImage = true;
          toolTipTitleItem21.Image = global::System.Scsc.Properties.Resources.IMAGE_1129;
          toolTipTitleItem21.LeftIndent = 6;
-         toolTipTitleItem21.Text = "واحد نظارت و عملکرد هنرجویان";
+         toolTipTitleItem21.Text = "واحد نظارت و عملکرد مشترییان";
          superToolTip13.Items.Add(toolTipTitleItem20);
          superToolTip13.Items.Add(toolTipItem11);
          superToolTip13.Items.Add(toolTipTitleItem21);
          toolTipTitleItem22.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
          toolTipTitleItem22.Appearance.Options.UseImage = true;
          toolTipTitleItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem22.Image")));
-         toolTipTitleItem22.Text = "تغییر مشخصات عمومی هنرجو";
+         toolTipTitleItem22.Text = "تغییر مشخصات عمومی مشتری";
          toolTipItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
          toolTipItem12.Appearance.Options.UseImage = true;
          toolTipItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem12.Image")));
          toolTipItem12.LeftIndent = 6;
-         toolTipItem12.Text = "شما می توانید به راحتی اطلاعات عمومی هنرجو که شامل نام و نام خانوادگی، شماره تلفن" +
+         toolTipItem12.Text = "شما می توانید به راحتی اطلاعات عمومی مشتری که شامل نام و نام خانوادگی، شماره تلفن" +
     "، آدرس و ... تغییر دهید";
          toolTipTitleItem23.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
          toolTipTitleItem23.Appearance.Options.UseImage = true;
          toolTipTitleItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem23.Image")));
          toolTipTitleItem23.LeftIndent = 6;
-         toolTipTitleItem23.Text = "واحد آمار و امور هنرجویان";
+         toolTipTitleItem23.Text = "واحد آمار و امور مشترییان";
          superToolTip14.Items.Add(toolTipTitleItem22);
          superToolTip14.Items.Add(toolTipItem12);
          superToolTip14.Items.Add(toolTipTitleItem23);
@@ -2826,7 +2826,7 @@
          toolTipTitleItem17.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1208;
          toolTipTitleItem17.Appearance.Options.UseImage = true;
          toolTipTitleItem17.Image = global::System.Scsc.Properties.Resources.IMAGE_1208;
-         toolTipTitleItem17.Text = "تصویر گرفتن از هنرجو";
+         toolTipTitleItem17.Text = "تصویر گرفتن از مشتری";
          toolTipItem9.LeftIndent = 6;
          toolTipItem9.Text = "F8 : کلید میانبر";
          superToolTip11.Items.Add(toolTipTitleItem17);

@@ -18,6 +18,7 @@ using SSP1126.PcPos.BaseClasses;
 using SSP1126.PcPos.Infrastructure;
 using Intek.PcPosLibrary;
 using POS_PC;
+using VPCPOS;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -144,6 +145,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                break;
             case "003":
                MellatPcPos();
+               break;
+            case "004":
+               MabnaCardAriaPcPos();
                break;
          }
       }
@@ -458,6 +462,101 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("serlno", posResult.SerialTransaction ?? ""),
                      new XAttribute("flowno", posResult.TraceNumber ?? ""),
                      new XAttribute("refno", "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+      #endregion
+
+      #region Mabna Card Aria
+      #region Variable
+
+      #endregion
+      private void MabnaCardAriaPcPos()
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+
+            clsCommunication clsCommunicationObj = new clsCommunication();
+
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  clsCommunicationObj.ConnType = (int)clsCommunication.connectionType.COM_USB;
+                  clsCommunicationObj.PortNumber = int.Parse(pos.COMM_PORT.Remove(0, 3));
+                  clsCommunicationObj.BaundRate = (int)pos.BAND_RATE;
+                  break;
+               case "002":
+                  clsCommunicationObj.ConnType = (int)clsCommunication.connectionType.ETHERNET;
+                  clsCommunicationObj.IPAddress = pos.IP_ADRS;
+                  clsCommunicationObj.IPPort = (int)pos.BAND_RATE;
+                  break;
+            }
+            clsCommunicationObj.TimeOut = 180000;
+
+            clsMessage _MabnaPcPos = new clsMessage();
+            clsMessage.request_s req = new clsMessage.request_s();
+            Tlid = MabnaCardAria_SaveTransactionLog(_MabnaPcPos);
+            req.msgTyp = clsMessage.msgType.Sale;
+            req.bankId = 1;
+            req.terminalID = "";
+            req.amount = Amnt_Txt.EditValue.ToString();
+            _MabnaPcPos.request = req;
+
+            int retCode = _MabnaPcPos.SendMessage(0);
+            if (retCode != 0) { throw new Exception("خطا در ارسال اطلاعات"); }
+
+            retCode = _MabnaPcPos.ReceiveMessage(0);
+            Tlid = MabnaCardAria_SaveTransactionLog(_MabnaPcPos);
+            if(retCode == 0)
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+               SendCallBack2Router();
+            }
+            else
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            }
+
+         }catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+         }
+      }
+
+      private long? MabnaCardAria_SaveTransactionLog(clsMessage posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", posResult.response.AppResponseCode ?? ""),
+                     new XAttribute("respdesc", ""),
+                     new XAttribute("cardno", posResult.response.PAN ?? ""),
+                     new XAttribute("termno", posResult.response.TerminalID ?? ""),
+                     new XAttribute("serlno", posResult.response.STAN ?? ""),
+                     new XAttribute("flowno", posResult.response.SystemTraceNumber ?? ""),
+                     new XAttribute("refno", posResult.response.SystemTraceNumber ?? "")
                   );
             iProject.SaveTransactionLog(ref xPcPos);
 

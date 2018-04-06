@@ -19,6 +19,7 @@ using SSP1126.PcPos.Infrastructure;
 using Intek.PcPosLibrary;
 using POS_PC;
 using VPCPOS;
+using PosInterface;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -148,6 +149,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                break;
             case "004":
                MabnaCardAriaPcPos();
+               break;
+            case "005":
+               AsanPardakhtPcPos();
                break;
          }
       }
@@ -557,6 +561,88 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("serlno", posResult.response.STAN ?? ""),
                      new XAttribute("flowno", posResult.response.SystemTraceNumber ?? ""),
                      new XAttribute("refno", posResult.response.SystemTraceNumber ?? "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+      #endregion
+
+      #region Asan Pardakht
+      #region Variable
+      private PCPos _AsanPardakhtPcPos;
+      #endregion
+      private void AsanPardakhtPcPos()
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+
+            _AsanPardakhtPcPos = new PCPos();
+
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  _AsanPardakhtPcPos.InitSerial(pos.COMM_PORT, (int)pos.BAND_RATE);
+                  break;
+               case "002":
+                  _AsanPardakhtPcPos.InitLAN(pos.IP_ADRS, (int)pos.BAND_RATE);
+                  break;
+               default:
+                  break;
+            }
+
+            Tlid = AsanPardakhtPcPos_SaveTransactionLog(new PaymentResult());
+
+            var posResult = _AsanPardakhtPcPos.DoSyncPayment(Amnt_Txt.EditValue.ToString(), "", "", DateTime.Now);
+
+            Tlid = AsanPardakhtPcPos_SaveTransactionLog(posResult);
+
+            if (posResult.ErrorCode == 0)
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+               SendCallBack2Router();
+            }
+            else
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+         }
+      }
+
+      private long? AsanPardakhtPcPos_SaveTransactionLog(PaymentResult posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", (Math.Abs(posResult.ErrorCode)).ToString("D2") ?? ""),
+                     new XAttribute("respdesc", ""),
+                     new XAttribute("cardno", posResult.CardNumber ?? ""),
+                     new XAttribute("termno", posResult.TerminalId ?? ""),
+                     new XAttribute("serlno", posResult.MessageId ?? ""),
+                     new XAttribute("flowno", posResult.Stan ?? ""),
+                     new XAttribute("refno", posResult.RRN ?? "")
                   );
             iProject.SaveTransactionLog(ref xPcPos);
 

@@ -104,6 +104,9 @@
       <HintPath>..\packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PosInterface">
+      <HintPath>..\..\..\Utility\Tools\POS\Asan Pardakht\Ver_1.0.0.3\Ver_1.0.0.3\PosInterface.dll</HintPath>
+    </Reference>
     <Reference Include="POS_PC">
       <HintPath>..\..\..\Utility\Tools\POS\Melat\Simulator &amp; DLL\Simulator\POS_PC.dll</HintPath>
     </Reference>

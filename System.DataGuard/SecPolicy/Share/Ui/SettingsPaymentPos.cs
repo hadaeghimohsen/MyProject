@@ -20,6 +20,7 @@ using Intek.PcPosLibrary;
 using POS_PC;
 using VPCPOS;
 using PosInterface;
+using PcPosClassLibrary;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -152,6 +153,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                break;
             case "005":
                AsanPardakhtPcPos();
+               break;
+            case "006":
+               PasargadPcPos();
                break;
          }
       }
@@ -643,6 +647,104 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("serlno", posResult.MessageId ?? ""),
                      new XAttribute("flowno", posResult.Stan ?? ""),
                      new XAttribute("refno", posResult.RRN ?? "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+      #endregion
+
+      #region Pasargad
+      #region Variable
+      PCPOS _PasargadPcPos;
+      #endregion
+      private void PasargadPcPos()
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+            
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  _PasargadPcPos = new PCPOS(pos.COMM_PORT);
+                  break;
+               case "002":
+                  _PasargadPcPos = new PCPOS((int)pos.BAND_RATE, pos.IP_ADRS);
+                  break;
+               default:
+                  break;
+            }
+
+            Tlid = PasargadPcPos_SaveTransactionLog(new RecievedData());
+
+            _PasargadPcPos.DataRecieved += _PasargadPcPos_DataRecieved;
+            _PasargadPcPos.Sale(Convert.ToInt64(Amnt_Txt.EditValue));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            _PasargadPcPos.Close();
+         }
+      }
+
+      private void _PasargadPcPos_DataRecieved(object sender, DataRecievedArgs e)
+      {
+         try
+         {
+            Tlid = PasargadPcPos_SaveTransactionLog(e.recievedData);
+
+            if (!e.recievedData.HasError && e.recievedData.ReferenceNumber != "")
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+               SendCallBack2Router();
+            }               
+            else
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            }
+         }catch(Exception exc)
+         {
+            throw exc;
+         }
+         finally
+         {
+            _PasargadPcPos.Finish();
+            _PasargadPcPos.Close();
+         }
+      }
+
+      private long? PasargadPcPos_SaveTransactionLog(RecievedData posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", (Math.Abs(posResult.ErrorCode)).ToString("D2") ?? ""),
+                     new XAttribute("respdesc", ""),
+                     new XAttribute("cardno", posResult.CardNumber ?? ""),
+                     new XAttribute("termno", posResult.TerminalCode ?? ""),
+                     new XAttribute("serlno", posResult.SequenceNumber ?? ""),
+                     new XAttribute("flowno", posResult.Stan ?? ""),
+                     new XAttribute("refno", posResult.ReferenceNumber ?? "")
                   );
             iProject.SaveTransactionLog(ref xPcPos);
 

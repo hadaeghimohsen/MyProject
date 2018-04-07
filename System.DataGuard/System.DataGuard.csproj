@@ -96,6 +96,9 @@
     <Reference Include="Intek.PcPosLibrary">
       <HintPath>..\..\..\Utility\Tools\POS\Parsian\C# .NET_YB_PEC_PC2POS -TCP -\C# .NET_YB_PEC_PC2POS -TCP -\Intek.PcPosLibrary\bin\Debug\Intek.PcPosLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="ir.fanap.kiosk.Reporter">
+      <HintPath>..\..\..\Utility\Tools\POS\Pasargad\Dll_PC-POS\نسخه dll مخصوص پایانه های کستل (فناپ)\Dll\PCPOS Library-5-0-10-24\ir.fanap.kiosk.Reporter.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
       <Private>True</Private>
@@ -103,6 +106,12 @@
     <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="PcPosClassLibrary">
+      <HintPath>..\..\..\Utility\Tools\POS\Pasargad\Dll_PC-POS\نسخه dll مخصوص پایانه های کستل (فناپ)\Dll\PCPOS Library-5-0-10-24\PcPosClassLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PcPosClassLibrary.XmlSerializers">
+      <HintPath>..\..\..\Utility\Tools\POS\Pasargad\Dll_PC-POS\نسخه dll مخصوص پایانه های کستل (فناپ)\Dll\PCPOS Library-5-0-10-24\PcPosClassLibrary.XmlSerializers.dll</HintPath>
     </Reference>
     <Reference Include="PosInterface">
       <HintPath>..\..\..\Utility\Tools\POS\Asan Pardakht\Ver_1.0.0.3\Ver_1.0.0.3\PosInterface.dll</HintPath>

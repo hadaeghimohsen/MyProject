@@ -48,6 +48,8 @@ namespace System.Scsc.Ui.AggregateOperation
                ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
                ex.EXPN_STAT == "002" /* هزینه های فعال */
             ).OrderBy(ed => ed.EXPN_DESC);
+
+         requery = false;
       }
 
       private void Back_Butn_Click(object sender, EventArgs e)
@@ -616,7 +618,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             AodtBs1.EndEdit();
 
-            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT);
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB);
             requery = true;
 
             if (aodt.END_TIME != null)
@@ -644,6 +646,8 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
             if (aodt == null) return;
+
+            PosAmnt_Txt.EditValue = aodt.TOTL_AMNT_DNRM - ((aodt.CASH_AMNT ?? 0) + (aodt.POS_AMNT ?? 0));
 
             if (aodt.END_TIME == null)
                TotlMint_Txt.Text = "";
@@ -819,6 +823,110 @@ namespace System.Scsc.Ui.AggregateOperation
                      new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "016")))}
                   })
             );
+      }
+
+      private void AgopBs1_AddingNew(object sender, AddingNewEventArgs e)
+      {
+         try
+         {
+            var agop = AgopBs1.Current as Data.Aggregation_Operation;
+            if (agop == null) return;
+
+            agop.FROM_DATE = DateTime.Now;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Pos_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
+            if (amnt == 0) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            if (UsePos_Cb.Checked)
+            {
+               long psid;
+               if (Pos_Lov.EditValue == null)
+               {
+                  var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                  if (posdflts.Count() == 1)
+                     Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                  else
+                  {
+                     Pos_Lov.Focus();
+                     return;
+                  }
+               }
+               else
+               {
+                  psid = (long)Pos_Lov.EditValue;
+               }
+
+               if (regl.AMNT_TYPE == "002")
+                  amnt *= 10;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 34 /* Execute PosPayment */)
+                              {
+                                 Input = 
+                                    new XElement("PosRequest",
+                                       new XAttribute("psid", psid),
+                                       new XAttribute("subsys", 5),
+                                       new XAttribute("rqid", aodt.AGOP_CODE),
+                                       new XAttribute("rqtpcode", ""),
+                                       new XAttribute("router", GetType().Name),
+                                       new XAttribute("callback", 20),
+                                       new XAttribute("amnt", amnt)
+                                    )
+                              }
+                           }
+                        )                     
+                     }
+                  )
+               );
+            }
+            else
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithPOS4Agop"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("apdtagopcode", aodt.AGOP_CODE),
+                           new XAttribute("apdtrwno", aodt.RWNO),
+                           new XAttribute("amnt", amnt)
+                        )
+                     )
+                  )
+               );
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+               Execute_Query();
+         }
+
       }
    }
 }

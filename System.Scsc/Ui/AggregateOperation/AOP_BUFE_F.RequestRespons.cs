@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -51,6 +52,9 @@ namespace System.Scsc.Ui.AggregateOperation
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 20:
+               Pay_Oprt_F(job);
                break;
             default:
                break;
@@ -217,6 +221,7 @@ namespace System.Scsc.Ui.AggregateOperation
             isFirstLoaded = true;
          }
          FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         VPosBs1.DataSource = iScsc.V_Pos_Devices;
          job.Status = StatusType.Successful;
       }
 
@@ -238,5 +243,59 @@ namespace System.Scsc.Ui.AggregateOperation
 
          job.Status = StatusType.Successful;
       }
+
+      /// <summary>
+      /// Code 20
+      /// </summary>
+      /// <param name="job"></param>
+      private void Pay_Oprt_F(Job job)
+      {
+         try
+         {
+            XElement RcevXData = job.Input as XElement;
+
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               amnt /= 10;
+
+            iScsc.PAY_MSAV_P(
+               new XElement("Payment",
+                  new XAttribute("actntype", "CheckoutWithPOS4Agop"),
+                  new XElement("Insert",
+                     new XElement("Payment_Method",
+                        new XAttribute("apdtagopcode", aodt.AGOP_CODE),
+                        new XAttribute("apdtrwno", aodt.RWNO),
+                        new XAttribute("amnt", amnt),
+                        new XAttribute("termno", termno),
+                        new XAttribute("tranno", tranno),
+                        new XAttribute("cardno", cardno),
+                        new XAttribute("flowno", flowno),
+                        new XAttribute("refno", refno),
+                        new XAttribute("actndate", actndate)
+                     )
+                  )
+               )
+            );
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         job.Status = StatusType.Successful;
+      }
+
    }
 }

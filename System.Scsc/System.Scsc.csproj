@@ -726,12 +726,6 @@
     <Compile Include="Ui\MessageBroadcast\MSGB_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\Notifications\CHOS_CLAS_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Notifications\CHOS_CLAS_F.Designer.cs">
-      <DependentUpon>CHOS_CLAS_F.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ui\Notifications\NTF_TOTL_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -746,9 +740,6 @@
     </Compile>
     <Compile Include="Ui\Notifications\WHO_ARYU_F.Designer.cs">
       <DependentUpon>WHO_ARYU_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Notifications\CHOS_CLAS_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Notifications\WHO_ARYU_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -1353,9 +1344,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\MessageBroadcast\MSGB_TOTL_F.resx">
       <DependentUpon>MSGB_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Notifications\CHOS_CLAS_F.resx">
-      <DependentUpon>CHOS_CLAS_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notifications\NTF_TOTL_F.resx">
       <DependentUpon>NTF_TOTL_F.cs</DependentUpon>

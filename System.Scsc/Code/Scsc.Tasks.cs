@@ -546,11 +546,11 @@ namespace System.Scsc.Code
             //if (_Oic_Smsn_F == null)
             //   _Oic_Smsn_F = new Ui.OtherIncome.OIC_SMSN_F { _DefaultGateway = this };
          }
-         else if(value == "chos_clas_f")
-         {
-            if (_Chos_Clas_F == null)
-               _Chos_Clas_F = new Ui.Notifications.CHOS_CLAS_F { _DefaultGateway = this };
-         }
+         //else if(value == "chos_clas_f")
+         //{
+         //   if (_Chos_Clas_F == null)
+         //      _Chos_Clas_F = new Ui.Notifications.CHOS_CLAS_F { _DefaultGateway = this };
+         //}
          else if (value == "msgb_totl_f")
          {
             if (_Msgb_Totl_F == null)

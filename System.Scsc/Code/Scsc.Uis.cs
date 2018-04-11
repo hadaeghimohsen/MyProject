@@ -119,7 +119,7 @@ namespace System.Scsc.Code
       //internal Ui.Financial.RFD_TOTL_F _Rfd_Totl_F { get; set; }
       //internal Ui.ChangeRials.GLR_TOTL_F _Glr_Totl_F { get; set; }
       //internal Ui.OtherIncome.OIC_SMSN_F _Oic_Smsn_F { get; set; }
-      internal Ui.Notifications.CHOS_CLAS_F _Chos_Clas_F { get; set; }
+      //internal Ui.Notifications.CHOS_CLAS_F _Chos_Clas_F { get; set; }
       internal Ui.MessageBroadcast.MSGB_TOTL_F _Msgb_Totl_F { get; set; }
       internal Ui.DebitsList.DEBT_LIST_F _Debt_List_F { get; set; }
       internal Ui.BodyFitness.BDF_PROS_F _Bdf_Pros_F { get; set; }

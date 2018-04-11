@@ -83,8 +83,8 @@
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.ClearCbmt_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Cbmt_Pkb = new System.MaxUi.NewPickBtn();
-         this.Coch_Pkb = new System.MaxUi.NewPickBtn();
          this.Mtod_Pkb = new System.MaxUi.NewPickBtn();
+         this.Coch_Pkb = new System.MaxUi.NewPickBtn();
          this.ToAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.FromAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -607,33 +607,6 @@
          this.Cbmt_Pkb.TabIndex = 5;
          this.Cbmt_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // Coch_Pkb
-         // 
-         this.Coch_Pkb.BackColor = System.Drawing.Color.Transparent;
-         this.Coch_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Coch_Pkb.Disabled = false;
-         this.Coch_Pkb.First = null;
-         this.Coch_Pkb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Coch_Pkb.ForceSelect = false;
-         this.Coch_Pkb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Coch_Pkb.ImageIndexPickDown = 0;
-         this.Coch_Pkb.ImageIndexPickUp = 0;
-         this.Coch_Pkb.ImageList = null;
-         this.Coch_Pkb.Location = new System.Drawing.Point(132, 55);
-         this.Coch_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Coch_Pkb.Name = "Coch_Pkb";
-         this.Coch_Pkb.Next = null;
-         this.Coch_Pkb.PickChecked = false;
-         this.Coch_Pkb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Coch_Pkb.PickDownText = "1";
-         this.Coch_Pkb.PickDownTextColor = System.Drawing.Color.Empty;
-         this.Coch_Pkb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Coch_Pkb.PickUpText = "1";
-         this.Coch_Pkb.PickUpTextColor = System.Drawing.Color.Empty;
-         this.Coch_Pkb.Size = new System.Drawing.Size(30, 21);
-         this.Coch_Pkb.TabIndex = 3;
-         this.Coch_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
          // Mtod_Pkb
          // 
          this.Mtod_Pkb.BackColor = System.Drawing.Color.Transparent;
@@ -660,6 +633,33 @@
          this.Mtod_Pkb.Size = new System.Drawing.Size(30, 21);
          this.Mtod_Pkb.TabIndex = 4;
          this.Mtod_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Coch_Pkb
+         // 
+         this.Coch_Pkb.BackColor = System.Drawing.Color.Transparent;
+         this.Coch_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Coch_Pkb.Disabled = false;
+         this.Coch_Pkb.First = null;
+         this.Coch_Pkb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coch_Pkb.ForceSelect = false;
+         this.Coch_Pkb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Coch_Pkb.ImageIndexPickDown = 0;
+         this.Coch_Pkb.ImageIndexPickUp = 0;
+         this.Coch_Pkb.ImageList = null;
+         this.Coch_Pkb.Location = new System.Drawing.Point(132, 55);
+         this.Coch_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.Coch_Pkb.Name = "Coch_Pkb";
+         this.Coch_Pkb.Next = null;
+         this.Coch_Pkb.PickChecked = false;
+         this.Coch_Pkb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coch_Pkb.PickDownText = "1";
+         this.Coch_Pkb.PickDownTextColor = System.Drawing.Color.Empty;
+         this.Coch_Pkb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Coch_Pkb.PickUpText = "1";
+         this.Coch_Pkb.PickUpTextColor = System.Drawing.Color.Empty;
+         this.Coch_Pkb.Size = new System.Drawing.Size(30, 21);
+         this.Coch_Pkb.TabIndex = 3;
+         this.Coch_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // ToAttnDate_Date
          // 

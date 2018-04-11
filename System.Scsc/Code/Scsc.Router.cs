@@ -820,9 +820,9 @@ namespace System.Scsc.Code
             case "OIC_SMSN_F":
                //_Oic_Smsn_F.SendRequest(job);
                break;
-            case "CHOS_CLAS_F":
-               _Chos_Clas_F.SendRequest(job);
-               break;
+            //case "CHOS_CLAS_F":
+            //   _Chos_Clas_F.SendRequest(job);
+            //   break;
             case "MSGB_TOTL_F":
                _Msgb_Totl_F.SendRequest(job);
                break;

@@ -1004,6 +1004,9 @@ namespace System.Scsc.Ui.OtherIncome
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
 
+               if (VPosBs1.List.Count == 0)
+                  UsePos_Cb.Checked = false;
+
                if (UsePos_Cb.Checked)
                {
                   foreach (Data.Payment pymt in PymtsBs1)

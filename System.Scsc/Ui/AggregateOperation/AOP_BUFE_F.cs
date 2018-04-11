@@ -852,6 +852,9 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
+            if (VPosBs1.List.Count == 0)
+               UsePos_Cb.Checked = false;
+
             if (UsePos_Cb.Checked)
             {
                long psid;

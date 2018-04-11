@@ -21,6 +21,9 @@ using POS_PC;
 using VPCPOS;
 using PosInterface;
 using PcPosClassLibrary;
+using System.Net.Sockets;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -406,39 +409,94 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var pos = PosBs.Current as Data.Pos_Device;
             if (pos == null) return;
+            
+            #region Old Version
+            //_MellatPcPos = new Transaction();
 
-            _MellatPcPos = new Transaction();
+            //Tlid = MellatPcPos_SaveTransactionLog(_MellatPcPos);
+            //switch (pos.POS_CNCT_TYPE)
+            //{
+            //   case "001":
+            //      _MellatPcPos.PC_PORT_Name = pos.COMM_PORT;
+            //      _MellatPcPos.PC_PORT_BaudRate = (int)pos.BAND_RATE;
+            //      break;
+            //   case "002":
+            //      break;
+            //}
 
-            Tlid = MellatPcPos_SaveTransactionLog(_MellatPcPos);
+            //_MellatPcPos.PC_PORT_ReadTimeout = 180000;
+            //Transaction.return_codes retCode;
+            //do
+            //{
+            //   retCode = _MellatPcPos.Debits_Goods_And_Service(Amnt_Txt.EditValue.ToString(), "", "");
+
+            //   Tlid = MellatPcPos_SaveTransactionLog(_MellatPcPos);
+
+            //   if(retCode == Transaction.return_codes.RET_OK)
+            //   {
+            //      PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+            //      SendCallBack2Router();
+            //   }
+            //   else
+            //   {
+            //      PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+            //   }
+
+            //} while (Globals.POSPC_CommunicationType.ToUpper() == "TCP/IP" && !_MellatPcPos.IS_FATAL_ERROR(retCode));
+            #endregion
+
+            TcpClient client = null;
+            ServicePointManager.Expect100Continue = false;
+            byte[] resvCommand = new byte[10025];
             switch (pos.POS_CNCT_TYPE)
             {
                case "001":
-                  _MellatPcPos.PC_PORT_Name = pos.COMM_PORT;
-                  _MellatPcPos.PC_PORT_BaudRate = (int)pos.BAND_RATE;
+                  client = new System.Net.Sockets.TcpClient("127.0.0.1", (int)pos.BAND_RATE); // Create a new connection  
                   break;
                case "002":
+                  client = new System.Net.Sockets.TcpClient(pos.IP_ADRS, (int)pos.BAND_RATE); // Create a new connection  
                   break;
             }
-
-            _MellatPcPos.PC_PORT_ReadTimeout = 180000;
-            Transaction.return_codes retCode;
-            do
+            if(!client.Connected)
             {
-               retCode = _MellatPcPos.Debits_Goods_And_Service(Amnt_Txt.EditValue.ToString(), "", "");
+               throw new Exception("Please Check Service Port");
+            }
 
-               Tlid = MellatPcPos_SaveTransactionLog(_MellatPcPos);
+            Tlid = MellatPcPos_SaveTransactionLog(null);
+            NetworkStream stream = client.GetStream();
+            string str_comm = "" + "{\"ServiceCode\" :\"" + "1";
+            if (Convert.ToInt64( Amnt_Txt.EditValue ) > 0)
+               str_comm += "\",\"Amount\":\"" + Amnt_Txt.EditValue.ToString();
+            //if (txtDebitPayerId.Text.Length > 0)
+            //   str_comm += "\",\"PayerId\":\"" + txtDebitPayerId.Text;
+            //if (txtDebitMsg.Text.Length > 0)
+            //   str_comm += "\",\"MerchantMsg\":\"" + txtDebitMsg.Text;
+            //if (txtDebitPcID.Text.Length > 0)
+            //   str_comm += "\",\"PcID\":\"" + txtDebitPcID.Text;
+            str_comm += "\"}";
 
-               if(retCode == Transaction.return_codes.RET_OK)
-               {
-                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
-                  SendCallBack2Router();
-               }
-               else
-               {
-                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
-               }
+            //string str_comm = "" + "{\"ServiceCode\" :\"" + "1" + "\",\"Amount\":\"" + txtDebitAmount.Text + "\",\"PayerId\":\"" + txtDebitPayerId.Text + "\",\"MerchantMsg\":\"" + txtDebitMsg.Text + "\",\"PcID\":\"" + txtDebitPcID.Text + "\"}";
+            byte[] sendCommand = System.Text.Encoding.ASCII.GetBytes(str_comm);
+            stream.Write(sendCommand, 0, sendCommand.Length);
+            stream.ReadTimeout = 180000;
+            int recvSize = stream.Read(resvCommand, 0, resvCommand.Length);
 
-            } while (Globals.POSPC_CommunicationType.ToUpper() == "TCP/IP" && !_MellatPcPos.IS_FATAL_ERROR(retCode));
+            string jsonStr = Encoding.UTF8.GetString(resvCommand);
+            Dictionary<String, String> posResult = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonStr);
+            
+            Tlid = MellatPcPos_SaveTransactionLog(posResult);
+
+            if (posResult.FirstOrDefault(p => p.Key == "ReturnCode").Value == "100")
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+               SendCallBack2Router();
+            }
+            else
+            {
+               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            }
+
+            client.Close();
          }
          catch (Exception exc)
          {
@@ -447,7 +505,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      private long? MellatPcPos_SaveTransactionLog(Transaction posResult)
+      private long? MellatPcPos_SaveTransactionLog(Dictionary<string, string> posResult)
       {
          try
          {
@@ -463,12 +521,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
-                     new XAttribute("respcode", posResult.ReasonCode ?? ""),
+                     new XAttribute("respcode", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "ReturnCode").Value ?? ""),
                      new XAttribute("respdesc", ""),
-                     new XAttribute("cardno", posResult.PAN ?? ""),
-                     new XAttribute("termno", posResult.TerminalNo ?? ""),
-                     new XAttribute("serlno", posResult.SerialTransaction ?? ""),
-                     new XAttribute("flowno", posResult.TraceNumber ?? ""),
+                     new XAttribute("cardno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "PAN").Value ?? ""),
+                     new XAttribute("termno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "TerminalNo").Value ?? ""),
+                     new XAttribute("serlno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "SerialTransaction").Value ?? ""),
+                     new XAttribute("flowno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "TraceNumber").Value ?? ""),
                      new XAttribute("refno", "")
                   );
             iProject.SaveTransactionLog(ref xPcPos);
@@ -481,6 +539,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             throw exc;
          }
       }
+      
       #endregion
 
       #region Mabna Card Aria

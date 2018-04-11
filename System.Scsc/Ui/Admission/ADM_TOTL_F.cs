@@ -1485,6 +1485,9 @@ namespace System.Scsc.Ui.Admission
 
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
+               if (VPosBs1.List.Count == 0)
+                  UsePos_Cb.Checked = false;
+
                if (UsePos_Cb.Checked)
                {
                   foreach (Data.Payment pymt in PymtsBs3)

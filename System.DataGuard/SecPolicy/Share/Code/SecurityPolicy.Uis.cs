@@ -48,5 +48,6 @@ namespace System.DataGuard.SecPolicy.Share.Code
       internal Ui.SettingsSendEmail _SettingsSendEmail { get; set; }
       internal Ui.SettingsNewPos _SettingsNewPos { get; set; }
       internal Ui.SettingsPaymentPos _SettingsPaymentPos { get; set; }
+      internal Ui.SettingsRegion _SettingsRegion { get; set; }
    }
 }

@@ -38,6 +38,7 @@
          this.ServiceApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Privacy_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UpdateSecurity_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.RegionLang_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel1 = new System.Windows.Forms.Panel();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.flowLayoutPanel1.SuspendLayout();
@@ -72,6 +73,7 @@
          this.flowLayoutPanel1.Controls.Add(this.ServiceApp_Butn);
          this.flowLayoutPanel1.Controls.Add(this.Privacy_Butn);
          this.flowLayoutPanel1.Controls.Add(this.UpdateSecurity_Butn);
+         this.flowLayoutPanel1.Controls.Add(this.RegionLang_Butn);
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 61);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -244,6 +246,27 @@
     "ابی</size></color> <br>";
          this.UpdateSecurity_Butn.Click += new System.EventHandler(this.UpdateSecurity_Butn_Click);
          // 
+         // RegionLang_Butn
+         // 
+         this.RegionLang_Butn.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
+         this.RegionLang_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RegionLang_Butn.Appearance.Options.UseFont = true;
+         this.RegionLang_Butn.Appearance.Options.UseTextOptions = true;
+         this.RegionLang_Butn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.RegionLang_Butn.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.RegionLang_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1367;
+         this.RegionLang_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+         this.RegionLang_Butn.Location = new System.Drawing.Point(87, 319);
+         this.RegionLang_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.RegionLang_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.RegionLang_Butn.Name = "RegionLang_Butn";
+         this.RegionLang_Butn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.RegionLang_Butn.Size = new System.Drawing.Size(208, 152);
+         this.RegionLang_Butn.TabIndex = 9;
+         this.RegionLang_Butn.Text = "<b>زبان و منطقه</b> <br> <color=Gray><size=9>منطقه و تغییر زبان </size></color> <" +
+    "br>";
+         this.RegionLang_Butn.Click += new System.EventHandler(this.RegionLang_Butn_Click);
+         // 
          // panel1
          // 
          this.panel1.Controls.Add(this.labelControl1);
@@ -298,5 +321,6 @@
       private DevExpress.XtraEditors.SimpleButton ServiceApp_Butn;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private Windows.Forms.Panel panel1;
+      private DevExpress.XtraEditors.SimpleButton RegionLang_Butn;
    }
 }

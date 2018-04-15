@@ -138,5 +138,19 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             )
          );
       }
+
+      private void RegionLang_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            //new Job(SendType.External, "localhost", "", 17 /* Execute DoWork4SettingsUpdateSecurity */, SendType.Self)
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 39 /* Execute DoWork4SettingsRegion */),
+                  new Job(SendType.SelfToUserInterface, "SettingsRegion", 10 /* Execute ActionCallWindows */)
+               }
+            )
+         );
+      }
    }
 }

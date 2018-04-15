@@ -283,6 +283,15 @@
     <Compile Include="SecPolicy\Share\Ui\ActionCenter.Designer.cs">
       <DependentUpon>ActionCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsRegion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsRegion.Designer.cs">
+      <DependentUpon>SettingsRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsRegion.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsPaymentPos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -784,6 +793,9 @@
     <EmbeddedResource Include="SecPolicy\Share\Ui\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsRegion.resx">
+      <DependentUpon>SettingsRegion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsPaymentPos.resx">
       <DependentUpon>SettingsPaymentPos.cs</DependentUpon>
     </EmbeddedResource>
@@ -931,6 +943,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.D_MGTP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_MSG.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_NSCL.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_REGN.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_VLDT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_YSNO.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Gas_Privilege.datasource" />

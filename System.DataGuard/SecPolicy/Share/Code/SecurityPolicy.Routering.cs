@@ -150,6 +150,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
             case 38:
                DoWork4SettingsPaymentPos(job);
                break;
+            case 39:
+               DoWork4SettingsRegion(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -273,6 +276,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
                break;
             case "SettingsPaymentPos":
                _SettingsPaymentPos.SendRequest(job);
+               break;
+            case "SettingsRegion":
+               _SettingsRegion.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

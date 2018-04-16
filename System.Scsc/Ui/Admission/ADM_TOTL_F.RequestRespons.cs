@@ -20,8 +20,7 @@ namespace System.Scsc.Ui.Admission
       private string formCaller = "";
       private bool isFirstLoaded = false;
       private string CurrentUser;
-      
-
+      private XElement HostNameInfo;
 
       public void SendRequest(Job job)
       {
@@ -209,6 +208,10 @@ namespace System.Scsc.Ui.Admission
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
          CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
@@ -302,6 +305,7 @@ namespace System.Scsc.Ui.Admission
 
       finishcommand:
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
          MtodBs2.DataSource = iScsc.Methods.Where(m=> m.MTOD_STAT == "002");
          job.Status = StatusType.Successful;
       }

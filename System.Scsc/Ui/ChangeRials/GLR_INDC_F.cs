@@ -129,7 +129,13 @@ namespace System.Scsc.Ui.ChangeRials
                               new XElement("Gain_Loss_Rial_Detial",
                                  new XAttribute("rwno", gd.RWNO),
                                  new XAttribute("amnt", gd.AMNT ?? 0),
-                                 new XAttribute("rcptmtod", gd.RCPT_MTOD ?? "001")
+                                 new XAttribute("rcptmtod", gd.RCPT_MTOD ?? "001"),
+                                 new XAttribute("termno", gd.TERM_NO ?? ""),
+                                 new XAttribute("tranno", gd.TRAN_NO ?? ""),
+                                 new XAttribute("cardno", gd.CARD_NO ?? ""),
+                                 new XAttribute("flowno", gd.FLOW_NO ?? ""),
+                                 new XAttribute("refno", gd.REF_NO ?? ""),
+                                 new XAttribute("actndate", gd.ACTN_DATE.HasValue ? gd.ACTN_DATE.Value.ToString("yyyy-MM-dd") : "")
                               )
                            )
                         )
@@ -468,6 +474,91 @@ namespace System.Scsc.Ui.ChangeRials
       private void ShowRqst_PickButn_PickCheckedChange(object sender)
       {
          Execute_Query();
+      }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
+
+      private void tbn_POSPayment1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (VPosBs1.List.Count == 0)
+               UsePos_Cb.Checked = false;
+
+            if (UsePos_Cb.Checked)
+            {
+               //foreach (Data.Gain_Loss_Rail_Detail pymt in GlrdBs1)
+               var pymt = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
+               {
+                  var amnt = (pymt.AMNT);
+                  if (amnt == 0) return;
+
+                  var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+                  long psid;
+                  if (Pos_Lov.EditValue == null)
+                  {
+                     var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                     if (posdflts.Count() == 1)
+                        Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                     else
+                     {
+                        Pos_Lov.Focus();
+                        return;
+                     }
+                  }
+                  else
+                  {
+                     psid = (long)Pos_Lov.EditValue;
+                  }
+
+                  if (regl.AMNT_TYPE == "002")
+                     amnt *= 10;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                           {
+                              new Job(SendType.External, "Commons",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 34 /* Execute PosPayment */)
+                                    {
+                                       Input = 
+                                          new XElement("PosRequest",
+                                             new XAttribute("psid", psid),
+                                             new XAttribute("subsys", 5),
+                                             new XAttribute("rqid", rqst.RQID),
+                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("router", GetType().Name),
+                                             new XAttribute("callback", 20),
+                                             new XAttribute("amnt", amnt)
+                                          )
+                                    }
+                                 }
+                              )                     
+                           }
+                     )
+                  );
+               }
+            }
+            else
+            {
+               Btn_RqstRqt1_Click(null, null);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

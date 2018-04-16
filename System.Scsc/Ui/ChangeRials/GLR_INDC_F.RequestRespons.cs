@@ -20,7 +20,7 @@ namespace System.Scsc.Ui.ChangeRials
       private List<long?> Fga_Uclb_U;
       private string formCaller;
       private string CurrentUser;
-
+      private XElement HostNameInfo;
 
       public void SendRequest(Job job)
       {
@@ -183,6 +183,10 @@ namespace System.Scsc.Ui.ChangeRials
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
          CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
@@ -246,6 +250,8 @@ namespace System.Scsc.Ui.ChangeRials
       private void LoadData(Job job)
       {
          DRcmtBs1.DataSource = iScsc.D_RCMTs;
+         VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
          job.Status = StatusType.Successful;
       }
 
@@ -292,88 +298,45 @@ namespace System.Scsc.Ui.ChangeRials
       /// <param name="job"></param>
       private void Pay_Oprt_F(Job job)
       {
-         XElement RcevXData = job.Input as XElement;
-
-         var rqtpcode = RcevXData.Element("Request").Attribute("rqtpcode").Value;
-         var rqid = RcevXData.Element("Request").Attribute("rqid").Value;
-         var fileno = RcevXData.Element("Request").Attribute("fileno").Value;
-         var cashcode = RcevXData.Element("Request").Element("Payment").Attribute("cashcode").Value;
-         var amnt = RcevXData.Element("Request").Element("Payment").Attribute("amnt").Value;
-         var termno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("termno").Value;
-         var cardno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("cardno").Value;
-         var flowno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("flowno").Value;
-         var refno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("refno").Value;
-         var actndate = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("actndate").Value;
-
-         // ثبت نام
-         if (rqtpcode == "001")
+         try
          {
-            iScsc.PAY_MSAV_P(
-                  new XElement("Payment",
-                     new XAttribute("actntype", "CheckoutWithPOS"),
-                     new XElement("Insert",
-                        new XElement("Payment_Method",
-                           new XAttribute("cashcode", cashcode),
-                           new XAttribute("rqstrqid", rqid),
-                           new XAttribute("amnt", amnt),
-                           new XAttribute("termno", termno),
-                           new XAttribute("cardno", cardno),
-                           new XAttribute("flowno", flowno),
-                           new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
-                        )
-                     )
-                  )
-               );
+            XElement RcevXData = job.Input as XElement;
 
-            /* Loop For Print After Pay */
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "PrntAftrPay"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", rqid))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
 
-            /* End Request */
-            try
-            {
-               iScsc.ADM_TSAV_F(
-                  new XElement("Process",
-                     new XElement("Request",
-                        new XAttribute("rqid", rqid),
-                        new XElement("Fighter",
-                           new XAttribute("fileno", fileno)
-                        ),
-                        new XElement("Payment",
-                           iScsc.Payment_Details.Where(pd => pd.PYMT_CASH_CODE == Convert.ToInt64(cashcode) && pd.PYMT_RQST_RQID == Convert.ToInt64(rqid)).ToList()
-                           .Select(pd =>
-                              new XElement("Payment_Detail",
-                                 new XAttribute("code", pd.CODE),
-                                 new XAttribute("rcptmtod", "003")
-                              )
-                           )
-                        )
-                     )
-                  )
-               );
-               requery = true;
-            }
-            catch (Exception ex)
-            {
-               MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-               if (requery)
-               {
-                  //Get_Current_Record();
-                  Execute_Query();
-                  //Set_Current_Record();
-                  //Create_Record();
-                  requery = false;
-               }
-            }
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            var rqtpcode = rqst.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+            var rqid = rqst.RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+            var fileno = rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+            var cashcode = rqst.Payments.FirstOrDefault().CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               amnt /= 10;
+
+            var glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
+            glrd.TERM_NO = termno;
+            glrd.TRAN_NO = tranno;
+            glrd.CARD_NO = cardno;
+            glrd.FLOW_NO = flowno;
+            glrd.REF_NO = refno;
+            glrd.ACTN_DATE = Convert.ToDateTime(actndate);
+
+            Glrd_gv.PostEditor();
+
+            Btn_RqstRqt1_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
          job.Status = StatusType.Successful;
       }

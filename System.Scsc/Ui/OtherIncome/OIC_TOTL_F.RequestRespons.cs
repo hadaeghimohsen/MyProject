@@ -17,6 +17,7 @@ namespace System.Scsc.Ui.OtherIncome
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
+      private XElement HostNameInfo;
 
       public void SendRequest(Job job)
       {
@@ -186,6 +187,9 @@ namespace System.Scsc.Ui.OtherIncome
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -260,6 +264,7 @@ namespace System.Scsc.Ui.OtherIncome
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
 
          Execute_Query();         
          #endregion

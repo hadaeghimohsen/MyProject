@@ -44,6 +44,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.Header_Txt = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -70,6 +71,8 @@
          this.PrntCust_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.AutoComm_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.Comp_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.vCompBs = new System.Windows.Forms.BindingSource(this.components);
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.BnkbCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PosBs)).BeginInit();
@@ -90,6 +93,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.PrntSale_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PrntCust_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AutoComm_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Comp_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vCompBs)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -188,12 +193,12 @@
          this.Save_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.Save_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Save_Butn.Image")));
          this.Save_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Save_Butn.Location = new System.Drawing.Point(61, 583);
+         this.Save_Butn.Location = new System.Drawing.Point(61, 621);
          this.Save_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Save_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Save_Butn.Name = "Save_Butn";
          this.Save_Butn.Size = new System.Drawing.Size(116, 42);
-         this.Save_Butn.TabIndex = 15;
+         this.Save_Butn.TabIndex = 16;
          this.Save_Butn.Text = "ذخیره";
          this.Save_Butn.Click += new System.EventHandler(this.Save_Butn_Click);
          // 
@@ -697,12 +702,12 @@
          this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
          this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton1.Location = new System.Drawing.Point(183, 583);
+         this.simpleButton1.Location = new System.Drawing.Point(183, 621);
          this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
          this.simpleButton1.Size = new System.Drawing.Size(115, 42);
-         this.simpleButton1.TabIndex = 16;
+         this.simpleButton1.TabIndex = 17;
          this.simpleButton1.Text = "تست ارتباط";
          this.simpleButton1.Click += new System.EventHandler(this.Save_Butn_Click);
          // 
@@ -745,12 +750,58 @@
          this.AutoComm_Lov.TabIndex = 14;
          this.AutoComm_Lov.ToolTip = "اجرای اتوماتیک";
          // 
+         // Comp_Lov
+         // 
+         this.Comp_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Comp_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PosBs, "GTWY_MAC_ADRS", true));
+         this.Comp_Lov.Location = new System.Drawing.Point(61, 577);
+         this.Comp_Lov.Name = "Comp_Lov";
+         this.Comp_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.Comp_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
+         this.Comp_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Comp_Lov.Properties.Appearance.Options.UseBackColor = true;
+         this.Comp_Lov.Properties.Appearance.Options.UseBorderColor = true;
+         this.Comp_Lov.Properties.Appearance.Options.UseFont = true;
+         this.Comp_Lov.Properties.Appearance.Options.UseTextOptions = true;
+         this.Comp_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Comp_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("IRANSans", 9F);
+         this.Comp_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
+         this.Comp_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Comp_Lov.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+         this.Comp_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Comp_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.Comp_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.Comp_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.DataGuard.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+         this.Comp_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IP_DNRM", "IP", 77, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CPU_SRNO_DNRM", "CPU_SRNO_DNRM", 119, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("COMP_NAME_DNRM", "COMP_NAME_DNRM", 130, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME_DNRM", "سیستم کامپیوتری", 87, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.Comp_Lov.Properties.DataSource = this.vCompBs;
+         this.Comp_Lov.Properties.DisplayMember = "NAME_DNRM";
+         this.Comp_Lov.Properties.LookAndFeel.SkinName = "Office 2013 Light Gray";
+         this.Comp_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Comp_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Comp_Lov.Properties.NullText = "سیستم متصل به دستگاه پوز";
+         this.Comp_Lov.Properties.NullValuePrompt = "سیستم متصل به دستگاه پوز";
+         this.Comp_Lov.Properties.NullValuePromptShowForEmptyValue = true;
+         this.Comp_Lov.Properties.ValueMember = "CPU_SRNO_DNRM";
+         this.Comp_Lov.Size = new System.Drawing.Size(237, 31);
+         this.Comp_Lov.TabIndex = 15;
+         this.Comp_Lov.ToolTip = "سیستم متصل به دستگاه پوز";
+         // 
+         // vCompBs
+         // 
+         this.vCompBs.DataSource = typeof(System.DataGuard.Data.V_Computer);
+         // 
          // SettingsNewPos
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.Controls.Add(this.Comp_Lov);
          this.Controls.Add(this.AutoComm_Lov);
          this.Controls.Add(this.PrntCust_Txt);
          this.Controls.Add(this.PrntSale_Txt);
@@ -773,7 +824,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SettingsNewPos";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(359, 653);
+         this.Size = new System.Drawing.Size(359, 691);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.BnkbCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PosBs)).EndInit();
@@ -794,6 +845,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.PrntSale_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PrntCust_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AutoComm_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Comp_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vCompBs)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -826,6 +879,8 @@
       private DevExpress.XtraEditors.ButtonEdit PrntCust_Txt;
       private DevExpress.XtraEditors.SimpleButton simpleButton1;
       private DevExpress.XtraEditors.LookUpEdit AutoComm_Lov;
+      private DevExpress.XtraEditors.LookUpEdit Comp_Lov;
+      private Windows.Forms.BindingSource vCompBs;
 
    }
 }

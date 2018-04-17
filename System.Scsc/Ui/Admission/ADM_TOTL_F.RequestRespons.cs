@@ -305,7 +305,8 @@ namespace System.Scsc.Ui.Admission
 
       finishcommand:
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
-         Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
          MtodBs2.DataSource = iScsc.Methods.Where(m=> m.MTOD_STAT == "002");
          job.Status = StatusType.Successful;
       }

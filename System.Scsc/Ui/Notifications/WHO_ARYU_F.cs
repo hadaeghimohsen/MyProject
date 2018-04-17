@@ -122,7 +122,11 @@ namespace System.Scsc.Ui.Notifications
 
             // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
             if (iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
-               PrintDefault_Butn_Click(null, null);
+            {
+               // 1397/01/28 * برای آن دسته از ورود هایی که هنوز چاپ نشده اند
+               if(attn.PRNT_STAT != "002")
+                  PrintDefault_Butn_Click(null, null);
+            }
          }
 
          if(gateControl)
@@ -496,7 +500,13 @@ namespace System.Scsc.Ui.Notifications
             
             string fc = formcaller;
             formcaller = "";
-            
+
+            iScsc.UPD_ATNP_P(
+               new XElement("Attendance",
+                  new XAttribute("code", attn.CODE)
+               )
+            );
+
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -514,13 +524,18 @@ namespace System.Scsc.Ui.Notifications
       private void Print_Butn_Click(object sender, EventArgs e)
       {
          try
-         {
-            
+         {            
             var attn = AttnBs1.Current as Data.Attendance;
             if (attn == null) return;
 
             string fc = formcaller;
             formcaller = "";
+
+            iScsc.UPD_ATNP_P(
+               new XElement("Attendance",
+                  new XAttribute("code", attn.CODE)
+               )
+            );
 
             Job _InteractWithScsc =
                  new Job(SendType.External, "Localhost",

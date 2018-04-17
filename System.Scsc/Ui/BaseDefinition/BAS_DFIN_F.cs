@@ -142,7 +142,7 @@ namespace System.Scsc.Ui.BaseDefinition
          else if(Tb_Master.SelectedTab == tp_007)
          {
             int hldy = HldyBs.Position;
-            HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Year == DateTime.Now.Year && h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
+            HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
             HldyBs.Position = hldy;
          }
 
@@ -248,6 +248,8 @@ namespace System.Scsc.Ui.BaseDefinition
       #region TabPage002
       private void AddInComeEpit_Butn_Click(object sender, EventArgs e)
       {
+         if (InComeEpitBs1.List.OfType<Data.Expense_Item>().Any(ei => ei.CODE == 0)) return;
+
          InComeEpitBs1.AddNew();
 
          var incomeepit = InComeEpitBs1.Current as Data.Expense_Item;
@@ -340,6 +342,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddOutComeEpit_Butn_Click(object sender, EventArgs e)
       {
+         if (OutComeEpitBs1.List.OfType<Data.Expense_Item>().Any(ei => ei.CODE == 0)) return;
+
          OutComeEpitBs1.AddNew();
       }
 
@@ -430,6 +434,8 @@ namespace System.Scsc.Ui.BaseDefinition
       #region TabPage003
       private void AddMethod_Butn_Click(object sender, EventArgs e)
       {
+         if (MtodBs1.List.OfType<Data.Method>().Any(m => m.CODE == 0)) return;
+
          MtodBs1.AddNew();
          
          var mtod = MtodBs1.Current as Data.Method;
@@ -491,6 +497,11 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddCategory_Butn_Click(object sender, EventArgs e)
       {
+         var mtod = MtodBs1.Current as Data.Method;
+         if (mtod.CODE == 0) return;
+
+         if (CtgyBs1.List.OfType<Data.Category_Belt>().Any(cb => cb.CODE == 0)) return;
+
          var oldctgy = CtgyBs1.Current as Data.Category_Belt;
 
          CtgyBs1.AddNew();
@@ -975,6 +986,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddClubMethod_Butn_Click(object sender, EventArgs e)
       {
+         if (CbmtBs2.List.OfType<Data.Club_Method>().Any(cm => cm.CODE == 0)) return;
+
          var club = ClubBs1.Current as Data.Club;
          var oldcbmt = CbmtBs2.Current as Data.Club_Method;
 
@@ -1004,6 +1017,7 @@ namespace System.Scsc.Ui.BaseDefinition
             newcbmt.CLAS_TIME = 90;
             newcbmt.CPCT_NUMB = 0;
             newcbmt.CPCT_STAT = "001";
+            newcbmt.AMNT = 0;
          }
       }
 

@@ -584,7 +584,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             retCode = _MabnaPcPos.ReceiveMessage(0);
             Tlid = MabnaCardAria_SaveTransactionLog(_MabnaPcPos);
-            if(retCode == 0)
+            if(_MabnaPcPos.response.AppResponseCode == "00")
             {
                PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
                SendCallBack2Router();

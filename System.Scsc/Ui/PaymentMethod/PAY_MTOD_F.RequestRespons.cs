@@ -17,6 +17,7 @@ namespace System.Scsc.Ui.PaymentMethod
       private string ConnectionString;
       private string CallerForm;
       private string TabFocued;
+      private XElement HostNameInfo;
 
       public void SendRequest(Job job)
       {
@@ -163,6 +164,10 @@ namespace System.Scsc.Ui.PaymentMethod
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
 
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
@@ -236,6 +241,9 @@ namespace System.Scsc.Ui.PaymentMethod
          DActvBs2.DataSource = iScsc.D_ACTVs;
          DCktpBs4.DataSource = iScsc.D_CKTPs;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+
          DEBT_DNRMTextEdit.EditValue = p.Request.Request_Rows.FirstOrDefault().Fighter.DEBT_DNRM;
          if (p.Request.Request_Rows.FirstOrDefault().Fighter.DEBT_DNRM >= 0)
          {

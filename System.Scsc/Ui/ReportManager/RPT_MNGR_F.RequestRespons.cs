@@ -333,6 +333,11 @@ namespace System.Scsc.Ui.ReportManager
                   s.Compile();
                   s.Render();
                   s.Print(false);
+
+                  // 1397/01/08 * بازگشت سریع به فرم صدا کننده
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+                  );
                }
             }
             else

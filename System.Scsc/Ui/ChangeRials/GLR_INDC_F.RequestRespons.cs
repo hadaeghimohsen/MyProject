@@ -251,7 +251,8 @@ namespace System.Scsc.Ui.ChangeRials
       {
          DRcmtBs1.DataSource = iScsc.D_RCMTs;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
-         Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
          job.Status = StatusType.Successful;
       }
 

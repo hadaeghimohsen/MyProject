@@ -90,13 +90,12 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>3.2,2.2,3.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans,11,Bold</Font>
+              <Font>B Titr,9.75,Bold,Point,False,178</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{iQuery.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -152,7 +151,7 @@
             </Text6>
             <Text1 Ref="13" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,2.8,2.2,0.4</ClientRectangle>
+              <ClientRectangle>3.2,3.6,2.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Courier New,10,Bold</Font>
               <Guid>30de296077bb462da7c65aac5b30e9a2</Guid>
@@ -171,7 +170,7 @@
             </Text1>
             <Text5 Ref="15" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,3.4,2.2,0.4</ClientRectangle>
+              <ClientRectangle>3.2,3.2,2.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Courier New,10,Bold</Font>
               <Guid>0b5238d340ff4078a3303d7791128172</Guid>
@@ -206,7 +205,7 @@
             </Text3>
             <Text7 Ref="18" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,2.8,1,0.4</ClientRectangle>
+              <ClientRectangle>5.4,3.6,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,8</Font>
               <Guid>96aa66b5503e44b3bb4ef92427ef5067</Guid>
@@ -222,7 +221,7 @@
             </Text7>
             <Text8 Ref="19" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,3.4,1,0.4</ClientRectangle>
+              <ClientRectangle>5.4,3.2,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,8</Font>
               <Guid>d8f2acf8538b434993bd627c85667b93</Guid>
@@ -318,10 +317,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/4/2018 1:45:57 PM</ReportChanged>
+  <ReportChanged>4/18/2018 9:50:17 AM</ReportChanged>
   <ReportCreated>1/25/2016 4:44:56 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\CRD_ADM_CLUB_004_R.mrt</ReportFile>
-  <ReportGuid>9700f0339f3e4ba7b2d15109ac306627</ReportGuid>
+  <ReportGuid>a631397b3d0f4dd0982009e268cd07ee</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

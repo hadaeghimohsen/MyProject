@@ -81,17 +81,19 @@ namespace System.Scsc.Ui.ReportManager
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
-                        {                           
-                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),                           
+                        {
+                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 04 /* Execute UnPaint */),
+                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */)
                         })
                   );
                   break;
                default:
+                  job.Next =
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
                   break;
             }
             ModualName = "";
-            job.Next =
-               new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+            
          }
          else if (keyData == (Keys.Control | Keys.S))
          {

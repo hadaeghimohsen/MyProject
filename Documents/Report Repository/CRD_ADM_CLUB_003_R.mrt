@@ -88,13 +88,12 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>3.2,2.2,3.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans,11,Bold</Font>
+              <Font>B Titr,9.75,Bold,Point,False,178</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{iQuery.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -150,7 +149,7 @@
             </Text6>
             <Text1 Ref="13" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,2.6,2.2,0.4</ClientRectangle>
+              <ClientRectangle>3.2,3.6,2.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Courier New,10,Bold</Font>
               <Guid>30de296077bb462da7c65aac5b30e9a2</Guid>
@@ -185,7 +184,7 @@
             </Text3>
             <Text5 Ref="16" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,2.6,1,0.4</ClientRectangle>
+              <ClientRectangle>5.4,3.6,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,8</Font>
               <HorAlignment>Center</HorAlignment>
@@ -252,10 +251,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/4/2018 1:49:13 PM</ReportChanged>
+  <ReportChanged>4/18/2018 9:49:24 AM</ReportChanged>
   <ReportCreated>1/25/2016 4:44:56 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\CRD_ADM_CLUB_003_R.mrt</ReportFile>
-  <ReportGuid>714aade3e97047769979d8863a183d84</ReportGuid>
+  <ReportGuid>70a1ab3e6bf24c4c807569c4135c55a2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

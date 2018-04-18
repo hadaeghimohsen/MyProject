@@ -617,7 +617,7 @@ namespace System.Scsc.Ui.Notifications
             DialogResult result = DialogResult.None;
             // منشی پشت سیستم حضور دارد
             if( /*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm  == "001")
-                result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
 
             if(Lov_FileName2.EditValue != null)
@@ -776,7 +776,7 @@ namespace System.Scsc.Ui.Notifications
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
-               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
             
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
@@ -920,7 +920,7 @@ namespace System.Scsc.Ui.Notifications
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
-               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
@@ -1063,7 +1063,7 @@ namespace System.Scsc.Ui.Notifications
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
-               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(

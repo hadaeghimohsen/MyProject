@@ -75,7 +75,7 @@ namespace System.Scsc.Ui.MasterPage
                HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
                HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
                HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
-               HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه گیت : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+               HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه گیت : {0}", xdata.Attribute("stat").Value == "001" ? "غیرفعال" : "فعال");
                //DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
                //DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
                //DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
@@ -941,7 +941,7 @@ namespace System.Scsc.Ui.MasterPage
 
                   DialogResult result = DialogResult.None;
                   if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ host.CHCK_ATTN_ALRM == "001")
-                     result = MessageBox.Show(this, "هشدار!!!\n\rعضو مربوطه کد خود را بلوکه کرده است." + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                     result = MessageBox.Show(this, "هشدار!!!\n\rعضو مربوطه کد خود را بلوکه کرده است." + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
 
                   if (result == DialogResult.Yes)

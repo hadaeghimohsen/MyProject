@@ -87,11 +87,11 @@ namespace System.Scsc.Ui.ReportManager
                   );
                   break;
                default:
+                  job.Next =
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
                   break;
             }
             ModualName = "";
-            job.Next =
-               new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == (Keys.Control | Keys.S))
          {

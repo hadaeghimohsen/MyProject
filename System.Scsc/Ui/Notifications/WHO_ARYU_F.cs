@@ -39,6 +39,7 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
+            attnvist = 0;
             iScsc = new Data.iScscDataContext(ConnectionString);
             //DRES_NUMB_Txt.Focus();
             // 1395/12/11 * مشخص کردن نوع مبلغ برای بدهی
@@ -101,10 +102,14 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
+      int attnvist = 0;
       private void AttnBs1_CurrentChanged(object sender, EventArgs e)
       {
          var attn = AttnBs1.Current as Data.Attendance;
          if (attn == null) return;
+
+         if (attnvist > 0) return;
+         attnvist++;
 
          if (attn.EXIT_TIME != null)
          {
@@ -512,7 +517,7 @@ namespace System.Scsc.Ui.Notifications
                  new List<Job>
                   {
                      new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProccessCmdKey */){Input = Keys.Escape},
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("a.Code = {0}", attn.CODE))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("a.Code = {0}", attn.CODE))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
 

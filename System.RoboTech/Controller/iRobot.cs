@@ -30,18 +30,25 @@ namespace System.RoboTech.Controller
       internal User Me;
       private string connectionString;
       private Data.Robot robot;
+      public bool Started = false;
 
       public iRobot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null)
       {
-         Bot = new TelegramBotClient(token);
-         Token = token;
-         this.robot = robot;
-         Chats = new List<ChatInfo>();
-         RobotHandle = new RobotController();
-         this.connectionString = connectionString;
-         this.ConsoleOutLog_MemTxt = ConsoleOutLog_MemTxt;
-         
-         main(activeRobot);
+         try
+         {
+            this.ConsoleOutLog_MemTxt = ConsoleOutLog_MemTxt;
+
+            Bot = new TelegramBotClient(token);
+            Token = token;
+            this.robot = robot;
+            Chats = new List<ChatInfo>();
+            RobotHandle = new RobotController();
+            this.connectionString = connectionString;
+
+            Started = true;
+            main(activeRobot);
+         }
+         catch (Exception exc) { this.ConsoleOutLog_MemTxt.Text = exc.Message; }
       }
 
       void main(bool activeRobot = true)
@@ -67,6 +74,7 @@ namespace System.RoboTech.Controller
       internal void StopReceiving()
       {
          Bot.StopReceiving();
+         Started = false;
       }
 
       private async void BotOnCallbackQueryReceived(object sender, CallbackQueryEventArgs e)
@@ -3084,6 +3092,7 @@ namespace System.RoboTech.Controller
                       chat.Message.Chat.Id,
                       cordx,
                       cordy,
+                      0,
                       false,
                       chat.Message.MessageId,
                       new ReplyKeyboardMarkup()

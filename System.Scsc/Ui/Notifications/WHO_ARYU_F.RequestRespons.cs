@@ -81,7 +81,7 @@ namespace System.Scsc.Ui.Notifications
                      new Job(SendType.External, "localhost",
                         new List<Job>
                         {
-                           new Job(SendType.Self, 141 /* Execute WHO_ARYU_F */),
+                           new Job(SendType.Self, 141 /* Execute Attn_Dayn_F */),
                            //new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )
                         })
                   );

@@ -80,7 +80,8 @@ namespace System.RoboTech.Ui.Action
          foreach (var robot in iRobots)
          {
             ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoping\r\n", robot.Me.Username);
-            robot.StopReceiving();
+            if(robot.Started)
+               robot.StopReceiving();
             ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoped\r\n", robot.Me.Username);
          }
 

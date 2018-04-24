@@ -11,7 +11,7 @@
     <AssemblyName>System.RoboTech</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>498bb9d4</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>4a3dfa34</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

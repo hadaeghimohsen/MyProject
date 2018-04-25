@@ -2504,7 +2504,7 @@ namespace System.Scsc.Ui.MasterPage
             else if(e.Button.Index == 3)
             {
                axCZKEM1_OnAttTransactionEx(CardNumb_Text.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
-            }            
+            }      
          }
          catch (Exception )
          { CardNumb_Text.Text = ""; }

@@ -371,8 +371,12 @@ namespace System.Scsc.Ui.MasterPage
          }catch(Exception ){}
          finally
          {
-            System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-            opengatesound.Play();            
+            try
+            {
+               System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+               opengatesound.Play();
+            }
+            catch { }
          }
       }
 
@@ -392,8 +396,12 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception ) { }
          finally
          {
-            System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-            closegatesound.Play();
+            try
+            {
+               System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+               closegatesound.Play();
+            }
+            catch { }
          }
       }
 
@@ -410,8 +418,12 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception) { }
          finally
          {
-            System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
-            errorgatesound.Play();
+            try
+            {
+               System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
+               errorgatesound.Play();
+            }
+            catch { }
          }
       }
       #endregion

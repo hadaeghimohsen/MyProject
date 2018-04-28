@@ -119,7 +119,7 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstRqt1_Click(null, null);
          }
          else if (keyData == Keys.Enter)
@@ -133,12 +133,12 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstDelete1_Click(null, null);
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstRqt1_Click(null, null);
          }
          else if (keyData == Keys.F10)
@@ -265,12 +265,12 @@ namespace System.Scsc.Ui.Admission
             //DCyclBs1.DataSource = iScsc.D_CYCLs;
 
             DDytpBs1.DataSource = iScsc.D_DYTPs;
-            DEducBs1.DataSource = iScsc.D_EDUCs;
+            //DEducBs1.DataSource = iScsc.D_EDUCs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
-            DstpBs1.DataSource = iScsc.Diseases_Types;
+            //DstpBs1.DataSource = iScsc.Diseases_Types;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
             //DCetpBs2.DataSource = iScsc.D_CETPs;
-            DBlodBs1.DataSource = iScsc.D_BLODs;
+            //DBlodBs1.DataSource = iScsc.D_BLODs;
             OrgnBs1.DataSource = iScsc.Organs;
 
             
@@ -299,7 +299,7 @@ namespace System.Scsc.Ui.Admission
          try
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
-            DstpBs1.DataSource = iScsc.Diseases_Types;            
+            //DstpBs1.DataSource = iScsc.Diseases_Types;            
          }
          catch { }
          job.Status = StatusType.Successful;
@@ -319,7 +319,7 @@ namespace System.Scsc.Ui.Admission
             {
                case "fighter":
                   //tb_master.TabPages.Add(tp_001);
-                  tb_master.SelectedTab = tp_001;
+                  //tb_master.SelectedTab = tp_001;
                   break;
                case "coach":
                   //tb_master.TabPages.Add(tp_002);
@@ -334,8 +334,8 @@ namespace System.Scsc.Ui.Admission
             {
                if ((job.Input as XElement).Attribute("type").Value == "fighter")
                {
-                  INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
-                  INSR_DATE_PersianDateEdit.Value = DateTime.Now;
+                  //INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
+                  //INSR_DATE_PersianDateEdit.Value = DateTime.Now;
                }
                if ((job.Input as XElement).Attribute("type").Value == "coach")
                {

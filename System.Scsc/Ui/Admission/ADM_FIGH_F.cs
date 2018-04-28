@@ -30,7 +30,7 @@ namespace System.Scsc.Ui.Admission
          setOnDebt = false;
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            if (true)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
 
@@ -233,32 +233,32 @@ namespace System.Scsc.Ui.Admission
                                     new XAttribute("fileno", Rqst == null ? 0 : Rqst.Fighters.FirstOrDefault() == null ? 0 : Rqst.Fighters.FirstOrDefault().FILE_NO),
                                     new XElement("Frst_Name", FRST_NAME_TextEdit.Text),
                                     new XElement("Last_Name", LAST_NAME_TextEdit.Text),
-                                    new XElement("Fath_Name", FATH_NAME_TextEdit.Text),
+                                    new XElement("Fath_Name", ""),
                                     new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
                                     new XElement("Natl_Code", NATL_CODE_TextEdit.Text),
                                     new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                                     new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
                                     new XElement("Tell_Phon", TELL_PHON_TextEdit.Text),
                                     new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue),
-                                    new XElement("Post_Adrs", POST_ADRS_TextEdit.Text),
-                                    new XElement("Emal_Adrs", EMAL_ADRS_TextEdit.Text),
-                                    new XElement("Insr_Numb", INSR_NUMB_TextEdit.Text),
-                                    new XElement("Insr_Date", INSR_DATE_PersianDateEdit.Value == null ? "" : INSR_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-                                    new XElement("Educ_Deg", EDUC_DEG_LookUpEdit.EditValue ?? ""),
-                                    new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
-                                    new XElement("Dise_Code", DISE_CODE_LookUpEdit.EditValue ?? ""),
-                                    new XElement("Blod_Grop", BLOD_GROPLookUpEdit.EditValue ?? ""),
+                                    new XElement("Post_Adrs", ""),
+                                    new XElement("Emal_Adrs", ""),
+                                    new XElement("Insr_Numb", ""),
+                                    new XElement("Insr_Date", ""),
+                                    new XElement("Educ_Deg", ""),
+                                    new XElement("Cbmt_Code", ""),
+                                    new XElement("Dise_Code", ""),
+                                    new XElement("Blod_Grop", ""),
                                     new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Code", SUNT_CODELookUpEdit.EditValue ?? ""),
-                                    new XElement("Cord_X", CORD_XTextEdit.EditValue ?? ""),
-                                    new XElement("Cord_Y", CORD_YTextEdit.EditValue ?? ""),
+                                    new XElement("Cord_X", ""),
+                                    new XElement("Cord_Y", ""),
                                     new XElement("Glob_Code", Glob_Code_TextEdit.EditValue ?? ""),
                                     new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? ""),
                                     new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? ""),
-                                    new XElement("Most_Debt_Clng", SE_MostDebtClngAmnt.Value),
+                                    new XElement("Most_Debt_Clng", ""),
                                     new XElement("Serv_No", SERV_NO_TextEdit.EditValue ?? "")
                                  ),
                                  new XElement("Member_Ship",
@@ -323,7 +323,7 @@ namespace System.Scsc.Ui.Admission
                //MessageBox.Show(this, "مشتری حذف گردید!");
             }
             requery = true;
-            tc_pblc.SelectedTab = tp_pblcinfo;
+            //tc_pblc.SelectedTab = tp_pblcinfo;
          }
          catch (Exception ex)
          {
@@ -373,7 +373,7 @@ namespace System.Scsc.Ui.Admission
                   )
                );
                requery = true;
-               tc_pblc.SelectedTab = tp_pblcinfo;
+               //tc_pblc.SelectedTab = tp_pblcinfo;
 
                // Save Card In Device
                if(CardNumb_Text.Text != "")
@@ -442,14 +442,14 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
             }
          }
          catch
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                FNGR_PRNT_TextEdit.EditValue = 1;
             }
@@ -460,7 +460,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                //var rqst = RqstBs1.Current as Data.Request;
                //if (rqst == null) return;
@@ -507,7 +507,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -556,7 +556,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -692,7 +692,7 @@ namespace System.Scsc.Ui.Admission
 
             if (setOnDebt == false) return;
 
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -733,7 +733,7 @@ namespace System.Scsc.Ui.Admission
 
       private void bn_PaymentMethods1_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -766,7 +766,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -781,7 +781,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -832,7 +832,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -847,7 +847,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -864,7 +864,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -881,7 +881,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -898,7 +898,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -916,7 +916,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -1069,20 +1069,20 @@ namespace System.Scsc.Ui.Admission
                   return;
               }
 
-              if (INTR_FILE_NOLookUpEdit.EditValue.ToString() == "") return;
+              //if (INTR_FILE_NOLookUpEdit.EditValue.ToString() == "") return;
 
-              var fileno = Convert.ToInt64(INTR_FILE_NOLookUpEdit.EditValue);
+              //var fileno = Convert.ToInt64(INTR_FILE_NOLookUpEdit.EditValue);
 
-              switch (e.Button.Index)
-              {
-                  case 1:
-                      _DefaultGateway.Gateway(
-                         new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
-                      );
-                      break;
-                  default:
-                      break;
-              }
+              //switch (e.Button.Index)
+              //{
+              //    case 1:
+              //        _DefaultGateway.Gateway(
+              //           new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
+              //        );
+              //        break;
+              //    default:
+              //        break;
+              //}
           }
           catch { }
       }

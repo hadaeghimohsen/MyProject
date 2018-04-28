@@ -2597,5 +2597,10 @@ namespace System.Scsc.Ui.MasterPage
             CardNumb_Text_Properties_ButtonClick(sender, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[2]));
          }
       }
+
+      private void TlgrmBot_Butn_Click(object sender, EventArgs e)
+      {
+         var result = Controls.Find("FngrPrnt_Txt", true);
+      }
    }
 }

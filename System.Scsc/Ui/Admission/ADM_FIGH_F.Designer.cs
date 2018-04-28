@@ -1947,7 +1947,7 @@
          this.panel1.Controls.Add(this.SERV_NO_TextEdit);
          this.panel1.Controls.Add(sUNT_CODELabel);
          this.panel1.Controls.Add(this.SUNT_CODELookUpEdit);
-         this.panel1.Location = new System.Drawing.Point(653, 400);
+         this.panel1.Location = new System.Drawing.Point(636, 400);
          this.panel1.Name = "panel1";
          this.panel1.Size = new System.Drawing.Size(464, 65);
          this.panel1.TabIndex = 4;
@@ -2055,7 +2055,7 @@
          this.groupBox6.Controls.Add(this.textEdit14);
          this.groupBox6.Controls.Add(label47);
          this.groupBox6.Controls.Add(this.dateTimeSelector6);
-         this.groupBox6.Location = new System.Drawing.Point(653, 471);
+         this.groupBox6.Location = new System.Drawing.Point(636, 471);
          this.groupBox6.Name = "groupBox6";
          this.groupBox6.Size = new System.Drawing.Size(464, 100);
          this.groupBox6.TabIndex = 2;
@@ -2192,7 +2192,7 @@
          this.Gb_Expense.Controls.Add(this.gridControl1);
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
-         this.Gb_Expense.Location = new System.Drawing.Point(90, 9);
+         this.Gb_Expense.Location = new System.Drawing.Point(73, 9);
          this.Gb_Expense.Name = "Gb_Expense";
          this.Gb_Expense.Size = new System.Drawing.Size(554, 562);
          this.Gb_Expense.TabIndex = 3;
@@ -3295,7 +3295,7 @@
          this.groupBox3.Controls.Add(this.CBMT_CODE_GridLookUpEdit);
          this.groupBox3.Controls.Add(cBMT_CODELabel);
          this.groupBox3.Controls.Add(this.Btn_Cbmt1);
-         this.groupBox3.Location = new System.Drawing.Point(653, 213);
+         this.groupBox3.Location = new System.Drawing.Point(636, 213);
          this.groupBox3.Name = "groupBox3";
          this.groupBox3.Size = new System.Drawing.Size(464, 181);
          this.groupBox3.TabIndex = 1;
@@ -3820,7 +3820,7 @@
          this.Gb_Info.Controls.Add(fNGR_PRNTLabel);
          this.Gb_Info.Controls.Add(this.CardNumb_Text);
          this.Gb_Info.Controls.Add(this.FNGR_PRNT_TextEdit);
-         this.Gb_Info.Location = new System.Drawing.Point(653, 13);
+         this.Gb_Info.Location = new System.Drawing.Point(636, 13);
          this.Gb_Info.Name = "Gb_Info";
          this.Gb_Info.Size = new System.Drawing.Size(464, 194);
          this.Gb_Info.TabIndex = 0;

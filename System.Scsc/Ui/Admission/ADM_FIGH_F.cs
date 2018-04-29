@@ -266,7 +266,7 @@ namespace System.Scsc.Ui.Admission
                                     new XAttribute("enddate", NumbOfMontDnrm_RB001.Checked ? (StrtDate_DateTime001.Value != null ? StrtDate_DateTime001.Value.Value.AddMonths(Convert.ToInt32(NumbOfMontDnrm_TextEdit001.EditValue)).ToString("yyyy-MM-dd") : DateTime.Now.AddMonths(Convert.ToInt32(NumbOfMontDnrm_TextEdit001.EditValue)).ToString("yyyy-MM-dd")) : (EndDate_DateTime001.Value == null ? StrtDate_DateTime001.Value != null ? StrtDate_DateTime001.Value.Value.AddMonths(1).ToString("yyyy-MM-dd") : DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd") : EndDate_DateTime001.Value.Value.ToString("yyyy-MM-dd"))),
                                     new XAttribute("numbmontofer", NumbMontOfer_TextEdit001.Text ?? "0"),
                                     new XAttribute("numbofattnmont", NumbOfAttnMont_TextEdit001.Text ?? "0"),
-                                    new XAttribute("numbofattnweek", NumbOfAttnWeek_TextEdit001.Text ?? "0"),
+                                    new XAttribute("numbofattnweek", "0"),
                                     new XAttribute("attndaytype", /*AttnDayType_Lov001.EditValue ??*/ "7")
                                  )
                               )
@@ -441,7 +441,7 @@ namespace System.Scsc.Ui.Admission
       private void MaxF_Butn001_Click(object sender, EventArgs e)
       {
          try
-         {
+         {            
             //if (tb_master.SelectedTab == tp_001)
             {
                FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
@@ -479,8 +479,7 @@ namespace System.Scsc.Ui.Admission
                //else
                //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
                EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-               NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
-               NumbOfAttnWeek_TextEdit001.EditValue = expn.NUMB_OF_ATTN_WEEK ?? 0;
+               NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;               
                NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
             }
          }

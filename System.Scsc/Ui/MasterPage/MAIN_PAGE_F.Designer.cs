@@ -30,65 +30,65 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition13 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition14 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
          this.colDEBT_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMBSP_END_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -178,20 +178,20 @@
          this.bbi_embkbutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_basdifnbutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_mbsnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+         this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.Adm_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.Serv_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageCategory4 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.OtherInCome_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+         this.OthrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup19 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -199,11 +199,11 @@
          this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageCategory5 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.AgrActn_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+         this.AgrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageCategory6 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+         this.Mngr = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -484,11 +484,11 @@
          this.ribbonControl1.MaxItemId = 94;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
-            this.ribbonPageCategory2,
-            this.ribbonPageCategory4,
+            this.System_RPgc,
+            this.OtherInCome_RPgc,
             this.ribbonPageCategory3,
-            this.ribbonPageCategory5,
-            this.ribbonPageCategory6,
+            this.AgrActn_RPgc,
+            this.Mngr,
             this.ribbonPageCategory1});
          this.ribbonControl1.Size = new System.Drawing.Size(1103, 142);
          // 
@@ -610,18 +610,18 @@
          this.bbi_adm1butn.Id = 15;
          this.bbi_adm1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_adm1butn.LargeGlyph")));
          this.bbi_adm1butn.Name = "bbi_adm1butn";
-         toolTipTitleItem16.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem16.Appearance.Options.UseImage = true;
-         toolTipTitleItem16.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem16.Image")));
-         toolTipTitleItem16.Text = "ثبت نام جدید";
-         toolTipItem14.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem14.Appearance.Options.UseImage = true;
-         toolTipItem14.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem14.LeftIndent = 6;
-         toolTipItem14.Text = "F2 \r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip14.Items.Add(toolTipTitleItem16);
-         superToolTip14.Items.Add(toolTipItem14);
-         this.bbi_adm1butn.SuperTip = superToolTip14;
+         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
+         toolTipTitleItem1.Text = "ثبت نام جدید";
+         toolTipItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem1.Appearance.Options.UseImage = true;
+         toolTipItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "F2 \r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.bbi_adm1butn.SuperTip = superToolTip1;
          this.bbi_adm1butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_adm1butn_ItemClick);
          // 
          // bbi_mbs1butn
@@ -631,18 +631,18 @@
          this.bbi_mbs1butn.Id = 16;
          this.bbi_mbs1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbs1butn.LargeGlyph")));
          this.bbi_mbs1butn.Name = "bbi_mbs1butn";
-         toolTipTitleItem17.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem17.Appearance.Options.UseImage = true;
-         toolTipTitleItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem17.Image")));
-         toolTipTitleItem17.Text = "تمدید عضویت";
-         toolTipItem15.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem15.Appearance.Options.UseImage = true;
-         toolTipItem15.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem15.LeftIndent = 6;
-         toolTipItem15.Text = "F3\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip15.Items.Add(toolTipTitleItem17);
-         superToolTip15.Items.Add(toolTipItem15);
-         this.bbi_mbs1butn.SuperTip = superToolTip15;
+         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
+         toolTipTitleItem2.Text = "تمدید عضویت";
+         toolTipItem2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem2.Appearance.Options.UseImage = true;
+         toolTipItem2.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "F3\r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.bbi_mbs1butn.SuperTip = superToolTip2;
          this.bbi_mbs1butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbs1butn_ItemClick);
          // 
          // bbi_insrbutn
@@ -661,18 +661,18 @@
          this.bbi_flstbutn.Id = 18;
          this.bbi_flstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_flstbutn.LargeGlyph")));
          this.bbi_flstbutn.Name = "bbi_flstbutn";
-         toolTipTitleItem18.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem18.Appearance.Options.UseImage = true;
-         toolTipTitleItem18.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem18.Image")));
-         toolTipTitleItem18.Text = "لیست اعضا";
-         toolTipItem16.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem16.Appearance.Options.UseImage = true;
-         toolTipItem16.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem16.LeftIndent = 6;
-         toolTipItem16.Text = "F4\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip16.Items.Add(toolTipTitleItem18);
-         superToolTip16.Items.Add(toolTipItem16);
-         this.bbi_flstbutn.SuperTip = superToolTip16;
+         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
+         toolTipTitleItem3.Text = "لیست اعضا";
+         toolTipItem3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem3.Appearance.Options.UseImage = true;
+         toolTipItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "F4\r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip3.Items.Add(toolTipTitleItem3);
+         superToolTip3.Items.Add(toolTipItem3);
+         this.bbi_flstbutn.SuperTip = superToolTip3;
          this.bbi_flstbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_flstbutn_ItemClick);
          // 
          // bbi_fdbtbutn
@@ -854,15 +854,15 @@
          this.bbi_oincbutn.Id = 38;
          this.bbi_oincbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_oincbutn.LargeGlyph")));
          this.bbi_oincbutn.Name = "bbi_oincbutn";
-         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem19.Appearance.Options.UseImage = true;
-         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
-         toolTipTitleItem19.Text = "فروشگاه";
-         toolTipItem17.LeftIndent = 6;
-         toolTipItem17.Text = "F5\r\nبرای دسترسی آسان از این کلیئ استفاده کنید";
-         superToolTip17.Items.Add(toolTipTitleItem19);
-         superToolTip17.Items.Add(toolTipItem17);
-         this.bbi_oincbutn.SuperTip = superToolTip17;
+         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
+         toolTipTitleItem4.Text = "فروشگاه";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "F5\r\nبرای دسترسی آسان از این کلیئ استفاده کنید";
+         superToolTip4.Items.Add(toolTipTitleItem4);
+         superToolTip4.Items.Add(toolTipItem4);
+         this.bbi_oincbutn.SuperTip = superToolTip4;
          this.bbi_oincbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_oincbutn_ItemClick);
          // 
          // bbi_oexpbutn
@@ -1194,15 +1194,15 @@
          this.bbi_exdsbutn.Id = 80;
          this.bbi_exdsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_exdsbutn.LargeGlyph")));
          this.bbi_exdsbutn.Name = "bbi_exdsbutn";
-         toolTipTitleItem20.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem20.Appearance.Options.UseImage = true;
-         toolTipTitleItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem20.Image")));
-         toolTipTitleItem20.Text = "رزرو میز";
-         toolTipItem18.LeftIndent = 6;
-         toolTipItem18.Text = "F6\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip18.Items.Add(toolTipTitleItem20);
-         superToolTip18.Items.Add(toolTipItem18);
-         this.bbi_exdsbutn.SuperTip = superToolTip18;
+         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem5.Appearance.Options.UseImage = true;
+         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
+         toolTipTitleItem5.Text = "رزرو میز";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "F6\r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip5.Items.Add(toolTipTitleItem5);
+         superToolTip5.Items.Add(toolTipItem5);
+         this.bbi_exdsbutn.SuperTip = superToolTip5;
          this.bbi_exdsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_exdsbutn_ItemClick);
          // 
          // bbi_hlstbutn
@@ -1324,24 +1324,24 @@
          this.bbi_mbsnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_mbsnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbsnbutn_ItemClick);
          // 
-         // ribbonPageCategory2
+         // System_RPgc
          // 
-         this.ribbonPageCategory2.Color = System.Drawing.Color.Empty;
-         this.ribbonPageCategory2.Name = "ribbonPageCategory2";
-         this.ribbonPageCategory2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
-            this.ribbonPage2,
-            this.ribbonPage3});
-         this.ribbonPageCategory2.Text = "                                سیستم نرم افزار پایه";
+         this.System_RPgc.Color = System.Drawing.Color.Empty;
+         this.System_RPgc.Name = "System_RPgc";
+         this.System_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.Base_RbPg,
+            this.Adm_RbPg,
+            this.Serv_RbPg});
+         this.System_RPgc.Text = "                                سیستم نرم افزار پایه";
          // 
-         // ribbonPage1
+         // Base_RbPg
          // 
-         this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+         this.Base_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3});
-         this.ribbonPage1.Name = "ribbonPage1";
-         this.ribbonPage1.Text = "اطلاعات پایه";
+         this.Base_RbPg.Name = "Base_RbPg";
+         this.Base_RbPg.Text = "اطلاعات پایه";
          // 
          // ribbonPageGroup1
          // 
@@ -1369,13 +1369,13 @@
          this.ribbonPageGroup3.Text = "اضافی";
          this.ribbonPageGroup3.Visible = false;
          // 
-         // ribbonPage2
+         // Adm_RbPg
          // 
-         this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+         this.Adm_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
             this.ribbonPageGroup5});
-         this.ribbonPage2.Name = "ribbonPage2";
-         this.ribbonPage2.Text = "اطلاعات ثبت نام";
+         this.Adm_RbPg.Name = "Adm_RbPg";
+         this.Adm_RbPg.Text = "اطلاعات ثبت نام";
          // 
          // ribbonPageGroup4
          // 
@@ -1403,14 +1403,14 @@
          this.ribbonPageGroup5.Text = "مربیان / اساتید";
          this.ribbonPageGroup5.Visible = false;
          // 
-         // ribbonPage3
+         // Serv_RbPg
          // 
-         this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+         this.Serv_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup7,
             this.ribbonPageGroup8,
             this.ribbonPageGroup9});
-         this.ribbonPage3.Name = "ribbonPage3";
-         this.ribbonPage3.Text = "نمایش";
+         this.Serv_RbPg.Name = "Serv_RbPg";
+         this.Serv_RbPg.Text = "نمایش";
          // 
          // ribbonPageGroup7
          // 
@@ -1439,22 +1439,22 @@
          this.ribbonPageGroup9.Text = "مشترییان";
          this.ribbonPageGroup9.Visible = false;
          // 
-         // ribbonPageCategory4
+         // OtherInCome_RPgc
          // 
-         this.ribbonPageCategory4.Color = System.Drawing.Color.Empty;
-         this.ribbonPageCategory4.Name = "ribbonPageCategory4";
-         this.ribbonPageCategory4.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage5});
-         this.ribbonPageCategory4.Text = "متفرقه باشگاه";
+         this.OtherInCome_RPgc.Color = System.Drawing.Color.Empty;
+         this.OtherInCome_RPgc.Name = "OtherInCome_RPgc";
+         this.OtherInCome_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.OthrOption_RbPg});
+         this.OtherInCome_RPgc.Text = "متفرقه باشگاه";
          // 
-         // ribbonPage5
+         // OthrOption_RbPg
          // 
-         this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+         this.OthrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup11,
             this.ribbonPageGroup12,
             this.ribbonPageGroup19});
-         this.ribbonPage5.Name = "ribbonPage5";
-         this.ribbonPage5.Text = "گزینه ها";
+         this.OthrOption_RbPg.Name = "OthrOption_RbPg";
+         this.OthrOption_RbPg.Text = "گزینه ها";
          // 
          // ribbonPageGroup11
          // 
@@ -1510,21 +1510,21 @@
          this.ribbonPageGroup16.Name = "ribbonPageGroup16";
          this.ribbonPageGroup16.Text = "تناسب اندام";
          // 
-         // ribbonPageCategory5
+         // AgrActn_RPgc
          // 
-         this.ribbonPageCategory5.Color = System.Drawing.Color.Empty;
-         this.ribbonPageCategory5.Name = "ribbonPageCategory5";
-         this.ribbonPageCategory5.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage6});
-         this.ribbonPageCategory5.Text = "کارهای تجمعی";
+         this.AgrActn_RPgc.Color = System.Drawing.Color.Empty;
+         this.AgrActn_RPgc.Name = "AgrActn_RPgc";
+         this.AgrActn_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.AgrOption_RbPg});
+         this.AgrActn_RPgc.Text = "کارهای تجمعی";
          // 
-         // ribbonPage6
+         // AgrOption_RbPg
          // 
-         this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+         this.AgrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup13,
             this.ribbonPageGroup14});
-         this.ribbonPage6.Name = "ribbonPage6";
-         this.ribbonPage6.Text = "گزینه ها";
+         this.AgrOption_RbPg.Name = "AgrOption_RbPg";
+         this.AgrOption_RbPg.Text = "گزینه ها";
          // 
          // ribbonPageGroup13
          // 
@@ -1541,14 +1541,14 @@
          this.ribbonPageGroup14.Name = "ribbonPageGroup14";
          this.ribbonPageGroup14.Text = "عملکرد تجمعی سیستم";
          // 
-         // ribbonPageCategory6
+         // Mngr
          // 
-         this.ribbonPageCategory6.Color = System.Drawing.Color.Empty;
-         this.ribbonPageCategory6.Name = "ribbonPageCategory6";
-         this.ribbonPageCategory6.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+         this.Mngr.Color = System.Drawing.Color.Empty;
+         this.Mngr.Name = "Mngr";
+         this.Mngr.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage9,
             this.ribbonPage8});
-         this.ribbonPageCategory6.Text = "گزارش های مدیریتی";
+         this.Mngr.Text = "گزارش های مدیریتی";
          // 
          // ribbonPage9
          // 
@@ -1754,25 +1754,25 @@
          this.CardNumb_Text.Properties.Appearance.Options.UseFont = true;
          this.CardNumb_Text.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CardNumb_Text.Properties.AppearanceFocused.Options.UseBackColor = true;
-         toolTipTitleItem21.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem21.Appearance.Options.UseImage = true;
-         toolTipTitleItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem21.Image")));
-         toolTipTitleItem21.Text = "مشترک";
-         toolTipItem19.LeftIndent = 6;
-         toolTipItem19.Text = "نمایش اطلاعات عمومی مشترک";
-         toolTipTitleItem22.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-         toolTipTitleItem22.Appearance.Options.UseImage = true;
-         toolTipTitleItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem22.Image")));
-         toolTipTitleItem22.LeftIndent = 6;
-         toolTipTitleItem22.Text = "کلید میانبر \r\nF4";
-         superToolTip19.Items.Add(toolTipTitleItem21);
-         superToolTip19.Items.Add(toolTipItem19);
-         superToolTip19.Items.Add(toolTipTitleItem22);
+         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem6.Appearance.Options.UseImage = true;
+         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
+         toolTipTitleItem6.Text = "مشترک";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "نمایش اطلاعات عمومی مشترک";
+         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+         toolTipTitleItem7.Appearance.Options.UseImage = true;
+         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
+         toolTipTitleItem7.LeftIndent = 6;
+         toolTipTitleItem7.Text = "کلید میانبر \r\nF4";
+         superToolTip6.Items.Add(toolTipTitleItem6);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipTitleItem7);
          this.CardNumb_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "ثبت نام", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "تعویض کارت", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, superToolTip19, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "حضور و غیاب دستی", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "ثبت نام", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "تعویض کارت", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, superToolTip6, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "حضور و غیاب دستی", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Properties.NullValuePrompt = "کد انگشتی یا کارت";
@@ -1812,47 +1812,47 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceDropDown.Options.UseFont = true;
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         toolTipTitleItem6.Text = "تمدید قرارداد مشتری";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "تمدید دوره ثبت نام مشتری";
-         superToolTip6.Items.Add(toolTipTitleItem6);
-         superToolTip6.Items.Add(toolTipItem6);
-         toolTipTitleItem7.Text = "تغییر مشخصات عمومی";
-         toolTipItem20.LeftIndent = 6;
-         toolTipItem20.Text = "اصلاح و تغییر اطلاعات غیر ریالی مشترک";
-         superToolTip20.Items.Add(toolTipTitleItem7);
-         superToolTip20.Items.Add(toolTipItem20);
-         toolTipTitleItem23.Text = "حذف مشتری";
-         toolTipItem21.LeftIndent = 6;
-         toolTipItem21.Text = "بایگانی کردن اطلاعات مشترییان راکد";
-         superToolTip21.Items.Add(toolTipTitleItem23);
-         superToolTip21.Items.Add(toolTipItem21);
-         toolTipTitleItem24.Text = "اطلاعات عمومی مشتری";
-         toolTipItem22.LeftIndent = 6;
-         toolTipItem22.Text = "سابقه کامل از اطلاعات مشتری و مربی و صورتحساب ها";
-         superToolTip22.Items.Add(toolTipTitleItem24);
-         superToolTip22.Items.Add(toolTipItem22);
-         toolTipTitleItem25.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
-         toolTipTitleItem25.Appearance.Options.UseImage = true;
-         toolTipTitleItem25.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
-         toolTipTitleItem25.Text = "فروشگاه";
-         toolTipItem23.LeftIndent = 6;
-         toolTipItem23.Text = "فروش محصولات مورد نیاز مشتری";
-         superToolTip23.Items.Add(toolTipTitleItem25);
-         superToolTip23.Items.Add(toolTipItem23);
-         toolTipTitleItem26.Text = "بازیابی مجدد اطلاعات";
-         toolTipItem24.LeftIndent = 6;
-         toolTipItem24.Text = "بروزرسانی کردن اطلاعات مشترییان بعد از تغییرات";
-         superToolTip24.Items.Add(toolTipTitleItem26);
-         superToolTip24.Items.Add(toolTipItem24);
+         toolTipTitleItem8.Text = "تمدید قرارداد مشتری";
+         toolTipItem7.LeftIndent = 6;
+         toolTipItem7.Text = "تمدید دوره ثبت نام مشتری";
+         superToolTip7.Items.Add(toolTipTitleItem8);
+         superToolTip7.Items.Add(toolTipItem7);
+         toolTipTitleItem9.Text = "تغییر مشخصات عمومی";
+         toolTipItem8.LeftIndent = 6;
+         toolTipItem8.Text = "اصلاح و تغییر اطلاعات غیر ریالی مشترک";
+         superToolTip8.Items.Add(toolTipTitleItem9);
+         superToolTip8.Items.Add(toolTipItem8);
+         toolTipTitleItem10.Text = "حذف مشتری";
+         toolTipItem9.LeftIndent = 6;
+         toolTipItem9.Text = "بایگانی کردن اطلاعات مشترییان راکد";
+         superToolTip9.Items.Add(toolTipTitleItem10);
+         superToolTip9.Items.Add(toolTipItem9);
+         toolTipTitleItem11.Text = "اطلاعات عمومی مشتری";
+         toolTipItem10.LeftIndent = 6;
+         toolTipItem10.Text = "سابقه کامل از اطلاعات مشتری و مربی و صورتحساب ها";
+         superToolTip10.Items.Add(toolTipTitleItem11);
+         superToolTip10.Items.Add(toolTipItem10);
+         toolTipTitleItem12.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
+         toolTipTitleItem12.Appearance.Options.UseImage = true;
+         toolTipTitleItem12.Image = global::System.Scsc.Properties.Resources.IMAGE_1135;
+         toolTipTitleItem12.Text = "فروشگاه";
+         toolTipItem11.LeftIndent = 6;
+         toolTipItem11.Text = "فروش محصولات مورد نیاز مشتری";
+         superToolTip11.Items.Add(toolTipTitleItem12);
+         superToolTip11.Items.Add(toolTipItem11);
+         toolTipTitleItem13.Text = "بازیابی مجدد اطلاعات";
+         toolTipItem12.LeftIndent = 6;
+         toolTipItem12.Text = "بروزرسانی کردن اطلاعات مشترییان بعد از تغییرات";
+         superToolTip12.Items.Add(toolTipTitleItem13);
+         superToolTip12.Items.Add(toolTipItem12);
          this.FIGH_FILE_NOLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, superToolTip6, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, superToolTip20, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, superToolTip21, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, superToolTip22, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, superToolTip23, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons4"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, superToolTip24, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, superToolTip7, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, superToolTip8, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, superToolTip9, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, superToolTip10, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, superToolTip11, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FIGH_FILE_NOLookUpEdit.Properties.Buttons4"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, superToolTip12, true)});
          this.FIGH_FILE_NOLookUpEdit.Properties.DataSource = this.FighBs;
          this.FIGH_FILE_NOLookUpEdit.Properties.DisplayMember = "NAME_DNRM";
          this.FIGH_FILE_NOLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1954,54 +1954,54 @@
             this.colSub_Unit,
             this.gridColumn1});
          this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition8.Appearance.Options.UseBackColor = true;
-         styleFormatCondition8.Column = this.colDEBT_DNRM1;
-         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition8.Value1 = "0";
-         styleFormatCondition9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         styleFormatCondition9.Appearance.Options.UseBackColor = true;
-         styleFormatCondition9.Column = this.colDEBT_DNRM1;
-         styleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Greater;
-         styleFormatCondition9.Value1 = "0";
-         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-         styleFormatCondition10.Appearance.Options.UseBackColor = true;
-         styleFormatCondition10.Column = this.colDEBT_DNRM1;
-         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
-         styleFormatCondition10.Value1 = "0";
-         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition11.Appearance.Options.UseBackColor = true;
-         styleFormatCondition11.ApplyToRow = true;
-         styleFormatCondition11.Column = this.colMBSP_END_DATE;
-         styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition11.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) > 3";
-         styleFormatCondition12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition12.Appearance.Options.UseBackColor = true;
-         styleFormatCondition12.ApplyToRow = true;
-         styleFormatCondition12.Column = this.colMBSP_END_DATE;
-         styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition12.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) <= 3 AND DateDiffDay(Today(), [MBSP_END_DAT" +
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.Column = this.colDEBT_DNRM1;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "0";
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.Column = this.colDEBT_DNRM1;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Greater;
+         styleFormatCondition2.Value1 = "0";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.Column = this.colDEBT_DNRM1;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
+         styleFormatCondition3.Value1 = "0";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colMBSP_END_DATE;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition4.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) > 3";
+         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition5.Appearance.Options.UseBackColor = true;
+         styleFormatCondition5.ApplyToRow = true;
+         styleFormatCondition5.Column = this.colMBSP_END_DATE;
+         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition5.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) <= 3 AND DateDiffDay(Today(), [MBSP_END_DAT" +
     "E]) >= 1";
-         styleFormatCondition13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         styleFormatCondition13.Appearance.Options.UseBackColor = true;
-         styleFormatCondition13.ApplyToRow = true;
-         styleFormatCondition13.Column = this.colMBSP_END_DATE;
-         styleFormatCondition13.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition13.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) == 0";
-         styleFormatCondition14.Appearance.BackColor = System.Drawing.Color.Gray;
-         styleFormatCondition14.Appearance.Options.UseBackColor = true;
-         styleFormatCondition14.ApplyToRow = true;
-         styleFormatCondition14.Column = this.colMBSP_END_DATE;
-         styleFormatCondition14.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition14.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) < 0";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Column = this.colMBSP_END_DATE;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition6.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) == 0";
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.Gray;
+         styleFormatCondition7.Appearance.Options.UseBackColor = true;
+         styleFormatCondition7.ApplyToRow = true;
+         styleFormatCondition7.Column = this.colMBSP_END_DATE;
+         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition7.Expression = "DateDiffDay(Today(), [MBSP_END_DATE]) < 0";
          this.gridLookUpEdit1View.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition8,
-            styleFormatCondition9,
-            styleFormatCondition10,
-            styleFormatCondition11,
-            styleFormatCondition12,
-            styleFormatCondition13,
-            styleFormatCondition14});
+            styleFormatCondition1,
+            styleFormatCondition2,
+            styleFormatCondition3,
+            styleFormatCondition4,
+            styleFormatCondition5,
+            styleFormatCondition6,
+            styleFormatCondition7});
          this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
          this.gridLookUpEdit1View.OptionsFind.AlwaysVisible = true;
          this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -2473,24 +2473,24 @@
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
          this.AttendanceSystemAlert_Butn.Size = new System.Drawing.Size(39, 27);
-         toolTipTitleItem8.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-         toolTipTitleItem8.Text = "IP : ...\r\nوضعیت : *";
-         toolTipItem7.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-         toolTipItem7.Appearance.Options.UseImage = true;
-         toolTipItem7.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "IP : ...\r\nComputer Name : *";
-         toolTipTitleItem9.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-         toolTipTitleItem9.Appearance.Options.UseImage = true;
-         toolTipTitleItem9.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-         toolTipTitleItem9.LeftIndent = 6;
-         toolTipTitleItem9.Text = "تیم پشتیبانی\r\nوضعیت اینترنت : *";
-         superToolTip7.Items.Add(toolTipTitleItem8);
-         superToolTip7.Items.Add(toolTipItem7);
-         superToolTip7.Items.Add(toolTipTitleItem9);
-         this.AttendanceSystemAlert_Butn.SuperTip = superToolTip7;
+         toolTipTitleItem14.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+         toolTipTitleItem14.Appearance.Options.UseImage = true;
+         toolTipTitleItem14.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+         toolTipTitleItem14.Text = "IP : ...\r\nوضعیت : *";
+         toolTipItem13.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+         toolTipItem13.Appearance.Options.UseImage = true;
+         toolTipItem13.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+         toolTipItem13.LeftIndent = 6;
+         toolTipItem13.Text = "IP : ...\r\nComputer Name : *";
+         toolTipTitleItem15.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+         toolTipTitleItem15.Appearance.Options.UseImage = true;
+         toolTipTitleItem15.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+         toolTipTitleItem15.LeftIndent = 6;
+         toolTipTitleItem15.Text = "تیم پشتیبانی\r\nوضعیت اینترنت : *";
+         superToolTip13.Items.Add(toolTipTitleItem14);
+         superToolTip13.Items.Add(toolTipItem13);
+         superToolTip13.Items.Add(toolTipTitleItem15);
+         this.AttendanceSystemAlert_Butn.SuperTip = superToolTip13;
          this.AttendanceSystemAlert_Butn.TabIndex = 8;
          this.AttendanceSystemAlert_Butn.Click += new System.EventHandler(this.AttendanceSystemAlert_Butn_Click);
          // 
@@ -2596,7 +2596,7 @@
       private Windows.Forms.ToolStripStatusLabel Tsp_AttnSys;
       private Windows.Forms.ToolStripStatusLabel Lbs_Tooltip;
       private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+      private DevExpress.XtraBars.Ribbon.RibbonPage Base_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
       private Windows.Forms.SplitContainer spc_desktop;
       private DevExpress.XtraBars.BarButtonItem bbi_epitbutn;
@@ -2629,10 +2629,10 @@
       private DevExpress.XtraBars.BarButtonItem bbi_fembbutn;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+      private DevExpress.XtraBars.Ribbon.RibbonPage Adm_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+      private DevExpress.XtraBars.Ribbon.RibbonPage Serv_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
@@ -2664,23 +2664,23 @@
       private DevExpress.XtraBars.BarButtonItem bbi_femtbutn;
       private DevExpress.XtraBars.BarButtonItem bbi_lusrbutn;
       private DevExpress.XtraBars.BarButtonItem bbi_salebutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory2;
+      private DevExpress.XtraBars.Ribbon.RibbonPageCategory System_RPgc;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
       private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory4;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
+      private DevExpress.XtraBars.Ribbon.RibbonPageCategory OtherInCome_RPgc;
+      private DevExpress.XtraBars.Ribbon.RibbonPage OthrOption_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory3;
       private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory5;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
+      private DevExpress.XtraBars.Ribbon.RibbonPageCategory AgrActn_RPgc;
+      private DevExpress.XtraBars.Ribbon.RibbonPage AgrOption_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory6;
+      private DevExpress.XtraBars.Ribbon.RibbonPageCategory Mngr;
       private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage9;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
       private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage8;

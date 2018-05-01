@@ -29,21 +29,19 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label label41;
-         System.Windows.Forms.Label label42;
-         System.Windows.Forms.Label label44;
-         System.Windows.Forms.Label label45;
-         System.Windows.Forms.Label label46;
-         System.Windows.Forms.Label label47;
-         System.Windows.Forms.Label eND_DATELabel;
-         System.Windows.Forms.Label sTRT_DATELabel;
-         System.Windows.Forms.Label fIGH_FILE_NOLabel;
-         System.Windows.Forms.Label label1;
+         System.Windows.Forms.Label MdfyBy_Lb;
+         System.Windows.Forms.Label MdfyDate_Lb;
+         System.Windows.Forms.Label CretBy_Lb;
+         System.Windows.Forms.Label RqtpDesc_Lb;
+         System.Windows.Forms.Label Rqid_Lb;
+         System.Windows.Forms.Label CretDate_Lb;
+         System.Windows.Forms.Label EndDate_Lb;
+         System.Windows.Forms.Label StrtDate_Lb;
+         System.Windows.Forms.Label FileNo_Lb;
+         System.Windows.Forms.Label AtenDesc_Lb;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_MBFZ_F));
-         this.tb_master = new System.Windows.Forms.TabControl();
-         this.tp_003 = new System.Windows.Forms.TabPage();
-         this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.Serv_Gb = new System.Windows.Forms.GroupBox();
          this.pictureBox1 = new System.Windows.Forms.PictureBox();
          this.Pblc_Butn = new System.Windows.Forms.Button();
          this.EndDate_DateTime003 = new Atf.UI.DateTimeSelector();
@@ -122,6 +120,7 @@
          this.colRequest2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Gb_Rqst3 = new System.Windows.Forms.GroupBox();
+         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector5 = new Atf.UI.DateTimeSelector();
          this.textEdit16 = new DevExpress.XtraEditors.TextEdit();
@@ -157,20 +156,17 @@
          this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PrvnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
-         label41 = new System.Windows.Forms.Label();
-         label42 = new System.Windows.Forms.Label();
-         label44 = new System.Windows.Forms.Label();
-         label45 = new System.Windows.Forms.Label();
-         label46 = new System.Windows.Forms.Label();
-         label47 = new System.Windows.Forms.Label();
-         eND_DATELabel = new System.Windows.Forms.Label();
-         sTRT_DATELabel = new System.Windows.Forms.Label();
-         fIGH_FILE_NOLabel = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         this.tb_master.SuspendLayout();
-         this.tp_003.SuspendLayout();
-         this.groupBox2.SuspendLayout();
+         MdfyBy_Lb = new System.Windows.Forms.Label();
+         MdfyDate_Lb = new System.Windows.Forms.Label();
+         CretBy_Lb = new System.Windows.Forms.Label();
+         RqtpDesc_Lb = new System.Windows.Forms.Label();
+         Rqid_Lb = new System.Windows.Forms.Label();
+         CretDate_Lb = new System.Windows.Forms.Label();
+         EndDate_Lb = new System.Windows.Forms.Label();
+         StrtDate_Lb = new System.Windows.Forms.Label();
+         FileNo_Lb = new System.Windows.Forms.Label();
+         AtenDesc_Lb = new System.Windows.Forms.Label();
+         this.Serv_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -193,154 +189,126 @@
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
          this.SuspendLayout();
          // 
-         // label41
+         // MdfyBy_Lb
          // 
-         label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label41.AutoSize = true;
-         label41.Location = new System.Drawing.Point(219, 75);
-         label41.Name = "label41";
-         label41.Size = new System.Drawing.Size(107, 14);
-         label41.TabIndex = 24;
-         label41.Text = "کاربر ویرایش کننده :";
+         MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         MdfyBy_Lb.AutoSize = true;
+         MdfyBy_Lb.Location = new System.Drawing.Point(219, 75);
+         MdfyBy_Lb.Name = "MdfyBy_Lb";
+         MdfyBy_Lb.Size = new System.Drawing.Size(97, 13);
+         MdfyBy_Lb.TabIndex = 24;
+         MdfyBy_Lb.Text = "کاربر ویرایش کننده :";
          // 
-         // label42
+         // MdfyDate_Lb
          // 
-         label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label42.AutoSize = true;
-         label42.Location = new System.Drawing.Point(219, 159);
-         label42.Name = "label42";
-         label42.Size = new System.Drawing.Size(76, 14);
-         label42.TabIndex = 27;
-         label42.Text = "تاریخ ویرایش :";
+         MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         MdfyDate_Lb.AutoSize = true;
+         MdfyDate_Lb.Location = new System.Drawing.Point(219, 159);
+         MdfyDate_Lb.Name = "MdfyDate_Lb";
+         MdfyDate_Lb.Size = new System.Drawing.Size(71, 13);
+         MdfyDate_Lb.TabIndex = 27;
+         MdfyDate_Lb.Text = "تاریخ ویرایش :";
          // 
-         // label44
+         // CretBy_Lb
          // 
-         label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label44.AutoSize = true;
-         label44.Location = new System.Drawing.Point(219, 47);
-         label44.Name = "label44";
-         label44.Size = new System.Drawing.Size(96, 14);
-         label44.TabIndex = 1;
-         label44.Text = "کاربر ایجاد کننده :";
+         CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CretBy_Lb.AutoSize = true;
+         CretBy_Lb.Location = new System.Drawing.Point(219, 47);
+         CretBy_Lb.Name = "CretBy_Lb";
+         CretBy_Lb.Size = new System.Drawing.Size(85, 13);
+         CretBy_Lb.TabIndex = 1;
+         CretBy_Lb.Text = "کاربر ایجاد کننده :";
          // 
-         // label45
+         // RqtpDesc_Lb
          // 
-         label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label45.AutoSize = true;
-         label45.Location = new System.Drawing.Point(219, 103);
-         label45.Name = "label45";
-         label45.Size = new System.Drawing.Size(83, 14);
-         label45.TabIndex = 1;
-         label45.Text = "نوع درخواست :";
+         RqtpDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         RqtpDesc_Lb.AutoSize = true;
+         RqtpDesc_Lb.Location = new System.Drawing.Point(219, 103);
+         RqtpDesc_Lb.Name = "RqtpDesc_Lb";
+         RqtpDesc_Lb.Size = new System.Drawing.Size(77, 13);
+         RqtpDesc_Lb.TabIndex = 1;
+         RqtpDesc_Lb.Text = "نوع درخواست :";
          // 
-         // label46
+         // Rqid_Lb
          // 
-         label46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label46.AutoSize = true;
-         label46.Location = new System.Drawing.Point(219, 20);
-         label46.Name = "label46";
-         label46.Size = new System.Drawing.Size(101, 14);
-         label46.TabIndex = 21;
-         label46.Text = "شماره درخواست :";
+         Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Rqid_Lb.AutoSize = true;
+         Rqid_Lb.Location = new System.Drawing.Point(219, 20);
+         Rqid_Lb.Name = "Rqid_Lb";
+         Rqid_Lb.Size = new System.Drawing.Size(92, 13);
+         Rqid_Lb.TabIndex = 21;
+         Rqid_Lb.Text = "شماره درخواست :";
          // 
-         // label47
+         // CretDate_Lb
          // 
-         label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label47.AutoSize = true;
-         label47.Location = new System.Drawing.Point(219, 131);
-         label47.Name = "label47";
-         label47.Size = new System.Drawing.Size(65, 14);
-         label47.TabIndex = 14;
-         label47.Text = "تاریخ ایجاد :";
+         CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CretDate_Lb.AutoSize = true;
+         CretDate_Lb.Location = new System.Drawing.Point(219, 131);
+         CretDate_Lb.Name = "CretDate_Lb";
+         CretDate_Lb.Size = new System.Drawing.Size(59, 13);
+         CretDate_Lb.TabIndex = 14;
+         CretDate_Lb.Text = "تاریخ ایجاد :";
          // 
-         // eND_DATELabel
+         // EndDate_Lb
          // 
-         eND_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         eND_DATELabel.AutoSize = true;
-         eND_DATELabel.Location = new System.Drawing.Point(444, 79);
-         eND_DATELabel.Name = "eND_DATELabel";
-         eND_DATELabel.Size = new System.Drawing.Size(72, 14);
-         eND_DATELabel.TabIndex = 19;
-         eND_DATELabel.Text = "تاریخ اتمام *:";
+         EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         EndDate_Lb.AutoSize = true;
+         EndDate_Lb.Location = new System.Drawing.Point(444, 79);
+         EndDate_Lb.Name = "EndDate_Lb";
+         EndDate_Lb.Size = new System.Drawing.Size(67, 13);
+         EndDate_Lb.TabIndex = 19;
+         EndDate_Lb.Text = "تاریخ اتمام *:";
          // 
-         // sTRT_DATELabel
+         // StrtDate_Lb
          // 
-         sTRT_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         sTRT_DATELabel.AutoSize = true;
-         sTRT_DATELabel.Location = new System.Drawing.Point(444, 51);
-         sTRT_DATELabel.Name = "sTRT_DATELabel";
-         sTRT_DATELabel.Size = new System.Drawing.Size(77, 14);
-         sTRT_DATELabel.TabIndex = 18;
-         sTRT_DATELabel.Text = "تاریخ شروع *:";
+         StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         StrtDate_Lb.AutoSize = true;
+         StrtDate_Lb.Location = new System.Drawing.Point(444, 51);
+         StrtDate_Lb.Name = "StrtDate_Lb";
+         StrtDate_Lb.Size = new System.Drawing.Size(72, 13);
+         StrtDate_Lb.TabIndex = 18;
+         StrtDate_Lb.Text = "تاریخ شروع *:";
          // 
-         // fIGH_FILE_NOLabel
+         // FileNo_Lb
          // 
-         fIGH_FILE_NOLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         fIGH_FILE_NOLabel.AutoSize = true;
-         fIGH_FILE_NOLabel.Location = new System.Drawing.Point(444, 24);
-         fIGH_FILE_NOLabel.Name = "fIGH_FILE_NOLabel";
-         fIGH_FILE_NOLabel.Size = new System.Drawing.Size(70, 14);
-         fIGH_FILE_NOLabel.TabIndex = 17;
-         fIGH_FILE_NOLabel.Text = "نام مشتری *:";
+         FileNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FileNo_Lb.AutoSize = true;
+         FileNo_Lb.Location = new System.Drawing.Point(444, 24);
+         FileNo_Lb.Name = "FileNo_Lb";
+         FileNo_Lb.Size = new System.Drawing.Size(73, 13);
+         FileNo_Lb.TabIndex = 17;
+         FileNo_Lb.Text = "نام مشتری *:";
          // 
-         // label1
+         // AtenDesc_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.ForeColor = System.Drawing.Color.DarkRed;
-         label1.Location = new System.Drawing.Point(120, 108);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(394, 71);
-         label1.TabIndex = 21;
-         label1.Text = "توجه داشته باشید : \r\nدر بازه تاریخی مشخص شده اعضا اجازه ورود به مجموعه را ندارند." +
+         AtenDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         AtenDesc_Lb.ForeColor = System.Drawing.Color.DarkRed;
+         AtenDesc_Lb.Location = new System.Drawing.Point(120, 108);
+         AtenDesc_Lb.Name = "AtenDesc_Lb";
+         AtenDesc_Lb.Size = new System.Drawing.Size(394, 71);
+         AtenDesc_Lb.TabIndex = 21;
+         AtenDesc_Lb.Text = "توجه داشته باشید : \r\nدر بازه تاریخی مشخص شده اعضا اجازه ورود به مجموعه را ندارند." +
     " تا اینکه بازه تمام شود، و همچنین تاریخ اعتبار اعضا به صورت اتوماتیک در تاریخ قب" +
     "لی لحاظ می گردد.";
          // 
-         // tb_master
+         // Serv_Gb
          // 
-         this.tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.tb_master.Controls.Add(this.tp_003);
-         this.tb_master.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.tb_master.Location = new System.Drawing.Point(20, 17);
-         this.tb_master.Name = "tb_master";
-         this.tb_master.RightToLeftLayout = true;
-         this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(902, 367);
-         this.tb_master.TabIndex = 0;
-         // 
-         // tp_003
-         // 
-         this.tp_003.AutoScroll = true;
-         this.tp_003.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.tp_003.Controls.Add(this.groupBox2);
-         this.tp_003.Controls.Add(this.Gb_Rqst3);
-         this.tp_003.Controls.Add(this.RqstBn1);
-         this.tp_003.Location = new System.Drawing.Point(4, 23);
-         this.tp_003.Name = "tp_003";
-         this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(894, 340);
-         this.tp_003.TabIndex = 2;
-         this.tp_003.Text = "بلوکه کردن حضور اعضا";
-         // 
-         // groupBox2
-         // 
-         this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupBox2.Controls.Add(this.pictureBox1);
-         this.groupBox2.Controls.Add(this.Pblc_Butn);
-         this.groupBox2.Controls.Add(this.EndDate_DateTime003);
-         this.groupBox2.Controls.Add(this.StrtDate_DateTime003);
-         this.groupBox2.Controls.Add(eND_DATELabel);
-         this.groupBox2.Controls.Add(sTRT_DATELabel);
-         this.groupBox2.Controls.Add(fIGH_FILE_NOLabel);
-         this.groupBox2.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
-         this.groupBox2.Controls.Add(label1);
-         this.groupBox2.Location = new System.Drawing.Point(351, 53);
-         this.groupBox2.Name = "groupBox2";
-         this.groupBox2.Size = new System.Drawing.Size(537, 187);
-         this.groupBox2.TabIndex = 68;
-         this.groupBox2.TabStop = false;
-         this.groupBox2.Text = "مشخصات عمومی";
+         this.Serv_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Serv_Gb.Controls.Add(this.pictureBox1);
+         this.Serv_Gb.Controls.Add(this.Pblc_Butn);
+         this.Serv_Gb.Controls.Add(this.EndDate_DateTime003);
+         this.Serv_Gb.Controls.Add(this.StrtDate_DateTime003);
+         this.Serv_Gb.Controls.Add(EndDate_Lb);
+         this.Serv_Gb.Controls.Add(StrtDate_Lb);
+         this.Serv_Gb.Controls.Add(FileNo_Lb);
+         this.Serv_Gb.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
+         this.Serv_Gb.Controls.Add(AtenDesc_Lb);
+         this.Serv_Gb.Location = new System.Drawing.Point(403, 50);
+         this.Serv_Gb.Name = "Serv_Gb";
+         this.Serv_Gb.Size = new System.Drawing.Size(537, 187);
+         this.Serv_Gb.TabIndex = 68;
+         this.Serv_Gb.TabStop = false;
+         this.Serv_Gb.Text = "مشخصات عمومی";
          // 
          // pictureBox1
          // 
@@ -371,7 +339,7 @@
          this.EndDate_DateTime003.Location = new System.Drawing.Point(338, 75);
          this.EndDate_DateTime003.Name = "EndDate_DateTime003";
          this.EndDate_DateTime003.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.EndDate_DateTime003.Size = new System.Drawing.Size(100, 23);
+         this.EndDate_DateTime003.Size = new System.Drawing.Size(100, 22);
          this.EndDate_DateTime003.TabIndex = 3;
          this.EndDate_DateTime003.UsePersianFormat = true;
          // 
@@ -399,7 +367,7 @@
          this.StrtDate_DateTime003.Location = new System.Drawing.Point(338, 47);
          this.StrtDate_DateTime003.Name = "StrtDate_DateTime003";
          this.StrtDate_DateTime003.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.StrtDate_DateTime003.Size = new System.Drawing.Size(100, 23);
+         this.StrtDate_DateTime003.Size = new System.Drawing.Size(100, 22);
          this.StrtDate_DateTime003.TabIndex = 2;
          this.StrtDate_DateTime003.UsePersianFormat = true;
          // 
@@ -425,6 +393,7 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FIGH_FILE_NOLookUpEdit.Properties.NullText = "";
          this.FIGH_FILE_NOLookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(700, 0);
+         this.FIGH_FILE_NOLookUpEdit.Properties.ReadOnly = true;
          this.FIGH_FILE_NOLookUpEdit.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1});
          this.FIGH_FILE_NOLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -895,24 +864,51 @@
          // 
          this.Gb_Rqst3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Gb_Rqst3.Controls.Add(this.ShowRqst_PickButn);
-         this.Gb_Rqst3.Controls.Add(label41);
+         this.Gb_Rqst3.Controls.Add(MdfyBy_Lb);
          this.Gb_Rqst3.Controls.Add(this.textEdit14);
          this.Gb_Rqst3.Controls.Add(this.dateTimeSelector5);
-         this.Gb_Rqst3.Controls.Add(label42);
-         this.Gb_Rqst3.Controls.Add(label44);
-         this.Gb_Rqst3.Controls.Add(label45);
+         this.Gb_Rqst3.Controls.Add(MdfyDate_Lb);
+         this.Gb_Rqst3.Controls.Add(CretBy_Lb);
+         this.Gb_Rqst3.Controls.Add(RqtpDesc_Lb);
          this.Gb_Rqst3.Controls.Add(this.textEdit16);
          this.Gb_Rqst3.Controls.Add(this.textEdit17);
          this.Gb_Rqst3.Controls.Add(this.textEdit18);
-         this.Gb_Rqst3.Controls.Add(label46);
+         this.Gb_Rqst3.Controls.Add(Rqid_Lb);
          this.Gb_Rqst3.Controls.Add(this.dateTimeSelector6);
-         this.Gb_Rqst3.Controls.Add(label47);
-         this.Gb_Rqst3.Location = new System.Drawing.Point(11, 53);
+         this.Gb_Rqst3.Controls.Add(CretDate_Lb);
+         this.Gb_Rqst3.Location = new System.Drawing.Point(63, 50);
          this.Gb_Rqst3.Name = "Gb_Rqst3";
          this.Gb_Rqst3.Size = new System.Drawing.Size(334, 187);
          this.Gb_Rqst3.TabIndex = 67;
          this.Gb_Rqst3.TabStop = false;
          this.Gb_Rqst3.Text = "اطلاعات درخواست";
+         // 
+         // ShowRqst_PickButn
+         // 
+         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
+         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.ShowRqst_PickButn.Disabled = false;
+         this.ShowRqst_PickButn.First = null;
+         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.ForceSelect = false;
+         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
+         this.ShowRqst_PickButn.ImageIndexPickUp = 0;
+         this.ShowRqst_PickButn.ImageList = null;
+         this.ShowRqst_PickButn.Location = new System.Drawing.Point(10, 128);
+         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
+         this.ShowRqst_PickButn.Next = null;
+         this.ShowRqst_PickButn.PickChecked = true;
+         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickDownText = "درخواست های من";
+         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickUpText = "همه درخواست ها";
+         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.Size = new System.Drawing.Size(100, 25);
+         this.ShowRqst_PickButn.TabIndex = 70;
+         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
          // 
          // textEdit14
          // 
@@ -940,7 +936,7 @@
          this.dateTimeSelector5.Location = new System.Drawing.Point(113, 156);
          this.dateTimeSelector5.Name = "dateTimeSelector5";
          this.dateTimeSelector5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.dateTimeSelector5.Size = new System.Drawing.Size(100, 23);
+         this.dateTimeSelector5.Size = new System.Drawing.Size(100, 22);
          this.dateTimeSelector5.TabIndex = 26;
          this.dateTimeSelector5.UsePersianFormat = true;
          // 
@@ -1003,7 +999,7 @@
          this.dateTimeSelector6.Location = new System.Drawing.Point(113, 128);
          this.dateTimeSelector6.Name = "dateTimeSelector6";
          this.dateTimeSelector6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.dateTimeSelector6.Size = new System.Drawing.Size(100, 23);
+         this.dateTimeSelector6.Size = new System.Drawing.Size(100, 22);
          this.dateTimeSelector6.TabIndex = 5;
          this.dateTimeSelector6.UsePersianFormat = true;
          // 
@@ -1035,7 +1031,7 @@
             this.RqstBnBDoc3,
             this.RqstBnRegl03,
             this.RqstBnExit3});
-         this.RqstBn1.Location = new System.Drawing.Point(3, 3);
+         this.RqstBn1.Location = new System.Drawing.Point(0, 0);
          this.RqstBn1.MoveFirstItem = this.toolStripButton6;
          this.RqstBn1.MoveLastItem = this.toolStripButton9;
          this.RqstBn1.MoveNextItem = this.toolStripButton8;
@@ -1043,7 +1039,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.toolStripTextBox2;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(888, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(943, 47);
          this.RqstBn1.TabIndex = 4;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -1168,7 +1164,7 @@
          this.RqstBnDefaultPrint3.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.RqstBnDefaultPrint3.Name = "RqstBnDefaultPrint3";
          this.RqstBnDefaultPrint3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-         this.RqstBnDefaultPrint3.Size = new System.Drawing.Size(224, 46);
+         this.RqstBnDefaultPrint3.Size = new System.Drawing.Size(227, 46);
          this.RqstBnDefaultPrint3.Text = "چاپ پیش فرض";
          this.RqstBnDefaultPrint3.Click += new System.EventHandler(this.RqstBnDefaultPrint_Click);
          // 
@@ -1178,20 +1174,20 @@
          this.RqstBnPrint3.Name = "RqstBnPrint3";
          this.RqstBnPrint3.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-         this.RqstBnPrint3.Size = new System.Drawing.Size(224, 46);
+         this.RqstBnPrint3.Size = new System.Drawing.Size(227, 46);
          this.RqstBnPrint3.Text = "انتخاب چاپ";
          this.RqstBnPrint3.Click += new System.EventHandler(this.RqstBnPrint_Click);
          // 
          // toolStripSeparator7
          // 
          this.toolStripSeparator7.Name = "toolStripSeparator7";
-         this.toolStripSeparator7.Size = new System.Drawing.Size(221, 6);
+         this.toolStripSeparator7.Size = new System.Drawing.Size(224, 6);
          // 
          // RqstBnSettingPrint3
          // 
          this.RqstBnSettingPrint3.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
          this.RqstBnSettingPrint3.Name = "RqstBnSettingPrint3";
-         this.RqstBnSettingPrint3.Size = new System.Drawing.Size(224, 46);
+         this.RqstBnSettingPrint3.Size = new System.Drawing.Size(227, 46);
          this.RqstBnSettingPrint3.Text = "تنظیمات چاپ";
          this.RqstBnSettingPrint3.Click += new System.EventHandler(this.RqstBnSettingPrint_Click);
          // 
@@ -1284,48 +1280,20 @@
          // 
          this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
          // 
-         // ShowRqst_PickButn
-         // 
-         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
-         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ShowRqst_PickButn.Disabled = false;
-         this.ShowRqst_PickButn.First = null;
-         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.ForceSelect = false;
-         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
-         this.ShowRqst_PickButn.ImageIndexPickUp = 0;
-         this.ShowRqst_PickButn.ImageList = null;
-         this.ShowRqst_PickButn.Location = new System.Drawing.Point(10, 128);
-         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
-         this.ShowRqst_PickButn.Next = null;
-         this.ShowRqst_PickButn.PickChecked = true;
-         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.PickDownText = "درخواست های من";
-         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
-         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.PickUpText = "همه درخواست ها";
-         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
-         this.ShowRqst_PickButn.Size = new System.Drawing.Size(100, 25);
-         this.ShowRqst_PickButn.TabIndex = 70;
-         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
-         // 
          // ADM_MBFZ_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Controls.Add(this.tb_master);
+         this.BackColor = System.Drawing.SystemColors.Control;
+         this.Controls.Add(this.Gb_Rqst3);
+         this.Controls.Add(this.Serv_Gb);
+         this.Controls.Add(this.RqstBn1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "ADM_MBFZ_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(943, 406);
-         this.tb_master.ResumeLayout(false);
-         this.tp_003.ResumeLayout(false);
-         this.tp_003.PerformLayout();
-         this.groupBox2.ResumeLayout(false);
-         this.groupBox2.PerformLayout();
+         this.Size = new System.Drawing.Size(943, 624);
+         this.Serv_Gb.ResumeLayout(false);
+         this.Serv_Gb.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
@@ -1349,13 +1317,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.PrvnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
          this.ResumeLayout(false);
+         this.PerformLayout();
 
       }
 
       #endregion
 
-      private Windows.Forms.TabControl tb_master;
-      private Windows.Forms.TabPage tp_003;
       private Windows.Forms.BindingSource DSxtpBs1;
       private Windows.Forms.BindingSource RqstBs1;
       private Windows.Forms.BindingSource RqroBs1;
@@ -1364,7 +1331,7 @@
       private Windows.Forms.BindingSource RegnBs1;
       private Windows.Forms.BindingSource PrvnBs1;
       private Windows.Forms.ImageList im_images;
-      private Windows.Forms.GroupBox groupBox2;
+      private Windows.Forms.GroupBox Serv_Gb;
       private Windows.Forms.Button Pblc_Butn;
       private Atf.UI.DateTimeSelector EndDate_DateTime003;
       private Atf.UI.DateTimeSelector StrtDate_DateTime003;

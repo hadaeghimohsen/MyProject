@@ -113,14 +113,13 @@ namespace System.Scsc.Ui.Admission
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == (Keys.Control | Keys.S))
-         {
-            if (tb_master.SelectedTab == tp_001)
+         {            
                Btn_RqstBnRqt_Click(null, null);
             
          }
          else if (keyData == Keys.Enter)
          {
-            if(!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_Cbmt1.Focused || Btn_Dise.Focused || Btn_NewRecord.Focused))
+            
                SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.F2)
@@ -129,22 +128,17 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
+            
                Btn_RqstDelete_Click(null, null);            
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
+            
                Btn_RqstBnRqt_Click(null, null);            
-         }
-         else if (keyData == Keys.F3)
-         {
-            if (tb_master.SelectedTab == tp_001)
-               LL_MoreInfo_LinkClicked(null, null);            
          }
          else if (keyData == Keys.F10)
          {
-            if (tb_master.SelectedTab == tp_001)
+            
                Btn_RqstSav_Click(null, null);            
          }
          job.Status = StatusType.Successful;

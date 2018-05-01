@@ -83,6 +83,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_TOTL_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -111,8 +113,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_TOTL_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -225,6 +225,10 @@
          this.RqstBnExit2 = new System.Windows.Forms.ToolStripButton();
          this.tp_003 = new System.Windows.Forms.TabPage();
          this.Gb_Expense3 = new System.Windows.Forms.GroupBox();
+         this.UsePos_Cb = new System.Windows.Forms.CheckBox();
+         this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.PmmtBs3 = new System.Windows.Forms.BindingSource(this.components);
@@ -496,10 +500,6 @@
          this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.UsePos_Cb = new System.Windows.Forms.CheckBox();
-         this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          label1 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
@@ -596,6 +596,8 @@
          this.RqstBn2.SuspendLayout();
          this.tp_003.SuspendLayout();
          this.Gb_Expense3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PmmtBs3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs3)).BeginInit();
@@ -657,8 +659,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // label1
@@ -2413,6 +2413,70 @@
          this.Gb_Expense3.TabStop = false;
          this.Gb_Expense3.Text = "اعلام هزینه";
          this.Gb_Expense3.Visible = false;
+         // 
+         // UsePos_Cb
+         // 
+         this.UsePos_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UsePos_Cb.AutoSize = true;
+         this.UsePos_Cb.Checked = true;
+         this.UsePos_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.UsePos_Cb.Location = new System.Drawing.Point(424, 103);
+         this.UsePos_Cb.Name = "UsePos_Cb";
+         this.UsePos_Cb.Size = new System.Drawing.Size(15, 14);
+         this.UsePos_Cb.TabIndex = 23;
+         this.UsePos_Cb.UseVisualStyleBackColor = true;
+         // 
+         // PosStng_Butn
+         // 
+         this.PosStng_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PosStng_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.PosStng_Butn.Appearance.Options.UseBackColor = true;
+         this.PosStng_Butn.Image = ((System.Drawing.Image)(resources.GetObject("PosStng_Butn.Image")));
+         this.PosStng_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.PosStng_Butn.Location = new System.Drawing.Point(400, 99);
+         this.PosStng_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PosStng_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PosStng_Butn.Name = "PosStng_Butn";
+         this.PosStng_Butn.Size = new System.Drawing.Size(18, 21);
+         this.PosStng_Butn.TabIndex = 22;
+         // 
+         // Pos_Lov
+         // 
+         this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Pos_Lov.Location = new System.Drawing.Point(272, 99);
+         this.Pos_Lov.Name = "Pos_Lov";
+         this.Pos_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pos_Lov.Properties.Appearance.Options.UseFont = true;
+         this.Pos_Lov.Properties.Appearance.Options.UseTextOptions = true;
+         this.Pos_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Pos_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pos_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
+         this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+         this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_TYPE", "BANK_TYPE", 77, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BNKB_CODE", "کد شعبه", 77, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BNKA_ACNT_NUMB", "شماره حساب", 117, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SHBA_CODE", "شماره شبا", 78, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POS_DESC", "عنوان پایانه فروش", 69, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POS_DFLT", "POS_DFLT", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
+         this.Pos_Lov.Properties.DataSource = this.VPosBs1;
+         this.Pos_Lov.Properties.DisplayMember = "POS_DESC";
+         this.Pos_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Pos_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Pos_Lov.Properties.NullText = "";
+         this.Pos_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(600, 0);
+         this.Pos_Lov.Properties.ValueMember = "PSID";
+         this.Pos_Lov.Size = new System.Drawing.Size(122, 22);
+         this.Pos_Lov.TabIndex = 21;
+         // 
+         // VPosBs1
+         // 
+         this.VPosBs1.DataSource = typeof(System.Scsc.Data.V_Pos_Device);
          // 
          // labelControl1
          // 
@@ -5027,70 +5091,6 @@
          // 
          this.OrgnBs1.DataSource = typeof(System.Scsc.Data.Organ);
          // 
-         // UsePos_Cb
-         // 
-         this.UsePos_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.UsePos_Cb.AutoSize = true;
-         this.UsePos_Cb.Checked = true;
-         this.UsePos_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.UsePos_Cb.Location = new System.Drawing.Point(424, 103);
-         this.UsePos_Cb.Name = "UsePos_Cb";
-         this.UsePos_Cb.Size = new System.Drawing.Size(15, 14);
-         this.UsePos_Cb.TabIndex = 23;
-         this.UsePos_Cb.UseVisualStyleBackColor = true;
-         // 
-         // PosStng_Butn
-         // 
-         this.PosStng_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PosStng_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.PosStng_Butn.Appearance.Options.UseBackColor = true;
-         this.PosStng_Butn.Image = ((System.Drawing.Image)(resources.GetObject("PosStng_Butn.Image")));
-         this.PosStng_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PosStng_Butn.Location = new System.Drawing.Point(400, 99);
-         this.PosStng_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PosStng_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PosStng_Butn.Name = "PosStng_Butn";
-         this.PosStng_Butn.Size = new System.Drawing.Size(18, 21);
-         this.PosStng_Butn.TabIndex = 22;
-         // 
-         // Pos_Lov
-         // 
-         this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pos_Lov.Location = new System.Drawing.Point(272, 99);
-         this.Pos_Lov.Name = "Pos_Lov";
-         this.Pos_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Pos_Lov.Properties.Appearance.Options.UseFont = true;
-         this.Pos_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.Pos_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Pos_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Pos_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
-         this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
-         this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_TYPE", "BANK_TYPE", 77, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BNKB_CODE", "کد شعبه", 77, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BNKA_ACNT_NUMB", "شماره حساب", 117, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SHBA_CODE", "شماره شبا", 78, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POS_DESC", "عنوان پایانه فروش", 69, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POS_DFLT", "POS_DFLT", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
-         this.Pos_Lov.Properties.DataSource = this.VPosBs1;
-         this.Pos_Lov.Properties.DisplayMember = "POS_DESC";
-         this.Pos_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Pos_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Pos_Lov.Properties.NullText = "";
-         this.Pos_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(600, 0);
-         this.Pos_Lov.Properties.ValueMember = "PSID";
-         this.Pos_Lov.Size = new System.Drawing.Size(122, 22);
-         this.Pos_Lov.TabIndex = 21;
-         // 
-         // VPosBs1
-         // 
-         this.VPosBs1.DataSource = typeof(System.Scsc.Data.V_Pos_Device);
-         // 
          // ADM_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5160,6 +5160,8 @@
          this.tp_003.PerformLayout();
          this.Gb_Expense3.ResumeLayout(false);
          this.Gb_Expense3.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PmmtBs3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs3)).EndInit();
@@ -5225,8 +5227,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).EndInit();
          this.ResumeLayout(false);
 
       }

@@ -29,32 +29,32 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label label49;
-         System.Windows.Forms.Label cBMT_CODELabel;
-         System.Windows.Forms.Label label53;
-         System.Windows.Forms.Label label57;
-         System.Windows.Forms.Label label51;
-         System.Windows.Forms.Label fNGR_PRNTLabel;
-         System.Windows.Forms.Label cELL_PHONLabel;
-         System.Windows.Forms.Label tELL_PHONLabel;
-         System.Windows.Forms.Label rQTT_CODELabel;
-         System.Windows.Forms.Label bRTH_DATELabel;
-         System.Windows.Forms.Label sEX_TYPELabel;
-         System.Windows.Forms.Label lAST_NAMELabel;
-         System.Windows.Forms.Label fRST_NAMELabel;
-         System.Windows.Forms.Label label3;
-         System.Windows.Forms.Label nATL_CODELabel;
-         System.Windows.Forms.Label label41;
-         System.Windows.Forms.Label label42;
-         System.Windows.Forms.Label label44;
-         System.Windows.Forms.Label label46;
-         System.Windows.Forms.Label label47;
-         System.Windows.Forms.Label label8;
-         System.Windows.Forms.Label sUNT_CODELabel;
-         System.Windows.Forms.Label label13;
-         System.Windows.Forms.Label label1;
+         System.Windows.Forms.Label StrtDate_Lb;
+         System.Windows.Forms.Label CbmtCode_Lb;
+         System.Windows.Forms.Label CtgyCode_Lb;
+         System.Windows.Forms.Label NumbAttnMon_Lb;
+         System.Windows.Forms.Label NumbMontOffr_Lb;
+         System.Windows.Forms.Label FngrPrnt_Lb;
+         System.Windows.Forms.Label CellPhon_Lb;
+         System.Windows.Forms.Label TellPhon_Lb;
+         System.Windows.Forms.Label RqttCode_Lb;
+         System.Windows.Forms.Label BrthDate_Lb;
+         System.Windows.Forms.Label SexType_Lb;
+         System.Windows.Forms.Label LastName_Lb;
+         System.Windows.Forms.Label FrstName_Lb;
+         System.Windows.Forms.Label FileNo_Lb;
+         System.Windows.Forms.Label NatlCode_Lb;
+         System.Windows.Forms.Label MdfyBy_Lb;
+         System.Windows.Forms.Label MdfyDate_Lb;
+         System.Windows.Forms.Label CretBy_Lb;
+         System.Windows.Forms.Label Rqid_Lb;
+         System.Windows.Forms.Label CretDate_Lb;
+         System.Windows.Forms.Label CardNumb_Lb;
+         System.Windows.Forms.Label SuntCode_Lb;
+         System.Windows.Forms.Label GlobCode_Lb;
+         System.Windows.Forms.Label ServNo_Lb;
          System.Windows.Forms.Label label14;
-         System.Windows.Forms.Label label15;
+         System.Windows.Forms.Label ChatId_Lb;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_FIGH_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -223,9 +223,9 @@
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+         this.Pymt_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.TotlAmnt_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.DtilAmnt_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Btn_InDebt001 = new DevExpress.XtraEditors.SimpleButton();
          this.tbn_CashPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
@@ -237,9 +237,9 @@
          this.colPYMT_RQST_RQID2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colAMNT1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRCPT_MTOD1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.PymtRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.PymtAmnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RcptMtod_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colTERM_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTRAN_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -247,7 +247,7 @@
          this.colBANK = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFLOW_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREF_NO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colACTN_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ActnDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colSHOP_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY8 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -262,12 +262,12 @@
          this.colPYMT_CASH_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RwnoPdsc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXPN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colAMNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.AmntPdsc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colPYDS_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.PydsDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE7 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -281,13 +281,13 @@
          this.colPYMT_CASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colEXPN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ExpnCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAY_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colEXPN_PRIC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colEXPN_EXTR_PRCT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREMN_PRIC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colQNTY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Qnty_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDOCM_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colISSU_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRCPT_MTOD = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -301,15 +301,15 @@
          this.colExpense = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPayment = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTotlExpn = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.TotlExpn_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.paymentsGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colCASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.CashCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRECV_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUM_EXPN_PRIC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUM_EXPN_EXTR_PRCT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SumExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SumExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_REMN_PRIC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_RCPT_EXPN_PRIC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_RCPT_EXPN_EXTR_PRCT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -403,35 +403,35 @@
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-         label49 = new System.Windows.Forms.Label();
-         cBMT_CODELabel = new System.Windows.Forms.Label();
-         label53 = new System.Windows.Forms.Label();
-         label57 = new System.Windows.Forms.Label();
-         label51 = new System.Windows.Forms.Label();
-         fNGR_PRNTLabel = new System.Windows.Forms.Label();
-         cELL_PHONLabel = new System.Windows.Forms.Label();
-         tELL_PHONLabel = new System.Windows.Forms.Label();
-         rQTT_CODELabel = new System.Windows.Forms.Label();
-         bRTH_DATELabel = new System.Windows.Forms.Label();
-         sEX_TYPELabel = new System.Windows.Forms.Label();
-         lAST_NAMELabel = new System.Windows.Forms.Label();
-         fRST_NAMELabel = new System.Windows.Forms.Label();
-         label3 = new System.Windows.Forms.Label();
-         nATL_CODELabel = new System.Windows.Forms.Label();
-         label41 = new System.Windows.Forms.Label();
-         label42 = new System.Windows.Forms.Label();
-         label44 = new System.Windows.Forms.Label();
-         label46 = new System.Windows.Forms.Label();
-         label47 = new System.Windows.Forms.Label();
-         label8 = new System.Windows.Forms.Label();
-         sUNT_CODELabel = new System.Windows.Forms.Label();
-         label13 = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
+         this.MbspDesc_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.Other_Desc = new DevExpress.XtraEditors.LabelControl();
+         this.Request_Lb = new DevExpress.XtraEditors.LabelControl();
+         StrtDate_Lb = new System.Windows.Forms.Label();
+         CbmtCode_Lb = new System.Windows.Forms.Label();
+         CtgyCode_Lb = new System.Windows.Forms.Label();
+         NumbAttnMon_Lb = new System.Windows.Forms.Label();
+         NumbMontOffr_Lb = new System.Windows.Forms.Label();
+         FngrPrnt_Lb = new System.Windows.Forms.Label();
+         CellPhon_Lb = new System.Windows.Forms.Label();
+         TellPhon_Lb = new System.Windows.Forms.Label();
+         RqttCode_Lb = new System.Windows.Forms.Label();
+         BrthDate_Lb = new System.Windows.Forms.Label();
+         SexType_Lb = new System.Windows.Forms.Label();
+         LastName_Lb = new System.Windows.Forms.Label();
+         FrstName_Lb = new System.Windows.Forms.Label();
+         FileNo_Lb = new System.Windows.Forms.Label();
+         NatlCode_Lb = new System.Windows.Forms.Label();
+         MdfyBy_Lb = new System.Windows.Forms.Label();
+         MdfyDate_Lb = new System.Windows.Forms.Label();
+         CretBy_Lb = new System.Windows.Forms.Label();
+         Rqid_Lb = new System.Windows.Forms.Label();
+         CretDate_Lb = new System.Windows.Forms.Label();
+         CardNumb_Lb = new System.Windows.Forms.Label();
+         SuntCode_Lb = new System.Windows.Forms.Label();
+         GlobCode_Lb = new System.Windows.Forms.Label();
+         ServNo_Lb = new System.Windows.Forms.Label();
          label14 = new System.Windows.Forms.Label();
-         label15 = new System.Windows.Forms.Label();
+         ChatId_Lb = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
@@ -505,258 +505,258 @@
          this.RqstBn1.SuspendLayout();
          this.SuspendLayout();
          // 
-         // label49
+         // StrtDate_Lb
          // 
-         label49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label49.AutoSize = true;
-         label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         label49.Location = new System.Drawing.Point(908, 304);
-         label49.Name = "label49";
-         label49.Size = new System.Drawing.Size(70, 14);
-         label49.TabIndex = 30;
-         label49.Text = "تاریخ شروع :";
+         StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         StrtDate_Lb.AutoSize = true;
+         StrtDate_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         StrtDate_Lb.Location = new System.Drawing.Point(908, 304);
+         StrtDate_Lb.Name = "StrtDate_Lb";
+         StrtDate_Lb.Size = new System.Drawing.Size(70, 14);
+         StrtDate_Lb.TabIndex = 30;
+         StrtDate_Lb.Text = "تاریخ شروع :";
          // 
-         // cBMT_CODELabel
+         // CbmtCode_Lb
          // 
-         cBMT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         cBMT_CODELabel.AutoSize = true;
-         cBMT_CODELabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         cBMT_CODELabel.Location = new System.Drawing.Point(908, 244);
-         cBMT_CODELabel.Name = "cBMT_CODELabel";
-         cBMT_CODELabel.Size = new System.Drawing.Size(93, 14);
-         cBMT_CODELabel.TabIndex = 19;
-         cBMT_CODELabel.Text = "برنامه کلاسی *:";
+         CbmtCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CbmtCode_Lb.AutoSize = true;
+         CbmtCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         CbmtCode_Lb.Location = new System.Drawing.Point(908, 244);
+         CbmtCode_Lb.Name = "CbmtCode_Lb";
+         CbmtCode_Lb.Size = new System.Drawing.Size(93, 14);
+         CbmtCode_Lb.TabIndex = 19;
+         CbmtCode_Lb.Text = "برنامه کلاسی *:";
          // 
-         // label53
+         // CtgyCode_Lb
          // 
-         label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label53.AutoSize = true;
-         label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         label53.Location = new System.Drawing.Point(908, 273);
-         label53.Name = "label53";
-         label53.Size = new System.Drawing.Size(49, 14);
-         label53.TabIndex = 1;
-         label53.Text = "رسته *:";
+         CtgyCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CtgyCode_Lb.AutoSize = true;
+         CtgyCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         CtgyCode_Lb.Location = new System.Drawing.Point(908, 273);
+         CtgyCode_Lb.Name = "CtgyCode_Lb";
+         CtgyCode_Lb.Size = new System.Drawing.Size(49, 14);
+         CtgyCode_Lb.TabIndex = 1;
+         CtgyCode_Lb.Text = "رسته *:";
          // 
-         // label57
+         // NumbAttnMon_Lb
          // 
-         label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label57.AutoSize = true;
-         label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         label57.Location = new System.Drawing.Point(715, 332);
-         label57.Name = "label57";
-         label57.Size = new System.Drawing.Size(83, 14);
-         label57.TabIndex = 52;
-         label57.Text = "تعداد جلسات :";
+         NumbAttnMon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         NumbAttnMon_Lb.AutoSize = true;
+         NumbAttnMon_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         NumbAttnMon_Lb.Location = new System.Drawing.Point(715, 332);
+         NumbAttnMon_Lb.Name = "NumbAttnMon_Lb";
+         NumbAttnMon_Lb.Size = new System.Drawing.Size(83, 14);
+         NumbAttnMon_Lb.TabIndex = 52;
+         NumbAttnMon_Lb.Text = "تعداد جلسات :";
          // 
-         // label51
+         // NumbMontOffr_Lb
          // 
-         label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label51.AutoSize = true;
-         label51.Location = new System.Drawing.Point(847, 360);
-         label51.Name = "label51";
-         label51.Size = new System.Drawing.Size(122, 14);
-         label51.TabIndex = 59;
-         label51.Text = "تعداد ماه های تخفیف :";
+         NumbMontOffr_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         NumbMontOffr_Lb.AutoSize = true;
+         NumbMontOffr_Lb.Location = new System.Drawing.Point(847, 360);
+         NumbMontOffr_Lb.Name = "NumbMontOffr_Lb";
+         NumbMontOffr_Lb.Size = new System.Drawing.Size(122, 14);
+         NumbMontOffr_Lb.TabIndex = 59;
+         NumbMontOffr_Lb.Text = "تعداد ماه های تخفیف :";
          // 
-         // fNGR_PRNTLabel
+         // FngrPrnt_Lb
          // 
-         fNGR_PRNTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         fNGR_PRNTLabel.Image = global::System.Scsc.Properties.Resources.IMAGE_1132;
-         fNGR_PRNTLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-         fNGR_PRNTLabel.Location = new System.Drawing.Point(909, 154);
-         fNGR_PRNTLabel.Name = "fNGR_PRNTLabel";
-         fNGR_PRNTLabel.Size = new System.Drawing.Size(120, 50);
-         fNGR_PRNTLabel.TabIndex = 1;
-         fNGR_PRNTLabel.Text = "کد دستگاه  :";
-         fNGR_PRNTLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FngrPrnt_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1132;
+         FngrPrnt_Lb.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+         FngrPrnt_Lb.Location = new System.Drawing.Point(909, 154);
+         FngrPrnt_Lb.Name = "FngrPrnt_Lb";
+         FngrPrnt_Lb.Size = new System.Drawing.Size(120, 50);
+         FngrPrnt_Lb.TabIndex = 1;
+         FngrPrnt_Lb.Text = "کد دستگاه  :";
+         FngrPrnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
-         // cELL_PHONLabel
+         // CellPhon_Lb
          // 
-         cELL_PHONLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         cELL_PHONLabel.AutoSize = true;
-         cELL_PHONLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         cELL_PHONLabel.Location = new System.Drawing.Point(909, 144);
-         cELL_PHONLabel.Name = "cELL_PHONLabel";
-         cELL_PHONLabel.Size = new System.Drawing.Size(77, 14);
-         cELL_PHONLabel.TabIndex = 66;
-         cELL_PHONLabel.Text = "تلفن همراه *:";
+         CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CellPhon_Lb.AutoSize = true;
+         CellPhon_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         CellPhon_Lb.Location = new System.Drawing.Point(909, 144);
+         CellPhon_Lb.Name = "CellPhon_Lb";
+         CellPhon_Lb.Size = new System.Drawing.Size(77, 14);
+         CellPhon_Lb.TabIndex = 66;
+         CellPhon_Lb.Text = "تلفن همراه *:";
          // 
-         // tELL_PHONLabel
+         // TellPhon_Lb
          // 
-         tELL_PHONLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         tELL_PHONLabel.AutoSize = true;
-         tELL_PHONLabel.Location = new System.Drawing.Point(706, 144);
-         tELL_PHONLabel.Name = "tELL_PHONLabel";
-         tELL_PHONLabel.Size = new System.Drawing.Size(62, 14);
-         tELL_PHONLabel.TabIndex = 67;
-         tELL_PHONLabel.Text = "تلفن ثابت :";
+         TellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         TellPhon_Lb.AutoSize = true;
+         TellPhon_Lb.Location = new System.Drawing.Point(706, 144);
+         TellPhon_Lb.Name = "TellPhon_Lb";
+         TellPhon_Lb.Size = new System.Drawing.Size(62, 14);
+         TellPhon_Lb.TabIndex = 67;
+         TellPhon_Lb.Text = "تلفن ثابت :";
          // 
-         // rQTT_CODELabel
+         // RqttCode_Lb
          // 
-         rQTT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         rQTT_CODELabel.AutoSize = true;
-         rQTT_CODELabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         rQTT_CODELabel.Location = new System.Drawing.Point(908, 58);
-         rQTT_CODELabel.Name = "rQTT_CODELabel";
-         rQTT_CODELabel.Size = new System.Drawing.Size(77, 14);
-         rQTT_CODELabel.TabIndex = 65;
-         rQTT_CODELabel.Text = "نوع ثبت نام *:";
+         RqttCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         RqttCode_Lb.AutoSize = true;
+         RqttCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         RqttCode_Lb.Location = new System.Drawing.Point(908, 58);
+         RqttCode_Lb.Name = "RqttCode_Lb";
+         RqttCode_Lb.Size = new System.Drawing.Size(77, 14);
+         RqttCode_Lb.TabIndex = 65;
+         RqttCode_Lb.Text = "نوع ثبت نام *:";
          // 
-         // bRTH_DATELabel
+         // BrthDate_Lb
          // 
-         bRTH_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bRTH_DATELabel.AutoSize = true;
-         bRTH_DATELabel.ForeColor = System.Drawing.Color.Black;
-         bRTH_DATELabel.Location = new System.Drawing.Point(706, 87);
-         bRTH_DATELabel.Name = "bRTH_DATELabel";
-         bRTH_DATELabel.Size = new System.Drawing.Size(59, 14);
-         bRTH_DATELabel.TabIndex = 64;
-         bRTH_DATELabel.Text = "تاریخ تولد :";
+         BrthDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         BrthDate_Lb.AutoSize = true;
+         BrthDate_Lb.ForeColor = System.Drawing.Color.Black;
+         BrthDate_Lb.Location = new System.Drawing.Point(706, 87);
+         BrthDate_Lb.Name = "BrthDate_Lb";
+         BrthDate_Lb.Size = new System.Drawing.Size(59, 14);
+         BrthDate_Lb.TabIndex = 64;
+         BrthDate_Lb.Text = "تاریخ تولد :";
          // 
-         // sEX_TYPELabel
+         // SexType_Lb
          // 
-         sEX_TYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         sEX_TYPELabel.AutoSize = true;
-         sEX_TYPELabel.Location = new System.Drawing.Point(706, 116);
-         sEX_TYPELabel.Name = "sEX_TYPELabel";
-         sEX_TYPELabel.Size = new System.Drawing.Size(55, 14);
-         sEX_TYPELabel.TabIndex = 63;
-         sEX_TYPELabel.Text = "جنسیت :";
+         SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         SexType_Lb.AutoSize = true;
+         SexType_Lb.Location = new System.Drawing.Point(706, 116);
+         SexType_Lb.Name = "SexType_Lb";
+         SexType_Lb.Size = new System.Drawing.Size(55, 14);
+         SexType_Lb.TabIndex = 63;
+         SexType_Lb.Text = "جنسیت :";
          // 
-         // lAST_NAMELabel
+         // LastName_Lb
          // 
-         lAST_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         lAST_NAMELabel.AutoSize = true;
-         lAST_NAMELabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         lAST_NAMELabel.Location = new System.Drawing.Point(909, 116);
-         lAST_NAMELabel.Name = "lAST_NAMELabel";
-         lAST_NAMELabel.Size = new System.Drawing.Size(87, 14);
-         lAST_NAMELabel.TabIndex = 58;
-         lAST_NAMELabel.Text = "نام خانوادگی *:";
+         LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         LastName_Lb.AutoSize = true;
+         LastName_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         LastName_Lb.Location = new System.Drawing.Point(909, 116);
+         LastName_Lb.Name = "LastName_Lb";
+         LastName_Lb.Size = new System.Drawing.Size(87, 14);
+         LastName_Lb.TabIndex = 58;
+         LastName_Lb.Text = "نام خانوادگی *:";
          // 
-         // fRST_NAMELabel
+         // FrstName_Lb
          // 
-         fRST_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         fRST_NAMELabel.AutoSize = true;
-         fRST_NAMELabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         fRST_NAMELabel.Location = new System.Drawing.Point(909, 87);
-         fRST_NAMELabel.Name = "fRST_NAMELabel";
-         fRST_NAMELabel.Size = new System.Drawing.Size(36, 14);
-         fRST_NAMELabel.TabIndex = 56;
-         fRST_NAMELabel.Text = "نام *:";
+         FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FrstName_Lb.AutoSize = true;
+         FrstName_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+         FrstName_Lb.Location = new System.Drawing.Point(909, 87);
+         FrstName_Lb.Name = "FrstName_Lb";
+         FrstName_Lb.Size = new System.Drawing.Size(36, 14);
+         FrstName_Lb.TabIndex = 56;
+         FrstName_Lb.Text = "نام *:";
          // 
-         // label3
+         // FileNo_Lb
          // 
-         label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(705, 58);
-         label3.Name = "label3";
-         label3.Size = new System.Drawing.Size(81, 14);
-         label3.TabIndex = 56;
-         label3.Text = "شماره پرونده :";
+         FileNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FileNo_Lb.AutoSize = true;
+         FileNo_Lb.Location = new System.Drawing.Point(705, 58);
+         FileNo_Lb.Name = "FileNo_Lb";
+         FileNo_Lb.Size = new System.Drawing.Size(81, 14);
+         FileNo_Lb.TabIndex = 56;
+         FileNo_Lb.Text = "شماره پرونده :";
          // 
-         // nATL_CODELabel
+         // NatlCode_Lb
          // 
-         nATL_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         nATL_CODELabel.AutoSize = true;
-         nATL_CODELabel.Location = new System.Drawing.Point(705, 171);
-         nATL_CODELabel.Name = "nATL_CODELabel";
-         nATL_CODELabel.Size = new System.Drawing.Size(54, 14);
-         nATL_CODELabel.TabIndex = 5;
-         nATL_CODELabel.Text = "کد ملی :";
+         NatlCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         NatlCode_Lb.AutoSize = true;
+         NatlCode_Lb.Location = new System.Drawing.Point(705, 171);
+         NatlCode_Lb.Name = "NatlCode_Lb";
+         NatlCode_Lb.Size = new System.Drawing.Size(54, 14);
+         NatlCode_Lb.TabIndex = 5;
+         NatlCode_Lb.Text = "کد ملی :";
          // 
-         // label41
+         // MdfyBy_Lb
          // 
-         label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label41.AutoSize = true;
-         label41.Location = new System.Drawing.Point(905, 547);
-         label41.Name = "label41";
-         label41.Size = new System.Drawing.Size(107, 14);
-         label41.TabIndex = 24;
-         label41.Text = "کاربر ویرایش کننده :";
+         MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         MdfyBy_Lb.AutoSize = true;
+         MdfyBy_Lb.Location = new System.Drawing.Point(905, 547);
+         MdfyBy_Lb.Name = "MdfyBy_Lb";
+         MdfyBy_Lb.Size = new System.Drawing.Size(107, 14);
+         MdfyBy_Lb.TabIndex = 24;
+         MdfyBy_Lb.Text = "کاربر ویرایش کننده :";
          // 
-         // label42
+         // MdfyDate_Lb
          // 
-         label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label42.AutoSize = true;
-         label42.Location = new System.Drawing.Point(702, 546);
-         label42.Name = "label42";
-         label42.Size = new System.Drawing.Size(76, 14);
-         label42.TabIndex = 27;
-         label42.Text = "تاریخ ویرایش :";
+         MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         MdfyDate_Lb.AutoSize = true;
+         MdfyDate_Lb.Location = new System.Drawing.Point(702, 546);
+         MdfyDate_Lb.Name = "MdfyDate_Lb";
+         MdfyDate_Lb.Size = new System.Drawing.Size(76, 14);
+         MdfyDate_Lb.TabIndex = 27;
+         MdfyDate_Lb.Text = "تاریخ ویرایش :";
          // 
-         // label44
+         // CretBy_Lb
          // 
-         label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label44.AutoSize = true;
-         label44.Location = new System.Drawing.Point(905, 519);
-         label44.Name = "label44";
-         label44.Size = new System.Drawing.Size(96, 14);
-         label44.TabIndex = 1;
-         label44.Text = "کاربر ایجاد کننده :";
+         CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CretBy_Lb.AutoSize = true;
+         CretBy_Lb.Location = new System.Drawing.Point(905, 519);
+         CretBy_Lb.Name = "CretBy_Lb";
+         CretBy_Lb.Size = new System.Drawing.Size(96, 14);
+         CretBy_Lb.TabIndex = 1;
+         CretBy_Lb.Text = "کاربر ایجاد کننده :";
          // 
-         // label46
+         // Rqid_Lb
          // 
-         label46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label46.AutoSize = true;
-         label46.Location = new System.Drawing.Point(905, 492);
-         label46.Name = "label46";
-         label46.Size = new System.Drawing.Size(101, 14);
-         label46.TabIndex = 21;
-         label46.Text = "شماره درخواست :";
+         Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Rqid_Lb.AutoSize = true;
+         Rqid_Lb.Location = new System.Drawing.Point(905, 492);
+         Rqid_Lb.Name = "Rqid_Lb";
+         Rqid_Lb.Size = new System.Drawing.Size(101, 14);
+         Rqid_Lb.TabIndex = 21;
+         Rqid_Lb.Text = "شماره درخواست :";
          // 
-         // label47
+         // CretDate_Lb
          // 
-         label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label47.AutoSize = true;
-         label47.Location = new System.Drawing.Point(702, 518);
-         label47.Name = "label47";
-         label47.Size = new System.Drawing.Size(65, 14);
-         label47.TabIndex = 14;
-         label47.Text = "تاریخ ایجاد :";
+         CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CretDate_Lb.AutoSize = true;
+         CretDate_Lb.Location = new System.Drawing.Point(702, 518);
+         CretDate_Lb.Name = "CretDate_Lb";
+         CretDate_Lb.Size = new System.Drawing.Size(65, 14);
+         CretDate_Lb.TabIndex = 14;
+         CretDate_Lb.Text = "تاریخ ایجاد :";
          // 
-         // label8
+         // CardNumb_Lb
          // 
-         label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label8.AutoSize = true;
-         label8.Location = new System.Drawing.Point(909, 200);
-         label8.Name = "label8";
-         label8.Size = new System.Drawing.Size(76, 14);
-         label8.TabIndex = 66;
-         label8.Text = "شماره کارت :";
+         CardNumb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CardNumb_Lb.AutoSize = true;
+         CardNumb_Lb.Location = new System.Drawing.Point(909, 200);
+         CardNumb_Lb.Name = "CardNumb_Lb";
+         CardNumb_Lb.Size = new System.Drawing.Size(76, 14);
+         CardNumb_Lb.TabIndex = 66;
+         CardNumb_Lb.Text = "شماره کارت :";
          // 
-         // sUNT_CODELabel
+         // SuntCode_Lb
          // 
-         sUNT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         sUNT_CODELabel.AutoSize = true;
-         sUNT_CODELabel.Location = new System.Drawing.Point(909, 409);
-         sUNT_CODELabel.Name = "sUNT_CODELabel";
-         sUNT_CODELabel.Size = new System.Drawing.Size(112, 14);
-         sUNT_CODELabel.TabIndex = 62;
-         sUNT_CODELabel.Text = "شرکت طرف قرارداد :";
+         SuntCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         SuntCode_Lb.AutoSize = true;
+         SuntCode_Lb.Location = new System.Drawing.Point(909, 409);
+         SuntCode_Lb.Name = "SuntCode_Lb";
+         SuntCode_Lb.Size = new System.Drawing.Size(112, 14);
+         SuntCode_Lb.TabIndex = 62;
+         SuntCode_Lb.Text = "شرکت طرف قرارداد :";
          // 
-         // label13
+         // GlobCode_Lb
          // 
-         label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label13.Image = global::System.Scsc.Properties.Resources.IMAGE_1505;
-         label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         label13.Location = new System.Drawing.Point(910, 436);
-         label13.Name = "label13";
-         label13.Size = new System.Drawing.Size(122, 20);
-         label13.TabIndex = 65;
-         label13.Text = "شماره پرسنلی :";
-         label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         GlobCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         GlobCode_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1505;
+         GlobCode_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         GlobCode_Lb.Location = new System.Drawing.Point(910, 436);
+         GlobCode_Lb.Name = "GlobCode_Lb";
+         GlobCode_Lb.Size = new System.Drawing.Size(122, 20);
+         GlobCode_Lb.TabIndex = 65;
+         GlobCode_Lb.Text = "شماره پرسنلی :";
+         GlobCode_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
-         // label1
+         // ServNo_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(711, 411);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(70, 14);
-         label1.TabIndex = 66;
-         label1.Text = "کد اشتراک :";
+         ServNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         ServNo_Lb.AutoSize = true;
+         ServNo_Lb.Location = new System.Drawing.Point(711, 411);
+         ServNo_Lb.Name = "ServNo_Lb";
+         ServNo_Lb.Size = new System.Drawing.Size(70, 14);
+         ServNo_Lb.TabIndex = 66;
+         ServNo_Lb.Text = "کد اشتراک :";
          // 
          // label14
          // 
@@ -768,17 +768,17 @@
          label14.TabIndex = 75;
          label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
          // 
-         // label15
+         // ChatId_Lb
          // 
-         label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label15.AutoSize = true;
-         label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         label15.Location = new System.Drawing.Point(712, 439);
-         label15.Name = "label15";
-         label15.Size = new System.Drawing.Size(60, 14);
-         label15.TabIndex = 74;
-         label15.Text = "کد تلگرام :";
-         label15.TextAlign = System.Drawing.ContentAlignment.TopRight;
+         ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         ChatId_Lb.AutoSize = true;
+         ChatId_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         ChatId_Lb.Location = new System.Drawing.Point(712, 439);
+         ChatId_Lb.Name = "ChatId_Lb";
+         ChatId_Lb.Size = new System.Drawing.Size(60, 14);
+         ChatId_Lb.TabIndex = 74;
+         ChatId_Lb.Text = "کد تلگرام :";
+         ChatId_Lb.TextAlign = System.Drawing.ContentAlignment.TopRight;
          // 
          // colDFLT_STAT
          // 
@@ -1641,9 +1641,9 @@
          this.Gb_Expense.Controls.Add(this.UsePos_Cb);
          this.Gb_Expense.Controls.Add(this.PosStng_Butn);
          this.Gb_Expense.Controls.Add(this.Pos_Lov);
-         this.Gb_Expense.Controls.Add(this.labelControl2);
-         this.Gb_Expense.Controls.Add(this.labelControl4);
-         this.Gb_Expense.Controls.Add(this.labelControl3);
+         this.Gb_Expense.Controls.Add(this.Pymt_Lb);
+         this.Gb_Expense.Controls.Add(this.TotlAmnt_Lb);
+         this.Gb_Expense.Controls.Add(this.DtilAmnt_Lb);
          this.Gb_Expense.Controls.Add(this.Btn_InDebt001);
          this.Gb_Expense.Controls.Add(this.tbn_CashPayment1);
          this.Gb_Expense.Controls.Add(this.tbn_POSPayment1);
@@ -1726,47 +1726,47 @@
          // 
          this.VPosBs1.DataSource = typeof(System.Scsc.Data.V_Pos_Device);
          // 
-         // labelControl2
+         // Pymt_Lb
          // 
-         this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl2.LineVisible = true;
-         this.labelControl2.Location = new System.Drawing.Point(12, 305);
-         this.labelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(536, 17);
-         this.labelControl2.TabIndex = 8;
-         this.labelControl2.Text = "مبلغ های تحفیف داده شده و پرداختی";
+         this.Pymt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Pymt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pymt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Pymt_Lb.LineVisible = true;
+         this.Pymt_Lb.Location = new System.Drawing.Point(12, 305);
+         this.Pymt_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Pymt_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Pymt_Lb.Name = "Pymt_Lb";
+         this.Pymt_Lb.Size = new System.Drawing.Size(536, 17);
+         this.Pymt_Lb.TabIndex = 8;
+         this.Pymt_Lb.Text = "مبلغ های تحفیف داده شده و پرداختی";
          // 
-         // labelControl4
+         // TotlAmnt_Lb
          // 
-         this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl4.LineVisible = true;
-         this.labelControl4.Location = new System.Drawing.Point(12, 20);
-         this.labelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl4.Name = "labelControl4";
-         this.labelControl4.Size = new System.Drawing.Size(536, 17);
-         this.labelControl4.TabIndex = 8;
-         this.labelControl4.Text = "کل مبلغ های هزینه";
+         this.TotlAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TotlAmnt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.TotlAmnt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TotlAmnt_Lb.LineVisible = true;
+         this.TotlAmnt_Lb.Location = new System.Drawing.Point(12, 20);
+         this.TotlAmnt_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.TotlAmnt_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TotlAmnt_Lb.Name = "TotlAmnt_Lb";
+         this.TotlAmnt_Lb.Size = new System.Drawing.Size(536, 17);
+         this.TotlAmnt_Lb.TabIndex = 8;
+         this.TotlAmnt_Lb.Text = "کل مبلغ های هزینه";
          // 
-         // labelControl3
+         // DtilAmnt_Lb
          // 
-         this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl3.LineVisible = true;
-         this.labelControl3.Location = new System.Drawing.Point(12, 155);
-         this.labelControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl3.Name = "labelControl3";
-         this.labelControl3.Size = new System.Drawing.Size(536, 17);
-         this.labelControl3.TabIndex = 8;
-         this.labelControl3.Text = "مبلغ های هزینه";
+         this.DtilAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DtilAmnt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DtilAmnt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.DtilAmnt_Lb.LineVisible = true;
+         this.DtilAmnt_Lb.Location = new System.Drawing.Point(12, 155);
+         this.DtilAmnt_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.DtilAmnt_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DtilAmnt_Lb.Name = "DtilAmnt_Lb";
+         this.DtilAmnt_Lb.Size = new System.Drawing.Size(536, 17);
+         this.DtilAmnt_Lb.TabIndex = 8;
+         this.DtilAmnt_Lb.Text = "مبلغ های هزینه";
          // 
          // Btn_InDebt001
          // 
@@ -1947,16 +1947,16 @@
             this.colPYMT_RQST_RQID2,
             this.colRQRO_RQST_RQID,
             this.colRQRO_RWNO2,
-            this.colRWNO1,
-            this.colAMNT1,
-            this.colRCPT_MTOD1,
+            this.PymtRwno_Clm,
+            this.PymtAmnt_Clm,
+            this.RcptMtod_Clm,
             this.colTERM_NO,
             this.colTRAN_NO,
             this.colCARD_NO,
             this.colBANK,
             this.colFLOW_NO,
             this.colREF_NO,
-            this.colACTN_DATE,
+            this.ActnDate_Clm,
             this.colSHOP_NO,
             this.colCRET_BY8,
             this.colCRET_DATE8,
@@ -1994,39 +1994,39 @@
          this.colRQRO_RWNO2.FieldName = "RQRO_RWNO";
          this.colRQRO_RWNO2.Name = "colRQRO_RWNO2";
          // 
-         // colRWNO1
+         // PymtRwno_Clm
          // 
-         this.colRWNO1.Caption = "ردیف";
-         this.colRWNO1.FieldName = "RWNO";
-         this.colRWNO1.Name = "colRWNO1";
-         this.colRWNO1.Visible = true;
-         this.colRWNO1.VisibleIndex = 3;
-         this.colRWNO1.Width = 34;
+         this.PymtRwno_Clm.Caption = "ردیف";
+         this.PymtRwno_Clm.FieldName = "RWNO";
+         this.PymtRwno_Clm.Name = "PymtRwno_Clm";
+         this.PymtRwno_Clm.Visible = true;
+         this.PymtRwno_Clm.VisibleIndex = 3;
+         this.PymtRwno_Clm.Width = 34;
          // 
-         // colAMNT1
+         // PymtAmnt_Clm
          // 
-         this.colAMNT1.Caption = "مبلغ";
-         this.colAMNT1.DisplayFormat.FormatString = "{0:n0}";
-         this.colAMNT1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colAMNT1.FieldName = "AMNT";
-         this.colAMNT1.GroupFormat.FormatString = "{0:n0}";
-         this.colAMNT1.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colAMNT1.Name = "colAMNT1";
-         this.colAMNT1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+         this.PymtAmnt_Clm.Caption = "مبلغ";
+         this.PymtAmnt_Clm.DisplayFormat.FormatString = "{0:n0}";
+         this.PymtAmnt_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.PymtAmnt_Clm.FieldName = "AMNT";
+         this.PymtAmnt_Clm.GroupFormat.FormatString = "{0:n0}";
+         this.PymtAmnt_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.PymtAmnt_Clm.Name = "PymtAmnt_Clm";
+         this.PymtAmnt_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AMNT", "{0:n0}")});
-         this.colAMNT1.Visible = true;
-         this.colAMNT1.VisibleIndex = 2;
-         this.colAMNT1.Width = 83;
+         this.PymtAmnt_Clm.Visible = true;
+         this.PymtAmnt_Clm.VisibleIndex = 2;
+         this.PymtAmnt_Clm.Width = 83;
          // 
-         // colRCPT_MTOD1
+         // RcptMtod_Clm
          // 
-         this.colRCPT_MTOD1.Caption = "نوع پرداخت";
-         this.colRCPT_MTOD1.ColumnEdit = this.repositoryItemLookUpEdit3;
-         this.colRCPT_MTOD1.FieldName = "RCPT_MTOD";
-         this.colRCPT_MTOD1.Name = "colRCPT_MTOD1";
-         this.colRCPT_MTOD1.Visible = true;
-         this.colRCPT_MTOD1.VisibleIndex = 1;
-         this.colRCPT_MTOD1.Width = 71;
+         this.RcptMtod_Clm.Caption = "نوع پرداخت";
+         this.RcptMtod_Clm.ColumnEdit = this.repositoryItemLookUpEdit3;
+         this.RcptMtod_Clm.FieldName = "RCPT_MTOD";
+         this.RcptMtod_Clm.Name = "RcptMtod_Clm";
+         this.RcptMtod_Clm.Visible = true;
+         this.RcptMtod_Clm.VisibleIndex = 1;
+         this.RcptMtod_Clm.Width = 71;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -2074,15 +2074,15 @@
          this.colREF_NO.FieldName = "REF_NO";
          this.colREF_NO.Name = "colREF_NO";
          // 
-         // colACTN_DATE
+         // ActnDate_Clm
          // 
-         this.colACTN_DATE.Caption = "تاریخ پرداخت";
-         this.colACTN_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
-         this.colACTN_DATE.FieldName = "ACTN_DATE";
-         this.colACTN_DATE.Name = "colACTN_DATE";
-         this.colACTN_DATE.Visible = true;
-         this.colACTN_DATE.VisibleIndex = 0;
-         this.colACTN_DATE.Width = 76;
+         this.ActnDate_Clm.Caption = "تاریخ پرداخت";
+         this.ActnDate_Clm.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.ActnDate_Clm.FieldName = "ACTN_DATE";
+         this.ActnDate_Clm.Name = "ActnDate_Clm";
+         this.ActnDate_Clm.Visible = true;
+         this.ActnDate_Clm.VisibleIndex = 0;
+         this.ActnDate_Clm.Width = 76;
          // 
          // persianRepositoryItemDateEdit1
          // 
@@ -2168,12 +2168,12 @@
             this.colPYMT_CASH_CODE1,
             this.colPYMT_RQST_RQID1,
             this.colRQRO_RWNO1,
-            this.colRWNO,
+            this.RwnoPdsc_Clm,
             this.colEXPN_CODE1,
-            this.colAMNT,
+            this.AmntPdsc_Clm,
             this.colAMNT_TYPE,
             this.colSTAT,
-            this.colPYDS_DESC,
+            this.PydsDesc_Clm,
             this.colCRET_BY7,
             this.colCRET_DATE7,
             this.colMDFY_BY7,
@@ -2206,34 +2206,34 @@
          this.colRQRO_RWNO1.FieldName = "RQRO_RWNO";
          this.colRQRO_RWNO1.Name = "colRQRO_RWNO1";
          // 
-         // colRWNO
+         // RwnoPdsc_Clm
          // 
-         this.colRWNO.Caption = "ردیف";
-         this.colRWNO.FieldName = "RWNO";
-         this.colRWNO.Name = "colRWNO";
-         this.colRWNO.Visible = true;
-         this.colRWNO.VisibleIndex = 2;
-         this.colRWNO.Width = 32;
+         this.RwnoPdsc_Clm.Caption = "ردیف";
+         this.RwnoPdsc_Clm.FieldName = "RWNO";
+         this.RwnoPdsc_Clm.Name = "RwnoPdsc_Clm";
+         this.RwnoPdsc_Clm.Visible = true;
+         this.RwnoPdsc_Clm.VisibleIndex = 2;
+         this.RwnoPdsc_Clm.Width = 32;
          // 
          // colEXPN_CODE1
          // 
          this.colEXPN_CODE1.FieldName = "EXPN_CODE";
          this.colEXPN_CODE1.Name = "colEXPN_CODE1";
          // 
-         // colAMNT
+         // AmntPdsc_Clm
          // 
-         this.colAMNT.Caption = "مبلغ";
-         this.colAMNT.DisplayFormat.FormatString = "{0:n0}";
-         this.colAMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colAMNT.FieldName = "AMNT";
-         this.colAMNT.GroupFormat.FormatString = "{0:n0}";
-         this.colAMNT.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colAMNT.Name = "colAMNT";
-         this.colAMNT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+         this.AmntPdsc_Clm.Caption = "مبلغ";
+         this.AmntPdsc_Clm.DisplayFormat.FormatString = "{0:n0}";
+         this.AmntPdsc_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.AmntPdsc_Clm.FieldName = "AMNT";
+         this.AmntPdsc_Clm.GroupFormat.FormatString = "{0:n0}";
+         this.AmntPdsc_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.AmntPdsc_Clm.Name = "AmntPdsc_Clm";
+         this.AmntPdsc_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AMNT", "{0:n0}")});
-         this.colAMNT.Visible = true;
-         this.colAMNT.VisibleIndex = 1;
-         this.colAMNT.Width = 110;
+         this.AmntPdsc_Clm.Visible = true;
+         this.AmntPdsc_Clm.VisibleIndex = 1;
+         this.AmntPdsc_Clm.Width = 110;
          // 
          // colAMNT_TYPE
          // 
@@ -2245,14 +2245,14 @@
          this.colSTAT.FieldName = "STAT";
          this.colSTAT.Name = "colSTAT";
          // 
-         // colPYDS_DESC
+         // PydsDesc_Clm
          // 
-         this.colPYDS_DESC.Caption = "شرح";
-         this.colPYDS_DESC.FieldName = "PYDS_DESC";
-         this.colPYDS_DESC.Name = "colPYDS_DESC";
-         this.colPYDS_DESC.Visible = true;
-         this.colPYDS_DESC.VisibleIndex = 0;
-         this.colPYDS_DESC.Width = 136;
+         this.PydsDesc_Clm.Caption = "شرح";
+         this.PydsDesc_Clm.FieldName = "PYDS_DESC";
+         this.PydsDesc_Clm.Name = "PydsDesc_Clm";
+         this.PydsDesc_Clm.Visible = true;
+         this.PydsDesc_Clm.VisibleIndex = 0;
+         this.PydsDesc_Clm.Width = 136;
          // 
          // colCRET_BY7
          // 
@@ -2334,13 +2334,13 @@
             this.colPYMT_CASH_CODE,
             this.colPYMT_RQST_RQID,
             this.colRQRO_RWNO,
-            this.colEXPN_CODE,
+            this.ExpnCode_Clm,
             this.colCODE,
             this.colPAY_STAT,
-            this.colEXPN_PRIC,
-            this.colEXPN_EXTR_PRCT,
+            this.ExpnPric_Clm,
+            this.ExpnExtrPrct_Clm,
             this.colREMN_PRIC,
-            this.colQNTY,
+            this.Qnty_Clm,
             this.colDOCM_NUMB,
             this.colISSU_DATE,
             this.colRCPT_MTOD,
@@ -2353,7 +2353,7 @@
             this.colExpense,
             this.colRequest_Row,
             this.colPayment,
-            this.colTotlExpn});
+            this.TotlExpn_Clm});
          this.gridView2.GridControl = this.payment_DetailsGridControl;
          this.gridView2.Name = "gridView2";
          this.gridView2.OptionsBehavior.Editable = false;
@@ -2378,16 +2378,16 @@
          this.colRQRO_RWNO.FieldName = "RQRO_RWNO";
          this.colRQRO_RWNO.Name = "colRQRO_RWNO";
          // 
-         // colEXPN_CODE
+         // ExpnCode_Clm
          // 
-         this.colEXPN_CODE.Caption = "آیتم هزینه";
-         this.colEXPN_CODE.FieldName = "Expense.EXPN_DESC";
-         this.colEXPN_CODE.Name = "colEXPN_CODE";
-         this.colEXPN_CODE.OptionsColumn.AllowEdit = false;
-         this.colEXPN_CODE.OptionsColumn.ReadOnly = true;
-         this.colEXPN_CODE.Visible = true;
-         this.colEXPN_CODE.VisibleIndex = 4;
-         this.colEXPN_CODE.Width = 245;
+         this.ExpnCode_Clm.Caption = "آیتم هزینه";
+         this.ExpnCode_Clm.FieldName = "Expense.EXPN_DESC";
+         this.ExpnCode_Clm.Name = "ExpnCode_Clm";
+         this.ExpnCode_Clm.OptionsColumn.AllowEdit = false;
+         this.ExpnCode_Clm.OptionsColumn.ReadOnly = true;
+         this.ExpnCode_Clm.Visible = true;
+         this.ExpnCode_Clm.VisibleIndex = 4;
+         this.ExpnCode_Clm.Width = 245;
          // 
          // colCODE
          // 
@@ -2399,45 +2399,45 @@
          this.colPAY_STAT.FieldName = "PAY_STAT";
          this.colPAY_STAT.Name = "colPAY_STAT";
          // 
-         // colEXPN_PRIC
+         // ExpnPric_Clm
          // 
-         this.colEXPN_PRIC.Caption = "مبلغ واحد";
-         this.colEXPN_PRIC.DisplayFormat.FormatString = "{0:N0}";
-         this.colEXPN_PRIC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colEXPN_PRIC.FieldName = "EXPN_PRIC";
-         this.colEXPN_PRIC.Name = "colEXPN_PRIC";
-         this.colEXPN_PRIC.OptionsColumn.AllowEdit = false;
-         this.colEXPN_PRIC.OptionsColumn.ReadOnly = true;
-         this.colEXPN_PRIC.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+         this.ExpnPric_Clm.Caption = "مبلغ واحد";
+         this.ExpnPric_Clm.DisplayFormat.FormatString = "{0:N0}";
+         this.ExpnPric_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.ExpnPric_Clm.FieldName = "EXPN_PRIC";
+         this.ExpnPric_Clm.Name = "ExpnPric_Clm";
+         this.ExpnPric_Clm.OptionsColumn.AllowEdit = false;
+         this.ExpnPric_Clm.OptionsColumn.ReadOnly = true;
+         this.ExpnPric_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EXPN_PRIC", "{0:N0}")});
-         this.colEXPN_PRIC.Visible = true;
-         this.colEXPN_PRIC.VisibleIndex = 3;
-         this.colEXPN_PRIC.Width = 102;
+         this.ExpnPric_Clm.Visible = true;
+         this.ExpnPric_Clm.VisibleIndex = 3;
+         this.ExpnPric_Clm.Width = 102;
          // 
-         // colEXPN_EXTR_PRCT
+         // ExpnExtrPrct_Clm
          // 
-         this.colEXPN_EXTR_PRCT.Caption = "ارزش افزوده";
-         this.colEXPN_EXTR_PRCT.DisplayFormat.FormatString = "{0:n0}";
-         this.colEXPN_EXTR_PRCT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colEXPN_EXTR_PRCT.FieldName = "EXPN_EXTR_PRCT";
-         this.colEXPN_EXTR_PRCT.Name = "colEXPN_EXTR_PRCT";
-         this.colEXPN_EXTR_PRCT.Visible = true;
-         this.colEXPN_EXTR_PRCT.VisibleIndex = 2;
-         this.colEXPN_EXTR_PRCT.Width = 70;
+         this.ExpnExtrPrct_Clm.Caption = "ارزش افزوده";
+         this.ExpnExtrPrct_Clm.DisplayFormat.FormatString = "{0:n0}";
+         this.ExpnExtrPrct_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.ExpnExtrPrct_Clm.FieldName = "EXPN_EXTR_PRCT";
+         this.ExpnExtrPrct_Clm.Name = "ExpnExtrPrct_Clm";
+         this.ExpnExtrPrct_Clm.Visible = true;
+         this.ExpnExtrPrct_Clm.VisibleIndex = 2;
+         this.ExpnExtrPrct_Clm.Width = 70;
          // 
          // colREMN_PRIC
          // 
          this.colREMN_PRIC.FieldName = "REMN_PRIC";
          this.colREMN_PRIC.Name = "colREMN_PRIC";
          // 
-         // colQNTY
+         // Qnty_Clm
          // 
-         this.colQNTY.Caption = "تعداد";
-         this.colQNTY.FieldName = "QNTY";
-         this.colQNTY.Name = "colQNTY";
-         this.colQNTY.Visible = true;
-         this.colQNTY.VisibleIndex = 1;
-         this.colQNTY.Width = 49;
+         this.Qnty_Clm.Caption = "تعداد";
+         this.Qnty_Clm.FieldName = "QNTY";
+         this.Qnty_Clm.Name = "Qnty_Clm";
+         this.Qnty_Clm.Visible = true;
+         this.Qnty_Clm.VisibleIndex = 1;
+         this.Qnty_Clm.Width = 49;
          // 
          // colDOCM_NUMB
          // 
@@ -2518,18 +2518,18 @@
          this.colPayment.FieldName = "Payment";
          this.colPayment.Name = "colPayment";
          // 
-         // colTotlExpn
+         // TotlExpn_Clm
          // 
-         this.colTotlExpn.Caption = "مبلغ هزینه";
-         this.colTotlExpn.DisplayFormat.FormatString = "{0:n0}";
-         this.colTotlExpn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colTotlExpn.FieldName = "colTotlExpn";
-         this.colTotlExpn.Name = "colTotlExpn";
-         this.colTotlExpn.UnboundExpression = "([EXPN_PRIC] + [EXPN_EXTR_PRCT]) * [QNTY]";
-         this.colTotlExpn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-         this.colTotlExpn.Visible = true;
-         this.colTotlExpn.VisibleIndex = 0;
-         this.colTotlExpn.Width = 68;
+         this.TotlExpn_Clm.Caption = "مبلغ هزینه";
+         this.TotlExpn_Clm.DisplayFormat.FormatString = "{0:n0}";
+         this.TotlExpn_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.TotlExpn_Clm.FieldName = "colTotlExpn";
+         this.TotlExpn_Clm.Name = "TotlExpn_Clm";
+         this.TotlExpn_Clm.UnboundExpression = "([EXPN_PRIC] + [EXPN_EXTR_PRCT]) * [QNTY]";
+         this.TotlExpn_Clm.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+         this.TotlExpn_Clm.Visible = true;
+         this.TotlExpn_Clm.VisibleIndex = 0;
+         this.TotlExpn_Clm.Width = 68;
          // 
          // paymentsGridControl
          // 
@@ -2556,12 +2556,12 @@
          this.gridView1.Appearance.Row.Options.UseTextOptions = true;
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCASH_CODE,
+            this.CashCode_Clm,
             this.colRQST_RQID,
             this.colTYPE,
             this.colRECV_TYPE,
-            this.colSUM_EXPN_PRIC,
-            this.colSUM_EXPN_EXTR_PRCT,
+            this.SumExpnPric_Clm,
+            this.SumExpnExtrPrct_Clm,
             this.colSUM_REMN_PRIC,
             this.colSUM_RCPT_EXPN_PRIC,
             this.colSUM_RCPT_EXPN_EXTR_PRCT,
@@ -2590,13 +2590,13 @@
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
          // 
-         // colCASH_CODE
+         // CashCode_Clm
          // 
-         this.colCASH_CODE.Caption = "تحویل گیرنده هزینه";
-         this.colCASH_CODE.FieldName = "Cash.NAME";
-         this.colCASH_CODE.Name = "colCASH_CODE";
-         this.colCASH_CODE.Visible = true;
-         this.colCASH_CODE.VisibleIndex = 2;
+         this.CashCode_Clm.Caption = "تحویل گیرنده هزینه";
+         this.CashCode_Clm.FieldName = "Cash.NAME";
+         this.CashCode_Clm.Name = "CashCode_Clm";
+         this.CashCode_Clm.Visible = true;
+         this.CashCode_Clm.VisibleIndex = 2;
          // 
          // colRQST_RQID
          // 
@@ -2613,31 +2613,31 @@
          this.colRECV_TYPE.FieldName = "RECV_TYPE";
          this.colRECV_TYPE.Name = "colRECV_TYPE";
          // 
-         // colSUM_EXPN_PRIC
+         // SumExpnPric_Clm
          // 
-         this.colSUM_EXPN_PRIC.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.colSUM_EXPN_PRIC.AppearanceCell.Options.UseBackColor = true;
-         this.colSUM_EXPN_PRIC.Caption = "مبلغ کل هزینه";
-         this.colSUM_EXPN_PRIC.DisplayFormat.FormatString = "{0:N0}";
-         this.colSUM_EXPN_PRIC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colSUM_EXPN_PRIC.FieldName = "SUM_EXPN_PRIC";
-         this.colSUM_EXPN_PRIC.Name = "colSUM_EXPN_PRIC";
-         this.colSUM_EXPN_PRIC.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+         this.SumExpnPric_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.SumExpnPric_Clm.AppearanceCell.Options.UseBackColor = true;
+         this.SumExpnPric_Clm.Caption = "مبلغ کل هزینه";
+         this.SumExpnPric_Clm.DisplayFormat.FormatString = "{0:N0}";
+         this.SumExpnPric_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.SumExpnPric_Clm.FieldName = "SUM_EXPN_PRIC";
+         this.SumExpnPric_Clm.Name = "SumExpnPric_Clm";
+         this.SumExpnPric_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SUM_EXPN_PRIC", "{0:N0}")});
-         this.colSUM_EXPN_PRIC.Visible = true;
-         this.colSUM_EXPN_PRIC.VisibleIndex = 1;
+         this.SumExpnPric_Clm.Visible = true;
+         this.SumExpnPric_Clm.VisibleIndex = 1;
          // 
-         // colSUM_EXPN_EXTR_PRCT
+         // SumExpnExtrPrct_Clm
          // 
-         this.colSUM_EXPN_EXTR_PRCT.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.colSUM_EXPN_EXTR_PRCT.AppearanceCell.Options.UseBackColor = true;
-         this.colSUM_EXPN_EXTR_PRCT.Caption = "مبلغ کل ارزش افزوده";
-         this.colSUM_EXPN_EXTR_PRCT.DisplayFormat.FormatString = "{0:n0}";
-         this.colSUM_EXPN_EXTR_PRCT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colSUM_EXPN_EXTR_PRCT.FieldName = "SUM_EXPN_EXTR_PRCT";
-         this.colSUM_EXPN_EXTR_PRCT.Name = "colSUM_EXPN_EXTR_PRCT";
-         this.colSUM_EXPN_EXTR_PRCT.Visible = true;
-         this.colSUM_EXPN_EXTR_PRCT.VisibleIndex = 0;
+         this.SumExpnExtrPrct_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.SumExpnExtrPrct_Clm.AppearanceCell.Options.UseBackColor = true;
+         this.SumExpnExtrPrct_Clm.Caption = "مبلغ کل ارزش افزوده";
+         this.SumExpnExtrPrct_Clm.DisplayFormat.FormatString = "{0:n0}";
+         this.SumExpnExtrPrct_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.SumExpnExtrPrct_Clm.FieldName = "SUM_EXPN_EXTR_PRCT";
+         this.SumExpnExtrPrct_Clm.Name = "SumExpnExtrPrct_Clm";
+         this.SumExpnExtrPrct_Clm.Visible = true;
+         this.SumExpnExtrPrct_Clm.VisibleIndex = 0;
          // 
          // colSUM_REMN_PRIC
          // 
@@ -3774,47 +3774,47 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Btn_RqstExit1_Click);
          // 
-         // labelControl1
+         // MbspDesc_Lb
          // 
-         this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.LineVisible = true;
-         this.labelControl1.Location = new System.Drawing.Point(596, 220);
-         this.labelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(435, 17);
-         this.labelControl1.TabIndex = 8;
-         this.labelControl1.Text = "اطلاعات دوره ورزشی";
+         this.MbspDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MbspDesc_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.MbspDesc_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.MbspDesc_Lb.LineVisible = true;
+         this.MbspDesc_Lb.Location = new System.Drawing.Point(596, 220);
+         this.MbspDesc_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.MbspDesc_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MbspDesc_Lb.Name = "MbspDesc_Lb";
+         this.MbspDesc_Lb.Size = new System.Drawing.Size(435, 17);
+         this.MbspDesc_Lb.TabIndex = 8;
+         this.MbspDesc_Lb.Text = "اطلاعات دوره ورزشی";
          // 
-         // labelControl5
+         // Other_Desc
          // 
-         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl5.LineVisible = true;
-         this.labelControl5.Location = new System.Drawing.Point(596, 384);
-         this.labelControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(435, 17);
-         this.labelControl5.TabIndex = 8;
-         this.labelControl5.Text = "مشخصات تکمیلی";
+         this.Other_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Other_Desc.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Other_Desc.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Other_Desc.LineVisible = true;
+         this.Other_Desc.Location = new System.Drawing.Point(596, 384);
+         this.Other_Desc.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Other_Desc.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Other_Desc.Name = "Other_Desc";
+         this.Other_Desc.Size = new System.Drawing.Size(435, 17);
+         this.Other_Desc.TabIndex = 8;
+         this.Other_Desc.Text = "مشخصات تکمیلی";
          // 
-         // labelControl6
+         // Request_Lb
          // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl6.LineVisible = true;
-         this.labelControl6.Location = new System.Drawing.Point(596, 463);
-         this.labelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(435, 17);
-         this.labelControl6.TabIndex = 8;
-         this.labelControl6.Text = "اطلاعات درخواست";
+         this.Request_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Request_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Request_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Request_Lb.LineVisible = true;
+         this.Request_Lb.Location = new System.Drawing.Point(596, 463);
+         this.Request_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Request_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Request_Lb.Name = "Request_Lb";
+         this.Request_Lb.Size = new System.Drawing.Size(435, 17);
+         this.Request_Lb.TabIndex = 8;
+         this.Request_Lb.Text = "اطلاعات درخواست";
          // 
          // ADM_FIGH_F
          // 
@@ -3823,74 +3823,74 @@
          this.BackColor = System.Drawing.SystemColors.Control;
          this.Controls.Add(this.dateTimeSelector5);
          this.Controls.Add(label14);
-         this.Controls.Add(label46);
+         this.Controls.Add(Rqid_Lb);
          this.Controls.Add(this.SUNT_BUNT_DEPT_ORGN_CODELookUpEdit);
          this.Controls.Add(this.ShowRqst_PickButn);
          this.Controls.Add(this.textEdit18);
          this.Controls.Add(this.Chat_Id_TextEdit);
          this.Controls.Add(this.textEdit16);
-         this.Controls.Add(cELL_PHONLabel);
-         this.Controls.Add(label41);
-         this.Controls.Add(this.labelControl6);
-         this.Controls.Add(label44);
-         this.Controls.Add(this.labelControl5);
-         this.Controls.Add(label42);
-         this.Controls.Add(this.labelControl1);
+         this.Controls.Add(CellPhon_Lb);
+         this.Controls.Add(MdfyBy_Lb);
+         this.Controls.Add(this.Request_Lb);
+         this.Controls.Add(CretBy_Lb);
+         this.Controls.Add(this.Other_Desc);
+         this.Controls.Add(MdfyDate_Lb);
+         this.Controls.Add(this.MbspDesc_Lb);
          this.Controls.Add(this.textEdit14);
-         this.Controls.Add(label15);
-         this.Controls.Add(label47);
+         this.Controls.Add(ChatId_Lb);
+         this.Controls.Add(CretDate_Lb);
          this.Controls.Add(this.SUNT_BUNT_CODELookUpEdit);
          this.Controls.Add(this.dateTimeSelector6);
-         this.Controls.Add(label13);
+         this.Controls.Add(GlobCode_Lb);
          this.Controls.Add(this.CtgyCode_LookupEdit001);
-         this.Controls.Add(label1);
-         this.Controls.Add(label57);
+         this.Controls.Add(ServNo_Lb);
+         this.Controls.Add(NumbAttnMon_Lb);
          this.Controls.Add(this.Glob_Code_TextEdit);
          this.Controls.Add(this.AutoTrans_Cb);
          this.Controls.Add(this.SERV_NO_TextEdit);
          this.Controls.Add(this.SUNT_BUNT_DEPT_CODELookUpEdit);
-         this.Controls.Add(sUNT_CODELabel);
-         this.Controls.Add(label53);
+         this.Controls.Add(SuntCode_Lb);
+         this.Controls.Add(CtgyCode_Lb);
          this.Controls.Add(this.SUNT_CODELookUpEdit);
          this.Controls.Add(this.NumbOfAttnMont_TextEdit001);
          this.Controls.Add(this.SaveAttn_PkBt);
-         this.Controls.Add(label51);
+         this.Controls.Add(NumbMontOffr_Lb);
          this.Controls.Add(this.Btn_AutoCalcAttn);
          this.Controls.Add(this.NumbMontOfer_TextEdit001);
          this.Controls.Add(this.NumbOfMontDnrm_RB001);
          this.Controls.Add(this.CBMT_CODE_GridLookUpEdit);
          this.Controls.Add(this.NumbOfMontDnrm_TextEdit001);
-         this.Controls.Add(cBMT_CODELabel);
-         this.Controls.Add(nATL_CODELabel);
+         this.Controls.Add(CbmtCode_Lb);
+         this.Controls.Add(NatlCode_Lb);
          this.Controls.Add(this.NumbOfDays_TextEdit001);
          this.Controls.Add(this.Btn_Cbmt1);
-         this.Controls.Add(label49);
+         this.Controls.Add(StrtDate_Lb);
          this.Controls.Add(this.StrtDate_DateTime001);
          this.Controls.Add(this.EndDate_DateTime001);
          this.Controls.Add(this.NATL_CODE_TextEdit);
          this.Controls.Add(this.EndDate_RB001);
          this.Controls.Add(this.RQTT_CODE_LookUpEdit1);
-         this.Controls.Add(label3);
+         this.Controls.Add(FileNo_Lb);
          this.Controls.Add(this.RqstBn1);
-         this.Controls.Add(fRST_NAMELabel);
+         this.Controls.Add(FrstName_Lb);
          this.Controls.Add(this.Gb_Expense);
-         this.Controls.Add(lAST_NAMELabel);
+         this.Controls.Add(LastName_Lb);
          this.Controls.Add(this.FNGR_PRNT_TextEdit);
          this.Controls.Add(this.SEX_TYPE_LookUpEdit);
          this.Controls.Add(this.CardNumb_Text);
          this.Controls.Add(this.BRTH_DATE_PersianDateEdit);
-         this.Controls.Add(fNGR_PRNTLabel);
-         this.Controls.Add(sEX_TYPELabel);
+         this.Controls.Add(FngrPrnt_Lb);
+         this.Controls.Add(SexType_Lb);
          this.Controls.Add(this.MaxF_Butn001);
-         this.Controls.Add(bRTH_DATELabel);
+         this.Controls.Add(BrthDate_Lb);
          this.Controls.Add(this.CELL_PHON_TextEdit);
-         this.Controls.Add(rQTT_CODELabel);
+         this.Controls.Add(RqttCode_Lb);
          this.Controls.Add(this.textEdit2);
-         this.Controls.Add(label8);
+         this.Controls.Add(CardNumb_Lb);
          this.Controls.Add(this.FRST_NAME_TextEdit);
          this.Controls.Add(this.TELL_PHON_TextEdit);
          this.Controls.Add(this.LAST_NAME_TextEdit);
-         this.Controls.Add(tELL_PHONLabel);
+         this.Controls.Add(TellPhon_Lb);
          this.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Name = "ADM_FIGH_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4182,9 +4182,9 @@
       private Windows.Forms.CheckBox AutoTrans_Cb;
       private Windows.Forms.ToolTip toolTip1;
       private Windows.Forms.GroupBox Gb_Expense;
-      private DevExpress.XtraEditors.LabelControl labelControl2;
-      private DevExpress.XtraEditors.LabelControl labelControl4;
-      private DevExpress.XtraEditors.LabelControl labelControl3;
+      private DevExpress.XtraEditors.LabelControl Pymt_Lb;
+      private DevExpress.XtraEditors.LabelControl TotlAmnt_Lb;
+      private DevExpress.XtraEditors.LabelControl DtilAmnt_Lb;
       private DevExpress.XtraEditors.SimpleButton Btn_InDebt001;
       private DevExpress.XtraEditors.SimpleButton tbn_CashPayment1;
       private DevExpress.XtraEditors.SimpleButton tbn_POSPayment1;
@@ -4195,9 +4195,9 @@
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_RQST_RQID2;
       private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RQST_RQID;
       private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RWNO2;
-      private DevExpress.XtraGrid.Columns.GridColumn colRWNO1;
-      private DevExpress.XtraGrid.Columns.GridColumn colAMNT1;
-      private DevExpress.XtraGrid.Columns.GridColumn colRCPT_MTOD1;
+      private DevExpress.XtraGrid.Columns.GridColumn PymtRwno_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn PymtAmnt_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn RcptMtod_Clm;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
       private DevExpress.XtraGrid.Columns.GridColumn colTERM_NO;
       private DevExpress.XtraGrid.Columns.GridColumn colTRAN_NO;
@@ -4205,7 +4205,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colBANK;
       private DevExpress.XtraGrid.Columns.GridColumn colFLOW_NO;
       private DevExpress.XtraGrid.Columns.GridColumn colREF_NO;
-      private DevExpress.XtraGrid.Columns.GridColumn colACTN_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn ActnDate_Clm;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private DevExpress.XtraGrid.Columns.GridColumn colSHOP_NO;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY8;
@@ -4219,12 +4219,12 @@
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE1;
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_RQST_RQID1;
       private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RWNO1;
-      private DevExpress.XtraGrid.Columns.GridColumn colRWNO;
+      private DevExpress.XtraGrid.Columns.GridColumn RwnoPdsc_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colEXPN_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colAMNT;
+      private DevExpress.XtraGrid.Columns.GridColumn AmntPdsc_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colAMNT_TYPE;
       private DevExpress.XtraGrid.Columns.GridColumn colSTAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colPYDS_DESC;
+      private DevExpress.XtraGrid.Columns.GridColumn PydsDesc_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY7;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE7;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY7;
@@ -4238,13 +4238,13 @@
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE;
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_RQST_RQID;
       private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RWNO;
-      private DevExpress.XtraGrid.Columns.GridColumn colEXPN_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn ExpnCode_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
       private DevExpress.XtraGrid.Columns.GridColumn colPAY_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colEXPN_PRIC;
-      private DevExpress.XtraGrid.Columns.GridColumn colEXPN_EXTR_PRCT;
+      private DevExpress.XtraGrid.Columns.GridColumn ExpnPric_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn ExpnExtrPrct_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colREMN_PRIC;
-      private DevExpress.XtraGrid.Columns.GridColumn colQNTY;
+      private DevExpress.XtraGrid.Columns.GridColumn Qnty_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colDOCM_NUMB;
       private DevExpress.XtraGrid.Columns.GridColumn colISSU_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colRCPT_MTOD;
@@ -4258,15 +4258,15 @@
       private DevExpress.XtraGrid.Columns.GridColumn colExpense;
       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Row;
       private DevExpress.XtraGrid.Columns.GridColumn colPayment;
-      private DevExpress.XtraGrid.Columns.GridColumn colTotlExpn;
+      private DevExpress.XtraGrid.Columns.GridColumn TotlExpn_Clm;
       private DevExpress.XtraGrid.GridControl paymentsGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCASH_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn CashCode_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID;
       private DevExpress.XtraGrid.Columns.GridColumn colTYPE;
       private DevExpress.XtraGrid.Columns.GridColumn colRECV_TYPE;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUM_EXPN_PRIC;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUM_EXPN_EXTR_PRCT;
+      private DevExpress.XtraGrid.Columns.GridColumn SumExpnPric_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn SumExpnExtrPrct_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colSUM_REMN_PRIC;
       private DevExpress.XtraGrid.Columns.GridColumn colSUM_RCPT_EXPN_PRIC;
       private DevExpress.XtraGrid.Columns.GridColumn colSUM_RCPT_EXPN_EXTR_PRCT;
@@ -4294,8 +4294,8 @@
       private DevExpress.XtraEditors.LookUpEdit Pos_Lov;
       private Windows.Forms.BindingSource VPosBs1;
       private Windows.Forms.CheckBox UsePos_Cb;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
-      private DevExpress.XtraEditors.LabelControl labelControl5;
-      private DevExpress.XtraEditors.LabelControl labelControl6;
+      private DevExpress.XtraEditors.LabelControl MbspDesc_Lb;
+      private DevExpress.XtraEditors.LabelControl Other_Desc;
+      private DevExpress.XtraEditors.LabelControl Request_Lb;
    }
 }

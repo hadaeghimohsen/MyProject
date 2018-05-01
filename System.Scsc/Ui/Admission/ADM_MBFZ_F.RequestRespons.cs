@@ -118,7 +118,7 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_003) 
+            
                Btn_RqstSav3_Click(null, null);
          }
          else if (keyData == Keys.Enter)
@@ -132,12 +132,12 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_003)
+            
                Btn_RqstDelete3_Click(null, null);
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_003)
+            
                Btn_RqstRqt3_Click(null, null);
          }
          else if (keyData == Keys.F3)
@@ -146,7 +146,7 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.F10)
          {
-            if (tb_master.SelectedTab == tp_003)
+            
                Btn_RqstSav3_Click(null, null);
          }
          else if (keyData == (Keys.Control | Keys.P))

@@ -30,7 +30,7 @@ namespace System.Scsc.Ui.Admission
          setOnDebt = false;
          try
          {
-            if (tb_master.SelectedTab == tp_003)
+            
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
                var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
@@ -73,7 +73,7 @@ namespace System.Scsc.Ui.Admission
       int RqstIndex;
       private void Get_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             if (RqstBs1.Count >= 1)
                RqstIndex = RqstBs1.Position;
@@ -82,7 +82,7 @@ namespace System.Scsc.Ui.Admission
 
       private void Set_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             if (RqstIndex >= 0)
                RqstBs1.Position = RqstIndex;
@@ -91,7 +91,7 @@ namespace System.Scsc.Ui.Admission
 
       private void Create_Record()
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             RqstBs1.AddNew();            
          }
@@ -271,7 +271,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if(tb_master.SelectedTab == tp_003)
+         
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -284,7 +284,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if(tb_master.SelectedTab == tp_003)
+         
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -299,7 +299,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -316,7 +316,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -333,7 +333,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -350,7 +350,7 @@ namespace System.Scsc.Ui.Admission
 
       private void bn_PaymentMethods_Click(object sender, EventArgs e)
       {
-         if(tb_master.SelectedTab == tp_003)
+         
          {
             
          }
@@ -360,7 +360,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {            
-            if (tb_master.SelectedTab == tp_003)
+            
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -424,7 +424,7 @@ namespace System.Scsc.Ui.Admission
 
             if (setOnDebt == false) return;
 
-            if (tb_master.SelectedTab == tp_003)
+            
             {
                if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -451,7 +451,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_003)
+         
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -469,7 +469,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if(tb_master.SelectedTab == tp_003)
+         
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -489,7 +489,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if(tb_master.SelectedTab == tp_003)
+            
             {
             }
          }
@@ -500,7 +500,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_003)
+            
             {
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -552,7 +552,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-             if (tb_master.SelectedTab == tp_003)
+             
              {
 
              }

@@ -29,32 +29,33 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label label13;
-         System.Windows.Forms.Label nAME_DNRMLabel;
-         System.Windows.Forms.Label tELL_PHON_DNRMLabel;
-         System.Windows.Forms.Label fNGR_PRNT_DNRMLabel;
-         System.Windows.Forms.Label label1;
-         System.Windows.Forms.Label label2;
-         System.Windows.Forms.Label label3;
-         System.Windows.Forms.Label label5;
+         System.Windows.Forms.Label BrthDate_Lb;
+         System.Windows.Forms.Label NameDnrm_Lb;
+         System.Windows.Forms.Label CellPhon_Lb;
+         System.Windows.Forms.Label FngrPrnt_Lb;
+         System.Windows.Forms.Label CrntStrtDate_Lb;
+         System.Windows.Forms.Label CrntEndDate_Lb;
+         System.Windows.Forms.Label CrntNumbAttnMont_Lb;
+         System.Windows.Forms.Label CrntConsAttnMot_Lb;
          System.Windows.Forms.Label label6;
          System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label9;
          System.Windows.Forms.Label label10;
          System.Windows.Forms.Label label11;
          System.Windows.Forms.Label label12;
-         System.Windows.Forms.Label label14;
+         System.Windows.Forms.Label CrntMbspRwno_Lb;
          System.Windows.Forms.Label label15;
-         System.Windows.Forms.Label label4;
-         System.Windows.Forms.Label label8;
-         System.Windows.Forms.Label label16;
+         System.Windows.Forms.Label CrntFgpbRwno_Lb;
+         System.Windows.Forms.Label CrntDays_Lb;
+         System.Windows.Forms.Label CrntMont_Lb;
          System.Windows.Forms.Label label17;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Brth_Date_PersianDateEdit2 = new Atf.UI.DateTimeSelector();
+         this.Mbsp004Bs = new System.Windows.Forms.BindingSource(this.components);
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.tELL_PHON_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.fNGR_PRNT_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.CrntMbsp_Gb = new System.Windows.Forms.GroupBox();
          this.groupBox3 = new System.Windows.Forms.GroupBox();
          this.Btn_Cbmt1 = new System.Windows.Forms.Button();
          this.CtgyDesc_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -78,6 +79,9 @@
          this.groupBox4 = new System.Windows.Forms.GroupBox();
          this.button1 = new System.Windows.Forms.Button();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,12 +95,16 @@
          this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colClub = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMethod = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTIME_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyDescN_Txt = new DevExpress.XtraEditors.TextEdit();
          this.EndTimeN_Txt = new DevExpress.XtraEditors.TextEdit();
          this.MtodDescN_Txt = new DevExpress.XtraEditors.TextEdit();
          this.StrtTimeN_Txt = new DevExpress.XtraEditors.TextEdit();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+         this.Mbsp002Bs = new System.Windows.Forms.BindingSource(this.components);
          this.SumNumbAttnMont_TextEdit002 = new DevExpress.XtraEditors.TextEdit();
          this.NumbAttnMont_TextEdit002 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
@@ -104,39 +112,32 @@
          this.EndDate_DateTime002 = new Atf.UI.DateTimeSelector();
          this.textEdit15 = new DevExpress.XtraEditors.TextEdit();
          this.StrtDate_DateTime002 = new Atf.UI.DateTimeSelector();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.colClub = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMethod = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Mbsp004Bs = new System.Windows.Forms.BindingSource(this.components);
-         this.Mbsp002Bs = new System.Windows.Forms.BindingSource(this.components);
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         label13 = new System.Windows.Forms.Label();
-         nAME_DNRMLabel = new System.Windows.Forms.Label();
-         tELL_PHON_DNRMLabel = new System.Windows.Forms.Label();
-         fNGR_PRNT_DNRMLabel = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         label2 = new System.Windows.Forms.Label();
-         label3 = new System.Windows.Forms.Label();
-         label5 = new System.Windows.Forms.Label();
+         BrthDate_Lb = new System.Windows.Forms.Label();
+         NameDnrm_Lb = new System.Windows.Forms.Label();
+         CellPhon_Lb = new System.Windows.Forms.Label();
+         FngrPrnt_Lb = new System.Windows.Forms.Label();
+         CrntStrtDate_Lb = new System.Windows.Forms.Label();
+         CrntEndDate_Lb = new System.Windows.Forms.Label();
+         CrntNumbAttnMont_Lb = new System.Windows.Forms.Label();
+         CrntConsAttnMot_Lb = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label9 = new System.Windows.Forms.Label();
          label10 = new System.Windows.Forms.Label();
          label11 = new System.Windows.Forms.Label();
          label12 = new System.Windows.Forms.Label();
-         label14 = new System.Windows.Forms.Label();
+         CrntMbspRwno_Lb = new System.Windows.Forms.Label();
          label15 = new System.Windows.Forms.Label();
-         label4 = new System.Windows.Forms.Label();
-         label8 = new System.Windows.Forms.Label();
-         label16 = new System.Windows.Forms.Label();
+         CrntFgpbRwno_Lb = new System.Windows.Forms.Label();
+         CrntDays_Lb = new System.Windows.Forms.Label();
+         CrntMont_Lb = new System.Windows.Forms.Label();
          label17 = new System.Windows.Forms.Label();
+         ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tELL_PHON_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.fNGR_PRNT_DNRMTextEdit.Properties)).BeginInit();
-         this.groupBox1.SuspendLayout();
+         this.CrntMbsp_Gb.SuspendLayout();
          this.groupBox3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CtgyDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CochName_Txt.Properties)).BeginInit();
@@ -152,103 +153,102 @@
          this.groupBox2.SuspendLayout();
          this.groupBox4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cBMT_CODEGridLookUpEditView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CtgyDescN_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EndTimeN_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodDescN_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.StrtTimeN_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Mbsp002Bs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SumNumbAttnMont_TextEdit002.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbAttnMont_TextEdit002.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit15.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Mbsp002Bs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          this.SuspendLayout();
          // 
-         // label13
+         // BrthDate_Lb
          // 
-         label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label13.AutoSize = true;
-         label13.Location = new System.Drawing.Point(162, 46);
-         label13.Name = "label13";
-         label13.Size = new System.Drawing.Size(59, 14);
-         label13.TabIndex = 47;
-         label13.Text = "تاریخ تولد :";
+         BrthDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         BrthDate_Lb.AutoSize = true;
+         BrthDate_Lb.Location = new System.Drawing.Point(162, 46);
+         BrthDate_Lb.Name = "BrthDate_Lb";
+         BrthDate_Lb.Size = new System.Drawing.Size(59, 14);
+         BrthDate_Lb.TabIndex = 47;
+         BrthDate_Lb.Text = "تاریخ تولد :";
          // 
-         // nAME_DNRMLabel
+         // NameDnrm_Lb
          // 
-         nAME_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         nAME_DNRMLabel.AutoSize = true;
-         nAME_DNRMLabel.Location = new System.Drawing.Point(162, 15);
-         nAME_DNRMLabel.Name = "nAME_DNRMLabel";
-         nAME_DNRMLabel.Size = new System.Drawing.Size(107, 14);
-         nAME_DNRMLabel.TabIndex = 44;
-         nAME_DNRMLabel.Text = "نام و نام خانوداگی :";
+         NameDnrm_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         NameDnrm_Lb.AutoSize = true;
+         NameDnrm_Lb.Location = new System.Drawing.Point(162, 15);
+         NameDnrm_Lb.Name = "NameDnrm_Lb";
+         NameDnrm_Lb.Size = new System.Drawing.Size(107, 14);
+         NameDnrm_Lb.TabIndex = 44;
+         NameDnrm_Lb.Text = "نام و نام خانوداگی :";
          // 
-         // tELL_PHON_DNRMLabel
+         // CellPhon_Lb
          // 
-         tELL_PHON_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         tELL_PHON_DNRMLabel.AutoSize = true;
-         tELL_PHON_DNRMLabel.Location = new System.Drawing.Point(162, 72);
-         tELL_PHON_DNRMLabel.Name = "tELL_PHON_DNRMLabel";
-         tELL_PHON_DNRMLabel.Size = new System.Drawing.Size(70, 14);
-         tELL_PHON_DNRMLabel.TabIndex = 51;
-         tELL_PHON_DNRMLabel.Text = "تلفن همراه :";
+         CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CellPhon_Lb.AutoSize = true;
+         CellPhon_Lb.Location = new System.Drawing.Point(162, 72);
+         CellPhon_Lb.Name = "CellPhon_Lb";
+         CellPhon_Lb.Size = new System.Drawing.Size(70, 14);
+         CellPhon_Lb.TabIndex = 51;
+         CellPhon_Lb.Text = "تلفن همراه :";
          // 
-         // fNGR_PRNT_DNRMLabel
+         // FngrPrnt_Lb
          // 
-         fNGR_PRNT_DNRMLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         fNGR_PRNT_DNRMLabel.AutoSize = true;
-         fNGR_PRNT_DNRMLabel.Location = new System.Drawing.Point(162, 98);
-         fNGR_PRNT_DNRMLabel.Name = "fNGR_PRNT_DNRMLabel";
-         fNGR_PRNT_DNRMLabel.Size = new System.Drawing.Size(83, 14);
-         fNGR_PRNT_DNRMLabel.TabIndex = 60;
-         fNGR_PRNT_DNRMLabel.Text = "کد اثر انگشت :";
+         FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FngrPrnt_Lb.AutoSize = true;
+         FngrPrnt_Lb.Location = new System.Drawing.Point(162, 98);
+         FngrPrnt_Lb.Name = "FngrPrnt_Lb";
+         FngrPrnt_Lb.Size = new System.Drawing.Size(83, 14);
+         FngrPrnt_Lb.TabIndex = 60;
+         FngrPrnt_Lb.Text = "کد اثر انگشت :";
          // 
-         // label1
+         // CrntStrtDate_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(279, 54);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(70, 14);
-         label1.TabIndex = 47;
-         label1.Text = "تاریخ شروع :";
+         CrntStrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntStrtDate_Lb.AutoSize = true;
+         CrntStrtDate_Lb.Location = new System.Drawing.Point(279, 54);
+         CrntStrtDate_Lb.Name = "CrntStrtDate_Lb";
+         CrntStrtDate_Lb.Size = new System.Drawing.Size(70, 14);
+         CrntStrtDate_Lb.TabIndex = 47;
+         CrntStrtDate_Lb.Text = "تاریخ شروع :";
          // 
-         // label2
+         // CrntEndDate_Lb
          // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(279, 83);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(63, 14);
-         label2.TabIndex = 47;
-         label2.Text = "تاریخ پایان :";
+         CrntEndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntEndDate_Lb.AutoSize = true;
+         CrntEndDate_Lb.Location = new System.Drawing.Point(279, 83);
+         CrntEndDate_Lb.Name = "CrntEndDate_Lb";
+         CrntEndDate_Lb.Size = new System.Drawing.Size(63, 14);
+         CrntEndDate_Lb.TabIndex = 47;
+         CrntEndDate_Lb.Text = "تاریخ پایان :";
          // 
-         // label3
+         // CrntNumbAttnMont_Lb
          // 
-         label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(115, 110);
-         label3.Name = "label3";
-         label3.Size = new System.Drawing.Size(112, 14);
-         label3.TabIndex = 60;
-         label3.Text = "( تعداد کل جلسات )";
+         CrntNumbAttnMont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntNumbAttnMont_Lb.AutoSize = true;
+         CrntNumbAttnMont_Lb.Location = new System.Drawing.Point(115, 110);
+         CrntNumbAttnMont_Lb.Name = "CrntNumbAttnMont_Lb";
+         CrntNumbAttnMont_Lb.Size = new System.Drawing.Size(112, 14);
+         CrntNumbAttnMont_Lb.TabIndex = 60;
+         CrntNumbAttnMont_Lb.Text = "( تعداد کل جلسات )";
          // 
-         // label5
+         // CrntConsAttnMot_Lb
          // 
-         label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(71, 138);
-         label5.Name = "label5";
-         label5.Size = new System.Drawing.Size(156, 14);
-         label5.TabIndex = 60;
-         label5.Text = "( تعداد جلسات مصرف شده )";
+         CrntConsAttnMot_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntConsAttnMot_Lb.AutoSize = true;
+         CrntConsAttnMot_Lb.Location = new System.Drawing.Point(71, 138);
+         CrntConsAttnMot_Lb.Name = "CrntConsAttnMot_Lb";
+         CrntConsAttnMot_Lb.Size = new System.Drawing.Size(156, 14);
+         CrntConsAttnMot_Lb.TabIndex = 60;
+         CrntConsAttnMot_Lb.Text = "( تعداد جلسات مصرف شده )";
          // 
          // label6
          // 
@@ -312,15 +312,15 @@
          label12.TabIndex = 47;
          label12.Text = "تاریخ شروع :";
          // 
-         // label14
+         // CrntMbspRwno_Lb
          // 
-         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label14.AutoSize = true;
-         label14.Location = new System.Drawing.Point(279, 25);
-         label14.Name = "label14";
-         label14.Size = new System.Drawing.Size(39, 14);
-         label14.TabIndex = 60;
-         label14.Text = "ردیف :";
+         CrntMbspRwno_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntMbspRwno_Lb.AutoSize = true;
+         CrntMbspRwno_Lb.Location = new System.Drawing.Point(279, 25);
+         CrntMbspRwno_Lb.Name = "CrntMbspRwno_Lb";
+         CrntMbspRwno_Lb.Size = new System.Drawing.Size(39, 14);
+         CrntMbspRwno_Lb.TabIndex = 60;
+         CrntMbspRwno_Lb.Text = "ردیف :";
          // 
          // label15
          // 
@@ -332,35 +332,35 @@
          label15.TabIndex = 60;
          label15.Text = "ردیف :";
          // 
-         // label4
+         // CrntFgpbRwno_Lb
          // 
-         label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(173, 25);
-         label4.Name = "label4";
-         label4.Size = new System.Drawing.Size(52, 14);
-         label4.TabIndex = 60;
-         label4.Text = "عمومی :";
+         CrntFgpbRwno_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntFgpbRwno_Lb.AutoSize = true;
+         CrntFgpbRwno_Lb.Location = new System.Drawing.Point(173, 25);
+         CrntFgpbRwno_Lb.Name = "CrntFgpbRwno_Lb";
+         CrntFgpbRwno_Lb.Size = new System.Drawing.Size(52, 14);
+         CrntFgpbRwno_Lb.TabIndex = 60;
+         CrntFgpbRwno_Lb.Text = "عمومی :";
          // 
-         // label8
+         // CrntDays_Lb
          // 
-         label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label8.AutoSize = true;
-         label8.Location = new System.Drawing.Point(54, 54);
-         label8.Name = "label8";
-         label8.Size = new System.Drawing.Size(67, 14);
-         label8.TabIndex = 60;
-         label8.Text = "( تعداد روز )";
+         CrntDays_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntDays_Lb.AutoSize = true;
+         CrntDays_Lb.Location = new System.Drawing.Point(54, 54);
+         CrntDays_Lb.Name = "CrntDays_Lb";
+         CrntDays_Lb.Size = new System.Drawing.Size(67, 14);
+         CrntDays_Lb.TabIndex = 60;
+         CrntDays_Lb.Text = "( تعداد روز )";
          // 
-         // label16
+         // CrntMont_Lb
          // 
-         label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label16.AutoSize = true;
-         label16.Location = new System.Drawing.Point(51, 82);
-         label16.Name = "label16";
-         label16.Size = new System.Drawing.Size(70, 14);
-         label16.TabIndex = 60;
-         label16.Text = "( تعداد ماه )";
+         CrntMont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CrntMont_Lb.AutoSize = true;
+         CrntMont_Lb.Location = new System.Drawing.Point(51, 82);
+         CrntMont_Lb.Name = "CrntMont_Lb";
+         CrntMont_Lb.Size = new System.Drawing.Size(70, 14);
+         CrntMont_Lb.TabIndex = 60;
+         CrntMont_Lb.Text = "( تعداد ماه )";
          // 
          // label17
          // 
@@ -384,6 +384,10 @@
          this.Brth_Date_PersianDateEdit2.Size = new System.Drawing.Size(100, 23);
          this.Brth_Date_PersianDateEdit2.TabIndex = 2;
          this.Brth_Date_PersianDateEdit2.UsePersianFormat = true;
+         // 
+         // Mbsp004Bs
+         // 
+         this.Mbsp004Bs.DataSource = typeof(System.Scsc.Data.Member_Ship);
          // 
          // nAME_DNRMTextEdit
          // 
@@ -423,34 +427,34 @@
          this.fNGR_PRNT_DNRMTextEdit.Size = new System.Drawing.Size(100, 20);
          this.fNGR_PRNT_DNRMTextEdit.TabIndex = 4;
          // 
-         // groupBox1
+         // CrntMbsp_Gb
          // 
-         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.CrntMbsp_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupBox1.Controls.Add(this.groupBox3);
-         this.groupBox1.Controls.Add(this.textEdit6);
-         this.groupBox1.Controls.Add(label16);
-         this.groupBox1.Controls.Add(label5);
-         this.groupBox1.Controls.Add(label8);
-         this.groupBox1.Controls.Add(label3);
-         this.groupBox1.Controls.Add(label4);
-         this.groupBox1.Controls.Add(label14);
-         this.groupBox1.Controls.Add(this.textEdit3);
-         this.groupBox1.Controls.Add(this.textEdit4);
-         this.groupBox1.Controls.Add(this.textEdit1);
-         this.groupBox1.Controls.Add(this.textEdit9);
-         this.groupBox1.Controls.Add(this.textEdit2);
-         this.groupBox1.Controls.Add(this.dateTimeSelector2);
-         this.groupBox1.Controls.Add(label2);
-         this.groupBox1.Controls.Add(this.dateTimeSelector1);
-         this.groupBox1.Controls.Add(label1);
-         this.groupBox1.Enabled = false;
-         this.groupBox1.Location = new System.Drawing.Point(14, 122);
-         this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(361, 246);
-         this.groupBox1.TabIndex = 5;
-         this.groupBox1.TabStop = false;
-         this.groupBox1.Text = "اطلاعات تمدید فعلی";
+         this.CrntMbsp_Gb.Controls.Add(this.groupBox3);
+         this.CrntMbsp_Gb.Controls.Add(this.textEdit6);
+         this.CrntMbsp_Gb.Controls.Add(CrntMont_Lb);
+         this.CrntMbsp_Gb.Controls.Add(CrntConsAttnMot_Lb);
+         this.CrntMbsp_Gb.Controls.Add(CrntDays_Lb);
+         this.CrntMbsp_Gb.Controls.Add(CrntNumbAttnMont_Lb);
+         this.CrntMbsp_Gb.Controls.Add(CrntFgpbRwno_Lb);
+         this.CrntMbsp_Gb.Controls.Add(CrntMbspRwno_Lb);
+         this.CrntMbsp_Gb.Controls.Add(this.textEdit3);
+         this.CrntMbsp_Gb.Controls.Add(this.textEdit4);
+         this.CrntMbsp_Gb.Controls.Add(this.textEdit1);
+         this.CrntMbsp_Gb.Controls.Add(this.textEdit9);
+         this.CrntMbsp_Gb.Controls.Add(this.textEdit2);
+         this.CrntMbsp_Gb.Controls.Add(this.dateTimeSelector2);
+         this.CrntMbsp_Gb.Controls.Add(CrntEndDate_Lb);
+         this.CrntMbsp_Gb.Controls.Add(this.dateTimeSelector1);
+         this.CrntMbsp_Gb.Controls.Add(CrntStrtDate_Lb);
+         this.CrntMbsp_Gb.Enabled = false;
+         this.CrntMbsp_Gb.Location = new System.Drawing.Point(14, 122);
+         this.CrntMbsp_Gb.Name = "CrntMbsp_Gb";
+         this.CrntMbsp_Gb.Size = new System.Drawing.Size(361, 246);
+         this.CrntMbsp_Gb.TabIndex = 5;
+         this.CrntMbsp_Gb.TabStop = false;
+         this.CrntMbsp_Gb.Text = "اطلاعات تمدید فعلی";
          // 
          // groupBox3
          // 
@@ -838,6 +842,25 @@
          this.CBMT_CODE_GridLookUpEdit.TabIndex = 61;
          this.CBMT_CODE_GridLookUpEdit.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.CBMT_CODE_GridLookUpEdit_EditValueChanging);
          // 
+         // CbmtBs1
+         // 
+         this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
+         // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.DataSource = this.DDytpBs1;
+         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.NullText = "";
+         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
+         // 
+         // DDytpBs1
+         // 
+         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
+         // 
          // cBMT_CODEGridLookUpEditView
          // 
          this.cBMT_CODEGridLookUpEditView.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -951,6 +974,21 @@
          this.colMDFY_DATE3.FieldName = "MDFY_DATE";
          this.colMDFY_DATE3.Name = "colMDFY_DATE3";
          // 
+         // colClub
+         // 
+         this.colClub.FieldName = "Club";
+         this.colClub.Name = "colClub";
+         // 
+         // colMethod
+         // 
+         this.colMethod.FieldName = "Method";
+         this.colMethod.Name = "colMethod";
+         // 
+         // colFighter
+         // 
+         this.colFighter.FieldName = "Fighter";
+         this.colFighter.Name = "colFighter";
+         // 
          // colTIME_DESC
          // 
          this.colTIME_DESC.Caption = "زمان کلاس";
@@ -1050,6 +1088,10 @@
          this.textEdit5.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.textEdit5.Size = new System.Drawing.Size(40, 22);
          this.textEdit5.TabIndex = 3;
+         // 
+         // Mbsp002Bs
+         // 
+         this.Mbsp002Bs.DataSource = typeof(System.Scsc.Data.Member_Ship);
          // 
          // SumNumbAttnMont_TextEdit002
          // 
@@ -1169,33 +1211,6 @@
          this.StrtDate_DateTime002.TabIndex = 0;
          this.StrtDate_DateTime002.UsePersianFormat = true;
          // 
-         // CbmtBs1
-         // 
-         this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
-         // 
-         // colClub
-         // 
-         this.colClub.FieldName = "Club";
-         this.colClub.Name = "colClub";
-         // 
-         // colMethod
-         // 
-         this.colMethod.FieldName = "Method";
-         this.colMethod.Name = "colMethod";
-         // 
-         // colFighter
-         // 
-         this.colFighter.FieldName = "Fighter";
-         this.colFighter.Name = "colFighter";
-         // 
-         // Mbsp004Bs
-         // 
-         this.Mbsp004Bs.DataSource = typeof(System.Scsc.Data.Member_Ship);
-         // 
-         // Mbsp002Bs
-         // 
-         this.Mbsp002Bs.DataSource = typeof(System.Scsc.Data.Member_Ship);
-         // 
          // UserProFile_Rb
          // 
          this.UserProFile_Rb.Active = true;
@@ -1220,21 +1235,6 @@
          this.UserProFile_Rb.TabIndex = 0;
          this.UserProFile_Rb.Tooltip = null;
          // 
-         // DDytpBs1
-         // 
-         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
-         // 
-         // repositoryItemLookUpEdit1
-         // 
-         this.repositoryItemLookUpEdit1.AutoHeight = false;
-         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit1.DataSource = this.DDytpBs1;
-         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-         this.repositoryItemLookUpEdit1.NullText = "";
-         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
-         // 
          // MBSP_CHNG_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1245,25 +1245,26 @@
          this.Controls.Add(this.MbspCncl_Butn);
          this.Controls.Add(this.SaveMbsp_Butn);
          this.Controls.Add(this.RqstMbsp_Butn);
-         this.Controls.Add(this.groupBox1);
+         this.Controls.Add(this.CrntMbsp_Gb);
          this.Controls.Add(this.UserProFile_Rb);
-         this.Controls.Add(fNGR_PRNT_DNRMLabel);
+         this.Controls.Add(FngrPrnt_Lb);
          this.Controls.Add(this.fNGR_PRNT_DNRMTextEdit);
-         this.Controls.Add(tELL_PHON_DNRMLabel);
+         this.Controls.Add(CellPhon_Lb);
          this.Controls.Add(this.tELL_PHON_DNRMTextEdit);
          this.Controls.Add(this.Brth_Date_PersianDateEdit2);
-         this.Controls.Add(label13);
-         this.Controls.Add(nAME_DNRMLabel);
+         this.Controls.Add(BrthDate_Lb);
+         this.Controls.Add(NameDnrm_Lb);
          this.Controls.Add(this.nAME_DNRMTextEdit);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MBSP_CHNG_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(389, 677);
+         ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.tELL_PHON_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.fNGR_PRNT_DNRMTextEdit.Properties)).EndInit();
-         this.groupBox1.ResumeLayout(false);
-         this.groupBox1.PerformLayout();
+         this.CrntMbsp_Gb.ResumeLayout(false);
+         this.CrntMbsp_Gb.PerformLayout();
          this.groupBox3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CtgyDesc_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CochName_Txt.Properties)).EndInit();
@@ -1280,22 +1281,21 @@
          this.groupBox2.PerformLayout();
          this.groupBox4.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cBMT_CODEGridLookUpEditView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CtgyDescN_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EndTimeN_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodDescN_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.StrtTimeN_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Mbsp002Bs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SumNumbAttnMont_TextEdit002.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbAttnMont_TextEdit002.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit15.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Mbsp002Bs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1308,7 +1308,7 @@
       private DevExpress.XtraEditors.TextEdit tELL_PHON_DNRMTextEdit;
       private DevExpress.XtraEditors.TextEdit fNGR_PRNT_DNRMTextEdit;
       private MaxUi.RoundedButton UserProFile_Rb;
-      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.GroupBox CrntMbsp_Gb;
       private Windows.Forms.Button RqstMbsp_Butn;
       private Windows.Forms.Button SaveMbsp_Butn;
       private Windows.Forms.Button Back_Butn;

@@ -24,7 +24,7 @@ namespace System.Scsc.Ui.Admission
 
       private void Execute_Query()
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             var Rqids = iScsc.VF_Requests(new XElement("Request"))
@@ -54,7 +54,7 @@ namespace System.Scsc.Ui.Admission
       int RqstIndex;
       private void Get_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             if (RqstBs1.Count >= 1)
                RqstIndex = RqstBs1.Position;
@@ -63,7 +63,7 @@ namespace System.Scsc.Ui.Admission
 
       private void Set_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             if (RqstIndex >= 0)
                RqstBs1.Position = RqstIndex;
@@ -72,56 +72,10 @@ namespace System.Scsc.Ui.Admission
 
       private void Create_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             RqstBs1.AddNew();
             FILE_NO_LookUpEdit.Focus();
-         }         
-      }
-
-      private void LL_MoreInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-      {
-         Pn_MoreInfo.Visible = !Pn_MoreInfo.Visible;
-         LL_MoreInfo.Text = Pn_MoreInfo.Visible ? "- کمتر ( F3 )" : "+ بیشتر ( F3 )";
-         if (Pn_MoreInfo.Visible)
-         {
-             Gb_Info.Height = 577;
-            //Gb_Expense.Top = 320;
-         }
-         else
-         {
-            Gb_Info.Height = 228;
-            //Gb_Expense.Top = 170;
-         }
-      }
-
-      private void RqstBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            var Rqst = RqstBs1.Current as Data.Request;
-
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
-            {
-               //Gb_Expense.Visible = true;
-               Btn_RqstDelete1.Visible = true;
-               Btn_RqstSav1.Visible = false;
-            }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
-            {
-               //Gb_Expense.Visible = false;
-               Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
-            }
-            else if (Rqst.RQID == 0)
-            {
-               //Gb_Expense.Visible = false;
-               Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
-            }
-         }
-         catch
-         {
-            //Gb_Expense.Visible = false;
-            Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
          }
       }
 
@@ -182,7 +136,7 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Issu_Plac", IssuPlac_TextEdit.EditValue ?? ""),
                               new XElement("Fath_Work", FathWork_TextEdit.EditValue ?? ""),
                               new XElement("Hist_Desc", HistDesc_TextEdit.EditValue ?? ""),
-                              new XElement("Intr_File_No", INTR_FILE_NOLookUpEdit.EditValue ?? ""),
+                              new XElement("Intr_File_No", ""),
                               new XElement("Dpst_Acnt_Slry_Bank", DpstAcntSlryBank_Text2.EditValue ?? ""),
                               new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? ""),
                               new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? "")
@@ -379,7 +333,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -394,7 +348,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -411,7 +365,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -428,7 +382,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -451,7 +405,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -469,7 +423,7 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -522,7 +476,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            
             {
                var rqst = RqstBs1.Current as Data.Request;
 
@@ -536,53 +490,13 @@ namespace System.Scsc.Ui.Admission
          }
          catch
          {
-            if (tb_master.SelectedTab == tp_001)
+            
             {
                FNGR_PRNT_TextEdit.EditValue = 1;
             }
          }
       }
 
-      private void INTR_FILE_NOLookUpEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            if (e.Button.Index == 2) // بارگذاری لیست جدید
-            {
-               iScsc = new Data.iScscDataContext(ConnectionString);
-               FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-               return;
-            }
-            else if (e.Button.Index == 3) // تعریف کاربر جدید
-            {
-               Job _InteractWithScsc =
-                   new Job(SendType.External, "Localhost",
-                      new List<Job>
-                         {
-                            new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
-                            new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
-                         });
-               _DefaultGateway.Gateway(_InteractWithScsc);
-               return;
-            }
-
-            if (INTR_FILE_NOLookUpEdit.EditValue.ToString() == "") return;
-
-            var fileno = Convert.ToInt64(INTR_FILE_NOLookUpEdit.EditValue);
-
-            switch (e.Button.Index)
-            {
-               case 1:
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
-                  );
-                  break;
-               default:
-                  break;
-            }
-         }
-         catch { }
-      }
 
       private void ShowRqst_PickButn_PickCheckedChange(object sender)
       {

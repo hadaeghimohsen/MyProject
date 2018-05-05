@@ -29,15 +29,15 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label cASH_STATLabel;
-         System.Windows.Forms.Label tYPELabel;
-         System.Windows.Forms.Label bANK_BRNC_CODELabel1;
-         System.Windows.Forms.Label label1;
-         System.Windows.Forms.Label label2;
-         System.Windows.Forms.Label label3;
-         System.Windows.Forms.Label label4;
-         System.Windows.Forms.Label label5;
-         System.Windows.Forms.Label label6;
+         System.Windows.Forms.Label PostAdrs_Lb;
+         System.Windows.Forms.Label Name_Lb;
+         System.Windows.Forms.Label RegnCode_Lb;
+         System.Windows.Forms.Label CordX_Lb;
+         System.Windows.Forms.Label CordY_Lb;
+         System.Windows.Forms.Label TellPhon_Lb;
+         System.Windows.Forms.Label CellPhon_Lb;
+         System.Windows.Forms.Label WebSite_Lb;
+         System.Windows.Forms.Label EmalAdrs_Lb;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_ADCL_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -54,29 +54,29 @@
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ClubName_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.ClubBs = new System.Windows.Forms.BindingSource(this.components);
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc1_Lb = new DevExpress.XtraEditors.LabelControl();
          this.PostAddress_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.Regn_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc2_Lb = new DevExpress.XtraEditors.LabelControl();
          this.GetCordXY_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CordX_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.CordY_Text = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc3_Lb = new DevExpress.XtraEditors.LabelControl();
          this.TellPhon_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.CellPhon_Text = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc4_Lb = new DevExpress.XtraEditors.LabelControl();
          this.WebSite_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.EmailAddress_Text = new DevExpress.XtraEditors.ButtonEdit();
-         cASH_STATLabel = new System.Windows.Forms.Label();
-         tYPELabel = new System.Windows.Forms.Label();
-         bANK_BRNC_CODELabel1 = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         label2 = new System.Windows.Forms.Label();
-         label3 = new System.Windows.Forms.Label();
-         label4 = new System.Windows.Forms.Label();
-         label5 = new System.Windows.Forms.Label();
-         label6 = new System.Windows.Forms.Label();
+         PostAdrs_Lb = new System.Windows.Forms.Label();
+         Name_Lb = new System.Windows.Forms.Label();
+         RegnCode_Lb = new System.Windows.Forms.Label();
+         CordX_Lb = new System.Windows.Forms.Label();
+         CordY_Lb = new System.Windows.Forms.Label();
+         TellPhon_Lb = new System.Windows.Forms.Label();
+         CellPhon_Lb = new System.Windows.Forms.Label();
+         WebSite_Lb = new System.Windows.Forms.Label();
+         EmalAdrs_Lb = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ClubName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClubBs)).BeginInit();
@@ -91,104 +91,104 @@
          ((System.ComponentModel.ISupportInitialize)(this.EmailAddress_Text.Properties)).BeginInit();
          this.SuspendLayout();
          // 
-         // cASH_STATLabel
+         // PostAdrs_Lb
          // 
-         cASH_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         cASH_STATLabel.AutoSize = true;
-         cASH_STATLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         cASH_STATLabel.Location = new System.Drawing.Point(489, 485);
-         cASH_STATLabel.Name = "cASH_STATLabel";
-         cASH_STATLabel.Size = new System.Drawing.Size(80, 28);
-         cASH_STATLabel.TabIndex = 56;
-         cASH_STATLabel.Text = "آدرس محل :";
+         PostAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         PostAdrs_Lb.AutoSize = true;
+         PostAdrs_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         PostAdrs_Lb.Location = new System.Drawing.Point(489, 485);
+         PostAdrs_Lb.Name = "PostAdrs_Lb";
+         PostAdrs_Lb.Size = new System.Drawing.Size(80, 28);
+         PostAdrs_Lb.TabIndex = 56;
+         PostAdrs_Lb.Text = "آدرس محل :";
          // 
-         // tYPELabel
+         // Name_Lb
          // 
-         tYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         tYPELabel.AutoSize = true;
-         tYPELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         tYPELabel.Location = new System.Drawing.Point(489, 134);
-         tYPELabel.Name = "tYPELabel";
-         tYPELabel.Size = new System.Drawing.Size(82, 28);
-         tYPELabel.TabIndex = 55;
-         tYPELabel.Text = "عنوان شیفت :";
+         Name_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Name_Lb.AutoSize = true;
+         Name_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         Name_Lb.Location = new System.Drawing.Point(489, 134);
+         Name_Lb.Name = "Name_Lb";
+         Name_Lb.Size = new System.Drawing.Size(82, 28);
+         Name_Lb.TabIndex = 55;
+         Name_Lb.Text = "عنوان شیفت :";
          // 
-         // bANK_BRNC_CODELabel1
+         // RegnCode_Lb
          // 
-         bANK_BRNC_CODELabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bANK_BRNC_CODELabel1.AutoSize = true;
-         bANK_BRNC_CODELabel1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         bANK_BRNC_CODELabel1.Location = new System.Drawing.Point(489, 229);
-         bANK_BRNC_CODELabel1.Name = "bANK_BRNC_CODELabel1";
-         bANK_BRNC_CODELabel1.Size = new System.Drawing.Size(83, 28);
-         bANK_BRNC_CODELabel1.TabIndex = 54;
-         bANK_BRNC_CODELabel1.Text = "انتخاب ناحیه :";
+         RegnCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         RegnCode_Lb.AutoSize = true;
+         RegnCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         RegnCode_Lb.Location = new System.Drawing.Point(489, 229);
+         RegnCode_Lb.Name = "RegnCode_Lb";
+         RegnCode_Lb.Size = new System.Drawing.Size(83, 28);
+         RegnCode_Lb.TabIndex = 54;
+         RegnCode_Lb.Text = "انتخاب ناحیه :";
          // 
-         // label1
+         // CordX_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label1.Location = new System.Drawing.Point(489, 326);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(89, 28);
-         label1.TabIndex = 55;
-         label1.Text = "مختصات افقی :";
+         CordX_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CordX_Lb.AutoSize = true;
+         CordX_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         CordX_Lb.Location = new System.Drawing.Point(489, 326);
+         CordX_Lb.Name = "CordX_Lb";
+         CordX_Lb.Size = new System.Drawing.Size(89, 28);
+         CordX_Lb.TabIndex = 55;
+         CordX_Lb.Text = "مختصات افقی :";
          // 
-         // label2
+         // CordY_Lb
          // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label2.Location = new System.Drawing.Point(489, 362);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(105, 28);
-         label2.TabIndex = 55;
-         label2.Text = "مختصات عمودی :";
+         CordY_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CordY_Lb.AutoSize = true;
+         CordY_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         CordY_Lb.Location = new System.Drawing.Point(489, 362);
+         CordY_Lb.Name = "CordY_Lb";
+         CordY_Lb.Size = new System.Drawing.Size(105, 28);
+         CordY_Lb.TabIndex = 55;
+         CordY_Lb.Text = "مختصات عمودی :";
          // 
-         // label3
+         // TellPhon_Lb
          // 
-         label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label3.AutoSize = true;
-         label3.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label3.Location = new System.Drawing.Point(489, 521);
-         label3.Name = "label3";
-         label3.Size = new System.Drawing.Size(77, 28);
-         label3.TabIndex = 55;
-         label3.Text = "شماره تلفن :";
+         TellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         TellPhon_Lb.AutoSize = true;
+         TellPhon_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         TellPhon_Lb.Location = new System.Drawing.Point(489, 521);
+         TellPhon_Lb.Name = "TellPhon_Lb";
+         TellPhon_Lb.Size = new System.Drawing.Size(77, 28);
+         TellPhon_Lb.TabIndex = 55;
+         TellPhon_Lb.Text = "شماره تلفن :";
          // 
-         // label4
+         // CellPhon_Lb
          // 
-         label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label4.AutoSize = true;
-         label4.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label4.Location = new System.Drawing.Point(489, 557);
-         label4.Name = "label4";
-         label4.Size = new System.Drawing.Size(84, 28);
-         label4.TabIndex = 55;
-         label4.Text = "شماره همراه :";
+         CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CellPhon_Lb.AutoSize = true;
+         CellPhon_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         CellPhon_Lb.Location = new System.Drawing.Point(489, 557);
+         CellPhon_Lb.Name = "CellPhon_Lb";
+         CellPhon_Lb.Size = new System.Drawing.Size(84, 28);
+         CellPhon_Lb.TabIndex = 55;
+         CellPhon_Lb.Text = "شماره همراه :";
          // 
-         // label5
+         // WebSite_Lb
          // 
-         label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label5.AutoSize = true;
-         label5.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label5.Location = new System.Drawing.Point(489, 593);
-         label5.Name = "label5";
-         label5.Size = new System.Drawing.Size(108, 28);
-         label5.TabIndex = 56;
-         label5.Text = "آدرس وب سایت :";
+         WebSite_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         WebSite_Lb.AutoSize = true;
+         WebSite_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         WebSite_Lb.Location = new System.Drawing.Point(489, 593);
+         WebSite_Lb.Name = "WebSite_Lb";
+         WebSite_Lb.Size = new System.Drawing.Size(108, 28);
+         WebSite_Lb.TabIndex = 56;
+         WebSite_Lb.Text = "آدرس وب سایت :";
          // 
-         // label6
+         // EmalAdrs_Lb
          // 
-         label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label6.AutoSize = true;
-         label6.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label6.Location = new System.Drawing.Point(489, 628);
-         label6.Name = "label6";
-         label6.Size = new System.Drawing.Size(84, 28);
-         label6.TabIndex = 56;
-         label6.Text = "آدرس ایمیل :";
+         EmalAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         EmalAdrs_Lb.AutoSize = true;
+         EmalAdrs_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         EmalAdrs_Lb.Location = new System.Drawing.Point(489, 628);
+         EmalAdrs_Lb.Name = "EmalAdrs_Lb";
+         EmalAdrs_Lb.Size = new System.Drawing.Size(84, 28);
+         EmalAdrs_Lb.TabIndex = 56;
+         EmalAdrs_Lb.Text = "آدرس ایمیل :";
          // 
          // panel1
          // 
@@ -286,22 +286,22 @@
          // 
          this.ClubBs.DataSource = typeof(System.Scsc.Data.Club);
          // 
-         // labelControl6
+         // Desc1_Lb
          // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(43, 65);
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(538, 46);
-         this.labelControl6.TabIndex = 18;
-         this.labelControl6.Text = "اگر باشگاه شما شامل قسمت صبح و عصر یا خانم ها و آقایان هست می توانید شیفت مربوطه " +
+         this.Desc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc1_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc1_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.Desc1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc1_Lb.Location = new System.Drawing.Point(43, 65);
+         this.Desc1_Lb.Name = "Desc1_Lb";
+         this.Desc1_Lb.Size = new System.Drawing.Size(538, 46);
+         this.Desc1_Lb.TabIndex = 18;
+         this.Desc1_Lb.Text = "اگر باشگاه شما شامل قسمت صبح و عصر یا خانم ها و آقایان هست می توانید شیفت مربوطه " +
     "را ایجاد کنید و برنامه های کلاسی مربوط به هر شیفت را ایجاد کنید.";
          // 
          // PostAddress_Text
@@ -385,23 +385,23 @@
          // 
          this.RegnBs1.DataSource = typeof(System.Scsc.Data.Region);
          // 
-         // labelControl2
+         // Desc2_Lb
          // 
-         this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl2.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.labelControl2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1366;
-         this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(92, 168);
-         this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(453, 52);
-         this.labelControl2.TabIndex = 18;
-         this.labelControl2.Text = "برای ثبت شیفت باشگاه نیاز به اطلاعاتی مانند آدرس و نقطه جغرافیایی می باشد";
+         this.Desc2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc2_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc2_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc2_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.Desc2_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1366;
+         this.Desc2_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc2_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc2_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc2_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc2_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc2_Lb.Location = new System.Drawing.Point(92, 168);
+         this.Desc2_Lb.Name = "Desc2_Lb";
+         this.Desc2_Lb.Size = new System.Drawing.Size(453, 52);
+         this.Desc2_Lb.TabIndex = 18;
+         this.Desc2_Lb.Text = "برای ثبت شیفت باشگاه نیاز به اطلاعاتی مانند آدرس و نقطه جغرافیایی می باشد";
          // 
          // GetCordXY_Butn
          // 
@@ -486,23 +486,23 @@
          this.CordY_Text.Size = new System.Drawing.Size(186, 30);
          this.CordY_Text.TabIndex = 0;
          // 
-         // labelControl3
+         // Desc3_Lb
          // 
-         this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl3.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl3.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.labelControl3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1503;
-         this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(92, 266);
-         this.labelControl3.Name = "labelControl3";
-         this.labelControl3.Size = new System.Drawing.Size(453, 52);
-         this.labelControl3.TabIndex = 18;
-         this.labelControl3.Text = "این گزینه برای آن دسته از کسانی می باشد که نرم افزار باشگاه خود را به نرم افزار ه" +
+         this.Desc3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc3_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc3_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc3_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.Desc3_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1503;
+         this.Desc3_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc3_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc3_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc3_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc3_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc3_Lb.Location = new System.Drawing.Point(92, 266);
+         this.Desc3_Lb.Name = "Desc3_Lb";
+         this.Desc3_Lb.Size = new System.Drawing.Size(453, 52);
+         this.Desc3_Lb.TabIndex = 18;
+         this.Desc3_Lb.Text = "این گزینه برای آن دسته از کسانی می باشد که نرم افزار باشگاه خود را به نرم افزار ه" +
     "وشمند تلگرامی متصل کرده و مشتری خود را از طریق گوشی دنبال می کنند";
          // 
          // TellPhon_Text
@@ -569,23 +569,23 @@
          this.CellPhon_Text.Size = new System.Drawing.Size(186, 30);
          this.CellPhon_Text.TabIndex = 0;
          // 
-         // labelControl4
+         // Desc4_Lb
          // 
-         this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl4.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl4.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.labelControl4.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1153;
-         this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(92, 396);
-         this.labelControl4.Name = "labelControl4";
-         this.labelControl4.Size = new System.Drawing.Size(453, 81);
-         this.labelControl4.TabIndex = 18;
-         this.labelControl4.Text = "برای چاپ کارت اعضا می توانید از گزینه های آدرس و شماره تلفن تماس استفاده کنید که " +
+         this.Desc4_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc4_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc4_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc4_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.Desc4_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1153;
+         this.Desc4_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc4_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc4_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc4_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc4_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc4_Lb.Location = new System.Drawing.Point(92, 396);
+         this.Desc4_Lb.Name = "Desc4_Lb";
+         this.Desc4_Lb.Size = new System.Drawing.Size(453, 81);
+         this.Desc4_Lb.TabIndex = 18;
+         this.Desc4_Lb.Text = "برای چاپ کارت اعضا می توانید از گزینه های آدرس و شماره تلفن تماس استفاده کنید که " +
     "اعضا اطلاعات مفید باشگاه را در پشت کارت باشگاه خود داشته باشند";
          // 
          // WebSite_Text
@@ -660,15 +660,15 @@
          this.AutoScrollMinSize = new System.Drawing.Size(0, 680);
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.Controls.Add(this.GetCordXY_Butn);
-         this.Controls.Add(label6);
-         this.Controls.Add(label5);
-         this.Controls.Add(cASH_STATLabel);
-         this.Controls.Add(label4);
-         this.Controls.Add(label2);
-         this.Controls.Add(label3);
-         this.Controls.Add(label1);
-         this.Controls.Add(tYPELabel);
-         this.Controls.Add(bANK_BRNC_CODELabel1);
+         this.Controls.Add(EmalAdrs_Lb);
+         this.Controls.Add(WebSite_Lb);
+         this.Controls.Add(PostAdrs_Lb);
+         this.Controls.Add(CellPhon_Lb);
+         this.Controls.Add(CordY_Lb);
+         this.Controls.Add(TellPhon_Lb);
+         this.Controls.Add(CordX_Lb);
+         this.Controls.Add(Name_Lb);
+         this.Controls.Add(RegnCode_Lb);
          this.Controls.Add(this.Regn_Lov);
          this.Controls.Add(this.EmailAddress_Text);
          this.Controls.Add(this.WebSite_Text);
@@ -678,10 +678,10 @@
          this.Controls.Add(this.TellPhon_Text);
          this.Controls.Add(this.CordX_Text);
          this.Controls.Add(this.ClubName_Text);
-         this.Controls.Add(this.labelControl4);
-         this.Controls.Add(this.labelControl3);
-         this.Controls.Add(this.labelControl2);
-         this.Controls.Add(this.labelControl6);
+         this.Controls.Add(this.Desc4_Lb);
+         this.Controls.Add(this.Desc3_Lb);
+         this.Controls.Add(this.Desc2_Lb);
+         this.Controls.Add(this.Desc1_Lb);
          this.Controls.Add(this.SubmitChange_Butn);
          this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -712,18 +712,18 @@
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton SubmitChange_Butn;
       private DevExpress.XtraEditors.ButtonEdit ClubName_Text;
-      private DevExpress.XtraEditors.LabelControl labelControl6;
+      private DevExpress.XtraEditors.LabelControl Desc1_Lb;
       private DevExpress.XtraEditors.ButtonEdit PostAddress_Text;
       private DevExpress.XtraEditors.LookUpEdit Regn_Lov;
       private Windows.Forms.BindingSource RegnBs1;
-      private DevExpress.XtraEditors.LabelControl labelControl2;
+      private DevExpress.XtraEditors.LabelControl Desc2_Lb;
       private DevExpress.XtraEditors.SimpleButton GetCordXY_Butn;
       private DevExpress.XtraEditors.ButtonEdit CordX_Text;
       private DevExpress.XtraEditors.ButtonEdit CordY_Text;
-      private DevExpress.XtraEditors.LabelControl labelControl3;
+      private DevExpress.XtraEditors.LabelControl Desc3_Lb;
       private DevExpress.XtraEditors.ButtonEdit TellPhon_Text;
       private DevExpress.XtraEditors.ButtonEdit CellPhon_Text;
-      private DevExpress.XtraEditors.LabelControl labelControl4;
+      private DevExpress.XtraEditors.LabelControl Desc4_Lb;
       private DevExpress.XtraEditors.ButtonEdit WebSite_Text;
       private DevExpress.XtraEditors.ButtonEdit EmailAddress_Text;
       private Windows.Forms.BindingSource ClubBs;

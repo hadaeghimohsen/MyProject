@@ -29,13 +29,13 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label cASH_STATLabel;
-         System.Windows.Forms.Label tYPELabel;
-         System.Windows.Forms.Label bANK_BRNC_CODELabel1;
-         System.Windows.Forms.Label bANK_NAMELabel;
-         System.Windows.Forms.Label label1;
-         System.Windows.Forms.Label label2;
-         System.Windows.Forms.Label label3;
+         System.Windows.Forms.Label LastName_Lb;
+         System.Windows.Forms.Label FrstName_Lb;
+         System.Windows.Forms.Label Mtod_Lb;
+         System.Windows.Forms.Label FngrPrnt_Lb;
+         System.Windows.Forms.Label SexType_Lb;
+         System.Windows.Forms.Label CardNo_Lb;
+         System.Windows.Forms.Label ChatId_Lb;
          System.Windows.Forms.Label label14;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_ADCH_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -46,11 +46,11 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.FrstName_Text = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc1_Lb = new DevExpress.XtraEditors.LabelControl();
          this.LastName_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrint_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.Mtod_Lov = new DevExpress.XtraEditors.LookUpEdit();
@@ -58,18 +58,18 @@
          this.SexType_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.GetMaxFngrPrint_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc2_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.Desc3_Lb = new DevExpress.XtraEditors.LabelControl();
          this.CardNum_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.Chat_Id_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
          this.SaveNewCoch_Butn = new DevExpress.XtraEditors.SimpleButton();
-         cASH_STATLabel = new System.Windows.Forms.Label();
-         tYPELabel = new System.Windows.Forms.Label();
-         bANK_BRNC_CODELabel1 = new System.Windows.Forms.Label();
-         bANK_NAMELabel = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         label2 = new System.Windows.Forms.Label();
-         label3 = new System.Windows.Forms.Label();
+         LastName_Lb = new System.Windows.Forms.Label();
+         FrstName_Lb = new System.Windows.Forms.Label();
+         Mtod_Lb = new System.Windows.Forms.Label();
+         FngrPrnt_Lb = new System.Windows.Forms.Label();
+         SexType_Lb = new System.Windows.Forms.Label();
+         CardNo_Lb = new System.Windows.Forms.Label();
+         ChatId_Lb = new System.Windows.Forms.Label();
          label14 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).BeginInit();
@@ -83,82 +83,82 @@
          ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).BeginInit();
          this.SuspendLayout();
          // 
-         // cASH_STATLabel
+         // LastName_Lb
          // 
-         cASH_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         cASH_STATLabel.AutoSize = true;
-         cASH_STATLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         cASH_STATLabel.Location = new System.Drawing.Point(489, 170);
-         cASH_STATLabel.Name = "cASH_STATLabel";
-         cASH_STATLabel.Size = new System.Drawing.Size(84, 28);
-         cASH_STATLabel.TabIndex = 56;
-         cASH_STATLabel.Text = "نام خانوادگی :";
+         LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         LastName_Lb.AutoSize = true;
+         LastName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         LastName_Lb.Location = new System.Drawing.Point(489, 170);
+         LastName_Lb.Name = "LastName_Lb";
+         LastName_Lb.Size = new System.Drawing.Size(84, 28);
+         LastName_Lb.TabIndex = 56;
+         LastName_Lb.Text = "نام خانوادگی :";
          // 
-         // tYPELabel
+         // FrstName_Lb
          // 
-         tYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         tYPELabel.AutoSize = true;
-         tYPELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         tYPELabel.Location = new System.Drawing.Point(489, 134);
-         tYPELabel.Name = "tYPELabel";
-         tYPELabel.Size = new System.Drawing.Size(32, 28);
-         tYPELabel.TabIndex = 55;
-         tYPELabel.Text = "نام :";
+         FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FrstName_Lb.AutoSize = true;
+         FrstName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         FrstName_Lb.Location = new System.Drawing.Point(489, 134);
+         FrstName_Lb.Name = "FrstName_Lb";
+         FrstName_Lb.Size = new System.Drawing.Size(32, 28);
+         FrstName_Lb.TabIndex = 55;
+         FrstName_Lb.Text = "نام :";
          // 
-         // bANK_BRNC_CODELabel1
+         // Mtod_Lb
          // 
-         bANK_BRNC_CODELabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bANK_BRNC_CODELabel1.AutoSize = true;
-         bANK_BRNC_CODELabel1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         bANK_BRNC_CODELabel1.Location = new System.Drawing.Point(489, 436);
-         bANK_BRNC_CODELabel1.Name = "bANK_BRNC_CODELabel1";
-         bANK_BRNC_CODELabel1.Size = new System.Drawing.Size(85, 28);
-         bANK_BRNC_CODELabel1.TabIndex = 54;
-         bANK_BRNC_CODELabel1.Text = "گروه ورزشی :";
+         Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Mtod_Lb.AutoSize = true;
+         Mtod_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         Mtod_Lb.Location = new System.Drawing.Point(489, 436);
+         Mtod_Lb.Name = "Mtod_Lb";
+         Mtod_Lb.Size = new System.Drawing.Size(85, 28);
+         Mtod_Lb.TabIndex = 54;
+         Mtod_Lb.Text = "گروه ورزشی :";
          // 
-         // bANK_NAMELabel
+         // FngrPrnt_Lb
          // 
-         bANK_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bANK_NAMELabel.AutoSize = true;
-         bANK_NAMELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         bANK_NAMELabel.Location = new System.Drawing.Point(489, 265);
-         bANK_NAMELabel.Name = "bANK_NAMELabel";
-         bANK_NAMELabel.Size = new System.Drawing.Size(91, 28);
-         bANK_NAMELabel.TabIndex = 53;
-         bANK_NAMELabel.Text = "شماره انگشتی :";
+         FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FngrPrnt_Lb.AutoSize = true;
+         FngrPrnt_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         FngrPrnt_Lb.Location = new System.Drawing.Point(489, 265);
+         FngrPrnt_Lb.Name = "FngrPrnt_Lb";
+         FngrPrnt_Lb.Size = new System.Drawing.Size(91, 28);
+         FngrPrnt_Lb.TabIndex = 53;
+         FngrPrnt_Lb.Text = "شماره انگشتی :";
          // 
-         // label1
+         // SexType_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label1.Location = new System.Drawing.Point(488, 476);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(57, 28);
-         label1.TabIndex = 54;
-         label1.Text = "جنسیت :";
+         SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         SexType_Lb.AutoSize = true;
+         SexType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         SexType_Lb.Location = new System.Drawing.Point(488, 476);
+         SexType_Lb.Name = "SexType_Lb";
+         SexType_Lb.Size = new System.Drawing.Size(57, 28);
+         SexType_Lb.TabIndex = 54;
+         SexType_Lb.Text = "جنسیت :";
          // 
-         // label2
+         // CardNo_Lb
          // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label2.Location = new System.Drawing.Point(489, 301);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(83, 28);
-         label2.TabIndex = 53;
-         label2.Text = "شماره کارت :";
+         CardNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CardNo_Lb.AutoSize = true;
+         CardNo_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         CardNo_Lb.Location = new System.Drawing.Point(489, 301);
+         CardNo_Lb.Name = "CardNo_Lb";
+         CardNo_Lb.Size = new System.Drawing.Size(83, 28);
+         CardNo_Lb.TabIndex = 53;
+         CardNo_Lb.Text = "شماره کارت :";
          // 
-         // label3
+         // ChatId_Lb
          // 
-         label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label3.AutoSize = true;
-         label3.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label3.Location = new System.Drawing.Point(489, 337);
-         label3.Name = "label3";
-         label3.Size = new System.Drawing.Size(70, 28);
-         label3.TabIndex = 53;
-         label3.Text = "کد تلگرام :";
+         ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         ChatId_Lb.AutoSize = true;
+         ChatId_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         ChatId_Lb.Location = new System.Drawing.Point(489, 337);
+         ChatId_Lb.Name = "ChatId_Lb";
+         ChatId_Lb.Size = new System.Drawing.Size(70, 28);
+         ChatId_Lb.TabIndex = 53;
+         ChatId_Lb.Text = "کد تلگرام :";
          // 
          // label14
          // 
@@ -172,7 +172,7 @@
          // 
          // panel1
          // 
-         this.panel1.Controls.Add(this.labelControl1);
+         this.panel1.Controls.Add(this.TitlForm_Lb);
          this.panel1.Controls.Add(this.Back_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -180,20 +180,20 @@
          this.panel1.Size = new System.Drawing.Size(597, 59);
          this.panel1.TabIndex = 0;
          // 
-         // labelControl1
+         // TitlForm_Lb
          // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1077;
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(320, 0);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(216, 59);
-         this.labelControl1.TabIndex = 1;
-         this.labelControl1.Text = "اضافه کردن مربی جدید";
+         this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1077;
+         this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.TitlForm_Lb.Location = new System.Drawing.Point(320, 0);
+         this.TitlForm_Lb.Name = "TitlForm_Lb";
+         this.TitlForm_Lb.Size = new System.Drawing.Size(216, 59);
+         this.TitlForm_Lb.TabIndex = 1;
+         this.TitlForm_Lb.Text = "اضافه کردن مربی جدید";
          // 
          // Back_Butn
          // 
@@ -262,22 +262,22 @@
          this.FrstName_Text.Size = new System.Drawing.Size(237, 30);
          this.FrstName_Text.TabIndex = 1;
          // 
-         // labelControl6
+         // Desc1_Lb
          // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(43, 65);
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(538, 46);
-         this.labelControl6.TabIndex = 18;
-         this.labelControl6.Text = "بعد از تعریف کردن مربی درون سیستم باید بلافاصله در قسمت برنامه های کلاسی شیفت باش" +
+         this.Desc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc1_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc1_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.Desc1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc1_Lb.Location = new System.Drawing.Point(43, 65);
+         this.Desc1_Lb.Name = "Desc1_Lb";
+         this.Desc1_Lb.Size = new System.Drawing.Size(538, 46);
+         this.Desc1_Lb.TabIndex = 18;
+         this.Desc1_Lb.Text = "بعد از تعریف کردن مربی درون سیستم باید بلافاصله در قسمت برنامه های کلاسی شیفت باش" +
     "گاه قرار گیرد";
          // 
          // LastName_Text
@@ -442,42 +442,42 @@
          this.GetMaxFngrPrint_Butn.ToolTip = "بازگشت";
          this.GetMaxFngrPrint_Butn.Click += new System.EventHandler(this.GetMaxFngrPrint_Butn_Click);
          // 
-         // labelControl2
+         // Desc2_Lb
          // 
-         this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl2.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.labelControl2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
-         this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(195, 204);
-         this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(350, 52);
-         this.labelControl2.TabIndex = 18;
-         this.labelControl2.Text = "برای کنترل تردد مربان می توانید با کد مشخصه انگشتی یا کارتی تردد آنها را زیر نظر " +
+         this.Desc2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc2_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc2_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc2_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.Desc2_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
+         this.Desc2_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc2_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc2_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc2_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc2_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc2_Lb.Location = new System.Drawing.Point(195, 204);
+         this.Desc2_Lb.Name = "Desc2_Lb";
+         this.Desc2_Lb.Size = new System.Drawing.Size(350, 52);
+         this.Desc2_Lb.TabIndex = 18;
+         this.Desc2_Lb.Text = "برای کنترل تردد مربان می توانید با کد مشخصه انگشتی یا کارتی تردد آنها را زیر نظر " +
     "داشته باشید";
          // 
-         // labelControl3
+         // Desc3_Lb
          // 
-         this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl3.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl3.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.labelControl3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1139;
-         this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(129, 375);
-         this.labelControl3.Name = "labelControl3";
-         this.labelControl3.Size = new System.Drawing.Size(416, 52);
-         this.labelControl3.TabIndex = 18;
-         this.labelControl3.Text = "مربیان بر اساس دوره مربی گری که دوره دیده اند و مدرک گرفته اند می توانند برنامه ه" +
+         this.Desc3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc3_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc3_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc3_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.Desc3_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1139;
+         this.Desc3_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc3_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc3_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc3_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc3_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc3_Lb.Location = new System.Drawing.Point(129, 375);
+         this.Desc3_Lb.Name = "Desc3_Lb";
+         this.Desc3_Lb.Size = new System.Drawing.Size(416, 52);
+         this.Desc3_Lb.TabIndex = 18;
+         this.Desc3_Lb.Text = "مربیان بر اساس دوره مربی گری که دوره دیده اند و مدرک گرفته اند می توانند برنامه ه" +
     "ای ورزشی خود را با اعضا تنظیم کنند";
          // 
          // CardNum_Txt
@@ -568,13 +568,13 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.Controls.Add(label14);
-         this.Controls.Add(cASH_STATLabel);
-         this.Controls.Add(tYPELabel);
-         this.Controls.Add(label1);
-         this.Controls.Add(bANK_BRNC_CODELabel1);
-         this.Controls.Add(label3);
-         this.Controls.Add(label2);
-         this.Controls.Add(bANK_NAMELabel);
+         this.Controls.Add(LastName_Lb);
+         this.Controls.Add(FrstName_Lb);
+         this.Controls.Add(SexType_Lb);
+         this.Controls.Add(Mtod_Lb);
+         this.Controls.Add(ChatId_Lb);
+         this.Controls.Add(CardNo_Lb);
+         this.Controls.Add(FngrPrnt_Lb);
          this.Controls.Add(this.SexType_Lov);
          this.Controls.Add(this.Mtod_Lov);
          this.Controls.Add(this.Chat_Id_TextEdit);
@@ -582,9 +582,9 @@
          this.Controls.Add(this.FngrPrint_Text);
          this.Controls.Add(this.LastName_Text);
          this.Controls.Add(this.FrstName_Text);
-         this.Controls.Add(this.labelControl3);
-         this.Controls.Add(this.labelControl2);
-         this.Controls.Add(this.labelControl6);
+         this.Controls.Add(this.Desc3_Lb);
+         this.Controls.Add(this.Desc2_Lb);
+         this.Controls.Add(this.Desc1_Lb);
          this.Controls.Add(this.GetMaxFngrPrint_Butn);
          this.Controls.Add(this.SaveNewCoch_Butn);
          this.Controls.Add(this.SubmitChange_Butn);
@@ -611,11 +611,11 @@
       #endregion
 
       private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
+      private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton SubmitChange_Butn;
       private DevExpress.XtraEditors.ButtonEdit FrstName_Text;
-      private DevExpress.XtraEditors.LabelControl labelControl6;
+      private DevExpress.XtraEditors.LabelControl Desc1_Lb;
       private DevExpress.XtraEditors.ButtonEdit LastName_Text;
       private DevExpress.XtraEditors.ButtonEdit FngrPrint_Text;
       private DevExpress.XtraEditors.LookUpEdit Mtod_Lov;
@@ -623,8 +623,8 @@
       private DevExpress.XtraEditors.SimpleButton GetMaxFngrPrint_Butn;
       private Windows.Forms.BindingSource MtodBs1;
       private Windows.Forms.BindingSource DSxtpBs1;
-      private DevExpress.XtraEditors.LabelControl labelControl2;
-      private DevExpress.XtraEditors.LabelControl labelControl3;
+      private DevExpress.XtraEditors.LabelControl Desc2_Lb;
+      private DevExpress.XtraEditors.LabelControl Desc3_Lb;
       private DevExpress.XtraEditors.ButtonEdit CardNum_Txt;
       private DevExpress.XtraEditors.ButtonEdit Chat_Id_TextEdit;
       private DevExpress.XtraEditors.SimpleButton SaveNewCoch_Butn;

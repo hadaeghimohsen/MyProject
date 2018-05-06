@@ -245,7 +245,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Insr_Numb", ""),
                                     new XElement("Insr_Date", ""),
                                     new XElement("Educ_Deg", ""),
-                                    new XElement("Cbmt_Code", ""),
+                                    new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
                                     new XElement("Dise_Code", ""),
                                     new XElement("Blod_Grop", ""),
                                     new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),

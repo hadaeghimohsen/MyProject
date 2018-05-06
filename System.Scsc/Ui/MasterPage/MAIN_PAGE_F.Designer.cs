@@ -185,7 +185,6 @@
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.ShowInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.More_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -194,6 +193,7 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
          this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -1662,10 +1662,6 @@
          this.FngrPrnt_Txt.Size = new System.Drawing.Size(119, 22);
          this.FngrPrnt_Txt.TabIndex = 10;
          // 
-         // FighBs
-         // 
-         this.FighBs.DataSource = typeof(System.Scsc.Data.Fighter);
-         // 
          // ShowInfo_Butn
          // 
          this.ShowInfo_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
@@ -1828,6 +1824,10 @@
          this.ShowDesktop_Butn.TabIndex = 6;
          this.ShowDesktop_Butn.ToolTip = "نمایش صفحه میزکار";
          this.ShowDesktop_Butn.Click += new System.EventHandler(this.ShowDesktop_Butn_Click);
+         // 
+         // FighBs
+         // 
+         this.FighBs.DataSource = typeof(System.Scsc.Data.Fighter);
          // 
          // Sp_Barcode
          // 

@@ -1668,6 +1668,14 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<V_User_Localization_Form> V_User_Localization_Forms
+		{
+			get
+			{
+				return this.GetTable<V_User_Localization_Form>();
+			}
+		}
+		
 		private void InsertCountry(Country obj)
 		{
 			this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -63179,6 +63187,159 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Attendance = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#User_Localization_Form")]
+	public partial class V_User_Localization_Form
+	{
+		
+		private string _REGN_LANG;
+		
+		private string _RTL_STAT;
+		
+		private string _FORM_NAME;
+		
+		private string _CNTL_NAME;
+		
+		private string _LABL_TEXT;
+		
+		private string _TOOL_TIP_TEXT;
+		
+		private string _PLAC_HLDR_TEXT;
+		
+		private string _CNTL_TYPE;
+		
+		public V_User_Localization_Form()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_LANG", DbType="VarChar(3)")]
+		public string REGN_LANG
+		{
+			get
+			{
+				return this._REGN_LANG;
+			}
+			set
+			{
+				if ((this._REGN_LANG != value))
+				{
+					this._REGN_LANG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RTL_STAT", DbType="VarChar(3)")]
+		public string RTL_STAT
+		{
+			get
+			{
+				return this._RTL_STAT;
+			}
+			set
+			{
+				if ((this._RTL_STAT != value))
+				{
+					this._RTL_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORM_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string FORM_NAME
+		{
+			get
+			{
+				return this._FORM_NAME;
+			}
+			set
+			{
+				if ((this._FORM_NAME != value))
+				{
+					this._FORM_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTL_NAME", DbType="VarChar(50)")]
+		public string CNTL_NAME
+		{
+			get
+			{
+				return this._CNTL_NAME;
+			}
+			set
+			{
+				if ((this._CNTL_NAME != value))
+				{
+					this._CNTL_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABL_TEXT", DbType="NVarChar(100)")]
+		public string LABL_TEXT
+		{
+			get
+			{
+				return this._LABL_TEXT;
+			}
+			set
+			{
+				if ((this._LABL_TEXT != value))
+				{
+					this._LABL_TEXT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOOL_TIP_TEXT", DbType="NVarChar(100)")]
+		public string TOOL_TIP_TEXT
+		{
+			get
+			{
+				return this._TOOL_TIP_TEXT;
+			}
+			set
+			{
+				if ((this._TOOL_TIP_TEXT != value))
+				{
+					this._TOOL_TIP_TEXT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PLAC_HLDR_TEXT", DbType="NVarChar(100)")]
+		public string PLAC_HLDR_TEXT
+		{
+			get
+			{
+				return this._PLAC_HLDR_TEXT;
+			}
+			set
+			{
+				if ((this._PLAC_HLDR_TEXT != value))
+				{
+					this._PLAC_HLDR_TEXT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTL_TYPE", DbType="VarChar(3)")]
+		public string CNTL_TYPE
+		{
+			get
+			{
+				return this._CNTL_TYPE;
+			}
+			set
+			{
+				if ((this._CNTL_TYPE != value))
+				{
+					this._CNTL_TYPE = value;
+				}
+			}
 		}
 	}
 	

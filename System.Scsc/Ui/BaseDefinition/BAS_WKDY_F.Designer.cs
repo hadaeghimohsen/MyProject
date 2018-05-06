@@ -29,26 +29,26 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label cASH_STATLabel;
-         System.Windows.Forms.Label tYPELabel;
-         System.Windows.Forms.Label bANK_BRNC_CODELabel1;
-         System.Windows.Forms.Label bANK_NAMELabel;
-         System.Windows.Forms.Label label1;
-         System.Windows.Forms.Label label2;
+         System.Windows.Forms.Label CochName_Lb;
+         System.Windows.Forms.Label Mtod_Lb;
+         System.Windows.Forms.Label DayType_Lb;
+         System.Windows.Forms.Label StrtTime_Lb;
+         System.Windows.Forms.Label SexType_Lb;
+         System.Windows.Forms.Label EndTime_Lb;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_WKDY_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.CmwdTitl_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.FrstName_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+         this.Desc1_Lb = new DevExpress.XtraEditors.LabelControl();
          this.LastName_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrint_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.Mtod_Lov = new DevExpress.XtraEditors.LookUpEdit();
@@ -68,12 +68,12 @@
          this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.SelectDay_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CochInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
-         cASH_STATLabel = new System.Windows.Forms.Label();
-         tYPELabel = new System.Windows.Forms.Label();
-         bANK_BRNC_CODELabel1 = new System.Windows.Forms.Label();
-         bANK_NAMELabel = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         label2 = new System.Windows.Forms.Label();
+         CochName_Lb = new System.Windows.Forms.Label();
+         Mtod_Lb = new System.Windows.Forms.Label();
+         DayType_Lb = new System.Windows.Forms.Label();
+         StrtTime_Lb = new System.Windows.Forms.Label();
+         SexType_Lb = new System.Windows.Forms.Label();
+         EndTime_Lb = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
@@ -89,75 +89,75 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          this.SuspendLayout();
          // 
-         // cASH_STATLabel
+         // CochName_Lb
          // 
-         cASH_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         cASH_STATLabel.AutoSize = true;
-         cASH_STATLabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         cASH_STATLabel.Location = new System.Drawing.Point(723, 170);
-         cASH_STATLabel.Name = "cASH_STATLabel";
-         cASH_STATLabel.Size = new System.Drawing.Size(44, 28);
-         cASH_STATLabel.TabIndex = 56;
-         cASH_STATLabel.Text = "مربی :";
+         CochName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         CochName_Lb.AutoSize = true;
+         CochName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         CochName_Lb.Location = new System.Drawing.Point(723, 170);
+         CochName_Lb.Name = "CochName_Lb";
+         CochName_Lb.Size = new System.Drawing.Size(44, 28);
+         CochName_Lb.TabIndex = 56;
+         CochName_Lb.Text = "مربی :";
          // 
-         // tYPELabel
+         // Mtod_Lb
          // 
-         tYPELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         tYPELabel.AutoSize = true;
-         tYPELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         tYPELabel.Location = new System.Drawing.Point(723, 134);
-         tYPELabel.Name = "tYPELabel";
-         tYPELabel.Size = new System.Drawing.Size(52, 28);
-         tYPELabel.TabIndex = 55;
-         tYPELabel.Text = "ورزش :";
+         Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Mtod_Lb.AutoSize = true;
+         Mtod_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         Mtod_Lb.Location = new System.Drawing.Point(723, 134);
+         Mtod_Lb.Name = "Mtod_Lb";
+         Mtod_Lb.Size = new System.Drawing.Size(52, 28);
+         Mtod_Lb.TabIndex = 55;
+         Mtod_Lb.Text = "ورزش :";
          // 
-         // bANK_BRNC_CODELabel1
+         // DayType_Lb
          // 
-         bANK_BRNC_CODELabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bANK_BRNC_CODELabel1.AutoSize = true;
-         bANK_BRNC_CODELabel1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         bANK_BRNC_CODELabel1.Location = new System.Drawing.Point(723, 319);
-         bANK_BRNC_CODELabel1.Name = "bANK_BRNC_CODELabel1";
-         bANK_BRNC_CODELabel1.Size = new System.Drawing.Size(84, 28);
-         bANK_BRNC_CODELabel1.TabIndex = 54;
-         bANK_BRNC_CODELabel1.Text = "روزهای هفته :";
+         DayType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         DayType_Lb.AutoSize = true;
+         DayType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         DayType_Lb.Location = new System.Drawing.Point(723, 319);
+         DayType_Lb.Name = "DayType_Lb";
+         DayType_Lb.Size = new System.Drawing.Size(84, 28);
+         DayType_Lb.TabIndex = 54;
+         DayType_Lb.Text = "روزهای هفته :";
          // 
-         // bANK_NAMELabel
+         // StrtTime_Lb
          // 
-         bANK_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bANK_NAMELabel.AutoSize = true;
-         bANK_NAMELabel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         bANK_NAMELabel.Location = new System.Drawing.Point(723, 207);
-         bANK_NAMELabel.Name = "bANK_NAMELabel";
-         bANK_NAMELabel.Size = new System.Drawing.Size(85, 28);
-         bANK_NAMELabel.TabIndex = 53;
-         bANK_NAMELabel.Text = "ساعت شروع :";
+         StrtTime_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         StrtTime_Lb.AutoSize = true;
+         StrtTime_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         StrtTime_Lb.Location = new System.Drawing.Point(723, 207);
+         StrtTime_Lb.Name = "StrtTime_Lb";
+         StrtTime_Lb.Size = new System.Drawing.Size(85, 28);
+         StrtTime_Lb.TabIndex = 53;
+         StrtTime_Lb.Text = "ساعت شروع :";
          // 
-         // label1
+         // SexType_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label1.Location = new System.Drawing.Point(722, 279);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(57, 28);
-         label1.TabIndex = 54;
-         label1.Text = "جنسیت :";
+         SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         SexType_Lb.AutoSize = true;
+         SexType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         SexType_Lb.Location = new System.Drawing.Point(722, 279);
+         SexType_Lb.Name = "SexType_Lb";
+         SexType_Lb.Size = new System.Drawing.Size(57, 28);
+         SexType_Lb.TabIndex = 54;
+         SexType_Lb.Text = "جنسیت :";
          // 
-         // label2
+         // EndTime_Lb
          // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label2.Location = new System.Drawing.Point(723, 243);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(79, 28);
-         label2.TabIndex = 53;
-         label2.Text = "ساعت پایان :";
+         EndTime_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         EndTime_Lb.AutoSize = true;
+         EndTime_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         EndTime_Lb.Location = new System.Drawing.Point(723, 243);
+         EndTime_Lb.Name = "EndTime_Lb";
+         EndTime_Lb.Size = new System.Drawing.Size(79, 28);
+         EndTime_Lb.TabIndex = 53;
+         EndTime_Lb.Text = "ساعت پایان :";
          // 
          // panel1
          // 
-         this.panel1.Controls.Add(this.labelControl1);
+         this.panel1.Controls.Add(this.CmwdTitl_Lb);
          this.panel1.Controls.Add(this.Back_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -165,20 +165,20 @@
          this.panel1.Size = new System.Drawing.Size(831, 59);
          this.panel1.TabIndex = 1;
          // 
-         // labelControl1
+         // CmwdTitl_Lb
          // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(561, 0);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(209, 59);
-         this.labelControl1.TabIndex = 1;
-         this.labelControl1.Text = "ایام هفته برنامه کلاسی";
+         this.CmwdTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CmwdTitl_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
+         this.CmwdTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.CmwdTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.CmwdTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.CmwdTitl_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.CmwdTitl_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.CmwdTitl_Lb.Location = new System.Drawing.Point(561, 0);
+         this.CmwdTitl_Lb.Name = "CmwdTitl_Lb";
+         this.CmwdTitl_Lb.Size = new System.Drawing.Size(209, 59);
+         this.CmwdTitl_Lb.TabIndex = 1;
+         this.CmwdTitl_Lb.Text = "ایام هفته برنامه کلاسی";
          // 
          // Back_Butn
          // 
@@ -239,7 +239,7 @@
          this.FrstName_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.FrstName_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.FrstName_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FrstName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FrstName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.FrstName_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.FrstName_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FrstName_Text.Properties.NullValuePrompt = "نام";
@@ -254,22 +254,22 @@
          this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
          this.CbmtBs1.CurrentChanged += new System.EventHandler(this.CbmtBs1_CurrentChanged);
          // 
-         // labelControl6
+         // Desc1_Lb
          // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(264, 65);
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(551, 46);
-         this.labelControl6.TabIndex = 18;
-         this.labelControl6.Text = "بعد از تعریف کردن برنامه کلاسی درون سیستم بایدمشخص کنیم که این برنامه در کدام از " +
+         this.Desc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc1_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc1_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.Desc1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc1_Lb.Location = new System.Drawing.Point(264, 65);
+         this.Desc1_Lb.Name = "Desc1_Lb";
+         this.Desc1_Lb.Size = new System.Drawing.Size(551, 46);
+         this.Desc1_Lb.TabIndex = 18;
+         this.Desc1_Lb.Text = "بعد از تعریف کردن برنامه کلاسی درون سیستم بایدمشخص کنیم که این برنامه در کدام از " +
     "روزهای هفته برقرار میباشد که اعضا اجازه دارند در برنامه کلاسی خود حضور داشته باش" +
     "ند";
          // 
@@ -296,7 +296,7 @@
          this.LastName_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.LastName_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.LastName_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LastName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LastName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.LastName_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.LastName_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.LastName_Text.Properties.NullValuePrompt = "نام خانوادگی";
@@ -329,7 +329,7 @@
          this.FngrPrint_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.FngrPrint_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.FngrPrint_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FngrPrint_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FngrPrint_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.FngrPrint_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.FngrPrint_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FngrPrint_Text.Properties.NullValuePrompt = "شماره انگشتی";
@@ -361,7 +361,7 @@
          this.Mtod_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Mtod_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Mtod_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Mtod_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 55, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "DOMN_DESC", 82, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -401,7 +401,7 @@
          this.SexType_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.SexType_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.SexType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.SexType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "جنسیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -463,7 +463,7 @@
          this.CardNum_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CardNum_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CardNum_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNum_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNum_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.CardNum_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CardNum_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNum_Txt.Properties.NullValuePrompt = "شماره انگشتی";
@@ -680,19 +680,19 @@
          this.Controls.Add(this.CochInfo_Butn);
          this.Controls.Add(this.SelectDay_Butn);
          this.Controls.Add(this.WeekDays_Flp);
-         this.Controls.Add(cASH_STATLabel);
-         this.Controls.Add(tYPELabel);
-         this.Controls.Add(label1);
-         this.Controls.Add(bANK_BRNC_CODELabel1);
-         this.Controls.Add(label2);
-         this.Controls.Add(bANK_NAMELabel);
+         this.Controls.Add(CochName_Lb);
+         this.Controls.Add(Mtod_Lb);
+         this.Controls.Add(SexType_Lb);
+         this.Controls.Add(DayType_Lb);
+         this.Controls.Add(EndTime_Lb);
+         this.Controls.Add(StrtTime_Lb);
          this.Controls.Add(this.SexType_Lov);
          this.Controls.Add(this.Mtod_Lov);
          this.Controls.Add(this.CardNum_Txt);
          this.Controls.Add(this.FngrPrint_Text);
          this.Controls.Add(this.LastName_Text);
          this.Controls.Add(this.FrstName_Text);
-         this.Controls.Add(this.labelControl6);
+         this.Controls.Add(this.Desc1_Lb);
          this.Controls.Add(this.SubmitChange_Butn);
          this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -720,11 +720,11 @@
       #endregion
 
       private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
+      private DevExpress.XtraEditors.LabelControl CmwdTitl_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton SubmitChange_Butn;
       private DevExpress.XtraEditors.ButtonEdit FrstName_Text;
-      private DevExpress.XtraEditors.LabelControl labelControl6;
+      private DevExpress.XtraEditors.LabelControl Desc1_Lb;
       private DevExpress.XtraEditors.ButtonEdit LastName_Text;
       private DevExpress.XtraEditors.ButtonEdit FngrPrint_Text;
       private DevExpress.XtraEditors.LookUpEdit Mtod_Lov;

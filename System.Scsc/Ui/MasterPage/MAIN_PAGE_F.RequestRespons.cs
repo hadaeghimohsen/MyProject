@@ -18,6 +18,7 @@ namespace System.Scsc.Ui.MasterPage
       private string ConnectionString;
       private List<long?> Fga_Uclb_U;
       private string Crnt_User;
+      private string RegnLang = "054";
 
       //private bool requery = default(bool);
 
@@ -190,9 +191,32 @@ namespace System.Scsc.Ui.MasterPage
          );
 
          /* Initial Sp_Barcode For Running */
-         ///Start_BarCode();
+         //Start_BarCode();
          /* Initial Sp_FingerPrint For Running */
          //Start_FingerPrint();         
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if(regnlang.First().REGN_LANG != RegnLang)
+         {
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "bbi_cmanbutn":
+                     bbi_cmanbutn.Caption = control.LABL_TEXT;
+                     break;
+                  case "bbi_adm1butn":
+                     bbi_adm1butn.Caption = control.LABL_TEXT;
+                     break;
+                  case "":
+                  default:
+                     break;
+               }
+            }
+         }
+         #endregion
 
          job.Status = StatusType.Successful;
       }

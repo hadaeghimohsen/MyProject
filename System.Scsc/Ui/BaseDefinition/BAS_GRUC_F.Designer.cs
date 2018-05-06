@@ -28,24 +28,25 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_GRUC_F));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          this.panel1 = new System.Windows.Forms.Panel();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.AcesUserClubTitl_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.GrantUserToClub_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-         this.UserBs = new System.Windows.Forms.BindingSource();
+         this.Desc1_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.UserClubBs = new System.Windows.Forms.BindingSource();
+         this.UserClubBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFGA_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSYS_USER = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SysUser_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colMAST_SYS_USER = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREC_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,11 +56,11 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colClub = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+         this.ClubName_Lb = new DevExpress.XtraEditors.LabelControl();
          this.RevokeUserFromClub_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.cashGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.UserName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.UserBs)).BeginInit();
@@ -76,7 +77,7 @@
          // panel1
          // 
          this.panel1.BackColor = System.Drawing.Color.Transparent;
-         this.panel1.Controls.Add(this.labelControl1);
+         this.panel1.Controls.Add(this.AcesUserClubTitl_Lb);
          this.panel1.Controls.Add(this.Back_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -84,21 +85,21 @@
          this.panel1.Size = new System.Drawing.Size(597, 59);
          this.panel1.TabIndex = 1;
          // 
-         // labelControl1
+         // AcesUserClubTitl_Lb
          // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.labelControl1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.Appearance.Image")));
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(233, 0);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(303, 59);
-         this.labelControl1.TabIndex = 1;
-         this.labelControl1.Text = "دسترسی کاربران به شیفت باشگاه";
+         this.AcesUserClubTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AcesUserClubTitl_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.AcesUserClubTitl_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.Appearance.Image")));
+         this.AcesUserClubTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.AcesUserClubTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.AcesUserClubTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.AcesUserClubTitl_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.AcesUserClubTitl_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.AcesUserClubTitl_Lb.Location = new System.Drawing.Point(233, 0);
+         this.AcesUserClubTitl_Lb.Name = "AcesUserClubTitl_Lb";
+         this.AcesUserClubTitl_Lb.Size = new System.Drawing.Size(303, 59);
+         this.AcesUserClubTitl_Lb.TabIndex = 1;
+         this.AcesUserClubTitl_Lb.Text = "دسترسی کاربران به شیفت باشگاه";
          // 
          // Back_Butn
          // 
@@ -136,22 +137,22 @@
          this.GrantUserToClub_Butn.ToolTip = "بازگشت";
          this.GrantUserToClub_Butn.Click += new System.EventHandler(this.GrantUserToClub_Butn_Click);
          // 
-         // labelControl6
+         // Desc1_Lb
          // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(43, 65);
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(538, 46);
-         this.labelControl6.TabIndex = 18;
-         this.labelControl6.Text = "برای حفاظت از اطلاعات اعضا باشگاه می توانید مشخص کنید که چه کاربرهایی می توانند ب" +
+         this.Desc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Desc1_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc1_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.Desc1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Desc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Desc1_Lb.Location = new System.Drawing.Point(43, 65);
+         this.Desc1_Lb.Name = "Desc1_Lb";
+         this.Desc1_Lb.Size = new System.Drawing.Size(538, 46);
+         this.Desc1_Lb.TabIndex = 18;
+         this.Desc1_Lb.Text = "برای حفاظت از اطلاعات اعضا باشگاه می توانید مشخص کنید که چه کاربرهایی می توانند ب" +
     "ه این اطلاعات دسترسی داشته باشند";
          // 
          // UserBs
@@ -165,7 +166,7 @@
          this.splitContainerControl1.Location = new System.Drawing.Point(24, 117);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.gridControl1);
-         this.splitContainerControl1.Panel1.Controls.Add(this.labelControl2);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ClubName_Lb);
          this.splitContainerControl1.Panel1.Controls.Add(this.RevokeUserFromClub_Butn);
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.cashGridControl);
@@ -209,7 +210,7 @@
          this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFGA_CODE,
             this.colCLUB_CODE,
-            this.colSYS_USER,
+            this.SysUser_Clm,
             this.colMAST_SYS_USER,
             this.colREC_STAT,
             this.colVALD_TYPE,
@@ -218,19 +219,19 @@
             this.colMDFY_BY,
             this.colMDFY_DATE,
             this.colClub});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "002";
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = "001";
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "002";
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition2.Value1 = "001";
          this.gridView2.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6});
+            styleFormatCondition1,
+            styleFormatCondition2});
          this.gridView2.GridControl = this.gridControl1;
          this.gridView2.Name = "gridView2";
          this.gridView2.OptionsBehavior.Editable = false;
@@ -249,14 +250,14 @@
          this.colCLUB_CODE.FieldName = "CLUB_CODE";
          this.colCLUB_CODE.Name = "colCLUB_CODE";
          // 
-         // colSYS_USER
+         // SysUser_Clm
          // 
-         this.colSYS_USER.Caption = "کاربران شیفت باشگاه";
-         this.colSYS_USER.ColumnEdit = this.repositoryItemLookUpEdit1;
-         this.colSYS_USER.FieldName = "SYS_USER";
-         this.colSYS_USER.Name = "colSYS_USER";
-         this.colSYS_USER.Visible = true;
-         this.colSYS_USER.VisibleIndex = 0;
+         this.SysUser_Clm.Caption = "کاربران شیفت باشگاه";
+         this.SysUser_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
+         this.SysUser_Clm.FieldName = "SYS_USER";
+         this.SysUser_Clm.Name = "SysUser_Clm";
+         this.SysUser_Clm.Visible = true;
+         this.SysUser_Clm.VisibleIndex = 0;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -308,22 +309,22 @@
          this.colClub.FieldName = "Club";
          this.colClub.Name = "colClub";
          // 
-         // labelControl2
+         // ClubName_Lb
          // 
-         this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl2.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.labelControl2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
-         this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(0, 0);
-         this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(269, 52);
-         this.labelControl2.TabIndex = 19;
-         this.labelControl2.Text = "کاربران شیفت آقایان";
+         this.ClubName_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.ClubName_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ClubName_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.ClubName_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
+         this.ClubName_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.ClubName_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.ClubName_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.ClubName_Lb.Dock = System.Windows.Forms.DockStyle.Top;
+         this.ClubName_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.ClubName_Lb.Location = new System.Drawing.Point(0, 0);
+         this.ClubName_Lb.Name = "ClubName_Lb";
+         this.ClubName_Lb.Size = new System.Drawing.Size(269, 52);
+         this.ClubName_Lb.TabIndex = 19;
+         this.ClubName_Lb.Text = "کاربران شیفت آقایان";
          // 
          // RevokeUserFromClub_Butn
          // 
@@ -370,21 +371,21 @@
          this.gridView1.Appearance.Row.Options.UseTextOptions = true;
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colUSER_NAME,
+            this.UserName_Clm,
             this.colUSER_DB});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "002";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "001";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "002";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "001";
          this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView1.GridControl = this.cashGridControl;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsBehavior.Editable = false;
@@ -393,13 +394,13 @@
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
          // 
-         // colUSER_NAME
+         // UserName_Clm
          // 
-         this.colUSER_NAME.Caption = "کاربران";
-         this.colUSER_NAME.FieldName = "USER_NAME";
-         this.colUSER_NAME.Name = "colUSER_NAME";
-         this.colUSER_NAME.Visible = true;
-         this.colUSER_NAME.VisibleIndex = 0;
+         this.UserName_Clm.Caption = "کاربران";
+         this.UserName_Clm.FieldName = "USER_NAME";
+         this.UserName_Clm.Name = "UserName_Clm";
+         this.UserName_Clm.Visible = true;
+         this.UserName_Clm.VisibleIndex = 0;
          // 
          // colUSER_DB
          // 
@@ -412,7 +413,7 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.Controls.Add(this.splitContainerControl1);
-         this.Controls.Add(this.labelControl6);
+         this.Controls.Add(this.Desc1_Lb);
          this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "BAS_GRUC_F";
@@ -435,10 +436,10 @@
       #endregion
 
       private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
+      private DevExpress.XtraEditors.LabelControl AcesUserClubTitl_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton GrantUserToClub_Butn;
-      private DevExpress.XtraEditors.LabelControl labelControl6;
+      private DevExpress.XtraEditors.LabelControl Desc1_Lb;
       private Windows.Forms.BindingSource UserBs;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
       private DevExpress.XtraEditors.SimpleButton RevokeUserFromClub_Butn;
@@ -446,11 +447,11 @@
       private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
       private DevExpress.XtraGrid.GridControl cashGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-      private DevExpress.XtraEditors.LabelControl labelControl2;
+      private DevExpress.XtraEditors.LabelControl ClubName_Lb;
       private Windows.Forms.BindingSource UserClubBs;
       private DevExpress.XtraGrid.Columns.GridColumn colFGA_CODE;
       private DevExpress.XtraGrid.Columns.GridColumn colCLUB_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colSYS_USER;
+      private DevExpress.XtraGrid.Columns.GridColumn SysUser_Clm;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private DevExpress.XtraGrid.Columns.GridColumn colMAST_SYS_USER;
       private DevExpress.XtraGrid.Columns.GridColumn colREC_STAT;
@@ -460,7 +461,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colClub;
-      private DevExpress.XtraGrid.Columns.GridColumn colUSER_NAME;
+      private DevExpress.XtraGrid.Columns.GridColumn UserName_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colUSER_DB;
 
    }

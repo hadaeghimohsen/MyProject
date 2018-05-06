@@ -1168,6 +1168,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_ReceiptPayment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Sale.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_User_Localization_Form.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

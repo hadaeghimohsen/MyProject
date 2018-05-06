@@ -208,7 +208,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private void Actn_CalF_P(Job job)
       {
          Club = job.Input as Data.Club;
-         labelControl2.Text = string.Format("کاربران {0}", Club.NAME);
+         ClubName_Lb.Text = string.Format("کاربران {0}", Club.NAME);
          Execute_Query();
          job.Status = StatusType.Successful;
       }

@@ -233,6 +233,7 @@
          this.UpdateSecurity_Butn.Appearance.Options.UseTextOptions = true;
          this.UpdateSecurity_Butn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.UpdateSecurity_Butn.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.UpdateSecurity_Butn.Cursor = System.Windows.Forms.Cursors.Default;
          this.UpdateSecurity_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1369;
          this.UpdateSecurity_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
          this.UpdateSecurity_Butn.Location = new System.Drawing.Point(301, 319);

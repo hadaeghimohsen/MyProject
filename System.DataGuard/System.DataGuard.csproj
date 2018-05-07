@@ -132,6 +132,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -946,11 +947,14 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.D_REGN.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_VLDT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_YSNO.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Form.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Form_Control.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Gas_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Gateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Gateway_Public.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Global_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.ISP_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Localization.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Mail_Server.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Msgb_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package.datasource" />

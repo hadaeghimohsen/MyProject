@@ -140,6 +140,15 @@ namespace System.DataGuard.Data
     partial void InsertPos_Device(Pos_Device instance);
     partial void UpdatePos_Device(Pos_Device instance);
     partial void DeletePos_Device(Pos_Device instance);
+    partial void InsertLocalization(Localization instance);
+    partial void UpdateLocalization(Localization instance);
+    partial void DeleteLocalization(Localization instance);
+    partial void InsertForm(Form instance);
+    partial void UpdateForm(Form instance);
+    partial void DeleteForm(Form instance);
+    partial void InsertForm_Control(Form_Control instance);
+    partial void UpdateForm_Control(Form_Control instance);
+    partial void DeleteForm_Control(Form_Control instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -641,6 +650,30 @@ namespace System.DataGuard.Data
 			get
 			{
 				return this.GetTable<Pos_Device>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Localization> Localizations
+		{
+			get
+			{
+				return this.GetTable<Localization>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Form> Forms
+		{
+			get
+			{
+				return this.GetTable<Form>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Form_Control> Form_Controls
+		{
+			get
+			{
+				return this.GetTable<Form_Control>();
 			}
 		}
 		
@@ -14880,6 +14913,10 @@ namespace System.DataGuard.Data
 		
 		private EntitySet<Transaction_Log> _Transaction_Logs;
 		
+		private EntitySet<Localization> _Localizations;
+		
+		private EntitySet<Form> _Forms;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -14940,6 +14977,8 @@ namespace System.DataGuard.Data
 			this._Roles = new EntitySet<Role>(new Action<Role>(this.attach_Roles), new Action<Role>(this.detach_Roles));
 			this._Role_Privileges = new EntitySet<Role_Privilege>(new Action<Role_Privilege>(this.attach_Role_Privileges), new Action<Role_Privilege>(this.detach_Role_Privileges));
 			this._Transaction_Logs = new EntitySet<Transaction_Log>(new Action<Transaction_Log>(this.attach_Transaction_Logs), new Action<Transaction_Log>(this.detach_Transaction_Logs));
+			this._Localizations = new EntitySet<Localization>(new Action<Localization>(this.attach_Localizations), new Action<Localization>(this.detach_Localizations));
+			this._Forms = new EntitySet<Form>(new Action<Form>(this.attach_Forms), new Action<Form>(this.detach_Forms));
 			OnCreated();
 		}
 		
@@ -15487,6 +15526,32 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Localization", Storage="_Localizations", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Localization> Localizations
+		{
+			get
+			{
+				return this._Localizations;
+			}
+			set
+			{
+				this._Localizations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Form", Storage="_Forms", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Form> Forms
+		{
+			get
+			{
+				return this._Forms;
+			}
+			set
+			{
+				this._Forms.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -15598,6 +15663,30 @@ namespace System.DataGuard.Data
 		}
 		
 		private void detach_Transaction_Logs(Transaction_Log entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Localizations(Localization entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Localizations(Localization entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Forms(Form entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Forms(Form entity)
 		{
 			this.SendPropertyChanging();
 			entity.Sub_System = null;
@@ -18347,6 +18436,892 @@ namespace System.DataGuard.Data
 		{
 			this.SendPropertyChanging();
 			entity.Pos_Device = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Localization")]
+	public partial class Localization : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _LCID;
+		
+		private System.Nullable<int> _SUB_SYS;
+		
+		private string _REGN_LANG;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Form> _Forms;
+		
+		private EntityRef<Sub_System> _Sub_System;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLCIDChanging(long value);
+    partial void OnLCIDChanged();
+    partial void OnSUB_SYSChanging(System.Nullable<int> value);
+    partial void OnSUB_SYSChanged();
+    partial void OnREGN_LANGChanging(string value);
+    partial void OnREGN_LANGChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Localization()
+		{
+			this._Forms = new EntitySet<Form>(new Action<Form>(this.attach_Forms), new Action<Form>(this.detach_Forms));
+			this._Sub_System = default(EntityRef<Sub_System>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LCID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long LCID
+		{
+			get
+			{
+				return this._LCID;
+			}
+			set
+			{
+				if ((this._LCID != value))
+				{
+					this.OnLCIDChanging(value);
+					this.SendPropertyChanging();
+					this._LCID = value;
+					this.SendPropertyChanged("LCID");
+					this.OnLCIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int")]
+		public System.Nullable<int> SUB_SYS
+		{
+			get
+			{
+				return this._SUB_SYS;
+			}
+			set
+			{
+				if ((this._SUB_SYS != value))
+				{
+					if (this._Sub_System.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_SYS = value;
+					this.SendPropertyChanged("SUB_SYS");
+					this.OnSUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_LANG", DbType="VarChar(3)")]
+		public string REGN_LANG
+		{
+			get
+			{
+				return this._REGN_LANG;
+			}
+			set
+			{
+				if ((this._REGN_LANG != value))
+				{
+					this.OnREGN_LANGChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_LANG = value;
+					this.SendPropertyChanged("REGN_LANG");
+					this.OnREGN_LANGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localization_Form", Storage="_Forms", ThisKey="LCID", OtherKey="LCAL_LCID")]
+		public EntitySet<Form> Forms
+		{
+			get
+			{
+				return this._Forms;
+			}
+			set
+			{
+				this._Forms.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Localization", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
+		public Sub_System Sub_System
+		{
+			get
+			{
+				return this._Sub_System.Entity;
+			}
+			set
+			{
+				Sub_System previousValue = this._Sub_System.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_System.Entity = null;
+						previousValue.Localizations.Remove(this);
+					}
+					this._Sub_System.Entity = value;
+					if ((value != null))
+					{
+						value.Localizations.Add(this);
+						this._SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._SUB_SYS = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Sub_System");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Forms(Form entity)
+		{
+			this.SendPropertyChanging();
+			entity.Localization = this;
+		}
+		
+		private void detach_Forms(Form entity)
+		{
+			this.SendPropertyChanging();
+			entity.Localization = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Form")]
+	public partial class Form : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _LCAL_LCID;
+		
+		private long _ID;
+		
+		private int _SUB_SYS;
+		
+		private string _APEN_NAME;
+		
+		private string _FA_NAME;
+		
+		private string _EN_NAME;
+		
+		private string _GUID;
+		
+		private string _FORM_PATH;
+		
+		private EntitySet<Form_Control> _Form_Controls;
+		
+		private EntityRef<Sub_System> _Sub_System;
+		
+		private EntityRef<Localization> _Localization;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLCAL_LCIDChanging(System.Nullable<long> value);
+    partial void OnLCAL_LCIDChanged();
+    partial void OnIDChanging(long value);
+    partial void OnIDChanged();
+    partial void OnSUB_SYSChanging(int value);
+    partial void OnSUB_SYSChanged();
+    partial void OnAPEN_NAMEChanging(string value);
+    partial void OnAPEN_NAMEChanged();
+    partial void OnFA_NAMEChanging(string value);
+    partial void OnFA_NAMEChanged();
+    partial void OnEN_NAMEChanging(string value);
+    partial void OnEN_NAMEChanged();
+    partial void OnGUIDChanging(string value);
+    partial void OnGUIDChanged();
+    partial void OnFORM_PATHChanging(string value);
+    partial void OnFORM_PATHChanged();
+    #endregion
+		
+		public Form()
+		{
+			this._Form_Controls = new EntitySet<Form_Control>(new Action<Form_Control>(this.attach_Form_Controls), new Action<Form_Control>(this.detach_Form_Controls));
+			this._Sub_System = default(EntityRef<Sub_System>);
+			this._Localization = default(EntityRef<Localization>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LCAL_LCID", DbType="BigInt")]
+		public System.Nullable<long> LCAL_LCID
+		{
+			get
+			{
+				return this._LCAL_LCID;
+			}
+			set
+			{
+				if ((this._LCAL_LCID != value))
+				{
+					if (this._Localization.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLCAL_LCIDChanging(value);
+					this.SendPropertyChanging();
+					this._LCAL_LCID = value;
+					this.SendPropertyChanged("LCAL_LCID");
+					this.OnLCAL_LCIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int NOT NULL")]
+		public int SUB_SYS
+		{
+			get
+			{
+				return this._SUB_SYS;
+			}
+			set
+			{
+				if ((this._SUB_SYS != value))
+				{
+					if (this._Sub_System.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_SYS = value;
+					this.SendPropertyChanged("SUB_SYS");
+					this.OnSUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APEN_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string APEN_NAME
+		{
+			get
+			{
+				return this._APEN_NAME;
+			}
+			set
+			{
+				if ((this._APEN_NAME != value))
+				{
+					this.OnAPEN_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._APEN_NAME = value;
+					this.SendPropertyChanged("APEN_NAME");
+					this.OnAPEN_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FA_NAME", DbType="NVarChar(250)")]
+		public string FA_NAME
+		{
+			get
+			{
+				return this._FA_NAME;
+			}
+			set
+			{
+				if ((this._FA_NAME != value))
+				{
+					this.OnFA_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._FA_NAME = value;
+					this.SendPropertyChanged("FA_NAME");
+					this.OnFA_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EN_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string EN_NAME
+		{
+			get
+			{
+				return this._EN_NAME;
+			}
+			set
+			{
+				if ((this._EN_NAME != value))
+				{
+					this.OnEN_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._EN_NAME = value;
+					this.SendPropertyChanged("EN_NAME");
+					this.OnEN_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUID", DbType="VarChar(38)")]
+		public string GUID
+		{
+			get
+			{
+				return this._GUID;
+			}
+			set
+			{
+				if ((this._GUID != value))
+				{
+					this.OnGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._GUID = value;
+					this.SendPropertyChanged("GUID");
+					this.OnGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORM_PATH", DbType="VarChar(250)")]
+		public string FORM_PATH
+		{
+			get
+			{
+				return this._FORM_PATH;
+			}
+			set
+			{
+				if ((this._FORM_PATH != value))
+				{
+					this.OnFORM_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._FORM_PATH = value;
+					this.SendPropertyChanged("FORM_PATH");
+					this.OnFORM_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Form_Form_Control", Storage="_Form_Controls", ThisKey="ID", OtherKey="FORM_ID")]
+		public EntitySet<Form_Control> Form_Controls
+		{
+			get
+			{
+				return this._Form_Controls;
+			}
+			set
+			{
+				this._Form_Controls.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Form", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
+		public Sub_System Sub_System
+		{
+			get
+			{
+				return this._Sub_System.Entity;
+			}
+			set
+			{
+				Sub_System previousValue = this._Sub_System.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_System.Entity = null;
+						previousValue.Forms.Remove(this);
+					}
+					this._Sub_System.Entity = value;
+					if ((value != null))
+					{
+						value.Forms.Add(this);
+						this._SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._SUB_SYS = default(int);
+					}
+					this.SendPropertyChanged("Sub_System");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localization_Form", Storage="_Localization", ThisKey="LCAL_LCID", OtherKey="LCID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Localization Localization
+		{
+			get
+			{
+				return this._Localization.Entity;
+			}
+			set
+			{
+				Localization previousValue = this._Localization.Entity;
+				if (((previousValue != value) 
+							|| (this._Localization.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Localization.Entity = null;
+						previousValue.Forms.Remove(this);
+					}
+					this._Localization.Entity = value;
+					if ((value != null))
+					{
+						value.Forms.Add(this);
+						this._LCAL_LCID = value.LCID;
+					}
+					else
+					{
+						this._LCAL_LCID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Localization");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Form_Controls(Form_Control entity)
+		{
+			this.SendPropertyChanging();
+			entity.Form = this;
+		}
+		
+		private void detach_Form_Controls(Form_Control entity)
+		{
+			this.SendPropertyChanging();
+			entity.Form = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Form_Controls")]
+	public partial class Form_Control : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _FORM_ID;
+		
+		private long _ID;
+		
+		private string _NAME;
+		
+		private string _LABL_TEXT;
+		
+		private string _TOOL_TIP_TEXT;
+		
+		private string _PLAC_HLDR_TEXT;
+		
+		private string _CNTL_TYPE;
+		
+		private string _STAT;
+		
+		private EntityRef<Form> _Form;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFORM_IDChanging(System.Nullable<long> value);
+    partial void OnFORM_IDChanged();
+    partial void OnIDChanging(long value);
+    partial void OnIDChanged();
+    partial void OnNAMEChanging(string value);
+    partial void OnNAMEChanged();
+    partial void OnLABL_TEXTChanging(string value);
+    partial void OnLABL_TEXTChanged();
+    partial void OnTOOL_TIP_TEXTChanging(string value);
+    partial void OnTOOL_TIP_TEXTChanged();
+    partial void OnPLAC_HLDR_TEXTChanging(string value);
+    partial void OnPLAC_HLDR_TEXTChanged();
+    partial void OnCNTL_TYPEChanging(string value);
+    partial void OnCNTL_TYPEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    #endregion
+		
+		public Form_Control()
+		{
+			this._Form = default(EntityRef<Form>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORM_ID", DbType="BigInt")]
+		public System.Nullable<long> FORM_ID
+		{
+			get
+			{
+				return this._FORM_ID;
+			}
+			set
+			{
+				if ((this._FORM_ID != value))
+				{
+					if (this._Form.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFORM_IDChanging(value);
+					this.SendPropertyChanging();
+					this._FORM_ID = value;
+					this.SendPropertyChanged("FORM_ID");
+					this.OnFORM_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(50)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this.OnNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._NAME = value;
+					this.SendPropertyChanged("NAME");
+					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABL_TEXT", DbType="NVarChar(100)")]
+		public string LABL_TEXT
+		{
+			get
+			{
+				return this._LABL_TEXT;
+			}
+			set
+			{
+				if ((this._LABL_TEXT != value))
+				{
+					this.OnLABL_TEXTChanging(value);
+					this.SendPropertyChanging();
+					this._LABL_TEXT = value;
+					this.SendPropertyChanged("LABL_TEXT");
+					this.OnLABL_TEXTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOOL_TIP_TEXT", DbType="NVarChar(100)")]
+		public string TOOL_TIP_TEXT
+		{
+			get
+			{
+				return this._TOOL_TIP_TEXT;
+			}
+			set
+			{
+				if ((this._TOOL_TIP_TEXT != value))
+				{
+					this.OnTOOL_TIP_TEXTChanging(value);
+					this.SendPropertyChanging();
+					this._TOOL_TIP_TEXT = value;
+					this.SendPropertyChanged("TOOL_TIP_TEXT");
+					this.OnTOOL_TIP_TEXTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PLAC_HLDR_TEXT", DbType="NVarChar(100)")]
+		public string PLAC_HLDR_TEXT
+		{
+			get
+			{
+				return this._PLAC_HLDR_TEXT;
+			}
+			set
+			{
+				if ((this._PLAC_HLDR_TEXT != value))
+				{
+					this.OnPLAC_HLDR_TEXTChanging(value);
+					this.SendPropertyChanging();
+					this._PLAC_HLDR_TEXT = value;
+					this.SendPropertyChanged("PLAC_HLDR_TEXT");
+					this.OnPLAC_HLDR_TEXTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTL_TYPE", DbType="VarChar(3)")]
+		public string CNTL_TYPE
+		{
+			get
+			{
+				return this._CNTL_TYPE;
+			}
+			set
+			{
+				if ((this._CNTL_TYPE != value))
+				{
+					this.OnCNTL_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._CNTL_TYPE = value;
+					this.SendPropertyChanged("CNTL_TYPE");
+					this.OnCNTL_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Form_Form_Control", Storage="_Form", ThisKey="FORM_ID", OtherKey="ID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Form Form
+		{
+			get
+			{
+				return this._Form.Entity;
+			}
+			set
+			{
+				Form previousValue = this._Form.Entity;
+				if (((previousValue != value) 
+							|| (this._Form.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Form.Entity = null;
+						previousValue.Form_Controls.Remove(this);
+					}
+					this._Form.Entity = value;
+					if ((value != null))
+					{
+						value.Form_Controls.Add(this);
+						this._FORM_ID = value.ID;
+					}
+					else
+					{
+						this._FORM_ID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Form");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

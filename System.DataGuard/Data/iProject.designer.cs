@@ -887,6 +887,13 @@ namespace System.DataGuard.Data
 			x = ((System.Xml.Linq.XElement)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.Compare_Duplicate_Localization")]
+		public int Compare_Duplicate_Localization([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Gateway")]

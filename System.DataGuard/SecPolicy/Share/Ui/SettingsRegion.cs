@@ -66,7 +66,15 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+         if (Tb_Master.SelectedTab == tp_001)
+         {
+            UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+         }
+         else if (Tb_Master.SelectedTab == tp_002)
+         {
+            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
+            SubSys_Lov.EditValue = 0;
+         }
       }
 
       private void UserBs_ListChanged(object sender, ListChangedEventArgs e)
@@ -178,6 +186,51 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             this._webBrowserCtrl.Navigate(this._translationSpeakUrl);
          }
+      }
+
+      private void SubSys_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            SorcRegn_Lov.EditValue = "054";
+            FormBs.DataSource = iProject.Forms.Where(f => f.SUB_SYS == (int)e.NewValue && f.Localization.REGN_LANG == "054");
+
+            var crntform = FormBs.Current as Data.Form;
+            if (crntform == null) return;
+
+            Form_Lov.EditValue = crntform.ID;
+
+            // نمایش کنترل های روی صفحه برای زبان منبع
+            SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
+
+            var trgtregn = TrgtRegn_Lov.EditValue;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            // نمایش کنترل های روی صفحه برای زبان مقصد
+            TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)e.NewValue && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
+         }
+         catch { }
+      }
+
+      private void Form_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            var crntform = FormBs.List.OfType<Data.Form>().FirstOrDefault(f => f.ID == (long)e.NewValue);
+
+            // نمایش کنترل های روی صفحه برای زبان منبع
+            SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
+
+            var trgtregn = TrgtRegn_Lov.EditValue;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            // نمایش کنترل های روی صفحه برای زبان مقصد
+            TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)subsys && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
+         }
+         catch { }
       }
    }
 

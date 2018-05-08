@@ -73,8 +73,6 @@
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-         this.Translate_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Compare_Duplicate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
          this.TrgtFcntBs = new System.Windows.Forms.BindingSource(this.components);
@@ -90,6 +88,7 @@
          this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
          this.repositoryItemTimeEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+         this.Translate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TrgtRegn_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.sub_SystemGridControl = new DevExpress.XtraGrid.GridControl();
          this.SorcFcntBs = new System.Windows.Forms.BindingSource(this.components);
@@ -107,6 +106,7 @@
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.Form_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.FormBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Compare_Duplicate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SorcRegn_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.SubSys_Lov = new DevExpress.XtraEditors.LookUpEdit();
@@ -647,48 +647,6 @@
          this.simpleButton3.TabIndex = 21;
          this.simpleButton3.ToolTip = "بازگشت";
          // 
-         // Translate_Butn
-         // 
-         this.Translate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.Translate_Butn.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-         this.Translate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Translate_Butn.Appearance.Options.UseBackColor = true;
-         this.Translate_Butn.Appearance.Options.UseBorderColor = true;
-         this.Translate_Butn.Appearance.Options.UseFont = true;
-         this.Translate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-         this.Translate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.Translate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Translate_Butn.Image")));
-         this.Translate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Translate_Butn.Location = new System.Drawing.Point(0, 330);
-         this.Translate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Translate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Translate_Butn.Name = "Translate_Butn";
-         this.Translate_Butn.Size = new System.Drawing.Size(423, 40);
-         this.Translate_Butn.TabIndex = 20;
-         this.Translate_Butn.Text = "ترجمه کردن";
-         this.Translate_Butn.ToolTip = "بازگشت";
-         // 
-         // Compare_Duplicate_Butn
-         // 
-         this.Compare_Duplicate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.Compare_Duplicate_Butn.Appearance.BorderColor = System.Drawing.Color.Blue;
-         this.Compare_Duplicate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Compare_Duplicate_Butn.Appearance.Options.UseBackColor = true;
-         this.Compare_Duplicate_Butn.Appearance.Options.UseBorderColor = true;
-         this.Compare_Duplicate_Butn.Appearance.Options.UseFont = true;
-         this.Compare_Duplicate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Compare_Duplicate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.Compare_Duplicate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Compare_Duplicate_Butn.Image")));
-         this.Compare_Duplicate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Compare_Duplicate_Butn.Location = new System.Drawing.Point(0, 330);
-         this.Compare_Duplicate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Compare_Duplicate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Compare_Duplicate_Butn.Name = "Compare_Duplicate_Butn";
-         this.Compare_Duplicate_Butn.Size = new System.Drawing.Size(422, 40);
-         this.Compare_Duplicate_Butn.TabIndex = 20;
-         this.Compare_Duplicate_Butn.Text = "مقایسه و نمونه برداری";
-         this.Compare_Duplicate_Butn.ToolTip = "بازگشت";
-         // 
          // splitContainerControl2
          // 
          this.splitContainerControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -852,6 +810,28 @@
          this.repositoryItemTimeEdit2.Mask.EditMask = "HH:mm:ss";
          this.repositoryItemTimeEdit2.Name = "repositoryItemTimeEdit2";
          this.repositoryItemTimeEdit2.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         // 
+         // Translate_Butn
+         // 
+         this.Translate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Translate_Butn.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+         this.Translate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Translate_Butn.Appearance.Options.UseBackColor = true;
+         this.Translate_Butn.Appearance.Options.UseBorderColor = true;
+         this.Translate_Butn.Appearance.Options.UseFont = true;
+         this.Translate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.Translate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.Translate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Translate_Butn.Image")));
+         this.Translate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.Translate_Butn.Location = new System.Drawing.Point(0, 330);
+         this.Translate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Translate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Translate_Butn.Name = "Translate_Butn";
+         this.Translate_Butn.Size = new System.Drawing.Size(423, 40);
+         this.Translate_Butn.TabIndex = 20;
+         this.Translate_Butn.Text = "ترجمه کردن";
+         this.Translate_Butn.ToolTip = "بازگشت";
+         this.Translate_Butn.Click += new System.EventHandler(this.Translate_Butn_Click);
          // 
          // TrgtRegn_Lov
          // 
@@ -1085,6 +1065,28 @@
          // FormBs
          // 
          this.FormBs.DataSource = typeof(System.DataGuard.Data.Form);
+         // 
+         // Compare_Duplicate_Butn
+         // 
+         this.Compare_Duplicate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.Compare_Duplicate_Butn.Appearance.BorderColor = System.Drawing.Color.Blue;
+         this.Compare_Duplicate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Compare_Duplicate_Butn.Appearance.Options.UseBackColor = true;
+         this.Compare_Duplicate_Butn.Appearance.Options.UseBorderColor = true;
+         this.Compare_Duplicate_Butn.Appearance.Options.UseFont = true;
+         this.Compare_Duplicate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.Compare_Duplicate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.Compare_Duplicate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Compare_Duplicate_Butn.Image")));
+         this.Compare_Duplicate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.Compare_Duplicate_Butn.Location = new System.Drawing.Point(0, 330);
+         this.Compare_Duplicate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Compare_Duplicate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Compare_Duplicate_Butn.Name = "Compare_Duplicate_Butn";
+         this.Compare_Duplicate_Butn.Size = new System.Drawing.Size(422, 40);
+         this.Compare_Duplicate_Butn.TabIndex = 20;
+         this.Compare_Duplicate_Butn.Text = "مقایسه و نمونه برداری";
+         this.Compare_Duplicate_Butn.ToolTip = "بازگشت";
+         this.Compare_Duplicate_Butn.Click += new System.EventHandler(this.Compare_Duplicate_Butn_Click);
          // 
          // SorcRegn_Lov
          // 

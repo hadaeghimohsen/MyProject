@@ -24,6 +24,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          InitializeComponent();
       }
 
+      private bool requery = false;
+
       private void Back_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(
@@ -75,6 +77,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
             SubSys_Lov.EditValue = 0;
          }
+         requery = false;
       }
 
       private void UserBs_ListChanged(object sender, ListChangedEventArgs e)
@@ -231,6 +234,85 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)subsys && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
          }
          catch { }
+      }
+
+      private void Compare_Duplicate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            var sorcregn = SorcRegn_Lov.EditValue;
+            if (sorcregn == null || sorcregn.ToString() == "") return;
+
+            var trgtregn = TrgtRegn_Lov.EditValue;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            iProject.Compare_Duplicate_Localization(
+               new XElement("Localization",
+                  new XAttribute("subsys", subsys),
+                  new XAttribute("sorclcalregn", sorcregn),
+                  new XAttribute("trgtlcalregn", trgtregn)
+
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Translate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var sorcregn = SorcRegn_Lov.Text;
+            if (sorcregn == null || sorcregn.ToString() == "") return;
+
+            var trgtregn = TrgtRegn_Lov.Text;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            //_comboFrom.SelectedItem = Translator.Languages.FirstOrDefault(l => sorcregn.ToString().Contains(l));
+            //_comboTo.SelectedItem = Translator.Languages.FirstOrDefault(l => trgtregn.ToString().Contains(l));
+
+            foreach (var item in TrgtFcntBs.List.OfType<Data.Form_Control>())
+            {
+               // Label Text
+               _editSourceText.Text = SorcFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == item.NAME).LABL_TEXT;
+               _btnTranslate_Click(null, null);
+               item.LABL_TEXT = _editTarget.Text;
+
+               // Tooltip Text
+               _editSourceText.Text = SorcFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == item.NAME).TOOL_TIP_TEXT;
+               _btnTranslate_Click(null, null);
+               item.TOOL_TIP_TEXT = _editTarget.Text;
+
+               // Place Holder Text
+               _editSourceText.Text = SorcFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == item.NAME).PLAC_HLDR_TEXT;
+               _btnTranslate_Click(null, null);
+               item.PLAC_HLDR_TEXT = _editTarget.Text;
+            }
+
+            iProject.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
    }
 

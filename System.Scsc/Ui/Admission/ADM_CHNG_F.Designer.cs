@@ -1142,8 +1142,6 @@
          // AutoTrans_Cb
          // 
          this.AutoTrans_Cb.AutoSize = true;
-         this.AutoTrans_Cb.Checked = true;
-         this.AutoTrans_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
          this.AutoTrans_Cb.Location = new System.Drawing.Point(87, 51);
          this.AutoTrans_Cb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.AutoTrans_Cb.Name = "AutoTrans_Cb";

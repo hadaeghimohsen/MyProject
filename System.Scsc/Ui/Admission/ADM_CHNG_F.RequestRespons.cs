@@ -316,7 +316,9 @@ namespace System.Scsc.Ui.Admission
                }
                break;
             case "setcard":
-               CardNumb_Text.Text = (job.Input as XElement).Attribute("value").Value;
+               FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("value").Value;
+               if (AutoTrans_Cb.Checked)
+                  CardNumb_Text.EditValue = FNGR_PRNT_TextEdit.EditValue;
                break;
             default:
                break;

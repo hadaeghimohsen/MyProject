@@ -113,7 +113,9 @@ namespace System.Scsc.Ui.Settings
                      new XAttribute("runqury", Stng.RUN_QURY ?? "001"),
                      new XAttribute("attnprntstat", Stng.ATTN_PRNT_STAT ?? "001"),
                      new XAttribute("sharmbspstat", Stng.SHAR_MBSP_STAT ?? "001"),
-                     new XAttribute("runrbot", Stng.RUN_RBOT ?? "001")
+                     new XAttribute("runrbot", Stng.RUN_RBOT ?? "001"),
+                     new XAttribute("clerzero", Stng.CLER_ZERO ?? "001"),
+                     new XAttribute("hldycont", Stng.HLDY_CONT ?? 1)
                   )
                )
             );

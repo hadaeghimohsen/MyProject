@@ -197,7 +197,7 @@ namespace System.Scsc.Ui.MasterPage
 
          #region Set Localization
          var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
-         if(regnlang.First().REGN_LANG != RegnLang)
+         if(regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
          {
             // Ready To Change Text Title
             foreach (var control in regnlang)

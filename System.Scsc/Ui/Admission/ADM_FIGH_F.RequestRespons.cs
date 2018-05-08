@@ -348,7 +348,7 @@ namespace System.Scsc.Ui.Admission
                   //FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   //RQTT_CODE_LookUpEdit3.EditValue = figh.FGPB_TYPE_DNRM;
                }
-
+               FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("enrollnumber").Value;
             }
             else if ((job.Input as XElement).Attribute("type").Value == "setcard")
             {

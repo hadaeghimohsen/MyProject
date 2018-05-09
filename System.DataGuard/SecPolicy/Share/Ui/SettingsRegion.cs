@@ -196,21 +196,48 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          try
          {
             SorcRegn_Lov.EditValue = "054";
-            FormBs.DataSource = iProject.Forms.Where(f => f.SUB_SYS == (int)e.NewValue && f.Localization.REGN_LANG == "054");
+            if (Tb_SubSys.SelectedTab == tp_003)
+            {
+               FormBs.DataSource = iProject.Forms.Where(f => f.SUB_SYS == (int)e.NewValue && f.Localization.REGN_LANG == "054");
 
-            var crntform = FormBs.Current as Data.Form;
-            if (crntform == null) return;
+               var crntform = FormBs.Current as Data.Form;
+               if (crntform == null) return;
 
-            Form_Lov.EditValue = crntform.ID;
+               Form_Lov.EditValue = crntform.ID;
 
-            // نمایش کنترل های روی صفحه برای زبان منبع
-            SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
+               // نمایش کنترل های روی صفحه برای زبان منبع
+               SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
 
-            var trgtregn = TrgtRegn_Lov.EditValue;
-            if (trgtregn == null || trgtregn.ToString() == "") return;
+               var trgtregn = TrgtRegn_Lov.EditValue;
+               if (trgtregn == null || trgtregn.ToString() == "") return;
 
-            // نمایش کنترل های روی صفحه برای زبان مقصد
-            TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)e.NewValue && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
+               // نمایش کنترل های روی صفحه برای زبان مقصد
+               TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)e.NewValue && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
+            }
+            else if(Tb_SubSys.SelectedTab == tp_004)
+            {
+               switch ((int)e.NewValue)
+               {
+                  case 0:
+                     SorcDomnRegnBs.DataSource = iProject.App_Domains.Where(d => d.REGN_LANG == "054");
+                     TrgtDomnRegnBs.DataSource = iProject.App_Domains.Where(d => d.REGN_LANG == TrgtRegn_Lov.EditValue.ToString());
+                     break;
+                  case 5:
+                     SorcDomnRegnBs.DataSource = iProject.v_SubSys_5_App_Domains.Where(d => d.REGN_LANG == "054");
+                     TrgtDomnRegnBs.DataSource = iProject.v_SubSys_5_App_Domains.Where(d => d.REGN_LANG == TrgtRegn_Lov.EditValue.ToString());
+                     break;
+                  case 11:
+                     SorcDomnRegnBs.DataSource = iProject.v_SubSys_11_App_Domains.Where(d => d.REGN_LANG == "054");
+                     TrgtDomnRegnBs.DataSource = iProject.v_SubSys_11_App_Domains.Where(d => d.REGN_LANG == TrgtRegn_Lov.EditValue.ToString());
+                     break;
+                  case 12:
+                     SorcDomnRegnBs.DataSource = iProject.v_SubSys_12_App_Domains.Where(d => d.REGN_LANG == "054");
+                     TrgtDomnRegnBs.DataSource = iProject.v_SubSys_12_App_Domains.Where(d => d.REGN_LANG == TrgtRegn_Lov.EditValue.ToString());
+                     break;
+                  default:
+                     break;
+               }
+            }
          }
          catch { }
       }
@@ -226,6 +253,24 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             // نمایش کنترل های روی صفحه برای زبان منبع
             SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
+
+            var trgtregn = TrgtRegn_Lov.EditValue;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            // نمایش کنترل های روی صفحه برای زبان مقصد
+            TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)subsys && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
+         }
+         catch { }
+      }
+
+      private void TrgtRegn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            var crntform = FormBs.List.OfType<Data.Form>().FirstOrDefault(f => f.ID == (long)Form_Lov.EditValue);
 
             var trgtregn = TrgtRegn_Lov.EditValue;
             if (trgtregn == null || trgtregn.ToString() == "") return;
@@ -283,7 +328,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             //_comboFrom.SelectedItem = Translator.Languages.FirstOrDefault(l => sorcregn.ToString().Contains(l));
             //_comboTo.SelectedItem = Translator.Languages.FirstOrDefault(l => trgtregn.ToString().Contains(l));
 
-            foreach (var item in TrgtFcntBs.List.OfType<Data.Form_Control>())
+            foreach (var item in TrgtFcntBs.List.OfType<Data.Form_Control>().Where(fc => fc.TRAN_STAT == "001"))
             {
                // Label Text
                _editSourceText.Text = SorcFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == item.NAME).LABL_TEXT;
@@ -299,6 +344,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                _editSourceText.Text = SorcFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == item.NAME).PLAC_HLDR_TEXT;
                _btnTranslate_Click(null, null);
                item.PLAC_HLDR_TEXT = _editTarget.Text;
+
+               item.TRAN_STAT = "002";
             }
 
             iProject.SubmitChanges();
@@ -314,6 +361,78 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                Execute_Query();
          }
       }
+
+      private void TryTran_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            TrgtFcntBs.List.OfType<Data.Form_Control>().ToList().ForEach(fc => fc.TRAN_STAT = "001");
+         }
+         catch { }
+      }
+
+      private void CompDuplDomn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            var sorcregn = SorcDomnRegn_Lov.EditValue;
+            if (sorcregn == null || sorcregn.ToString() == "") return;
+
+            var trgtregn = TrgtDomnRegn_Lov.EditValue;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            iProject.Compare_Duplicate_AppDomain_Localization(
+               new XElement("Localization",
+                  new XAttribute("subsys", subsys),
+                  new XAttribute("sorclcalregn", sorcregn),
+                  new XAttribute("trgtlcalregn", trgtregn)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+
+      }
+
+      private void TrgtDomnRegn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            switch ((int)subsys)
+            {
+               case 0:
+                  TrgtDomnRegnBs.DataSource = iProject.App_Domains.Where(d => d.REGN_LANG == e.NewValue.ToString());
+                  break;
+               case 5:
+                  TrgtDomnRegnBs.DataSource = iProject.v_SubSys_5_App_Domains.Where(d => d.REGN_LANG == e.NewValue.ToString());
+                  break;
+               case 11:
+                  TrgtDomnRegnBs.DataSource = iProject.v_SubSys_11_App_Domains.Where(d => d.REGN_LANG == e.NewValue.ToString());
+                  break;
+               case 12:
+                  TrgtDomnRegnBs.DataSource = iProject.v_SubSys_12_App_Domains.Where(d => d.REGN_LANG == e.NewValue.ToString());
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch { }
+      }
+
    }
 
    /// <summary>

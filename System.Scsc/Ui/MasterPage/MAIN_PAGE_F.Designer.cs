@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -145,20 +144,20 @@
          this.bbi_mbsnbutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.Mali_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.Adm_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.Adm_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.Serv_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.Serv_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.OtherInCome_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.OthrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.OthrOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.OthrExpnOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup19 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageCategory3 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -166,22 +165,22 @@
          this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.AgrActn_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.AgrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Mngr = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.AgrSmsOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.AgrOprOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.Mngr_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+         this.Report_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.Report_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.ribbonPageGroup20 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.SystemAdmin_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+         this.SystemAdmin_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.SystemAdmin_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DaeatBs = new System.Windows.Forms.BindingSource();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -193,13 +192,13 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.Sp_Barcode = new System.IO.Ports.SerialPort();
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -352,8 +351,8 @@
             this.OtherInCome_RPgc,
             this.ribbonPageCategory3,
             this.AgrActn_RPgc,
-            this.Mngr,
-            this.ribbonPageCategory1});
+            this.Mngr_RPgc,
+            this.SystemAdmin_RPgc});
          this.ribbonControl1.Size = new System.Drawing.Size(1103, 142);
          // 
          // bbi_epitbutn
@@ -1201,30 +1200,30 @@
          // Base_RbPg
          // 
          this.Base_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2,
+            this.Base_RbGp,
+            this.Mali_RbGp,
             this.ribbonPageGroup3});
          this.Base_RbPg.Name = "Base_RbPg";
          this.Base_RbPg.Text = "اطلاعات پایه";
          // 
-         // ribbonPageGroup1
+         // Base_RbGp
          // 
-         this.ribbonPageGroup1.ItemLinks.Add(this.bbi_basdifnbutn);
-         this.ribbonPageGroup1.ItemLinks.Add(this.bbi_cashbutn);
-         this.ribbonPageGroup1.ItemLinks.Add(this.bbi_mtodbutn);
-         this.ribbonPageGroup1.ItemLinks.Add(this.bbi_regnbutn);
-         this.ribbonPageGroup1.ItemLinks.Add(this.bbi_coptbutn);
-         this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-         this.ribbonPageGroup1.Text = "مفاهیم اولیه مورد نیاز";
+         this.Base_RbGp.ItemLinks.Add(this.bbi_basdifnbutn);
+         this.Base_RbGp.ItemLinks.Add(this.bbi_cashbutn);
+         this.Base_RbGp.ItemLinks.Add(this.bbi_mtodbutn);
+         this.Base_RbGp.ItemLinks.Add(this.bbi_regnbutn);
+         this.Base_RbGp.ItemLinks.Add(this.bbi_coptbutn);
+         this.Base_RbGp.Name = "Base_RbGp";
+         this.Base_RbGp.Text = "مفاهیم اولیه مورد نیاز";
          // 
-         // ribbonPageGroup2
+         // Mali_RbGp
          // 
-         this.ribbonPageGroup2.ItemLinks.Add(this.bbi_reglbutn);
-         this.ribbonPageGroup2.ItemLinks.Add(this.bbi_crglbutn);
-         this.ribbonPageGroup2.ItemLinks.Add(this.bbi_idrgbutn);
-         this.ribbonPageGroup2.ItemLinks.Add(this.bbi_orgnbutn);
-         this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-         this.ribbonPageGroup2.Text = "اطلاعات اولیه مالی";
+         this.Mali_RbGp.ItemLinks.Add(this.bbi_reglbutn);
+         this.Mali_RbGp.ItemLinks.Add(this.bbi_crglbutn);
+         this.Mali_RbGp.ItemLinks.Add(this.bbi_idrgbutn);
+         this.Mali_RbGp.ItemLinks.Add(this.bbi_orgnbutn);
+         this.Mali_RbGp.Name = "Mali_RbGp";
+         this.Mali_RbGp.Text = "اطلاعات اولیه مالی";
          // 
          // ribbonPageGroup3
          // 
@@ -1236,24 +1235,24 @@
          // Adm_RbPg
          // 
          this.Adm_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup4,
+            this.Adm_RbGp,
             this.ribbonPageGroup5});
          this.Adm_RbPg.Name = "Adm_RbPg";
          this.Adm_RbPg.Text = "اطلاعات ثبت نام";
          // 
-         // ribbonPageGroup4
+         // Adm_RbGp
          // 
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_adm1butn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_mbs1butn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_cyclbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_mbsnbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_mbfzbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_senmbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_insrbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_fmdfbutn);
-         this.ribbonPageGroup4.ItemLinks.Add(this.bbi_fcrlbutn);
-         this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-         this.ribbonPageGroup4.Text = "داوطلب";
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_adm1butn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_mbs1butn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_cyclbutn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_mbsnbutn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_mbfzbutn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_senmbutn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_insrbutn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_fmdfbutn);
+         this.Adm_RbGp.ItemLinks.Add(this.bbi_fcrlbutn);
+         this.Adm_RbGp.Name = "Adm_RbGp";
+         this.Adm_RbGp.Text = "اطلاعات ثبت نام";
          // 
          // ribbonPageGroup5
          // 
@@ -1270,22 +1269,22 @@
          // Serv_RbPg
          // 
          this.Serv_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup7,
+            this.Serv_RbGp,
             this.ribbonPageGroup8,
             this.ribbonPageGroup9});
          this.Serv_RbPg.Name = "Serv_RbPg";
-         this.Serv_RbPg.Text = "نمایش";
+         this.Serv_RbPg.Text = "اطلاعات پرونده مشتریان";
          // 
-         // ribbonPageGroup7
+         // Serv_RbGp
          // 
-         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_flstbutn);
-         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_clstbutn);
-         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_fdlsbutn);
-         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_attnbutn);
-         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_rptcbutn);
-         this.ribbonPageGroup7.ItemLinks.Add(this.bbi_rptsbutn);
-         this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-         this.ribbonPageGroup7.Text = "باشگاه";
+         this.Serv_RbGp.ItemLinks.Add(this.bbi_flstbutn);
+         this.Serv_RbGp.ItemLinks.Add(this.bbi_clstbutn);
+         this.Serv_RbGp.ItemLinks.Add(this.bbi_fdlsbutn);
+         this.Serv_RbGp.ItemLinks.Add(this.bbi_attnbutn);
+         this.Serv_RbGp.ItemLinks.Add(this.bbi_rptcbutn);
+         this.Serv_RbGp.ItemLinks.Add(this.bbi_rptsbutn);
+         this.Serv_RbGp.Name = "Serv_RbGp";
+         this.Serv_RbGp.Text = "اطلاعات پرونده مشتریان";
          // 
          // ribbonPageGroup8
          // 
@@ -1314,27 +1313,27 @@
          // OthrOption_RbPg
          // 
          this.OthrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup11,
-            this.ribbonPageGroup12,
+            this.OthrOption_RbGp,
+            this.OthrExpnOption_RbGp,
             this.ribbonPageGroup19});
          this.OthrOption_RbPg.Name = "OthrOption_RbPg";
          this.OthrOption_RbPg.Text = "گزینه ها";
          // 
-         // ribbonPageGroup11
+         // OthrOption_RbGp
          // 
-         this.ribbonPageGroup11.ItemLinks.Add(this.bbi_oincbutn);
-         this.ribbonPageGroup11.ItemLinks.Add(this.bbi_cmanbutn);
-         this.ribbonPageGroup11.ItemLinks.Add(this.bbi_exdsbutn);
-         this.ribbonPageGroup11.ItemLinks.Add(this.bbi_fdbtbutn);
-         this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-         this.ribbonPageGroup11.Text = "درآمد باشگاه";
+         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_oincbutn);
+         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_cmanbutn);
+         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_exdsbutn);
+         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_fdbtbutn);
+         this.OthrOption_RbGp.Name = "OthrOption_RbGp";
+         this.OthrOption_RbGp.Text = "درآمد باشگاه";
          // 
-         // ribbonPageGroup12
+         // OthrExpnOption_RbGp
          // 
-         this.ribbonPageGroup12.ItemLinks.Add(this.bbi_oexpbutn);
-         this.ribbonPageGroup12.ItemLinks.Add(this.bbi_cpaybutn);
-         this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-         this.ribbonPageGroup12.Text = "هزینه های باشگاه";
+         this.OthrExpnOption_RbGp.ItemLinks.Add(this.bbi_oexpbutn);
+         this.OthrExpnOption_RbGp.ItemLinks.Add(this.bbi_cpaybutn);
+         this.OthrExpnOption_RbGp.Name = "OthrExpnOption_RbGp";
+         this.OthrExpnOption_RbGp.Text = "هزینه های باشگاه";
          // 
          // ribbonPageGroup19
          // 
@@ -1385,52 +1384,52 @@
          // AgrOption_RbPg
          // 
          this.AgrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup13,
-            this.ribbonPageGroup14});
+            this.AgrSmsOption_RbGp,
+            this.AgrOprOption_RbGp});
          this.AgrOption_RbPg.Name = "AgrOption_RbPg";
          this.AgrOption_RbPg.Text = "گزینه ها";
          // 
-         // ribbonPageGroup13
+         // AgrSmsOption_RbGp
          // 
-         this.ribbonPageGroup13.ItemLinks.Add(this.bbi_smsbbutn);
-         this.ribbonPageGroup13.Name = "ribbonPageGroup13";
-         this.ribbonPageGroup13.Text = "اطلاع رسانی ها";
+         this.AgrSmsOption_RbGp.ItemLinks.Add(this.bbi_smsbbutn);
+         this.AgrSmsOption_RbGp.Name = "AgrSmsOption_RbGp";
+         this.AgrSmsOption_RbGp.Text = "اطلاع رسانی ها";
          // 
-         // ribbonPageGroup14
+         // AgrOprOption_RbGp
          // 
-         this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agmbbutn);
-         this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agcbbutn);
-         this.ribbonPageGroup14.ItemLinks.Add(this.bbi_aglsbutn);
-         this.ribbonPageGroup14.ItemLinks.Add(this.bbi_agmcbutn);
-         this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-         this.ribbonPageGroup14.Text = "عملکرد تجمعی سیستم";
+         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agmbbutn);
+         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agcbbutn);
+         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_aglsbutn);
+         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agmcbutn);
+         this.AgrOprOption_RbGp.Name = "AgrOprOption_RbGp";
+         this.AgrOprOption_RbGp.Text = "عملکرد تجمعی سیستم";
          // 
-         // Mngr
+         // Mngr_RPgc
          // 
-         this.Mngr.Color = System.Drawing.Color.Empty;
-         this.Mngr.Name = "Mngr";
-         this.Mngr.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage9,
+         this.Mngr_RPgc.Color = System.Drawing.Color.Empty;
+         this.Mngr_RPgc.Name = "Mngr_RPgc";
+         this.Mngr_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.Report_RbPg,
             this.ribbonPage8});
-         this.Mngr.Text = "گزارش های مدیریتی";
+         this.Mngr_RPgc.Text = "گزارش های مدیریتی";
          // 
-         // ribbonPage9
+         // Report_RbPg
          // 
-         this.ribbonPage9.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup18,
+         this.Report_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.Report_RbGp,
             this.ribbonPageGroup17});
-         this.ribbonPage9.Name = "ribbonPage9";
-         this.ribbonPage9.Text = "گزارشات";
+         this.Report_RbPg.Name = "Report_RbPg";
+         this.Report_RbPg.Text = "گزارشات";
          // 
-         // ribbonPageGroup18
+         // Report_RbGp
          // 
-         this.ribbonPageGroup18.ItemLinks.Add(this.bbi_acntbutn);
-         this.ribbonPageGroup18.ItemLinks.Add(this.bbi_incmbutn);
-         this.ribbonPageGroup18.ItemLinks.Add(this.bbi_expnbutn);
-         this.ribbonPageGroup18.ItemLinks.Add(this.bbi_salebutn);
-         this.ribbonPageGroup18.ItemLinks.Add(this.bbi_bislbutn);
-         this.ribbonPageGroup18.Name = "ribbonPageGroup18";
-         this.ribbonPageGroup18.Text = "مالی";
+         this.Report_RbGp.ItemLinks.Add(this.bbi_acntbutn);
+         this.Report_RbGp.ItemLinks.Add(this.bbi_incmbutn);
+         this.Report_RbGp.ItemLinks.Add(this.bbi_expnbutn);
+         this.Report_RbGp.ItemLinks.Add(this.bbi_salebutn);
+         this.Report_RbGp.ItemLinks.Add(this.bbi_bislbutn);
+         this.Report_RbGp.Name = "Report_RbGp";
+         this.Report_RbGp.Text = "مالی";
          // 
          // ribbonPageGroup17
          // 
@@ -1452,28 +1451,28 @@
          this.ribbonPageGroup20.ItemLinks.Add(this.bbi_dshbbutn);
          this.ribbonPageGroup20.Name = "ribbonPageGroup20";
          // 
-         // ribbonPageCategory1
+         // SystemAdmin_RPgc
          // 
-         this.ribbonPageCategory1.Color = System.Drawing.Color.Empty;
-         this.ribbonPageCategory1.Name = "ribbonPageCategory1";
-         this.ribbonPageCategory1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage4});
-         this.ribbonPageCategory1.Text = "تنظیمات نرم افزار";
+         this.SystemAdmin_RPgc.Color = System.Drawing.Color.Empty;
+         this.SystemAdmin_RPgc.Name = "SystemAdmin_RPgc";
+         this.SystemAdmin_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.SystemAdmin_RbPg});
+         this.SystemAdmin_RPgc.Text = "تنظیمات نرم افزار";
          // 
-         // ribbonPage4
+         // SystemAdmin_RbPg
          // 
-         this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup10});
-         this.ribbonPage4.Name = "ribbonPage4";
-         this.ribbonPage4.Text = "تنظیمات نرم افزار";
+         this.SystemAdmin_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.SystemAdmin_RbGp});
+         this.SystemAdmin_RbPg.Name = "SystemAdmin_RbPg";
+         this.SystemAdmin_RbPg.Text = "تنظیمات نرم افزار";
          // 
-         // ribbonPageGroup10
+         // SystemAdmin_RbGp
          // 
-         this.ribbonPageGroup10.ItemLinks.Add(this.bbi_bkupbutn);
-         this.ribbonPageGroup10.ItemLinks.Add(this.bbi_rstrbutn);
-         this.ribbonPageGroup10.ItemLinks.Add(this.bbi_embkbutn);
-         this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-         this.ribbonPageGroup10.Text = "نگهداری از اطلاعات";
+         this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_bkupbutn);
+         this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_rstrbutn);
+         this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_embkbutn);
+         this.SystemAdmin_RbGp.Name = "SystemAdmin_RbGp";
+         this.SystemAdmin_RbGp.Text = "نگهداری از اطلاعات";
          // 
          // spc_desktop
          // 
@@ -1890,7 +1889,7 @@
       private Windows.Forms.ToolStripStatusLabel Lbs_Tooltip;
       private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
       private DevExpress.XtraBars.Ribbon.RibbonPage Base_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Base_RbGp;
       private Windows.Forms.SplitContainer spc_desktop;
       private DevExpress.XtraBars.BarButtonItem bbi_epitbutn;
       private DevExpress.XtraBars.BarButtonItem bbi_cashbutn;
@@ -1920,14 +1919,14 @@
       private DevExpress.XtraBars.BarButtonItem bbi_fchmbutn;
       private DevExpress.XtraBars.BarButtonItem bbi_cchmbutn;
       private DevExpress.XtraBars.BarButtonItem bbi_fembbutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Mali_RbGp;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
       private DevExpress.XtraBars.Ribbon.RibbonPage Adm_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Adm_RbGp;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
       private DevExpress.XtraBars.Ribbon.RibbonPage Serv_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Report_RbGp;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Serv_RbGp;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
       private DevExpress.XtraBars.BarButtonItem bbi_frkdbutn;
@@ -1958,23 +1957,21 @@
       private DevExpress.XtraBars.BarButtonItem bbi_lusrbutn;
       private DevExpress.XtraBars.BarButtonItem bbi_salebutn;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory System_RPgc;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+      private DevExpress.XtraBars.Ribbon.RibbonPage SystemAdmin_RbPg;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup SystemAdmin_RbGp;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory OtherInCome_RPgc;
       private DevExpress.XtraBars.Ribbon.RibbonPage OthrOption_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup OthrOption_RbGp;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup OthrExpnOption_RbGp;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory3;
       private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory AgrActn_RPgc;
-      private DevExpress.XtraBars.Ribbon.RibbonPage AgrOption_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory Mngr;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage9;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup AgrSmsOption_RbGp;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup AgrOprOption_RbGp;
+      private DevExpress.XtraBars.Ribbon.RibbonPageCategory Mngr_RPgc;
+      private DevExpress.XtraBars.Ribbon.RibbonPage Report_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
       private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage8;
       private DevExpress.XtraBars.BarButtonItem bbi_acntbutn;
@@ -2027,5 +2024,7 @@
       private DevExpress.XtraEditors.SimpleButton ShowInfo_Butn;
       private MaxUi.RoundedButton BackGrnd_Butn;
       private DevExpress.XtraEditors.SimpleButton TlgrmBot_Butn;
+      private DevExpress.XtraBars.Ribbon.RibbonPage AgrOption_RbPg;
+      private DevExpress.XtraBars.Ribbon.RibbonPageCategory SystemAdmin_RPgc;
    }
 }

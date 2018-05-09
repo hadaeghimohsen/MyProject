@@ -925,7 +925,44 @@
       <Column Name="PLAC_HLDR_TEXT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="CNTL_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TRAN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Association Name="Form_Form_Control" Member="Form" ThisKey="FORM_ID" OtherKey="ID" Type="Form" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="Global.v#SubSys_11_App_Domain" Member="v_SubSys_11_App_Domains">
+    <Type Name="v_SubSys_11_App_Domain">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Global.v#SubSys_12_App_Domain" Member="v_SubSys_12_App_Domains">
+    <Type Name="v_SubSys_12_App_Domain">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Global.v#SubSys_5_App_Domain" Member="v_SubSys_5_App_Domains">
+    <Type Name="v_SubSys_5_App_Domain">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.App_Domain" Member="App_Domains">
+    <Type Name="App_Domain">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">
@@ -1077,6 +1114,10 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="Global.Compare_Duplicate_Localization" Method="Compare_Duplicate_Localization">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Global.Compare_Duplicate_AppDomain_Localization" Method="Compare_Duplicate_AppDomain_Localization">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>

@@ -925,6 +925,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Access_User_Datasource.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Action_Center.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Active_Session.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.App_Domain.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Box_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.CRM_Privilege.datasource" />
@@ -981,6 +982,9 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Gateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_Computer.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.v_SubSys_11_App_Domain.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.v_SubSys_12_App_Domain.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.v_SubSys_5_App_Domain.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_TopNActiveSessionCurrentGateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_Top_Active_Session.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_User.datasource" />

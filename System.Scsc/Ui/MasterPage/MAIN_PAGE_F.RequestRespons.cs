@@ -199,169 +199,259 @@ namespace System.Scsc.Ui.MasterPage
          var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
          if(regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
          {
+            RegnLang = regnlang.First().REGN_LANG;
             // Ready To Change Text Title
             foreach (var control in regnlang)
             {
                switch (control.CNTL_NAME.ToLower())
                {
                   case "bbi_cmanbutn":
-                    bbi_cmanbutn.Caption = control.LABL_TEXT;
-                    //bbi_cmanbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_cmanbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_cmanbutn.Caption = control.LABL_TEXT;
+                     //bbi_cmanbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_cmanbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_adm1butn":
-                    bbi_adm1butn.Caption = control.LABL_TEXT;
-                    //bbi_adm1butn. = control.LABL_TEXT; // ToolTip
-                    //bbi_adm1butn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_adm1butn.Caption = control.LABL_TEXT;
+                     //bbi_adm1butn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_adm1butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_exdsbutn":
-                    bbi_exdsbutn.Caption = control.LABL_TEXT;
-                    //bbi_exdsbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_exdsbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_exdsbutn.Caption = control.LABL_TEXT;
+                     //bbi_exdsbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_exdsbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "report_rbpg":
+                     Report_RbPg.Text = control.LABL_TEXT;
+                     //Report_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //Report_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "systemadmin_rpgc":
+                     SystemAdmin_RPgc.Text = control.LABL_TEXT;
+                     //SystemAdmin_RPgc.Text = control.LABL_TEXT; // ToolTip
+                     //SystemAdmin_RPgc.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_basdifnbutn":
-                    bbi_basdifnbutn.Caption = control.LABL_TEXT;
-                    //bbi_basdifnbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_basdifnbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_basdifnbutn.Caption = control.LABL_TEXT;
+                     //bbi_basdifnbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_basdifnbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_coptbutn":
-                    bbi_coptbutn.Caption = control.LABL_TEXT;
-                    //bbi_coptbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_coptbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_coptbutn.Caption = control.LABL_TEXT;
+                     //bbi_coptbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_coptbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_crglbutn":
-                    bbi_crglbutn.Caption = control.LABL_TEXT;
-                    //bbi_crglbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_crglbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_crglbutn.Caption = control.LABL_TEXT;
+                     //bbi_crglbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_crglbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_orgnbutn":
-                    bbi_orgnbutn.Caption = control.LABL_TEXT;
-                    //bbi_orgnbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_orgnbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_orgnbutn.Caption = control.LABL_TEXT;
+                     //bbi_orgnbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_orgnbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_mbs1butn":
-                    bbi_mbs1butn.Caption = control.LABL_TEXT;
-                    //bbi_mbs1butn. = control.LABL_TEXT; // ToolTip
-                    //bbi_mbs1butn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_mbs1butn.Caption = control.LABL_TEXT;
+                     //bbi_mbs1butn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_mbs1butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_mbfzbutn":
-                    bbi_mbfzbutn.Caption = control.LABL_TEXT;
-                    //bbi_mbfzbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_mbfzbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_mbfzbutn.Caption = control.LABL_TEXT;
+                     //bbi_mbfzbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_mbfzbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_insrbutn":
-                    bbi_insrbutn.Caption = control.LABL_TEXT;
-                    //bbi_insrbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_insrbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_insrbutn.Caption = control.LABL_TEXT;
+                     //bbi_insrbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_insrbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_fmdfbutn":
-                    bbi_fmdfbutn.Caption = control.LABL_TEXT;
-                    //bbi_fmdfbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_fmdfbutn. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "Base_RbPg":
-                    Base_RbPg.Text = control.LABL_TEXT;
-                    //Base_RbPg. = control.LABL_TEXT; // ToolTip
-                    //Base_RbPg. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "Adm_RbPg":
-                    Adm_RbPg.Text = control.LABL_TEXT;
-                    //Adm_RbPg. = control.LABL_TEXT; // ToolTip
-                    //Adm_RbPg. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "Serv_RbPg":
-                    Serv_RbPg.Text = control.LABL_TEXT;
-                    //Serv_RbPg. = control.LABL_TEXT; // ToolTip
-                    //Serv_RbPg. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_fmdfbutn.Caption = control.LABL_TEXT;
+                     //bbi_fmdfbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_fmdfbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "base_rbpg":
+                     Base_RbPg.Text = control.LABL_TEXT;
+                     //Base_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //Base_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "adm_rbpg":
+                     Adm_RbPg.Text = control.LABL_TEXT;
+                     //Adm_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //Adm_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "serv_rbpg":
+                     Serv_RbPg.Text = control.LABL_TEXT;
+                     //Serv_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //Serv_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_flstbutn":
-                    bbi_flstbutn.Caption = control.LABL_TEXT;
-                    //bbi_flstbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_flstbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_flstbutn.Caption = control.LABL_TEXT;
+                     //bbi_flstbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_flstbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_fdlsbutn":
-                    bbi_fdlsbutn.Caption = control.LABL_TEXT;
-                    //bbi_fdlsbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_fdlsbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_fdlsbutn.Caption = control.LABL_TEXT;
+                     //bbi_fdlsbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_fdlsbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_attnbutn":
-                    bbi_attnbutn.Caption = control.LABL_TEXT;
-                    //bbi_attnbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_attnbutn. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "OthrOption_RbPg":
-                    OthrOption_RbPg.Text = control.LABL_TEXT;
-                    //OthrOption_RbPg. = control.LABL_TEXT; // ToolTip
-                    //OthrOption_RbPg. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "System_RPgc":
-                    System_RPgc.Text = control.LABL_TEXT;
-                    //System_RPgc. = control.LABL_TEXT; // ToolTip
-                    //System_RPgc. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "OtherInCome_RPgc":
-                    OtherInCome_RPgc.Text = control.LABL_TEXT;
-                    //OtherInCome_RPgc. = control.LABL_TEXT; // ToolTip
-                    //OtherInCome_RPgc. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_attnbutn.Caption = control.LABL_TEXT;
+                     //bbi_attnbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_attnbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "othroption_rbpg":
+                     OthrOption_RbPg.Text = control.LABL_TEXT;
+                     //OthrOption_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //OthrOption_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "system_rpgc":
+                     System_RPgc.Text = control.LABL_TEXT;
+                     //System_RPgc.Text = control.LABL_TEXT; // ToolTip
+                     //System_RPgc.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "otherincome_rpgc":
+                     OtherInCome_RPgc.Text = control.LABL_TEXT;
+                     //OtherInCome_RPgc.Text = control.LABL_TEXT; // ToolTip
+                     //OtherInCome_RPgc.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_oincbutn":
-                    bbi_oincbutn.Caption = control.LABL_TEXT;
-                    //bbi_oincbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_oincbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_oincbutn.Caption = control.LABL_TEXT;
+                     //bbi_oincbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_oincbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_oexpbutn":
-                    bbi_oexpbutn.Caption = control.LABL_TEXT;
-                    //bbi_oexpbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_oexpbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_oexpbutn.Caption = control.LABL_TEXT;
+                     //bbi_oexpbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_oexpbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_cpaybutn":
-                    bbi_cpaybutn.Caption = control.LABL_TEXT;
-                    //bbi_cpaybutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_cpaybutn. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "AgrActn_RPgc":
-                    AgrActn_RPgc.Text = control.LABL_TEXT;
-                    //AgrActn_RPgc. = control.LABL_TEXT; // ToolTip
-                    //AgrActn_RPgc. = control.LABL_TEXT; // Place Holder
-                    break;
-                  case "AgrOption_RbPg":
-                    AgrOption_RbPg.Text = control.LABL_TEXT;
-                    //AgrOption_RbPg. = control.LABL_TEXT; // ToolTip
-                    //AgrOption_RbPg. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_cpaybutn.Caption = control.LABL_TEXT;
+                     //bbi_cpaybutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_cpaybutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "agractn_rpgc":
+                     AgrActn_RPgc.Text = control.LABL_TEXT;
+                     //AgrActn_RPgc.Text = control.LABL_TEXT; // ToolTip
+                     //AgrActn_RPgc.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "agroption_rbpg":
+                     AgrOption_RbPg.Text = control.LABL_TEXT;
+                     //AgrOption_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //AgrOption_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_smsbbutn":
-                    bbi_smsbbutn.Caption = control.LABL_TEXT;
-                    //bbi_smsbbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_smsbbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_smsbbutn.Caption = control.LABL_TEXT;
+                     //bbi_smsbbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_smsbbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_agmbbutn":
-                    bbi_agmbbutn.Caption = control.LABL_TEXT;
-                    //bbi_agmbbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_agmbbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_agmbbutn.Caption = control.LABL_TEXT;
+                     //bbi_agmbbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_agmbbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_agcbbutn":
-                    bbi_agcbbutn.Caption = control.LABL_TEXT;
-                    //bbi_agcbbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_agcbbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_agcbbutn.Caption = control.LABL_TEXT;
+                     //bbi_agcbbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_agcbbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_aglsbutn":
-                    bbi_aglsbutn.Caption = control.LABL_TEXT;
-                    //bbi_aglsbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_aglsbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_aglsbutn.Caption = control.LABL_TEXT;
+                     //bbi_aglsbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_aglsbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bbi_agmcbutn":
-                    bbi_agmcbutn.Caption = control.LABL_TEXT;
-                    //bbi_agmcbutn. = control.LABL_TEXT; // ToolTip
-                    //bbi_agmcbutn. = control.LABL_TEXT; // Place Holder
-                    break;
+                     bbi_agmcbutn.Caption = control.LABL_TEXT;
+                     //bbi_agmcbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_agmcbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bbi_incmbutn":
+                     bbi_incmbutn.Caption = control.LABL_TEXT;
+                     //bbi_incmbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_incmbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bbi_bislbutn":
+                     bbi_bislbutn.Caption = control.LABL_TEXT;
+                     //bbi_bislbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_bislbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bbi_bkupbutn":
+                     bbi_bkupbutn.Caption = control.LABL_TEXT;
+                     //bbi_bkupbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_bkupbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bbi_rstrbutn":
+                     bbi_rstrbutn.Caption = control.LABL_TEXT;
+                     //bbi_rstrbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_rstrbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bbi_embkbutn":
+                     bbi_embkbutn.Caption = control.LABL_TEXT;
+                     //bbi_embkbutn.Text = control.LABL_TEXT; // ToolTip
+                     //bbi_embkbutn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "base_rbgp":
+                     Base_RbGp.Text = control.LABL_TEXT;
+                     //Base_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //Base_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "adm_rbgp":
+                     Adm_RbGp.Text = control.LABL_TEXT;
+                     //Adm_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //Adm_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "serv_rbgp":
+                     Serv_RbGp.Text = control.LABL_TEXT;
+                     //Serv_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //Serv_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "othrexpnoption_rbgp":
+                     OthrExpnOption_RbGp.Text = control.LABL_TEXT;
+                     //OthrExpnOption_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //OthrExpnOption_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "agrsmsoption_rbgp":
+                     AgrSmsOption_RbGp.Text = control.LABL_TEXT;
+                     //AgrSmsOption_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //AgrSmsOption_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "agroproption_rbgp":
+                     AgrOprOption_RbGp.Text = control.LABL_TEXT;
+                     //AgrOprOption_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //AgrOprOption_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mngr_rpgc":
+                     Mngr_RPgc.Text = control.LABL_TEXT;
+                     //Mngr_RPgc.Text = control.LABL_TEXT; // ToolTip
+                     //Mngr_RPgc.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "report_rbgp":
+                     Report_RbGp.Text = control.LABL_TEXT;
+                     //Report_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //Report_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "systemadmin_rbpg":
+                     SystemAdmin_RbPg.Text = control.LABL_TEXT;
+                     //SystemAdmin_RbPg.Text = control.LABL_TEXT; // ToolTip
+                     //SystemAdmin_RbPg.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "systemadmin_rbgp":
+                     SystemAdmin_RbGp.Text = control.LABL_TEXT;
+                     //SystemAdmin_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //SystemAdmin_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "othroption_rbgp":
+                     OthrOption_RbGp.Text = control.LABL_TEXT;
+                     //SystemAdmin_RbGp.Text = control.LABL_TEXT; // ToolTip
+                     //SystemAdmin_RbGp.Text = control.LABL_TEXT; // Place Holder
+                     break;
+
                   default:
                     break;
                }
             }
          }
          #endregion
-
-
 
          job.Status = StatusType.Successful;
       }

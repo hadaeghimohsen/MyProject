@@ -149,6 +149,9 @@ namespace System.DataGuard.Data
     partial void InsertForm_Control(Form_Control instance);
     partial void UpdateForm_Control(Form_Control instance);
     partial void DeleteForm_Control(Form_Control instance);
+    partial void InsertApp_Domain(App_Domain instance);
+    partial void UpdateApp_Domain(App_Domain instance);
+    partial void DeleteApp_Domain(App_Domain instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -677,6 +680,38 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<v_SubSys_11_App_Domain> v_SubSys_11_App_Domains
+		{
+			get
+			{
+				return this.GetTable<v_SubSys_11_App_Domain>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_SubSys_12_App_Domain> v_SubSys_12_App_Domains
+		{
+			get
+			{
+				return this.GetTable<v_SubSys_12_App_Domain>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_SubSys_5_App_Domain> v_SubSys_5_App_Domains
+		{
+			get
+			{
+				return this.GetTable<v_SubSys_5_App_Domain>();
+			}
+		}
+		
+		public System.Data.Linq.Table<App_Domain> App_Domains
+		{
+			get
+			{
+				return this.GetTable<App_Domain>();
+			}
+		}
+		
 		private void UpdateSub_System(Sub_System obj)
 		{
 			this.UpdateSubSystem(((System.Nullable<int>)(obj.SUB_SYS)), obj.STAT, obj.INST_STAT, ((System.Nullable<System.DateTime>)(obj.INST_DATE)), obj.LICN_TYPE, ((System.Nullable<System.DateTime>)(obj.LICN_TRIL_DATE)), obj.LICN_DESC, obj.SUB_DESC, obj.JOBS_STAT, ((System.Nullable<int>)(obj.FREQ_INTR)));
@@ -890,6 +925,13 @@ namespace System.DataGuard.Data
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.Compare_Duplicate_Localization")]
 		public int Compare_Duplicate_Localization([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.Compare_Duplicate_AppDomain_Localization")]
+		public int Compare_Duplicate_AppDomain_Localization([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
@@ -19083,6 +19125,8 @@ namespace System.DataGuard.Data
 		
 		private string _STAT;
 		
+		private string _TRAN_STAT;
+		
 		private EntityRef<Form> _Form;
 		
     #region Extensibility Method Definitions
@@ -19105,6 +19149,8 @@ namespace System.DataGuard.Data
     partial void OnCNTL_TYPEChanged();
     partial void OnSTATChanging(string value);
     partial void OnSTATChanged();
+    partial void OnTRAN_STATChanging(string value);
+    partial void OnTRAN_STATChanged();
     #endregion
 		
 		public Form_Control()
@@ -19277,6 +19323,26 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRAN_STAT", DbType="VarChar(3)")]
+		public string TRAN_STAT
+		{
+			get
+			{
+				return this._TRAN_STAT;
+			}
+			set
+			{
+				if ((this._TRAN_STAT != value))
+				{
+					this.OnTRAN_STATChanging(value);
+					this.SendPropertyChanging();
+					this._TRAN_STAT = value;
+					this.SendPropertyChanged("TRAN_STAT");
+					this.OnTRAN_STATChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Form_Form_Control", Storage="_Form", ThisKey="FORM_ID", OtherKey="ID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Form Form
 		{
@@ -19307,6 +19373,461 @@ namespace System.DataGuard.Data
 						this._FORM_ID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Form");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.v#SubSys_11_App_Domain")]
+	public partial class v_SubSys_11_App_Domain
+	{
+		
+		private string _CODE;
+		
+		private string _NAME;
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		private string _REGN_LANG;
+		
+		public v_SubSys_11_App_Domain()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_LANG", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_LANG
+		{
+			get
+			{
+				return this._REGN_LANG;
+			}
+			set
+			{
+				if ((this._REGN_LANG != value))
+				{
+					this._REGN_LANG = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.v#SubSys_12_App_Domain")]
+	public partial class v_SubSys_12_App_Domain
+	{
+		
+		private string _CODE;
+		
+		private string _NAME;
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		private string _REGN_LANG;
+		
+		public v_SubSys_12_App_Domain()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_LANG", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_LANG
+		{
+			get
+			{
+				return this._REGN_LANG;
+			}
+			set
+			{
+				if ((this._REGN_LANG != value))
+				{
+					this._REGN_LANG = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.v#SubSys_5_App_Domain")]
+	public partial class v_SubSys_5_App_Domain
+	{
+		
+		private string _CODE;
+		
+		private string _NAME;
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		private string _REGN_LANG;
+		
+		public v_SubSys_5_App_Domain()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_LANG", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_LANG
+		{
+			get
+			{
+				return this._REGN_LANG;
+			}
+			set
+			{
+				if ((this._REGN_LANG != value))
+				{
+					this._REGN_LANG = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.App_Domain")]
+	public partial class App_Domain : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CODE;
+		
+		private string _NAME;
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		private string _REGN_LANG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(string value);
+    partial void OnCODEChanged();
+    partial void OnNAMEChanging(string value);
+    partial void OnNAMEChanged();
+    partial void OnVALUChanging(string value);
+    partial void OnVALUChanged();
+    partial void OnDOMN_DESCChanging(string value);
+    partial void OnDOMN_DESCChanged();
+    partial void OnREGN_LANGChanging(string value);
+    partial void OnREGN_LANGChanged();
+    #endregion
+		
+		public App_Domain()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this.OnNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._NAME = value;
+					this.SendPropertyChanged("NAME");
+					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this.OnVALUChanging(value);
+					this.SendPropertyChanging();
+					this._VALU = value;
+					this.SendPropertyChanged("VALU");
+					this.OnVALUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this.OnDOMN_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._DOMN_DESC = value;
+					this.SendPropertyChanged("DOMN_DESC");
+					this.OnDOMN_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_LANG", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string REGN_LANG
+		{
+			get
+			{
+				return this._REGN_LANG;
+			}
+			set
+			{
+				if ((this._REGN_LANG != value))
+				{
+					this.OnREGN_LANGChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_LANG = value;
+					this.SendPropertyChanged("REGN_LANG");
+					this.OnREGN_LANGChanged();
 				}
 			}
 		}

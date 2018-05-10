@@ -38,11 +38,7 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colTRAN_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -975,6 +971,7 @@
          // SorcFcntBs
          // 
          this.SorcFcntBs.DataSource = typeof(System.DataGuard.Data.Form_Control);
+         this.SorcFcntBs.CurrentChanged += new System.EventHandler(this.SorcFcntBs_CurrentChanged);
          // 
          // gridView1
          // 
@@ -1277,19 +1274,6 @@
             this.colVALU1,
             this.colDOMN_DESC1,
             this.colREGN_LANG1});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "001";
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = "002";
-         this.gridView3.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6});
          this.gridView3.GridControl = this.gridControl2;
          this.gridView3.Name = "gridView3";
          this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1302,12 +1286,17 @@
          // 
          // colCODE1
          // 
+         this.colCODE1.Caption = "کد";
          this.colCODE1.FieldName = "CODE";
          this.colCODE1.Name = "colCODE1";
+         this.colCODE1.OptionsColumn.AllowEdit = false;
+         this.colCODE1.OptionsColumn.FixedWidth = true;
+         this.colCODE1.OptionsColumn.ReadOnly = true;
          this.colCODE1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.colCODE1.Visible = true;
          this.colCODE1.VisibleIndex = 1;
+         this.colCODE1.Width = 82;
          // 
          // colNAME2
          // 
@@ -1326,6 +1315,7 @@
          this.colDOMN_DESC1.Name = "colDOMN_DESC1";
          this.colDOMN_DESC1.Visible = true;
          this.colDOMN_DESC1.VisibleIndex = 0;
+         this.colDOMN_DESC1.Width = 336;
          // 
          // colREGN_LANG1
          // 
@@ -1373,6 +1363,7 @@
          this.TranDomn_Butn.TabIndex = 20;
          this.TranDomn_Butn.Text = "ترجمه کردن";
          this.TranDomn_Butn.ToolTip = "بازگشت";
+         this.TranDomn_Butn.Click += new System.EventHandler(this.TranDomn_Butn_Click);
          // 
          // TrgtDomnRegn_Lov
          // 
@@ -1434,6 +1425,7 @@
          // SorcDomnRegnBs
          // 
          this.SorcDomnRegnBs.DataSource = typeof(System.DataGuard.Data.App_Domain);
+         this.SorcDomnRegnBs.CurrentChanged += new System.EventHandler(this.SorcDomnRegnBs_CurrentChanged);
          // 
          // gridView4
          // 
@@ -1451,19 +1443,6 @@
             this.colVALU,
             this.colDOMN_DESC,
             this.colREGN_LANG});
-         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition7.Appearance.Options.UseBackColor = true;
-         styleFormatCondition7.ApplyToRow = true;
-         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition7.Value1 = "001";
-         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition8.Appearance.Options.UseBackColor = true;
-         styleFormatCondition8.ApplyToRow = true;
-         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition8.Value1 = "002";
-         this.gridView4.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition7,
-            styleFormatCondition8});
          this.gridView4.GridControl = this.gridControl3;
          this.gridView4.Name = "gridView4";
          this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1479,10 +1458,14 @@
          this.colCODE.Caption = "کد";
          this.colCODE.FieldName = "CODE";
          this.colCODE.Name = "colCODE";
+         this.colCODE.OptionsColumn.AllowEdit = false;
+         this.colCODE.OptionsColumn.FixedWidth = true;
+         this.colCODE.OptionsColumn.ReadOnly = true;
          this.colCODE.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.colCODE.Visible = true;
          this.colCODE.VisibleIndex = 1;
+         this.colCODE.Width = 82;
          // 
          // colNAME1
          // 
@@ -1501,6 +1484,7 @@
          this.colDOMN_DESC.Name = "colDOMN_DESC";
          this.colDOMN_DESC.Visible = true;
          this.colDOMN_DESC.VisibleIndex = 0;
+         this.colDOMN_DESC.Width = 324;
          // 
          // colREGN_LANG
          // 

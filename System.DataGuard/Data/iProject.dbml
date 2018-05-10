@@ -1121,4 +1121,8 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="Global.SetSubSysAppDomain" Method="SetSubSysAppDomain">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

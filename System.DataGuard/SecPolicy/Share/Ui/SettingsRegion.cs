@@ -433,6 +433,197 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          catch { }
       }
 
+      private void TranDomn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            var sorcregn = SorcDomnRegn_Lov.Text;
+            if (sorcregn == null || sorcregn.ToString() == "") return;
+
+            var trgtregn = TrgtDomnRegn_Lov.Text;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            //_comboFrom.SelectedItem = Translator.Languages.FirstOrDefault(l => sorcregn.ToString().Contains(l));
+            //_comboTo.SelectedItem = Translator.Languages.FirstOrDefault(l => trgtregn.ToString().Contains(l));
+
+            // iProject
+            foreach (var item in TrgtDomnRegnBs.List.OfType<Data.App_Domain>())
+            {
+               // Label Text
+               _editSourceText.Text = SorcDomnRegnBs.List.OfType<Data.App_Domain>().FirstOrDefault(d => d.CODE == item.CODE && d.VALU == item.VALU).DOMN_DESC;
+               _btnTranslate_Click(null, null);
+               item.DOMN_DESC = _editTarget.Text;
+            }
+
+            // iScsc
+            foreach (var item in TrgtDomnRegnBs.List.OfType<Data.v_SubSys_5_App_Domain>())
+            {
+               // Label Text
+               _editSourceText.Text = SorcDomnRegnBs.List.OfType<Data.v_SubSys_5_App_Domain>().FirstOrDefault(d => d.CODE == item.CODE && d.VALU == item.VALU).DOMN_DESC;
+               _btnTranslate_Click(null, null);
+               item.DOMN_DESC = _editTarget.Text;
+            }
+
+            // iCRM
+            foreach (var item in TrgtDomnRegnBs.List.OfType<Data.v_SubSys_11_App_Domain>())
+            {
+               // Label Text
+               _editSourceText.Text = SorcDomnRegnBs.List.OfType<Data.v_SubSys_11_App_Domain>().FirstOrDefault(d => d.CODE == item.CODE && d.VALU == item.VALU).DOMN_DESC;
+               _btnTranslate_Click(null, null);
+               item.DOMN_DESC = _editTarget.Text;
+            }
+
+            // iRoboTech
+            foreach (var item in TrgtDomnRegnBs.List.OfType<Data.v_SubSys_12_App_Domain>())
+            {
+               // Label Text
+               _editSourceText.Text = SorcDomnRegnBs.List.OfType<Data.v_SubSys_12_App_Domain>().FirstOrDefault(d => d.CODE == item.CODE && d.VALU == item.VALU).DOMN_DESC;
+               _btnTranslate_Click(null, null);
+               item.DOMN_DESC = _editTarget.Text;
+            }
+
+            // iProject
+            if ((int)subsys == 0)
+            {
+               iProject.SetSubSysAppDomain(
+                  new XElement("App_Domain",
+                     new XAttribute("subsys", subsys),
+                     new XAttribute("regnlang", TrgtDomnRegn_Lov.EditValue),
+                     TrgtDomnRegnBs.List.OfType<Data.App_Domain>()
+                     .Select(d =>
+                        new XElement("Domain",
+                           new XAttribute("code", d.CODE),
+                           new XAttribute("valu", d.VALU),
+                           new XAttribute("domndesc", d.DOMN_DESC)
+                        )
+                     )
+                  )
+               );
+            }
+            // iScsc
+            else if ((int)subsys == 5)
+            {
+               iProject.SetSubSysAppDomain(
+                  new XElement("App_Domain",
+                     new XAttribute("subsys", subsys),
+                     new XAttribute("regnlang", TrgtDomnRegn_Lov.EditValue),
+                     TrgtDomnRegnBs.List.OfType<Data.v_SubSys_5_App_Domain>()
+                     .Select(d =>
+                        new XElement("Domain",
+                           new XAttribute("code", d.CODE),
+                           new XAttribute("valu", d.VALU),
+                           new XAttribute("domndesc", d.DOMN_DESC)
+                        )
+                     )
+                  )
+               );
+            }
+            // iCRM
+            else if ((int)subsys == 11)
+            {
+               iProject.SetSubSysAppDomain(
+                  new XElement("App_Domain",
+                     new XAttribute("subsys", subsys),
+                     new XAttribute("regnlang", TrgtDomnRegn_Lov.EditValue),
+                     TrgtDomnRegnBs.List.OfType<Data.v_SubSys_11_App_Domain>()
+                     .Select(d =>
+                        new XElement("Domain",
+                           new XAttribute("code", d.CODE),
+                           new XAttribute("valu", d.VALU),
+                           new XAttribute("domndesc", d.DOMN_DESC)
+                        )
+                     )
+                  )
+               );
+            }
+            // iRoboTech
+            else if ((int)subsys == 12)
+            {
+               iProject.SetSubSysAppDomain(
+                  new XElement("App_Domain",
+                     new XAttribute("subsys", subsys),
+                     new XAttribute("regnlang", TrgtDomnRegn_Lov.EditValue),
+                     TrgtDomnRegnBs.List.OfType<Data.v_SubSys_12_App_Domain>()
+                     .Select(d =>
+                        new XElement("Domain",
+                           new XAttribute("code", d.CODE),
+                           new XAttribute("valu", d.VALU),
+                           new XAttribute("domndesc", d.DOMN_DESC)
+                        )
+                     )
+                  )
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SorcFcntBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var sorcfcnt = SorcFcntBs.Current as Data.Form_Control;
+            if (sorcfcnt == null) return;
+
+            TrgtFcntBs.Position = TrgtFcntBs.List.IndexOf(TrgtFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == sorcfcnt.NAME));
+         }
+         catch { }
+      }
+
+      private void SorcDomnRegnBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            dynamic sorcdomn = null;
+            switch ((int)subsys)
+            {
+               case 0:
+                  sorcdomn = SorcDomnRegnBs.Current as Data.App_Domain;
+                  if (sorcdomn == null) return;
+
+                  TrgtDomnRegnBs.Position = TrgtDomnRegnBs.List.IndexOf(TrgtDomnRegnBs.List.OfType<Data.App_Domain>().FirstOrDefault(d => d.CODE == sorcdomn.CODE && d.VALU == sorcdomn.VALU));
+                  break;
+               case 5:
+                  sorcdomn = SorcDomnRegnBs.Current as Data.v_SubSys_5_App_Domain;
+                  if (sorcdomn == null) return;
+
+                  TrgtDomnRegnBs.Position = TrgtDomnRegnBs.List.IndexOf(TrgtDomnRegnBs.List.OfType<Data.v_SubSys_5_App_Domain>().FirstOrDefault(d => d.CODE == sorcdomn.CODE && d.VALU == sorcdomn.VALU));
+                  break;
+               case 11:
+                  sorcdomn = SorcDomnRegnBs.Current as Data.v_SubSys_11_App_Domain;
+                  if (sorcdomn == null) return;
+
+                  TrgtDomnRegnBs.Position = TrgtDomnRegnBs.List.IndexOf(TrgtDomnRegnBs.List.OfType<Data.v_SubSys_11_App_Domain>().FirstOrDefault(d => d.CODE == sorcdomn.CODE && d.VALU == sorcdomn.VALU));
+                  break;
+               case 12:
+                  sorcdomn = SorcDomnRegnBs.Current as Data.v_SubSys_12_App_Domain;
+                  if (sorcdomn == null) return;
+
+                  TrgtDomnRegnBs.Position = TrgtDomnRegnBs.List.IndexOf(TrgtDomnRegnBs.List.OfType<Data.v_SubSys_12_App_Domain>().FirstOrDefault(d => d.CODE == sorcdomn.CODE && d.VALU == sorcdomn.VALU));
+                  break;
+               default:
+                  break;
+            }
+            
+         }
+         catch { }
+      }
    }
 
    /// <summary>
@@ -688,4 +879,5 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
       #endregion
    }
+   
 }

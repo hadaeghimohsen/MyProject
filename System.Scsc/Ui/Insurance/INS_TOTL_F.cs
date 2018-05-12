@@ -24,7 +24,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void Execute_Query()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             var Rqids = iScsc.VF_Requests(new XElement("Request"))
@@ -39,13 +39,16 @@ namespace System.Scsc.Ui.Insurance
                   rqst =>
                      Rqids.Contains(rqst.RQID)
                );
+
+            // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+            FighBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
          }         
       }
 
       int RqstIndex;
       private void Get_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Count >= 1)
                RqstIndex = RqstBs1.Position;
@@ -54,7 +57,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void Set_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstIndex >= 0)
                RqstBs1.Position = RqstIndex;
@@ -63,7 +66,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void Create_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             RqstBs1.AddNew();
             FILE_NO_LookUpEdit.Focus();
@@ -79,24 +82,24 @@ namespace System.Scsc.Ui.Insurance
             if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
             {
                Gb_Expense.Visible = true;
-               Btn_RqstDelete1.Visible = true;
-               Btn_RqstSav1.Visible = false;
+               //Btn_RqstDelete1.Visible = true;
+               //Btn_RqstSav1.Visible = false;
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
-               Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
+               //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
             }
             else if (Rqst.RQID == 0)
             {
                Gb_Expense.Visible = false;
-               Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
+               //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
             }
          }
          catch
          {
             Gb_Expense.Visible = false;
-            Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
+            //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
          }
       }
 
@@ -240,7 +243,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -255,7 +258,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -272,7 +275,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -289,7 +292,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -302,7 +305,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -317,17 +320,36 @@ namespace System.Scsc.Ui.Insurance
          }
       }
 
-      private void bn_PaymentMethods_Click(object sender, EventArgs e)
+      private void bn_PaymentMethods1_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
             var pymt = PymtsBs1.Current as Data.Payment;
 
             _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost", "", 86 /* Execute Pay_Mtod_F */, SendType.Self) { Input = pymt }
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 86 /* Execute Pay_Mtod_F */){Input = pymt},
+                     new Job(SendType.SelfToUserInterface, "PAY_MTOD_F", 10 /* Execute Actn_CalF_F*/)
+                     {
+                        Input = 
+                           new XElement("Payment_Method",
+                              new XAttribute("callerform", GetType().Name)
+                           )
+                     }
+                  }
+
+               )
             );
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "Localhost", "", 86 /* Execute Pay_Mtod_F */, SendType.Self) 
+            //   { 
+            //      Input = pymt 
+            //   }
+            //);
          }
       }
 
@@ -335,13 +357,29 @@ namespace System.Scsc.Ui.Insurance
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
-               var pymt = PymtsBs1.Current as Data.Payment;
+
+               foreach (Data.Payment pymt in PymtsBs1)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithoutPOS"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                     //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
+                           )
+                        )
+                     )
+                  );
+               }
+               //var pymt = PymtsBs1.Current as Data.Payment;
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
@@ -349,18 +387,7 @@ namespace System.Scsc.Ui.Insurance
                   return;
                }*/
 
-               iScsc.PAY_MSAV_P(
-                  new XElement("Payment",
-                     new XAttribute("actntype", "CheckoutWithoutPOS"),
-                     new XElement("Insert",
-                        new XElement("Payment_Method",
-                           new XAttribute("cashcode", pymt.CASH_CODE),
-                           new XAttribute("rqstrqid", pymt.RQST_RQID)
-                  //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
-                        )
-                     )
-                  )
-               );
+
 
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);
@@ -375,43 +402,111 @@ namespace System.Scsc.Ui.Insurance
          }
       }
 
-      private void ntb_POSPayment_Click(object sender, EventArgs e)
+      private void tbn_POSPayment1_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         try
          {
-            if (RqstBs1.Current == null) return;
-            var rqst = RqstBs1.Current as Data.Request;
-            var pymt = PymtsBs1.Current as Data.Payment;
+            //if (tb_master.SelectedTab == tp_001)
+            {
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            var xSendPos =
-               new XElement("Form",
-                  new XAttribute("name", GetType().Name),
-                  new XAttribute("tabpage", "tp_001"),
-                  new XElement("Request",
-                     new XAttribute("rqid", rqst.RQID),
-                     new XAttribute("rqtpcode", rqst.RQTP_CODE),
-                     new XAttribute("fileno", rqst.Fighters.FirstOrDefault().FILE_NO),
-                     new XElement("Payment",
-                        new XAttribute("cashcode", pymt.CASH_CODE),
-                        new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
-                     )
-                  )
-               );
+               var rqst = RqstBs1.Current as Data.Request;
+               if (rqst == null) return;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
+               if (VPosBs1.List.Count == 0)
+                  UsePos_Cb.Checked = false;
+
+               if (UsePos_Cb.Checked)
+               {
+                  foreach (Data.Payment pymt in PymtsBs1)
                   {
-                     new Job(SendType.Self, 93 /* Execute Pos_Totl_F */),
-                     new Job(SendType.SelfToUserInterface, "POS_TOTL_F", 10 /* Actn_CalF_F */){Input = xSendPos}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                     var amnt = ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+                     if (amnt == 0) return;
+
+                     var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+                     long psid;
+                     if (Pos_Lov.EditValue == null)
+                     {
+                        var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                        if (posdflts.Count() == 1)
+                           Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                        else
+                        {
+                           Pos_Lov.Focus();
+                           return;
+                        }
+                     }
+                     else
+                     {
+                        psid = (long)Pos_Lov.EditValue;
+                     }
+
+                     if (regl.AMNT_TYPE == "002")
+                        amnt *= 10;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.External, "Commons",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 34 /* Execute PosPayment */)
+                                    {
+                                       Input = 
+                                          new XElement("PosRequest",
+                                             new XAttribute("psid", psid),
+                                             new XAttribute("subsys", 5),
+                                             new XAttribute("rqid", pymt.RQST_RQID),
+                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("router", GetType().Name),
+                                             new XAttribute("callback", 20),
+                                             new XAttribute("amnt", amnt)
+                                          )
+                                    }
+                                 }
+                              )                     
+                           }
+                        )
+                     );
+                  }
+               }
+               else
+               {
+                  // 1397/01/07 * ثبت دستی مبلغ به صورت پایانه فروش
+                  foreach (Data.Payment pymt in PymtsBs1)
+                  {
+                     iScsc.PAY_MSAV_P(
+                        new XElement("Payment",
+                           new XAttribute("actntype", "CheckoutWithPOS"),
+                           new XElement("Insert",
+                              new XElement("Payment_Method",
+                                 new XAttribute("cashcode", pymt.CASH_CODE),
+                                 new XAttribute("rqstrqid", pymt.RQST_RQID)
+                              )
+                           )
+                        )
+                     );
+                  }
+
+                  /* Loop For Print After Pay */
+                  RqstBnPrintAfterPay_Click(null, null);
+
+                  /* End Request */
+                  Btn_RqstBnASav1_Click(null, null);
+               }
+            }
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
          }
       }
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -429,7 +524,7 @@ namespace System.Scsc.Ui.Insurance
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -443,6 +538,13 @@ namespace System.Scsc.Ui.Insurance
                   })
                );
          }
+      }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
       }
 
    }

@@ -19230,7 +19230,7 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABL_TEXT", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABL_TEXT", DbType="NVarChar(255)")]
 		public string LABL_TEXT
 		{
 			get

@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.ChangeRials
       private string formCaller;
       private string CurrentUser;
       private XElement HostNameInfo;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -118,7 +119,7 @@ namespace System.Scsc.Ui.ChangeRials
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstRqt1_Click(null, null);
          }
          else if (keyData == Keys.Enter)
@@ -132,12 +133,12 @@ namespace System.Scsc.Ui.ChangeRials
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstDelete1_Click(null, null);
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstRqt1_Click(null, null);
          }
          else if (keyData == Keys.F10)
@@ -193,6 +194,117 @@ namespace System.Scsc.Ui.ChangeRials
 
          //LL_MoreInfo_LinkClicked(null, null);
          //LL_MoreInfo2_LinkClicked(null, null);
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "mdfyby_lb":
+                     MdfyBy_Lb.Text = control.LABL_TEXT;
+                     //MdfyBy_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MdfyBy_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "info_gb":
+                     Info_Gb.Text = control.LABL_TEXT;
+                     //Info_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Info_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "filenos_lb":
+                     FileNos_Lb.Text = control.LABL_TEXT;
+                     //FileNos_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FileNos_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntdpstamnt_lb":
+                     CrntDpstAmnt_Lb.Text = control.LABL_TEXT;
+                     //CrntDpstAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntDpstAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "amnt_lb":
+                     Amnt_Lb.Text = control.LABL_TEXT;
+                     //Amnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Amnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntdebtamnt_lb":
+                     CrntDebtAmnt_Lb.Text = control.LABL_TEXT;
+                     //CrntDebtAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntDebtAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "paiddate_lb":
+                     PaidDate_Lb.Text = control.LABL_TEXT;
+                     //PaidDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //PaidDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "glr_gb":
+                     Glr_Gb.Text = control.LABL_TEXT;
+                     //Glr_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Glr_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "incdpst_rb":
+                     IncDpst_Rb.Text = control.LABL_TEXT;
+                     //IncDpst_Rb.Text = control.LABL_TEXT; // ToolTip
+                     //IncDpst_Rb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "decdspt_rb":
+                     DecDspt_Rb.Text = control.LABL_TEXT;
+                     //DecDspt_Rb.Text = control.LABL_TEXT; // ToolTip
+                     //DecDspt_Rb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "paidtype_lb":
+                     PaidType_Lb.Text = control.LABL_TEXT;
+                     //PaidType_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //PaidType_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rwno_clm":
+                     Rwno_Clm.Caption = control.LABL_TEXT;
+                     //Rwno_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //Rwno_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "amnt_clm":
+                     Amnt_Clm.Caption = control.LABL_TEXT;
+                     //Amnt_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //Amnt_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rcptmtod_clm":
+                     RcptMtod_Clm.Caption = control.LABL_TEXT;
+                     //RcptMtod_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //RcptMtod_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqst_gb":
+                     Rqst_Gb.Text = control.LABL_TEXT;
+                     //Rqst_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Rqst_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqid_lb":
+                     Rqid_Lb.Text = control.LABL_TEXT;
+                     //Rqid_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretby_lb":
+                     CretBy_Lb.Text = control.LABL_TEXT;
+                     //CretBy_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CretBy_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretdate_lb":
+                     CretDate_Lb.Text = control.LABL_TEXT;
+                     //CretDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CretDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mdfydate_lb":
+                     MdfyDate_Lb.Text = control.LABL_TEXT;
+                     //MdfyDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MdfyDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

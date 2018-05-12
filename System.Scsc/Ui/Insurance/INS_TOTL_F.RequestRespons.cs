@@ -17,6 +17,8 @@ namespace System.Scsc.Ui.Insurance
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
+      private XElement HostNameInfo;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -103,13 +105,13 @@ namespace System.Scsc.Ui.Insurance
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                RqstBnARqt1_Click(null, null);
             
          }
          else if (keyData == Keys.Enter)
          {
-            if(!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_NewRecord.Focused))
+            //if(!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_NewRecord.Focused))
                SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.F2)
@@ -118,12 +120,12 @@ namespace System.Scsc.Ui.Insurance
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                RqstBnDelete1_Click(null, null);            
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                RqstBnARqt1_Click(null, null);            
          }
          else if (keyData == Keys.F3)
@@ -133,7 +135,7 @@ namespace System.Scsc.Ui.Insurance
          }
          else if (keyData == Keys.F10)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstBnASav1_Click(null, null);            
          }
          job.Status = StatusType.Successful;
@@ -166,9 +168,91 @@ namespace System.Scsc.Ui.Insurance
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
+
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
+
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "insrinfo_lb":
+                     InsrInfo_Lb.Text = control.LABL_TEXT;
+                     //InsrInfo_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //InsrInfo_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mdfyby_lb":
+                     MdfyBy_Lb.Text = control.LABL_TEXT;
+                     //MdfyBy_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MdfyBy_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gb_info":
+                     Gb_Info.Text = control.LABL_TEXT;
+                     //Gb_Info.Text = control.LABL_TEXT; // ToolTip
+                     //Gb_Info.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "filenos_lb":
+                     FileNos_Lb.Text = control.LABL_TEXT;
+                     //FileNos_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FileNos_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqttcode_lb":
+                     RqttCode_Lb.Text = control.LABL_TEXT;
+                     //RqttCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RqttCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "insrnumb_lb":
+                     InsrNumb_Lb.Text = control.LABL_TEXT;
+                     //InsrNumb_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //InsrNumb_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "insrdate_lb":
+                     InsrDate_Lb.Text = control.LABL_TEXT;
+                     //InsrDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //InsrDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gb_rqst3":
+                     Gb_Rqst3.Text = control.LABL_TEXT;
+                     //Gb_Rqst3.Text = control.LABL_TEXT; // ToolTip
+                     //Gb_Rqst3.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqid_lb":
+                     Rqid_Lb.Text = control.LABL_TEXT;
+                     //Rqid_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretby_lb":
+                     CretBy_Lb.Text = control.LABL_TEXT;
+                     //CretBy_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CretBy_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretdate_lb":
+                     CretDate_Lb.Text = control.LABL_TEXT;
+                     //CretDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CretDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mdfydate_lb":
+                     MdfyDate_Lb.Text = control.LABL_TEXT;
+                     //MdfyDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MdfyDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
 
          job.Status = StatusType.Successful;
       }
@@ -232,7 +316,11 @@ namespace System.Scsc.Ui.Insurance
          
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          var iFighs = iScsc.VF_InsuranceFighter(DateTime.Now, 0).Select(f => f.FILE_NO);
-         FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && iFighs.Contains(f.FILE_NO) && Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
+         //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && iFighs.Contains(f.FILE_NO) && Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
+
+         VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
          #endregion
 
          job.Status = StatusType.Successful;
@@ -260,15 +348,14 @@ namespace System.Scsc.Ui.Insurance
                {
                   FILE_NO_LookUpEdit.EditValue = Convert.ToInt64((job.Input as XElement).Attribute("fileno").Value);
                   RQTT_CODELookUpEdit.EditValue = "001";
+
+                  RqstBnARqt1_Click(null, null);
                }
             }
             else
                Execute_Query();
          }
-         catch 
-         {
-            
-         }
+         catch { }
          job.Status = StatusType.Successful;
       }
 
@@ -278,52 +365,59 @@ namespace System.Scsc.Ui.Insurance
       /// <param name="job"></param>
       private void Pay_Oprt_F(Job job)
       {
-         XElement RcevXData = job.Input as XElement;
-
-         var rqtpcode = RcevXData.Element("Request").Attribute("rqtpcode").Value;
-         var rqid = RcevXData.Element("Request").Attribute("rqid").Value;
-         var fileno = RcevXData.Element("Request").Attribute("fileno").Value;
-         var cashcode = RcevXData.Element("Request").Element("Payment").Attribute("cashcode").Value;
-         var amnt = RcevXData.Element("Request").Element("Payment").Attribute("amnt").Value;
-         var termno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("termno").Value;
-         var cardno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("cardno").Value;
-         var flowno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("flowno").Value;
-         var refno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("refno").Value;
-         var actndate = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("actndate").Value;
-
-         if (rqtpcode == "012")
+         try
          {
+            XElement RcevXData = job.Input as XElement;
+
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            var rqtpcode = rqst.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+            var rqid = rqst.RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+            var fileno = rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+            var cashcode = rqst.Payments.FirstOrDefault().CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               amnt /= 10;
+
             iScsc.PAY_MSAV_P(
-                  new XElement("Payment",
-                     new XAttribute("actntype", "CheckoutWithPOS"),
-                     new XElement("Insert",
-                        new XElement("Payment_Method",
-                           new XAttribute("cashcode", cashcode),
-                           new XAttribute("rqstrqid", rqid),
-                           new XAttribute("amnt", amnt),
-                           new XAttribute("termno", termno),
-                           new XAttribute("cardno", cardno),
-                           new XAttribute("flowno", flowno),
-                           new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
-                        )
+               new XElement("Payment",
+                  new XAttribute("actntype", "CheckoutWithPOS"),
+                  new XElement("Insert",
+                     new XElement("Payment_Method",
+                        new XAttribute("cashcode", cashcode),
+                        new XAttribute("rqstrqid", rqid),
+                        new XAttribute("amnt", amnt),
+                        new XAttribute("termno", termno),
+                        new XAttribute("tranno", tranno),
+                        new XAttribute("cardno", cardno),
+                        new XAttribute("flowno", flowno),
+                        new XAttribute("refno", refno),
+                        new XAttribute("actndate", actndate)
                      )
                   )
-               );
+               )
+            );
 
             /* Loop For Print After Pay */
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "PrntAftrPay"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", rqid))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            RqstBnPrintAfterPay_Click(null, null);
 
             /* End Request */
             Btn_RqstBnASav1_Click(null, null);
          }
-
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
          job.Status = StatusType.Successful;
       }
    }

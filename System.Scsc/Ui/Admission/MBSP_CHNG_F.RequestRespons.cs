@@ -24,6 +24,7 @@ namespace System.Scsc.Ui.Admission
       int step = 15;
       private string CurrentUser;
       private string formCaller = "";
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -124,6 +125,193 @@ namespace System.Scsc.Ui.Admission
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "crntconsattnmot_lb":
+                     CrntConsAttnMot_Lb.Text = control.LABL_TEXT;
+                     //CrntConsAttnMot_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntConsAttnMot_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "endtime_clm":
+                     EndTime_Clm.Caption = control.LABL_TEXT;
+                     //EndTime_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //EndTime_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "namednrm_lb":
+                     NameDnrm_Lb.Text = control.LABL_TEXT;
+                     //NameDnrm_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NameDnrm_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "brthdate_lb":
+                     BrthDate_Lb.Text = control.LABL_TEXT;
+                     //BrthDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //BrthDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cellphon_lb":
+                     CellPhon_Lb.Text = control.LABL_TEXT;
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fngrprnt_lb":
+                     FngrPrnt_Lb.Text = control.LABL_TEXT;
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntmbsp_gb":
+                     CrntMbsp_Gb.Text = control.LABL_TEXT;
+                     //CrntMbsp_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntMbsp_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntmbsprwno_lb":
+                     CrntMbspRwno_Lb.Text = control.LABL_TEXT;
+                     //CrntMbspRwno_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntMbspRwno_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntfgpbrwno_lb":
+                     CrntFgpbRwno_Lb.Text = control.LABL_TEXT;
+                     //CrntFgpbRwno_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntFgpbRwno_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntstrtdate_lb":
+                     CrntStrtDate_Lb.Text = control.LABL_TEXT;
+                     //CrntStrtDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntStrtDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntenddate_lb":
+                     CrntEndDate_Lb.Text = control.LABL_TEXT;
+                     //CrntEndDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntEndDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntdays_lb":
+                     CrntDays_Lb.Text = control.LABL_TEXT;
+                     //CrntDays_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntDays_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntmont_lb":
+                     CrntMont_Lb.Text = control.LABL_TEXT;
+                     //CrntMont_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntMont_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntnumbattnmont_lb":
+                     CrntNumbAttnMont_Lb.Text = control.LABL_TEXT;
+                     //CrntNumbAttnMont_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntNumbAttnMont_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "crntcbmtcode_gb":
+                     CrntCbmtCode_Gb.Text = control.LABL_TEXT;
+                     //CrntCbmtCode_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //CrntCbmtCode_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newmbsp_gb":
+                     NewMbsp_Gb.Text = control.LABL_TEXT;
+                     //NewMbsp_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //NewMbsp_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newrwno_lb":
+                     NewRwno_Lb.Text = control.LABL_TEXT;
+                     //NewRwno_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewRwno_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newfgpbrwno_lb":
+                     NewFgpbRwno_Lb.Text = control.LABL_TEXT;
+                     //NewFgpbRwno_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewFgpbRwno_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newstrtdate_lb":
+                     NewStrtDate_Lb.Text = control.LABL_TEXT;
+                     //NewStrtDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewStrtDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newenddate_lb":
+                     NewEndDate_Lb.Text = control.LABL_TEXT;
+                     //NewEndDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewEndDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newdays_lb":
+                     NewDays_Lb.Text = control.LABL_TEXT;
+                     //NewDays_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewDays_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newmonts_lb":
+                     NewMonts_Lb.Text = control.LABL_TEXT;
+                     //NewMonts_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewMonts_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newnumbattnmont_lb":
+                     NewNumbAttnMont_Lb.Text = control.LABL_TEXT;
+                     //NewNumbAttnMont_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewNumbAttnMont_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newconsattnmot_lb":
+                     NewConsAttnMot_Lb.Text = control.LABL_TEXT;
+                     //NewConsAttnMot_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NewConsAttnMot_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "newcbmtcode_gb":
+                     NewCbmtCode_Gb.Text = control.LABL_TEXT;
+                     //NewCbmtCode_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //NewCbmtCode_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqstmbsp_butn":
+                     RqstMbsp_Butn.Text = control.LABL_TEXT;
+                     //RqstMbsp_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //RqstMbsp_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "savembsp_butn":
+                     SaveMbsp_Butn.Text = control.LABL_TEXT;
+                     //SaveMbsp_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //SaveMbsp_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "back_butn":
+                     Back_Butn.Text = control.LABL_TEXT;
+                     //Back_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Back_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "clubcode_clm":
+                     ClubCode_Clm.Caption = control.LABL_TEXT;
+                     //ClubCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ClubCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mtodcode_clm":
+                     MtodCode_Clm.Caption = control.LABL_TEXT;
+                     //MtodCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //MtodCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cochfileno_clm":
+                     CochFileNo_Clm.Caption = control.LABL_TEXT;
+                     //CochFileNo_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //CochFileNo_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "daytype_clm":
+                     DayType_Clm.Caption = control.LABL_TEXT;
+                     //DayType_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //DayType_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "strttime_clm":
+                     StrtTime_Clm.Caption = control.LABL_TEXT;
+                     //StrtTime_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //StrtTime_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "timedesc_clm":
+                     TimeDesc_Clm.Caption = control.LABL_TEXT;
+                     //TimeDesc_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //TimeDesc_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
+
 
          job.Status = StatusType.Successful;
       }

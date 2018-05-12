@@ -28,29 +28,28 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label MdfyBy_Lb;
-         System.Windows.Forms.Label MdfyDate_Lb;
-         System.Windows.Forms.Label CretBy_Lb;
-         System.Windows.Forms.Label RqtpDesc_Lb;
-         System.Windows.Forms.Label Rqid_Lb;
-         System.Windows.Forms.Label CretDate_Lb;
-         System.Windows.Forms.Label EndDate_Lb;
-         System.Windows.Forms.Label StrtDate_Lb;
-         System.Windows.Forms.Label FileNo_Lb;
-         System.Windows.Forms.Label AtenDesc_Lb;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_MBFZ_F));
+         this.MdfyBy_Lb = new System.Windows.Forms.Label();
+         this.MdfyDate_Lb = new System.Windows.Forms.Label();
+         this.CretBy_Lb = new System.Windows.Forms.Label();
+         this.RqtpDesc_Lb = new System.Windows.Forms.Label();
+         this.Rqid_Lb = new System.Windows.Forms.Label();
+         this.CretDate_Lb = new System.Windows.Forms.Label();
+         this.EndDate_Lb = new System.Windows.Forms.Label();
+         this.StrtDate_Lb = new System.Windows.Forms.Label();
+         this.FileNos_Lb = new System.Windows.Forms.Label();
+         this.AtenDesc_Lb = new System.Windows.Forms.Label();
          this.Serv_Gb = new System.Windows.Forms.GroupBox();
          this.pictureBox1 = new System.Windows.Forms.PictureBox();
          this.Pblc_Butn = new System.Windows.Forms.Button();
          this.EndDate_DateTime003 = new Atf.UI.DateTimeSelector();
-         this.MbspBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MbspBs1 = new System.Windows.Forms.BindingSource();
+         this.RqroBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource();
          this.StrtDate_DateTime003 = new Atf.UI.DateTimeSelector();
          this.FIGH_FILE_NOLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs1 = new System.Windows.Forms.BindingSource();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,7 +126,7 @@
          this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
          this.RqstBnNew3 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -151,21 +150,11 @@
          this.RqstBnBDoc3 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl03 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit3 = new System.Windows.Forms.ToolStripButton();
-         this.im_images = new System.Windows.Forms.ImageList(this.components);
-         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.PrvnBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
-         MdfyBy_Lb = new System.Windows.Forms.Label();
-         MdfyDate_Lb = new System.Windows.Forms.Label();
-         CretBy_Lb = new System.Windows.Forms.Label();
-         RqtpDesc_Lb = new System.Windows.Forms.Label();
-         Rqid_Lb = new System.Windows.Forms.Label();
-         CretDate_Lb = new System.Windows.Forms.Label();
-         EndDate_Lb = new System.Windows.Forms.Label();
-         StrtDate_Lb = new System.Windows.Forms.Label();
-         FileNo_Lb = new System.Windows.Forms.Label();
-         AtenDesc_Lb = new System.Windows.Forms.Label();
+         this.im_images = new System.Windows.Forms.ImageList();
+         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.RegnBs1 = new System.Windows.Forms.BindingSource();
+         this.PrvnBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
          this.Serv_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).BeginInit();
@@ -191,103 +180,103 @@
          // 
          // MdfyBy_Lb
          // 
-         MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         MdfyBy_Lb.AutoSize = true;
-         MdfyBy_Lb.Location = new System.Drawing.Point(219, 75);
-         MdfyBy_Lb.Name = "MdfyBy_Lb";
-         MdfyBy_Lb.Size = new System.Drawing.Size(97, 13);
-         MdfyBy_Lb.TabIndex = 24;
-         MdfyBy_Lb.Text = "کاربر ویرایش کننده :";
+         this.MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MdfyBy_Lb.AutoSize = true;
+         this.MdfyBy_Lb.Location = new System.Drawing.Point(219, 75);
+         this.MdfyBy_Lb.Name = "MdfyBy_Lb";
+         this.MdfyBy_Lb.Size = new System.Drawing.Size(97, 13);
+         this.MdfyBy_Lb.TabIndex = 24;
+         this.MdfyBy_Lb.Text = "کاربر ویرایش کننده :";
          // 
          // MdfyDate_Lb
          // 
-         MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         MdfyDate_Lb.AutoSize = true;
-         MdfyDate_Lb.Location = new System.Drawing.Point(219, 159);
-         MdfyDate_Lb.Name = "MdfyDate_Lb";
-         MdfyDate_Lb.Size = new System.Drawing.Size(71, 13);
-         MdfyDate_Lb.TabIndex = 27;
-         MdfyDate_Lb.Text = "تاریخ ویرایش :";
+         this.MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MdfyDate_Lb.AutoSize = true;
+         this.MdfyDate_Lb.Location = new System.Drawing.Point(219, 159);
+         this.MdfyDate_Lb.Name = "MdfyDate_Lb";
+         this.MdfyDate_Lb.Size = new System.Drawing.Size(71, 13);
+         this.MdfyDate_Lb.TabIndex = 27;
+         this.MdfyDate_Lb.Text = "تاریخ ویرایش :";
          // 
          // CretBy_Lb
          // 
-         CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CretBy_Lb.AutoSize = true;
-         CretBy_Lb.Location = new System.Drawing.Point(219, 47);
-         CretBy_Lb.Name = "CretBy_Lb";
-         CretBy_Lb.Size = new System.Drawing.Size(85, 13);
-         CretBy_Lb.TabIndex = 1;
-         CretBy_Lb.Text = "کاربر ایجاد کننده :";
+         this.CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CretBy_Lb.AutoSize = true;
+         this.CretBy_Lb.Location = new System.Drawing.Point(219, 47);
+         this.CretBy_Lb.Name = "CretBy_Lb";
+         this.CretBy_Lb.Size = new System.Drawing.Size(85, 13);
+         this.CretBy_Lb.TabIndex = 1;
+         this.CretBy_Lb.Text = "کاربر ایجاد کننده :";
          // 
          // RqtpDesc_Lb
          // 
-         RqtpDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RqtpDesc_Lb.AutoSize = true;
-         RqtpDesc_Lb.Location = new System.Drawing.Point(219, 103);
-         RqtpDesc_Lb.Name = "RqtpDesc_Lb";
-         RqtpDesc_Lb.Size = new System.Drawing.Size(77, 13);
-         RqtpDesc_Lb.TabIndex = 1;
-         RqtpDesc_Lb.Text = "نوع درخواست :";
+         this.RqtpDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqtpDesc_Lb.AutoSize = true;
+         this.RqtpDesc_Lb.Location = new System.Drawing.Point(219, 103);
+         this.RqtpDesc_Lb.Name = "RqtpDesc_Lb";
+         this.RqtpDesc_Lb.Size = new System.Drawing.Size(77, 13);
+         this.RqtpDesc_Lb.TabIndex = 1;
+         this.RqtpDesc_Lb.Text = "نوع درخواست :";
          // 
          // Rqid_Lb
          // 
-         Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Rqid_Lb.AutoSize = true;
-         Rqid_Lb.Location = new System.Drawing.Point(219, 20);
-         Rqid_Lb.Name = "Rqid_Lb";
-         Rqid_Lb.Size = new System.Drawing.Size(92, 13);
-         Rqid_Lb.TabIndex = 21;
-         Rqid_Lb.Text = "شماره درخواست :";
+         this.Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqid_Lb.AutoSize = true;
+         this.Rqid_Lb.Location = new System.Drawing.Point(219, 20);
+         this.Rqid_Lb.Name = "Rqid_Lb";
+         this.Rqid_Lb.Size = new System.Drawing.Size(92, 13);
+         this.Rqid_Lb.TabIndex = 21;
+         this.Rqid_Lb.Text = "شماره درخواست :";
          // 
          // CretDate_Lb
          // 
-         CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CretDate_Lb.AutoSize = true;
-         CretDate_Lb.Location = new System.Drawing.Point(219, 131);
-         CretDate_Lb.Name = "CretDate_Lb";
-         CretDate_Lb.Size = new System.Drawing.Size(59, 13);
-         CretDate_Lb.TabIndex = 14;
-         CretDate_Lb.Text = "تاریخ ایجاد :";
+         this.CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CretDate_Lb.AutoSize = true;
+         this.CretDate_Lb.Location = new System.Drawing.Point(219, 131);
+         this.CretDate_Lb.Name = "CretDate_Lb";
+         this.CretDate_Lb.Size = new System.Drawing.Size(59, 13);
+         this.CretDate_Lb.TabIndex = 14;
+         this.CretDate_Lb.Text = "تاریخ ایجاد :";
          // 
          // EndDate_Lb
          // 
-         EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         EndDate_Lb.AutoSize = true;
-         EndDate_Lb.Location = new System.Drawing.Point(444, 79);
-         EndDate_Lb.Name = "EndDate_Lb";
-         EndDate_Lb.Size = new System.Drawing.Size(67, 13);
-         EndDate_Lb.TabIndex = 19;
-         EndDate_Lb.Text = "تاریخ اتمام *:";
+         this.EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.EndDate_Lb.AutoSize = true;
+         this.EndDate_Lb.Location = new System.Drawing.Point(444, 79);
+         this.EndDate_Lb.Name = "EndDate_Lb";
+         this.EndDate_Lb.Size = new System.Drawing.Size(67, 13);
+         this.EndDate_Lb.TabIndex = 19;
+         this.EndDate_Lb.Text = "تاریخ اتمام *:";
          // 
          // StrtDate_Lb
          // 
-         StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         StrtDate_Lb.AutoSize = true;
-         StrtDate_Lb.Location = new System.Drawing.Point(444, 51);
-         StrtDate_Lb.Name = "StrtDate_Lb";
-         StrtDate_Lb.Size = new System.Drawing.Size(72, 13);
-         StrtDate_Lb.TabIndex = 18;
-         StrtDate_Lb.Text = "تاریخ شروع *:";
+         this.StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.StrtDate_Lb.AutoSize = true;
+         this.StrtDate_Lb.Location = new System.Drawing.Point(444, 51);
+         this.StrtDate_Lb.Name = "StrtDate_Lb";
+         this.StrtDate_Lb.Size = new System.Drawing.Size(72, 13);
+         this.StrtDate_Lb.TabIndex = 18;
+         this.StrtDate_Lb.Text = "تاریخ شروع *:";
          // 
-         // FileNo_Lb
+         // FileNos_Lb
          // 
-         FileNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FileNo_Lb.AutoSize = true;
-         FileNo_Lb.Location = new System.Drawing.Point(444, 24);
-         FileNo_Lb.Name = "FileNo_Lb";
-         FileNo_Lb.Size = new System.Drawing.Size(73, 13);
-         FileNo_Lb.TabIndex = 17;
-         FileNo_Lb.Text = "نام مشتری *:";
+         this.FileNos_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FileNos_Lb.AutoSize = true;
+         this.FileNos_Lb.Location = new System.Drawing.Point(444, 24);
+         this.FileNos_Lb.Name = "FileNos_Lb";
+         this.FileNos_Lb.Size = new System.Drawing.Size(73, 13);
+         this.FileNos_Lb.TabIndex = 17;
+         this.FileNos_Lb.Text = "نام مشتری *:";
          // 
          // AtenDesc_Lb
          // 
-         AtenDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         AtenDesc_Lb.ForeColor = System.Drawing.Color.DarkRed;
-         AtenDesc_Lb.Location = new System.Drawing.Point(120, 108);
-         AtenDesc_Lb.Name = "AtenDesc_Lb";
-         AtenDesc_Lb.Size = new System.Drawing.Size(394, 71);
-         AtenDesc_Lb.TabIndex = 21;
-         AtenDesc_Lb.Text = "توجه داشته باشید : \r\nدر بازه تاریخی مشخص شده اعضا اجازه ورود به مجموعه را ندارند." +
+         this.AtenDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.AtenDesc_Lb.ForeColor = System.Drawing.Color.DarkRed;
+         this.AtenDesc_Lb.Location = new System.Drawing.Point(120, 108);
+         this.AtenDesc_Lb.Name = "AtenDesc_Lb";
+         this.AtenDesc_Lb.Size = new System.Drawing.Size(394, 71);
+         this.AtenDesc_Lb.TabIndex = 21;
+         this.AtenDesc_Lb.Text = "توجه داشته باشید : \r\nدر بازه تاریخی مشخص شده اعضا اجازه ورود به مجموعه را ندارند." +
     " تا اینکه بازه تمام شود، و همچنین تاریخ اعتبار اعضا به صورت اتوماتیک در تاریخ قب" +
     "لی لحاظ می گردد.";
          // 
@@ -298,11 +287,11 @@
          this.Serv_Gb.Controls.Add(this.Pblc_Butn);
          this.Serv_Gb.Controls.Add(this.EndDate_DateTime003);
          this.Serv_Gb.Controls.Add(this.StrtDate_DateTime003);
-         this.Serv_Gb.Controls.Add(EndDate_Lb);
-         this.Serv_Gb.Controls.Add(StrtDate_Lb);
-         this.Serv_Gb.Controls.Add(FileNo_Lb);
+         this.Serv_Gb.Controls.Add(this.EndDate_Lb);
+         this.Serv_Gb.Controls.Add(this.StrtDate_Lb);
+         this.Serv_Gb.Controls.Add(this.FileNos_Lb);
          this.Serv_Gb.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
-         this.Serv_Gb.Controls.Add(AtenDesc_Lb);
+         this.Serv_Gb.Controls.Add(this.AtenDesc_Lb);
          this.Serv_Gb.Location = new System.Drawing.Point(403, 50);
          this.Serv_Gb.Name = "Serv_Gb";
          this.Serv_Gb.Size = new System.Drawing.Size(537, 187);
@@ -386,7 +375,7 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FIGH_FILE_NOLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.FIGH_FILE_NOLookUpEdit.Properties.DataSource = this.FighBs1;
          this.FIGH_FILE_NOLookUpEdit.Properties.DisplayMember = "NAME_DNRM";
          this.FIGH_FILE_NOLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -864,18 +853,18 @@
          // 
          this.Gb_Rqst3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Gb_Rqst3.Controls.Add(this.ShowRqst_PickButn);
-         this.Gb_Rqst3.Controls.Add(MdfyBy_Lb);
+         this.Gb_Rqst3.Controls.Add(this.MdfyBy_Lb);
          this.Gb_Rqst3.Controls.Add(this.textEdit14);
          this.Gb_Rqst3.Controls.Add(this.dateTimeSelector5);
-         this.Gb_Rqst3.Controls.Add(MdfyDate_Lb);
-         this.Gb_Rqst3.Controls.Add(CretBy_Lb);
-         this.Gb_Rqst3.Controls.Add(RqtpDesc_Lb);
+         this.Gb_Rqst3.Controls.Add(this.MdfyDate_Lb);
+         this.Gb_Rqst3.Controls.Add(this.CretBy_Lb);
+         this.Gb_Rqst3.Controls.Add(this.RqtpDesc_Lb);
          this.Gb_Rqst3.Controls.Add(this.textEdit16);
          this.Gb_Rqst3.Controls.Add(this.textEdit17);
          this.Gb_Rqst3.Controls.Add(this.textEdit18);
-         this.Gb_Rqst3.Controls.Add(Rqid_Lb);
+         this.Gb_Rqst3.Controls.Add(this.Rqid_Lb);
          this.Gb_Rqst3.Controls.Add(this.dateTimeSelector6);
-         this.Gb_Rqst3.Controls.Add(CretDate_Lb);
+         this.Gb_Rqst3.Controls.Add(this.CretDate_Lb);
          this.Gb_Rqst3.Location = new System.Drawing.Point(63, 50);
          this.Gb_Rqst3.Name = "Gb_Rqst3";
          this.Gb_Rqst3.Size = new System.Drawing.Size(334, 187);
@@ -1438,5 +1427,15 @@
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private Windows.Forms.PictureBox pictureBox1;
       private MaxUi.NewPickBtn ShowRqst_PickButn;
+      private Windows.Forms.Label MdfyBy_Lb;
+      private Windows.Forms.Label MdfyDate_Lb;
+      private Windows.Forms.Label CretBy_Lb;
+      private Windows.Forms.Label RqtpDesc_Lb;
+      private Windows.Forms.Label Rqid_Lb;
+      private Windows.Forms.Label CretDate_Lb;
+      private Windows.Forms.Label EndDate_Lb;
+      private Windows.Forms.Label StrtDate_Lb;
+      private Windows.Forms.Label FileNos_Lb;
+      private Windows.Forms.Label AtenDesc_Lb;
    }
 }

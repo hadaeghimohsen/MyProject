@@ -29,17 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label MdfyBy_Lb;
-         System.Windows.Forms.Label MdfyDate_Lb;
-         System.Windows.Forms.Label CretBy_Lb;
-         System.Windows.Forms.Label Rqid_Lb;
-         System.Windows.Forms.Label CretDate_Lb;
-         System.Windows.Forms.Label PaidDate_Lb;
-         System.Windows.Forms.Label CrntDpstAmnt_Lb;
-         System.Windows.Forms.Label FileNo_Lb;
-         System.Windows.Forms.Label Amnt_Lb;
-         System.Windows.Forms.Label PaidType_Lb;
-         System.Windows.Forms.Label CrntDebtAmnt_Lb;
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GLR_INDC_F));
@@ -48,6 +37,17 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.MdfyBy_Lb = new System.Windows.Forms.Label();
+         this.MdfyDate_Lb = new System.Windows.Forms.Label();
+         this.CretBy_Lb = new System.Windows.Forms.Label();
+         this.Rqid_Lb = new System.Windows.Forms.Label();
+         this.CretDate_Lb = new System.Windows.Forms.Label();
+         this.PaidDate_Lb = new System.Windows.Forms.Label();
+         this.CrntDpstAmnt_Lb = new System.Windows.Forms.Label();
+         this.FileNos_Lb = new System.Windows.Forms.Label();
+         this.Amnt_Lb = new System.Windows.Forms.Label();
+         this.PaidType_Lb = new System.Windows.Forms.Label();
+         this.CrntDebtAmnt_Lb = new System.Windows.Forms.Label();
          this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -152,10 +152,6 @@
          this.colMDFY_BY6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCash1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.tb_master = new System.Windows.Forms.TabControl();
-         this.tp_001 = new System.Windows.Forms.TabPage();
-         this.tc_pblc = new System.Windows.Forms.TabControl();
-         this.tp_pblcinfo = new System.Windows.Forms.TabPage();
          this.Info_Gb = new System.Windows.Forms.GroupBox();
          this.ResnDesc_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.GlrlBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -204,10 +200,10 @@
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.FileNo_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTARF_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMOST_DEBT_CLNG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDEBT_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Debt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFGPB_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMBSP_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCAMP_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -223,7 +219,7 @@
          this.colCONF_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFIGH_STAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQST_RQID2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNAME_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Name_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFATH_NAME_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPOST_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSEX_TYPE_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -249,7 +245,7 @@
          this.colIMAG_RCDC_RCID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIMAG_RWNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCARD_NUMB_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFNGR_PRNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.FngrPrnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUNT_BUNT_DEPT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUNT_BUNT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -299,25 +295,10 @@
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.im_images = new System.Windows.Forms.ImageList(this.components);
-         MdfyBy_Lb = new System.Windows.Forms.Label();
-         MdfyDate_Lb = new System.Windows.Forms.Label();
-         CretBy_Lb = new System.Windows.Forms.Label();
-         Rqid_Lb = new System.Windows.Forms.Label();
-         CretDate_Lb = new System.Windows.Forms.Label();
-         PaidDate_Lb = new System.Windows.Forms.Label();
-         CrntDpstAmnt_Lb = new System.Windows.Forms.Label();
-         FileNo_Lb = new System.Windows.Forms.Label();
-         Amnt_Lb = new System.Windows.Forms.Label();
-         PaidType_Lb = new System.Windows.Forms.Label();
-         CrntDebtAmnt_Lb = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
-         this.tb_master.SuspendLayout();
-         this.tp_001.SuspendLayout();
-         this.tc_pblc.SuspendLayout();
-         this.tp_pblcinfo.SuspendLayout();
          this.Info_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ResnDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlrlBs1)).BeginInit();
@@ -346,116 +327,116 @@
          // 
          // MdfyBy_Lb
          // 
-         MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         MdfyBy_Lb.AutoSize = true;
-         MdfyBy_Lb.Location = new System.Drawing.Point(130, 81);
-         MdfyBy_Lb.Name = "MdfyBy_Lb";
-         MdfyBy_Lb.Size = new System.Drawing.Size(107, 14);
-         MdfyBy_Lb.TabIndex = 24;
-         MdfyBy_Lb.Text = "کاربر ویرایش کننده :";
+         this.MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MdfyBy_Lb.AutoSize = true;
+         this.MdfyBy_Lb.Location = new System.Drawing.Point(130, 81);
+         this.MdfyBy_Lb.Name = "MdfyBy_Lb";
+         this.MdfyBy_Lb.Size = new System.Drawing.Size(107, 14);
+         this.MdfyBy_Lb.TabIndex = 24;
+         this.MdfyBy_Lb.Text = "کاربر ویرایش کننده :";
          // 
          // MdfyDate_Lb
          // 
-         MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         MdfyDate_Lb.AutoSize = true;
-         MdfyDate_Lb.Location = new System.Drawing.Point(130, 137);
-         MdfyDate_Lb.Name = "MdfyDate_Lb";
-         MdfyDate_Lb.Size = new System.Drawing.Size(76, 14);
-         MdfyDate_Lb.TabIndex = 27;
-         MdfyDate_Lb.Text = "تاریخ ویرایش :";
+         this.MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MdfyDate_Lb.AutoSize = true;
+         this.MdfyDate_Lb.Location = new System.Drawing.Point(130, 137);
+         this.MdfyDate_Lb.Name = "MdfyDate_Lb";
+         this.MdfyDate_Lb.Size = new System.Drawing.Size(76, 14);
+         this.MdfyDate_Lb.TabIndex = 27;
+         this.MdfyDate_Lb.Text = "تاریخ ویرایش :";
          // 
          // CretBy_Lb
          // 
-         CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CretBy_Lb.AutoSize = true;
-         CretBy_Lb.Location = new System.Drawing.Point(130, 53);
-         CretBy_Lb.Name = "CretBy_Lb";
-         CretBy_Lb.Size = new System.Drawing.Size(96, 14);
-         CretBy_Lb.TabIndex = 1;
-         CretBy_Lb.Text = "کاربر ایجاد کننده :";
+         this.CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CretBy_Lb.AutoSize = true;
+         this.CretBy_Lb.Location = new System.Drawing.Point(130, 53);
+         this.CretBy_Lb.Name = "CretBy_Lb";
+         this.CretBy_Lb.Size = new System.Drawing.Size(96, 14);
+         this.CretBy_Lb.TabIndex = 1;
+         this.CretBy_Lb.Text = "کاربر ایجاد کننده :";
          // 
          // Rqid_Lb
          // 
-         Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Rqid_Lb.AutoSize = true;
-         Rqid_Lb.Location = new System.Drawing.Point(130, 26);
-         Rqid_Lb.Name = "Rqid_Lb";
-         Rqid_Lb.Size = new System.Drawing.Size(101, 14);
-         Rqid_Lb.TabIndex = 21;
-         Rqid_Lb.Text = "شماره درخواست :";
+         this.Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqid_Lb.AutoSize = true;
+         this.Rqid_Lb.Location = new System.Drawing.Point(130, 26);
+         this.Rqid_Lb.Name = "Rqid_Lb";
+         this.Rqid_Lb.Size = new System.Drawing.Size(101, 14);
+         this.Rqid_Lb.TabIndex = 21;
+         this.Rqid_Lb.Text = "شماره درخواست :";
          // 
          // CretDate_Lb
          // 
-         CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CretDate_Lb.AutoSize = true;
-         CretDate_Lb.Location = new System.Drawing.Point(130, 109);
-         CretDate_Lb.Name = "CretDate_Lb";
-         CretDate_Lb.Size = new System.Drawing.Size(65, 14);
-         CretDate_Lb.TabIndex = 14;
-         CretDate_Lb.Text = "تاریخ ایجاد :";
+         this.CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CretDate_Lb.AutoSize = true;
+         this.CretDate_Lb.Location = new System.Drawing.Point(130, 109);
+         this.CretDate_Lb.Name = "CretDate_Lb";
+         this.CretDate_Lb.Size = new System.Drawing.Size(65, 14);
+         this.CretDate_Lb.TabIndex = 14;
+         this.CretDate_Lb.Text = "تاریخ ایجاد :";
          // 
          // PaidDate_Lb
          // 
-         PaidDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         PaidDate_Lb.AutoSize = true;
-         PaidDate_Lb.ForeColor = System.Drawing.Color.Brown;
-         PaidDate_Lb.Location = new System.Drawing.Point(250, 81);
-         PaidDate_Lb.Name = "PaidDate_Lb";
-         PaidDate_Lb.Size = new System.Drawing.Size(73, 14);
-         PaidDate_Lb.TabIndex = 18;
-         PaidDate_Lb.Text = "تاریخ اقدام *:";
+         this.PaidDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PaidDate_Lb.AutoSize = true;
+         this.PaidDate_Lb.ForeColor = System.Drawing.Color.Brown;
+         this.PaidDate_Lb.Location = new System.Drawing.Point(250, 81);
+         this.PaidDate_Lb.Name = "PaidDate_Lb";
+         this.PaidDate_Lb.Size = new System.Drawing.Size(73, 14);
+         this.PaidDate_Lb.TabIndex = 18;
+         this.PaidDate_Lb.Text = "تاریخ اقدام *:";
          // 
          // CrntDpstAmnt_Lb
          // 
-         CrntDpstAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CrntDpstAmnt_Lb.AutoSize = true;
-         CrntDpstAmnt_Lb.Location = new System.Drawing.Point(428, 53);
-         CrntDpstAmnt_Lb.Name = "CrntDpstAmnt_Lb";
-         CrntDpstAmnt_Lb.Size = new System.Drawing.Size(107, 14);
-         CrntDpstAmnt_Lb.TabIndex = 37;
-         CrntDpstAmnt_Lb.Text = "مبلغ سپرده موجود :";
+         this.CrntDpstAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CrntDpstAmnt_Lb.AutoSize = true;
+         this.CrntDpstAmnt_Lb.Location = new System.Drawing.Point(428, 53);
+         this.CrntDpstAmnt_Lb.Name = "CrntDpstAmnt_Lb";
+         this.CrntDpstAmnt_Lb.Size = new System.Drawing.Size(107, 14);
+         this.CrntDpstAmnt_Lb.TabIndex = 37;
+         this.CrntDpstAmnt_Lb.Text = "مبلغ سپرده موجود :";
          // 
-         // FileNo_Lb
+         // FileNos_Lb
          // 
-         FileNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FileNo_Lb.AutoSize = true;
-         FileNo_Lb.Location = new System.Drawing.Point(428, 24);
-         FileNo_Lb.Name = "FileNo_Lb";
-         FileNo_Lb.Size = new System.Drawing.Size(78, 14);
-         FileNo_Lb.TabIndex = 17;
-         FileNo_Lb.Text = "نام مشتری *:";
+         this.FileNos_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FileNos_Lb.AutoSize = true;
+         this.FileNos_Lb.Location = new System.Drawing.Point(428, 24);
+         this.FileNos_Lb.Name = "FileNos_Lb";
+         this.FileNos_Lb.Size = new System.Drawing.Size(78, 14);
+         this.FileNos_Lb.TabIndex = 17;
+         this.FileNos_Lb.Text = "نام مشتری *:";
          // 
          // Amnt_Lb
          // 
-         Amnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Amnt_Lb.AutoSize = true;
-         Amnt_Lb.ForeColor = System.Drawing.Color.Brown;
-         Amnt_Lb.Location = new System.Drawing.Point(428, 81);
-         Amnt_Lb.Name = "Amnt_Lb";
-         Amnt_Lb.Size = new System.Drawing.Size(43, 14);
-         Amnt_Lb.TabIndex = 37;
-         Amnt_Lb.Text = "مبلغ *:";
+         this.Amnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Amnt_Lb.AutoSize = true;
+         this.Amnt_Lb.ForeColor = System.Drawing.Color.Brown;
+         this.Amnt_Lb.Location = new System.Drawing.Point(428, 81);
+         this.Amnt_Lb.Name = "Amnt_Lb";
+         this.Amnt_Lb.Size = new System.Drawing.Size(43, 14);
+         this.Amnt_Lb.TabIndex = 37;
+         this.Amnt_Lb.Text = "مبلغ *:";
          // 
          // PaidType_Lb
          // 
-         PaidType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         PaidType_Lb.ForeColor = System.Drawing.Color.Brown;
-         PaidType_Lb.Location = new System.Drawing.Point(409, 3);
-         PaidType_Lb.Name = "PaidType_Lb";
-         PaidType_Lb.Size = new System.Drawing.Size(104, 33);
-         PaidType_Lb.TabIndex = 37;
-         PaidType_Lb.Text = "روش پرداخت سپرده *:";
-         PaidType_Lb.TextAlign = System.Drawing.ContentAlignment.TopRight;
+         this.PaidType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PaidType_Lb.ForeColor = System.Drawing.Color.Brown;
+         this.PaidType_Lb.Location = new System.Drawing.Point(409, 3);
+         this.PaidType_Lb.Name = "PaidType_Lb";
+         this.PaidType_Lb.Size = new System.Drawing.Size(104, 33);
+         this.PaidType_Lb.TabIndex = 37;
+         this.PaidType_Lb.Text = "روش پرداخت سپرده *:";
+         this.PaidType_Lb.TextAlign = System.Drawing.ContentAlignment.TopRight;
          // 
          // CrntDebtAmnt_Lb
          // 
-         CrntDebtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CrntDebtAmnt_Lb.AutoSize = true;
-         CrntDebtAmnt_Lb.Location = new System.Drawing.Point(230, 53);
-         CrntDebtAmnt_Lb.Name = "CrntDebtAmnt_Lb";
-         CrntDebtAmnt_Lb.Size = new System.Drawing.Size(75, 14);
-         CrntDebtAmnt_Lb.TabIndex = 37;
-         CrntDebtAmnt_Lb.Text = "میزان بدهی :";
+         this.CrntDebtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CrntDebtAmnt_Lb.AutoSize = true;
+         this.CrntDebtAmnt_Lb.Location = new System.Drawing.Point(230, 53);
+         this.CrntDebtAmnt_Lb.Name = "CrntDebtAmnt_Lb";
+         this.CrntDebtAmnt_Lb.Size = new System.Drawing.Size(75, 14);
+         this.CrntDebtAmnt_Lb.TabIndex = 37;
+         this.CrntDebtAmnt_Lb.Text = "میزان بدهی :";
          // 
          // RqstBs1
          // 
@@ -997,60 +978,11 @@
          this.colCash1.Visible = true;
          this.colCash1.VisibleIndex = 6;
          // 
-         // tb_master
-         // 
-         this.tb_master.Controls.Add(this.tp_001);
-         this.tb_master.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tb_master.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.tb_master.Location = new System.Drawing.Point(0, 0);
-         this.tb_master.Name = "tb_master";
-         this.tb_master.RightToLeftLayout = true;
-         this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(843, 456);
-         this.tb_master.TabIndex = 1;
-         // 
-         // tp_001
-         // 
-         this.tp_001.AutoScroll = true;
-         this.tp_001.BackColor = System.Drawing.SystemColors.Control;
-         this.tp_001.Controls.Add(this.tc_pblc);
-         this.tp_001.Controls.Add(this.RqstBn1);
-         this.tp_001.Location = new System.Drawing.Point(4, 23);
-         this.tp_001.Name = "tp_001";
-         this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(835, 429);
-         this.tp_001.TabIndex = 0;
-         this.tp_001.Text = "سپرده گذاری";
-         // 
-         // tc_pblc
-         // 
-         this.tc_pblc.Controls.Add(this.tp_pblcinfo);
-         this.tc_pblc.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tc_pblc.Location = new System.Drawing.Point(3, 50);
-         this.tc_pblc.Name = "tc_pblc";
-         this.tc_pblc.RightToLeftLayout = true;
-         this.tc_pblc.SelectedIndex = 0;
-         this.tc_pblc.Size = new System.Drawing.Size(829, 376);
-         this.tc_pblc.TabIndex = 1;
-         // 
-         // tp_pblcinfo
-         // 
-         this.tp_pblcinfo.BackColor = System.Drawing.Color.Transparent;
-         this.tp_pblcinfo.Controls.Add(this.Info_Gb);
-         this.tp_pblcinfo.Controls.Add(this.groupBox2);
-         this.tp_pblcinfo.Controls.Add(this.Rqst_Gb);
-         this.tp_pblcinfo.Location = new System.Drawing.Point(4, 23);
-         this.tp_pblcinfo.Name = "tp_pblcinfo";
-         this.tp_pblcinfo.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_pblcinfo.Size = new System.Drawing.Size(821, 349);
-         this.tp_pblcinfo.TabIndex = 0;
-         this.tp_pblcinfo.Text = "اطلاعات مشتری";
-         // 
          // Info_Gb
          // 
          this.Info_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Info_Gb.Controls.Add(this.ResnDesc_Txt);
-         this.Info_Gb.Location = new System.Drawing.Point(7, 207);
+         this.Info_Gb.Location = new System.Drawing.Point(167, 252);
          this.Info_Gb.Name = "Info_Gb";
          this.Info_Gb.Size = new System.Drawing.Size(257, 136);
          this.Info_Gb.TabIndex = 2;
@@ -1082,19 +1014,19 @@
          this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox2.Controls.Add(this.Glrd_Pn);
          this.groupBox2.Controls.Add(this.Glr_Gb);
-         this.groupBox2.Controls.Add(PaidDate_Lb);
+         this.groupBox2.Controls.Add(this.PaidDate_Lb);
          this.groupBox2.Controls.Add(this.UserProFile_Rb);
          this.groupBox2.Controls.Add(this.Pblc_Butn);
          this.groupBox2.Controls.Add(this.PaidDate_DateTime);
          this.groupBox2.Controls.Add(this.Amnt_Txt);
          this.groupBox2.Controls.Add(this.textEdit2);
          this.groupBox2.Controls.Add(this.NumbOfAttnMont_TextEdit003);
-         this.groupBox2.Controls.Add(FileNo_Lb);
-         this.groupBox2.Controls.Add(Amnt_Lb);
-         this.groupBox2.Controls.Add(CrntDebtAmnt_Lb);
+         this.groupBox2.Controls.Add(this.FileNos_Lb);
+         this.groupBox2.Controls.Add(this.Amnt_Lb);
+         this.groupBox2.Controls.Add(this.CrntDebtAmnt_Lb);
          this.groupBox2.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
-         this.groupBox2.Controls.Add(CrntDpstAmnt_Lb);
-         this.groupBox2.Location = new System.Drawing.Point(270, 6);
+         this.groupBox2.Controls.Add(this.CrntDpstAmnt_Lb);
+         this.groupBox2.Location = new System.Drawing.Point(430, 50);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(545, 337);
          this.groupBox2.TabIndex = 0;
@@ -1107,7 +1039,7 @@
          this.Glrd_Pn.Controls.Add(this.GlrlDetail_Gv);
          this.Glrd_Pn.Controls.Add(this.PosStng_Butn);
          this.Glrd_Pn.Controls.Add(this.Pos_Lov);
-         this.Glrd_Pn.Controls.Add(PaidType_Lb);
+         this.Glrd_Pn.Controls.Add(this.PaidType_Lb);
          this.Glrd_Pn.Controls.Add(this.AddAmnt_Butn);
          this.Glrd_Pn.Controls.Add(this.DelAmnt_Butn);
          this.Glrd_Pn.Location = new System.Drawing.Point(19, 187);
@@ -1447,6 +1379,7 @@
          // 
          // DecDspt_Rb
          // 
+         this.DecDspt_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DecDspt_Rb.AutoSize = true;
          this.DecDspt_Rb.ForeColor = System.Drawing.Color.Brown;
          this.DecDspt_Rb.Location = new System.Drawing.Point(147, 48);
@@ -1458,6 +1391,7 @@
          // 
          // IncDpst_Rb
          // 
+         this.IncDpst_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IncDpst_Rb.AutoSize = true;
          this.IncDpst_Rb.Checked = true;
          this.IncDpst_Rb.ForeColor = System.Drawing.Color.OliveDrab;
@@ -1621,10 +1555,10 @@
             this.colREGN_PRVN_CNTY_CODE1,
             this.colREGN_PRVN_CODE1,
             this.colREGN_CODE1,
-            this.colFILE_NO1,
+            this.FileNo_Clm,
             this.colTARF_CODE_DNRM,
             this.colMOST_DEBT_CLNG_DNRM,
-            this.colDEBT_DNRM1,
+            this.Debt_Clm,
             this.colFGPB_RWNO_DNRM1,
             this.colMBSP_RWNO_DNRM1,
             this.colCAMP_RWNO_DNRM1,
@@ -1640,7 +1574,7 @@
             this.colCONF_DATE1,
             this.colFIGH_STAT1,
             this.colRQST_RQID2,
-            this.colNAME_DNRM1,
+            this.Name_Clm,
             this.colFATH_NAME_DNRM1,
             this.colPOST_ADRS_DNRM,
             this.colSEX_TYPE_DNRM1,
@@ -1666,7 +1600,7 @@
             this.colIMAG_RCDC_RCID_DNRM,
             this.colIMAG_RWNO_DNRM,
             this.colCARD_NUMB_DNRM,
-            this.colFNGR_PRNT_DNRM,
+            this.FngrPrnt_Clm,
             this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM,
             this.colSUNT_BUNT_DEPT_CODE_DNRM,
             this.colSUNT_BUNT_CODE_DNRM,
@@ -1709,15 +1643,15 @@
          this.colREGN_CODE1.FieldName = "REGN_CODE";
          this.colREGN_CODE1.Name = "colREGN_CODE1";
          // 
-         // colFILE_NO1
+         // FileNo_Clm
          // 
-         this.colFILE_NO1.Caption = "شماره پرونده";
-         this.colFILE_NO1.FieldName = "FILE_NO";
-         this.colFILE_NO1.Name = "colFILE_NO1";
-         this.colFILE_NO1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+         this.FileNo_Clm.Caption = "شماره پرونده";
+         this.FileNo_Clm.FieldName = "FILE_NO";
+         this.FileNo_Clm.Name = "FileNo_Clm";
+         this.FileNo_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
-         this.colFILE_NO1.Visible = true;
-         this.colFILE_NO1.VisibleIndex = 3;
+         this.FileNo_Clm.Visible = true;
+         this.FileNo_Clm.VisibleIndex = 3;
          // 
          // colTARF_CODE_DNRM
          // 
@@ -1729,13 +1663,13 @@
          this.colMOST_DEBT_CLNG_DNRM.FieldName = "MOST_DEBT_CLNG_DNRM";
          this.colMOST_DEBT_CLNG_DNRM.Name = "colMOST_DEBT_CLNG_DNRM";
          // 
-         // colDEBT_DNRM1
+         // Debt_Clm
          // 
-         this.colDEBT_DNRM1.Caption = "بدهی / بستانکاری";
-         this.colDEBT_DNRM1.FieldName = "DEBT_DNRM";
-         this.colDEBT_DNRM1.Name = "colDEBT_DNRM1";
-         this.colDEBT_DNRM1.Visible = true;
-         this.colDEBT_DNRM1.VisibleIndex = 0;
+         this.Debt_Clm.Caption = "بدهی";
+         this.Debt_Clm.FieldName = "DEBT_DNRM";
+         this.Debt_Clm.Name = "Debt_Clm";
+         this.Debt_Clm.Visible = true;
+         this.Debt_Clm.VisibleIndex = 0;
          // 
          // colFGPB_RWNO_DNRM1
          // 
@@ -1819,13 +1753,13 @@
          this.colRQST_RQID2.FieldName = "RQST_RQID";
          this.colRQST_RQID2.Name = "colRQST_RQID2";
          // 
-         // colNAME_DNRM1
+         // Name_Clm
          // 
-         this.colNAME_DNRM1.Caption = "نام مشترک";
-         this.colNAME_DNRM1.FieldName = "NAME_DNRM";
-         this.colNAME_DNRM1.Name = "colNAME_DNRM1";
-         this.colNAME_DNRM1.Visible = true;
-         this.colNAME_DNRM1.VisibleIndex = 1;
+         this.Name_Clm.Caption = "نام مشترک";
+         this.Name_Clm.FieldName = "NAME_DNRM";
+         this.Name_Clm.Name = "Name_Clm";
+         this.Name_Clm.Visible = true;
+         this.Name_Clm.VisibleIndex = 1;
          // 
          // colFATH_NAME_DNRM1
          // 
@@ -1952,13 +1886,13 @@
          this.colCARD_NUMB_DNRM.FieldName = "CARD_NUMB_DNRM";
          this.colCARD_NUMB_DNRM.Name = "colCARD_NUMB_DNRM";
          // 
-         // colFNGR_PRNT_DNRM
+         // FngrPrnt_Clm
          // 
-         this.colFNGR_PRNT_DNRM.Caption = "کد انگشتی";
-         this.colFNGR_PRNT_DNRM.FieldName = "FNGR_PRNT_DNRM";
-         this.colFNGR_PRNT_DNRM.Name = "colFNGR_PRNT_DNRM";
-         this.colFNGR_PRNT_DNRM.Visible = true;
-         this.colFNGR_PRNT_DNRM.VisibleIndex = 2;
+         this.FngrPrnt_Clm.Caption = "کد انگشتی";
+         this.FngrPrnt_Clm.FieldName = "FNGR_PRNT_DNRM";
+         this.FngrPrnt_Clm.Name = "FngrPrnt_Clm";
+         this.FngrPrnt_Clm.Visible = true;
+         this.FngrPrnt_Clm.VisibleIndex = 2;
          // 
          // colSUNT_BUNT_DEPT_ORGN_CODE_DNRM
          // 
@@ -2051,16 +1985,16 @@
          this.Rqst_Gb.BackColor = System.Drawing.Color.Transparent;
          this.Rqst_Gb.Controls.Add(this.ShowRqst_PickButn);
          this.Rqst_Gb.Controls.Add(this.dateTimeSelector5);
-         this.Rqst_Gb.Controls.Add(MdfyBy_Lb);
-         this.Rqst_Gb.Controls.Add(MdfyDate_Lb);
+         this.Rqst_Gb.Controls.Add(this.MdfyBy_Lb);
+         this.Rqst_Gb.Controls.Add(this.MdfyDate_Lb);
          this.Rqst_Gb.Controls.Add(this.dateTimeSelector6);
-         this.Rqst_Gb.Controls.Add(CretDate_Lb);
+         this.Rqst_Gb.Controls.Add(this.CretDate_Lb);
          this.Rqst_Gb.Controls.Add(this.textEdit14);
-         this.Rqst_Gb.Controls.Add(CretBy_Lb);
+         this.Rqst_Gb.Controls.Add(this.CretBy_Lb);
          this.Rqst_Gb.Controls.Add(this.textEdit16);
          this.Rqst_Gb.Controls.Add(this.textEdit18);
-         this.Rqst_Gb.Controls.Add(Rqid_Lb);
-         this.Rqst_Gb.Location = new System.Drawing.Point(7, 6);
+         this.Rqst_Gb.Controls.Add(this.Rqid_Lb);
+         this.Rqst_Gb.Location = new System.Drawing.Point(167, 50);
          this.Rqst_Gb.Name = "Rqst_Gb";
          this.Rqst_Gb.Size = new System.Drawing.Size(257, 196);
          this.Rqst_Gb.TabIndex = 0;
@@ -2207,7 +2141,7 @@
             this.RqstBnADoc1,
             this.RqstBnRegl01,
             this.RqstBnExit1});
-         this.RqstBn1.Location = new System.Drawing.Point(3, 3);
+         this.RqstBn1.Location = new System.Drawing.Point(0, 0);
          this.RqstBn1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.RqstBn1.MoveLastItem = this.bindingNavigatorMoveLastItem;
          this.RqstBn1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -2215,7 +2149,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(829, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(978, 47);
          this.RqstBn1.TabIndex = 0;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -2446,20 +2380,18 @@
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.Control;
-         this.Controls.Add(this.tb_master);
+         this.Controls.Add(this.Info_Gb);
+         this.Controls.Add(this.Rqst_Gb);
+         this.Controls.Add(this.groupBox2);
+         this.Controls.Add(this.RqstBn1);
          this.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Name = "GLR_INDC_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(843, 456);
+         this.Size = new System.Drawing.Size(978, 456);
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
-         this.tb_master.ResumeLayout(false);
-         this.tp_001.ResumeLayout(false);
-         this.tp_001.PerformLayout();
-         this.tc_pblc.ResumeLayout(false);
-         this.tp_pblcinfo.ResumeLayout(false);
          this.Info_Gb.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ResnDesc_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlrlBs1)).EndInit();
@@ -2490,6 +2422,7 @@
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
          this.ResumeLayout(false);
+         this.PerformLayout();
 
       }
 
@@ -2599,10 +2532,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY6;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE6;
       private DevExpress.XtraGrid.Columns.GridColumn colCash1;
-      private Windows.Forms.TabControl tb_master;
-      private Windows.Forms.TabPage tp_001;
-      private Windows.Forms.TabControl tc_pblc;
-      private Windows.Forms.TabPage tp_pblcinfo;
       private Windows.Forms.BindingNavigator RqstBn1;
       private Windows.Forms.ToolStripButton RqstBnNew1;
       private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -2645,10 +2574,10 @@
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE1;
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE1;
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO1;
+      private DevExpress.XtraGrid.Columns.GridColumn FileNo_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colTARF_CODE_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colMOST_DEBT_CLNG_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colDEBT_DNRM1;
+      private DevExpress.XtraGrid.Columns.GridColumn Debt_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colFGPB_RWNO_DNRM1;
       private DevExpress.XtraGrid.Columns.GridColumn colMBSP_RWNO_DNRM1;
       private DevExpress.XtraGrid.Columns.GridColumn colCAMP_RWNO_DNRM1;
@@ -2664,7 +2593,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colCONF_DATE1;
       private DevExpress.XtraGrid.Columns.GridColumn colFIGH_STAT1;
       private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID2;
-      private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM1;
+      private DevExpress.XtraGrid.Columns.GridColumn Name_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colFATH_NAME_DNRM1;
       private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE_DNRM1;
@@ -2690,7 +2619,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RCDC_RCID_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RWNO_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colCARD_NUMB_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colFNGR_PRNT_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn FngrPrnt_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_ORGN_CODE_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_CODE_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_CODE_DNRM;
@@ -2746,5 +2675,16 @@
       private DevExpress.XtraEditors.SimpleButton tbn_POSPayment1;
       private Windows.Forms.ImageList im_images;
       private Windows.Forms.BindingSource VPosBs1;
+      private Windows.Forms.Label MdfyBy_Lb;
+      private Windows.Forms.Label MdfyDate_Lb;
+      private Windows.Forms.Label CretBy_Lb;
+      private Windows.Forms.Label Rqid_Lb;
+      private Windows.Forms.Label CretDate_Lb;
+      private Windows.Forms.Label PaidDate_Lb;
+      private Windows.Forms.Label CrntDpstAmnt_Lb;
+      private Windows.Forms.Label FileNos_Lb;
+      private Windows.Forms.Label Amnt_Lb;
+      private Windows.Forms.Label PaidType_Lb;
+      private Windows.Forms.Label CrntDebtAmnt_Lb;
    }
 }

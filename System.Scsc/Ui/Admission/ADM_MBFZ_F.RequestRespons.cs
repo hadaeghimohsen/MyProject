@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.Admission
       private string formCaller;
       private bool isFirstLoaded = false;
       private string CurrentUser;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -192,6 +193,82 @@ namespace System.Scsc.Ui.Admission
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "serv_gb":
+                     Serv_Gb.Text = control.LABL_TEXT;
+                     //Serv_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Serv_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "filenos_lb":
+                     FileNos_Lb.Text = control.LABL_TEXT;
+                     //FileNos_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FileNos_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "strtdate_lb":
+                     StrtDate_Lb.Text = control.LABL_TEXT;
+                     //StrtDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //StrtDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "enddate_lb":
+                     EndDate_Lb.Text = control.LABL_TEXT;
+                     //EndDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //EndDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "atendesc_lb":
+                     AtenDesc_Lb.Text = control.LABL_TEXT;
+                     //AtenDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AtenDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gb_rqst3":
+                     Gb_Rqst3.Text = control.LABL_TEXT;
+                     //Gb_Rqst3.Text = control.LABL_TEXT; // ToolTip
+                     //Gb_Rqst3.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqid_lb":
+                     Rqid_Lb.Text = control.LABL_TEXT;
+                     //Rqid_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretby_lb":
+                     CretBy_Lb.Text = control.LABL_TEXT;
+                     //CretBy_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CretBy_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mdfyby_lb":
+                     MdfyBy_Lb.Text = control.LABL_TEXT;
+                     //MdfyBy_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MdfyBy_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqtpdesc_lb":
+                     RqtpDesc_Lb.Text = control.LABL_TEXT;
+                     //RqtpDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RqtpDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretdate_lb":
+                     CretDate_Lb.Text = control.LABL_TEXT;
+                     //CretDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CretDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mdfydate_lb":
+                     MdfyDate_Lb.Text = control.LABL_TEXT;
+                     //MdfyDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MdfyDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
 
          job.Status = StatusType.Successful;
       }

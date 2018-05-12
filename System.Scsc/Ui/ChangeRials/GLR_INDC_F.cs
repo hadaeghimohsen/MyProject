@@ -30,7 +30,7 @@ namespace System.Scsc.Ui.ChangeRials
       {         
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
 
@@ -189,7 +189,7 @@ namespace System.Scsc.Ui.ChangeRials
                //MessageBox.Show(this, "مشتری حذف گردید!");
             }
             requery = true;
-            tc_pblc.SelectedTab = tp_pblcinfo;
+            //tc_pblc.SelectedTab = tp_pblcinfo;
          }
          catch (Exception ex)
          {
@@ -251,7 +251,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -266,7 +266,7 @@ namespace System.Scsc.Ui.ChangeRials
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -317,7 +317,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -332,7 +332,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -349,7 +349,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -366,7 +366,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -383,7 +383,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -401,7 +401,7 @@ namespace System.Scsc.Ui.ChangeRials
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;

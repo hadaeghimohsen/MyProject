@@ -74,8 +74,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
          else if (Tb_Master.SelectedTab == tp_002)
          {
+            var subsys = SubSys_Lov.EditValue;
+            var sorcform = Form_Lov.EditValue;
+            
             SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
-            SubSys_Lov.EditValue = 0;
+
+            //if (subsys == null || subsys.ToString() == "") subsys = 0;
+            //SubSys_Lov.EditValue = 0;
          }
          requery = false;
       }

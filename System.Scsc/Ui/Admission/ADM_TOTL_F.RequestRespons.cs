@@ -123,10 +123,7 @@ namespace System.Scsc.Ui.Admission
          {
             //if (tb_master.SelectedTab == tp_001)
             //   Btn_RqstRqt1_Click(null, null);
-            if (tb_master.SelectedTab == tp_002)
-               Btn_RqstSav1_Click(null, null);
-            else if (tb_master.SelectedTab == tp_003) 
-               Btn_RqstSav3_Click(null, null);
+            Btn_RqstSav3_Click(null, null);
          }
          else if (keyData == Keys.Enter)
          {
@@ -141,33 +138,24 @@ namespace System.Scsc.Ui.Admission
          {
             //if (tb_master.SelectedTab == tp_001)
             //   Btn_RqstDelete1_Click(null, null);
-            if (tb_master.SelectedTab == tp_002)
-               Btn_RqstDelete2_Click(null, null);
-            else if (tb_master.SelectedTab == tp_003)
-               Btn_RqstDelete3_Click(null, null);
+            Btn_RqstDelete3_Click(null, null);
          }
          else if (keyData == Keys.F5)
          {
             //if (tb_master.SelectedTab == tp_001)
             //   Btn_RqstRqt1_Click(null, null);
-            if (tb_master.SelectedTab == tp_003)
-               Btn_RqstRqt3_Click(null, null);
+            Btn_RqstRqt3_Click(null, null);
          }
          else if (keyData == Keys.F3)
          {
             //if (tb_master.SelectedTab == tp_001)
             //   LL_MoreInfo_LinkClicked(null, null);
-            if (tb_master.SelectedTab == tp_002)
-               LL_MoreInfo2_LinkClicked(null, null);
          }
          else if (keyData == Keys.F10)
          {
             //if (tb_master.SelectedTab == tp_001)
             //   Btn_RqstSav1_Click(null, null);
-            if (tb_master.SelectedTab == tp_002)
-               Btn_RqstSav2_Click(null, null);
-            else if (tb_master.SelectedTab == tp_003)
-               Btn_RqstSav3_Click(null, null);
+            Btn_RqstSav3_Click(null, null);
          }
          else if (keyData == (Keys.Control | Keys.P))
          {
@@ -254,12 +242,7 @@ namespace System.Scsc.Ui.Admission
                      AmntDtil_Lb.Text = control.LABL_TEXT;
                      //AmntDtil_Lb.Text = control.LABL_TEXT; // ToolTip
                      //AmntDtil_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "tp_003":
-                     tp_003.Text = control.LABL_TEXT;
-                     //tp_003.Text = control.LABL_TEXT; // ToolTip
-                     //tp_003.Text = control.LABL_TEXT; // Place Holder
-                     break;
+                     break;                  
                   case "info_gb":
                      Info_Gb.Text = control.LABL_TEXT;
                      //Info_Gb.Text = control.LABL_TEXT; // ToolTip
@@ -503,22 +486,13 @@ namespace System.Scsc.Ui.Admission
          #region Rqsw block
          try
          {
-            RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004" || rqtt.CODE == "005" || rqtt.CODE == "006");
-            RqttBs2.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "002" || rqtt.CODE == "003");
+            RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004" /*|| rqtt.CODE == "005" || rqtt.CODE == "006"*/);
             
-            DDegrBs2.DataSource = iScsc.D_DEGRs;
-            
-            DSxtpBs1.DataSource = iScsc.D_SXTPs;
             DCyclBs1.DataSource = iScsc.D_CYCLs;
 
             DDytpBs1.DataSource = iScsc.D_DYTPs;
-            DEducBs1.DataSource = iScsc.D_EDUCs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
-            DstpBs1.DataSource = iScsc.Diseases_Types;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
-            DCetpBs2.DataSource = iScsc.D_CETPs;
-            DBlodBs1.DataSource = iScsc.D_BLODs;
-            OrgnBs1.DataSource = iScsc.Organs;
 
             isFirstLoaded = true;
          }            
@@ -543,7 +517,6 @@ namespace System.Scsc.Ui.Admission
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32( cbmt.Fighter.ACTV_TAG_DNRM ?? "101" ) >= 101 )/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
-            DstpBs1.DataSource = iScsc.Diseases_Types;
          }
          catch { }
          job.Status = StatusType.Successful;
@@ -557,34 +530,12 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            tb_master.TabPages.Clear();
-            switch ((job.Input as XElement).Attribute("type").Value)
-            {
-               case "fighter":
-                  //tb_master.TabPages.Add(tp_001);
-                  //tb_master.SelectedTab = tp_001;
-                  break;
-               case "coach":
-                  tb_master.TabPages.Add(tp_002);
-                  tb_master.SelectedTab = tp_002;
-                  break;
-               case "refresh":
-               case "renewcontract":
-                  tb_master.TabPages.Add(tp_003);
-                  tb_master.SelectedTab = tp_003;
-                  break;
-            }
             if ((job.Input as XElement).Attribute("enrollnumber") != null)
             {
                if ((job.Input as XElement).Attribute("type").Value == "fighter")
                {
                   //INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
                   //INSR_DATE_PersianDateEdit.Value = DateTime.Now;
-               }
-               if ((job.Input as XElement).Attribute("type").Value == "coach")
-               {
-                  Insr_Numb_TextEdit2.Text = Fngr_Prnt_TextEdit2.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
-                  Insr_Date_PersianDateEdit2.Value = DateTime.Now;
                }
                else if ((job.Input as XElement).Attribute("type").Value == "renewcontract")
                {

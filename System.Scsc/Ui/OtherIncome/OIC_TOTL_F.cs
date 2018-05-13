@@ -28,7 +28,7 @@ namespace System.Scsc.Ui.OtherIncome
       private void Execute_Query()
       {
          setOnDebt = false;
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             int pydt = PydtsBs1.Position;
@@ -102,7 +102,7 @@ namespace System.Scsc.Ui.OtherIncome
       int RqstIndex;
       private void Get_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Count >= 1)
                RqstIndex = RqstBs1.Position;
@@ -111,7 +111,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void Set_Current_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstIndex >= 0)
                RqstBs1.Position = RqstIndex;
@@ -120,7 +120,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void Create_Record()
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             RqstBs1.AddNew();
             FILE_NO_LookUpEdit.Focus();
@@ -351,7 +351,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -364,7 +364,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -379,7 +379,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -396,7 +396,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -413,7 +413,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -430,7 +430,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void bn_PaymentMethods_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -458,7 +458,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -658,7 +658,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void ntb_POSPayment1_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var rqst = RqstBs1.Current as Data.Request;
@@ -692,7 +692,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -710,7 +710,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -764,7 +764,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (setOnDebt == false) return;
 
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
 
                if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
@@ -997,7 +997,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 

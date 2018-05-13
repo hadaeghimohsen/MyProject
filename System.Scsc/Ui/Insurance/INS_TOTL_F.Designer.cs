@@ -56,6 +56,7 @@
          this.FileNos_Lb = new System.Windows.Forms.Label();
          this.RqttCode_Lb = new System.Windows.Forms.Label();
          this.Gb_Info = new System.Windows.Forms.GroupBox();
+         this.InsrInfo_Lb = new DevExpress.XtraEditors.LabelControl();
          this.iNSR_DATEPersianDateEdit = new Atf.UI.DateTimeSelector();
          this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -63,9 +64,9 @@
          this.RQTT_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FILE_NO_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.iNSR_NUMBTextEdit = new DevExpress.XtraEditors.TextEdit();
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.im_images = new System.Windows.Forms.ImageList(this.components);
          this.PydtsBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -217,7 +218,6 @@
          this.Rqid_Lb = new System.Windows.Forms.Label();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.CretDate_Lb = new System.Windows.Forms.Label();
-         this.InsrInfo_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Gb_Info.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FgpbsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -225,9 +225,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.RQTT_CODELookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqttBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
@@ -322,6 +322,20 @@
          this.Gb_Info.TabIndex = 0;
          this.Gb_Info.TabStop = false;
          this.Gb_Info.Text = "مشخصات عمومی";
+         // 
+         // InsrInfo_Lb
+         // 
+         this.InsrInfo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.InsrInfo_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.InsrInfo_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.InsrInfo_Lb.LineVisible = true;
+         this.InsrInfo_Lb.Location = new System.Drawing.Point(6, 74);
+         this.InsrInfo_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.InsrInfo_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.InsrInfo_Lb.Name = "InsrInfo_Lb";
+         this.InsrInfo_Lb.Size = new System.Drawing.Size(298, 17);
+         this.InsrInfo_Lb.TabIndex = 31;
+         this.InsrInfo_Lb.Text = "اطلاعات بیمه";
          // 
          // iNSR_DATEPersianDateEdit
          // 
@@ -457,11 +471,6 @@
          this.FILE_NO_LookUpEdit.Size = new System.Drawing.Size(160, 22);
          this.FILE_NO_LookUpEdit.TabIndex = 0;
          // 
-         // FighBs1
-         // 
-         this.FighBs1.DataMember = "Fighters";
-         this.FighBs1.DataSource = this.RqstBs1;
-         // 
          // FighsBs1
          // 
          this.FighsBs1.DataSource = typeof(System.Scsc.Data.Fighter);
@@ -480,6 +489,11 @@
          this.iNSR_NUMBTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.iNSR_NUMBTextEdit.Size = new System.Drawing.Size(100, 22);
          this.iNSR_NUMBTextEdit.TabIndex = 2;
+         // 
+         // FighBs1
+         // 
+         this.FighBs1.DataMember = "Fighters";
+         this.FighBs1.DataSource = this.RqstBs1;
          // 
          // DSxtpBs1
          // 
@@ -2038,20 +2052,6 @@
          this.CretDate_Lb.TabIndex = 14;
          this.CretDate_Lb.Text = "تاریخ ایجاد :";
          // 
-         // InsrInfo_Lb
-         // 
-         this.InsrInfo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.InsrInfo_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.InsrInfo_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.InsrInfo_Lb.LineVisible = true;
-         this.InsrInfo_Lb.Location = new System.Drawing.Point(6, 74);
-         this.InsrInfo_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.InsrInfo_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.InsrInfo_Lb.Name = "InsrInfo_Lb";
-         this.InsrInfo_Lb.Size = new System.Drawing.Size(298, 17);
-         this.InsrInfo_Lb.TabIndex = 31;
-         this.InsrInfo_Lb.Text = "اطلاعات بیمه";
-         // 
          // INS_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2073,9 +2073,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.RQTT_CODELookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqttBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).EndInit();

@@ -41,7 +41,7 @@ namespace System.Scsc.Ui.Insurance
                );
 
             // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
-            FighBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
+            FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
          }         
       }
 
@@ -119,7 +119,7 @@ namespace System.Scsc.Ui.Insurance
                      new XElement("Request",
                         new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
                         new XAttribute("rqtpcode", "012"),
-                        new XAttribute("rqttcode", Rqst == null ? RQTT_CODELookUpEdit.EditValue : Rqst.RQTT_CODE),
+                        new XAttribute("rqttcode", RQTT_CODELookUpEdit.EditValue),
                         new XElement("Request_Row",
                            new XAttribute("fileno", FILE_NO_LookUpEdit.EditValue),
                            new XElement("Fighter_Public",                              

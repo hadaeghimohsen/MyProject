@@ -18,6 +18,7 @@ namespace System.Scsc.Ui.OtherIncome
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       private XElement HostNameInfo;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -104,7 +105,7 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstBnARqt1_Click(null, null);
             /*else if (tabControl1.SelectedTab == tabPage2)
                RqstBnASav1_Click(null, null);
@@ -123,7 +124,7 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstBnDelete1_Click(null, null);
             /*else if (tabControl1.SelectedTab == tabPage2)
                RqstBnDelete2_Click(null, null);
@@ -133,7 +134,7 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstBnARqt1_Click(null, null);
             /*else if (tabControl1.SelectedTab == tabPage3)
                RqstBnARqt3_Click(null, null);
@@ -149,7 +150,7 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.F10)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstBnASav1_Click(null, null);
             /*else if (tabControl1.SelectedTab == tabPage2)
                RqstBnASav2_Click(null, null);
@@ -194,7 +195,148 @@ namespace System.Scsc.Ui.OtherIncome
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
-         
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "bn_paymentmethods1":
+                     bn_PaymentMethods1.Text = control.LABL_TEXT;
+                     //bn_PaymentMethods1.Text = control.LABL_TEXT; // ToolTip
+                     //bn_PaymentMethods1.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expndesc_clm":
+                     ExpnDesc_Clm.Caption = control.LABL_TEXT;
+                     //ExpnDesc_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnDesc_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "serv_gb":
+                     Serv_Gb.Text = control.LABL_TEXT;
+                     //Serv_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Serv_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "filenos_lb":
+                     FileNos_Lb.Text = control.LABL_TEXT;
+                     //FileNos_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FileNos_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqid_lb":
+                     Rqid_Lb.Text = control.LABL_TEXT;
+                     //Rqid_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "debtamnt_lb":
+                     DebtAmnt_Lb.Text = control.LABL_TEXT;
+                     //DebtAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DebtAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "dpstamnt_lb":
+                     DpstAmnt_Lb.Text = control.LABL_TEXT;
+                     //DpstAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DpstAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "frstname_lb":
+                     FrstName_Lb.Text = control.LABL_TEXT;
+                     //FrstName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FrstName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cellphon_lb":
+                     CellPhon_Lb.Text = control.LABL_TEXT;
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "suntcode_lb":
+                     SuntCode_Lb.Text = control.LABL_TEXT;
+                     //SuntCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //SuntCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "lastname_lb":
+                     LastName_Lb.Text = control.LABL_TEXT;
+                     //LastName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //LastName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "natlcode_lb":
+                     NatlCode_Lb.Text = control.LABL_TEXT;
+                     //NatlCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NatlCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "servno_lb":
+                     ServNo_Lb.Text = control.LABL_TEXT;
+                     //ServNo_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ServNo_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gb_expense":
+                     Gb_Expense.Text = control.LABL_TEXT;
+                     //Gb_Expense.Text = control.LABL_TEXT; // ToolTip
+                     //Gb_Expense.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cashcode_clm":
+                     CashCode_Clm.Caption = control.LABL_TEXT;
+                     //CashCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //CashCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sumexpnpric_clm":
+                     SumExpnPric_Clm.Caption = control.LABL_TEXT;
+                     //SumExpnPric_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //SumExpnPric_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expncode_clm":
+                     ExpnCode_Clm.Caption = control.LABL_TEXT;
+                     //ExpnCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expnpric_clm":
+                     ExpnPric_Clm.Caption = control.LABL_TEXT;
+                     //ExpnPric_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnPric_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "qnty_clm":
+                     Qnty_Clm.Caption = control.LABL_TEXT;
+                     //Qnty_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //Qnty_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cbmtcode_clm":
+                     CbmtCode_Clm.Text = control.LABL_TEXT;
+                     //CbmtCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //CbmtCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "pydtdesc_clm":
+                     PydtDesc_Clm.Text = control.LABL_TEXT;
+                     //PydtDesc_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //PydtDesc_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gb_expenseitem":
+                     Gb_ExpenseItem.Text = control.LABL_TEXT;
+                     //Gb_ExpenseItem.Text = control.LABL_TEXT; // ToolTip
+                     //Gb_ExpenseItem.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "selectexpense_clm":
+                     SelectExpense_Clm.Caption = control.LABL_TEXT;
+                     //SelectExpense_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //SelectExpense_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "pric_clm":
+                     Pric_Clm.Caption = control.LABL_TEXT;
+                     //Pric_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //Pric_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expngroplist_clm":
+                     ExpnGropList_Clm.Caption = control.LABL_TEXT;
+                     //ExpnGropList_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnGropList_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
+
          job.Status = StatusType.Successful;
       }
 

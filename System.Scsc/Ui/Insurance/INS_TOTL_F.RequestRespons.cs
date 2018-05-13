@@ -199,6 +199,21 @@ namespace System.Scsc.Ui.Insurance
                      //MdfyBy_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MdfyBy_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
+                  case "pymt_lb":
+                     Pymt_Lb.Text = control.LABL_TEXT;
+                     //Pymt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Pymt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cashcode_clm":
+                     CashCode_Clm.Caption = control.LABL_TEXT;
+                     //CashCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //CashCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rwnopdsc_clm":
+                     RwnoPdsc_Clm.Caption = control.LABL_TEXT;
+                     //RwnoPdsc_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //RwnoPdsc_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "gb_info":
                      Gb_Info.Text = control.LABL_TEXT;
                      //Gb_Info.Text = control.LABL_TEXT; // ToolTip
@@ -249,10 +264,91 @@ namespace System.Scsc.Ui.Insurance
                      //MdfyDate_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MdfyDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
+                  case "gb_expense":
+                     Gb_Expense.Text = control.LABL_TEXT;
+                     //Gb_Expense.Text = control.LABL_TEXT; // ToolTip
+                     //Gb_Expense.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "totlamnt_lb":
+                     TotlAmnt_Lb.Text = control.LABL_TEXT;
+                     //TotlAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TotlAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "dtilamnt_lb":
+                     DtilAmnt_Lb.Text = control.LABL_TEXT;
+                     //DtilAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DtilAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bn_paymentmethods":
+                     bn_PaymentMethods.Text = control.LABL_TEXT;
+                     //bn_PaymentMethods.Text = control.LABL_TEXT; // ToolTip
+                     //bn_PaymentMethods.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sumexpnextrprct_clm":
+                     SumExpnExtrPrct_Clm.Caption = control.LABL_TEXT;
+                     //SumExpnExtrPrct_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //SumExpnExtrPrct_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expncode_clm":
+                     ExpnCode_Clm.Caption = control.LABL_TEXT;
+                     //ExpnCode_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnCode_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expnpric_clm":
+                     ExpnPric_Clm.Caption = control.LABL_TEXT;
+                     //ExpnPric_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnPric_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "expnextrprct_clm":
+                     ExpnExtrPrct_Clm.Caption = control.LABL_TEXT;
+                     //ExpnExtrPrct_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ExpnExtrPrct_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "qnty_clm":
+                     Qnty_Clm.Caption = control.LABL_TEXT;
+                     //Qnty_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //Qnty_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "totlexpn_clm":
+                     TotlExpn_Clm.Caption = control.LABL_TEXT;
+                     //TotlExpn_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //TotlExpn_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "amntpdsc_clm":
+                     AmntPdsc_Clm.Caption = control.LABL_TEXT;
+                     //AmntPdsc_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //AmntPdsc_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "pydsdesc_clm":
+                     PydsDesc_Clm.Caption = control.LABL_TEXT;
+                     //PydsDesc_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //PydsDesc_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "pymtrwno_clm":
+                     PymtRwno_Clm.Caption = control.LABL_TEXT;
+                     //PymtRwno_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //PymtRwno_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "pymtamnt_clm":
+                     PymtAmnt_Clm.Caption = control.LABL_TEXT;
+                     //PymtAmnt_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //PymtAmnt_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rcptmtod_clm":
+                     RcptMtod_Clm.Caption = control.LABL_TEXT;
+                     //RcptMtod_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //RcptMtod_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "actndate_clm":
+                     ActnDate_Clm.Caption = control.LABL_TEXT;
+                     //ActnDate_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //ActnDate_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
                }
             }
          }
          #endregion
+
 
          job.Status = StatusType.Successful;
       }
@@ -311,11 +407,12 @@ namespace System.Scsc.Ui.Insurance
       private void LoadData(Job job)
       {
          #region Rqsw block
-         RqttBs1.DataSource = iScsc.Requester_Types;
-         Execute_Query();
+         RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
+         DRcmtBs1.DataSource = iScsc.D_RCMTs;
+         //Execute_Query();
          
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
-         var iFighs = iScsc.VF_InsuranceFighter(DateTime.Now, 0).Select(f => f.FILE_NO);
+         //var iFighs = iScsc.VF_InsuranceFighter(DateTime.Now, 0).Select(f => f.FILE_NO);
          //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && iFighs.Contains(f.FILE_NO) && Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
 
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
@@ -342,7 +439,7 @@ namespace System.Scsc.Ui.Insurance
       {
          try
          {
-            if ((job.Input as XElement).Attribute("fileno") != null)
+            if (job.Input != null && (job.Input as XElement).Attribute("fileno") != null)
             {
                if ((job.Input as XElement).Attribute("type").Value == "renewinscard")
                {

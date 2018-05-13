@@ -57,35 +57,9 @@ namespace System.Scsc.Ui.Admission
             //   if (RqstBs1.Count == 0 || (RqstBs1.Count == 1 && RqstBs1.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
             //   {
             //      DefaultTabPage001();
-            //   }
+            //   } 
             //}
-            if (tb_master.SelectedTab == tp_002)
-            {
-               iScsc = new Data.iScscDataContext(ConnectionString);
-               var Rqids = iScsc.VF_Requests(new XElement("Request"))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "001" &&
-                        (rqst.RQTT_CODE == "002" || rqst.RQTT_CODE == "003") &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-               RqstBs2.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  )
-                  .OrderByDescending(
-                     rqst =>
-                        rqst.RQST_DATE
-                  ); 
-
-               if (RqstBs2.Count == 0 || (RqstBs2.Count == 1 && RqstBs2.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
-               {
-                  DefaultTabPage002();
-               }
-            }
-            else if (tb_master.SelectedTab == tp_003)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
                var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
@@ -129,9 +103,7 @@ namespace System.Scsc.Ui.Admission
       private void DefaultTabPage002()
       {
          /* تنظیم کردن ناحیه و استان قابل دسترس */
-         REGN_PRVN_CODELookUpEdit2.EditValue = Fga_Uprv_U.Split(',')[0];
-         REGN_CODELookUpEdit2.EditValue = Fga_Urgn_U.Split(',')[0].Substring(3);
-         RQTT_CODE_LookUpEdit2.EditValue = "003";
+         
       }
 
       //private void DefaultTabPage001()
@@ -150,12 +122,7 @@ namespace System.Scsc.Ui.Admission
          //   if (RqstBs1.Count >= 1)
          //      RqstIndex = RqstBs1.Position;
          //}
-         if (tb_master.SelectedTab == tp_002)
-         {
-            if (RqstBs2.Count >= 1)
-               RqstIndex = RqstBs2.Position;
-         }
-         else if (tb_master.SelectedTab == tp_003)
+         
          {
             if (RqstBs3.Count >= 1)
                RqstIndex = RqstBs3.Position;
@@ -169,12 +136,12 @@ namespace System.Scsc.Ui.Admission
          //   if (RqstIndex >= 0)
          //      RqstBs1.Position = RqstIndex;
          //}
-         if (tb_master.SelectedTab == tp_002)
-         {
-            if (RqstIndex >= 0)
-               RqstBs2.Position = RqstIndex;
-         }
-         else if (tb_master.SelectedTab == tp_003)
+         //if (tb_master.SelectedTab == tp_002)
+         //{
+         //   if (RqstIndex >= 0)
+         //      RqstBs2.Position = RqstIndex;
+         //}
+         //else if (tb_master.SelectedTab == tp_003)
          {
             if (RqstIndex >= 0)
                RqstBs3.Position = RqstIndex;
@@ -188,12 +155,12 @@ namespace System.Scsc.Ui.Admission
          //   RqstBs1.AddNew();
          //   RQTT_CODE_LookUpEdit1.Focus();
          //}
-         if (tb_master.SelectedTab == tp_002)
-         {
-            RqstBs2.AddNew();
-            RQTT_CODE_LookUpEdit2.Focus();
-         }
-         else if (tb_master.SelectedTab == tp_003)
+         //if (tb_master.SelectedTab == tp_002)
+         //{
+         //   RqstBs2.AddNew();
+         //   RQTT_CODE_LookUpEdit2.Focus();
+         //}
+         //else if (tb_master.SelectedTab == tp_003)
          {
             RqstBs3.AddNew();
             RQTT_CODE_LookUpEdit3.Focus();
@@ -423,99 +390,99 @@ namespace System.Scsc.Ui.Admission
       //   }
       //}
 
-      private void Btn_RqstDelete1_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            if (MessageBox.Show(this, "آیا با انصراف و حذف ثبت نام مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+      //private void Btn_RqstDelete1_Click(object sender, EventArgs e)
+      //{
+      //   try
+      //   {
+      //      if (MessageBox.Show(this, "آیا با انصراف و حذف ثبت نام مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            var Rqst = RqstBs1.Current as Data.Request;
+      //      var Rqst = RqstBs1.Current as Data.Request;
 
-            if (Rqst != null && Rqst.RQID > 0)
-            {
-               /*
-                *  Remove Data From Tables
-                */
-               iScsc.ADM_TCNL_F(
-                  new XElement("Process",
-                     new XElement("Request",
-                        new XAttribute("rqid", Rqst.RQID),
-                        new XElement("Fighter",
-                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-                        )
-                     )
-                  )
-               );
-               //MessageBox.Show(this, "مشتری حذف گردید!");
-            }
-            requery = true;
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if (requery)
-            {
-               Get_Current_Record();
-               Execute_Query();
-               Set_Current_Record();
-               Create_Record();
-               requery = false;
-            }
-         }
-      }
+      //      if (Rqst != null && Rqst.RQID > 0)
+      //      {
+      //         /*
+      //          *  Remove Data From Tables
+      //          */
+      //         iScsc.ADM_TCNL_F(
+      //            new XElement("Process",
+      //               new XElement("Request",
+      //                  new XAttribute("rqid", Rqst.RQID),
+      //                  new XElement("Fighter",
+      //                     new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+      //                  )
+      //               )
+      //            )
+      //         );
+      //         //MessageBox.Show(this, "مشتری حذف گردید!");
+      //      }
+      //      requery = true;
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      MessageBox.Show(ex.Message);
+      //   }
+      //   finally
+      //   {
+      //      if (requery)
+      //      {
+      //         Get_Current_Record();
+      //         Execute_Query();
+      //         Set_Current_Record();
+      //         Create_Record();
+      //         requery = false;
+      //      }
+      //   }
+      //}
 
       bool setOnDebt = false;
-      private void Btn_RqstSav1_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            var Rqst = RqstBs1.Current as Data.Request;
-            if (Rqst != null && Rqst.RQST_STAT == "001")
-            {
-               iScsc.ADM_TSAV_F(
-                  new XElement("Process",
-                     new XElement("Request",
-                        new XAttribute("rqid", Rqst.RQID),
-                        new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
-                        new XAttribute("regncode", Rqst.REGN_CODE),
-                        new XElement("Fighter",
-                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-                        ),
-                        new XElement("Payment",
-                           new XAttribute("setondebt", setOnDebt),
-                           PydtsBs1.List.OfType<Data.Payment_Detail>().ToList()
-                           .Select(pd => 
-                              new XElement("Payment_Detail",
-                                 new XAttribute("code", pd.CODE),
-                                 new XAttribute("rcptmtod", pd.RCPT_MTOD ?? "")
-                              )
-                           )
-                        )
-                     )
-                  )
-               );
-               requery = true;
-            }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if(requery)
-            {
-               Get_Current_Record();
-               Execute_Query();
-               Set_Current_Record();
-               Create_Record();
-               requery = false;
-            }            
-         }
-      }
+      //private void Btn_RqstSav1_Click(object sender, EventArgs e)
+      //{
+      //   try
+      //   {
+      //      var Rqst = RqstBs1.Current as Data.Request;
+      //      if (Rqst != null && Rqst.RQST_STAT == "001")
+      //      {
+      //         iScsc.ADM_TSAV_F(
+      //            new XElement("Process",
+      //               new XElement("Request",
+      //                  new XAttribute("rqid", Rqst.RQID),
+      //                  new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
+      //                  new XAttribute("regncode", Rqst.REGN_CODE),
+      //                  new XElement("Fighter",
+      //                     new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+      //                  ),
+      //                  new XElement("Payment",
+      //                     new XAttribute("setondebt", setOnDebt),
+      //                     PydtsBs1.List.OfType<Data.Payment_Detail>().ToList()
+      //                     .Select(pd => 
+      //                        new XElement("Payment_Detail",
+      //                           new XAttribute("code", pd.CODE),
+      //                           new XAttribute("rcptmtod", pd.RCPT_MTOD ?? "")
+      //                        )
+      //                     )
+      //                  )
+      //               )
+      //            )
+      //         );
+      //         requery = true;
+      //      }
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      MessageBox.Show(ex.Message);
+      //   }
+      //   finally
+      //   {
+      //      if(requery)
+      //      {
+      //         Get_Current_Record();
+      //         Execute_Query();
+      //         Set_Current_Record();
+      //         Create_Record();
+      //         requery = false;
+      //      }            
+      //   }
+      //}
 
       private void Btn_RqstExit1_Click(object sender, EventArgs e)
       {
@@ -524,130 +491,130 @@ namespace System.Scsc.Ui.Admission
          );
       }
 
-      private void RqstBs2_CurrentChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            var Rqst = RqstBs2.Current as Data.Request;
+      //private void RqstBs2_CurrentChanged(object sender, EventArgs e)
+      //{
+      //   try
+      //   {
+      //      var Rqst = RqstBs2.Current as Data.Request;
 
-            if (Rqst.RQID == 0)
-            {
-               DefaultTabPage002();
-            }
-         }
-         catch
-         {            
-            DefaultTabPage002();
-         }
-      }
+      //      if (Rqst.RQID == 0)
+      //      {
+      //         DefaultTabPage002();
+      //      }
+      //   }
+      //   catch
+      //   {            
+      //      DefaultTabPage002();
+      //   }
+      //}
 
 
-      private void Btn_RqstDelete2_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            if (MessageBox.Show(this, "آیا با انصراف و حذف ثبت مربی مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+      //private void Btn_RqstDelete2_Click(object sender, EventArgs e)
+      //{
+      //   try
+      //   {
+      //      if (MessageBox.Show(this, "آیا با انصراف و حذف ثبت مربی مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            var Rqst = RqstBs2.Current as Data.Request;
+      //      var Rqst = RqstBs2.Current as Data.Request;
 
-            if (Rqst != null && Rqst.RQID > 0)
-            {
-               /*
-                *  Remove Data From Tables
-                */
-               iScsc.ADM_TCNL_F(
-                  new XElement("Process",
-                     new XElement("Request",
-                        new XAttribute("rqid", Rqst.RQID),
-                        new XElement("Fighter",
-                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-                        )
-                     )
-                  )
-               );
-               //MessageBox.Show(this, "مربی حذف گردید!");
-            }
-            requery = true;
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if (requery)
-            {
-               Get_Current_Record();
-               Execute_Query();
-               Set_Current_Record();
-               Create_Record();
-               requery = false;
-            }
-         }
-      }
+      //      if (Rqst != null && Rqst.RQID > 0)
+      //      {
+      //         /*
+      //          *  Remove Data From Tables
+      //          */
+      //         iScsc.ADM_TCNL_F(
+      //            new XElement("Process",
+      //               new XElement("Request",
+      //                  new XAttribute("rqid", Rqst.RQID),
+      //                  new XElement("Fighter",
+      //                     new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+      //                  )
+      //               )
+      //            )
+      //         );
+      //         //MessageBox.Show(this, "مربی حذف گردید!");
+      //      }
+      //      requery = true;
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      MessageBox.Show(ex.Message);
+      //   }
+      //   finally
+      //   {
+      //      if (requery)
+      //      {
+      //         Get_Current_Record();
+      //         Execute_Query();
+      //         Set_Current_Record();
+      //         Create_Record();
+      //         requery = false;
+      //      }
+      //   }
+      //}
 
-      private void Btn_RqstSav2_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            var Rqst = RqstBs2.Current as Data.Request;
-            iScsc.ADM_MSAV_F(
-               new XElement("Process",
-                  new XElement("Request",
-                     new XAttribute("rqid", 0),
-                     new XAttribute("rqtpcode", "001"),
-                     new XAttribute("rqttcode", RQTT_CODE_LookUpEdit2.EditValue),
-                     new XAttribute("prvncode", REGN_PRVN_CODELookUpEdit2.EditValue),
-                     new XAttribute("regncode", REGN_CODELookUpEdit2.EditValue),
-                     new XElement("Fighter",
-                        new XAttribute("fileno", 0),
-                        new XElement("Frst_Name", Frst_Name_TextEdit2.Text),
-                        new XElement("Last_Name", Last_Name_TextEdit2.Text),
-                        new XElement("Fath_Name", Fath_Name_TextEdit2.Text),
-                        new XElement("Coch_Deg", COCH_DEG_LookUpEdit2.EditValue),
-                        new XElement("Coch_Crtf_Date", COCH_CRTF_DATE_PersianDateEdit2.Value == null ? "" : COCH_CRTF_DATE_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
-                        new XElement("Gudg_Deg", GUDG_DEG_LookUpEdit2.EditValue),
-                        new XElement("glob_Code", GLOB_CODE_TextEdit2.EditValue),
-                        new XElement("Sex_Type", Sex_Type_LookUpEdit2.EditValue),
-                        new XElement("Natl_Code", NATL_CODE_TextEdit2.Text),
-                        new XElement("Brth_Date", Brth_Date_PersianDateEdit2.Value == null ? "" : Brth_Date_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
-                        new XElement("Cell_Phon", Cell_Phon_TextEdit2.Text),
-                        new XElement("Tell_Phon", Tell_Phon_TextEdit2.Text),
-                        new XElement("Type", RQTT_CODE_LookUpEdit2.EditValue),
-                        new XElement("Post_Adrs", Post_Adrs_TextEdit2.Text),
-                        new XElement("Emal_Adrs", Emal_Adrs_TextEdit2.Text),
-                        new XElement("Insr_Numb", Insr_Numb_TextEdit2.Text),
-                        new XElement("Insr_Date", Insr_Date_PersianDateEdit2.Value == null ? "" : Insr_Date_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
-                        new XElement("Educ_Deg", Educ_Code_LookUpEdit2.EditValue ?? ""),
-                        new XElement("Mtod_Code", MTOD_CODE_LookUpEdit2.EditValue ?? ""),
-                        new XElement("Dise_Code", Dise_Code_LookUpEdit2.EditValue ?? ""),
-                        new XElement("Calc_Expn_Type", CALC_EXPN_TYPE_LookUpEdit2.EditValue ?? ""),
-                        new XElement("Blod_grop", Blod_Grop_LookupEdit.EditValue ?? ""),
-                        new XElement("Fngr_Prnt", Fngr_Prnt_TextEdit2.EditValue ?? ""),
-                        new XElement("Dpst_Acnt_Slry_Bank", DpstAcntSlryBank_Text2.EditValue ?? ""),
-                        new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? "")
-                     )
-                  )
-               )
-            );
-            requery = true;
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if (requery)
-            {
-               Get_Current_Record();
-               Execute_Query();
-               Set_Current_Record();
-               Create_Record();
-               requery = false;
-            }
-         }
-      }
+      //private void Btn_RqstSav2_Click(object sender, EventArgs e)
+      //{
+      //   try
+      //   {
+      //      var Rqst = RqstBs2.Current as Data.Request;
+      //      iScsc.ADM_MSAV_F(
+      //         new XElement("Process",
+      //            new XElement("Request",
+      //               new XAttribute("rqid", 0),
+      //               new XAttribute("rqtpcode", "001"),
+      //               new XAttribute("rqttcode", RQTT_CODE_LookUpEdit2.EditValue),
+      //               new XAttribute("prvncode", REGN_PRVN_CODELookUpEdit2.EditValue),
+      //               new XAttribute("regncode", REGN_CODELookUpEdit2.EditValue),
+      //               new XElement("Fighter",
+      //                  new XAttribute("fileno", 0),
+      //                  new XElement("Frst_Name", Frst_Name_TextEdit2.Text),
+      //                  new XElement("Last_Name", Last_Name_TextEdit2.Text),
+      //                  new XElement("Fath_Name", Fath_Name_TextEdit2.Text),
+      //                  new XElement("Coch_Deg", COCH_DEG_LookUpEdit2.EditValue),
+      //                  new XElement("Coch_Crtf_Date", COCH_CRTF_DATE_PersianDateEdit2.Value == null ? "" : COCH_CRTF_DATE_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
+      //                  new XElement("Gudg_Deg", GUDG_DEG_LookUpEdit2.EditValue),
+      //                  new XElement("glob_Code", GLOB_CODE_TextEdit2.EditValue),
+      //                  new XElement("Sex_Type", Sex_Type_LookUpEdit2.EditValue),
+      //                  new XElement("Natl_Code", NATL_CODE_TextEdit2.Text),
+      //                  new XElement("Brth_Date", Brth_Date_PersianDateEdit2.Value == null ? "" : Brth_Date_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
+      //                  new XElement("Cell_Phon", Cell_Phon_TextEdit2.Text),
+      //                  new XElement("Tell_Phon", Tell_Phon_TextEdit2.Text),
+      //                  new XElement("Type", RQTT_CODE_LookUpEdit2.EditValue),
+      //                  new XElement("Post_Adrs", Post_Adrs_TextEdit2.Text),
+      //                  new XElement("Emal_Adrs", Emal_Adrs_TextEdit2.Text),
+      //                  new XElement("Insr_Numb", Insr_Numb_TextEdit2.Text),
+      //                  new XElement("Insr_Date", Insr_Date_PersianDateEdit2.Value == null ? "" : Insr_Date_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
+      //                  new XElement("Educ_Deg", Educ_Code_LookUpEdit2.EditValue ?? ""),
+      //                  new XElement("Mtod_Code", MTOD_CODE_LookUpEdit2.EditValue ?? ""),
+      //                  new XElement("Dise_Code", Dise_Code_LookUpEdit2.EditValue ?? ""),
+      //                  new XElement("Calc_Expn_Type", CALC_EXPN_TYPE_LookUpEdit2.EditValue ?? ""),
+      //                  new XElement("Blod_grop", Blod_Grop_LookupEdit.EditValue ?? ""),
+      //                  new XElement("Fngr_Prnt", Fngr_Prnt_TextEdit2.EditValue ?? ""),
+      //                  new XElement("Dpst_Acnt_Slry_Bank", DpstAcntSlryBank_Text2.EditValue ?? ""),
+      //                  new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? "")
+      //               )
+      //            )
+      //         )
+      //      );
+      //      requery = true;
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      MessageBox.Show(ex.Message);
+      //   }
+      //   finally
+      //   {
+      //      if (requery)
+      //      {
+      //         Get_Current_Record();
+      //         Execute_Query();
+      //         Set_Current_Record();
+      //         Create_Record();
+      //         requery = false;
+      //      }
+      //   }
+      //}
 
       private void LL_MoreInfo2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
       {
@@ -665,48 +632,48 @@ namespace System.Scsc.Ui.Admission
          //}
       }
 
-      private void BTN_MBSP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            var Figh = FighBs1.Current as Data.Fighter;
-            iScsc.UCC_TRQT_P(
-               new XElement("Process",
-                  new XElement("Request",
-                     new XAttribute("rqtpcode", "009"),
-                     new XAttribute("rqttcode", Figh.FGPB_TYPE_DNRM),
-                     new XElement("Request_Row",
-                        new XAttribute("fileno", Figh.FILE_NO),
-                        new XElement("Member_Ship",
-                           new XAttribute("strtdate", ""),
-                           new XAttribute("enddate", ""),
-                           new XAttribute("prntcont", "1")
-                        )
-                     )
-                  )
-               )
-            );
-            tb_master.SelectedTab = tp_003;
-            requery = true;
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if (requery)
-            {
-               Get_Current_Record();
-               //Execute_Query();
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", "ADM_TOTL_F", 07 /* Exec LoadData */, SendType.SelfToUserInterface)
-               );
-               Set_Current_Record();
-               requery = false;
-            }
-         }
-      }
+      //private void BTN_MBSP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      //{
+      //   try
+      //   {
+      //      var Figh = FighBs1.Current as Data.Fighter;
+      //      iScsc.UCC_TRQT_P(
+      //         new XElement("Process",
+      //            new XElement("Request",
+      //               new XAttribute("rqtpcode", "009"),
+      //               new XAttribute("rqttcode", Figh.FGPB_TYPE_DNRM),
+      //               new XElement("Request_Row",
+      //                  new XAttribute("fileno", Figh.FILE_NO),
+      //                  new XElement("Member_Ship",
+      //                     new XAttribute("strtdate", ""),
+      //                     new XAttribute("enddate", ""),
+      //                     new XAttribute("prntcont", "1")
+      //                  )
+      //               )
+      //            )
+      //         )
+      //      );
+      //      tb_master.SelectedTab = tp_003;
+      //      requery = true;
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      MessageBox.Show(ex.Message);
+      //   }
+      //   finally
+      //   {
+      //      if (requery)
+      //      {
+      //         Get_Current_Record();
+      //         //Execute_Query();
+      //         _DefaultGateway.Gateway(
+      //            new Job(SendType.External, "localhost", "ADM_TOTL_F", 07 /* Exec LoadData */, SendType.SelfToUserInterface)
+      //         );
+      //         Set_Current_Record();
+      //         requery = false;
+      //      }
+      //   }
+      //}
 
       private void Btn_Cbmt1_Click(object sender, EventArgs e)
       {
@@ -1060,16 +1027,16 @@ namespace System.Scsc.Ui.Admission
          //      new Job(SendType.External, "Localhost", "", 59 /* Execute Cmn_Dcmt_F */, SendType.Self) { Input = iScsc.Request_Rows.Where(rr => rr.RQST_RQID == rqst.RQID && rr.RWNO == 1).Single() }
          //   );
          //}
-         if(tb_master.SelectedTab == tp_002)
-         {
-            var rqst = RqstBs2.Current as Data.Request;
-            if (rqst == null) return;
+         //if(tb_master.SelectedTab == tp_002)
+         //{
+         //   var rqst = RqstBs2.Current as Data.Request;
+         //   if (rqst == null) return;
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost", "", 59 /* Execute Cmn_Dcmt_F */, SendType.Self) { Input = iScsc.Request_Rows.Where(rr => rr.RQST_RQID == rqst.RQID && rr.RWNO == 1).Single() }
-            );
-         }
-         else if(tb_master.SelectedTab == tp_003)
+         //   _DefaultGateway.Gateway(
+         //      new Job(SendType.External, "Localhost", "", 59 /* Execute Cmn_Dcmt_F */, SendType.Self) { Input = iScsc.Request_Rows.Where(rr => rr.RQST_RQID == rqst.RQID && rr.RWNO == 1).Single() }
+         //   );
+         //}
+         //else if(tb_master.SelectedTab == tp_003)
          {
             var rqst = RqstBs3.Current as Data.Request;
             if (rqst == null) return;
@@ -1093,18 +1060,18 @@ namespace System.Scsc.Ui.Admission
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
-         if(tb_master.SelectedTab == tp_002)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if(tb_master.SelectedTab == tp_003)
+         //if(tb_master.SelectedTab == tp_002)
+         //{
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+         //            new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if(tb_master.SelectedTab == tp_003)
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -1132,20 +1099,20 @@ namespace System.Scsc.Ui.Admission
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
-         if (tb_master.SelectedTab == tp_002)
-         {
-            if (RqstBs2.Current == null) return;
-            var crnt = RqstBs2.Current as Data.Request;
+         //if (tb_master.SelectedTab == tp_002)
+         //{
+         //   if (RqstBs2.Current == null) return;
+         //   var crnt = RqstBs2.Current as Data.Request;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedTab == tp_003)
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedTab == tp_003)
          {
             if (RqstBs3.Current == null) return;
             var crnt = RqstBs3.Current as Data.Request;
@@ -1175,20 +1142,20 @@ namespace System.Scsc.Ui.Admission
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
-         if (tb_master.SelectedTab == tp_002)
-         {
-            if (RqstBs2.Current == null) return;
-            var crnt = RqstBs2.Current as Data.Request;
+         //if (tb_master.SelectedTab == tp_002)
+         //{
+         //   if (RqstBs2.Current == null) return;
+         //   var crnt = RqstBs2.Current as Data.Request;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedTab == tp_003)
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedTab == tp_003)
          {
             if (RqstBs3.Current == null) return;
             var crnt = RqstBs3.Current as Data.Request;
@@ -1218,7 +1185,7 @@ namespace System.Scsc.Ui.Admission
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
-         if (tb_master.SelectedTab == tp_003)
+         //if (tb_master.SelectedTab == tp_003)
          {
             if (RqstBs3.Current == null) return;
             var crnt = RqstBs3.Current as Data.Request;
@@ -1245,7 +1212,7 @@ namespace System.Scsc.Ui.Admission
          //      new Job(SendType.External, "Localhost", "", 86 /* Execute Pay_Mtod_F */, SendType.Self) { Input = pymt }
          //   );
          //}
-         if(tb_master.SelectedTab == tp_003)
+         //if(tb_master.SelectedTab == tp_003)
          {
             var rqst = RqstBs3.Current as Data.Request;
             if (rqst == null) return;
@@ -1313,7 +1280,7 @@ namespace System.Scsc.Ui.Admission
             //   /* End Request */
             //   Btn_RqstSav1_Click(null, null);
             //}
-            if (tb_master.SelectedTab == tp_003)
+            //if (tb_master.SelectedTab == tp_003)
             {
                if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -1425,7 +1392,7 @@ namespace System.Scsc.Ui.Admission
             //   /* End Request */
             //   Btn_RqstSav1_Click(null, null);
             //}
-            if (tb_master.SelectedTab == tp_003)
+            //if (tb_master.SelectedTab == tp_003)
             {
                if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -1478,7 +1445,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (tb_master.SelectedTab == tp_003)
+            //if (tb_master.SelectedTab == tp_003)
             {
                if (RqstBs3.Current == null) return;
                var rqst = RqstBs3.Current as Data.Request;
@@ -1593,21 +1560,21 @@ namespace System.Scsc.Ui.Admission
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
-         if(tb_master.SelectedTab == tp_002)
-         {
-            var rqst = RqstBs3.Current as Data.Request;
-            if (rqst == null) return;
+         //if(tb_master.SelectedTab == tp_002)
+         //{
+         //   var rqst = RqstBs3.Current as Data.Request;
+         //   if (rqst == null) return;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 94 /* Execute Cmn_Resn_F */){Input = rqst.Request_Rows.FirstOrDefault()},
-                     //new Job(SendType.SelfToUserInterface, "POS_TOTL_F", 10 /* Actn_CalF_F */){Input = xSendPos}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedTab == tp_003)
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 94 /* Execute Cmn_Resn_F */){Input = rqst.Request_Rows.FirstOrDefault()},
+         //            //new Job(SendType.SelfToUserInterface, "POS_TOTL_F", 10 /* Actn_CalF_F */){Input = xSendPos}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedTab == tp_003)
          {
             var rqst = RqstBs3.Current as Data.Request;
             if (rqst == null) return;
@@ -1625,21 +1592,21 @@ namespace System.Scsc.Ui.Admission
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if(tb_master.SelectedTab != tp_003)
-         {
-            var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").SingleOrDefault();
-            if (Rg1 == null) return;
+         //if(tb_master.SelectedTab != tp_003)
+         //{
+         //   var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").SingleOrDefault();
+         //   if (Rg1 == null) return;
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.Self, 06 /* Execute Regl_Dcmt_F */){Input = new List<Data.Regulation>{Rg1, null}},
-                     new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "001")))}
-                  })
-               );
-         }
-         else if(tb_master.SelectedTab == tp_003)
+         //   _DefaultGateway.Gateway(
+         //      new Job(SendType.External, "Localhost",
+         //         new List<Job>
+         //         {
+         //            new Job(SendType.Self, 06 /* Execute Regl_Dcmt_F */){Input = new List<Data.Regulation>{Rg1, null}},
+         //            new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "001")))}
+         //         })
+         //      );
+         //}
+         //else if(tb_master.SelectedTab == tp_003)
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -1663,20 +1630,20 @@ namespace System.Scsc.Ui.Admission
             //{
             //   FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
             //}
-            if (tb_master.SelectedTab == tp_002)
-            {
-               Fngr_Prnt_TextEdit2.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
-            }
+            //if (tb_master.SelectedTab == tp_002)
+            //{
+            //   Fngr_Prnt_TextEdit2.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
+            //}
          }
          catch {
             //if (tb_master.SelectedTab == tp_001)
             //{
             //   FNGR_PRNT_TextEdit.EditValue = 1;
             //}
-            if (tb_master.SelectedTab == tp_002)
-            {
-               Fngr_Prnt_TextEdit2.EditValue = 1;
-            }
+            //if (tb_master.SelectedTab == tp_002)
+            //{
+            //   Fngr_Prnt_TextEdit2.EditValue = 1;
+            //}
          }
       }
 
@@ -1731,7 +1698,7 @@ namespace System.Scsc.Ui.Admission
             //   MtodBs2.Position = MtodCode_LookupEdit001.Properties.GetDataSourceRowIndex(MtodCode_LookupEdit001.Properties.ValueMember, MtodCode_LookupEdit001.EditValue);
             //   cBMT_CODEGridLookUpEditView.ActiveFilterString = string.Format("[Method.CODE] = {0}", MtodCode_LookupEdit001.EditValue);
             //}
-            if(tb_master.SelectedTab == tp_003)
+            //if(tb_master.SelectedTab == tp_003)
             {
                if (MtodCode_LookupEdit003.EditValue.ToString() == "") return;
                //MtodBs2.Position = MtodBs2.List.OfType<Data.Method>().ToList().FindIndex(m => m.CODE == Convert.ToInt64(MtodCode_LookupEdit003.EditValue));// MtodCode_LookupEdit003.Properties.GetDataSourceRowIndex(MtodCode_LookupEdit003.Properties.ValueMember, MtodCode_LookupEdit003.EditValue);
@@ -1787,48 +1754,48 @@ namespace System.Scsc.Ui.Admission
             //   );
 
             //}
-            if (tb_master.SelectedTab == tp_002)
-            {
-               var rqst = RqstBs2.Current as Data.Request;
-               if (rqst == null) return;
+            //if (tb_master.SelectedTab == tp_002)
+            //{
+            //   var rqst = RqstBs2.Current as Data.Request;
+            //   if (rqst == null) return;
 
-               var result = (
-                        from r in iScsc.Regulations
-                        join rqrq in iScsc.Request_Requesters on r equals rqrq.Regulation
-                        join rqdc in iScsc.Request_Documents on rqrq equals rqdc.Request_Requester
-                        join rcdc in iScsc.Receive_Documents on rqdc equals rcdc.Request_Document
-                        where r.TYPE == "001"
-                           && r.REGL_STAT == "002"
-                           && rqrq.RQTP_CODE == rqst.RQTP_CODE
-                           && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
-                           && rcdc.RQRO_RQST_RQID == rqst.RQID
-                           && rcdc.RQRO_RWNO == 1
-                        select rcdc).FirstOrDefault();
-               if (result == null) return;
+            //   var result = (
+            //            from r in iScsc.Regulations
+            //            join rqrq in iScsc.Request_Requesters on r equals rqrq.Regulation
+            //            join rqdc in iScsc.Request_Documents on rqrq equals rqdc.Request_Requester
+            //            join rcdc in iScsc.Receive_Documents on rqdc equals rcdc.Request_Document
+            //            where r.TYPE == "001"
+            //               && r.REGL_STAT == "002"
+            //               && rqrq.RQTP_CODE == rqst.RQTP_CODE
+            //               && rqrq.RQTT_CODE == rqst.RQTT_CODE
+            //               && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
+            //               && rcdc.RQRO_RQST_RQID == rqst.RQID
+            //               && rcdc.RQRO_RWNO == 1
+            //            select rcdc).FirstOrDefault();
+            //   if (result == null) return;
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self,  59 /* Execute Cmn_Dcmt_F */){ Input = iScsc.Request_Rows.Where(rr => rr.RQST_RQID == rqst.RQID && rr.RWNO == 1).Single() },
-                        new Job(SendType.SelfToUserInterface, "CMN_DCMT_F", 10 /* Execute Actn_CalF_F */)
-                        {
-                           Input = 
-                              new XElement("Action",
-                                 new XAttribute("type", "001"),
-                                 new XAttribute("typedesc", "Force Active Camera Picture Profile"),
-                                 new XElement("Document",
-                                    new XAttribute("rcid", result.RCID)
-                                 )
-                              )
-                        }
-                     }
-                  )
-               );
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "Localhost",
+            //         new List<Job>
+            //         {
+            //            new Job(SendType.Self,  59 /* Execute Cmn_Dcmt_F */){ Input = iScsc.Request_Rows.Where(rr => rr.RQST_RQID == rqst.RQID && rr.RWNO == 1).Single() },
+            //            new Job(SendType.SelfToUserInterface, "CMN_DCMT_F", 10 /* Execute Actn_CalF_F */)
+            //            {
+            //               Input = 
+            //                  new XElement("Action",
+            //                     new XAttribute("type", "001"),
+            //                     new XAttribute("typedesc", "Force Active Camera Picture Profile"),
+            //                     new XElement("Document",
+            //                        new XAttribute("rcid", result.RCID)
+            //                     )
+            //                  )
+            //            }
+            //         }
+            //      )
+            //   );
 
-            }
-            else if (tb_master.SelectedTab == tp_003)
+            //}
+            //else if (tb_master.SelectedTab == tp_003)
             {
                var rqst = RqstBs3.Current as Data.Request;
                if (rqst == null) return;
@@ -1900,7 +1867,7 @@ namespace System.Scsc.Ui.Admission
             //   NumbOfAttnWeek_TextEdit001.EditValue = expn.NUMB_OF_ATTN_WEEK ?? 0;
             //   NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
             //}
-            if (tb_master.SelectedTab == tp_003)
+            //if (tb_master.SelectedTab == tp_003)
             {
                //var rqst = RqstBs3.Current as Data.Request;
                //if (rqst == null) return;

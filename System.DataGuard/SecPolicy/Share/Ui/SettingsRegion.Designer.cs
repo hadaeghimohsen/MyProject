@@ -145,6 +145,8 @@
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.comboBox1 = new System.Windows.Forms.ComboBox();
+         this.comboBox2 = new System.Windows.Forms.ComboBox();
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
@@ -727,13 +729,15 @@
          this.splitContainerControl2.Location = new System.Drawing.Point(3, 3);
          this.splitContainerControl2.Name = "splitContainerControl2";
          this.splitContainerControl2.Panel1.Controls.Add(this.gridControl1);
-         this.splitContainerControl2.Panel1.Controls.Add(this.Translate_Butn);
          this.splitContainerControl2.Panel1.Controls.Add(this.TrgtRegn_Lov);
+         this.splitContainerControl2.Panel1.Controls.Add(this.comboBox2);
+         this.splitContainerControl2.Panel1.Controls.Add(this.Translate_Butn);
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.sub_SystemGridControl);
          this.splitContainerControl2.Panel2.Controls.Add(this.Form_Lov);
-         this.splitContainerControl2.Panel2.Controls.Add(this.Compare_Duplicate_Butn);
          this.splitContainerControl2.Panel2.Controls.Add(this.SorcRegn_Lov);
+         this.splitContainerControl2.Panel2.Controls.Add(this.comboBox1);
+         this.splitContainerControl2.Panel2.Controls.Add(this.Compare_Duplicate_Butn);
          this.splitContainerControl2.Panel2.Text = "Panel2";
          this.splitContainerControl2.Size = new System.Drawing.Size(836, 383);
          this.splitContainerControl2.SplitterPosition = 423;
@@ -744,7 +748,7 @@
          // 
          this.gridControl1.DataSource = this.TrgtFcntBs;
          this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl1.Location = new System.Drawing.Point(0, 31);
+         this.gridControl1.Location = new System.Drawing.Point(0, 55);
          this.gridControl1.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView2;
@@ -752,7 +756,7 @@
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit2,
             this.repositoryItemTimeEdit2});
-         this.gridControl1.Size = new System.Drawing.Size(423, 312);
+         this.gridControl1.Size = new System.Drawing.Size(423, 288);
          this.gridControl1.TabIndex = 19;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -915,7 +919,7 @@
          // 
          this.TrgtRegn_Lov.Dock = System.Windows.Forms.DockStyle.Top;
          this.TrgtRegn_Lov.EditValue = "017";
-         this.TrgtRegn_Lov.Location = new System.Drawing.Point(0, 0);
+         this.TrgtRegn_Lov.Location = new System.Drawing.Point(0, 24);
          this.TrgtRegn_Lov.Name = "TrgtRegn_Lov";
          this.TrgtRegn_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.TrgtRegn_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
@@ -955,7 +959,7 @@
          // 
          this.sub_SystemGridControl.DataSource = this.SorcFcntBs;
          this.sub_SystemGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.sub_SystemGridControl.Location = new System.Drawing.Point(0, 62);
+         this.sub_SystemGridControl.Location = new System.Drawing.Point(0, 86);
          this.sub_SystemGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.sub_SystemGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sub_SystemGridControl.MainView = this.gridView1;
@@ -963,7 +967,7 @@
          this.sub_SystemGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemTimeEdit1});
-         this.sub_SystemGridControl.Size = new System.Drawing.Size(408, 281);
+         this.sub_SystemGridControl.Size = new System.Drawing.Size(408, 257);
          this.sub_SystemGridControl.TabIndex = 2;
          this.sub_SystemGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1098,7 +1102,7 @@
          // Form_Lov
          // 
          this.Form_Lov.Dock = System.Windows.Forms.DockStyle.Top;
-         this.Form_Lov.Location = new System.Drawing.Point(0, 31);
+         this.Form_Lov.Location = new System.Drawing.Point(0, 55);
          this.Form_Lov.Name = "Form_Lov";
          this.Form_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Form_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
@@ -1172,7 +1176,7 @@
          // 
          this.SorcRegn_Lov.Dock = System.Windows.Forms.DockStyle.Top;
          this.SorcRegn_Lov.EditValue = "054";
-         this.SorcRegn_Lov.Location = new System.Drawing.Point(0, 0);
+         this.SorcRegn_Lov.Location = new System.Drawing.Point(0, 24);
          this.SorcRegn_Lov.Name = "SorcRegn_Lov";
          this.SorcRegn_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.SorcRegn_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
@@ -1729,6 +1733,31 @@
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
+         // comboBox1
+         // 
+         this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.comboBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.comboBox1.FormattingEnabled = true;
+         this.comboBox1.Location = new System.Drawing.Point(0, 0);
+         this.comboBox1.MaxDropDownItems = 20;
+         this.comboBox1.Name = "comboBox1";
+         this.comboBox1.Size = new System.Drawing.Size(408, 24);
+         this.comboBox1.Sorted = true;
+         this.comboBox1.TabIndex = 21;
+         // 
+         // comboBox2
+         // 
+         this.comboBox2.Dock = System.Windows.Forms.DockStyle.Top;
+         this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.comboBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.comboBox2.FormattingEnabled = true;
+         this.comboBox2.Location = new System.Drawing.Point(0, 0);
+         this.comboBox2.MaxDropDownItems = 20;
+         this.comboBox2.Name = "comboBox2";
+         this.comboBox2.Size = new System.Drawing.Size(423, 24);
+         this.comboBox2.TabIndex = 21;
+         // 
          // SettingsRegion
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1901,6 +1930,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colVALU;
       private DevExpress.XtraGrid.Columns.GridColumn colDOMN_DESC;
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_LANG;
+      private Windows.Forms.ComboBox comboBox2;
+      private Windows.Forms.ComboBox comboBox1;
 
    }
 }

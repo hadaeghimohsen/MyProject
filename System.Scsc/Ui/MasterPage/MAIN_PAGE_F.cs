@@ -1503,8 +1503,9 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {                  
-                  new Job(SendType.Self, 80 /* Execute Ins_Totl_F */)
-                  });
+                  new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
+                  new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */)
+               });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 

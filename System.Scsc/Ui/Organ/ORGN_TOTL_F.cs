@@ -22,7 +22,7 @@ namespace System.Scsc.Ui.Organ
       private void Execute_Query(bool runAllQuery)
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         //if(tb_master.SelectedTab == tp_001)
          {
             OrgnBs1.DataSource = iScsc.Organs;
          }

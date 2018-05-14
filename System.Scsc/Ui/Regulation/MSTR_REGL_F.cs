@@ -19,7 +19,7 @@ namespace System.Scsc.Ui.Regulation
          InitializeComponent();
       }
 
-      partial void regulationBindingNavigatorSaveItem_Click(object sender, EventArgs e);
+      partial void ReglSaveItem_Click(object sender, EventArgs e);
 
       partial void Btn_InsRegl_Click(object sender, EventArgs e);
 

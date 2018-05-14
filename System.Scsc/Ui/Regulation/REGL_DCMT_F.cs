@@ -146,15 +146,15 @@ namespace System.Scsc.Ui.Regulation
 
       private void EXPN_TYPELookUpEdit_EditValueChanged(object sender, EventArgs e)
       {
-          if (EXPN_TYPELookUpEdit.EditValue == null || EXPN_TYPELookUpEdit.EditValue.ToString().Length != 3 ) return;
-          if(EXPN_TYPELookUpEdit.EditValue.ToString() == "001")
-          {
-              SE_BuyPric.Enabled = /*SE_BuyExtrPrct.Enabled = */SE_NumbOfStok.Enabled = SE_NumbOfSale.Enabled = SE_NumbOfRemnDnrm.Enabled = false;
-          }
-          else if(EXPN_TYPELookUpEdit.EditValue.ToString() == "002")
-          {
-              SE_BuyPric.Enabled = /*SE_BuyExtrPrct.Enabled = */SE_NumbOfStok.Enabled = SE_NumbOfSale.Enabled = SE_NumbOfRemnDnrm.Enabled = true;
-          }
+          //if (EXPN_TYPELookUpEdit.EditValue == null || EXPN_TYPELookUpEdit.EditValue.ToString().Length != 3 ) return;
+          //if(EXPN_TYPELookUpEdit.EditValue.ToString() == "001")
+          //{
+          //    SE_BuyPric.Enabled = /*SE_BuyExtrPrct.Enabled = */SE_NumbOfStok.Enabled = SE_NumbOfSale.Enabled = SE_NumbOfRemnDnrm.Enabled = false;
+          //}
+          //else if(EXPN_TYPELookUpEdit.EditValue.ToString() == "002")
+          //{
+          //    SE_BuyPric.Enabled = /*SE_BuyExtrPrct.Enabled = */SE_NumbOfStok.Enabled = SE_NumbOfSale.Enabled = SE_NumbOfRemnDnrm.Enabled = true;
+          //}
       }
 
       private void AddPreExpn_Butn_Click(object sender, EventArgs e)

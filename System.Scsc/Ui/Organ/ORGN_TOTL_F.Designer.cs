@@ -43,42 +43,12 @@
          this.Dstp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Bcds_SpltCont = new System.Windows.Forms.SplitContainer();
-         this.DeptUpd_Butn = new System.MaxUi.NewMaxBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.DeptDel_Butn = new System.MaxUi.NewMaxBtn();
-         this.DeptAdd_Butn = new System.MaxUi.NewMaxBtn();
-         this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDEPT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colOrgan = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.BuntUpd_Butn = new System.MaxUi.NewMaxBtn();
-         this.BuntDel_Butn = new System.MaxUi.NewMaxBtn();
-         this.BuntAdd_Butn = new System.MaxUi.NewMaxBtn();
-         this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colDEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colBUNT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SuntUpd_Butn = new System.MaxUi.NewMaxBtn();
-         this.SuntDel_Butn = new System.MaxUi.NewMaxBtn();
-         this.SuntAdd_Butn = new System.MaxUi.NewMaxBtn();
+         this.SuntCode_Gb = new System.Windows.Forms.GroupBox();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
          this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,9 +61,40 @@
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.OrgnUpd_Butn = new System.MaxUi.NewMaxBtn();
-         this.OrgnDel_Butn = new System.MaxUi.NewMaxBtn();
-         this.OrgnAdd_Butn = new System.MaxUi.NewMaxBtn();
+         this.SuntUpd_Butn = new System.MaxUi.NewMaxBtn();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.SuntAdd_Butn = new System.MaxUi.NewMaxBtn();
+         this.SuntDel_Butn = new System.MaxUi.NewMaxBtn();
+         this.BuntCode_Gb = new System.Windows.Forms.GroupBox();
+         this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colDEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBUNT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.BuntUpd_Butn = new System.MaxUi.NewMaxBtn();
+         this.BuntAdd_Butn = new System.MaxUi.NewMaxBtn();
+         this.BuntDel_Butn = new System.MaxUi.NewMaxBtn();
+         this.DeptCode_Gb = new System.Windows.Forms.GroupBox();
+         this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEPT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colOrgan = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.DeptUpd_Butn = new System.MaxUi.NewMaxBtn();
+         this.DeptAdd_Butn = new System.MaxUi.NewMaxBtn();
+         this.DeptDel_Butn = new System.MaxUi.NewMaxBtn();
+         this.OrgnCode_Gb = new System.Windows.Forms.GroupBox();
          this.organGridControl = new DevExpress.XtraGrid.GridControl();
          this.Orgn_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,15 +103,18 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.OrgnUpd_Butn = new System.MaxUi.NewMaxBtn();
+         this.OrgnAdd_Butn = new System.MaxUi.NewMaxBtn();
+         this.OrgnDel_Butn = new System.MaxUi.NewMaxBtn();
+         this.Discount_Gb = new System.Windows.Forms.GroupBox();
+         this.BcdsIncPn_Butn = new System.MaxUi.NewMaxBtn();
+         this.DiscountInfo_Gb = new System.Windows.Forms.GroupBox();
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.BcdsBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.dSCT_DESCTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.BcdsIncPn_Butn = new System.MaxUi.NewMaxBtn();
+         this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.BcdsDecPn_Butn = new System.MaxUi.NewMaxBtn();
          this.BcdsUpd_Butn = new System.MaxUi.NewMaxBtn();
-         this.BcdsDel_Butn = new System.MaxUi.NewMaxBtn();
-         this.BcdsAdd_Butn = new System.MaxUi.NewMaxBtn();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUNT_BUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -138,12 +142,8 @@
          this.colACTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dsat_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DDsatBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.OrgnCode_Gb = new System.Windows.Forms.GroupBox();
-         this.DeptCode_Gb = new System.Windows.Forms.GroupBox();
-         this.BuntCode_Gb = new System.Windows.Forms.GroupBox();
-         this.SuntCode_Gb = new System.Windows.Forms.GroupBox();
-         this.Discount_Gb = new System.Windows.Forms.GroupBox();
-         this.DiscountInfo_Gb = new System.Windows.Forms.GroupBox();
+         this.BcdsDel_Butn = new System.MaxUi.NewMaxBtn();
+         this.BcdsAdd_Butn = new System.MaxUi.NewMaxBtn();
          this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -176,18 +176,24 @@
          this.Bcds_SpltCont.Panel1.SuspendLayout();
          this.Bcds_SpltCont.Panel2.SuspendLayout();
          this.Bcds_SpltCont.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         this.SuntCode_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+         this.BuntCode_Gb.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         this.DeptCode_Gb.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         this.OrgnCode_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.organGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Orgn_Gv)).BeginInit();
+         this.Discount_Gb.SuspendLayout();
+         this.DiscountInfo_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.BcdsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dSCT_DESCTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -198,12 +204,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Dsat_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs1)).BeginInit();
-         this.OrgnCode_Gb.SuspendLayout();
-         this.DeptCode_Gb.SuspendLayout();
-         this.BuntCode_Gb.SuspendLayout();
-         this.SuntCode_Gb.SuspendLayout();
-         this.Discount_Gb.SuspendLayout();
-         this.DiscountInfo_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
          this.SuspendLayout();
@@ -286,429 +286,23 @@
          // 
          this.Bcds_SpltCont.Panel2.Controls.Add(this.Discount_Gb);
          this.Bcds_SpltCont.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Bcds_SpltCont.Size = new System.Drawing.Size(1072, 331);
+         this.Bcds_SpltCont.Size = new System.Drawing.Size(1072, 466);
          this.Bcds_SpltCont.SplitterDistance = 479;
          this.Bcds_SpltCont.TabIndex = 4;
          // 
-         // DeptUpd_Butn
-         // 
-         this.DeptUpd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.DeptUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.DeptUpd_Butn.Caption = "";
-         this.DeptUpd_Butn.Disabled = false;
-         this.DeptUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.DeptUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DeptUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.DeptUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.DeptUpd_Butn.ImageIndex = 2;
-         this.DeptUpd_Butn.ImageList = this.imageList1;
-         this.DeptUpd_Butn.InToBold = false;
-         this.DeptUpd_Butn.Location = new System.Drawing.Point(197, 236);
-         this.DeptUpd_Butn.Name = "DeptUpd_Butn";
-         this.DeptUpd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.DeptUpd_Butn.TabIndex = 1;
-         this.DeptUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.DeptUpd_Butn.TextColor = System.Drawing.Color.Black;
-         this.DeptUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.DeptUpd_Butn.Click += new System.EventHandler(this.DeptUpd_Butn_Click);
-         // 
-         // imageList1
-         // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1142.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1143.png");
-         this.imageList1.Images.SetKeyName(2, "IMAGE_1144.png");
-         this.imageList1.Images.SetKeyName(3, "IMAGE_1060.png");
-         this.imageList1.Images.SetKeyName(4, "IMAGE_1061.png");
-         // 
-         // DeptDel_Butn
-         // 
-         this.DeptDel_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.DeptDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.DeptDel_Butn.Caption = "";
-         this.DeptDel_Butn.Disabled = false;
-         this.DeptDel_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.DeptDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DeptDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.DeptDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.DeptDel_Butn.ImageIndex = 1;
-         this.DeptDel_Butn.ImageList = this.imageList1;
-         this.DeptDel_Butn.InToBold = false;
-         this.DeptDel_Butn.Location = new System.Drawing.Point(251, 236);
-         this.DeptDel_Butn.Name = "DeptDel_Butn";
-         this.DeptDel_Butn.Size = new System.Drawing.Size(48, 48);
-         this.DeptDel_Butn.TabIndex = 1;
-         this.DeptDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.DeptDel_Butn.TextColor = System.Drawing.Color.Black;
-         this.DeptDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.DeptDel_Butn.Click += new System.EventHandler(this.DeptDel_Butn_Click);
-         // 
-         // DeptAdd_Butn
-         // 
-         this.DeptAdd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.DeptAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.DeptAdd_Butn.Caption = "";
-         this.DeptAdd_Butn.Disabled = false;
-         this.DeptAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.DeptAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DeptAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.DeptAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.DeptAdd_Butn.ImageIndex = 0;
-         this.DeptAdd_Butn.ImageList = this.imageList1;
-         this.DeptAdd_Butn.InToBold = false;
-         this.DeptAdd_Butn.Location = new System.Drawing.Point(305, 236);
-         this.DeptAdd_Butn.Name = "DeptAdd_Butn";
-         this.DeptAdd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.DeptAdd_Butn.TabIndex = 1;
-         this.DeptAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.DeptAdd_Butn.TextColor = System.Drawing.Color.Black;
-         this.DeptAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.DeptAdd_Butn.Click += new System.EventHandler(this.DeptAdd_Butn_Click);
-         // 
-         // gridControl1
-         // 
-         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.gridControl1.DataSource = this.DeptBs1;
-         this.gridControl1.Location = new System.Drawing.Point(17, 31);
-         this.gridControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl1.MainView = this.gridView1;
-         this.gridControl1.Name = "gridControl1";
-         this.gridControl1.Size = new System.Drawing.Size(336, 200);
-         this.gridControl1.TabIndex = 0;
-         this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-         // 
-         // DeptBs1
-         // 
-         this.DeptBs1.DataMember = "Departments";
-         this.DeptBs1.DataSource = this.OrgnBs1;
-         // 
-         // OrgnBs1
-         // 
-         this.OrgnBs1.DataSource = typeof(System.Scsc.Data.Organ);
-         // 
-         // gridView1
-         // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colORGN_CODE,
-            this.colCODE1,
-            this.colDEPT_DESC,
-            this.colCRET_BY1,
-            this.colCRET_DATE1,
-            this.colMDFY_BY1,
-            this.colMDFY_DATE1,
-            this.colOrgan});
-         this.gridView1.GridControl = this.gridControl1;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsDetail.EnableMasterViewMode = false;
-         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.ShowAutoFilterRow = true;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
-         this.gridView1.OptionsView.ShowIndicator = false;
-         // 
-         // colORGN_CODE
-         // 
-         this.colORGN_CODE.FieldName = "ORGN_CODE";
-         this.colORGN_CODE.Name = "colORGN_CODE";
-         // 
-         // colCODE1
-         // 
-         this.colCODE1.Caption = "کد واحد تابعه";
-         this.colCODE1.FieldName = "CODE";
-         this.colCODE1.Name = "colCODE1";
-         this.colCODE1.Visible = true;
-         this.colCODE1.VisibleIndex = 1;
-         this.colCODE1.Width = 76;
-         // 
-         // colDEPT_DESC
-         // 
-         this.colDEPT_DESC.Caption = "نام واحد تابعه";
-         this.colDEPT_DESC.FieldName = "DEPT_DESC";
-         this.colDEPT_DESC.Name = "colDEPT_DESC";
-         this.colDEPT_DESC.Visible = true;
-         this.colDEPT_DESC.VisibleIndex = 0;
-         this.colDEPT_DESC.Width = 251;
-         // 
-         // colCRET_BY1
-         // 
-         this.colCRET_BY1.FieldName = "CRET_BY";
-         this.colCRET_BY1.Name = "colCRET_BY1";
-         // 
-         // colCRET_DATE1
-         // 
-         this.colCRET_DATE1.FieldName = "CRET_DATE";
-         this.colCRET_DATE1.Name = "colCRET_DATE1";
-         // 
-         // colMDFY_BY1
-         // 
-         this.colMDFY_BY1.FieldName = "MDFY_BY";
-         this.colMDFY_BY1.Name = "colMDFY_BY1";
-         // 
-         // colMDFY_DATE1
-         // 
-         this.colMDFY_DATE1.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE1.Name = "colMDFY_DATE1";
-         // 
-         // colOrgan
-         // 
-         this.colOrgan.FieldName = "Organ";
-         this.colOrgan.Name = "colOrgan";
-         // 
-         // BuntUpd_Butn
-         // 
-         this.BuntUpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.BuntUpd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.BuntUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.BuntUpd_Butn.Caption = "";
-         this.BuntUpd_Butn.Disabled = false;
-         this.BuntUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.BuntUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BuntUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.BuntUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BuntUpd_Butn.ImageIndex = 2;
-         this.BuntUpd_Butn.ImageList = this.imageList1;
-         this.BuntUpd_Butn.InToBold = false;
-         this.BuntUpd_Butn.Location = new System.Drawing.Point(181, 227);
-         this.BuntUpd_Butn.Name = "BuntUpd_Butn";
-         this.BuntUpd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.BuntUpd_Butn.TabIndex = 1;
-         this.BuntUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BuntUpd_Butn.TextColor = System.Drawing.Color.Black;
-         this.BuntUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.BuntUpd_Butn.Click += new System.EventHandler(this.BuntUpd_Butn_Click);
-         // 
-         // BuntDel_Butn
-         // 
-         this.BuntDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.BuntDel_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.BuntDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.BuntDel_Butn.Caption = "";
-         this.BuntDel_Butn.Disabled = false;
-         this.BuntDel_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.BuntDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BuntDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.BuntDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BuntDel_Butn.ImageIndex = 1;
-         this.BuntDel_Butn.ImageList = this.imageList1;
-         this.BuntDel_Butn.InToBold = false;
-         this.BuntDel_Butn.Location = new System.Drawing.Point(235, 227);
-         this.BuntDel_Butn.Name = "BuntDel_Butn";
-         this.BuntDel_Butn.Size = new System.Drawing.Size(48, 48);
-         this.BuntDel_Butn.TabIndex = 1;
-         this.BuntDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BuntDel_Butn.TextColor = System.Drawing.Color.Black;
-         this.BuntDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.BuntDel_Butn.Click += new System.EventHandler(this.BuntDel_Butn_Click);
-         // 
-         // BuntAdd_Butn
-         // 
-         this.BuntAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.BuntAdd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.BuntAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.BuntAdd_Butn.Caption = "";
-         this.BuntAdd_Butn.Disabled = false;
-         this.BuntAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.BuntAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BuntAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.BuntAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BuntAdd_Butn.ImageIndex = 0;
-         this.BuntAdd_Butn.ImageList = this.imageList1;
-         this.BuntAdd_Butn.InToBold = false;
-         this.BuntAdd_Butn.Location = new System.Drawing.Point(289, 227);
-         this.BuntAdd_Butn.Name = "BuntAdd_Butn";
-         this.BuntAdd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.BuntAdd_Butn.TabIndex = 1;
-         this.BuntAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BuntAdd_Butn.TextColor = System.Drawing.Color.Black;
-         this.BuntAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.BuntAdd_Butn.Click += new System.EventHandler(this.BuntAdd_Butn_Click);
-         // 
-         // gridControl2
-         // 
-         this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.gridControl2.DataSource = this.BuntBs1;
-         this.gridControl2.Location = new System.Drawing.Point(6, 21);
-         this.gridControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl2.MainView = this.gridView2;
-         this.gridControl2.Name = "gridControl2";
-         this.gridControl2.Size = new System.Drawing.Size(331, 200);
-         this.gridControl2.TabIndex = 0;
-         this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-         // 
-         // BuntBs1
-         // 
-         this.BuntBs1.DataMember = "Base_Units";
-         this.BuntBs1.DataSource = this.DeptBs1;
-         // 
-         // gridView2
-         // 
-         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView2.Appearance.Row.Options.UseFont = true;
-         this.gridView2.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDEPT_ORGN_CODE,
-            this.colDEPT_CODE,
-            this.colCODE2,
-            this.colBUNT_DESC,
-            this.colCRET_BY2,
-            this.colCRET_DATE2,
-            this.colMDFY_BY2,
-            this.colMDFY_DATE2,
-            this.colDepartment});
-         this.gridView2.GridControl = this.gridControl2;
-         this.gridView2.Name = "gridView2";
-         this.gridView2.OptionsDetail.EnableMasterViewMode = false;
-         this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView2.OptionsView.ShowAutoFilterRow = true;
-         this.gridView2.OptionsView.ShowGroupPanel = false;
-         this.gridView2.OptionsView.ShowIndicator = false;
-         // 
-         // colDEPT_ORGN_CODE
-         // 
-         this.colDEPT_ORGN_CODE.FieldName = "DEPT_ORGN_CODE";
-         this.colDEPT_ORGN_CODE.Name = "colDEPT_ORGN_CODE";
-         // 
-         // colDEPT_CODE
-         // 
-         this.colDEPT_CODE.FieldName = "DEPT_CODE";
-         this.colDEPT_CODE.Name = "colDEPT_CODE";
-         // 
-         // colCODE2
-         // 
-         this.colCODE2.Caption = "کد زیرمجموعه اصلی";
-         this.colCODE2.FieldName = "CODE";
-         this.colCODE2.Name = "colCODE2";
-         this.colCODE2.Visible = true;
-         this.colCODE2.VisibleIndex = 1;
-         this.colCODE2.Width = 109;
-         // 
-         // colBUNT_DESC
-         // 
-         this.colBUNT_DESC.Caption = "نام زیرمجموعه اصلی";
-         this.colBUNT_DESC.FieldName = "BUNT_DESC";
-         this.colBUNT_DESC.Name = "colBUNT_DESC";
-         this.colBUNT_DESC.Visible = true;
-         this.colBUNT_DESC.VisibleIndex = 0;
-         this.colBUNT_DESC.Width = 218;
-         // 
-         // colCRET_BY2
-         // 
-         this.colCRET_BY2.FieldName = "CRET_BY";
-         this.colCRET_BY2.Name = "colCRET_BY2";
-         // 
-         // colCRET_DATE2
-         // 
-         this.colCRET_DATE2.FieldName = "CRET_DATE";
-         this.colCRET_DATE2.Name = "colCRET_DATE2";
-         // 
-         // colMDFY_BY2
-         // 
-         this.colMDFY_BY2.FieldName = "MDFY_BY";
-         this.colMDFY_BY2.Name = "colMDFY_BY2";
-         // 
-         // colMDFY_DATE2
-         // 
-         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
-         // 
-         // colDepartment
-         // 
-         this.colDepartment.FieldName = "Department";
-         this.colDepartment.Name = "colDepartment";
-         // 
-         // SuntUpd_Butn
-         // 
-         this.SuntUpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.SuntUpd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.SuntUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.SuntUpd_Butn.Caption = "";
-         this.SuntUpd_Butn.Disabled = false;
-         this.SuntUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.SuntUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.SuntUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.SuntUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SuntUpd_Butn.ImageIndex = 2;
-         this.SuntUpd_Butn.ImageList = this.imageList1;
-         this.SuntUpd_Butn.InToBold = false;
-         this.SuntUpd_Butn.Location = new System.Drawing.Point(197, 227);
-         this.SuntUpd_Butn.Name = "SuntUpd_Butn";
-         this.SuntUpd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.SuntUpd_Butn.TabIndex = 1;
-         this.SuntUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SuntUpd_Butn.TextColor = System.Drawing.Color.Black;
-         this.SuntUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.SuntUpd_Butn.Click += new System.EventHandler(this.SuntUpd_Butn_Click);
-         // 
-         // SuntDel_Butn
-         // 
-         this.SuntDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.SuntDel_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.SuntDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.SuntDel_Butn.Caption = "";
-         this.SuntDel_Butn.Disabled = false;
-         this.SuntDel_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.SuntDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.SuntDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.SuntDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SuntDel_Butn.ImageIndex = 1;
-         this.SuntDel_Butn.ImageList = this.imageList1;
-         this.SuntDel_Butn.InToBold = false;
-         this.SuntDel_Butn.Location = new System.Drawing.Point(251, 227);
-         this.SuntDel_Butn.Name = "SuntDel_Butn";
-         this.SuntDel_Butn.Size = new System.Drawing.Size(48, 48);
-         this.SuntDel_Butn.TabIndex = 1;
-         this.SuntDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SuntDel_Butn.TextColor = System.Drawing.Color.Black;
-         this.SuntDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.SuntDel_Butn.Click += new System.EventHandler(this.SuntDel_Butn_Click);
-         // 
-         // SuntAdd_Butn
-         // 
-         this.SuntAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.SuntAdd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.SuntAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.SuntAdd_Butn.Caption = "";
-         this.SuntAdd_Butn.Disabled = false;
-         this.SuntAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.SuntAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.SuntAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.SuntAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SuntAdd_Butn.ImageIndex = 0;
-         this.SuntAdd_Butn.ImageList = this.imageList1;
-         this.SuntAdd_Butn.InToBold = false;
-         this.SuntAdd_Butn.Location = new System.Drawing.Point(305, 227);
-         this.SuntAdd_Butn.Name = "SuntAdd_Butn";
-         this.SuntAdd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.SuntAdd_Butn.TabIndex = 1;
-         this.SuntAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.SuntAdd_Butn.TextColor = System.Drawing.Color.Black;
-         this.SuntAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.SuntAdd_Butn.Click += new System.EventHandler(this.SuntAdd_Butn_Click);
+         // SuntCode_Gb
+         // 
+         this.SuntCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntCode_Gb.Controls.Add(this.gridControl3);
+         this.SuntCode_Gb.Controls.Add(this.SuntUpd_Butn);
+         this.SuntCode_Gb.Controls.Add(this.SuntAdd_Butn);
+         this.SuntCode_Gb.Controls.Add(this.SuntDel_Butn);
+         this.SuntCode_Gb.Location = new System.Drawing.Point(-279, 306);
+         this.SuntCode_Gb.Name = "SuntCode_Gb";
+         this.SuntCode_Gb.Size = new System.Drawing.Size(363, 285);
+         this.SuntCode_Gb.TabIndex = 6;
+         this.SuntCode_Gb.TabStop = false;
+         this.SuntCode_Gb.Text = "زیر مجموعه فرعی";
          // 
          // gridControl3
          // 
@@ -729,6 +323,20 @@
          // 
          this.SuntBs1.DataMember = "Sub_Units";
          this.SuntBs1.DataSource = this.BuntBs1;
+         // 
+         // BuntBs1
+         // 
+         this.BuntBs1.DataMember = "Base_Units";
+         this.BuntBs1.DataSource = this.DeptBs1;
+         // 
+         // DeptBs1
+         // 
+         this.DeptBs1.DataMember = "Departments";
+         this.DeptBs1.DataSource = this.OrgnBs1;
+         // 
+         // OrgnBs1
+         // 
+         this.OrgnBs1.DataSource = typeof(System.Scsc.Data.Organ);
          // 
          // gridView3
          // 
@@ -823,83 +431,465 @@
          this.colBase_Unit.FieldName = "Base_Unit";
          this.colBase_Unit.Name = "colBase_Unit";
          // 
-         // OrgnUpd_Butn
+         // SuntUpd_Butn
          // 
-         this.OrgnUpd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.OrgnUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.OrgnUpd_Butn.Caption = "";
-         this.OrgnUpd_Butn.Disabled = false;
-         this.OrgnUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.OrgnUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.OrgnUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.OrgnUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.OrgnUpd_Butn.ImageIndex = 2;
-         this.OrgnUpd_Butn.ImageList = this.imageList1;
-         this.OrgnUpd_Butn.InToBold = false;
-         this.OrgnUpd_Butn.Location = new System.Drawing.Point(181, 237);
-         this.OrgnUpd_Butn.Name = "OrgnUpd_Butn";
-         this.OrgnUpd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.OrgnUpd_Butn.TabIndex = 1;
-         this.OrgnUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.OrgnUpd_Butn.TextColor = System.Drawing.Color.Black;
-         this.OrgnUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.OrgnUpd_Butn.Click += new System.EventHandler(this.OrgnUpd_Butn_Click);
+         this.SuntUpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntUpd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.SuntUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.SuntUpd_Butn.Caption = "";
+         this.SuntUpd_Butn.Disabled = false;
+         this.SuntUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.SuntUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SuntUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.SuntUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SuntUpd_Butn.ImageIndex = 2;
+         this.SuntUpd_Butn.ImageList = this.imageList1;
+         this.SuntUpd_Butn.InToBold = false;
+         this.SuntUpd_Butn.Location = new System.Drawing.Point(197, 227);
+         this.SuntUpd_Butn.Name = "SuntUpd_Butn";
+         this.SuntUpd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.SuntUpd_Butn.TabIndex = 1;
+         this.SuntUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SuntUpd_Butn.TextColor = System.Drawing.Color.Black;
+         this.SuntUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.SuntUpd_Butn.Click += new System.EventHandler(this.SuntUpd_Butn_Click);
          // 
-         // OrgnDel_Butn
+         // imageList1
          // 
-         this.OrgnDel_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.OrgnDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.OrgnDel_Butn.Caption = "";
-         this.OrgnDel_Butn.Disabled = false;
-         this.OrgnDel_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.OrgnDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.OrgnDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.OrgnDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.OrgnDel_Butn.ImageIndex = 1;
-         this.OrgnDel_Butn.ImageList = this.imageList1;
-         this.OrgnDel_Butn.InToBold = false;
-         this.OrgnDel_Butn.Location = new System.Drawing.Point(235, 237);
-         this.OrgnDel_Butn.Name = "OrgnDel_Butn";
-         this.OrgnDel_Butn.Size = new System.Drawing.Size(48, 48);
-         this.OrgnDel_Butn.TabIndex = 1;
-         this.OrgnDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.OrgnDel_Butn.TextColor = System.Drawing.Color.Black;
-         this.OrgnDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.OrgnDel_Butn.Click += new System.EventHandler(this.OrgnDel_Butn_Click);
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1142.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1143.png");
+         this.imageList1.Images.SetKeyName(2, "IMAGE_1144.png");
+         this.imageList1.Images.SetKeyName(3, "IMAGE_1060.png");
+         this.imageList1.Images.SetKeyName(4, "IMAGE_1061.png");
          // 
-         // OrgnAdd_Butn
+         // SuntAdd_Butn
          // 
-         this.OrgnAdd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.OrgnAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.OrgnAdd_Butn.Caption = "";
-         this.OrgnAdd_Butn.Disabled = false;
-         this.OrgnAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.OrgnAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.OrgnAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.OrgnAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.OrgnAdd_Butn.ImageIndex = 0;
-         this.OrgnAdd_Butn.ImageList = this.imageList1;
-         this.OrgnAdd_Butn.InToBold = false;
-         this.OrgnAdd_Butn.Location = new System.Drawing.Point(289, 237);
-         this.OrgnAdd_Butn.Name = "OrgnAdd_Butn";
-         this.OrgnAdd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.OrgnAdd_Butn.TabIndex = 1;
-         this.OrgnAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.OrgnAdd_Butn.TextColor = System.Drawing.Color.Black;
-         this.OrgnAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.OrgnAdd_Butn.Click += new System.EventHandler(this.OrgnAdd_Butn_Click);
+         this.SuntAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntAdd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.SuntAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.SuntAdd_Butn.Caption = "";
+         this.SuntAdd_Butn.Disabled = false;
+         this.SuntAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.SuntAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SuntAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.SuntAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SuntAdd_Butn.ImageIndex = 0;
+         this.SuntAdd_Butn.ImageList = this.imageList1;
+         this.SuntAdd_Butn.InToBold = false;
+         this.SuntAdd_Butn.Location = new System.Drawing.Point(305, 227);
+         this.SuntAdd_Butn.Name = "SuntAdd_Butn";
+         this.SuntAdd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.SuntAdd_Butn.TabIndex = 1;
+         this.SuntAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SuntAdd_Butn.TextColor = System.Drawing.Color.Black;
+         this.SuntAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.SuntAdd_Butn.Click += new System.EventHandler(this.SuntAdd_Butn_Click);
+         // 
+         // SuntDel_Butn
+         // 
+         this.SuntDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntDel_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.SuntDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.SuntDel_Butn.Caption = "";
+         this.SuntDel_Butn.Disabled = false;
+         this.SuntDel_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.SuntDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SuntDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.SuntDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SuntDel_Butn.ImageIndex = 1;
+         this.SuntDel_Butn.ImageList = this.imageList1;
+         this.SuntDel_Butn.InToBold = false;
+         this.SuntDel_Butn.Location = new System.Drawing.Point(251, 227);
+         this.SuntDel_Butn.Name = "SuntDel_Butn";
+         this.SuntDel_Butn.Size = new System.Drawing.Size(48, 48);
+         this.SuntDel_Butn.TabIndex = 1;
+         this.SuntDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SuntDel_Butn.TextColor = System.Drawing.Color.Black;
+         this.SuntDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.SuntDel_Butn.Click += new System.EventHandler(this.SuntDel_Butn_Click);
+         // 
+         // BuntCode_Gb
+         // 
+         this.BuntCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BuntCode_Gb.Controls.Add(this.gridControl2);
+         this.BuntCode_Gb.Controls.Add(this.BuntUpd_Butn);
+         this.BuntCode_Gb.Controls.Add(this.BuntAdd_Butn);
+         this.BuntCode_Gb.Controls.Add(this.BuntDel_Butn);
+         this.BuntCode_Gb.Location = new System.Drawing.Point(90, 306);
+         this.BuntCode_Gb.Name = "BuntCode_Gb";
+         this.BuntCode_Gb.Size = new System.Drawing.Size(348, 285);
+         this.BuntCode_Gb.TabIndex = 5;
+         this.BuntCode_Gb.TabStop = false;
+         this.BuntCode_Gb.Text = "زیر مجموعه اصلی";
+         // 
+         // gridControl2
+         // 
+         this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl2.DataSource = this.BuntBs1;
+         this.gridControl2.Location = new System.Drawing.Point(6, 21);
+         this.gridControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl2.MainView = this.gridView2;
+         this.gridControl2.Name = "gridControl2";
+         this.gridControl2.Size = new System.Drawing.Size(331, 200);
+         this.gridControl2.TabIndex = 0;
+         this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+         // 
+         // gridView2
+         // 
+         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView2.Appearance.Row.Options.UseFont = true;
+         this.gridView2.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colDEPT_ORGN_CODE,
+            this.colDEPT_CODE,
+            this.colCODE2,
+            this.colBUNT_DESC,
+            this.colCRET_BY2,
+            this.colCRET_DATE2,
+            this.colMDFY_BY2,
+            this.colMDFY_DATE2,
+            this.colDepartment});
+         this.gridView2.GridControl = this.gridControl2;
+         this.gridView2.Name = "gridView2";
+         this.gridView2.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView2.OptionsView.ShowAutoFilterRow = true;
+         this.gridView2.OptionsView.ShowGroupPanel = false;
+         this.gridView2.OptionsView.ShowIndicator = false;
+         // 
+         // colDEPT_ORGN_CODE
+         // 
+         this.colDEPT_ORGN_CODE.FieldName = "DEPT_ORGN_CODE";
+         this.colDEPT_ORGN_CODE.Name = "colDEPT_ORGN_CODE";
+         // 
+         // colDEPT_CODE
+         // 
+         this.colDEPT_CODE.FieldName = "DEPT_CODE";
+         this.colDEPT_CODE.Name = "colDEPT_CODE";
+         // 
+         // colCODE2
+         // 
+         this.colCODE2.Caption = "کد زیرمجموعه اصلی";
+         this.colCODE2.FieldName = "CODE";
+         this.colCODE2.Name = "colCODE2";
+         this.colCODE2.Visible = true;
+         this.colCODE2.VisibleIndex = 1;
+         this.colCODE2.Width = 109;
+         // 
+         // colBUNT_DESC
+         // 
+         this.colBUNT_DESC.Caption = "نام زیرمجموعه اصلی";
+         this.colBUNT_DESC.FieldName = "BUNT_DESC";
+         this.colBUNT_DESC.Name = "colBUNT_DESC";
+         this.colBUNT_DESC.Visible = true;
+         this.colBUNT_DESC.VisibleIndex = 0;
+         this.colBUNT_DESC.Width = 218;
+         // 
+         // colCRET_BY2
+         // 
+         this.colCRET_BY2.FieldName = "CRET_BY";
+         this.colCRET_BY2.Name = "colCRET_BY2";
+         // 
+         // colCRET_DATE2
+         // 
+         this.colCRET_DATE2.FieldName = "CRET_DATE";
+         this.colCRET_DATE2.Name = "colCRET_DATE2";
+         // 
+         // colMDFY_BY2
+         // 
+         this.colMDFY_BY2.FieldName = "MDFY_BY";
+         this.colMDFY_BY2.Name = "colMDFY_BY2";
+         // 
+         // colMDFY_DATE2
+         // 
+         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
+         // 
+         // colDepartment
+         // 
+         this.colDepartment.FieldName = "Department";
+         this.colDepartment.Name = "colDepartment";
+         // 
+         // BuntUpd_Butn
+         // 
+         this.BuntUpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.BuntUpd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.BuntUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BuntUpd_Butn.Caption = "";
+         this.BuntUpd_Butn.Disabled = false;
+         this.BuntUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.BuntUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BuntUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BuntUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BuntUpd_Butn.ImageIndex = 2;
+         this.BuntUpd_Butn.ImageList = this.imageList1;
+         this.BuntUpd_Butn.InToBold = false;
+         this.BuntUpd_Butn.Location = new System.Drawing.Point(181, 227);
+         this.BuntUpd_Butn.Name = "BuntUpd_Butn";
+         this.BuntUpd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.BuntUpd_Butn.TabIndex = 1;
+         this.BuntUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BuntUpd_Butn.TextColor = System.Drawing.Color.Black;
+         this.BuntUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.BuntUpd_Butn.Click += new System.EventHandler(this.BuntUpd_Butn_Click);
+         // 
+         // BuntAdd_Butn
+         // 
+         this.BuntAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.BuntAdd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.BuntAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BuntAdd_Butn.Caption = "";
+         this.BuntAdd_Butn.Disabled = false;
+         this.BuntAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.BuntAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BuntAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BuntAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BuntAdd_Butn.ImageIndex = 0;
+         this.BuntAdd_Butn.ImageList = this.imageList1;
+         this.BuntAdd_Butn.InToBold = false;
+         this.BuntAdd_Butn.Location = new System.Drawing.Point(289, 227);
+         this.BuntAdd_Butn.Name = "BuntAdd_Butn";
+         this.BuntAdd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.BuntAdd_Butn.TabIndex = 1;
+         this.BuntAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BuntAdd_Butn.TextColor = System.Drawing.Color.Black;
+         this.BuntAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.BuntAdd_Butn.Click += new System.EventHandler(this.BuntAdd_Butn_Click);
+         // 
+         // BuntDel_Butn
+         // 
+         this.BuntDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.BuntDel_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.BuntDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BuntDel_Butn.Caption = "";
+         this.BuntDel_Butn.Disabled = false;
+         this.BuntDel_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.BuntDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BuntDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BuntDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BuntDel_Butn.ImageIndex = 1;
+         this.BuntDel_Butn.ImageList = this.imageList1;
+         this.BuntDel_Butn.InToBold = false;
+         this.BuntDel_Butn.Location = new System.Drawing.Point(235, 227);
+         this.BuntDel_Butn.Name = "BuntDel_Butn";
+         this.BuntDel_Butn.Size = new System.Drawing.Size(48, 48);
+         this.BuntDel_Butn.TabIndex = 1;
+         this.BuntDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BuntDel_Butn.TextColor = System.Drawing.Color.Black;
+         this.BuntDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.BuntDel_Butn.Click += new System.EventHandler(this.BuntDel_Butn_Click);
+         // 
+         // DeptCode_Gb
+         // 
+         this.DeptCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DeptCode_Gb.Controls.Add(this.gridControl1);
+         this.DeptCode_Gb.Controls.Add(this.DeptUpd_Butn);
+         this.DeptCode_Gb.Controls.Add(this.DeptAdd_Butn);
+         this.DeptCode_Gb.Controls.Add(this.DeptDel_Butn);
+         this.DeptCode_Gb.Location = new System.Drawing.Point(-279, 10);
+         this.DeptCode_Gb.Name = "DeptCode_Gb";
+         this.DeptCode_Gb.Size = new System.Drawing.Size(363, 290);
+         this.DeptCode_Gb.TabIndex = 4;
+         this.DeptCode_Gb.TabStop = false;
+         this.DeptCode_Gb.Text = "واحد تابعه";
+         // 
+         // gridControl1
+         // 
+         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl1.DataSource = this.DeptBs1;
+         this.gridControl1.Location = new System.Drawing.Point(17, 21);
+         this.gridControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl1.MainView = this.gridView1;
+         this.gridControl1.Name = "gridControl1";
+         this.gridControl1.Size = new System.Drawing.Size(336, 210);
+         this.gridControl1.TabIndex = 0;
+         this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+         // 
+         // gridView1
+         // 
+         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView1.Appearance.Row.Options.UseFont = true;
+         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colORGN_CODE,
+            this.colCODE1,
+            this.colDEPT_DESC,
+            this.colCRET_BY1,
+            this.colCRET_DATE1,
+            this.colMDFY_BY1,
+            this.colMDFY_DATE1,
+            this.colOrgan});
+         this.gridView1.GridControl = this.gridControl1;
+         this.gridView1.Name = "gridView1";
+         this.gridView1.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView1.OptionsView.ShowAutoFilterRow = true;
+         this.gridView1.OptionsView.ShowGroupPanel = false;
+         this.gridView1.OptionsView.ShowIndicator = false;
+         // 
+         // colORGN_CODE
+         // 
+         this.colORGN_CODE.FieldName = "ORGN_CODE";
+         this.colORGN_CODE.Name = "colORGN_CODE";
+         // 
+         // colCODE1
+         // 
+         this.colCODE1.Caption = "کد واحد تابعه";
+         this.colCODE1.FieldName = "CODE";
+         this.colCODE1.Name = "colCODE1";
+         this.colCODE1.Visible = true;
+         this.colCODE1.VisibleIndex = 1;
+         this.colCODE1.Width = 76;
+         // 
+         // colDEPT_DESC
+         // 
+         this.colDEPT_DESC.Caption = "نام واحد تابعه";
+         this.colDEPT_DESC.FieldName = "DEPT_DESC";
+         this.colDEPT_DESC.Name = "colDEPT_DESC";
+         this.colDEPT_DESC.Visible = true;
+         this.colDEPT_DESC.VisibleIndex = 0;
+         this.colDEPT_DESC.Width = 251;
+         // 
+         // colCRET_BY1
+         // 
+         this.colCRET_BY1.FieldName = "CRET_BY";
+         this.colCRET_BY1.Name = "colCRET_BY1";
+         // 
+         // colCRET_DATE1
+         // 
+         this.colCRET_DATE1.FieldName = "CRET_DATE";
+         this.colCRET_DATE1.Name = "colCRET_DATE1";
+         // 
+         // colMDFY_BY1
+         // 
+         this.colMDFY_BY1.FieldName = "MDFY_BY";
+         this.colMDFY_BY1.Name = "colMDFY_BY1";
+         // 
+         // colMDFY_DATE1
+         // 
+         this.colMDFY_DATE1.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE1.Name = "colMDFY_DATE1";
+         // 
+         // colOrgan
+         // 
+         this.colOrgan.FieldName = "Organ";
+         this.colOrgan.Name = "colOrgan";
+         // 
+         // DeptUpd_Butn
+         // 
+         this.DeptUpd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.DeptUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.DeptUpd_Butn.Caption = "";
+         this.DeptUpd_Butn.Disabled = false;
+         this.DeptUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.DeptUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DeptUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.DeptUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.DeptUpd_Butn.ImageIndex = 2;
+         this.DeptUpd_Butn.ImageList = this.imageList1;
+         this.DeptUpd_Butn.InToBold = false;
+         this.DeptUpd_Butn.Location = new System.Drawing.Point(197, 236);
+         this.DeptUpd_Butn.Name = "DeptUpd_Butn";
+         this.DeptUpd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.DeptUpd_Butn.TabIndex = 1;
+         this.DeptUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.DeptUpd_Butn.TextColor = System.Drawing.Color.Black;
+         this.DeptUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.DeptUpd_Butn.Click += new System.EventHandler(this.DeptUpd_Butn_Click);
+         // 
+         // DeptAdd_Butn
+         // 
+         this.DeptAdd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.DeptAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.DeptAdd_Butn.Caption = "";
+         this.DeptAdd_Butn.Disabled = false;
+         this.DeptAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.DeptAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DeptAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.DeptAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.DeptAdd_Butn.ImageIndex = 0;
+         this.DeptAdd_Butn.ImageList = this.imageList1;
+         this.DeptAdd_Butn.InToBold = false;
+         this.DeptAdd_Butn.Location = new System.Drawing.Point(305, 236);
+         this.DeptAdd_Butn.Name = "DeptAdd_Butn";
+         this.DeptAdd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.DeptAdd_Butn.TabIndex = 1;
+         this.DeptAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.DeptAdd_Butn.TextColor = System.Drawing.Color.Black;
+         this.DeptAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.DeptAdd_Butn.Click += new System.EventHandler(this.DeptAdd_Butn_Click);
+         // 
+         // DeptDel_Butn
+         // 
+         this.DeptDel_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.DeptDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.DeptDel_Butn.Caption = "";
+         this.DeptDel_Butn.Disabled = false;
+         this.DeptDel_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.DeptDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DeptDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.DeptDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.DeptDel_Butn.ImageIndex = 1;
+         this.DeptDel_Butn.ImageList = this.imageList1;
+         this.DeptDel_Butn.InToBold = false;
+         this.DeptDel_Butn.Location = new System.Drawing.Point(251, 236);
+         this.DeptDel_Butn.Name = "DeptDel_Butn";
+         this.DeptDel_Butn.Size = new System.Drawing.Size(48, 48);
+         this.DeptDel_Butn.TabIndex = 1;
+         this.DeptDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.DeptDel_Butn.TextColor = System.Drawing.Color.Black;
+         this.DeptDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.DeptDel_Butn.Click += new System.EventHandler(this.DeptDel_Butn_Click);
+         // 
+         // OrgnCode_Gb
+         // 
+         this.OrgnCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OrgnCode_Gb.Controls.Add(this.organGridControl);
+         this.OrgnCode_Gb.Controls.Add(this.OrgnUpd_Butn);
+         this.OrgnCode_Gb.Controls.Add(this.OrgnAdd_Butn);
+         this.OrgnCode_Gb.Controls.Add(this.OrgnDel_Butn);
+         this.OrgnCode_Gb.Location = new System.Drawing.Point(90, 10);
+         this.OrgnCode_Gb.Name = "OrgnCode_Gb";
+         this.OrgnCode_Gb.Size = new System.Drawing.Size(348, 290);
+         this.OrgnCode_Gb.TabIndex = 3;
+         this.OrgnCode_Gb.TabStop = false;
+         this.OrgnCode_Gb.Text = "ارگان";
          // 
          // organGridControl
          // 
          this.organGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.organGridControl.DataSource = this.OrgnBs1;
-         this.organGridControl.Location = new System.Drawing.Point(6, 31);
+         this.organGridControl.Location = new System.Drawing.Point(6, 21);
          this.organGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.organGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.organGridControl.MainView = this.Orgn_Gv;
          this.organGridControl.Name = "organGridControl";
-         this.organGridControl.Size = new System.Drawing.Size(331, 200);
+         this.organGridControl.Size = new System.Drawing.Size(331, 210);
          this.organGridControl.TabIndex = 0;
          this.organGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Orgn_Gv});
@@ -967,6 +957,131 @@
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
+         // OrgnUpd_Butn
+         // 
+         this.OrgnUpd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.OrgnUpd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.OrgnUpd_Butn.Caption = "";
+         this.OrgnUpd_Butn.Disabled = false;
+         this.OrgnUpd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.OrgnUpd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.OrgnUpd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.OrgnUpd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.OrgnUpd_Butn.ImageIndex = 2;
+         this.OrgnUpd_Butn.ImageList = this.imageList1;
+         this.OrgnUpd_Butn.InToBold = false;
+         this.OrgnUpd_Butn.Location = new System.Drawing.Point(181, 237);
+         this.OrgnUpd_Butn.Name = "OrgnUpd_Butn";
+         this.OrgnUpd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.OrgnUpd_Butn.TabIndex = 1;
+         this.OrgnUpd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.OrgnUpd_Butn.TextColor = System.Drawing.Color.Black;
+         this.OrgnUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.OrgnUpd_Butn.Click += new System.EventHandler(this.OrgnUpd_Butn_Click);
+         // 
+         // OrgnAdd_Butn
+         // 
+         this.OrgnAdd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.OrgnAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.OrgnAdd_Butn.Caption = "";
+         this.OrgnAdd_Butn.Disabled = false;
+         this.OrgnAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.OrgnAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.OrgnAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.OrgnAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.OrgnAdd_Butn.ImageIndex = 0;
+         this.OrgnAdd_Butn.ImageList = this.imageList1;
+         this.OrgnAdd_Butn.InToBold = false;
+         this.OrgnAdd_Butn.Location = new System.Drawing.Point(289, 237);
+         this.OrgnAdd_Butn.Name = "OrgnAdd_Butn";
+         this.OrgnAdd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.OrgnAdd_Butn.TabIndex = 1;
+         this.OrgnAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.OrgnAdd_Butn.TextColor = System.Drawing.Color.Black;
+         this.OrgnAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.OrgnAdd_Butn.Click += new System.EventHandler(this.OrgnAdd_Butn_Click);
+         // 
+         // OrgnDel_Butn
+         // 
+         this.OrgnDel_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.OrgnDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.OrgnDel_Butn.Caption = "";
+         this.OrgnDel_Butn.Disabled = false;
+         this.OrgnDel_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.OrgnDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.OrgnDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.OrgnDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.OrgnDel_Butn.ImageIndex = 1;
+         this.OrgnDel_Butn.ImageList = this.imageList1;
+         this.OrgnDel_Butn.InToBold = false;
+         this.OrgnDel_Butn.Location = new System.Drawing.Point(235, 237);
+         this.OrgnDel_Butn.Name = "OrgnDel_Butn";
+         this.OrgnDel_Butn.Size = new System.Drawing.Size(48, 48);
+         this.OrgnDel_Butn.TabIndex = 1;
+         this.OrgnDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.OrgnDel_Butn.TextColor = System.Drawing.Color.Black;
+         this.OrgnDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.OrgnDel_Butn.Click += new System.EventHandler(this.OrgnDel_Butn_Click);
+         // 
+         // Discount_Gb
+         // 
+         this.Discount_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.Discount_Gb.Controls.Add(this.BcdsIncPn_Butn);
+         this.Discount_Gb.Controls.Add(this.DiscountInfo_Gb);
+         this.Discount_Gb.Controls.Add(this.BcdsDecPn_Butn);
+         this.Discount_Gb.Controls.Add(this.BcdsUpd_Butn);
+         this.Discount_Gb.Controls.Add(this.gridControl4);
+         this.Discount_Gb.Controls.Add(this.BcdsDel_Butn);
+         this.Discount_Gb.Controls.Add(this.BcdsAdd_Butn);
+         this.Discount_Gb.Location = new System.Drawing.Point(13, 10);
+         this.Discount_Gb.Name = "Discount_Gb";
+         this.Discount_Gb.Size = new System.Drawing.Size(562, 443);
+         this.Discount_Gb.TabIndex = 4;
+         this.Discount_Gb.TabStop = false;
+         this.Discount_Gb.Text = "تخفیفات";
+         // 
+         // BcdsIncPn_Butn
+         // 
+         this.BcdsIncPn_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.BcdsIncPn_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.BcdsIncPn_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BcdsIncPn_Butn.Caption = "";
+         this.BcdsIncPn_Butn.Disabled = false;
+         this.BcdsIncPn_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.BcdsIncPn_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BcdsIncPn_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BcdsIncPn_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BcdsIncPn_Butn.ImageIndex = 4;
+         this.BcdsIncPn_Butn.ImageList = this.imageList1;
+         this.BcdsIncPn_Butn.InToBold = false;
+         this.BcdsIncPn_Butn.Location = new System.Drawing.Point(74, 389);
+         this.BcdsIncPn_Butn.Name = "BcdsIncPn_Butn";
+         this.BcdsIncPn_Butn.Size = new System.Drawing.Size(48, 48);
+         this.BcdsIncPn_Butn.TabIndex = 1;
+         this.BcdsIncPn_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BcdsIncPn_Butn.TextColor = System.Drawing.Color.Black;
+         this.BcdsIncPn_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.BcdsIncPn_Butn.Click += new System.EventHandler(this.BcdsIncPn_Butn_Click);
+         // 
+         // DiscountInfo_Gb
+         // 
+         this.DiscountInfo_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.DiscountInfo_Gb.Controls.Add(this.dateTimeSelector1);
+         this.DiscountInfo_Gb.Controls.Add(this.dSCT_DESCTextEdit);
+         this.DiscountInfo_Gb.Controls.Add(label1);
+         this.DiscountInfo_Gb.Controls.Add(dSCT_DESCLabel);
+         this.DiscountInfo_Gb.Controls.Add(this.BRTH_DATE_PersianDateEdit);
+         this.DiscountInfo_Gb.Controls.Add(bRTH_DATELabel);
+         this.DiscountInfo_Gb.Location = new System.Drawing.Point(20, 279);
+         this.DiscountInfo_Gb.Name = "DiscountInfo_Gb";
+         this.DiscountInfo_Gb.Size = new System.Drawing.Size(527, 100);
+         this.DiscountInfo_Gb.TabIndex = 1;
+         this.DiscountInfo_Gb.TabStop = false;
+         this.DiscountInfo_Gb.Text = "تخفیف مخصوص دوره ای یا بازه زمانی";
+         // 
          // dateTimeSelector1
          // 
          this.dateTimeSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -985,19 +1100,6 @@
          this.BcdsBs1.DataMember = "Basic_Calculate_Discounts";
          this.BcdsBs1.DataSource = this.SuntBs1;
          // 
-         // BRTH_DATE_PersianDateEdit
-         // 
-         this.BRTH_DATE_PersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BRTH_DATE_PersianDateEdit.CustomFormat = "dd/MM/yyyy";
-         this.BRTH_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs1, "FROM_DATE", true));
-         this.BRTH_DATE_PersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(337, 55);
-         this.BRTH_DATE_PersianDateEdit.Name = "BRTH_DATE_PersianDateEdit";
-         this.BRTH_DATE_PersianDateEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.BRTH_DATE_PersianDateEdit.Size = new System.Drawing.Size(100, 23);
-         this.BRTH_DATE_PersianDateEdit.TabIndex = 26;
-         this.BRTH_DATE_PersianDateEdit.UsePersianFormat = true;
-         // 
          // dSCT_DESCTextEdit
          // 
          this.dSCT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1012,28 +1114,18 @@
          this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(420, 22);
          this.dSCT_DESCTextEdit.TabIndex = 25;
          // 
-         // BcdsIncPn_Butn
+         // BRTH_DATE_PersianDateEdit
          // 
-         this.BcdsIncPn_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.BcdsIncPn_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.BcdsIncPn_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.BcdsIncPn_Butn.Caption = "";
-         this.BcdsIncPn_Butn.Disabled = false;
-         this.BcdsIncPn_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.BcdsIncPn_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BcdsIncPn_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.BcdsIncPn_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BcdsIncPn_Butn.ImageIndex = 4;
-         this.BcdsIncPn_Butn.ImageList = this.imageList1;
-         this.BcdsIncPn_Butn.InToBold = false;
-         this.BcdsIncPn_Butn.Location = new System.Drawing.Point(74, 254);
-         this.BcdsIncPn_Butn.Name = "BcdsIncPn_Butn";
-         this.BcdsIncPn_Butn.Size = new System.Drawing.Size(48, 48);
-         this.BcdsIncPn_Butn.TabIndex = 1;
-         this.BcdsIncPn_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BcdsIncPn_Butn.TextColor = System.Drawing.Color.Black;
-         this.BcdsIncPn_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.BcdsIncPn_Butn.Click += new System.EventHandler(this.BcdsIncPn_Butn_Click);
+         this.BRTH_DATE_PersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BRTH_DATE_PersianDateEdit.CustomFormat = "dd/MM/yyyy";
+         this.BRTH_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs1, "FROM_DATE", true));
+         this.BRTH_DATE_PersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(337, 55);
+         this.BRTH_DATE_PersianDateEdit.Name = "BRTH_DATE_PersianDateEdit";
+         this.BRTH_DATE_PersianDateEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.BRTH_DATE_PersianDateEdit.Size = new System.Drawing.Size(100, 23);
+         this.BRTH_DATE_PersianDateEdit.TabIndex = 26;
+         this.BRTH_DATE_PersianDateEdit.UsePersianFormat = true;
          // 
          // BcdsDecPn_Butn
          // 
@@ -1049,7 +1141,7 @@
          this.BcdsDecPn_Butn.ImageIndex = 3;
          this.BcdsDecPn_Butn.ImageList = this.imageList1;
          this.BcdsDecPn_Butn.InToBold = false;
-         this.BcdsDecPn_Butn.Location = new System.Drawing.Point(20, 254);
+         this.BcdsDecPn_Butn.Location = new System.Drawing.Point(20, 389);
          this.BcdsDecPn_Butn.Name = "BcdsDecPn_Butn";
          this.BcdsDecPn_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsDecPn_Butn.TabIndex = 1;
@@ -1072,7 +1164,7 @@
          this.BcdsUpd_Butn.ImageIndex = 2;
          this.BcdsUpd_Butn.ImageList = this.imageList1;
          this.BcdsUpd_Butn.InToBold = false;
-         this.BcdsUpd_Butn.Location = new System.Drawing.Point(391, 254);
+         this.BcdsUpd_Butn.Location = new System.Drawing.Point(391, 389);
          this.BcdsUpd_Butn.Name = "BcdsUpd_Butn";
          this.BcdsUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsUpd_Butn.TabIndex = 1;
@@ -1081,59 +1173,13 @@
          this.BcdsUpd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.BcdsUpd_Butn.Click += new System.EventHandler(this.BcdsUpd_Butn_Click);
          // 
-         // BcdsDel_Butn
-         // 
-         this.BcdsDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.BcdsDel_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.BcdsDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.BcdsDel_Butn.Caption = "";
-         this.BcdsDel_Butn.Disabled = false;
-         this.BcdsDel_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.BcdsDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BcdsDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.BcdsDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BcdsDel_Butn.ImageIndex = 1;
-         this.BcdsDel_Butn.ImageList = this.imageList1;
-         this.BcdsDel_Butn.InToBold = false;
-         this.BcdsDel_Butn.Location = new System.Drawing.Point(445, 254);
-         this.BcdsDel_Butn.Name = "BcdsDel_Butn";
-         this.BcdsDel_Butn.Size = new System.Drawing.Size(48, 48);
-         this.BcdsDel_Butn.TabIndex = 1;
-         this.BcdsDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BcdsDel_Butn.TextColor = System.Drawing.Color.Black;
-         this.BcdsDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.BcdsDel_Butn.Click += new System.EventHandler(this.BcdsDel_Butn_Click);
-         // 
-         // BcdsAdd_Butn
-         // 
-         this.BcdsAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.BcdsAdd_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.BcdsAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.BcdsAdd_Butn.Caption = "";
-         this.BcdsAdd_Butn.Disabled = false;
-         this.BcdsAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.BcdsAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BcdsAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.BcdsAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BcdsAdd_Butn.ImageIndex = 0;
-         this.BcdsAdd_Butn.ImageList = this.imageList1;
-         this.BcdsAdd_Butn.InToBold = false;
-         this.BcdsAdd_Butn.Location = new System.Drawing.Point(499, 254);
-         this.BcdsAdd_Butn.Name = "BcdsAdd_Butn";
-         this.BcdsAdd_Butn.Size = new System.Drawing.Size(48, 48);
-         this.BcdsAdd_Butn.TabIndex = 1;
-         this.BcdsAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.BcdsAdd_Butn.TextColor = System.Drawing.Color.Black;
-         this.BcdsAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.BcdsAdd_Butn.Click += new System.EventHandler(this.BcdsAdd_Butn_Click);
-         // 
          // gridControl4
          // 
          this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl4.DataSource = this.BcdsBs1;
-         this.gridControl4.Location = new System.Drawing.Point(20, 44);
+         this.gridControl4.Location = new System.Drawing.Point(20, 21);
          this.gridControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl4.MainView = this.gridView4;
@@ -1143,7 +1189,7 @@
             this.Dstp_Lov,
             this.Stat_Lov,
             this.Dsat_Lov});
-         this.gridControl4.Size = new System.Drawing.Size(527, 94);
+         this.gridControl4.Size = new System.Drawing.Size(527, 252);
          this.gridControl4.TabIndex = 0;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1396,97 +1442,51 @@
          // 
          this.DDsatBs1.DataSource = typeof(System.Scsc.Data.D_DSAT);
          // 
-         // OrgnCode_Gb
+         // BcdsDel_Butn
          // 
-         this.OrgnCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrgnCode_Gb.Controls.Add(this.organGridControl);
-         this.OrgnCode_Gb.Controls.Add(this.OrgnUpd_Butn);
-         this.OrgnCode_Gb.Controls.Add(this.OrgnAdd_Butn);
-         this.OrgnCode_Gb.Controls.Add(this.OrgnDel_Butn);
-         this.OrgnCode_Gb.Location = new System.Drawing.Point(107, 10);
-         this.OrgnCode_Gb.Name = "OrgnCode_Gb";
-         this.OrgnCode_Gb.Size = new System.Drawing.Size(348, 290);
-         this.OrgnCode_Gb.TabIndex = 3;
-         this.OrgnCode_Gb.TabStop = false;
-         this.OrgnCode_Gb.Text = "ارگان";
+         this.BcdsDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.BcdsDel_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.BcdsDel_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BcdsDel_Butn.Caption = "";
+         this.BcdsDel_Butn.Disabled = false;
+         this.BcdsDel_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.BcdsDel_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BcdsDel_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BcdsDel_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BcdsDel_Butn.ImageIndex = 1;
+         this.BcdsDel_Butn.ImageList = this.imageList1;
+         this.BcdsDel_Butn.InToBold = false;
+         this.BcdsDel_Butn.Location = new System.Drawing.Point(445, 389);
+         this.BcdsDel_Butn.Name = "BcdsDel_Butn";
+         this.BcdsDel_Butn.Size = new System.Drawing.Size(48, 48);
+         this.BcdsDel_Butn.TabIndex = 1;
+         this.BcdsDel_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BcdsDel_Butn.TextColor = System.Drawing.Color.Black;
+         this.BcdsDel_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.BcdsDel_Butn.Click += new System.EventHandler(this.BcdsDel_Butn_Click);
          // 
-         // DeptCode_Gb
+         // BcdsAdd_Butn
          // 
-         this.DeptCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DeptCode_Gb.Controls.Add(this.gridControl1);
-         this.DeptCode_Gb.Controls.Add(this.DeptUpd_Butn);
-         this.DeptCode_Gb.Controls.Add(this.DeptAdd_Butn);
-         this.DeptCode_Gb.Controls.Add(this.DeptDel_Butn);
-         this.DeptCode_Gb.Location = new System.Drawing.Point(-262, 10);
-         this.DeptCode_Gb.Name = "DeptCode_Gb";
-         this.DeptCode_Gb.Size = new System.Drawing.Size(363, 290);
-         this.DeptCode_Gb.TabIndex = 4;
-         this.DeptCode_Gb.TabStop = false;
-         this.DeptCode_Gb.Text = "واحد تابعه";
-         // 
-         // BuntCode_Gb
-         // 
-         this.BuntCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BuntCode_Gb.Controls.Add(this.gridControl2);
-         this.BuntCode_Gb.Controls.Add(this.BuntUpd_Butn);
-         this.BuntCode_Gb.Controls.Add(this.BuntAdd_Butn);
-         this.BuntCode_Gb.Controls.Add(this.BuntDel_Butn);
-         this.BuntCode_Gb.Location = new System.Drawing.Point(107, 306);
-         this.BuntCode_Gb.Name = "BuntCode_Gb";
-         this.BuntCode_Gb.Size = new System.Drawing.Size(348, 285);
-         this.BuntCode_Gb.TabIndex = 5;
-         this.BuntCode_Gb.TabStop = false;
-         this.BuntCode_Gb.Text = "زیر مجموعه اصلی";
-         // 
-         // SuntCode_Gb
-         // 
-         this.SuntCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.SuntCode_Gb.Controls.Add(this.gridControl3);
-         this.SuntCode_Gb.Controls.Add(this.SuntUpd_Butn);
-         this.SuntCode_Gb.Controls.Add(this.SuntAdd_Butn);
-         this.SuntCode_Gb.Controls.Add(this.SuntDel_Butn);
-         this.SuntCode_Gb.Location = new System.Drawing.Point(-262, 306);
-         this.SuntCode_Gb.Name = "SuntCode_Gb";
-         this.SuntCode_Gb.Size = new System.Drawing.Size(363, 285);
-         this.SuntCode_Gb.TabIndex = 6;
-         this.SuntCode_Gb.TabStop = false;
-         this.SuntCode_Gb.Text = "زیر مجموعه فرعی";
-         // 
-         // Discount_Gb
-         // 
-         this.Discount_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.Discount_Gb.Controls.Add(this.BcdsIncPn_Butn);
-         this.Discount_Gb.Controls.Add(this.DiscountInfo_Gb);
-         this.Discount_Gb.Controls.Add(this.BcdsDecPn_Butn);
-         this.Discount_Gb.Controls.Add(this.BcdsUpd_Butn);
-         this.Discount_Gb.Controls.Add(this.gridControl4);
-         this.Discount_Gb.Controls.Add(this.BcdsDel_Butn);
-         this.Discount_Gb.Controls.Add(this.BcdsAdd_Butn);
-         this.Discount_Gb.Location = new System.Drawing.Point(13, 10);
-         this.Discount_Gb.Name = "Discount_Gb";
-         this.Discount_Gb.Size = new System.Drawing.Size(562, 308);
-         this.Discount_Gb.TabIndex = 4;
-         this.Discount_Gb.TabStop = false;
-         this.Discount_Gb.Text = "تخفیفات";
-         // 
-         // DiscountInfo_Gb
-         // 
-         this.DiscountInfo_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.DiscountInfo_Gb.Controls.Add(this.dateTimeSelector1);
-         this.DiscountInfo_Gb.Controls.Add(this.dSCT_DESCTextEdit);
-         this.DiscountInfo_Gb.Controls.Add(label1);
-         this.DiscountInfo_Gb.Controls.Add(dSCT_DESCLabel);
-         this.DiscountInfo_Gb.Controls.Add(this.BRTH_DATE_PersianDateEdit);
-         this.DiscountInfo_Gb.Controls.Add(bRTH_DATELabel);
-         this.DiscountInfo_Gb.Location = new System.Drawing.Point(20, 144);
-         this.DiscountInfo_Gb.Name = "DiscountInfo_Gb";
-         this.DiscountInfo_Gb.Size = new System.Drawing.Size(527, 100);
-         this.DiscountInfo_Gb.TabIndex = 1;
-         this.DiscountInfo_Gb.TabStop = false;
-         this.DiscountInfo_Gb.Text = "تخفیف مخصوص دوره ای یا بازه زمانی";
+         this.BcdsAdd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.BcdsAdd_Butn.BackColor = System.Drawing.Color.Transparent;
+         this.BcdsAdd_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BcdsAdd_Butn.Caption = "";
+         this.BcdsAdd_Butn.Disabled = false;
+         this.BcdsAdd_Butn.EnterColor = System.Drawing.Color.Transparent;
+         this.BcdsAdd_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BcdsAdd_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BcdsAdd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BcdsAdd_Butn.ImageIndex = 0;
+         this.BcdsAdd_Butn.ImageList = this.imageList1;
+         this.BcdsAdd_Butn.InToBold = false;
+         this.BcdsAdd_Butn.Location = new System.Drawing.Point(499, 389);
+         this.BcdsAdd_Butn.Name = "BcdsAdd_Butn";
+         this.BcdsAdd_Butn.Size = new System.Drawing.Size(48, 48);
+         this.BcdsAdd_Butn.TabIndex = 1;
+         this.BcdsAdd_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.BcdsAdd_Butn.TextColor = System.Drawing.Color.Black;
+         this.BcdsAdd_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.BcdsAdd_Butn.Click += new System.EventHandler(this.BcdsAdd_Butn_Click);
          // 
          // RqstBn1
          // 
@@ -1649,7 +1649,7 @@
          this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
          this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
          // 
          // RqstBnPrint1
@@ -1658,19 +1658,19 @@
          this.RqstBnPrint1.Name = "RqstBnPrint1";
          this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-         this.RqstBnPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnPrint1.Text = "انتخاب چاپ";
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 6);
          // 
          // RqstBnSettingPrint1
          // 
          this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
          this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
-         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
          // 
          // RqstBnASav1
@@ -1741,25 +1741,32 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "ORGN_TOTL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1072, 378);
+         this.Size = new System.Drawing.Size(1072, 513);
          ((System.ComponentModel.ISupportInitialize)(this.Dstp_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
          this.Bcds_SpltCont.Panel1.ResumeLayout(false);
          this.Bcds_SpltCont.Panel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.Bcds_SpltCont)).EndInit();
          this.Bcds_SpltCont.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         this.SuntCode_Gb.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+         this.BuntCode_Gb.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         this.DeptCode_Gb.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         this.OrgnCode_Gb.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.organGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Orgn_Gv)).EndInit();
+         this.Discount_Gb.ResumeLayout(false);
+         this.DiscountInfo_Gb.ResumeLayout(false);
+         this.DiscountInfo_Gb.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.BcdsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dSCT_DESCTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
@@ -1770,13 +1777,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Dsat_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs1)).EndInit();
-         this.OrgnCode_Gb.ResumeLayout(false);
-         this.DeptCode_Gb.ResumeLayout(false);
-         this.BuntCode_Gb.ResumeLayout(false);
-         this.SuntCode_Gb.ResumeLayout(false);
-         this.Discount_Gb.ResumeLayout(false);
-         this.DiscountInfo_Gb.ResumeLayout(false);
-         this.DiscountInfo_Gb.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();

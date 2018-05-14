@@ -10,7 +10,7 @@ namespace System.Scsc.Ui.Regulation
 {
    partial class MSTR_REGL_F
    {
-      partial void regulationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+      partial void ReglSaveItem_Click(object sender, EventArgs e)
       {
          try
          {
@@ -33,7 +33,7 @@ namespace System.Scsc.Ui.Regulation
       partial void Btn_InsRegl_Click(object sender, EventArgs e)
       {
          PNL_REGL.Visible = true;
-         regulationBindingNavigator.Enabled = false;
+         //regulationBindingNavigator.Enabled = false;
          regulationGridControl.Enabled = false;
 
          Spn_Year.EditValue = 0;
@@ -73,7 +73,7 @@ namespace System.Scsc.Ui.Regulation
 
             iScsc.SubmitChanges();
 
-            regulationBindingNavigator.Enabled = true;
+            //regulationBindingNavigator.Enabled = true;
             regulationGridControl.Enabled = true;
 
             CanDirectExitForm = true;
@@ -92,7 +92,7 @@ namespace System.Scsc.Ui.Regulation
       partial void Btn_CnclInsRegl_Click(object sender, EventArgs e)
       {
          PNL_REGL.Visible = false;
-         regulationBindingNavigator.Enabled = true;
+         //regulationBindingNavigator.Enabled = true;
          regulationGridControl.Enabled = true;
 
          CanDirectExitForm = true;

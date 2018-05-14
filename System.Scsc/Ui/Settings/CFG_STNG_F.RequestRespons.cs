@@ -257,27 +257,17 @@ namespace System.Scsc.Ui.Settings
          {
             #region Settings
             //PrvnBs1.DataSource = iScsc.Provinces;
-            UserBs1.DataSource = iScsc.V_Users;
-            DCstpBs1.DataSource = iScsc.D_CSTPs;
+            
             DActvBs1.DataSource = iScsc.D_ACTVs;
-            DIttpBs1.DataSource = iScsc.D_ITTPs;
-            DDytpBs1.DataSource = iScsc.D_DYTPs;
+            
             DYsnoBs1.DataSource = iScsc.D_YSNOs;
-            DAtsmBs4.DataSource = iScsc.D_ATSMs;
+            
             DBcdtBs4.DataSource = iScsc.D_BCDTs;
 
             
 
-            MtodBs1.DataSource = iScsc.Methods;
-            RqtpBs1.DataSource = iScsc.Request_Types;
-            RqttBs1.DataSource = iScsc.Requester_Types;
-            CochBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE));
             vCompBs1.DataSource = iScsc.V_Computers;
-            Lb_ListPort.Items.Clear();
-            foreach (var portName in SerialPort.GetPortNames())
-	         {
-               Lb_ListPort.Items.Add(portName);
-	         } 
+            
             //Execute_Query();
             #endregion
          }
@@ -290,8 +280,8 @@ namespace System.Scsc.Ui.Settings
       /// </summary>
       private void LoadDataSource(Job job)
       {
-         CochBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE));
-         MtodBs1.DataSource = iScsc.Methods;
+         //CochBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101 && Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE));
+         //MtodBs1.DataSource = iScsc.Methods;
          job.Status = StatusType.Successful;
       }
 
@@ -318,39 +308,39 @@ namespace System.Scsc.Ui.Settings
                Execute_Query();
                Btn_TakeBackup_Click(null, null);
                return;
-            case "UserRegionClub":
-               tc_Settings.TabPages.Add(tp_base);
-               tc_Settings.SelectedTab = tp_base;
-               switch(input.Attribute("section").Value)
-               {
-                  case "userview":
-                     tsm_bas_close_Click(null, null);
-                     tsm_bas_R1_Click(null, null);
-                     break;
-                  case "cash":
-                     tsm_bas_close_Click(null, null);
-                     tsm_bas_R2_Click(null, null);
-                  break;
-                  case "epit":
-                     tsm_bas_close_Click(null, null);
-                     tsm_bas_R3_Click(null, null);
-                  break;
-                  case "regn":
-                     tsm_bas_close_Click(null, null);
-                     tsm_bas_R4_Click(null, null);
-                  break;
-               }
-               break;
+            //case "UserRegionClub":
+            //   tc_Settings.TabPages.Add(tp_base);
+            //   tc_Settings.SelectedTab = tp_base;
+            //   switch(input.Attribute("section").Value)
+            //   {
+            //      case "userview":
+            //         tsm_bas_close_Click(null, null);
+            //         tsm_bas_R1_Click(null, null);
+            //         break;
+            //      case "cash":
+            //         tsm_bas_close_Click(null, null);
+            //         tsm_bas_R2_Click(null, null);
+            //      break;
+            //      case "epit":
+            //         tsm_bas_close_Click(null, null);
+            //         tsm_bas_R3_Click(null, null);
+            //      break;
+            //      case "regn":
+            //         tsm_bas_close_Click(null, null);
+            //         tsm_bas_R4_Click(null, null);
+            //      break;
+            //   }
+            //   break;
             case "ModualReport":
                tc_Settings.TabPages.Add(tp_printmodual);
                tc_Settings.SelectedTab = tp_printmodual;
                Modul_Name = input.Attribute("modul").Value;
                Section_Name = input.Attribute("section").Value;
                break;
-            case "tp_004":
-               tc_Settings.TabPages.Add(tp_004);
-               tc_Settings.SelectedTab = tp_004;
-               break;
+            //case "tp_004":
+            //   tc_Settings.TabPages.Add(tp_004);
+            //   tc_Settings.SelectedTab = tp_004;
+            //   break;
             default:
                break;
          }

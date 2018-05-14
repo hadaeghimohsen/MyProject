@@ -202,19 +202,19 @@ namespace System.Scsc.Ui.ReportManager
             {
                if(xinput.Attribute("useraccount").Value == "manager")
                {
-                  colAMNT1.Visible = true;
-                  colAMNT.Visible = true;
-                  colEXPN_PRIC.Visible = true;
-                  colQNTY.Visible = true;
-                  colTOTL_PRIC.Visible = true;
+                  Amnt3_Clm.Visible = true;
+                  Amnt1_Clm.Visible = true;
+                  ExpnPric2_Clm.Visible = true;
+                  Qnty2_Clm.Visible = true;
+                  TotlPric_Clm.Visible = true;
                }
                else if(xinput.Attribute("useraccount").Value == "user")
                {
-                  colAMNT1.Visible = false;
-                  colAMNT.Visible = false;
-                  colEXPN_PRIC.Visible = false;
-                  colQNTY.Visible = false;
-                  colTOTL_PRIC.Visible = false;
+                  Amnt3_Clm.Visible = false;
+                  Amnt1_Clm.Visible = false;
+                  ExpnPric2_Clm.Visible = false;
+                  Qnty2_Clm.Visible = false;
+                  TotlPric_Clm.Visible = false;
                }
             }
          }

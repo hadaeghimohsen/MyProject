@@ -29,26 +29,23 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label label39;
-         System.Windows.Forms.Label label1;
+         System.Windows.Forms.Label Rqid_Lb;
+         System.Windows.Forms.Label FileNo_Lb;
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
-         this.tb_master = new System.Windows.Forms.TabControl();
-         this.tp_001 = new System.Windows.Forms.TabPage();
-         this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.step_History_SummeriesGridControl = new DevExpress.XtraGrid.GridControl();
          this.SthsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colRQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSSTT_MSTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttMsttCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSSTT_MSTT_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFROM_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTO_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttFromDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttToDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttCretBy_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MsttMdfyBy_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMain_State = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,32 +54,31 @@
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSHIS_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSHIS_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSSTT_MSTT_SUB_SYS1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSSTT_MSTT_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSSTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFROM_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTO_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttFromDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttToDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttCretBy_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SsttMdfyBy_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colStep_History_Summery = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_State = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
-         this.RqstTrac_Butn = new System.MaxUi.NewMaxBtn();
          this.FileNo_Text = new DevExpress.XtraEditors.TextEdit();
          this.Rqid_Text = new DevExpress.XtraEditors.TextEdit();
          this.radTreeView1 = new Telerik.WinControls.UI.RadTreeView();
-         this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         label39 = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
+         this.StepHist_Gb = new System.Windows.Forms.GroupBox();
+         this.Rqst_Gb = new System.Windows.Forms.GroupBox();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         Rqid_Lb = new System.Windows.Forms.Label();
+         FileNo_Lb = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
-         this.tb_master.SuspendLayout();
-         this.tp_001.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
-         this.radGroupBox2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -94,32 +90,33 @@
          ((System.ComponentModel.ISupportInitialize)(this.step_History_DetailsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SthdBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
-         this.radGroupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FileNo_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Rqid_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.radTreeView1)).BeginInit();
+         this.StepHist_Gb.SuspendLayout();
+         this.Rqst_Gb.SuspendLayout();
+         this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
-         // label39
+         // Rqid_Lb
          // 
-         label39.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         label39.AutoSize = true;
-         label39.Location = new System.Drawing.Point(484, 28);
-         label39.Name = "label39";
-         label39.Size = new System.Drawing.Size(89, 13);
-         label39.TabIndex = 23;
-         label39.Text = "شماره درخواست :";
+         Rqid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Rqid_Lb.AutoSize = true;
+         Rqid_Lb.Location = new System.Drawing.Point(563, 26);
+         Rqid_Lb.Name = "Rqid_Lb";
+         Rqid_Lb.Size = new System.Drawing.Size(111, 16);
+         Rqid_Lb.TabIndex = 23;
+         Rqid_Lb.Text = "شماره درخواست :";
          // 
-         // label1
+         // FileNo_Lb
          // 
-         label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(288, 28);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(74, 13);
-         label1.TabIndex = 25;
-         label1.Text = "شماره پرونده :";
+         FileNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FileNo_Lb.AutoSize = true;
+         FileNo_Lb.Location = new System.Drawing.Point(350, 26);
+         FileNo_Lb.Name = "FileNo_Lb";
+         FileNo_Lb.Size = new System.Drawing.Size(88, 16);
+         FileNo_Lb.TabIndex = 25;
+         FileNo_Lb.Text = "شماره پرونده :";
          // 
          // persianRepositoryItemDateEdit1
          // 
@@ -132,52 +129,10 @@
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.persianRepositoryItemDateEdit1.Name = "persianRepositoryItemDateEdit1";
          // 
-         // tb_master
-         // 
-         this.tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.tb_master.Controls.Add(this.tp_001);
-         this.tb_master.Location = new System.Drawing.Point(19, 19);
-         this.tb_master.Name = "tb_master";
-         this.tb_master.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.tb_master.RightToLeftLayout = true;
-         this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(861, 475);
-         this.tb_master.TabIndex = 0;
-         // 
-         // tp_001
-         // 
-         this.tp_001.AutoScroll = true;
-         this.tp_001.BackColor = System.Drawing.Color.Silver;
-         this.tp_001.Controls.Add(this.radGroupBox2);
-         this.tp_001.Controls.Add(this.radGroupBox1);
-         this.tp_001.Controls.Add(this.radTreeView1);
-         this.tp_001.Location = new System.Drawing.Point(4, 25);
-         this.tp_001.Name = "tp_001";
-         this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(853, 446);
-         this.tp_001.TabIndex = 0;
-         this.tp_001.Text = "درخت پیگیری";
-         // 
-         // radGroupBox2
-         // 
-         this.radGroupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox2.Controls.Add(this.splitContainer1);
-         this.radGroupBox2.HeaderText = "سوابق کارتابل درخواست";
-         this.radGroupBox2.Location = new System.Drawing.Point(6, 70);
-         this.radGroupBox2.Name = "radGroupBox2";
-         this.radGroupBox2.Size = new System.Drawing.Size(623, 370);
-         this.radGroupBox2.TabIndex = 2;
-         this.radGroupBox2.Text = "سوابق کارتابل درخواست";
-         // 
          // splitContainer1
          // 
          this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.splitContainer1.Location = new System.Drawing.Point(2, 18);
+         this.splitContainer1.Location = new System.Drawing.Point(3, 19);
          this.splitContainer1.Name = "splitContainer1";
          this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
@@ -191,8 +146,8 @@
          this.splitContainer1.Panel2.AutoScroll = true;
          this.splitContainer1.Panel2.Controls.Add(this.step_History_DetailsGridControl);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.splitContainer1.Size = new System.Drawing.Size(619, 350);
-         this.splitContainer1.SplitterDistance = 248;
+         this.splitContainer1.Size = new System.Drawing.Size(679, 405);
+         this.splitContainer1.SplitterDistance = 284;
          this.splitContainer1.TabIndex = 1;
          // 
          // step_History_SummeriesGridControl
@@ -204,7 +159,7 @@
          this.step_History_SummeriesGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.step_History_SummeriesGridControl.MainView = this.gridView1;
          this.step_History_SummeriesGridControl.Name = "step_History_SummeriesGridControl";
-         this.step_History_SummeriesGridControl.Size = new System.Drawing.Size(619, 248);
+         this.step_History_SummeriesGridControl.Size = new System.Drawing.Size(679, 284);
          this.step_History_SummeriesGridControl.TabIndex = 0;
          this.step_History_SummeriesGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -230,14 +185,14 @@
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRQST_RQID,
-            this.colRWNO,
-            this.colSSTT_MSTT_CODE,
+            this.MsttRwno_Clm,
+            this.SsttMsttCode_Clm,
             this.colSSTT_MSTT_SUB_SYS,
-            this.colFROM_DATE,
-            this.colTO_DATE,
-            this.colCRET_BY,
+            this.MsttFromDate_Clm,
+            this.MsttToDate_Clm,
+            this.MsttCretBy_Clm,
             this.colCRET_DATE,
-            this.colMDFY_BY,
+            this.MsttMdfyBy_Clm,
             this.colMDFY_DATE,
             this.colMain_State,
             this.colRequest});
@@ -255,71 +210,71 @@
          this.colRQST_RQID.FieldName = "RQST_RQID";
          this.colRQST_RQID.Name = "colRQST_RQID";
          // 
-         // colRWNO
+         // MsttRwno_Clm
          // 
-         this.colRWNO.Caption = "ردیف";
-         this.colRWNO.FieldName = "RWNO";
-         this.colRWNO.Name = "colRWNO";
-         this.colRWNO.Visible = true;
-         this.colRWNO.VisibleIndex = 5;
-         this.colRWNO.Width = 42;
+         this.MsttRwno_Clm.Caption = "ردیف";
+         this.MsttRwno_Clm.FieldName = "RWNO";
+         this.MsttRwno_Clm.Name = "MsttRwno_Clm";
+         this.MsttRwno_Clm.Visible = true;
+         this.MsttRwno_Clm.VisibleIndex = 5;
+         this.MsttRwno_Clm.Width = 42;
          // 
-         // colSSTT_MSTT_CODE
+         // SsttMsttCode_Clm
          // 
-         this.colSSTT_MSTT_CODE.Caption = "وضعیت اصلی";
-         this.colSSTT_MSTT_CODE.FieldName = "Main_State.MSTT_DESC";
-         this.colSSTT_MSTT_CODE.Name = "colSSTT_MSTT_CODE";
-         this.colSSTT_MSTT_CODE.Visible = true;
-         this.colSSTT_MSTT_CODE.VisibleIndex = 4;
-         this.colSSTT_MSTT_CODE.Width = 152;
+         this.SsttMsttCode_Clm.Caption = "وضعیت اصلی";
+         this.SsttMsttCode_Clm.FieldName = "Main_State.MSTT_DESC";
+         this.SsttMsttCode_Clm.Name = "SsttMsttCode_Clm";
+         this.SsttMsttCode_Clm.Visible = true;
+         this.SsttMsttCode_Clm.VisibleIndex = 4;
+         this.SsttMsttCode_Clm.Width = 152;
          // 
          // colSSTT_MSTT_SUB_SYS
          // 
          this.colSSTT_MSTT_SUB_SYS.FieldName = "SSTT_MSTT_SUB_SYS";
          this.colSSTT_MSTT_SUB_SYS.Name = "colSSTT_MSTT_SUB_SYS";
          // 
-         // colFROM_DATE
+         // MsttFromDate_Clm
          // 
-         this.colFROM_DATE.Caption = "از تاریخ";
-         this.colFROM_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
-         this.colFROM_DATE.FieldName = "FROM_DATE";
-         this.colFROM_DATE.Name = "colFROM_DATE";
-         this.colFROM_DATE.Visible = true;
-         this.colFROM_DATE.VisibleIndex = 0;
-         this.colFROM_DATE.Width = 112;
+         this.MsttFromDate_Clm.Caption = "از تاریخ";
+         this.MsttFromDate_Clm.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.MsttFromDate_Clm.FieldName = "FROM_DATE";
+         this.MsttFromDate_Clm.Name = "MsttFromDate_Clm";
+         this.MsttFromDate_Clm.Visible = true;
+         this.MsttFromDate_Clm.VisibleIndex = 0;
+         this.MsttFromDate_Clm.Width = 112;
          // 
-         // colTO_DATE
+         // MsttToDate_Clm
          // 
-         this.colTO_DATE.Caption = "تا تاریخ";
-         this.colTO_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
-         this.colTO_DATE.FieldName = "TO_DATE";
-         this.colTO_DATE.Name = "colTO_DATE";
-         this.colTO_DATE.Visible = true;
-         this.colTO_DATE.VisibleIndex = 2;
-         this.colTO_DATE.Width = 105;
+         this.MsttToDate_Clm.Caption = "تا تاریخ";
+         this.MsttToDate_Clm.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.MsttToDate_Clm.FieldName = "TO_DATE";
+         this.MsttToDate_Clm.Name = "MsttToDate_Clm";
+         this.MsttToDate_Clm.Visible = true;
+         this.MsttToDate_Clm.VisibleIndex = 2;
+         this.MsttToDate_Clm.Width = 105;
          // 
-         // colCRET_BY
+         // MsttCretBy_Clm
          // 
-         this.colCRET_BY.Caption = "کاربر ایجاد کننده";
-         this.colCRET_BY.FieldName = "CRET_BY";
-         this.colCRET_BY.Name = "colCRET_BY";
-         this.colCRET_BY.Visible = true;
-         this.colCRET_BY.VisibleIndex = 3;
-         this.colCRET_BY.Width = 96;
+         this.MsttCretBy_Clm.Caption = "کاربر ایجاد کننده";
+         this.MsttCretBy_Clm.FieldName = "CRET_BY";
+         this.MsttCretBy_Clm.Name = "MsttCretBy_Clm";
+         this.MsttCretBy_Clm.Visible = true;
+         this.MsttCretBy_Clm.VisibleIndex = 3;
+         this.MsttCretBy_Clm.Width = 96;
          // 
          // colCRET_DATE
          // 
          this.colCRET_DATE.FieldName = "CRET_DATE";
          this.colCRET_DATE.Name = "colCRET_DATE";
          // 
-         // colMDFY_BY
+         // MsttMdfyBy_Clm
          // 
-         this.colMDFY_BY.Caption = "کاربر ویرایش کننده";
-         this.colMDFY_BY.FieldName = "MDFY_BY";
-         this.colMDFY_BY.Name = "colMDFY_BY";
-         this.colMDFY_BY.Visible = true;
-         this.colMDFY_BY.VisibleIndex = 1;
-         this.colMDFY_BY.Width = 108;
+         this.MsttMdfyBy_Clm.Caption = "کاربر ویرایش کننده";
+         this.MsttMdfyBy_Clm.FieldName = "MDFY_BY";
+         this.MsttMdfyBy_Clm.Name = "MsttMdfyBy_Clm";
+         this.MsttMdfyBy_Clm.Visible = true;
+         this.MsttMdfyBy_Clm.VisibleIndex = 1;
+         this.MsttMdfyBy_Clm.Width = 108;
          // 
          // colMDFY_DATE
          // 
@@ -345,7 +300,7 @@
          this.step_History_DetailsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.step_History_DetailsGridControl.MainView = this.gridView2;
          this.step_History_DetailsGridControl.Name = "step_History_DetailsGridControl";
-         this.step_History_DetailsGridControl.Size = new System.Drawing.Size(619, 98);
+         this.step_History_DetailsGridControl.Size = new System.Drawing.Size(679, 117);
          this.step_History_DetailsGridControl.TabIndex = 0;
          this.step_History_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -368,15 +323,15 @@
          this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSHIS_RQST_RQID,
             this.colSHIS_RWNO,
-            this.colRWNO1,
+            this.SsttRwno_Clm,
             this.colSSTT_MSTT_SUB_SYS1,
             this.colSSTT_MSTT_CODE1,
-            this.colSSTT_CODE,
-            this.colFROM_DATE1,
-            this.colTO_DATE1,
-            this.colCRET_BY1,
+            this.SsttCode_Clm,
+            this.SsttFromDate_Clm,
+            this.SsttToDate_Clm,
+            this.SsttCretBy_Clm,
             this.colCRET_DATE1,
-            this.colMDFY_BY1,
+            this.SsttMdfyBy_Clm,
             this.colMDFY_DATE1,
             this.colStep_History_Summery,
             this.colSub_State});
@@ -399,14 +354,14 @@
          this.colSHIS_RWNO.FieldName = "SHIS_RWNO";
          this.colSHIS_RWNO.Name = "colSHIS_RWNO";
          // 
-         // colRWNO1
+         // SsttRwno_Clm
          // 
-         this.colRWNO1.Caption = "ردیف";
-         this.colRWNO1.FieldName = "RWNO";
-         this.colRWNO1.Name = "colRWNO1";
-         this.colRWNO1.Visible = true;
-         this.colRWNO1.VisibleIndex = 5;
-         this.colRWNO1.Width = 41;
+         this.SsttRwno_Clm.Caption = "ردیف";
+         this.SsttRwno_Clm.FieldName = "RWNO";
+         this.SsttRwno_Clm.Name = "SsttRwno_Clm";
+         this.SsttRwno_Clm.Visible = true;
+         this.SsttRwno_Clm.VisibleIndex = 5;
+         this.SsttRwno_Clm.Width = 41;
          // 
          // colSSTT_MSTT_SUB_SYS1
          // 
@@ -418,55 +373,55 @@
          this.colSSTT_MSTT_CODE1.FieldName = "SSTT_MSTT_CODE";
          this.colSSTT_MSTT_CODE1.Name = "colSSTT_MSTT_CODE1";
          // 
-         // colSSTT_CODE
+         // SsttCode_Clm
          // 
-         this.colSSTT_CODE.Caption = "وضعیت فرعی";
-         this.colSSTT_CODE.FieldName = "Sub_State.SSTT_DESC";
-         this.colSSTT_CODE.Name = "colSSTT_CODE";
-         this.colSSTT_CODE.Visible = true;
-         this.colSSTT_CODE.VisibleIndex = 4;
-         this.colSSTT_CODE.Width = 137;
+         this.SsttCode_Clm.Caption = "وضعیت فرعی";
+         this.SsttCode_Clm.FieldName = "Sub_State.SSTT_DESC";
+         this.SsttCode_Clm.Name = "SsttCode_Clm";
+         this.SsttCode_Clm.Visible = true;
+         this.SsttCode_Clm.VisibleIndex = 4;
+         this.SsttCode_Clm.Width = 137;
          // 
-         // colFROM_DATE1
+         // SsttFromDate_Clm
          // 
-         this.colFROM_DATE1.Caption = "از تاریخ";
-         this.colFROM_DATE1.FieldName = "FROM_DATE";
-         this.colFROM_DATE1.Name = "colFROM_DATE1";
-         this.colFROM_DATE1.Visible = true;
-         this.colFROM_DATE1.VisibleIndex = 0;
-         this.colFROM_DATE1.Width = 123;
+         this.SsttFromDate_Clm.Caption = "از تاریخ";
+         this.SsttFromDate_Clm.FieldName = "FROM_DATE";
+         this.SsttFromDate_Clm.Name = "SsttFromDate_Clm";
+         this.SsttFromDate_Clm.Visible = true;
+         this.SsttFromDate_Clm.VisibleIndex = 0;
+         this.SsttFromDate_Clm.Width = 123;
          // 
-         // colTO_DATE1
+         // SsttToDate_Clm
          // 
-         this.colTO_DATE1.Caption = "تا تاریخ";
-         this.colTO_DATE1.FieldName = "TO_DATE";
-         this.colTO_DATE1.Name = "colTO_DATE1";
-         this.colTO_DATE1.Visible = true;
-         this.colTO_DATE1.VisibleIndex = 2;
-         this.colTO_DATE1.Width = 107;
+         this.SsttToDate_Clm.Caption = "تا تاریخ";
+         this.SsttToDate_Clm.FieldName = "TO_DATE";
+         this.SsttToDate_Clm.Name = "SsttToDate_Clm";
+         this.SsttToDate_Clm.Visible = true;
+         this.SsttToDate_Clm.VisibleIndex = 2;
+         this.SsttToDate_Clm.Width = 107;
          // 
-         // colCRET_BY1
+         // SsttCretBy_Clm
          // 
-         this.colCRET_BY1.Caption = "کاربر ایجاد کننده";
-         this.colCRET_BY1.FieldName = "CRET_BY";
-         this.colCRET_BY1.Name = "colCRET_BY1";
-         this.colCRET_BY1.Visible = true;
-         this.colCRET_BY1.VisibleIndex = 3;
-         this.colCRET_BY1.Width = 92;
+         this.SsttCretBy_Clm.Caption = "کاربر ایجاد کننده";
+         this.SsttCretBy_Clm.FieldName = "CRET_BY";
+         this.SsttCretBy_Clm.Name = "SsttCretBy_Clm";
+         this.SsttCretBy_Clm.Visible = true;
+         this.SsttCretBy_Clm.VisibleIndex = 3;
+         this.SsttCretBy_Clm.Width = 92;
          // 
          // colCRET_DATE1
          // 
          this.colCRET_DATE1.FieldName = "CRET_DATE";
          this.colCRET_DATE1.Name = "colCRET_DATE1";
          // 
-         // colMDFY_BY1
+         // SsttMdfyBy_Clm
          // 
-         this.colMDFY_BY1.Caption = "کاربر ویرایش کننده";
-         this.colMDFY_BY1.FieldName = "MDFY_BY";
-         this.colMDFY_BY1.Name = "colMDFY_BY1";
-         this.colMDFY_BY1.Visible = true;
-         this.colMDFY_BY1.VisibleIndex = 1;
-         this.colMDFY_BY1.Width = 115;
+         this.SsttMdfyBy_Clm.Caption = "کاربر ویرایش کننده";
+         this.SsttMdfyBy_Clm.FieldName = "MDFY_BY";
+         this.SsttMdfyBy_Clm.Name = "SsttMdfyBy_Clm";
+         this.SsttMdfyBy_Clm.Visible = true;
+         this.SsttMdfyBy_Clm.VisibleIndex = 1;
+         this.SsttMdfyBy_Clm.Width = 115;
          // 
          // colMDFY_DATE1
          // 
@@ -483,50 +438,10 @@
          this.colSub_State.FieldName = "Sub_State";
          this.colSub_State.Name = "colSub_State";
          // 
-         // radGroupBox1
-         // 
-         this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox1.Controls.Add(this.RqstTrac_Butn);
-         this.radGroupBox1.Controls.Add(this.FileNo_Text);
-         this.radGroupBox1.Controls.Add(label1);
-         this.radGroupBox1.Controls.Add(this.Rqid_Text);
-         this.radGroupBox1.Controls.Add(label39);
-         this.radGroupBox1.HeaderText = "اطلاعات درخواست / پرونده";
-         this.radGroupBox1.Location = new System.Drawing.Point(6, 6);
-         this.radGroupBox1.Name = "radGroupBox1";
-         this.radGroupBox1.Size = new System.Drawing.Size(623, 58);
-         this.radGroupBox1.TabIndex = 1;
-         this.radGroupBox1.Text = "اطلاعات درخواست / پرونده";
-         // 
-         // RqstTrac_Butn
-         // 
-         this.RqstTrac_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.RqstTrac_Butn.BackColor = System.Drawing.Color.Transparent;
-         this.RqstTrac_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.RqstTrac_Butn.Caption = "جستجو";
-         this.RqstTrac_Butn.Disabled = false;
-         this.RqstTrac_Butn.EnterColor = System.Drawing.Color.Transparent;
-         this.RqstTrac_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RqstTrac_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.RqstTrac_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.RqstTrac_Butn.ImageIndex = -1;
-         this.RqstTrac_Butn.ImageList = null;
-         this.RqstTrac_Butn.InToBold = false;
-         this.RqstTrac_Butn.Location = new System.Drawing.Point(50, 24);
-         this.RqstTrac_Butn.Name = "RqstTrac_Butn";
-         this.RqstTrac_Butn.Size = new System.Drawing.Size(116, 22);
-         this.RqstTrac_Butn.TabIndex = 26;
-         this.RqstTrac_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.RqstTrac_Butn.TextColor = System.Drawing.Color.Black;
-         this.RqstTrac_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.RqstTrac_Butn.Click += new System.EventHandler(this.RqstTrac_Butn_Click);
-         // 
          // FileNo_Text
          // 
-         this.FileNo_Text.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.FileNo_Text.Location = new System.Drawing.Point(172, 24);
+         this.FileNo_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FileNo_Text.Location = new System.Drawing.Point(234, 22);
          this.FileNo_Text.Name = "FileNo_Text";
          this.FileNo_Text.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.FileNo_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -541,8 +456,8 @@
          // 
          // Rqid_Text
          // 
-         this.Rqid_Text.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.Rqid_Text.Location = new System.Drawing.Point(368, 24);
+         this.Rqid_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqid_Text.Location = new System.Drawing.Point(447, 22);
          this.Rqid_Text.Name = "Rqid_Text";
          this.Rqid_Text.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.Rqid_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,56 +476,115 @@
          this.radTreeView1.DataSource = this.RqstBs1;
          this.radTreeView1.DisplayMember = "Request_Type.RQTP_DESC";
          this.radTreeView1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.radTreeView1.Location = new System.Drawing.Point(635, 3);
+         this.radTreeView1.Location = new System.Drawing.Point(685, 59);
          this.radTreeView1.Name = "radTreeView1";
          this.radTreeView1.ParentMember = "RQST_RQID";
-         this.radTreeView1.Size = new System.Drawing.Size(215, 440);
+         this.radTreeView1.Size = new System.Drawing.Size(215, 484);
          this.radTreeView1.SpacingBetweenNodes = -1;
          this.radTreeView1.TabIndex = 0;
          this.radTreeView1.Text = "radTreeView1";
          this.radTreeView1.ThemeName = "Office2010Black";
          this.radTreeView1.ValueMember = "RQID";
          // 
-         // Btn_Back
+         // StepHist_Gb
          // 
-         this.Btn_Back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Btn_Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Btn_Back.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_Back.Caption = "بازگشت";
-         this.Btn_Back.Disabled = false;
-         this.Btn_Back.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_Back.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Btn_Back.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_Back.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_Back.ImageIndex = 3;
-         this.Btn_Back.ImageList = null;
-         this.Btn_Back.InToBold = false;
-         this.Btn_Back.Location = new System.Drawing.Point(410, 505);
-         this.Btn_Back.Name = "Btn_Back";
-         this.Btn_Back.Size = new System.Drawing.Size(80, 27);
-         this.Btn_Back.TabIndex = 24;
-         this.Btn_Back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_Back.TextColor = System.Drawing.Color.Black;
-         this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
+         this.StepHist_Gb.Controls.Add(this.splitContainer1);
+         this.StepHist_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.StepHist_Gb.Location = new System.Drawing.Point(0, 116);
+         this.StepHist_Gb.Name = "StepHist_Gb";
+         this.StepHist_Gb.Size = new System.Drawing.Size(685, 427);
+         this.StepHist_Gb.TabIndex = 3;
+         this.StepHist_Gb.TabStop = false;
+         this.StepHist_Gb.Text = "سوابق کارتابل درخواست";
+         // 
+         // Rqst_Gb
+         // 
+         this.Rqst_Gb.Controls.Add(this.FileNo_Text);
+         this.Rqst_Gb.Controls.Add(Rqid_Lb);
+         this.Rqst_Gb.Controls.Add(FileNo_Lb);
+         this.Rqst_Gb.Controls.Add(this.Rqid_Text);
+         this.Rqst_Gb.Dock = System.Windows.Forms.DockStyle.Top;
+         this.Rqst_Gb.Location = new System.Drawing.Point(0, 59);
+         this.Rqst_Gb.Name = "Rqst_Gb";
+         this.Rqst_Gb.Size = new System.Drawing.Size(685, 57);
+         this.Rqst_Gb.TabIndex = 4;
+         this.Rqst_Gb.TabStop = false;
+         this.Rqst_Gb.Text = "اطلاعات درخواست / پرونده";
+         // 
+         // panel1
+         // 
+         this.panel1.Controls.Add(this.simpleButton1);
+         this.panel1.Controls.Add(this.TitlForm_Lb);
+         this.panel1.Controls.Add(this.Back_Butn);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel1.Location = new System.Drawing.Point(0, 0);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(900, 59);
+         this.panel1.TabIndex = 25;
+         // 
+         // TitlForm_Lb
+         // 
+         this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1202;
+         this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.TitlForm_Lb.Location = new System.Drawing.Point(682, 0);
+         this.TitlForm_Lb.Name = "TitlForm_Lb";
+         this.TitlForm_Lb.Size = new System.Drawing.Size(157, 59);
+         this.TitlForm_Lb.TabIndex = 1;
+         this.TitlForm_Lb.Text = "درخت پیگیری";
+         // 
+         // Back_Butn
+         // 
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(839, 0);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
+         // 
+         // simpleButton1
+         // 
+         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1369;
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton1.Location = new System.Drawing.Point(0, 0);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton1.TabIndex = 2;
+         this.simpleButton1.ToolTip = "بازگشت";
+         this.simpleButton1.Click += new System.EventHandler(this.RqstTrac_Butn_Click);
          // 
          // RQST_TRAC_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.DarkGray;
-         this.Controls.Add(this.Btn_Back);
-         this.Controls.Add(this.tb_master);
+         this.BackColor = System.Drawing.SystemColors.Control;
+         this.Controls.Add(this.StepHist_Gb);
+         this.Controls.Add(this.Rqst_Gb);
+         this.Controls.Add(this.radTreeView1);
+         this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Name = "RQST_TRAC_F";
+         this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(900, 543);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
-         this.tb_master.ResumeLayout(false);
-         this.tp_001.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
-         this.radGroupBox2.ResumeLayout(false);
          this.splitContainer1.Panel1.ResumeLayout(false);
          this.splitContainer1.Panel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -622,41 +596,36 @@
          ((System.ComponentModel.ISupportInitialize)(this.step_History_DetailsGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SthdBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
-         this.radGroupBox1.ResumeLayout(false);
-         this.radGroupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FileNo_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Rqid_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.radTreeView1)).EndInit();
+         this.StepHist_Gb.ResumeLayout(false);
+         this.Rqst_Gb.ResumeLayout(false);
+         this.Rqst_Gb.PerformLayout();
+         this.panel1.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
 
       #endregion
 
-      private Windows.Forms.TabControl tb_master;
-      private Windows.Forms.TabPage tp_001;
       private Telerik.WinControls.UI.RadTreeView radTreeView1;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
       private DevExpress.XtraEditors.TextEdit Rqid_Text;
       private DevExpress.XtraEditors.TextEdit FileNo_Text;
-      private MaxUi.NewMaxBtn RqstTrac_Butn;
       private Windows.Forms.BindingSource RqstBs1;
-      private MaxUi.NewMaxBtn Btn_Back;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
       private Windows.Forms.SplitContainer splitContainer1;
       private DevExpress.XtraGrid.GridControl step_History_SummeriesGridControl;
       private Windows.Forms.BindingSource SthsBs1;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
       private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID;
-      private DevExpress.XtraGrid.Columns.GridColumn colRWNO;
-      private DevExpress.XtraGrid.Columns.GridColumn colSSTT_MSTT_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn MsttRwno_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttMsttCode_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colSSTT_MSTT_SUB_SYS;
-      private DevExpress.XtraGrid.Columns.GridColumn colFROM_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colTO_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn MsttFromDate_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn MsttToDate_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn MsttCretBy_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn MsttMdfyBy_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colMain_State;
       private DevExpress.XtraGrid.Columns.GridColumn colRequest;
@@ -665,18 +634,24 @@
       private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
       private DevExpress.XtraGrid.Columns.GridColumn colSHIS_RQST_RQID;
       private DevExpress.XtraGrid.Columns.GridColumn colSHIS_RWNO;
-      private DevExpress.XtraGrid.Columns.GridColumn colRWNO1;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttRwno_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colSSTT_MSTT_SUB_SYS1;
       private DevExpress.XtraGrid.Columns.GridColumn colSSTT_MSTT_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSSTT_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colFROM_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colTO_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY1;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttCode_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttFromDate_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttToDate_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttCretBy_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY1;
+      private DevExpress.XtraGrid.Columns.GridColumn SsttMdfyBy_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE1;
       private DevExpress.XtraGrid.Columns.GridColumn colStep_History_Summery;
       private DevExpress.XtraGrid.Columns.GridColumn colSub_State;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
+      private Windows.Forms.GroupBox StepHist_Gb;
+      private Windows.Forms.GroupBox Rqst_Gb;
+      private Windows.Forms.Panel panel1;
+      private DevExpress.XtraEditors.SimpleButton simpleButton1;
+      private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
+      private DevExpress.XtraEditors.SimpleButton Back_Butn;
    }
 }

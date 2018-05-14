@@ -33,14 +33,14 @@
          this.MdrpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDUL_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDUL_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MdulName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MudlDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSECT_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSECT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRPRT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SectDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Rwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RprtDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRPRT_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSHOW_PRVW = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ShowPrvw_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DYsnoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colDFLT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,30 +49,32 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.label1 = new System.Windows.Forms.Label();
-         this.mb_SelectReport = new System.MaxUi.NewMaxBtn();
-         this.mb_CfgStngF = new System.MaxUi.NewMaxBtn();
-         this.mb_reloading = new System.MaxUi.NewMaxBtn();
-         this.mb_back = new System.MaxUi.NewMaxBtn();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.modual_ReportGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MdrpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DYsnoBs1)).BeginInit();
+         this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
          // modual_ReportGridControl
          // 
-         this.modual_ReportGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
          this.modual_ReportGridControl.DataSource = this.MdrpBs1;
-         this.modual_ReportGridControl.Location = new System.Drawing.Point(55, 76);
+         this.modual_ReportGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.modual_ReportGridControl.Location = new System.Drawing.Point(0, 59);
          this.modual_ReportGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.modual_ReportGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.modual_ReportGridControl.MainView = this.gridView1;
          this.modual_ReportGridControl.Name = "modual_ReportGridControl";
          this.modual_ReportGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
-         this.modual_ReportGridControl.Size = new System.Drawing.Size(758, 425);
+         this.modual_ReportGridControl.Size = new System.Drawing.Size(867, 518);
          this.modual_ReportGridControl.TabIndex = 1;
          this.modual_ReportGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -93,14 +95,14 @@
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colCODE,
-            this.colMDUL_NAME,
-            this.colMDUL_DESC,
+            this.MdulName_Clm,
+            this.MudlDesc_Clm,
             this.colSECT_NAME,
-            this.colSECT_DESC,
-            this.colRWNO,
-            this.colRPRT_DESC,
+            this.SectDesc_Clm,
+            this.Rwno_Clm,
+            this.RprtDesc_Clm,
             this.colRPRT_PATH,
-            this.colSHOW_PRVW,
+            this.ShowPrvw_Clm,
             this.colDFLT,
             this.colSTAT,
             this.colCRET_BY,
@@ -117,7 +119,7 @@
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
          this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMDUL_NAME, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.MdulName_Clm, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colSECT_NAME, DevExpress.Data.ColumnSortOrder.Ascending)});
          this.gridView1.DoubleClick += new System.EventHandler(this.Rptlrfm_Gv_DoubleClick);
          // 
@@ -126,24 +128,24 @@
          this.colCODE.FieldName = "CODE";
          this.colCODE.Name = "colCODE";
          // 
-         // colMDUL_NAME
+         // MdulName_Clm
          // 
-         this.colMDUL_NAME.Caption = "نام فرم";
-         this.colMDUL_NAME.FieldName = "MDUL_NAME";
-         this.colMDUL_NAME.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colMDUL_NAME.Name = "colMDUL_NAME";
-         this.colMDUL_NAME.Visible = true;
-         this.colMDUL_NAME.VisibleIndex = 6;
+         this.MdulName_Clm.Caption = "نام فرم";
+         this.MdulName_Clm.FieldName = "MDUL_NAME";
+         this.MdulName_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.MdulName_Clm.Name = "MdulName_Clm";
+         this.MdulName_Clm.Visible = true;
+         this.MdulName_Clm.VisibleIndex = 6;
          // 
-         // colMDUL_DESC
+         // MudlDesc_Clm
          // 
-         this.colMDUL_DESC.Caption = "توضیحات فرم";
-         this.colMDUL_DESC.FieldName = "MDUL_DESC";
-         this.colMDUL_DESC.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colMDUL_DESC.Name = "colMDUL_DESC";
-         this.colMDUL_DESC.Visible = true;
-         this.colMDUL_DESC.VisibleIndex = 3;
-         this.colMDUL_DESC.Width = 260;
+         this.MudlDesc_Clm.Caption = "توضیحات فرم";
+         this.MudlDesc_Clm.FieldName = "MDUL_DESC";
+         this.MudlDesc_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.MudlDesc_Clm.Name = "MudlDesc_Clm";
+         this.MudlDesc_Clm.Visible = true;
+         this.MudlDesc_Clm.VisibleIndex = 3;
+         this.MudlDesc_Clm.Width = 260;
          // 
          // colSECT_NAME
          // 
@@ -154,35 +156,35 @@
          this.colSECT_NAME.Visible = true;
          this.colSECT_NAME.VisibleIndex = 4;
          // 
-         // colSECT_DESC
+         // SectDesc_Clm
          // 
-         this.colSECT_DESC.Caption = "توضیحات قطعه";
-         this.colSECT_DESC.FieldName = "SECT_DESC";
-         this.colSECT_DESC.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colSECT_DESC.Name = "colSECT_DESC";
-         this.colSECT_DESC.Visible = true;
-         this.colSECT_DESC.VisibleIndex = 2;
-         this.colSECT_DESC.Width = 150;
+         this.SectDesc_Clm.Caption = "توضیحات قطعه";
+         this.SectDesc_Clm.FieldName = "SECT_DESC";
+         this.SectDesc_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.SectDesc_Clm.Name = "SectDesc_Clm";
+         this.SectDesc_Clm.Visible = true;
+         this.SectDesc_Clm.VisibleIndex = 2;
+         this.SectDesc_Clm.Width = 150;
          // 
-         // colRWNO
+         // Rwno_Clm
          // 
-         this.colRWNO.Caption = "ردیف";
-         this.colRWNO.FieldName = "RWNO";
-         this.colRWNO.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colRWNO.Name = "colRWNO";
-         this.colRWNO.Visible = true;
-         this.colRWNO.VisibleIndex = 4;
-         this.colRWNO.Width = 42;
+         this.Rwno_Clm.Caption = "ردیف";
+         this.Rwno_Clm.FieldName = "RWNO";
+         this.Rwno_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.Rwno_Clm.Name = "Rwno_Clm";
+         this.Rwno_Clm.Visible = true;
+         this.Rwno_Clm.VisibleIndex = 4;
+         this.Rwno_Clm.Width = 42;
          // 
-         // colRPRT_DESC
+         // RprtDesc_Clm
          // 
-         this.colRPRT_DESC.Caption = "توضیحات چاپ";
-         this.colRPRT_DESC.FieldName = "RPRT_DESC";
-         this.colRPRT_DESC.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colRPRT_DESC.Name = "colRPRT_DESC";
-         this.colRPRT_DESC.Visible = true;
-         this.colRPRT_DESC.VisibleIndex = 0;
-         this.colRPRT_DESC.Width = 150;
+         this.RprtDesc_Clm.Caption = "توضیحات چاپ";
+         this.RprtDesc_Clm.FieldName = "RPRT_DESC";
+         this.RprtDesc_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.RprtDesc_Clm.Name = "RprtDesc_Clm";
+         this.RprtDesc_Clm.Visible = true;
+         this.RprtDesc_Clm.VisibleIndex = 0;
+         this.RprtDesc_Clm.Width = 150;
          // 
          // colRPRT_PATH
          // 
@@ -190,16 +192,16 @@
          this.colRPRT_PATH.FieldName = "RPRT_PATH";
          this.colRPRT_PATH.Name = "colRPRT_PATH";
          // 
-         // colSHOW_PRVW
+         // ShowPrvw_Clm
          // 
-         this.colSHOW_PRVW.Caption = "پیش نمایش چاپ";
-         this.colSHOW_PRVW.ColumnEdit = this.repositoryItemLookUpEdit1;
-         this.colSHOW_PRVW.FieldName = "SHOW_PRVW";
-         this.colSHOW_PRVW.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colSHOW_PRVW.Name = "colSHOW_PRVW";
-         this.colSHOW_PRVW.Visible = true;
-         this.colSHOW_PRVW.VisibleIndex = 1;
-         this.colSHOW_PRVW.Width = 150;
+         this.ShowPrvw_Clm.Caption = "پیش نمایش چاپ";
+         this.ShowPrvw_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
+         this.ShowPrvw_Clm.FieldName = "SHOW_PRVW";
+         this.ShowPrvw_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.ShowPrvw_Clm.Name = "ShowPrvw_Clm";
+         this.ShowPrvw_Clm.Visible = true;
+         this.ShowPrvw_Clm.VisibleIndex = 1;
+         this.ShowPrvw_Clm.Width = 150;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -248,123 +250,106 @@
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
-         // label1
+         // panel1
          // 
-         this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label1.BackColor = System.Drawing.Color.DarkSalmon;
-         this.label1.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.label1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
-         this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label1.Location = new System.Drawing.Point(55, 19);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(758, 56);
-         this.label1.TabIndex = 2;
-         this.label1.Text = "انتخاب چاپ گزارش";
-         this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.panel1.Controls.Add(this.simpleButton3);
+         this.panel1.Controls.Add(this.simpleButton2);
+         this.panel1.Controls.Add(this.simpleButton1);
+         this.panel1.Controls.Add(this.TitlForm_Lb);
+         this.panel1.Controls.Add(this.Back_Butn);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel1.Location = new System.Drawing.Point(0, 0);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(867, 59);
+         this.panel1.TabIndex = 5;
          // 
-         // mb_SelectReport
+         // TitlForm_Lb
          // 
-         this.mb_SelectReport.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.mb_SelectReport.BackColor = System.Drawing.Color.Transparent;
-         this.mb_SelectReport.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.mb_SelectReport.Caption = "انتخاب گزارش";
-         this.mb_SelectReport.Disabled = false;
-         this.mb_SelectReport.EnterColor = System.Drawing.Color.Transparent;
-         this.mb_SelectReport.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.mb_SelectReport.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_SelectReport.ImageIndex = -1;
-         this.mb_SelectReport.ImageList = null;
-         this.mb_SelectReport.InToBold = false;
-         this.mb_SelectReport.Location = new System.Drawing.Point(733, 507);
-         this.mb_SelectReport.Name = "mb_SelectReport";
-         this.mb_SelectReport.Size = new System.Drawing.Size(80, 25);
-         this.mb_SelectReport.TabIndex = 3;
-         this.mb_SelectReport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_SelectReport.TextColor = System.Drawing.Color.Black;
-         this.mb_SelectReport.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.mb_SelectReport.Click += new System.EventHandler(this.mb_SelectReport_Click);
+         this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.TitlForm_Lb.Location = new System.Drawing.Point(610, 0);
+         this.TitlForm_Lb.Name = "TitlForm_Lb";
+         this.TitlForm_Lb.Size = new System.Drawing.Size(196, 59);
+         this.TitlForm_Lb.TabIndex = 1;
+         this.TitlForm_Lb.Text = "انتخاب چاپ گزارش";
          // 
-         // mb_CfgStngF
+         // Back_Butn
          // 
-         this.mb_CfgStngF.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.mb_CfgStngF.BackColor = System.Drawing.Color.Transparent;
-         this.mb_CfgStngF.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.mb_CfgStngF.Caption = "تنظیمات چاپ فرم گزارش";
-         this.mb_CfgStngF.Disabled = false;
-         this.mb_CfgStngF.Enabled = false;
-         this.mb_CfgStngF.EnterColor = System.Drawing.Color.Transparent;
-         this.mb_CfgStngF.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.mb_CfgStngF.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_CfgStngF.ImageIndex = -1;
-         this.mb_CfgStngF.ImageList = null;
-         this.mb_CfgStngF.InToBold = false;
-         this.mb_CfgStngF.Location = new System.Drawing.Point(55, 507);
-         this.mb_CfgStngF.Name = "mb_CfgStngF";
-         this.mb_CfgStngF.Size = new System.Drawing.Size(144, 25);
-         this.mb_CfgStngF.TabIndex = 3;
-         this.mb_CfgStngF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_CfgStngF.TextColor = System.Drawing.Color.Black;
-         this.mb_CfgStngF.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.mb_CfgStngF.Visible = false;
-         this.mb_CfgStngF.Click += new System.EventHandler(this.mb_CfgStngF_Click);
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(806, 0);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.mb_back_Click);
          // 
-         // mb_reloading
+         // simpleButton1
          // 
-         this.mb_reloading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.mb_reloading.BackColor = System.Drawing.Color.Transparent;
-         this.mb_reloading.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.mb_reloading.Caption = "بارگذاری مجدد";
-         this.mb_reloading.Disabled = false;
-         this.mb_reloading.EnterColor = System.Drawing.Color.Transparent;
-         this.mb_reloading.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.mb_reloading.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_reloading.ImageIndex = -1;
-         this.mb_reloading.ImageList = null;
-         this.mb_reloading.InToBold = false;
-         this.mb_reloading.Location = new System.Drawing.Point(647, 507);
-         this.mb_reloading.Name = "mb_reloading";
-         this.mb_reloading.Size = new System.Drawing.Size(80, 25);
-         this.mb_reloading.TabIndex = 3;
-         this.mb_reloading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_reloading.TextColor = System.Drawing.Color.Black;
-         this.mb_reloading.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.mb_reloading.Click += new System.EventHandler(this.mb_reloading_Click);
+         this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1370;
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton1.Location = new System.Drawing.Point(0, 0);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton1.TabIndex = 2;
+         this.simpleButton1.ToolTip = "بازگشت";
+         this.simpleButton1.Click += new System.EventHandler(this.mb_CfgStngF_Click);
          // 
-         // mb_back
+         // simpleButton2
          // 
-         this.mb_back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.mb_back.BackColor = System.Drawing.Color.Transparent;
-         this.mb_back.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.mb_back.Caption = "بازگشت";
-         this.mb_back.Disabled = false;
-         this.mb_back.EnterColor = System.Drawing.Color.Transparent;
-         this.mb_back.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.mb_back.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_back.ImageIndex = -1;
-         this.mb_back.ImageList = null;
-         this.mb_back.InToBold = false;
-         this.mb_back.Location = new System.Drawing.Point(561, 507);
-         this.mb_back.Name = "mb_back";
-         this.mb_back.Size = new System.Drawing.Size(80, 25);
-         this.mb_back.TabIndex = 4;
-         this.mb_back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_back.TextColor = System.Drawing.Color.Black;
-         this.mb_back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.mb_back.Click += new System.EventHandler(this.mb_back_Click);
+         this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.simpleButton2.Appearance.Options.UseBackColor = true;
+         this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton2.Image = global::System.Scsc.Properties.Resources.IMAGE_1369;
+         this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton2.Location = new System.Drawing.Point(61, 0);
+         this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton2.Name = "simpleButton2";
+         this.simpleButton2.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton2.TabIndex = 3;
+         this.simpleButton2.ToolTip = "بازگشت";
+         this.simpleButton2.Click += new System.EventHandler(this.mb_reloading_Click);
+         // 
+         // simpleButton3
+         // 
+         this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.simpleButton3.Appearance.Options.UseBackColor = true;
+         this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton3.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton3.Location = new System.Drawing.Point(122, 0);
+         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton3.Name = "simpleButton3";
+         this.simpleButton3.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton3.TabIndex = 4;
+         this.simpleButton3.ToolTip = "بازگشت";
+         this.simpleButton3.Click += new System.EventHandler(this.mb_SelectReport_Click);
          // 
          // RPT_LRFM_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.BackColor = System.Drawing.SystemColors.Control;
          this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-         this.Controls.Add(this.mb_back);
-         this.Controls.Add(this.mb_CfgStngF);
-         this.Controls.Add(this.mb_reloading);
-         this.Controls.Add(this.mb_SelectReport);
-         this.Controls.Add(this.label1);
          this.Controls.Add(this.modual_ReportGridControl);
+         this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "RPT_LRFM_F";
          this.Size = new System.Drawing.Size(867, 577);
@@ -373,6 +358,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DYsnoBs1)).EndInit();
+         this.panel1.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -383,14 +369,14 @@
       private DevExpress.XtraGrid.GridControl modual_ReportGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDUL_NAME;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDUL_DESC;
+      private DevExpress.XtraGrid.Columns.GridColumn MdulName_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn MudlDesc_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colSECT_NAME;
-      private DevExpress.XtraGrid.Columns.GridColumn colSECT_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colRWNO;
-      private DevExpress.XtraGrid.Columns.GridColumn colRPRT_DESC;
+      private DevExpress.XtraGrid.Columns.GridColumn SectDesc_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn Rwno_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn RprtDesc_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colRPRT_PATH;
-      private DevExpress.XtraGrid.Columns.GridColumn colSHOW_PRVW;
+      private DevExpress.XtraGrid.Columns.GridColumn ShowPrvw_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colDFLT;
       private DevExpress.XtraGrid.Columns.GridColumn colSTAT;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
@@ -399,10 +385,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private Windows.Forms.BindingSource DYsnoBs1;
-      private Windows.Forms.Label label1;
-      private MaxUi.NewMaxBtn mb_SelectReport;
-      private MaxUi.NewMaxBtn mb_CfgStngF;
-      private MaxUi.NewMaxBtn mb_reloading;
-      private MaxUi.NewMaxBtn mb_back;
+      private Windows.Forms.Panel panel1;
+      private DevExpress.XtraEditors.SimpleButton simpleButton3;
+      private DevExpress.XtraEditors.SimpleButton simpleButton2;
+      private DevExpress.XtraEditors.SimpleButton simpleButton1;
+      private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
+      private DevExpress.XtraEditors.SimpleButton Back_Butn;
    }
 }

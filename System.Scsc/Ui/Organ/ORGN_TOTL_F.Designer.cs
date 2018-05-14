@@ -29,23 +29,20 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.Windows.Forms.Label dSCT_DESCLabel;
          System.Windows.Forms.Label bRTH_DATELabel;
          System.Windows.Forms.Label label1;
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ORGN_TOTL_F));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colDSCT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dstp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.tb_master = new System.Windows.Forms.TabControl();
-         this.tp_001 = new System.Windows.Forms.TabPage();
          this.Bcds_SpltCont = new System.Windows.Forms.SplitContainer();
-         this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
          this.DeptUpd_Butn = new System.MaxUi.NewMaxBtn();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.DeptDel_Butn = new System.MaxUi.NewMaxBtn();
@@ -62,7 +59,6 @@
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrgan = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radGroupBox3 = new Telerik.WinControls.UI.RadGroupBox();
          this.BuntUpd_Butn = new System.MaxUi.NewMaxBtn();
          this.BuntDel_Butn = new System.MaxUi.NewMaxBtn();
          this.BuntAdd_Butn = new System.MaxUi.NewMaxBtn();
@@ -78,7 +74,6 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radGroupBox4 = new Telerik.WinControls.UI.RadGroupBox();
          this.SuntUpd_Butn = new System.MaxUi.NewMaxBtn();
          this.SuntDel_Butn = new System.MaxUi.NewMaxBtn();
          this.SuntAdd_Butn = new System.MaxUi.NewMaxBtn();
@@ -96,7 +91,6 @@
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
          this.OrgnUpd_Butn = new System.MaxUi.NewMaxBtn();
          this.OrgnDel_Butn = new System.MaxUi.NewMaxBtn();
          this.OrgnAdd_Butn = new System.MaxUi.NewMaxBtn();
@@ -108,8 +102,6 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radGroupBox5 = new Telerik.WinControls.UI.RadGroupBox();
-         this.radGroupBox6 = new Telerik.WinControls.UI.RadGroupBox();
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.BcdsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
@@ -146,42 +138,56 @@
          this.colACTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dsat_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DDsatBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.Btn_Back = new System.MaxUi.NewMaxBtn();
+         this.OrgnCode_Gb = new System.Windows.Forms.GroupBox();
+         this.DeptCode_Gb = new System.Windows.Forms.GroupBox();
+         this.BuntCode_Gb = new System.Windows.Forms.GroupBox();
+         this.SuntCode_Gb = new System.Windows.Forms.GroupBox();
+         this.Discount_Gb = new System.Windows.Forms.GroupBox();
+         this.DiscountInfo_Gb = new System.Windows.Forms.GroupBox();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+         this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstBnDelete1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnARqt1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstMBnDefaultPrint1 = new System.Windows.Forms.ToolStripSplitButton();
+         this.RqstBnDefaultPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnASav1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnAResn1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          dSCT_DESCLabel = new System.Windows.Forms.Label();
          bRTH_DATELabel = new System.Windows.Forms.Label();
          label1 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.Dstp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).BeginInit();
-         this.tb_master.SuspendLayout();
-         this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Bcds_SpltCont)).BeginInit();
          this.Bcds_SpltCont.Panel1.SuspendLayout();
          this.Bcds_SpltCont.Panel2.SuspendLayout();
          this.Bcds_SpltCont.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
-         this.radGroupBox2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox3)).BeginInit();
-         this.radGroupBox3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox4)).BeginInit();
-         this.radGroupBox4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
-         this.radGroupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.organGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Orgn_Gv)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox5)).BeginInit();
-         this.radGroupBox5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox6)).BeginInit();
-         this.radGroupBox6.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.BcdsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dSCT_DESCTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -192,7 +198,45 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Dsat_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs1)).BeginInit();
+         this.OrgnCode_Gb.SuspendLayout();
+         this.DeptCode_Gb.SuspendLayout();
+         this.BuntCode_Gb.SuspendLayout();
+         this.SuntCode_Gb.SuspendLayout();
+         this.Discount_Gb.SuspendLayout();
+         this.DiscountInfo_Gb.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
+         this.RqstBn1.SuspendLayout();
          this.SuspendLayout();
+         // 
+         // dSCT_DESCLabel
+         // 
+         dSCT_DESCLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         dSCT_DESCLabel.AutoSize = true;
+         dSCT_DESCLabel.Location = new System.Drawing.Point(443, 30);
+         dSCT_DESCLabel.Name = "dSCT_DESCLabel";
+         dSCT_DESCLabel.Size = new System.Drawing.Size(75, 14);
+         dSCT_DESCLabel.TabIndex = 24;
+         dSCT_DESCLabel.Text = "شرح تخفیف :";
+         // 
+         // bRTH_DATELabel
+         // 
+         bRTH_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         bRTH_DATELabel.AutoSize = true;
+         bRTH_DATELabel.Location = new System.Drawing.Point(443, 59);
+         bRTH_DATELabel.Name = "bRTH_DATELabel";
+         bRTH_DATELabel.Size = new System.Drawing.Size(48, 14);
+         bRTH_DATELabel.TabIndex = 27;
+         bRTH_DATELabel.Text = "از تاریخ :";
+         // 
+         // label1
+         // 
+         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label1.AutoSize = true;
+         label1.Location = new System.Drawing.Point(277, 59);
+         label1.Name = "label1";
+         label1.Size = new System.Drawing.Size(48, 14);
+         label1.TabIndex = 27;
+         label1.Text = "تا تاریخ :";
          // 
          // colDSCT_TYPE
          // 
@@ -208,7 +252,7 @@
          // 
          this.Dstp_Lov.AutoHeight = false;
          this.Dstp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.Dstp_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -222,99 +266,29 @@
          // 
          this.DCetpBs1.DataSource = typeof(System.Scsc.Data.D_CETP);
          // 
-         // dSCT_DESCLabel
-         // 
-         dSCT_DESCLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         dSCT_DESCLabel.AutoSize = true;
-         dSCT_DESCLabel.Location = new System.Drawing.Point(589, 35);
-         dSCT_DESCLabel.Name = "dSCT_DESCLabel";
-         dSCT_DESCLabel.Size = new System.Drawing.Size(75, 14);
-         dSCT_DESCLabel.TabIndex = 24;
-         dSCT_DESCLabel.Text = "شرح تخفیف :";
-         // 
-         // bRTH_DATELabel
-         // 
-         bRTH_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         bRTH_DATELabel.AutoSize = true;
-         bRTH_DATELabel.Location = new System.Drawing.Point(589, 64);
-         bRTH_DATELabel.Name = "bRTH_DATELabel";
-         bRTH_DATELabel.Size = new System.Drawing.Size(48, 14);
-         bRTH_DATELabel.TabIndex = 27;
-         bRTH_DATELabel.Text = "از تاریخ :";
-         // 
-         // label1
-         // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(423, 64);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(48, 14);
-         label1.TabIndex = 27;
-         label1.Text = "تا تاریخ :";
-         // 
-         // tb_master
-         // 
-         this.tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.tb_master.Controls.Add(this.tp_001);
-         this.tb_master.Location = new System.Drawing.Point(21, 20);
-         this.tb_master.Name = "tb_master";
-         this.tb_master.RightToLeftLayout = true;
-         this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(1031, 637);
-         this.tb_master.TabIndex = 0;
-         // 
-         // tp_001
-         // 
-         this.tp_001.AutoScroll = true;
-         this.tp_001.BackColor = System.Drawing.Color.LightGray;
-         this.tp_001.Controls.Add(this.Bcds_SpltCont);
-         this.tp_001.Location = new System.Drawing.Point(4, 23);
-         this.tp_001.Name = "tp_001";
-         this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(1023, 610);
-         this.tp_001.TabIndex = 0;
-         this.tp_001.Text = "اطلاعات سازمان های طرف قرارداد";
-         // 
          // Bcds_SpltCont
          // 
          this.Bcds_SpltCont.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
          this.Bcds_SpltCont.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Bcds_SpltCont.Location = new System.Drawing.Point(3, 3);
+         this.Bcds_SpltCont.Location = new System.Drawing.Point(0, 47);
          this.Bcds_SpltCont.Name = "Bcds_SpltCont";
          // 
          // Bcds_SpltCont.Panel1
          // 
          this.Bcds_SpltCont.Panel1.AutoScroll = true;
-         this.Bcds_SpltCont.Panel1.Controls.Add(this.radGroupBox2);
-         this.Bcds_SpltCont.Panel1.Controls.Add(this.radGroupBox3);
-         this.Bcds_SpltCont.Panel1.Controls.Add(this.radGroupBox4);
-         this.Bcds_SpltCont.Panel1.Controls.Add(this.radGroupBox1);
+         this.Bcds_SpltCont.Panel1.Controls.Add(this.SuntCode_Gb);
+         this.Bcds_SpltCont.Panel1.Controls.Add(this.BuntCode_Gb);
+         this.Bcds_SpltCont.Panel1.Controls.Add(this.DeptCode_Gb);
+         this.Bcds_SpltCont.Panel1.Controls.Add(this.OrgnCode_Gb);
          this.Bcds_SpltCont.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          // 
          // Bcds_SpltCont.Panel2
          // 
-         this.Bcds_SpltCont.Panel2.Controls.Add(this.radGroupBox5);
+         this.Bcds_SpltCont.Panel2.Controls.Add(this.Discount_Gb);
          this.Bcds_SpltCont.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Bcds_SpltCont.Size = new System.Drawing.Size(1017, 604);
-         this.Bcds_SpltCont.SplitterDistance = 279;
+         this.Bcds_SpltCont.Size = new System.Drawing.Size(1072, 331);
+         this.Bcds_SpltCont.SplitterDistance = 479;
          this.Bcds_SpltCont.TabIndex = 4;
-         // 
-         // radGroupBox2
-         // 
-         this.radGroupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox2.Controls.Add(this.DeptUpd_Butn);
-         this.radGroupBox2.Controls.Add(this.DeptDel_Butn);
-         this.radGroupBox2.Controls.Add(this.DeptAdd_Butn);
-         this.radGroupBox2.Controls.Add(this.gridControl1);
-         this.radGroupBox2.HeaderText = "واحد تابعه";
-         this.radGroupBox2.Location = new System.Drawing.Point(-470, 10);
-         this.radGroupBox2.Name = "radGroupBox2";
-         this.radGroupBox2.Size = new System.Drawing.Size(363, 290);
-         this.radGroupBox2.TabIndex = 2;
-         this.radGroupBox2.Text = "واحد تابعه";
          // 
          // DeptUpd_Butn
          // 
@@ -329,7 +303,7 @@
          this.DeptUpd_Butn.ImageIndex = 2;
          this.DeptUpd_Butn.ImageList = this.imageList1;
          this.DeptUpd_Butn.InToBold = false;
-         this.DeptUpd_Butn.Location = new System.Drawing.Point(192, 237);
+         this.DeptUpd_Butn.Location = new System.Drawing.Point(197, 236);
          this.DeptUpd_Butn.Name = "DeptUpd_Butn";
          this.DeptUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.DeptUpd_Butn.TabIndex = 1;
@@ -361,7 +335,7 @@
          this.DeptDel_Butn.ImageIndex = 1;
          this.DeptDel_Butn.ImageList = this.imageList1;
          this.DeptDel_Butn.InToBold = false;
-         this.DeptDel_Butn.Location = new System.Drawing.Point(246, 237);
+         this.DeptDel_Butn.Location = new System.Drawing.Point(251, 236);
          this.DeptDel_Butn.Name = "DeptDel_Butn";
          this.DeptDel_Butn.Size = new System.Drawing.Size(48, 48);
          this.DeptDel_Butn.TabIndex = 1;
@@ -383,7 +357,7 @@
          this.DeptAdd_Butn.ImageIndex = 0;
          this.DeptAdd_Butn.ImageList = this.imageList1;
          this.DeptAdd_Butn.InToBold = false;
-         this.DeptAdd_Butn.Location = new System.Drawing.Point(300, 237);
+         this.DeptAdd_Butn.Location = new System.Drawing.Point(305, 236);
          this.DeptAdd_Butn.Name = "DeptAdd_Butn";
          this.DeptAdd_Butn.Size = new System.Drawing.Size(48, 48);
          this.DeptAdd_Butn.TabIndex = 1;
@@ -402,7 +376,7 @@
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView1;
          this.gridControl1.Name = "gridControl1";
-         this.gridControl1.Size = new System.Drawing.Size(331, 200);
+         this.gridControl1.Size = new System.Drawing.Size(336, 200);
          this.gridControl1.TabIndex = 0;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -491,21 +465,6 @@
          this.colOrgan.FieldName = "Organ";
          this.colOrgan.Name = "colOrgan";
          // 
-         // radGroupBox3
-         // 
-         this.radGroupBox3.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox3.Controls.Add(this.BuntUpd_Butn);
-         this.radGroupBox3.Controls.Add(this.BuntDel_Butn);
-         this.radGroupBox3.Controls.Add(this.BuntAdd_Butn);
-         this.radGroupBox3.Controls.Add(this.gridControl2);
-         this.radGroupBox3.HeaderText = "زیرمجموعه اصلی";
-         this.radGroupBox3.Location = new System.Drawing.Point(-101, 306);
-         this.radGroupBox3.Name = "radGroupBox3";
-         this.radGroupBox3.Size = new System.Drawing.Size(363, 286);
-         this.radGroupBox3.TabIndex = 1;
-         this.radGroupBox3.Text = "زیرمجموعه اصلی";
-         // 
          // BuntUpd_Butn
          // 
          this.BuntUpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -521,7 +480,7 @@
          this.BuntUpd_Butn.ImageIndex = 2;
          this.BuntUpd_Butn.ImageList = this.imageList1;
          this.BuntUpd_Butn.InToBold = false;
-         this.BuntUpd_Butn.Location = new System.Drawing.Point(192, 233);
+         this.BuntUpd_Butn.Location = new System.Drawing.Point(181, 227);
          this.BuntUpd_Butn.Name = "BuntUpd_Butn";
          this.BuntUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BuntUpd_Butn.TabIndex = 1;
@@ -545,7 +504,7 @@
          this.BuntDel_Butn.ImageIndex = 1;
          this.BuntDel_Butn.ImageList = this.imageList1;
          this.BuntDel_Butn.InToBold = false;
-         this.BuntDel_Butn.Location = new System.Drawing.Point(246, 233);
+         this.BuntDel_Butn.Location = new System.Drawing.Point(235, 227);
          this.BuntDel_Butn.Name = "BuntDel_Butn";
          this.BuntDel_Butn.Size = new System.Drawing.Size(48, 48);
          this.BuntDel_Butn.TabIndex = 1;
@@ -569,7 +528,7 @@
          this.BuntAdd_Butn.ImageIndex = 0;
          this.BuntAdd_Butn.ImageList = this.imageList1;
          this.BuntAdd_Butn.InToBold = false;
-         this.BuntAdd_Butn.Location = new System.Drawing.Point(300, 233);
+         this.BuntAdd_Butn.Location = new System.Drawing.Point(289, 227);
          this.BuntAdd_Butn.Name = "BuntAdd_Butn";
          this.BuntAdd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BuntAdd_Butn.TabIndex = 1;
@@ -583,7 +542,7 @@
          this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl2.DataSource = this.BuntBs1;
-         this.gridControl2.Location = new System.Drawing.Point(17, 27);
+         this.gridControl2.Location = new System.Drawing.Point(6, 21);
          this.gridControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl2.MainView = this.gridView2;
@@ -679,21 +638,6 @@
          this.colDepartment.FieldName = "Department";
          this.colDepartment.Name = "colDepartment";
          // 
-         // radGroupBox4
-         // 
-         this.radGroupBox4.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox4.Controls.Add(this.SuntUpd_Butn);
-         this.radGroupBox4.Controls.Add(this.SuntDel_Butn);
-         this.radGroupBox4.Controls.Add(this.SuntAdd_Butn);
-         this.radGroupBox4.Controls.Add(this.gridControl3);
-         this.radGroupBox4.HeaderText = "زیرمجموعه فرعی";
-         this.radGroupBox4.Location = new System.Drawing.Point(-470, 306);
-         this.radGroupBox4.Name = "radGroupBox4";
-         this.radGroupBox4.Size = new System.Drawing.Size(363, 286);
-         this.radGroupBox4.TabIndex = 2;
-         this.radGroupBox4.Text = "زیرمجموعه فرعی";
-         // 
          // SuntUpd_Butn
          // 
          this.SuntUpd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -709,7 +653,7 @@
          this.SuntUpd_Butn.ImageIndex = 2;
          this.SuntUpd_Butn.ImageList = this.imageList1;
          this.SuntUpd_Butn.InToBold = false;
-         this.SuntUpd_Butn.Location = new System.Drawing.Point(192, 233);
+         this.SuntUpd_Butn.Location = new System.Drawing.Point(197, 227);
          this.SuntUpd_Butn.Name = "SuntUpd_Butn";
          this.SuntUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.SuntUpd_Butn.TabIndex = 1;
@@ -733,7 +677,7 @@
          this.SuntDel_Butn.ImageIndex = 1;
          this.SuntDel_Butn.ImageList = this.imageList1;
          this.SuntDel_Butn.InToBold = false;
-         this.SuntDel_Butn.Location = new System.Drawing.Point(246, 233);
+         this.SuntDel_Butn.Location = new System.Drawing.Point(251, 227);
          this.SuntDel_Butn.Name = "SuntDel_Butn";
          this.SuntDel_Butn.Size = new System.Drawing.Size(48, 48);
          this.SuntDel_Butn.TabIndex = 1;
@@ -757,7 +701,7 @@
          this.SuntAdd_Butn.ImageIndex = 0;
          this.SuntAdd_Butn.ImageList = this.imageList1;
          this.SuntAdd_Butn.InToBold = false;
-         this.SuntAdd_Butn.Location = new System.Drawing.Point(300, 233);
+         this.SuntAdd_Butn.Location = new System.Drawing.Point(305, 227);
          this.SuntAdd_Butn.Name = "SuntAdd_Butn";
          this.SuntAdd_Butn.Size = new System.Drawing.Size(48, 48);
          this.SuntAdd_Butn.TabIndex = 1;
@@ -771,12 +715,12 @@
          this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl3.DataSource = this.SuntBs1;
-         this.gridControl3.Location = new System.Drawing.Point(17, 27);
+         this.gridControl3.Location = new System.Drawing.Point(5, 21);
          this.gridControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl3.MainView = this.gridView3;
          this.gridControl3.Name = "gridControl3";
-         this.gridControl3.Size = new System.Drawing.Size(331, 200);
+         this.gridControl3.Size = new System.Drawing.Size(348, 200);
          this.gridControl3.TabIndex = 0;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -879,21 +823,6 @@
          this.colBase_Unit.FieldName = "Base_Unit";
          this.colBase_Unit.Name = "colBase_Unit";
          // 
-         // radGroupBox1
-         // 
-         this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox1.Controls.Add(this.OrgnUpd_Butn);
-         this.radGroupBox1.Controls.Add(this.OrgnDel_Butn);
-         this.radGroupBox1.Controls.Add(this.OrgnAdd_Butn);
-         this.radGroupBox1.Controls.Add(this.organGridControl);
-         this.radGroupBox1.HeaderText = "اطلاعات سازمان";
-         this.radGroupBox1.Location = new System.Drawing.Point(-101, 10);
-         this.radGroupBox1.Name = "radGroupBox1";
-         this.radGroupBox1.Size = new System.Drawing.Size(363, 290);
-         this.radGroupBox1.TabIndex = 1;
-         this.radGroupBox1.Text = "اطلاعات سازمان";
-         // 
          // OrgnUpd_Butn
          // 
          this.OrgnUpd_Butn.BackColor = System.Drawing.Color.Transparent;
@@ -907,7 +836,7 @@
          this.OrgnUpd_Butn.ImageIndex = 2;
          this.OrgnUpd_Butn.ImageList = this.imageList1;
          this.OrgnUpd_Butn.InToBold = false;
-         this.OrgnUpd_Butn.Location = new System.Drawing.Point(192, 237);
+         this.OrgnUpd_Butn.Location = new System.Drawing.Point(181, 237);
          this.OrgnUpd_Butn.Name = "OrgnUpd_Butn";
          this.OrgnUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.OrgnUpd_Butn.TabIndex = 1;
@@ -929,7 +858,7 @@
          this.OrgnDel_Butn.ImageIndex = 1;
          this.OrgnDel_Butn.ImageList = this.imageList1;
          this.OrgnDel_Butn.InToBold = false;
-         this.OrgnDel_Butn.Location = new System.Drawing.Point(246, 237);
+         this.OrgnDel_Butn.Location = new System.Drawing.Point(235, 237);
          this.OrgnDel_Butn.Name = "OrgnDel_Butn";
          this.OrgnDel_Butn.Size = new System.Drawing.Size(48, 48);
          this.OrgnDel_Butn.TabIndex = 1;
@@ -951,7 +880,7 @@
          this.OrgnAdd_Butn.ImageIndex = 0;
          this.OrgnAdd_Butn.ImageList = this.imageList1;
          this.OrgnAdd_Butn.InToBold = false;
-         this.OrgnAdd_Butn.Location = new System.Drawing.Point(300, 237);
+         this.OrgnAdd_Butn.Location = new System.Drawing.Point(289, 237);
          this.OrgnAdd_Butn.Name = "OrgnAdd_Butn";
          this.OrgnAdd_Butn.Size = new System.Drawing.Size(48, 48);
          this.OrgnAdd_Butn.TabIndex = 1;
@@ -965,7 +894,7 @@
          this.organGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.organGridControl.DataSource = this.OrgnBs1;
-         this.organGridControl.Location = new System.Drawing.Point(17, 31);
+         this.organGridControl.Location = new System.Drawing.Point(6, 31);
          this.organGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.organGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.organGridControl.MainView = this.Orgn_Gv;
@@ -1038,52 +967,13 @@
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
-         // radGroupBox5
-         // 
-         this.radGroupBox5.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox5.Controls.Add(this.radGroupBox6);
-         this.radGroupBox5.Controls.Add(this.BcdsIncPn_Butn);
-         this.radGroupBox5.Controls.Add(this.BcdsDecPn_Butn);
-         this.radGroupBox5.Controls.Add(this.BcdsUpd_Butn);
-         this.radGroupBox5.Controls.Add(this.BcdsDel_Butn);
-         this.radGroupBox5.Controls.Add(this.BcdsAdd_Butn);
-         this.radGroupBox5.Controls.Add(this.gridControl4);
-         this.radGroupBox5.HeaderText = "تخفیفات";
-         this.radGroupBox5.Location = new System.Drawing.Point(13, 10);
-         this.radGroupBox5.Name = "radGroupBox5";
-         this.radGroupBox5.Size = new System.Drawing.Size(707, 586);
-         this.radGroupBox5.TabIndex = 3;
-         this.radGroupBox5.Text = "تخفیفات";
-         // 
-         // radGroupBox6
-         // 
-         this.radGroupBox6.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox6.Controls.Add(this.dateTimeSelector1);
-         this.radGroupBox6.Controls.Add(label1);
-         this.radGroupBox6.Controls.Add(this.BRTH_DATE_PersianDateEdit);
-         this.radGroupBox6.Controls.Add(bRTH_DATELabel);
-         this.radGroupBox6.Controls.Add(dSCT_DESCLabel);
-         this.radGroupBox6.Controls.Add(this.dSCT_DESCTextEdit);
-         this.radGroupBox6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.radGroupBox6.HeaderText = "تخفیف مخصوص دوره ای یا بازه تاریخی";
-         this.radGroupBox6.Location = new System.Drawing.Point(20, 436);
-         this.radGroupBox6.Name = "radGroupBox6";
-         this.radGroupBox6.Size = new System.Drawing.Size(672, 91);
-         this.radGroupBox6.TabIndex = 2;
-         this.radGroupBox6.Text = "تخفیف مخصوص دوره ای یا بازه تاریخی";
-         // 
          // dateTimeSelector1
          // 
          this.dateTimeSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs1, "TO_DATE", true));
          this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(317, 60);
+         this.dateTimeSelector1.Location = new System.Drawing.Point(171, 55);
          this.dateTimeSelector1.Name = "dateTimeSelector1";
          this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector1.Size = new System.Drawing.Size(100, 23);
@@ -1101,7 +991,7 @@
          this.BRTH_DATE_PersianDateEdit.CustomFormat = "dd/MM/yyyy";
          this.BRTH_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs1, "FROM_DATE", true));
          this.BRTH_DATE_PersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(483, 60);
+         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(337, 55);
          this.BRTH_DATE_PersianDateEdit.Name = "BRTH_DATE_PersianDateEdit";
          this.BRTH_DATE_PersianDateEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.BRTH_DATE_PersianDateEdit.Size = new System.Drawing.Size(100, 23);
@@ -1113,13 +1003,13 @@
          this.dSCT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.dSCT_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.BcdsBs1, "DSCT_DESC", true));
-         this.dSCT_DESCTextEdit.Location = new System.Drawing.Point(18, 32);
+         this.dSCT_DESCTextEdit.Location = new System.Drawing.Point(17, 27);
          this.dSCT_DESCTextEdit.Name = "dSCT_DESCTextEdit";
          this.dSCT_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.dSCT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
          this.dSCT_DESCTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.dSCT_DESCTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(565, 22);
+         this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(420, 22);
          this.dSCT_DESCTextEdit.TabIndex = 25;
          // 
          // BcdsIncPn_Butn
@@ -1136,7 +1026,7 @@
          this.BcdsIncPn_Butn.ImageIndex = 4;
          this.BcdsIncPn_Butn.ImageList = this.imageList1;
          this.BcdsIncPn_Butn.InToBold = false;
-         this.BcdsIncPn_Butn.Location = new System.Drawing.Point(74, 533);
+         this.BcdsIncPn_Butn.Location = new System.Drawing.Point(74, 254);
          this.BcdsIncPn_Butn.Name = "BcdsIncPn_Butn";
          this.BcdsIncPn_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsIncPn_Butn.TabIndex = 1;
@@ -1159,7 +1049,7 @@
          this.BcdsDecPn_Butn.ImageIndex = 3;
          this.BcdsDecPn_Butn.ImageList = this.imageList1;
          this.BcdsDecPn_Butn.InToBold = false;
-         this.BcdsDecPn_Butn.Location = new System.Drawing.Point(20, 533);
+         this.BcdsDecPn_Butn.Location = new System.Drawing.Point(20, 254);
          this.BcdsDecPn_Butn.Name = "BcdsDecPn_Butn";
          this.BcdsDecPn_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsDecPn_Butn.TabIndex = 1;
@@ -1182,7 +1072,7 @@
          this.BcdsUpd_Butn.ImageIndex = 2;
          this.BcdsUpd_Butn.ImageList = this.imageList1;
          this.BcdsUpd_Butn.InToBold = false;
-         this.BcdsUpd_Butn.Location = new System.Drawing.Point(536, 533);
+         this.BcdsUpd_Butn.Location = new System.Drawing.Point(391, 254);
          this.BcdsUpd_Butn.Name = "BcdsUpd_Butn";
          this.BcdsUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsUpd_Butn.TabIndex = 1;
@@ -1205,7 +1095,7 @@
          this.BcdsDel_Butn.ImageIndex = 1;
          this.BcdsDel_Butn.ImageList = this.imageList1;
          this.BcdsDel_Butn.InToBold = false;
-         this.BcdsDel_Butn.Location = new System.Drawing.Point(590, 533);
+         this.BcdsDel_Butn.Location = new System.Drawing.Point(445, 254);
          this.BcdsDel_Butn.Name = "BcdsDel_Butn";
          this.BcdsDel_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsDel_Butn.TabIndex = 1;
@@ -1228,7 +1118,7 @@
          this.BcdsAdd_Butn.ImageIndex = 0;
          this.BcdsAdd_Butn.ImageList = this.imageList1;
          this.BcdsAdd_Butn.InToBold = false;
-         this.BcdsAdd_Butn.Location = new System.Drawing.Point(644, 533);
+         this.BcdsAdd_Butn.Location = new System.Drawing.Point(499, 254);
          this.BcdsAdd_Butn.Name = "BcdsAdd_Butn";
          this.BcdsAdd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsAdd_Butn.TabIndex = 1;
@@ -1243,7 +1133,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl4.DataSource = this.BcdsBs1;
-         this.gridControl4.Location = new System.Drawing.Point(20, 31);
+         this.gridControl4.Location = new System.Drawing.Point(20, 44);
          this.gridControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl4.MainView = this.gridView4;
@@ -1253,7 +1143,7 @@
             this.Dstp_Lov,
             this.Stat_Lov,
             this.Dsat_Lov});
-         this.gridControl4.Size = new System.Drawing.Size(672, 399);
+         this.gridControl4.Size = new System.Drawing.Size(527, 94);
          this.gridControl4.TabIndex = 0;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1289,19 +1179,19 @@
             this.colRegulation,
             this.colSub_Unit,
             this.colACTN_TYPE});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.Column = this.colDSCT_TYPE;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "002";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.Column = this.colDSCT_TYPE;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "001";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.Column = this.colDSCT_TYPE;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "002";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.Column = this.colDSCT_TYPE;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "001";
          this.gridView4.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView4.GridControl = this.gridControl4;
          this.gridView4.Name = "gridView4";
          this.gridView4.OptionsDetail.EnableMasterViewMode = false;
@@ -1372,7 +1262,7 @@
          // 
          this.Epit_Lov.AutoHeight = false;
          this.Epit_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.Epit_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 51, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RQTP_CODE", "RQTP_CODE", 71, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -1430,7 +1320,7 @@
          // 
          this.Stat_Lov.AutoHeight = false;
          this.Stat_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.Stat_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1492,7 +1382,7 @@
          // 
          this.Dsat_Lov.AutoHeight = false;
          this.Dsat_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.Dsat_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع اعمال تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1506,73 +1396,370 @@
          // 
          this.DDsatBs1.DataSource = typeof(System.Scsc.Data.D_DSAT);
          // 
-         // Btn_Back
+         // OrgnCode_Gb
          // 
-         this.Btn_Back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Btn_Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Btn_Back.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_Back.Caption = "بازگشت";
-         this.Btn_Back.Disabled = false;
-         this.Btn_Back.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_Back.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Btn_Back.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_Back.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.Btn_Back.ImageIndex = 0;
-         this.Btn_Back.ImageList = null;
-         this.Btn_Back.InToBold = false;
-         this.Btn_Back.Location = new System.Drawing.Point(496, 673);
-         this.Btn_Back.Name = "Btn_Back";
-         this.Btn_Back.Size = new System.Drawing.Size(80, 29);
-         this.Btn_Back.TabIndex = 24;
-         this.Btn_Back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_Back.TextColor = System.Drawing.Color.Black;
-         this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
+         this.OrgnCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OrgnCode_Gb.Controls.Add(this.organGridControl);
+         this.OrgnCode_Gb.Controls.Add(this.OrgnUpd_Butn);
+         this.OrgnCode_Gb.Controls.Add(this.OrgnAdd_Butn);
+         this.OrgnCode_Gb.Controls.Add(this.OrgnDel_Butn);
+         this.OrgnCode_Gb.Location = new System.Drawing.Point(107, 10);
+         this.OrgnCode_Gb.Name = "OrgnCode_Gb";
+         this.OrgnCode_Gb.Size = new System.Drawing.Size(348, 290);
+         this.OrgnCode_Gb.TabIndex = 3;
+         this.OrgnCode_Gb.TabStop = false;
+         this.OrgnCode_Gb.Text = "ارگان";
+         // 
+         // DeptCode_Gb
+         // 
+         this.DeptCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DeptCode_Gb.Controls.Add(this.gridControl1);
+         this.DeptCode_Gb.Controls.Add(this.DeptUpd_Butn);
+         this.DeptCode_Gb.Controls.Add(this.DeptAdd_Butn);
+         this.DeptCode_Gb.Controls.Add(this.DeptDel_Butn);
+         this.DeptCode_Gb.Location = new System.Drawing.Point(-262, 10);
+         this.DeptCode_Gb.Name = "DeptCode_Gb";
+         this.DeptCode_Gb.Size = new System.Drawing.Size(363, 290);
+         this.DeptCode_Gb.TabIndex = 4;
+         this.DeptCode_Gb.TabStop = false;
+         this.DeptCode_Gb.Text = "واحد تابعه";
+         // 
+         // BuntCode_Gb
+         // 
+         this.BuntCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BuntCode_Gb.Controls.Add(this.gridControl2);
+         this.BuntCode_Gb.Controls.Add(this.BuntUpd_Butn);
+         this.BuntCode_Gb.Controls.Add(this.BuntAdd_Butn);
+         this.BuntCode_Gb.Controls.Add(this.BuntDel_Butn);
+         this.BuntCode_Gb.Location = new System.Drawing.Point(107, 306);
+         this.BuntCode_Gb.Name = "BuntCode_Gb";
+         this.BuntCode_Gb.Size = new System.Drawing.Size(348, 285);
+         this.BuntCode_Gb.TabIndex = 5;
+         this.BuntCode_Gb.TabStop = false;
+         this.BuntCode_Gb.Text = "زیر مجموعه اصلی";
+         // 
+         // SuntCode_Gb
+         // 
+         this.SuntCode_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntCode_Gb.Controls.Add(this.gridControl3);
+         this.SuntCode_Gb.Controls.Add(this.SuntUpd_Butn);
+         this.SuntCode_Gb.Controls.Add(this.SuntAdd_Butn);
+         this.SuntCode_Gb.Controls.Add(this.SuntDel_Butn);
+         this.SuntCode_Gb.Location = new System.Drawing.Point(-262, 306);
+         this.SuntCode_Gb.Name = "SuntCode_Gb";
+         this.SuntCode_Gb.Size = new System.Drawing.Size(363, 285);
+         this.SuntCode_Gb.TabIndex = 6;
+         this.SuntCode_Gb.TabStop = false;
+         this.SuntCode_Gb.Text = "زیر مجموعه فرعی";
+         // 
+         // Discount_Gb
+         // 
+         this.Discount_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.Discount_Gb.Controls.Add(this.BcdsIncPn_Butn);
+         this.Discount_Gb.Controls.Add(this.DiscountInfo_Gb);
+         this.Discount_Gb.Controls.Add(this.BcdsDecPn_Butn);
+         this.Discount_Gb.Controls.Add(this.BcdsUpd_Butn);
+         this.Discount_Gb.Controls.Add(this.gridControl4);
+         this.Discount_Gb.Controls.Add(this.BcdsDel_Butn);
+         this.Discount_Gb.Controls.Add(this.BcdsAdd_Butn);
+         this.Discount_Gb.Location = new System.Drawing.Point(13, 10);
+         this.Discount_Gb.Name = "Discount_Gb";
+         this.Discount_Gb.Size = new System.Drawing.Size(562, 308);
+         this.Discount_Gb.TabIndex = 4;
+         this.Discount_Gb.TabStop = false;
+         this.Discount_Gb.Text = "تخفیفات";
+         // 
+         // DiscountInfo_Gb
+         // 
+         this.DiscountInfo_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.DiscountInfo_Gb.Controls.Add(this.dateTimeSelector1);
+         this.DiscountInfo_Gb.Controls.Add(this.dSCT_DESCTextEdit);
+         this.DiscountInfo_Gb.Controls.Add(label1);
+         this.DiscountInfo_Gb.Controls.Add(dSCT_DESCLabel);
+         this.DiscountInfo_Gb.Controls.Add(this.BRTH_DATE_PersianDateEdit);
+         this.DiscountInfo_Gb.Controls.Add(bRTH_DATELabel);
+         this.DiscountInfo_Gb.Location = new System.Drawing.Point(20, 144);
+         this.DiscountInfo_Gb.Name = "DiscountInfo_Gb";
+         this.DiscountInfo_Gb.Size = new System.Drawing.Size(527, 100);
+         this.DiscountInfo_Gb.TabIndex = 1;
+         this.DiscountInfo_Gb.TabStop = false;
+         this.DiscountInfo_Gb.Text = "تخفیف مخصوص دوره ای یا بازه زمانی";
+         // 
+         // RqstBn1
+         // 
+         this.RqstBn1.AddNewItem = this.RqstBnNew1;
+         this.RqstBn1.BackColor = System.Drawing.Color.Khaki;
+         this.RqstBn1.BindingSource = this.BcdsBs1;
+         this.RqstBn1.CountItem = this.bindingNavigatorCountItem;
+         this.RqstBn1.DeleteItem = null;
+         this.RqstBn1.ImageScalingSize = new System.Drawing.Size(40, 40);
+         this.RqstBn1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.RqstBnNew1,
+            this.RqstBnDelete1,
+            this.RqstBnARqt1,
+            this.RqstMBnDefaultPrint1,
+            this.RqstBnASav1,
+            this.RqstBnAResn1,
+            this.RqstBnADoc1,
+            this.RqstBnRegl01,
+            this.RqstBnExit1});
+         this.RqstBn1.Location = new System.Drawing.Point(0, 0);
+         this.RqstBn1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+         this.RqstBn1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+         this.RqstBn1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+         this.RqstBn1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+         this.RqstBn1.Name = "RqstBn1";
+         this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
+         this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+         this.RqstBn1.Size = new System.Drawing.Size(1072, 47);
+         this.RqstBn1.TabIndex = 25;
+         this.RqstBn1.Text = "bindingNavigator1";
+         // 
+         // RqstBnNew1
+         // 
+         this.RqstBnNew1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnNew1.Image = global::System.Scsc.Properties.Resources.IMAGE_1054;
+         this.RqstBnNew1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnNew1.Name = "RqstBnNew1";
+         this.RqstBnNew1.RightToLeftAutoMirrorImage = true;
+         this.RqstBnNew1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnNew1.Text = "Add new";
+         this.RqstBnNew1.ToolTipText = "ثبت ورودی جدید";
+         this.RqstBnNew1.Click += new System.EventHandler(this.BcdsAdd_Butn_Click);
+         // 
+         // bindingNavigatorCountItem
+         // 
+         this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 44);
+         this.bindingNavigatorCountItem.Text = "of {0}";
+         this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+         // 
+         // bindingNavigatorMoveFirstItem
+         // 
+         this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveFirstItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1062;
+         this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+         this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(44, 44);
+         this.bindingNavigatorMoveFirstItem.Text = "Move first";
+         // 
+         // bindingNavigatorMovePreviousItem
+         // 
+         this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMovePreviousItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
+         this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+         this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(44, 44);
+         this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+         // 
+         // bindingNavigatorSeparator
+         // 
+         this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+         this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 47);
+         // 
+         // bindingNavigatorPositionItem
+         // 
+         this.bindingNavigatorPositionItem.AccessibleName = "Position";
+         this.bindingNavigatorPositionItem.AutoSize = false;
+         this.bindingNavigatorPositionItem.BackColor = System.Drawing.Color.Khaki;
+         this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+         this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+         this.bindingNavigatorPositionItem.Text = "0";
+         this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+         // 
+         // bindingNavigatorSeparator1
+         // 
+         this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+         this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 47);
+         // 
+         // bindingNavigatorMoveNextItem
+         // 
+         this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveNextItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
+         this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+         this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(44, 44);
+         this.bindingNavigatorMoveNextItem.Text = "Move next";
+         // 
+         // bindingNavigatorMoveLastItem
+         // 
+         this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveLastItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1063;
+         this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+         this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(44, 44);
+         this.bindingNavigatorMoveLastItem.Text = "Move last";
+         // 
+         // bindingNavigatorSeparator2
+         // 
+         this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+         this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 47);
+         // 
+         // RqstBnDelete1
+         // 
+         this.RqstBnDelete1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnDelete1.Image = global::System.Scsc.Properties.Resources.IMAGE_1057;
+         this.RqstBnDelete1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnDelete1.Name = "RqstBnDelete1";
+         this.RqstBnDelete1.RightToLeftAutoMirrorImage = true;
+         this.RqstBnDelete1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnDelete1.Text = "Delete";
+         this.RqstBnDelete1.ToolTipText = "انصراف ثبت نام";
+         this.RqstBnDelete1.Click += new System.EventHandler(this.BcdsDel_Butn_Click);
+         // 
+         // RqstBnARqt1
+         // 
+         this.RqstBnARqt1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnARqt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1144;
+         this.RqstBnARqt1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnARqt1.Name = "RqstBnARqt1";
+         this.RqstBnARqt1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnARqt1.Text = "Save Data";
+         this.RqstBnARqt1.ToolTipText = "ثبت مجدد اطلاعات";
+         this.RqstBnARqt1.Click += new System.EventHandler(this.BcdsUpd_Butn_Click);
+         // 
+         // RqstMBnDefaultPrint1
+         // 
+         this.RqstMBnDefaultPrint1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstMBnDefaultPrint1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RqstBnDefaultPrint1,
+            this.RqstBnPrint1,
+            this.toolStripMenuItem1,
+            this.RqstBnSettingPrint1});
+         this.RqstMBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.RqstMBnDefaultPrint1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstMBnDefaultPrint1.Name = "RqstMBnDefaultPrint1";
+         this.RqstMBnDefaultPrint1.Size = new System.Drawing.Size(56, 44);
+         this.RqstMBnDefaultPrint1.Text = "چاپ پیش فرض";
+         // 
+         // RqstBnDefaultPrint1
+         // 
+         this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
+         this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
+         // 
+         // RqstBnPrint1
+         // 
+         this.RqstBnPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1090;
+         this.RqstBnPrint1.Name = "RqstBnPrint1";
+         this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+         this.RqstBnPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnPrint1.Text = "انتخاب چاپ";
+         // 
+         // toolStripMenuItem1
+         // 
+         this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
+         // 
+         // RqstBnSettingPrint1
+         // 
+         this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
+         this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
+         // 
+         // RqstBnASav1
+         // 
+         this.RqstBnASav1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnASav1.Enabled = false;
+         this.RqstBnASav1.Image = global::System.Scsc.Properties.Resources.IMAGE_1056;
+         this.RqstBnASav1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnASav1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnASav1.Name = "RqstBnASav1";
+         this.RqstBnASav1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnASav1.Text = "toolStripButton1";
+         this.RqstBnASav1.ToolTipText = "ذخیره نهایی";
+         this.RqstBnASav1.Visible = false;
+         // 
+         // RqstBnAResn1
+         // 
+         this.RqstBnAResn1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnAResn1.Enabled = false;
+         this.RqstBnAResn1.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+         this.RqstBnAResn1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnAResn1.Name = "RqstBnAResn1";
+         this.RqstBnAResn1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnAResn1.Text = "اسناد و مدارک مورد نیاز";
+         this.RqstBnAResn1.Visible = false;
+         // 
+         // RqstBnADoc1
+         // 
+         this.RqstBnADoc1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnADoc1.Enabled = false;
+         this.RqstBnADoc1.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+         this.RqstBnADoc1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnADoc1.Name = "RqstBnADoc1";
+         this.RqstBnADoc1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnADoc1.Text = "toolStripButton1";
+         this.RqstBnADoc1.Visible = false;
+         // 
+         // RqstBnRegl01
+         // 
+         this.RqstBnRegl01.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnRegl01.Enabled = false;
+         this.RqstBnRegl01.Image = global::System.Scsc.Properties.Resources.IMAGE_1075;
+         this.RqstBnRegl01.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnRegl01.Name = "RqstBnRegl01";
+         this.RqstBnRegl01.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnRegl01.Text = "toolStripButton1";
+         this.RqstBnRegl01.Visible = false;
+         // 
+         // RqstBnExit1
+         // 
+         this.RqstBnExit1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnExit1.Image = global::System.Scsc.Properties.Resources.IMAGE_1058;
+         this.RqstBnExit1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnExit1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnExit1.Name = "RqstBnExit1";
+         this.RqstBnExit1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnExit1.Text = "toolStripButton3";
+         this.RqstBnExit1.ToolTipText = "خروج";
+         this.RqstBnExit1.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // ORGN_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.Silver;
-         this.Controls.Add(this.Btn_Back);
-         this.Controls.Add(this.tb_master);
+         this.BackColor = System.Drawing.SystemColors.Control;
+         this.Controls.Add(this.Bcds_SpltCont);
+         this.Controls.Add(this.RqstBn1);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "ORGN_TOTL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1072, 720);
+         this.Size = new System.Drawing.Size(1072, 378);
          ((System.ComponentModel.ISupportInitialize)(this.Dstp_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
-         this.tb_master.ResumeLayout(false);
-         this.tp_001.ResumeLayout(false);
          this.Bcds_SpltCont.Panel1.ResumeLayout(false);
          this.Bcds_SpltCont.Panel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.Bcds_SpltCont)).EndInit();
          this.Bcds_SpltCont.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
-         this.radGroupBox2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DeptBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox3)).EndInit();
-         this.radGroupBox3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox4)).EndInit();
-         this.radGroupBox4.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
-         this.radGroupBox1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.organGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Orgn_Gv)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox5)).EndInit();
-         this.radGroupBox5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox6)).EndInit();
-         this.radGroupBox6.ResumeLayout(false);
-         this.radGroupBox6.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.BcdsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dSCT_DESCTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
@@ -1583,15 +1770,23 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Dsat_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs1)).EndInit();
+         this.OrgnCode_Gb.ResumeLayout(false);
+         this.DeptCode_Gb.ResumeLayout(false);
+         this.BuntCode_Gb.ResumeLayout(false);
+         this.SuntCode_Gb.ResumeLayout(false);
+         this.Discount_Gb.ResumeLayout(false);
+         this.DiscountInfo_Gb.ResumeLayout(false);
+         this.DiscountInfo_Gb.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
+         this.RqstBn1.ResumeLayout(false);
+         this.RqstBn1.PerformLayout();
          this.ResumeLayout(false);
+         this.PerformLayout();
 
       }
 
       #endregion
 
-      private Windows.Forms.TabControl tb_master;
-      private Windows.Forms.TabPage tp_001;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
       private DevExpress.XtraGrid.GridControl organGridControl;
       private Windows.Forms.BindingSource OrgnBs1;
       private DevExpress.XtraGrid.Views.Grid.GridView Orgn_Gv;
@@ -1605,8 +1800,6 @@
       private Windows.Forms.ImageList imageList1;
       private MaxUi.NewMaxBtn OrgnUpd_Butn;
       private MaxUi.NewMaxBtn OrgnDel_Butn;
-      private MaxUi.NewMaxBtn Btn_Back;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
       private MaxUi.NewMaxBtn DeptUpd_Butn;
       private MaxUi.NewMaxBtn DeptDel_Butn;
       private MaxUi.NewMaxBtn DeptAdd_Butn;
@@ -1621,7 +1814,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY1;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE1;
       private DevExpress.XtraGrid.Columns.GridColumn colOrgan;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox4;
       private MaxUi.NewMaxBtn SuntUpd_Butn;
       private MaxUi.NewMaxBtn SuntDel_Butn;
       private MaxUi.NewMaxBtn SuntAdd_Butn;
@@ -1640,7 +1832,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY3;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE3;
       private DevExpress.XtraGrid.Columns.GridColumn colBase_Unit;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox3;
       private MaxUi.NewMaxBtn BuntUpd_Butn;
       private MaxUi.NewMaxBtn BuntDel_Butn;
       private MaxUi.NewMaxBtn BuntAdd_Butn;
@@ -1655,7 +1846,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY2;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE2;
       private DevExpress.XtraGrid.Columns.GridColumn colDepartment;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox5;
       private MaxUi.NewMaxBtn BcdsUpd_Butn;
       private MaxUi.NewMaxBtn BcdsDel_Butn;
       private MaxUi.NewMaxBtn BcdsAdd_Butn;
@@ -1693,9 +1883,37 @@
       private DevExpress.XtraGrid.Columns.GridColumn colACTN_TYPE;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Dsat_Lov;
       private Windows.Forms.BindingSource DDsatBs1;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox6;
       private DevExpress.XtraEditors.TextEdit dSCT_DESCTextEdit;
       private Atf.UI.DateTimeSelector dateTimeSelector1;
       private Atf.UI.DateTimeSelector BRTH_DATE_PersianDateEdit;
+      private Windows.Forms.GroupBox BuntCode_Gb;
+      private Windows.Forms.GroupBox DeptCode_Gb;
+      private Windows.Forms.GroupBox OrgnCode_Gb;
+      private Windows.Forms.GroupBox SuntCode_Gb;
+      private Windows.Forms.GroupBox Discount_Gb;
+      private Windows.Forms.GroupBox DiscountInfo_Gb;
+      private Windows.Forms.BindingNavigator RqstBn1;
+      private Windows.Forms.ToolStripButton RqstBnNew1;
+      private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+      private Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+      private Windows.Forms.ToolStripButton RqstBnDelete1;
+      private Windows.Forms.ToolStripButton RqstBnARqt1;
+      private Windows.Forms.ToolStripSplitButton RqstMBnDefaultPrint1;
+      private Windows.Forms.ToolStripMenuItem RqstBnDefaultPrint1;
+      private Windows.Forms.ToolStripMenuItem RqstBnPrint1;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+      private Windows.Forms.ToolStripMenuItem RqstBnSettingPrint1;
+      private Windows.Forms.ToolStripButton RqstBnASav1;
+      private Windows.Forms.ToolStripButton RqstBnAResn1;
+      private Windows.Forms.ToolStripButton RqstBnADoc1;
+      private Windows.Forms.ToolStripButton RqstBnRegl01;
+      private Windows.Forms.ToolStripButton RqstBnExit1;
    }
 }

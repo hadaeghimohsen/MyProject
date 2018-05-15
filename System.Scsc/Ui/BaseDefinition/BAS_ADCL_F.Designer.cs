@@ -29,13 +29,9 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label PostAdrs_Lb;
-         System.Windows.Forms.Label Name_Lb;
-         System.Windows.Forms.Label RegnCode_Lb;
          System.Windows.Forms.Label CordX_Lb;
          System.Windows.Forms.Label CordY_Lb;
          System.Windows.Forms.Label TellPhon_Lb;
-         System.Windows.Forms.Label CellPhon_Lb;
          System.Windows.Forms.Label WebSite_Lb;
          System.Windows.Forms.Label EmalAdrs_Lb;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_ADCL_F));
@@ -48,6 +44,10 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.PostAdrs_Lb = new System.Windows.Forms.Label();
+         this.Name_Lb = new System.Windows.Forms.Label();
+         this.RegnCode_Lb = new System.Windows.Forms.Label();
+         this.CellPhon_Lb = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
          this.Title_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -68,13 +68,9 @@
          this.Desc4_Lb = new DevExpress.XtraEditors.LabelControl();
          this.WebSite_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.EmailAddress_Text = new DevExpress.XtraEditors.ButtonEdit();
-         PostAdrs_Lb = new System.Windows.Forms.Label();
-         Name_Lb = new System.Windows.Forms.Label();
-         RegnCode_Lb = new System.Windows.Forms.Label();
          CordX_Lb = new System.Windows.Forms.Label();
          CordY_Lb = new System.Windows.Forms.Label();
          TellPhon_Lb = new System.Windows.Forms.Label();
-         CellPhon_Lb = new System.Windows.Forms.Label();
          WebSite_Lb = new System.Windows.Forms.Label();
          EmalAdrs_Lb = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
@@ -93,36 +89,36 @@
          // 
          // PostAdrs_Lb
          // 
-         PostAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         PostAdrs_Lb.AutoSize = true;
-         PostAdrs_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         PostAdrs_Lb.Location = new System.Drawing.Point(489, 485);
-         PostAdrs_Lb.Name = "PostAdrs_Lb";
-         PostAdrs_Lb.Size = new System.Drawing.Size(80, 28);
-         PostAdrs_Lb.TabIndex = 56;
-         PostAdrs_Lb.Text = "آدرس محل :";
+         this.PostAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PostAdrs_Lb.AutoSize = true;
+         this.PostAdrs_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PostAdrs_Lb.Location = new System.Drawing.Point(489, 485);
+         this.PostAdrs_Lb.Name = "PostAdrs_Lb";
+         this.PostAdrs_Lb.Size = new System.Drawing.Size(80, 28);
+         this.PostAdrs_Lb.TabIndex = 56;
+         this.PostAdrs_Lb.Text = "آدرس محل :";
          // 
          // Name_Lb
          // 
-         Name_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Name_Lb.AutoSize = true;
-         Name_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         Name_Lb.Location = new System.Drawing.Point(489, 134);
-         Name_Lb.Name = "Name_Lb";
-         Name_Lb.Size = new System.Drawing.Size(82, 28);
-         Name_Lb.TabIndex = 55;
-         Name_Lb.Text = "عنوان شیفت :";
+         this.Name_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Name_Lb.AutoSize = true;
+         this.Name_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Name_Lb.Location = new System.Drawing.Point(489, 134);
+         this.Name_Lb.Name = "Name_Lb";
+         this.Name_Lb.Size = new System.Drawing.Size(82, 28);
+         this.Name_Lb.TabIndex = 55;
+         this.Name_Lb.Text = "عنوان شیفت :";
          // 
          // RegnCode_Lb
          // 
-         RegnCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RegnCode_Lb.AutoSize = true;
-         RegnCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         RegnCode_Lb.Location = new System.Drawing.Point(489, 229);
-         RegnCode_Lb.Name = "RegnCode_Lb";
-         RegnCode_Lb.Size = new System.Drawing.Size(83, 28);
-         RegnCode_Lb.TabIndex = 54;
-         RegnCode_Lb.Text = "انتخاب ناحیه :";
+         this.RegnCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RegnCode_Lb.AutoSize = true;
+         this.RegnCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RegnCode_Lb.Location = new System.Drawing.Point(489, 229);
+         this.RegnCode_Lb.Name = "RegnCode_Lb";
+         this.RegnCode_Lb.Size = new System.Drawing.Size(83, 28);
+         this.RegnCode_Lb.TabIndex = 54;
+         this.RegnCode_Lb.Text = "انتخاب ناحیه :";
          // 
          // CordX_Lb
          // 
@@ -159,14 +155,14 @@
          // 
          // CellPhon_Lb
          // 
-         CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CellPhon_Lb.AutoSize = true;
-         CellPhon_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         CellPhon_Lb.Location = new System.Drawing.Point(489, 557);
-         CellPhon_Lb.Name = "CellPhon_Lb";
-         CellPhon_Lb.Size = new System.Drawing.Size(84, 28);
-         CellPhon_Lb.TabIndex = 55;
-         CellPhon_Lb.Text = "شماره همراه :";
+         this.CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon_Lb.AutoSize = true;
+         this.CellPhon_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CellPhon_Lb.Location = new System.Drawing.Point(489, 557);
+         this.CellPhon_Lb.Name = "CellPhon_Lb";
+         this.CellPhon_Lb.Size = new System.Drawing.Size(84, 28);
+         this.CellPhon_Lb.TabIndex = 55;
+         this.CellPhon_Lb.Text = "شماره همراه :";
          // 
          // WebSite_Lb
          // 
@@ -662,13 +658,13 @@
          this.Controls.Add(this.GetCordXY_Butn);
          this.Controls.Add(EmalAdrs_Lb);
          this.Controls.Add(WebSite_Lb);
-         this.Controls.Add(PostAdrs_Lb);
-         this.Controls.Add(CellPhon_Lb);
+         this.Controls.Add(this.PostAdrs_Lb);
+         this.Controls.Add(this.CellPhon_Lb);
          this.Controls.Add(CordY_Lb);
          this.Controls.Add(TellPhon_Lb);
          this.Controls.Add(CordX_Lb);
-         this.Controls.Add(Name_Lb);
-         this.Controls.Add(RegnCode_Lb);
+         this.Controls.Add(this.Name_Lb);
+         this.Controls.Add(this.RegnCode_Lb);
          this.Controls.Add(this.Regn_Lov);
          this.Controls.Add(this.EmailAddress_Text);
          this.Controls.Add(this.WebSite_Text);
@@ -727,6 +723,10 @@
       private DevExpress.XtraEditors.ButtonEdit WebSite_Text;
       private DevExpress.XtraEditors.ButtonEdit EmailAddress_Text;
       private Windows.Forms.BindingSource ClubBs;
+      private Windows.Forms.Label PostAdrs_Lb;
+      private Windows.Forms.Label Name_Lb;
+      private Windows.Forms.Label RegnCode_Lb;
+      private Windows.Forms.Label CellPhon_Lb;
 
    }
 }

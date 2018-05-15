@@ -215,9 +215,9 @@ namespace System.Scsc.Ui.Common
                vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Fighter(fileno, null, null, null, null, null, null, null, null, null);
 
             if (crntinfo.SEX_TYPE_DNRM == "001")
-               nAME_DNRMLabel.Image = System.Scsc.Properties.Resources.IMAGE_1620;
+               NameDnrm_Lb.Image = System.Scsc.Properties.Resources.IMAGE_1620;
             else
-               nAME_DNRMLabel.Image = System.Scsc.Properties.Resources.IMAGE_1621;
+               NameDnrm_Lb.Image = System.Scsc.Properties.Resources.IMAGE_1621;
 
             //vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
             //////vF_SavePaymentsBs.DataSource = iScsc.VF_Payments(null, null, fileno, null, null, null, null).OrderByDescending(p => p.ISSU_DATE);

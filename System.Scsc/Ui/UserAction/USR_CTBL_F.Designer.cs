@@ -30,12 +30,12 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USR_CTBL_F));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colRQTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.TitlHedr_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel1 = new System.Windows.Forms.Panel();
          this.CnclAllRqst_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -48,10 +48,10 @@
          this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQID = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQTP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqtpCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQST_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQST_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqstDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colSAVE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLETT_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,7 +65,7 @@
          this.colSEND_EXPN = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDUL_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSECT_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.CretBy_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,7 +75,7 @@
          this.colSub_State = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Type = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMonth_Base = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQST_CHEK = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqstChek_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Request_Gv)).BeginInit();
@@ -95,19 +95,19 @@
          this.colRQTT_CODE.OptionsColumn.ReadOnly = true;
          this.colRQTT_CODE.Width = 103;
          // 
-         // labelControl1
+         // TitlHedr_Lb
          // 
-         this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.TitlHedr_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.ForeColor = System.Drawing.SystemColors.Control;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Location = new System.Drawing.Point(248, 4);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(127, 50);
-         this.labelControl1.TabIndex = 3;
-         this.labelControl1.Text = "لیست کارتابل";
+         this.TitlHedr_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlHedr_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.TitlHedr_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlHedr_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlHedr_Lb.Location = new System.Drawing.Point(248, 4);
+         this.TitlHedr_Lb.Name = "TitlHedr_Lb";
+         this.TitlHedr_Lb.Size = new System.Drawing.Size(127, 50);
+         this.TitlHedr_Lb.TabIndex = 3;
+         this.TitlHedr_Lb.Text = "لیست کارتابل";
          // 
          // Back_Butn
          // 
@@ -127,11 +127,11 @@
          // 
          // panel1
          // 
-         this.panel1.BackColor = System.Drawing.Color.Gray;
+         this.panel1.BackColor = System.Drawing.SystemColors.Control;
          this.panel1.Controls.Add(this.CnclAllRqst_Butn);
          this.panel1.Controls.Add(this.Reload_Butn);
          this.panel1.Controls.Add(this.Back_Butn);
-         this.panel1.Controls.Add(this.labelControl1);
+         this.panel1.Controls.Add(this.TitlHedr_Lb);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
@@ -209,11 +209,11 @@
             this.colREGN_CODE,
             this.colRQST_RQID,
             this.colRQID,
-            this.colRQTP_CODE,
+            this.RqtpCode_Clm,
             this.colRQTT_CODE,
             this.colSUB_SYS,
             this.colRQST_STAT,
-            this.colRQST_DATE,
+            this.RqstDate_Clm,
             this.colSAVE_DATE,
             this.colLETT_NO,
             this.colLETT_DATE,
@@ -226,7 +226,7 @@
             this.colSEND_EXPN,
             this.colMDUL_NAME,
             this.colSECT_NAME,
-            this.colCRET_BY,
+            this.CretBy_Clm,
             this.colCRET_DATE,
             this.colMDFY_BY,
             this.colMDFY_DATE,
@@ -236,22 +236,22 @@
             this.colSub_State,
             this.colRequest_Type,
             this.colMonth_Base,
-            this.colRQST_CHEK});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colRQTT_CODE;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "001";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colRQTT_CODE;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "004";
+            this.RqstChek_Clm});
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colRQTT_CODE;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "001";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colRQTT_CODE;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "004";
          this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView1.GridControl = this.Request_Gv;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
@@ -285,19 +285,19 @@
          this.colRQID.FieldName = "RQID";
          this.colRQID.Name = "colRQID";
          // 
-         // colRQTP_CODE
+         // RqtpCode_Clm
          // 
-         this.colRQTP_CODE.Caption = "نوع درخواست";
-         this.colRQTP_CODE.FieldName = "Request_Type.RQTP_DESC";
-         this.colRQTP_CODE.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.Value;
-         this.colRQTP_CODE.Name = "colRQTP_CODE";
-         this.colRQTP_CODE.OptionsColumn.AllowEdit = false;
-         this.colRQTP_CODE.OptionsColumn.ReadOnly = true;
-         this.colRQTP_CODE.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+         this.RqtpCode_Clm.Caption = "نوع درخواست";
+         this.RqtpCode_Clm.FieldName = "Request_Type.RQTP_DESC";
+         this.RqtpCode_Clm.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.Value;
+         this.RqtpCode_Clm.Name = "RqtpCode_Clm";
+         this.RqtpCode_Clm.OptionsColumn.AllowEdit = false;
+         this.RqtpCode_Clm.OptionsColumn.ReadOnly = true;
+         this.RqtpCode_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
-         this.colRQTP_CODE.Visible = true;
-         this.colRQTP_CODE.VisibleIndex = 3;
-         this.colRQTP_CODE.Width = 187;
+         this.RqtpCode_Clm.Visible = true;
+         this.RqtpCode_Clm.VisibleIndex = 3;
+         this.RqtpCode_Clm.Width = 187;
          // 
          // colSUB_SYS
          // 
@@ -309,17 +309,17 @@
          this.colRQST_STAT.FieldName = "RQST_STAT";
          this.colRQST_STAT.Name = "colRQST_STAT";
          // 
-         // colRQST_DATE
+         // RqstDate_Clm
          // 
-         this.colRQST_DATE.Caption = "تاریخ درخواست";
-         this.colRQST_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
-         this.colRQST_DATE.FieldName = "RQST_DATE";
-         this.colRQST_DATE.Name = "colRQST_DATE";
-         this.colRQST_DATE.OptionsColumn.AllowEdit = false;
-         this.colRQST_DATE.OptionsColumn.ReadOnly = true;
-         this.colRQST_DATE.Visible = true;
-         this.colRQST_DATE.VisibleIndex = 1;
-         this.colRQST_DATE.Width = 91;
+         this.RqstDate_Clm.Caption = "تاریخ درخواست";
+         this.RqstDate_Clm.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.RqstDate_Clm.FieldName = "RQST_DATE";
+         this.RqstDate_Clm.Name = "RqstDate_Clm";
+         this.RqstDate_Clm.OptionsColumn.AllowEdit = false;
+         this.RqstDate_Clm.OptionsColumn.ReadOnly = true;
+         this.RqstDate_Clm.Visible = true;
+         this.RqstDate_Clm.VisibleIndex = 1;
+         this.RqstDate_Clm.Width = 91;
          // 
          // persianRepositoryItemDateEdit1
          // 
@@ -392,16 +392,16 @@
          this.colSECT_NAME.FieldName = "SECT_NAME";
          this.colSECT_NAME.Name = "colSECT_NAME";
          // 
-         // colCRET_BY
+         // CretBy_Clm
          // 
-         this.colCRET_BY.Caption = "کاربر ثبت";
-         this.colCRET_BY.FieldName = "CRET_BY";
-         this.colCRET_BY.Name = "colCRET_BY";
-         this.colCRET_BY.OptionsColumn.AllowEdit = false;
-         this.colCRET_BY.OptionsColumn.ReadOnly = true;
-         this.colCRET_BY.Visible = true;
-         this.colCRET_BY.VisibleIndex = 2;
-         this.colCRET_BY.Width = 89;
+         this.CretBy_Clm.Caption = "کاربر ثبت";
+         this.CretBy_Clm.FieldName = "CRET_BY";
+         this.CretBy_Clm.Name = "CretBy_Clm";
+         this.CretBy_Clm.OptionsColumn.AllowEdit = false;
+         this.CretBy_Clm.OptionsColumn.ReadOnly = true;
+         this.CretBy_Clm.Visible = true;
+         this.CretBy_Clm.VisibleIndex = 2;
+         this.CretBy_Clm.Width = 89;
          // 
          // colCRET_DATE
          // 
@@ -448,22 +448,22 @@
          this.colMonth_Base.FieldName = "Month_Base";
          this.colMonth_Base.Name = "colMonth_Base";
          // 
-         // colRQST_CHEK
+         // RqstChek_Clm
          // 
-         this.colRQST_CHEK.Caption = "عملیات";
-         this.colRQST_CHEK.ColumnEdit = this.Actn_Butn;
-         this.colRQST_CHEK.Name = "colRQST_CHEK";
-         this.colRQST_CHEK.OptionsColumn.FixedWidth = true;
-         this.colRQST_CHEK.Visible = true;
-         this.colRQST_CHEK.VisibleIndex = 0;
-         this.colRQST_CHEK.Width = 68;
+         this.RqstChek_Clm.Caption = "عملیات";
+         this.RqstChek_Clm.ColumnEdit = this.Actn_Butn;
+         this.RqstChek_Clm.Name = "RqstChek_Clm";
+         this.RqstChek_Clm.OptionsColumn.FixedWidth = true;
+         this.RqstChek_Clm.Visible = true;
+         this.RqstChek_Clm.VisibleIndex = 0;
+         this.RqstChek_Clm.Width = 68;
          // 
          // Actn_Butn
          // 
          this.Actn_Butn.AutoHeight = false;
          this.Actn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "رسیدگی به درخواست", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "انصراف درخواست", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "رسیدگی به درخواست", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "انصراف درخواست", null, null, true)});
          this.Actn_Butn.Name = "Actn_Butn";
          this.Actn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Actn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Actn_Butn_ButtonClick);
@@ -472,7 +472,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.DimGray;
+         this.BackColor = System.Drawing.SystemColors.Control;
          this.Controls.Add(this.Request_Gv);
          this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -492,7 +492,7 @@
 
       #endregion
 
-      private DevExpress.XtraEditors.LabelControl labelControl1;
+      private DevExpress.XtraEditors.LabelControl TitlHedr_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private Windows.Forms.Panel panel1;
       private DevExpress.XtraEditors.SimpleButton CnclAllRqst_Butn;
@@ -506,11 +506,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE;
       private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID;
       private DevExpress.XtraGrid.Columns.GridColumn colRQID;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQTP_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn RqtpCode_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colRQTT_CODE;
       private DevExpress.XtraGrid.Columns.GridColumn colSUB_SYS;
       private DevExpress.XtraGrid.Columns.GridColumn colRQST_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQST_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn RqstDate_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colSAVE_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colLETT_NO;
       private DevExpress.XtraGrid.Columns.GridColumn colLETT_DATE;
@@ -523,7 +523,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colSEND_EXPN;
       private DevExpress.XtraGrid.Columns.GridColumn colMDUL_NAME;
       private DevExpress.XtraGrid.Columns.GridColumn colSECT_NAME;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn CretBy_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY;
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
@@ -534,6 +534,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Type;
       private DevExpress.XtraGrid.Columns.GridColumn colMonth_Base;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQST_CHEK;
+      private DevExpress.XtraGrid.Columns.GridColumn RqstChek_Clm;
    }
 }

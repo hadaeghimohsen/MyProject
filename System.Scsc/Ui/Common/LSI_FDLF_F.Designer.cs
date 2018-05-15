@@ -29,7 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LSI_FDLF_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -39,6 +38,7 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LSI_FDLF_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -76,19 +76,6 @@
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.vF_Last_Info_FighterResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.vF_Last_Info_FighterResultBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-         this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-         this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
          this.vF_Last_Info_FighterResultGridControl = new DevExpress.XtraGrid.GridControl();
          this.PBLC = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -146,6 +133,7 @@
          this.colREMN_ATTN_MONT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUNT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCHAT_ID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_CLUB = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.clubsBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.LOV_FBTP = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -190,12 +178,9 @@
          this.CellPhon_Txt = new System.Windows.Forms.TextBox();
          this.NatlCode_Txt = new System.Windows.Forms.TextBox();
          this.FrstName_Txt = new System.Windows.Forms.TextBox();
-         this.colCHAT_ID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingNavigator)).BeginInit();
-         this.vF_Last_Info_FighterResultBindingNavigator.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PBLC)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LOV_PRVN)).BeginInit();
@@ -269,137 +254,6 @@
          // 
          this.vF_Last_Info_FighterResultBindingSource.DataSource = typeof(System.Scsc.Data.VF_Last_Info_FighterResult);
          // 
-         // vF_Last_Info_FighterResultBindingNavigator
-         // 
-         this.vF_Last_Info_FighterResultBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.BindingSource = this.vF_Last_Info_FighterResultBindingSource;
-         this.vF_Last_Info_FighterResultBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.vF_Last_Info_FighterResultBindingNavigatorSaveItem});
-         this.vF_Last_Info_FighterResultBindingNavigator.Location = new System.Drawing.Point(0, 0);
-         this.vF_Last_Info_FighterResultBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.Name = "vF_Last_Info_FighterResultBindingNavigator";
-         this.vF_Last_Info_FighterResultBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-         this.vF_Last_Info_FighterResultBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.vF_Last_Info_FighterResultBindingNavigator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.vF_Last_Info_FighterResultBindingNavigator.Size = new System.Drawing.Size(1077, 25);
-         this.vF_Last_Info_FighterResultBindingNavigator.TabIndex = 0;
-         this.vF_Last_Info_FighterResultBindingNavigator.Text = "bindingNavigator1";
-         // 
-         // bindingNavigatorAddNewItem
-         // 
-         this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorAddNewItem.Enabled = false;
-         this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-         this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-         this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorAddNewItem.Text = "Add new";
-         this.bindingNavigatorAddNewItem.Visible = false;
-         // 
-         // bindingNavigatorCountItem
-         // 
-         this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-         this.bindingNavigatorCountItem.Text = "of {0}";
-         this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-         // 
-         // bindingNavigatorDeleteItem
-         // 
-         this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorDeleteItem.Enabled = false;
-         this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-         this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-         this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorDeleteItem.Text = "Delete";
-         this.bindingNavigatorDeleteItem.Visible = false;
-         // 
-         // bindingNavigatorMoveFirstItem
-         // 
-         this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-         this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-         this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMoveFirstItem.Text = "Move first";
-         // 
-         // bindingNavigatorMovePreviousItem
-         // 
-         this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-         this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-         this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-         // 
-         // bindingNavigatorSeparator
-         // 
-         this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-         this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-         // 
-         // bindingNavigatorPositionItem
-         // 
-         this.bindingNavigatorPositionItem.AccessibleName = "Position";
-         this.bindingNavigatorPositionItem.AutoSize = false;
-         this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-         this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-         this.bindingNavigatorPositionItem.Text = "0";
-         this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-         // 
-         // bindingNavigatorSeparator1
-         // 
-         this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-         this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-         // 
-         // bindingNavigatorMoveNextItem
-         // 
-         this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-         this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-         this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMoveNextItem.Text = "Move next";
-         // 
-         // bindingNavigatorMoveLastItem
-         // 
-         this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-         this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-         this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMoveLastItem.Text = "Move last";
-         // 
-         // bindingNavigatorSeparator2
-         // 
-         this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-         this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-         // 
-         // vF_Last_Info_FighterResultBindingNavigatorSaveItem
-         // 
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.Enabled = false;
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("vF_Last_Info_FighterResultBindingNavigatorSaveItem.Image")));
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.Name = "vF_Last_Info_FighterResultBindingNavigatorSaveItem";
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.Text = "Save Data";
-         this.vF_Last_Info_FighterResultBindingNavigatorSaveItem.Visible = false;
-         // 
          // vF_Last_Info_FighterResultGridControl
          // 
          this.vF_Last_Info_FighterResultGridControl.DataSource = this.vF_Last_Info_FighterResultBindingSource;
@@ -432,7 +286,7 @@
             this.repositoryItemCheckEdit1,
             this.COCH_LOV,
             this.colActn_Butn});
-         this.vF_Last_Info_FighterResultGridControl.Size = new System.Drawing.Size(1071, 276);
+         this.vF_Last_Info_FighterResultGridControl.Size = new System.Drawing.Size(1071, 301);
          this.vF_Last_Info_FighterResultGridControl.TabIndex = 1;
          this.vF_Last_Info_FighterResultGridControl.UseEmbeddedNavigator = true;
          this.vF_Last_Info_FighterResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1115,6 +969,15 @@
          this.gridColumn1.OptionsColumn.ReadOnly = true;
          this.gridColumn1.Width = 87;
          // 
+         // colCHAT_ID_DNRM
+         // 
+         this.colCHAT_ID_DNRM.Caption = "کد تلگرام";
+         this.colCHAT_ID_DNRM.FieldName = "CHAT_ID_DNRM";
+         this.colCHAT_ID_DNRM.Name = "colCHAT_ID_DNRM";
+         this.colCHAT_ID_DNRM.Visible = true;
+         this.colCHAT_ID_DNRM.VisibleIndex = 3;
+         this.colCHAT_ID_DNRM.Width = 110;
+         // 
          // LOV_CLUB
          // 
          this.LOV_CLUB.AutoHeight = false;
@@ -1452,7 +1315,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.splitContainerControl1.Horizontal = false;
          this.splitContainerControl1.IsSplitterFixed = true;
-         this.splitContainerControl1.Location = new System.Drawing.Point(3, 28);
+         this.splitContainerControl1.Location = new System.Drawing.Point(3, 3);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.label8);
          this.splitContainerControl1.Panel1.Controls.Add(this.label7);
@@ -1477,7 +1340,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.vF_Last_Info_FighterResultGridControl);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1071, 340);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1071, 365);
          this.splitContainerControl1.SplitterPosition = 59;
          this.splitContainerControl1.TabIndex = 0;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -1697,15 +1560,6 @@
          this.FrstName_Txt.Size = new System.Drawing.Size(144, 22);
          this.FrstName_Txt.TabIndex = 0;
          // 
-         // colCHAT_ID_DNRM
-         // 
-         this.colCHAT_ID_DNRM.Caption = "کد تلگرام";
-         this.colCHAT_ID_DNRM.FieldName = "CHAT_ID_DNRM";
-         this.colCHAT_ID_DNRM.Name = "colCHAT_ID_DNRM";
-         this.colCHAT_ID_DNRM.Visible = true;
-         this.colCHAT_ID_DNRM.VisibleIndex = 3;
-         this.colCHAT_ID_DNRM.Width = 110;
-         // 
          // LSI_FDLF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1722,16 +1576,12 @@
          this.Controls.Add(this.FighBnSettingPrint);
          this.Controls.Add(this.FighBnDefaultPrint);
          this.Controls.Add(this.Btn_Back);
-         this.Controls.Add(this.vF_Last_Info_FighterResultBindingNavigator);
          this.Name = "LSI_FDLF_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(1077, 427);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultBindingNavigator)).EndInit();
-         this.vF_Last_Info_FighterResultBindingNavigator.ResumeLayout(false);
-         this.vF_Last_Info_FighterResultBindingNavigator.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Last_Info_FighterResultGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PBLC)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LOV_PRVN)).EndInit();
@@ -1759,26 +1609,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
          this.ResumeLayout(false);
-         this.PerformLayout();
 
       }
 
       #endregion
 
       private Windows.Forms.BindingSource vF_Last_Info_FighterResultBindingSource;
-      private Windows.Forms.BindingNavigator vF_Last_Info_FighterResultBindingNavigator;
-      private Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-      private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-      private Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-      private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-      private Windows.Forms.ToolStripButton vF_Last_Info_FighterResultBindingNavigatorSaveItem;
       private DevExpress.XtraGrid.GridControl vF_Last_Info_FighterResultGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView PBLC;
       private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO;

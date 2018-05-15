@@ -615,7 +615,6 @@
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton SubmitChange_Butn;
       private DevExpress.XtraEditors.ButtonEdit FrstName_Text;
-      private DevExpress.XtraEditors.LabelControl Desc1_Lb;
       private DevExpress.XtraEditors.ButtonEdit LastName_Text;
       private DevExpress.XtraEditors.ButtonEdit FngrPrint_Text;
       private DevExpress.XtraEditors.LookUpEdit Mtod_Lov;
@@ -628,6 +627,7 @@
       private DevExpress.XtraEditors.ButtonEdit CardNum_Txt;
       private DevExpress.XtraEditors.ButtonEdit Chat_Id_TextEdit;
       private DevExpress.XtraEditors.SimpleButton SaveNewCoch_Butn;
+      private DevExpress.XtraEditors.LabelControl Desc1_Lb;
 
    }
 }

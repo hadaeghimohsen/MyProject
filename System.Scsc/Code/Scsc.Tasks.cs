@@ -343,8 +343,8 @@ namespace System.Scsc.Code
          }
          else if (value == "frst_page_f")
          {
-            if (_Frst_Page_F == null)
-               _Frst_Page_F = new Ui.MasterPage.FRST_PAGE_F { _DefaultGateway = this };
+            //if (_Frst_Page_F == null)
+            //   _Frst_Page_F = new Ui.MasterPage.FRST_PAGE_F { _DefaultGateway = this };
          }
          else if (value == "pay_cash_f")
          {
@@ -501,11 +501,11 @@ namespace System.Scsc.Code
             //if (_Oic_Smor_F == null)
             //   _Oic_Smor_F = new Ui.OtherIncome.OIC_SMOR_F { _DefaultGateway = this };
          }
-         else if (value == "bas_cpr_f")
-         {
-            if (_Bas_Cpr_F == null)
-               _Bas_Cpr_F = new Ui.Settings.BAS_CPR_F { _DefaultGateway = this };
-         }
+         //else if (value == "bas_cpr_f")
+         //{
+         //   if (_Bas_Cpr_F == null)
+         //      _Bas_Cpr_F = new Ui.Settings.BAS_CPR_F { _DefaultGateway = this };
+         //}
          else if(value == "new_fngr_f")
          {
             if (_New_Fngr_F == null)

@@ -690,15 +690,6 @@
     <Compile Include="Ui\Insurance\INS_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\MasterPage\FRST_PAGE_F.Designer.cs">
-      <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\MasterPage\FRST_PAGE_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\MasterPage\MAIN_PAGE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1324,9 +1315,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Insurance\INS_TOTL_F.resx">
       <DependentUpon>INS_TOTL_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\MasterPage\FRST_PAGE_F.resx">
-      <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\MasterPage\MAIN_PAGE_F.resx">
       <DependentUpon>MAIN_PAGE_F.cs</DependentUpon>

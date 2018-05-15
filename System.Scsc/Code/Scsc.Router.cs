@@ -698,7 +698,7 @@ namespace System.Scsc.Code
                _Cmn_Dise_F.SendRequest(job);
                break;
             case "FRST_PAGE_F":
-               _Frst_Page_F.SendRequest(job);
+               //_Frst_Page_F.SendRequest(job);
                break;
             case "PAY_CASH_F":
                //_Pay_Cash_F.SendRequest(job);
@@ -794,7 +794,7 @@ namespace System.Scsc.Code
                //_Oic_Smor_F.SendRequest(job);
                break;
             case "BAS_CPR_F":
-               _Bas_Cpr_F.SendRequest(job);
+               //_Bas_Cpr_F.SendRequest(job);
                break;
             case "NEW_FNGR_F":
                _New_Fngr_F.SendRequest(job);

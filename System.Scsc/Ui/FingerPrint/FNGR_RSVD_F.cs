@@ -28,7 +28,7 @@ namespace System.Scsc.Ui.FingerPrint
       private void SRCH_BUTN01_Click(object sender, EventArgs e)
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         //if(tb_master.SelectedTab == tp_001)
          {
             if (Txt_Mnth01.Text.Trim() == "") return;
 
@@ -58,7 +58,7 @@ namespace System.Scsc.Ui.FingerPrint
 
       private void EXIT_BUTN01_Click(object sender, EventArgs e)
       {
-         if(tb_master.SelectedTab == tp_001)
+         //if(tb_master.SelectedTab == tp_001)
          {
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }

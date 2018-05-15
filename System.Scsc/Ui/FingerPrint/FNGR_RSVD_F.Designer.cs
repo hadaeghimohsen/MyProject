@@ -29,22 +29,18 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label rEGN_PRVN_CODELabel;
-         System.Windows.Forms.Label label1;
-         System.Windows.Forms.Label bRTH_DATELabel;
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         this.rEGN_PRVN_CODELabel = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.bRTH_DATELabel = new System.Windows.Forms.Label();
          this.colACTV_TAG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ACTV_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DACTGBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colFNGR_PRNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.tb_master = new System.Windows.Forms.TabControl();
-         this.tp_001 = new System.Windows.Forms.TabPage();
-         this.radGroupBox3 = new Telerik.WinControls.UI.RadGroupBox();
          this.Dt_EndDate01 = new Atf.UI.DateTimeSelector();
          this.Txt_MnthRemnd01 = new DevExpress.XtraEditors.TextEdit();
-         this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
          this.Txt_Mnth01 = new DevExpress.XtraEditors.TextEdit();
          this.fighterGridControl = new DevExpress.XtraGrid.GridControl();
          this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -127,18 +123,10 @@
          this.ALRC_BUTN001 = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
          this.EXIT_BUTN01 = new System.Windows.Forms.ToolStripButton();
-         rEGN_PRVN_CODELabel = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         bRTH_DATELabel = new System.Windows.Forms.Label();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
          ((System.ComponentModel.ISupportInitialize)(this.ACTV_LOV)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DACTGBs1)).BeginInit();
-         this.tb_master.SuspendLayout();
-         this.tp_001.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox3)).BeginInit();
-         this.radGroupBox3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Txt_MnthRemnd01.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
-         this.radGroupBox2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Txt_Mnth01.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.fighterGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
@@ -155,38 +143,39 @@
          ((System.ComponentModel.ISupportInitialize)(this.DBLODBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBn1)).BeginInit();
          this.FighBn1.SuspendLayout();
+         this.groupBox1.SuspendLayout();
          this.SuspendLayout();
          // 
          // rEGN_PRVN_CODELabel
          // 
-         rEGN_PRVN_CODELabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-         rEGN_PRVN_CODELabel.AutoSize = true;
-         rEGN_PRVN_CODELabel.Location = new System.Drawing.Point(58, 34);
-         rEGN_PRVN_CODELabel.Name = "rEGN_PRVN_CODELabel";
-         rEGN_PRVN_CODELabel.Size = new System.Drawing.Size(136, 14);
-         rEGN_PRVN_CODELabel.TabIndex = 4;
-         rEGN_PRVN_CODELabel.Text = "تعداد ماه های راکد بودن :";
+         this.rEGN_PRVN_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.rEGN_PRVN_CODELabel.AutoSize = true;
+         this.rEGN_PRVN_CODELabel.Location = new System.Drawing.Point(890, 19);
+         this.rEGN_PRVN_CODELabel.Name = "rEGN_PRVN_CODELabel";
+         this.rEGN_PRVN_CODELabel.Size = new System.Drawing.Size(136, 14);
+         this.rEGN_PRVN_CODELabel.TabIndex = 4;
+         this.rEGN_PRVN_CODELabel.Text = "تعداد ماه های راکد بودن :";
          // 
          // label1
          // 
-         label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(231, 34);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(136, 14);
-         label1.TabIndex = 4;
-         label1.Text = "تعداد ماه های راکد بودن :";
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(498, 17);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(136, 14);
+         this.label1.TabIndex = 4;
+         this.label1.Text = "تعداد ماه های راکد بودن :";
          // 
          // bRTH_DATELabel
          // 
-         bRTH_DATELabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         bRTH_DATELabel.AutoSize = true;
-         bRTH_DATELabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         bRTH_DATELabel.Location = new System.Drawing.Point(495, 35);
-         bRTH_DATELabel.Name = "bRTH_DATELabel";
-         bRTH_DATELabel.Size = new System.Drawing.Size(97, 14);
-         bRTH_DATELabel.TabIndex = 16;
-         bRTH_DATELabel.Text = "تاریخ آخرین رجوع :";
+         this.bRTH_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.bRTH_DATELabel.AutoSize = true;
+         this.bRTH_DATELabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.bRTH_DATELabel.Location = new System.Drawing.Point(744, 17);
+         this.bRTH_DATELabel.Name = "bRTH_DATELabel";
+         this.bRTH_DATELabel.Size = new System.Drawing.Size(97, 14);
+         this.bRTH_DATELabel.TabIndex = 16;
+         this.bRTH_DATELabel.Text = "تاریخ آخرین رجوع :";
          // 
          // colACTV_TAG_DNRM
          // 
@@ -219,60 +208,13 @@
          this.colFNGR_PRNT_DNRM.Visible = true;
          this.colFNGR_PRNT_DNRM.VisibleIndex = 7;
          // 
-         // tb_master
-         // 
-         this.tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.tb_master.Controls.Add(this.tp_001);
-         this.tb_master.Location = new System.Drawing.Point(18, 14);
-         this.tb_master.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.tb_master.Name = "tb_master";
-         this.tb_master.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.tb_master.RightToLeftLayout = true;
-         this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(1001, 433);
-         this.tb_master.TabIndex = 0;
-         // 
-         // tp_001
-         // 
-         this.tp_001.BackColor = System.Drawing.Color.LightGray;
-         this.tp_001.Controls.Add(this.radGroupBox3);
-         this.tp_001.Controls.Add(this.radGroupBox2);
-         this.tp_001.Controls.Add(this.fighterGridControl);
-         this.tp_001.Controls.Add(this.FighBn1);
-         this.tp_001.Location = new System.Drawing.Point(4, 23);
-         this.tp_001.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.tp_001.Name = "tp_001";
-         this.tp_001.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.tp_001.Size = new System.Drawing.Size(993, 406);
-         this.tp_001.TabIndex = 0;
-         this.tp_001.Text = "نمایش مشتریان راکد";
-         // 
-         // radGroupBox3
-         // 
-         this.radGroupBox3.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox3.Controls.Add(this.Dt_EndDate01);
-         this.radGroupBox3.Controls.Add(bRTH_DATELabel);
-         this.radGroupBox3.Controls.Add(label1);
-         this.radGroupBox3.Controls.Add(this.Txt_MnthRemnd01);
-         this.radGroupBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.radGroupBox3.HeaderText = "آخرین اطلاعات مشتری ";
-         this.radGroupBox3.Location = new System.Drawing.Point(6, 331);
-         this.radGroupBox3.Name = "radGroupBox3";
-         this.radGroupBox3.Size = new System.Drawing.Size(770, 68);
-         this.radGroupBox3.TabIndex = 5;
-         this.radGroupBox3.Text = "آخرین اطلاعات مشتری ";
-         // 
          // Dt_EndDate01
          // 
-         this.Dt_EndDate01.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Dt_EndDate01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Dt_EndDate01.CustomFormat = "dd/MM/yyyy";
          this.Dt_EndDate01.Enabled = false;
          this.Dt_EndDate01.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.Dt_EndDate01.Location = new System.Drawing.Point(389, 31);
+         this.Dt_EndDate01.Location = new System.Drawing.Point(638, 13);
          this.Dt_EndDate01.Name = "Dt_EndDate01";
          this.Dt_EndDate01.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Dt_EndDate01.Size = new System.Drawing.Size(100, 23);
@@ -281,9 +223,9 @@
          // 
          // Txt_MnthRemnd01
          // 
-         this.Txt_MnthRemnd01.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Txt_MnthRemnd01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Txt_MnthRemnd01.EditValue = "";
-         this.Txt_MnthRemnd01.Location = new System.Drawing.Point(178, 29);
+         this.Txt_MnthRemnd01.Location = new System.Drawing.Point(445, 12);
          this.Txt_MnthRemnd01.Name = "Txt_MnthRemnd01";
          this.Txt_MnthRemnd01.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Txt_MnthRemnd01.Properties.Appearance.Options.UseFont = true;
@@ -297,25 +239,11 @@
          this.Txt_MnthRemnd01.Size = new System.Drawing.Size(47, 24);
          this.Txt_MnthRemnd01.TabIndex = 0;
          // 
-         // radGroupBox2
-         // 
-         this.radGroupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox2.Controls.Add(rEGN_PRVN_CODELabel);
-         this.radGroupBox2.Controls.Add(this.Txt_Mnth01);
-         this.radGroupBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.radGroupBox2.HeaderText = "پارامترها";
-         this.radGroupBox2.Location = new System.Drawing.Point(782, 331);
-         this.radGroupBox2.Name = "radGroupBox2";
-         this.radGroupBox2.Size = new System.Drawing.Size(205, 68);
-         this.radGroupBox2.TabIndex = 2;
-         this.radGroupBox2.Text = "پارامترها";
-         // 
          // Txt_Mnth01
          // 
-         this.Txt_Mnth01.Anchor = System.Windows.Forms.AnchorStyles.Left;
+         this.Txt_Mnth01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Txt_Mnth01.EditValue = "6";
-         this.Txt_Mnth01.Location = new System.Drawing.Point(15, 28);
+         this.Txt_Mnth01.Location = new System.Drawing.Point(847, 13);
          this.Txt_Mnth01.Name = "Txt_Mnth01";
          this.Txt_Mnth01.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
          this.Txt_Mnth01.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -331,11 +259,9 @@
          // 
          // fighterGridControl
          // 
-         this.fighterGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.fighterGridControl.DataSource = this.FighBs1;
-         this.fighterGridControl.Location = new System.Drawing.Point(3, 51);
+         this.fighterGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.fighterGridControl.Location = new System.Drawing.Point(0, 90);
          this.fighterGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.fighterGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.fighterGridControl.MainView = this.gridView1;
@@ -347,7 +273,7 @@
             this.ACTV_LOV,
             this.BLOD_LOV,
             this.CTGY_LOV});
-         this.fighterGridControl.Size = new System.Drawing.Size(987, 274);
+         this.fighterGridControl.Size = new System.Drawing.Size(1039, 373);
          this.fighterGridControl.TabIndex = 0;
          this.fighterGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -829,7 +755,7 @@
             this.ALRC_BUTN001,
             this.toolStripSeparator3,
             this.EXIT_BUTN01});
-         this.FighBn1.Location = new System.Drawing.Point(3, 4);
+         this.FighBn1.Location = new System.Drawing.Point(0, 0);
          this.FighBn1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.FighBn1.MoveLastItem = this.bindingNavigatorMoveLastItem;
          this.FighBn1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -837,7 +763,7 @@
          this.FighBn1.Name = "FighBn1";
          this.FighBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.FighBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.FighBn1.Size = new System.Drawing.Size(987, 47);
+         this.FighBn1.Size = new System.Drawing.Size(1039, 47);
          this.FighBn1.TabIndex = 1;
          this.FighBn1.Text = "bindingNavigator1";
          // 
@@ -1006,28 +932,37 @@
          this.EXIT_BUTN01.ToolTipText = "خروج";
          this.EXIT_BUTN01.Click += new System.EventHandler(this.EXIT_BUTN01_Click);
          // 
+         // groupBox1
+         // 
+         this.groupBox1.Controls.Add(this.rEGN_PRVN_CODELabel);
+         this.groupBox1.Controls.Add(this.label1);
+         this.groupBox1.Controls.Add(this.Txt_Mnth01);
+         this.groupBox1.Controls.Add(this.Dt_EndDate01);
+         this.groupBox1.Controls.Add(this.Txt_MnthRemnd01);
+         this.groupBox1.Controls.Add(this.bRTH_DATELabel);
+         this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.groupBox1.Location = new System.Drawing.Point(0, 47);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(1039, 43);
+         this.groupBox1.TabIndex = 6;
+         this.groupBox1.TabStop = false;
+         // 
          // FNGR_RSVD_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.Silver;
-         this.Controls.Add(this.tb_master);
+         this.BackColor = System.Drawing.SystemColors.Control;
+         this.Controls.Add(this.fighterGridControl);
+         this.Controls.Add(this.groupBox1);
+         this.Controls.Add(this.FighBn1);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Name = "FNGR_RSVD_F";
+         this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(1039, 463);
          ((System.ComponentModel.ISupportInitialize)(this.ACTV_LOV)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DACTGBs1)).EndInit();
-         this.tb_master.ResumeLayout(false);
-         this.tp_001.ResumeLayout(false);
-         this.tp_001.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox3)).EndInit();
-         this.radGroupBox3.ResumeLayout(false);
-         this.radGroupBox3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Txt_MnthRemnd01.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
-         this.radGroupBox2.ResumeLayout(false);
-         this.radGroupBox2.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Txt_Mnth01.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.fighterGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
@@ -1045,14 +980,15 @@
          ((System.ComponentModel.ISupportInitialize)(this.FighBn1)).EndInit();
          this.FighBn1.ResumeLayout(false);
          this.FighBn1.PerformLayout();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
          this.ResumeLayout(false);
+         this.PerformLayout();
 
       }
 
       #endregion
 
-      private Windows.Forms.TabControl tb_master;
-      private Windows.Forms.TabPage tp_001;
       private Windows.Forms.BindingSource FighBs1;
       private DevExpress.XtraGrid.GridControl fighterGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -1118,9 +1054,7 @@
       private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
       private Windows.Forms.ToolStripButton RMVF_BUTN001;
       private Windows.Forms.ToolStripButton EXIT_BUTN01;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
       private DevExpress.XtraEditors.TextEdit Txt_Mnth01;
-      private Telerik.WinControls.UI.RadGroupBox radGroupBox3;
       private DevExpress.XtraEditors.TextEdit Txt_MnthRemnd01;
       private Atf.UI.DateTimeSelector Dt_EndDate01;
       private Windows.Forms.ToolStripButton SRCH_BUTN01;
@@ -1143,5 +1077,9 @@
       private Windows.Forms.ToolStripButton RCVF_BUTN001;
       private Windows.Forms.ToolStripButton ALRC_BUTN001;
       private Windows.Forms.ToolStripSeparator toolStripSeparator3;
+      private Windows.Forms.Label rEGN_PRVN_CODELabel;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.Label bRTH_DATELabel;
+      private Windows.Forms.GroupBox groupBox1;
    }
 }

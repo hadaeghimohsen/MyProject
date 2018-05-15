@@ -28,22 +28,22 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.GateActnTitl_Lb = new DevExpress.XtraEditors.LabelControl();
          this.OpenGate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CloseGate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SuspendLayout();
          // 
-         // labelControl1
+         // GateActnTitl_Lb
          // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(186, 13);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(96, 29);
-         this.labelControl1.TabIndex = 0;
-         this.labelControl1.Text = "عملیات گیت";
+         this.GateActnTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GateActnTitl_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
+         this.GateActnTitl_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.GateActnTitl_Lb.Location = new System.Drawing.Point(186, 13);
+         this.GateActnTitl_Lb.Name = "GateActnTitl_Lb";
+         this.GateActnTitl_Lb.Size = new System.Drawing.Size(96, 29);
+         this.GateActnTitl_Lb.TabIndex = 0;
+         this.GateActnTitl_Lb.Text = "عملیات گیت";
          // 
          // OpenGate_Butn
          // 
@@ -110,7 +110,7 @@
          this.Controls.Add(this.CloseGate_Butn);
          this.Controls.Add(this.Back_Butn);
          this.Controls.Add(this.OpenGate_Butn);
-         this.Controls.Add(this.labelControl1);
+         this.Controls.Add(this.GateActnTitl_Lb);
          this.Name = "GATE_ACTN_F";
          this.Size = new System.Drawing.Size(466, 173);
          this.ResumeLayout(false);
@@ -120,7 +120,7 @@
 
       #endregion
 
-      private DevExpress.XtraEditors.LabelControl labelControl1;
+      private DevExpress.XtraEditors.LabelControl GateActnTitl_Lb;
       private DevExpress.XtraEditors.SimpleButton OpenGate_Butn;
       private DevExpress.XtraEditors.SimpleButton CloseGate_Butn;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;

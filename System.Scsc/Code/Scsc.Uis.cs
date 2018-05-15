@@ -12,7 +12,7 @@ namespace System.Scsc.Code
       public ISendRequest _Wall { get; set; }
 
       internal Ui.MasterPage.MAIN_PAGE_F _Main_Page_F { get; set; }
-      internal Ui.MasterPage.FRST_PAGE_F _Frst_Page_F { get; set; }
+      //internal Ui.MasterPage.FRST_PAGE_F _Frst_Page_F { get; set; }
       internal Ui.MasterPage.STRT_MENU_F _Strt_Menu_F { get; set; }
       //internal Ui.MasterPage.MSTR_PAGE_F _Mstr_Page_F { get; set; }
       internal Ui.Regulation.MSTR_REGL_F _Mstr_Regl_F { get; set; }
@@ -110,7 +110,7 @@ namespace System.Scsc.Code
       //internal Ui.OtherIncome.OIC_SRZH_F _Oic_Srzh_F { get; set; }
       //internal Ui.OtherIncome.OIC_SONE_F _Oic_Sone_F { get; set; }
       //internal Ui.OtherIncome.OIC_SMOR_F _Oic_Smor_F { get; set; }
-      internal Ui.Settings.BAS_CPR_F _Bas_Cpr_F { get; set; }
+      //internal Ui.Settings.BAS_CPR_F _Bas_Cpr_F { get; set; }
       internal Ui.Admission.NEW_FNGR_F _New_Fngr_F { get; set; }
       internal Ui.FingerPrint.FNGR_RSVD_F _Fngr_Rsvd_F { get; set; }
       internal Ui.Organ.ORGN_TOTL_F _Orgn_Totl_F { get; set; }

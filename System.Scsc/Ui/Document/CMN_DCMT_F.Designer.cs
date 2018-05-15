@@ -28,18 +28,19 @@
       /// </summary>
       private void InitializeComponent()
       {
-         System.Windows.Forms.Label sTRT_DATELabel;
-         System.Windows.Forms.Label eND_DATELabel;
-         System.Windows.Forms.Label dELV_DATELabel;
-         System.Windows.Forms.Label rCDC_DESCLabel;
-         System.Windows.Forms.Label rCDC_STATLabel;
-         System.Windows.Forms.Label pERM_STATLabel;
-         System.Windows.Forms.Label rWNOLabel;
-         System.Windows.Forms.Label fILE_NAMELabel;
-         System.Windows.Forms.Label label1;
-         System.Windows.Forms.Label label2;
-         System.Windows.Forms.Label label3;
-         System.Windows.Forms.Label label4;
+         this.components = new System.ComponentModel.Container();
+         System.Windows.Forms.Label StrtDate_Lb;
+         System.Windows.Forms.Label EndDate_Lb;
+         System.Windows.Forms.Label DelvDate_Lb;
+         System.Windows.Forms.Label RcdcDesc_Lb;
+         System.Windows.Forms.Label RcdcStat_Lb;
+         System.Windows.Forms.Label PermStat_Lb;
+         System.Windows.Forms.Label Rwno_Lb;
+         System.Windows.Forms.Label FileName_Lb;
+         System.Windows.Forms.Label ImageAlign_Lb;
+         System.Windows.Forms.Label ImageQulity_Lb;
+         System.Windows.Forms.Label Dimsn_Lb;
+         System.Windows.Forms.Label SelectCamera_Lb;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -48,18 +49,17 @@
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMN_DCMT_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.TC_Dcmt = new System.Windows.Forms.TabControl();
-         this.tabPage1 = new System.Windows.Forms.TabPage();
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.mb_back = new System.MaxUi.NewMaxBtn();
+         this.tp_001 = new System.Windows.Forms.TabPage();
+         this.Dcmt_Gb = new System.Windows.Forms.GroupBox();
          this.CB_ImageSize = new System.Windows.Forms.ComboBox();
          this.Bt_SelectFile = new System.Windows.Forms.Button();
          this.pERM_STATLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.receive_DocumentBindingSource = new System.Windows.Forms.BindingSource();
-         this.dPRSTBindingSource = new System.Windows.Forms.BindingSource();
+         this.receive_DocumentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.dPRSTBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.FILE_NAME_TextBox = new System.Windows.Forms.TextBox();
-         this.ImdcBs1 = new System.Windows.Forms.BindingSource();
+         this.ImdcBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.rCDC_STATLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.dDCMTBindingSource = new System.Windows.Forms.BindingSource();
+         this.dDCMTBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.rWNOTextBox = new System.Windows.Forms.TextBox();
          this.rCDC_DESCTextBox = new System.Windows.Forms.TextBox();
          this.dELV_DATEPersianDateEdit = new dxExample.PersianDateEdit();
@@ -67,24 +67,24 @@
          this.sTRT_DATEPersianDateEdit = new dxExample.PersianDateEdit();
          this.receive_DocumentGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colRQTP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQTT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDCMT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNEED_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqtpCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqtpDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqttCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.RqttDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.DcmtDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.NeedType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.NEED_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.dDCNDBindingSource = new System.Windows.Forms.BindingSource();
-         this.colORIG_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.dDCNDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.OrigType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ORIG_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.dDCTPBindingSource = new System.Windows.Forms.BindingSource();
-         this.colFRST_NEED = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.dDCTPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.FrstNeed_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.FRST_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.dYSNOBindingSource = new System.Windows.Forms.BindingSource();
+         this.dYSNOBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.tp_002 = new System.Windows.Forms.TabPage();
-         this.groupBox3 = new System.Windows.Forms.GroupBox();
+         this.Image_Gb = new System.Windows.Forms.GroupBox();
          this.Btn_SetProfileImage = new System.MaxUi.NewToolBtn();
-         this.img = new System.Windows.Forms.ImageList();
+         this.img = new System.Windows.Forms.ImageList(this.components);
          this.Bt_RemvImage = new System.Windows.Forms.Button();
          this.UD_Interpolation = new System.Windows.Forms.NumericUpDown();
          this.ZC_ZoomImage = new DevExpress.XtraEditors.ZoomTrackBarControl();
@@ -104,36 +104,46 @@
          this.Pb_FaceZone = new System.Windows.Forms.PictureBox();
          this.pb_destination = new System.Windows.Forms.PictureBox();
          this.pb_source = new System.Windows.Forms.PictureBox();
-         this.receive_DocumentBindingNavigator = new System.Windows.Forms.BindingNavigator();
-         this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-         this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-         this.receive_DocumentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
          this.DG_SelectImage = new System.Windows.Forms.OpenFileDialog();
-         this.Tm_NewFrameProcess = new System.Windows.Forms.Timer();
-         sTRT_DATELabel = new System.Windows.Forms.Label();
-         eND_DATELabel = new System.Windows.Forms.Label();
-         dELV_DATELabel = new System.Windows.Forms.Label();
-         rCDC_DESCLabel = new System.Windows.Forms.Label();
-         rCDC_STATLabel = new System.Windows.Forms.Label();
-         pERM_STATLabel = new System.Windows.Forms.Label();
-         rWNOLabel = new System.Windows.Forms.Label();
-         fILE_NAMELabel = new System.Windows.Forms.Label();
-         label1 = new System.Windows.Forms.Label();
-         label2 = new System.Windows.Forms.Label();
-         label3 = new System.Windows.Forms.Label();
-         label4 = new System.Windows.Forms.Label();
+         this.Tm_NewFrameProcess = new System.Windows.Forms.Timer(this.components);
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+         this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+         this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstBnDelete1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnARqt1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstMBnDefaultPrint1 = new System.Windows.Forms.ToolStripSplitButton();
+         this.RqstBnDefaultPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnASav1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnAResn1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         StrtDate_Lb = new System.Windows.Forms.Label();
+         EndDate_Lb = new System.Windows.Forms.Label();
+         DelvDate_Lb = new System.Windows.Forms.Label();
+         RcdcDesc_Lb = new System.Windows.Forms.Label();
+         RcdcStat_Lb = new System.Windows.Forms.Label();
+         PermStat_Lb = new System.Windows.Forms.Label();
+         Rwno_Lb = new System.Windows.Forms.Label();
+         FileName_Lb = new System.Windows.Forms.Label();
+         ImageAlign_Lb = new System.Windows.Forms.Label();
+         ImageQulity_Lb = new System.Windows.Forms.Label();
+         Dimsn_Lb = new System.Windows.Forms.Label();
+         SelectCamera_Lb = new System.Windows.Forms.Label();
          this.TC_Dcmt.SuspendLayout();
-         this.tabPage1.SuspendLayout();
-         this.groupBox1.SuspendLayout();
+         this.tp_001.SuspendLayout();
+         this.Dcmt_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pERM_STATLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.receive_DocumentBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dPRSTBindingSource)).BeginInit();
@@ -155,7 +165,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.FRST_LOV)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dYSNOBindingSource)).BeginInit();
          this.tp_002.SuspendLayout();
-         this.groupBox3.SuspendLayout();
+         this.Image_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.UD_Interpolation)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZC_ZoomImage)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZC_ZoomImage.Properties)).BeginInit();
@@ -166,216 +176,193 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pb_FaceZone)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_destination)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_source)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.receive_DocumentBindingNavigator)).BeginInit();
-         this.receive_DocumentBindingNavigator.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
+         this.RqstBn1.SuspendLayout();
          this.SuspendLayout();
          // 
-         // sTRT_DATELabel
+         // StrtDate_Lb
          // 
-         sTRT_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         sTRT_DATELabel.AutoSize = true;
-         sTRT_DATELabel.Location = new System.Drawing.Point(757, 530);
-         sTRT_DATELabel.Name = "sTRT_DATELabel";
-         sTRT_DATELabel.Size = new System.Drawing.Size(102, 14);
-         sTRT_DATELabel.TabIndex = 1;
-         sTRT_DATELabel.Text = "تاریخ شروع مدرک :";
+         StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         StrtDate_Lb.AutoSize = true;
+         StrtDate_Lb.Location = new System.Drawing.Point(766, 24);
+         StrtDate_Lb.Name = "StrtDate_Lb";
+         StrtDate_Lb.Size = new System.Drawing.Size(102, 14);
+         StrtDate_Lb.TabIndex = 1;
+         StrtDate_Lb.Text = "تاریخ شروع مدرک :";
          // 
-         // eND_DATELabel
+         // EndDate_Lb
          // 
-         eND_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         eND_DATELabel.AutoSize = true;
-         eND_DATELabel.Location = new System.Drawing.Point(757, 556);
-         eND_DATELabel.Name = "eND_DATELabel";
-         eND_DATELabel.Size = new System.Drawing.Size(97, 14);
-         eND_DATELabel.TabIndex = 3;
-         eND_DATELabel.Text = "تاریخ اتمام مدرک :";
+         EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         EndDate_Lb.AutoSize = true;
+         EndDate_Lb.Location = new System.Drawing.Point(766, 50);
+         EndDate_Lb.Name = "EndDate_Lb";
+         EndDate_Lb.Size = new System.Drawing.Size(97, 14);
+         EndDate_Lb.TabIndex = 3;
+         EndDate_Lb.Text = "تاریخ اتمام مدرک :";
          // 
-         // dELV_DATELabel
+         // DelvDate_Lb
          // 
-         dELV_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         dELV_DATELabel.AutoSize = true;
-         dELV_DATELabel.Location = new System.Drawing.Point(757, 582);
-         dELV_DATELabel.Name = "dELV_DATELabel";
-         dELV_DATELabel.Size = new System.Drawing.Size(101, 14);
-         dELV_DATELabel.TabIndex = 5;
-         dELV_DATELabel.Text = "تاریخ تحویل مدرک :";
+         DelvDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         DelvDate_Lb.AutoSize = true;
+         DelvDate_Lb.Location = new System.Drawing.Point(766, 76);
+         DelvDate_Lb.Name = "DelvDate_Lb";
+         DelvDate_Lb.Size = new System.Drawing.Size(101, 14);
+         DelvDate_Lb.TabIndex = 5;
+         DelvDate_Lb.Text = "تاریخ تحویل مدرک :";
          // 
-         // rCDC_DESCLabel
+         // RcdcDesc_Lb
          // 
-         rCDC_DESCLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         rCDC_DESCLabel.AutoSize = true;
-         rCDC_DESCLabel.Location = new System.Drawing.Point(757, 608);
-         rCDC_DESCLabel.Name = "rCDC_DESCLabel";
-         rCDC_DESCLabel.Size = new System.Drawing.Size(58, 14);
-         rCDC_DESCLabel.TabIndex = 7;
-         rCDC_DESCLabel.Text = "توضیحات :";
+         RcdcDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         RcdcDesc_Lb.AutoSize = true;
+         RcdcDesc_Lb.Location = new System.Drawing.Point(766, 102);
+         RcdcDesc_Lb.Name = "RcdcDesc_Lb";
+         RcdcDesc_Lb.Size = new System.Drawing.Size(58, 14);
+         RcdcDesc_Lb.TabIndex = 7;
+         RcdcDesc_Lb.Text = "توضیحات :";
          // 
-         // rCDC_STATLabel
+         // RcdcStat_Lb
          // 
-         rCDC_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         rCDC_STATLabel.AutoSize = true;
-         rCDC_STATLabel.Location = new System.Drawing.Point(480, 530);
-         rCDC_STATLabel.Name = "rCDC_STATLabel";
-         rCDC_STATLabel.Size = new System.Drawing.Size(82, 14);
-         rCDC_STATLabel.TabIndex = 9;
-         rCDC_STATLabel.Text = "وضعیت مدرک :";
+         RcdcStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         RcdcStat_Lb.AutoSize = true;
+         RcdcStat_Lb.Location = new System.Drawing.Point(489, 24);
+         RcdcStat_Lb.Name = "RcdcStat_Lb";
+         RcdcStat_Lb.Size = new System.Drawing.Size(82, 14);
+         RcdcStat_Lb.TabIndex = 9;
+         RcdcStat_Lb.Text = "وضعیت مدرک :";
          // 
-         // pERM_STATLabel
+         // PermStat_Lb
          // 
-         pERM_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         pERM_STATLabel.AutoSize = true;
-         pERM_STATLabel.Location = new System.Drawing.Point(480, 556);
-         pERM_STATLabel.Name = "pERM_STATLabel";
-         pERM_STATLabel.Size = new System.Drawing.Size(68, 14);
-         pERM_STATLabel.TabIndex = 11;
-         pERM_STATLabel.Text = "تايید مدرک :";
+         PermStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         PermStat_Lb.AutoSize = true;
+         PermStat_Lb.Location = new System.Drawing.Point(489, 50);
+         PermStat_Lb.Name = "PermStat_Lb";
+         PermStat_Lb.Size = new System.Drawing.Size(68, 14);
+         PermStat_Lb.TabIndex = 11;
+         PermStat_Lb.Text = "تايید مدرک :";
          // 
-         // rWNOLabel
+         // Rwno_Lb
          // 
-         rWNOLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         rWNOLabel.AutoSize = true;
-         rWNOLabel.Location = new System.Drawing.Point(757, 634);
-         rWNOLabel.Name = "rWNOLabel";
-         rWNOLabel.Size = new System.Drawing.Size(39, 14);
-         rWNOLabel.TabIndex = 0;
-         rWNOLabel.Text = "ردیف :";
+         Rwno_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Rwno_Lb.AutoSize = true;
+         Rwno_Lb.Location = new System.Drawing.Point(766, 128);
+         Rwno_Lb.Name = "Rwno_Lb";
+         Rwno_Lb.Size = new System.Drawing.Size(39, 14);
+         Rwno_Lb.TabIndex = 0;
+         Rwno_Lb.Text = "ردیف :";
          // 
-         // fILE_NAMELabel
+         // FileName_Lb
          // 
-         fILE_NAMELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         fILE_NAMELabel.AutoSize = true;
-         fILE_NAMELabel.Enabled = false;
-         fILE_NAMELabel.Location = new System.Drawing.Point(757, 660);
-         fILE_NAMELabel.Name = "fILE_NAMELabel";
-         fILE_NAMELabel.Size = new System.Drawing.Size(68, 14);
-         fILE_NAMELabel.TabIndex = 2;
-         fILE_NAMELabel.Text = "آدرس فایل :";
-         fILE_NAMELabel.Visible = false;
+         FileName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         FileName_Lb.AutoSize = true;
+         FileName_Lb.Enabled = false;
+         FileName_Lb.Location = new System.Drawing.Point(766, 154);
+         FileName_Lb.Name = "FileName_Lb";
+         FileName_Lb.Size = new System.Drawing.Size(68, 14);
+         FileName_Lb.TabIndex = 2;
+         FileName_Lb.Text = "آدرس فایل :";
+         FileName_Lb.Visible = false;
          // 
-         // label1
+         // ImageAlign_Lb
          // 
-         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(714, 630);
-         label1.Name = "label1";
-         label1.Size = new System.Drawing.Size(159, 14);
-         label1.TabIndex = 7;
-         label1.Text = "قرارگیری عکس بر روی صفحه :";
+         ImageAlign_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         ImageAlign_Lb.AutoSize = true;
+         ImageAlign_Lb.Location = new System.Drawing.Point(667, 68);
+         ImageAlign_Lb.Name = "ImageAlign_Lb";
+         ImageAlign_Lb.Size = new System.Drawing.Size(159, 14);
+         ImageAlign_Lb.TabIndex = 7;
+         ImageAlign_Lb.Text = "قرارگیری عکس بر روی صفحه :";
          // 
-         // label2
+         // ImageQulity_Lb
          // 
-         label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(714, 658);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(135, 14);
-         label2.TabIndex = 8;
-         label2.Text = "نوع نمایش کیفیت عکس :";
+         ImageQulity_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         ImageQulity_Lb.AutoSize = true;
+         ImageQulity_Lb.Location = new System.Drawing.Point(697, 96);
+         ImageQulity_Lb.Name = "ImageQulity_Lb";
+         ImageQulity_Lb.Size = new System.Drawing.Size(135, 14);
+         ImageQulity_Lb.TabIndex = 8;
+         ImageQulity_Lb.Text = "نوع نمایش کیفیت عکس :";
          // 
-         // label3
+         // Dimsn_Lb
          // 
-         label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(622, 634);
-         label3.Name = "label3";
-         label3.Size = new System.Drawing.Size(98, 14);
-         label3.TabIndex = 0;
-         label3.Text = "ابعاد تصویر مدرک :";
+         Dimsn_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         Dimsn_Lb.AutoSize = true;
+         Dimsn_Lb.Location = new System.Drawing.Point(629, 128);
+         Dimsn_Lb.Name = "Dimsn_Lb";
+         Dimsn_Lb.Size = new System.Drawing.Size(98, 14);
+         Dimsn_Lb.TabIndex = 0;
+         Dimsn_Lb.Text = "ابعاد تصویر مدرک :";
          // 
-         // label4
+         // SelectCamera_Lb
          // 
-         label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(429, 213);
-         label4.Name = "label4";
-         label4.Size = new System.Drawing.Size(82, 14);
-         label4.TabIndex = 12;
-         label4.Text = "انتخاب دوربین :";
+         SelectCamera_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         SelectCamera_Lb.AutoSize = true;
+         SelectCamera_Lb.Location = new System.Drawing.Point(429, 213);
+         SelectCamera_Lb.Name = "SelectCamera_Lb";
+         SelectCamera_Lb.Size = new System.Drawing.Size(82, 14);
+         SelectCamera_Lb.TabIndex = 12;
+         SelectCamera_Lb.Text = "انتخاب دوربین :";
          // 
          // TC_Dcmt
          // 
-         this.TC_Dcmt.Controls.Add(this.tabPage1);
+         this.TC_Dcmt.Controls.Add(this.tp_001);
          this.TC_Dcmt.Controls.Add(this.tp_002);
          this.TC_Dcmt.Controls.Add(this.tp_003);
          this.TC_Dcmt.Dock = System.Windows.Forms.DockStyle.Fill;
          this.TC_Dcmt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TC_Dcmt.Location = new System.Drawing.Point(0, 25);
+         this.TC_Dcmt.Location = new System.Drawing.Point(0, 47);
          this.TC_Dcmt.Name = "TC_Dcmt";
          this.TC_Dcmt.RightToLeftLayout = true;
          this.TC_Dcmt.SelectedIndex = 0;
-         this.TC_Dcmt.Size = new System.Drawing.Size(893, 750);
+         this.TC_Dcmt.Size = new System.Drawing.Size(893, 728);
          this.TC_Dcmt.TabIndex = 0;
          this.TC_Dcmt.SelectedIndexChanged += new System.EventHandler(this.TC_Dcmt_SelectedIndexChanged);
          // 
-         // tabPage1
+         // tp_001
          // 
-         this.tabPage1.AutoScroll = true;
-         this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.tabPage1.Controls.Add(this.groupBox1);
-         this.tabPage1.Location = new System.Drawing.Point(4, 23);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(885, 723);
-         this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "مدارک و مجوزات";
+         this.tp_001.AutoScroll = true;
+         this.tp_001.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tp_001.Controls.Add(this.Dcmt_Gb);
+         this.tp_001.Location = new System.Drawing.Point(4, 23);
+         this.tp_001.Name = "tp_001";
+         this.tp_001.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_001.Size = new System.Drawing.Size(885, 701);
+         this.tp_001.TabIndex = 0;
+         this.tp_001.Text = "مدارک و مجوزات";
          // 
-         // groupBox1
+         // Dcmt_Gb
          // 
-         this.groupBox1.Controls.Add(this.mb_back);
-         this.groupBox1.Controls.Add(this.CB_ImageSize);
-         this.groupBox1.Controls.Add(this.Bt_SelectFile);
-         this.groupBox1.Controls.Add(pERM_STATLabel);
-         this.groupBox1.Controls.Add(fILE_NAMELabel);
-         this.groupBox1.Controls.Add(this.pERM_STATLookUpEdit);
-         this.groupBox1.Controls.Add(this.FILE_NAME_TextBox);
-         this.groupBox1.Controls.Add(rCDC_STATLabel);
-         this.groupBox1.Controls.Add(label3);
-         this.groupBox1.Controls.Add(rWNOLabel);
-         this.groupBox1.Controls.Add(this.rCDC_STATLookUpEdit);
-         this.groupBox1.Controls.Add(this.rWNOTextBox);
-         this.groupBox1.Controls.Add(rCDC_DESCLabel);
-         this.groupBox1.Controls.Add(this.rCDC_DESCTextBox);
-         this.groupBox1.Controls.Add(dELV_DATELabel);
-         this.groupBox1.Controls.Add(this.dELV_DATEPersianDateEdit);
-         this.groupBox1.Controls.Add(eND_DATELabel);
-         this.groupBox1.Controls.Add(this.eND_DATEPersianDateEdit);
-         this.groupBox1.Controls.Add(sTRT_DATELabel);
-         this.groupBox1.Controls.Add(this.sTRT_DATEPersianDateEdit);
-         this.groupBox1.Controls.Add(this.receive_DocumentGridControl);
-         this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.groupBox1.Location = new System.Drawing.Point(3, 3);
-         this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(879, 717);
-         this.groupBox1.TabIndex = 0;
-         this.groupBox1.TabStop = false;
-         this.groupBox1.Text = "مدارک و مجوزات درخواست";
-         // 
-         // mb_back
-         // 
-         this.mb_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.mb_back.BackColor = System.Drawing.Color.Transparent;
-         this.mb_back.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.mb_back.Caption = "بازگشت";
-         this.mb_back.Disabled = false;
-         this.mb_back.EnterColor = System.Drawing.Color.Transparent;
-         this.mb_back.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.mb_back.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.mb_back.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_back.ImageIndex = -1;
-         this.mb_back.ImageList = null;
-         this.mb_back.InToBold = false;
-         this.mb_back.Location = new System.Drawing.Point(9, 527);
-         this.mb_back.Name = "mb_back";
-         this.mb_back.Size = new System.Drawing.Size(93, 27);
-         this.mb_back.TabIndex = 5;
-         this.mb_back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.mb_back.TextColor = System.Drawing.Color.Black;
-         this.mb_back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.mb_back.Click += new System.EventHandler(this.mb_back_Click);
+         this.Dcmt_Gb.BackColor = System.Drawing.SystemColors.Control;
+         this.Dcmt_Gb.Controls.Add(this.CB_ImageSize);
+         this.Dcmt_Gb.Controls.Add(this.Bt_SelectFile);
+         this.Dcmt_Gb.Controls.Add(PermStat_Lb);
+         this.Dcmt_Gb.Controls.Add(FileName_Lb);
+         this.Dcmt_Gb.Controls.Add(this.pERM_STATLookUpEdit);
+         this.Dcmt_Gb.Controls.Add(this.FILE_NAME_TextBox);
+         this.Dcmt_Gb.Controls.Add(RcdcStat_Lb);
+         this.Dcmt_Gb.Controls.Add(Dimsn_Lb);
+         this.Dcmt_Gb.Controls.Add(Rwno_Lb);
+         this.Dcmt_Gb.Controls.Add(this.rCDC_STATLookUpEdit);
+         this.Dcmt_Gb.Controls.Add(this.rWNOTextBox);
+         this.Dcmt_Gb.Controls.Add(RcdcDesc_Lb);
+         this.Dcmt_Gb.Controls.Add(this.rCDC_DESCTextBox);
+         this.Dcmt_Gb.Controls.Add(DelvDate_Lb);
+         this.Dcmt_Gb.Controls.Add(this.dELV_DATEPersianDateEdit);
+         this.Dcmt_Gb.Controls.Add(EndDate_Lb);
+         this.Dcmt_Gb.Controls.Add(this.eND_DATEPersianDateEdit);
+         this.Dcmt_Gb.Controls.Add(StrtDate_Lb);
+         this.Dcmt_Gb.Controls.Add(this.sTRT_DATEPersianDateEdit);
+         this.Dcmt_Gb.Controls.Add(this.receive_DocumentGridControl);
+         this.Dcmt_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Dcmt_Gb.Location = new System.Drawing.Point(3, 3);
+         this.Dcmt_Gb.Name = "Dcmt_Gb";
+         this.Dcmt_Gb.Size = new System.Drawing.Size(879, 695);
+         this.Dcmt_Gb.TabIndex = 0;
+         this.Dcmt_Gb.TabStop = false;
+         this.Dcmt_Gb.Text = "مدارک و مجوزات درخواست";
          // 
          // CB_ImageSize
          // 
-         this.CB_ImageSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.CB_ImageSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CB_ImageSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.CB_ImageSize.FormattingEnabled = true;
          this.CB_ImageSize.Items.AddRange(new object[] {
@@ -385,15 +372,15 @@
             "کاغذ A4 ایستاده",
             "کاغذ A4 نشسته",
             "اندازه واقعی خود عکس"});
-         this.CB_ImageSize.Location = new System.Drawing.Point(495, 631);
+         this.CB_ImageSize.Location = new System.Drawing.Point(504, 125);
          this.CB_ImageSize.Name = "CB_ImageSize";
          this.CB_ImageSize.Size = new System.Drawing.Size(121, 22);
          this.CB_ImageSize.TabIndex = 13;
          // 
          // Bt_SelectFile
          // 
-         this.Bt_SelectFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.Bt_SelectFile.Location = new System.Drawing.Point(386, 630);
+         this.Bt_SelectFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Bt_SelectFile.Location = new System.Drawing.Point(395, 124);
          this.Bt_SelectFile.Name = "Bt_SelectFile";
          this.Bt_SelectFile.Size = new System.Drawing.Size(109, 23);
          this.Bt_SelectFile.TabIndex = 5;
@@ -403,10 +390,10 @@
          // 
          // pERM_STATLookUpEdit
          // 
-         this.pERM_STATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.pERM_STATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.pERM_STATLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.receive_DocumentBindingSource, "PERM_STAT", true));
          this.pERM_STATLookUpEdit.EditValue = "001";
-         this.pERM_STATLookUpEdit.Location = new System.Drawing.Point(285, 553);
+         this.pERM_STATLookUpEdit.Location = new System.Drawing.Point(294, 47);
          this.pERM_STATLookUpEdit.Name = "pERM_STATLookUpEdit";
          this.pERM_STATLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.pERM_STATLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -438,10 +425,10 @@
          // 
          // FILE_NAME_TextBox
          // 
-         this.FILE_NAME_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.FILE_NAME_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FILE_NAME_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ImdcBs1, "FILE_NAME", true));
          this.FILE_NAME_TextBox.Enabled = false;
-         this.FILE_NAME_TextBox.Location = new System.Drawing.Point(386, 657);
+         this.FILE_NAME_TextBox.Location = new System.Drawing.Point(395, 151);
          this.FILE_NAME_TextBox.Name = "FILE_NAME_TextBox";
          this.FILE_NAME_TextBox.Size = new System.Drawing.Size(365, 22);
          this.FILE_NAME_TextBox.TabIndex = 3;
@@ -454,10 +441,10 @@
          // 
          // rCDC_STATLookUpEdit
          // 
-         this.rCDC_STATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.rCDC_STATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rCDC_STATLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.receive_DocumentBindingSource, "RCDC_STAT", true));
          this.rCDC_STATLookUpEdit.EditValue = "001";
-         this.rCDC_STATLookUpEdit.Location = new System.Drawing.Point(285, 527);
+         this.rCDC_STATLookUpEdit.Location = new System.Drawing.Point(294, 21);
          this.rCDC_STATLookUpEdit.Name = "rCDC_STATLookUpEdit";
          this.rCDC_STATLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rCDC_STATLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -485,9 +472,9 @@
          // 
          // rWNOTextBox
          // 
-         this.rWNOTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.rWNOTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rWNOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ImdcBs1, "RWNO", true));
-         this.rWNOTextBox.Location = new System.Drawing.Point(719, 631);
+         this.rWNOTextBox.Location = new System.Drawing.Point(728, 125);
          this.rWNOTextBox.Name = "rWNOTextBox";
          this.rWNOTextBox.ReadOnly = true;
          this.rWNOTextBox.Size = new System.Drawing.Size(32, 22);
@@ -495,19 +482,19 @@
          // 
          // rCDC_DESCTextBox
          // 
-         this.rCDC_DESCTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.rCDC_DESCTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rCDC_DESCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.receive_DocumentBindingSource, "RCDC_DESC", true));
-         this.rCDC_DESCTextBox.Location = new System.Drawing.Point(285, 605);
+         this.rCDC_DESCTextBox.Location = new System.Drawing.Point(294, 99);
          this.rCDC_DESCTextBox.Name = "rCDC_DESCTextBox";
          this.rCDC_DESCTextBox.Size = new System.Drawing.Size(466, 22);
          this.rCDC_DESCTextBox.TabIndex = 8;
          // 
          // dELV_DATEPersianDateEdit
          // 
-         this.dELV_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.dELV_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dELV_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.receive_DocumentBindingSource, "DELV_DATE", true));
          this.dELV_DATEPersianDateEdit.EditValue = new System.DateTime(2016, 3, 29, 13, 30, 23, 436);
-         this.dELV_DATEPersianDateEdit.Location = new System.Drawing.Point(564, 579);
+         this.dELV_DATEPersianDateEdit.Location = new System.Drawing.Point(573, 73);
          this.dELV_DATEPersianDateEdit.Name = "dELV_DATEPersianDateEdit";
          this.dELV_DATEPersianDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.dELV_DATEPersianDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -539,10 +526,10 @@
          // 
          // eND_DATEPersianDateEdit
          // 
-         this.eND_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.eND_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.eND_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.receive_DocumentBindingSource, "END_DATE", true));
          this.eND_DATEPersianDateEdit.EditValue = new System.DateTime(2016, 3, 29, 13, 30, 15, 982);
-         this.eND_DATEPersianDateEdit.Location = new System.Drawing.Point(564, 553);
+         this.eND_DATEPersianDateEdit.Location = new System.Drawing.Point(573, 47);
          this.eND_DATEPersianDateEdit.Name = "eND_DATEPersianDateEdit";
          this.eND_DATEPersianDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
          this.eND_DATEPersianDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -574,10 +561,10 @@
          // 
          // sTRT_DATEPersianDateEdit
          // 
-         this.sTRT_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.sTRT_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sTRT_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.receive_DocumentBindingSource, "STRT_DATE", true));
          this.sTRT_DATEPersianDateEdit.EditValue = new System.DateTime(2016, 3, 29, 13, 29, 37, 0);
-         this.sTRT_DATEPersianDateEdit.Location = new System.Drawing.Point(564, 527);
+         this.sTRT_DATEPersianDateEdit.Location = new System.Drawing.Point(573, 21);
          this.sTRT_DATEPersianDateEdit.Name = "sTRT_DATEPersianDateEdit";
          this.sTRT_DATEPersianDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.sTRT_DATEPersianDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -613,7 +600,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.receive_DocumentGridControl.DataSource = this.receive_DocumentBindingSource;
-         this.receive_DocumentGridControl.Location = new System.Drawing.Point(9, 19);
+         this.receive_DocumentGridControl.Location = new System.Drawing.Point(9, 179);
          this.receive_DocumentGridControl.LookAndFeel.SkinName = "DevExpress Design";
          this.receive_DocumentGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.receive_DocumentGridControl.MainView = this.gridView1;
@@ -622,7 +609,7 @@
             this.NEED_LOV,
             this.ORIG_LOV,
             this.FRST_LOV});
-         this.receive_DocumentGridControl.Size = new System.Drawing.Size(861, 502);
+         this.receive_DocumentGridControl.Size = new System.Drawing.Size(861, 510);
          this.receive_DocumentGridControl.TabIndex = 0;
          this.receive_DocumentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -638,14 +625,14 @@
          this.gridView1.Appearance.Row.Options.UseTextOptions = true;
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRQTP_CODE,
-            this.colRQTP_DESC,
-            this.colRQTT_CODE,
-            this.colRQTT_DESC,
-            this.colDCMT_DESC,
-            this.colNEED_TYPE,
-            this.colORIG_TYPE,
-            this.colFRST_NEED});
+            this.RqtpCode_Clm,
+            this.RqtpDesc_Clm,
+            this.RqttCode_Clm,
+            this.RqttDesc_Clm,
+            this.DcmtDesc_Clm,
+            this.NeedType_Clm,
+            this.OrigType_Clm,
+            this.FrstNeed_Clm});
          this.gridView1.GridControl = this.receive_DocumentGridControl;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsBehavior.Editable = false;
@@ -655,64 +642,64 @@
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
          // 
-         // colRQTP_CODE
+         // RqtpCode_Clm
          // 
-         this.colRQTP_CODE.Caption = "کد نوع تقاضا";
-         this.colRQTP_CODE.FieldName = "Request_Document.Request_Requester.RQTP_CODE";
-         this.colRQTP_CODE.MaxWidth = 70;
-         this.colRQTP_CODE.Name = "colRQTP_CODE";
-         this.colRQTP_CODE.Visible = true;
-         this.colRQTP_CODE.VisibleIndex = 7;
-         this.colRQTP_CODE.Width = 63;
+         this.RqtpCode_Clm.Caption = "کد نوع تقاضا";
+         this.RqtpCode_Clm.FieldName = "Request_Document.Request_Requester.RQTP_CODE";
+         this.RqtpCode_Clm.MaxWidth = 70;
+         this.RqtpCode_Clm.Name = "RqtpCode_Clm";
+         this.RqtpCode_Clm.Visible = true;
+         this.RqtpCode_Clm.VisibleIndex = 7;
+         this.RqtpCode_Clm.Width = 63;
          // 
-         // colRQTP_DESC
+         // RqtpDesc_Clm
          // 
-         this.colRQTP_DESC.Caption = "شرح تقاضا";
-         this.colRQTP_DESC.FieldName = "Request_Document.Request_Requester.Request_Type.RQTP_DESC";
-         this.colRQTP_DESC.MaxWidth = 120;
-         this.colRQTP_DESC.Name = "colRQTP_DESC";
-         this.colRQTP_DESC.Visible = true;
-         this.colRQTP_DESC.VisibleIndex = 6;
-         this.colRQTP_DESC.Width = 86;
+         this.RqtpDesc_Clm.Caption = "شرح تقاضا";
+         this.RqtpDesc_Clm.FieldName = "Request_Document.Request_Requester.Request_Type.RQTP_DESC";
+         this.RqtpDesc_Clm.MaxWidth = 120;
+         this.RqtpDesc_Clm.Name = "RqtpDesc_Clm";
+         this.RqtpDesc_Clm.Visible = true;
+         this.RqtpDesc_Clm.VisibleIndex = 6;
+         this.RqtpDesc_Clm.Width = 86;
          // 
-         // colRQTT_CODE
+         // RqttCode_Clm
          // 
-         this.colRQTT_CODE.Caption = "کد نوع متقاضی";
-         this.colRQTT_CODE.FieldName = "Request_Document.Request_Requester.RQTT_CODE";
-         this.colRQTT_CODE.MaxWidth = 90;
-         this.colRQTT_CODE.Name = "colRQTT_CODE";
-         this.colRQTT_CODE.Visible = true;
-         this.colRQTT_CODE.VisibleIndex = 5;
-         this.colRQTT_CODE.Width = 90;
+         this.RqttCode_Clm.Caption = "کد نوع متقاضی";
+         this.RqttCode_Clm.FieldName = "Request_Document.Request_Requester.RQTT_CODE";
+         this.RqttCode_Clm.MaxWidth = 90;
+         this.RqttCode_Clm.Name = "RqttCode_Clm";
+         this.RqttCode_Clm.Visible = true;
+         this.RqttCode_Clm.VisibleIndex = 5;
+         this.RqttCode_Clm.Width = 90;
          // 
-         // colRQTT_DESC
+         // RqttDesc_Clm
          // 
-         this.colRQTT_DESC.Caption = "شرح متقاضی";
-         this.colRQTT_DESC.FieldName = "Request_Document.Request_Requester.Requester_Type.RQTT_DESC";
-         this.colRQTT_DESC.MaxWidth = 120;
-         this.colRQTT_DESC.Name = "colRQTT_DESC";
-         this.colRQTT_DESC.Visible = true;
-         this.colRQTT_DESC.VisibleIndex = 4;
-         this.colRQTT_DESC.Width = 93;
+         this.RqttDesc_Clm.Caption = "شرح متقاضی";
+         this.RqttDesc_Clm.FieldName = "Request_Document.Request_Requester.Requester_Type.RQTT_DESC";
+         this.RqttDesc_Clm.MaxWidth = 120;
+         this.RqttDesc_Clm.Name = "RqttDesc_Clm";
+         this.RqttDesc_Clm.Visible = true;
+         this.RqttDesc_Clm.VisibleIndex = 4;
+         this.RqttDesc_Clm.Width = 93;
          // 
-         // colDCMT_DESC
+         // DcmtDesc_Clm
          // 
-         this.colDCMT_DESC.Caption = "شرح مدرک";
-         this.colDCMT_DESC.FieldName = "Request_Document.Document_Spec.DCMT_DESC";
-         this.colDCMT_DESC.Name = "colDCMT_DESC";
-         this.colDCMT_DESC.Visible = true;
-         this.colDCMT_DESC.VisibleIndex = 3;
+         this.DcmtDesc_Clm.Caption = "شرح مدرک";
+         this.DcmtDesc_Clm.FieldName = "Request_Document.Document_Spec.DCMT_DESC";
+         this.DcmtDesc_Clm.Name = "DcmtDesc_Clm";
+         this.DcmtDesc_Clm.Visible = true;
+         this.DcmtDesc_Clm.VisibleIndex = 3;
          // 
-         // colNEED_TYPE
+         // NeedType_Clm
          // 
-         this.colNEED_TYPE.Caption = "نوع نياز";
-         this.colNEED_TYPE.ColumnEdit = this.NEED_LOV;
-         this.colNEED_TYPE.FieldName = "Request_Document.NEED_TYPE";
-         this.colNEED_TYPE.MaxWidth = 70;
-         this.colNEED_TYPE.Name = "colNEED_TYPE";
-         this.colNEED_TYPE.Visible = true;
-         this.colNEED_TYPE.VisibleIndex = 2;
-         this.colNEED_TYPE.Width = 70;
+         this.NeedType_Clm.Caption = "نوع نياز";
+         this.NeedType_Clm.ColumnEdit = this.NEED_LOV;
+         this.NeedType_Clm.FieldName = "Request_Document.NEED_TYPE";
+         this.NeedType_Clm.MaxWidth = 70;
+         this.NeedType_Clm.Name = "NeedType_Clm";
+         this.NeedType_Clm.Visible = true;
+         this.NeedType_Clm.VisibleIndex = 2;
+         this.NeedType_Clm.Width = 70;
          // 
          // NEED_LOV
          // 
@@ -731,16 +718,16 @@
          // 
          this.dDCNDBindingSource.DataSource = typeof(System.Scsc.Data.D_DCND);
          // 
-         // colORIG_TYPE
+         // OrigType_Clm
          // 
-         this.colORIG_TYPE.Caption = "اصل / کپی";
-         this.colORIG_TYPE.ColumnEdit = this.ORIG_LOV;
-         this.colORIG_TYPE.FieldName = "Request_Document.ORIG_TYPE";
-         this.colORIG_TYPE.MaxWidth = 70;
-         this.colORIG_TYPE.Name = "colORIG_TYPE";
-         this.colORIG_TYPE.Visible = true;
-         this.colORIG_TYPE.VisibleIndex = 1;
-         this.colORIG_TYPE.Width = 70;
+         this.OrigType_Clm.Caption = "اصل / کپی";
+         this.OrigType_Clm.ColumnEdit = this.ORIG_LOV;
+         this.OrigType_Clm.FieldName = "Request_Document.ORIG_TYPE";
+         this.OrigType_Clm.MaxWidth = 70;
+         this.OrigType_Clm.Name = "OrigType_Clm";
+         this.OrigType_Clm.Visible = true;
+         this.OrigType_Clm.VisibleIndex = 1;
+         this.OrigType_Clm.Width = 70;
          // 
          // ORIG_LOV
          // 
@@ -759,16 +746,16 @@
          // 
          this.dDCTPBindingSource.DataSource = typeof(System.Scsc.Data.D_DCTP);
          // 
-         // colFRST_NEED
+         // FrstNeed_Clm
          // 
-         this.colFRST_NEED.Caption = "نیاز در ابتدا";
-         this.colFRST_NEED.ColumnEdit = this.FRST_LOV;
-         this.colFRST_NEED.FieldName = "Request_Document.FRST_NEED";
-         this.colFRST_NEED.MaxWidth = 70;
-         this.colFRST_NEED.Name = "colFRST_NEED";
-         this.colFRST_NEED.Visible = true;
-         this.colFRST_NEED.VisibleIndex = 0;
-         this.colFRST_NEED.Width = 70;
+         this.FrstNeed_Clm.Caption = "نیاز در ابتدا";
+         this.FrstNeed_Clm.ColumnEdit = this.FRST_LOV;
+         this.FrstNeed_Clm.FieldName = "Request_Document.FRST_NEED";
+         this.FrstNeed_Clm.MaxWidth = 70;
+         this.FrstNeed_Clm.Name = "FrstNeed_Clm";
+         this.FrstNeed_Clm.Visible = true;
+         this.FrstNeed_Clm.VisibleIndex = 0;
+         this.FrstNeed_Clm.Width = 70;
          // 
          // FRST_LOV
          // 
@@ -791,34 +778,34 @@
          // 
          this.tp_002.AutoScroll = true;
          this.tp_002.AutoScrollMinSize = new System.Drawing.Size(822, 717);
-         this.tp_002.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.tp_002.Controls.Add(this.groupBox3);
+         this.tp_002.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_002.Controls.Add(this.Image_Gb);
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(885, 723);
+         this.tp_002.Size = new System.Drawing.Size(885, 701);
          this.tp_002.TabIndex = 2;
          this.tp_002.Text = "تصویر مدرک";
          // 
-         // groupBox3
+         // Image_Gb
          // 
-         this.groupBox3.Controls.Add(this.Btn_SetProfileImage);
-         this.groupBox3.Controls.Add(this.Bt_RemvImage);
-         this.groupBox3.Controls.Add(this.UD_Interpolation);
-         this.groupBox3.Controls.Add(label2);
-         this.groupBox3.Controls.Add(label1);
-         this.groupBox3.Controls.Add(this.ZC_ZoomImage);
-         this.groupBox3.Controls.Add(this.CB_Alignment);
-         this.groupBox3.Controls.Add(this.CB_AllowMouseDrag);
-         this.groupBox3.Controls.Add(this.CB_ShowScroll);
-         this.groupBox3.Controls.Add(this.PE_ImageShow);
-         this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.groupBox3.Location = new System.Drawing.Point(3, 3);
-         this.groupBox3.Name = "groupBox3";
-         this.groupBox3.Size = new System.Drawing.Size(879, 717);
-         this.groupBox3.TabIndex = 0;
-         this.groupBox3.TabStop = false;
-         this.groupBox3.Text = "تصویر مدرک";
+         this.Image_Gb.Controls.Add(this.Btn_SetProfileImage);
+         this.Image_Gb.Controls.Add(this.Bt_RemvImage);
+         this.Image_Gb.Controls.Add(this.UD_Interpolation);
+         this.Image_Gb.Controls.Add(ImageQulity_Lb);
+         this.Image_Gb.Controls.Add(ImageAlign_Lb);
+         this.Image_Gb.Controls.Add(this.ZC_ZoomImage);
+         this.Image_Gb.Controls.Add(this.CB_Alignment);
+         this.Image_Gb.Controls.Add(this.CB_AllowMouseDrag);
+         this.Image_Gb.Controls.Add(this.CB_ShowScroll);
+         this.Image_Gb.Controls.Add(this.PE_ImageShow);
+         this.Image_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Image_Gb.Location = new System.Drawing.Point(3, 3);
+         this.Image_Gb.Name = "Image_Gb";
+         this.Image_Gb.Size = new System.Drawing.Size(862, 717);
+         this.Image_Gb.TabIndex = 0;
+         this.Image_Gb.TabStop = false;
+         this.Image_Gb.Text = "تصویر مدرک";
          // 
          // Btn_SetProfileImage
          // 
@@ -831,7 +818,7 @@
          this.Btn_SetProfileImage.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.Btn_SetProfileImage.ImageIndex = 0;
          this.Btn_SetProfileImage.ImageList = this.img;
-         this.Btn_SetProfileImage.Location = new System.Drawing.Point(15, 635);
+         this.Btn_SetProfileImage.Location = new System.Drawing.Point(15, 47);
          this.Btn_SetProfileImage.Name = "Btn_SetProfileImage";
          this.Btn_SetProfileImage.Size = new System.Drawing.Size(50, 50);
          this.Btn_SetProfileImage.TabIndex = 11;
@@ -852,7 +839,7 @@
          // Bt_RemvImage
          // 
          this.Bt_RemvImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.Bt_RemvImage.Location = new System.Drawing.Point(15, 605);
+         this.Bt_RemvImage.Location = new System.Drawing.Point(15, 17);
          this.Bt_RemvImage.Name = "Bt_RemvImage";
          this.Bt_RemvImage.Size = new System.Drawing.Size(75, 23);
          this.Bt_RemvImage.TabIndex = 10;
@@ -863,7 +850,7 @@
          // UD_Interpolation
          // 
          this.UD_Interpolation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.UD_Interpolation.Location = new System.Drawing.Point(645, 654);
+         this.UD_Interpolation.Location = new System.Drawing.Point(628, 92);
          this.UD_Interpolation.Maximum = new decimal(new int[] {
             7,
             0,
@@ -889,7 +876,7 @@
          // 
          this.ZC_ZoomImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ZC_ZoomImage.EditValue = 100;
-         this.ZC_ZoomImage.Location = new System.Drawing.Point(15, 583);
+         this.ZC_ZoomImage.Location = new System.Drawing.Point(15, 103);
          this.ZC_ZoomImage.Name = "ZC_ZoomImage";
          this.ZC_ZoomImage.Properties.LookAndFeel.SkinName = "Office 2013";
          this.ZC_ZoomImage.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -919,7 +906,7 @@
             "پایین چپ",
             "پایین مرکز",
             "پایین راست"});
-         this.CB_Alignment.Location = new System.Drawing.Point(560, 627);
+         this.CB_Alignment.Location = new System.Drawing.Point(513, 65);
          this.CB_Alignment.Name = "CB_Alignment";
          this.CB_Alignment.Size = new System.Drawing.Size(148, 22);
          this.CB_Alignment.TabIndex = 3;
@@ -929,7 +916,7 @@
          // 
          this.CB_AllowMouseDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.CB_AllowMouseDrag.AutoSize = true;
-         this.CB_AllowMouseDrag.Location = new System.Drawing.Point(529, 603);
+         this.CB_AllowMouseDrag.Location = new System.Drawing.Point(512, 41);
          this.CB_AllowMouseDrag.Name = "CB_AllowMouseDrag";
          this.CB_AllowMouseDrag.Size = new System.Drawing.Size(333, 18);
          this.CB_AllowMouseDrag.TabIndex = 2;
@@ -941,7 +928,7 @@
          // 
          this.CB_ShowScroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.CB_ShowScroll.AutoSize = true;
-         this.CB_ShowScroll.Location = new System.Drawing.Point(653, 582);
+         this.CB_ShowScroll.Location = new System.Drawing.Point(636, 20);
          this.CB_ShowScroll.Name = "CB_ShowScroll";
          this.CB_ShowScroll.Size = new System.Drawing.Size(209, 18);
          this.CB_ShowScroll.TabIndex = 1;
@@ -954,26 +941,26 @@
          this.PE_ImageShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.PE_ImageShow.Location = new System.Drawing.Point(15, 19);
+         this.PE_ImageShow.Location = new System.Drawing.Point(15, 125);
          this.PE_ImageShow.Name = "PE_ImageShow";
          this.PE_ImageShow.Properties.AllowScrollViaMouseDrag = false;
          this.PE_ImageShow.Properties.LookAndFeel.SkinName = "Office 2010 Blue";
          this.PE_ImageShow.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PE_ImageShow.Size = new System.Drawing.Size(847, 558);
+         this.PE_ImageShow.Size = new System.Drawing.Size(830, 583);
          this.PE_ImageShow.TabIndex = 0;
          // 
          // tp_003
          // 
          this.tp_003.AutoScroll = true;
          this.tp_003.AutoScrollMinSize = new System.Drawing.Size(771, 0);
-         this.tp_003.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tp_003.BackColor = System.Drawing.SystemColors.Control;
          this.tp_003.Controls.Add(this.Btn_AcceptPicture);
          this.tp_003.Controls.Add(this.Btn_TakePicture);
          this.tp_003.Controls.Add(this.Npb_Face3x4Zone);
          this.tp_003.Controls.Add(this.Npb_FaceZone);
          this.tp_003.Controls.Add(this.Tb_StartStopVideo);
          this.tp_003.Controls.Add(this.LB_Result);
-         this.tp_003.Controls.Add(label4);
+         this.tp_003.Controls.Add(SelectCamera_Lb);
          this.tp_003.Controls.Add(this.LOV_VideoSrc);
          this.tp_003.Controls.Add(this.Pb_Face3x4Zone);
          this.tp_003.Controls.Add(this.Pb_FaceZone);
@@ -982,7 +969,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(885, 723);
+         this.tp_003.Size = new System.Drawing.Size(885, 701);
          this.tp_003.TabIndex = 1;
          this.tp_003.Text = "عکس فوری";
          // 
@@ -1191,136 +1178,6 @@
          this.pb_source.TabIndex = 0;
          this.pb_source.TabStop = false;
          // 
-         // receive_DocumentBindingNavigator
-         // 
-         this.receive_DocumentBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-         this.receive_DocumentBindingNavigator.BackColor = System.Drawing.Color.Transparent;
-         this.receive_DocumentBindingNavigator.BindingSource = this.receive_DocumentBindingSource;
-         this.receive_DocumentBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-         this.receive_DocumentBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-         this.receive_DocumentBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.receive_DocumentBindingNavigatorSaveItem});
-         this.receive_DocumentBindingNavigator.Location = new System.Drawing.Point(0, 0);
-         this.receive_DocumentBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-         this.receive_DocumentBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-         this.receive_DocumentBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-         this.receive_DocumentBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-         this.receive_DocumentBindingNavigator.Name = "receive_DocumentBindingNavigator";
-         this.receive_DocumentBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-         this.receive_DocumentBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.receive_DocumentBindingNavigator.Size = new System.Drawing.Size(893, 25);
-         this.receive_DocumentBindingNavigator.TabIndex = 1;
-         this.receive_DocumentBindingNavigator.Text = "bindingNavigator1";
-         // 
-         // bindingNavigatorAddNewItem
-         // 
-         this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorAddNewItem.Enabled = false;
-         this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-         this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-         this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorAddNewItem.Text = "Add new";
-         this.bindingNavigatorAddNewItem.Visible = false;
-         // 
-         // bindingNavigatorCountItem
-         // 
-         this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-         this.bindingNavigatorCountItem.Text = "of {0}";
-         this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-         // 
-         // bindingNavigatorDeleteItem
-         // 
-         this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorDeleteItem.Enabled = false;
-         this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-         this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-         this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorDeleteItem.Text = "Delete";
-         this.bindingNavigatorDeleteItem.Visible = false;
-         // 
-         // bindingNavigatorMoveFirstItem
-         // 
-         this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-         this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-         this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMoveFirstItem.Text = "Move first";
-         // 
-         // bindingNavigatorMovePreviousItem
-         // 
-         this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-         this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-         this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-         // 
-         // bindingNavigatorSeparator
-         // 
-         this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-         this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-         // 
-         // bindingNavigatorPositionItem
-         // 
-         this.bindingNavigatorPositionItem.AccessibleName = "Position";
-         this.bindingNavigatorPositionItem.AutoSize = false;
-         this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-         this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-         this.bindingNavigatorPositionItem.Text = "0";
-         this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-         // 
-         // bindingNavigatorSeparator1
-         // 
-         this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-         this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-         // 
-         // bindingNavigatorMoveNextItem
-         // 
-         this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-         this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-         this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMoveNextItem.Text = "Move next";
-         // 
-         // bindingNavigatorMoveLastItem
-         // 
-         this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-         this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-         this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-         this.bindingNavigatorMoveLastItem.Text = "Move last";
-         // 
-         // bindingNavigatorSeparator2
-         // 
-         this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-         this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-         // 
-         // receive_DocumentBindingNavigatorSaveItem
-         // 
-         this.receive_DocumentBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.receive_DocumentBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("receive_DocumentBindingNavigatorSaveItem.Image")));
-         this.receive_DocumentBindingNavigatorSaveItem.Name = "receive_DocumentBindingNavigatorSaveItem";
-         this.receive_DocumentBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-         this.receive_DocumentBindingNavigatorSaveItem.Text = "Save Data";
-         this.receive_DocumentBindingNavigatorSaveItem.Click += new System.EventHandler(this.receive_DocumentBindingNavigatorSaveItem_Click);
-         // 
          // DG_SelectImage
          // 
          this.DG_SelectImage.FileName = "openFileDialog1";
@@ -1329,21 +1186,266 @@
          // 
          this.Tm_NewFrameProcess.Tick += new System.EventHandler(this.Tm_NewFrameProcess_Tick);
          // 
+         // RqstBn1
+         // 
+         this.RqstBn1.AddNewItem = this.RqstBnNew1;
+         this.RqstBn1.BackColor = System.Drawing.Color.Khaki;
+         this.RqstBn1.BindingSource = this.receive_DocumentBindingSource;
+         this.RqstBn1.CountItem = this.toolStripLabel1;
+         this.RqstBn1.DeleteItem = null;
+         this.RqstBn1.ImageScalingSize = new System.Drawing.Size(40, 40);
+         this.RqstBn1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.toolStripSeparator2,
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator3,
+            this.RqstBnNew1,
+            this.RqstBnDelete1,
+            this.RqstBnARqt1,
+            this.RqstMBnDefaultPrint1,
+            this.RqstBnASav1,
+            this.RqstBnAResn1,
+            this.RqstBnADoc1,
+            this.RqstBnRegl01,
+            this.RqstBnExit1});
+         this.RqstBn1.Location = new System.Drawing.Point(0, 0);
+         this.RqstBn1.MoveFirstItem = this.toolStripButton1;
+         this.RqstBn1.MoveLastItem = this.toolStripButton4;
+         this.RqstBn1.MoveNextItem = this.toolStripButton3;
+         this.RqstBn1.MovePreviousItem = this.toolStripButton2;
+         this.RqstBn1.Name = "RqstBn1";
+         this.RqstBn1.PositionItem = this.toolStripTextBox1;
+         this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+         this.RqstBn1.Size = new System.Drawing.Size(893, 47);
+         this.RqstBn1.TabIndex = 26;
+         this.RqstBn1.Text = "bindingNavigator1";
+         // 
+         // RqstBnNew1
+         // 
+         this.RqstBnNew1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnNew1.Enabled = false;
+         this.RqstBnNew1.Image = global::System.Scsc.Properties.Resources.IMAGE_1054;
+         this.RqstBnNew1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnNew1.Name = "RqstBnNew1";
+         this.RqstBnNew1.RightToLeftAutoMirrorImage = true;
+         this.RqstBnNew1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnNew1.Text = "Add new";
+         this.RqstBnNew1.ToolTipText = "ثبت ورودی جدید";
+         this.RqstBnNew1.Visible = false;
+         // 
+         // toolStripLabel1
+         // 
+         this.toolStripLabel1.Name = "toolStripLabel1";
+         this.toolStripLabel1.Size = new System.Drawing.Size(35, 44);
+         this.toolStripLabel1.Text = "of {0}";
+         this.toolStripLabel1.ToolTipText = "Total number of items";
+         // 
+         // toolStripButton1
+         // 
+         this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1062;
+         this.toolStripButton1.Name = "toolStripButton1";
+         this.toolStripButton1.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton1.Size = new System.Drawing.Size(44, 44);
+         this.toolStripButton1.Text = "Move first";
+         // 
+         // toolStripButton2
+         // 
+         this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton2.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
+         this.toolStripButton2.Name = "toolStripButton2";
+         this.toolStripButton2.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton2.Size = new System.Drawing.Size(44, 44);
+         this.toolStripButton2.Text = "Move previous";
+         // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
+         // 
+         // toolStripTextBox1
+         // 
+         this.toolStripTextBox1.AccessibleName = "Position";
+         this.toolStripTextBox1.AutoSize = false;
+         this.toolStripTextBox1.BackColor = System.Drawing.Color.Khaki;
+         this.toolStripTextBox1.Name = "toolStripTextBox1";
+         this.toolStripTextBox1.Size = new System.Drawing.Size(50, 23);
+         this.toolStripTextBox1.Text = "0";
+         this.toolStripTextBox1.ToolTipText = "Current position";
+         // 
+         // toolStripSeparator2
+         // 
+         this.toolStripSeparator2.Name = "toolStripSeparator2";
+         this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
+         // 
+         // toolStripButton3
+         // 
+         this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton3.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
+         this.toolStripButton3.Name = "toolStripButton3";
+         this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton3.Size = new System.Drawing.Size(44, 44);
+         this.toolStripButton3.Text = "Move next";
+         // 
+         // toolStripButton4
+         // 
+         this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton4.Image = global::System.Scsc.Properties.Resources.IMAGE_1063;
+         this.toolStripButton4.Name = "toolStripButton4";
+         this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton4.Size = new System.Drawing.Size(44, 44);
+         this.toolStripButton4.Text = "Move last";
+         // 
+         // toolStripSeparator3
+         // 
+         this.toolStripSeparator3.Name = "toolStripSeparator3";
+         this.toolStripSeparator3.Size = new System.Drawing.Size(6, 47);
+         // 
+         // RqstBnDelete1
+         // 
+         this.RqstBnDelete1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnDelete1.Enabled = false;
+         this.RqstBnDelete1.Image = global::System.Scsc.Properties.Resources.IMAGE_1057;
+         this.RqstBnDelete1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnDelete1.Name = "RqstBnDelete1";
+         this.RqstBnDelete1.RightToLeftAutoMirrorImage = true;
+         this.RqstBnDelete1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnDelete1.Text = "Delete";
+         this.RqstBnDelete1.ToolTipText = "انصراف ثبت نام";
+         this.RqstBnDelete1.Visible = false;
+         // 
+         // RqstBnARqt1
+         // 
+         this.RqstBnARqt1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnARqt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1144;
+         this.RqstBnARqt1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnARqt1.Name = "RqstBnARqt1";
+         this.RqstBnARqt1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnARqt1.Text = "Save Data";
+         this.RqstBnARqt1.ToolTipText = "ثبت مجدد اطلاعات";
+         this.RqstBnARqt1.Click += new System.EventHandler(this.receive_DocumentBindingNavigatorSaveItem_Click);
+         // 
+         // RqstMBnDefaultPrint1
+         // 
+         this.RqstMBnDefaultPrint1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstMBnDefaultPrint1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RqstBnDefaultPrint1,
+            this.RqstBnPrint1,
+            this.toolStripMenuItem1,
+            this.RqstBnSettingPrint1});
+         this.RqstMBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.RqstMBnDefaultPrint1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstMBnDefaultPrint1.Name = "RqstMBnDefaultPrint1";
+         this.RqstMBnDefaultPrint1.Size = new System.Drawing.Size(56, 44);
+         this.RqstMBnDefaultPrint1.Text = "چاپ پیش فرض";
+         // 
+         // RqstBnDefaultPrint1
+         // 
+         this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
+         this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
+         // 
+         // RqstBnPrint1
+         // 
+         this.RqstBnPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1090;
+         this.RqstBnPrint1.Name = "RqstBnPrint1";
+         this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+         this.RqstBnPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnPrint1.Text = "انتخاب چاپ";
+         // 
+         // toolStripMenuItem1
+         // 
+         this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
+         // 
+         // RqstBnSettingPrint1
+         // 
+         this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
+         this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
+         // 
+         // RqstBnASav1
+         // 
+         this.RqstBnASav1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnASav1.Enabled = false;
+         this.RqstBnASav1.Image = global::System.Scsc.Properties.Resources.IMAGE_1056;
+         this.RqstBnASav1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnASav1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnASav1.Name = "RqstBnASav1";
+         this.RqstBnASav1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnASav1.Text = "toolStripButton1";
+         this.RqstBnASav1.ToolTipText = "ذخیره نهایی";
+         this.RqstBnASav1.Visible = false;
+         // 
+         // RqstBnAResn1
+         // 
+         this.RqstBnAResn1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnAResn1.Enabled = false;
+         this.RqstBnAResn1.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+         this.RqstBnAResn1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnAResn1.Name = "RqstBnAResn1";
+         this.RqstBnAResn1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnAResn1.Text = "اسناد و مدارک مورد نیاز";
+         this.RqstBnAResn1.Visible = false;
+         // 
+         // RqstBnADoc1
+         // 
+         this.RqstBnADoc1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnADoc1.Enabled = false;
+         this.RqstBnADoc1.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+         this.RqstBnADoc1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnADoc1.Name = "RqstBnADoc1";
+         this.RqstBnADoc1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnADoc1.Text = "toolStripButton1";
+         this.RqstBnADoc1.Visible = false;
+         // 
+         // RqstBnRegl01
+         // 
+         this.RqstBnRegl01.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnRegl01.Enabled = false;
+         this.RqstBnRegl01.Image = global::System.Scsc.Properties.Resources.IMAGE_1075;
+         this.RqstBnRegl01.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnRegl01.Name = "RqstBnRegl01";
+         this.RqstBnRegl01.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnRegl01.Text = "toolStripButton1";
+         this.RqstBnRegl01.Visible = false;
+         // 
+         // RqstBnExit1
+         // 
+         this.RqstBnExit1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnExit1.Image = global::System.Scsc.Properties.Resources.IMAGE_1058;
+         this.RqstBnExit1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnExit1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnExit1.Name = "RqstBnExit1";
+         this.RqstBnExit1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnExit1.Text = "toolStripButton3";
+         this.RqstBnExit1.ToolTipText = "خروج";
+         this.RqstBnExit1.Click += new System.EventHandler(this.mb_back_Click);
+         // 
          // CMN_DCMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.BackColor = System.Drawing.SystemColors.Control;
          this.Controls.Add(this.TC_Dcmt);
-         this.Controls.Add(this.receive_DocumentBindingNavigator);
+         this.Controls.Add(this.RqstBn1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "CMN_DCMT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(893, 775);
          this.TC_Dcmt.ResumeLayout(false);
-         this.tabPage1.ResumeLayout(false);
-         this.groupBox1.ResumeLayout(false);
-         this.groupBox1.PerformLayout();
+         this.tp_001.ResumeLayout(false);
+         this.Dcmt_Gb.ResumeLayout(false);
+         this.Dcmt_Gb.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pERM_STATLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.receive_DocumentBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dPRSTBindingSource)).EndInit();
@@ -1365,8 +1467,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.FRST_LOV)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dYSNOBindingSource)).EndInit();
          this.tp_002.ResumeLayout(false);
-         this.groupBox3.ResumeLayout(false);
-         this.groupBox3.PerformLayout();
+         this.Image_Gb.ResumeLayout(false);
+         this.Image_Gb.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.UD_Interpolation)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZC_ZoomImage.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZC_ZoomImage)).EndInit();
@@ -1378,9 +1480,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pb_FaceZone)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_destination)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_source)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.receive_DocumentBindingNavigator)).EndInit();
-         this.receive_DocumentBindingNavigator.ResumeLayout(false);
-         this.receive_DocumentBindingNavigator.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
+         this.RqstBn1.ResumeLayout(false);
+         this.RqstBn1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1389,33 +1491,20 @@
       #endregion
 
       private Windows.Forms.TabControl TC_Dcmt;
-      private Windows.Forms.TabPage tabPage1;
+      private Windows.Forms.TabPage tp_001;
       private Windows.Forms.TabPage tp_003;
-      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.GroupBox Dcmt_Gb;
       private DevExpress.XtraGrid.GridControl receive_DocumentGridControl;
       private Windows.Forms.BindingSource receive_DocumentBindingSource;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-      private Windows.Forms.BindingNavigator receive_DocumentBindingNavigator;
-      private Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-      private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-      private Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-      private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-      private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-      private Windows.Forms.ToolStripButton receive_DocumentBindingNavigatorSaveItem;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQTP_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQTP_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQTT_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQTT_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colDCMT_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colNEED_TYPE;
-      private DevExpress.XtraGrid.Columns.GridColumn colORIG_TYPE;
-      private DevExpress.XtraGrid.Columns.GridColumn colFRST_NEED;
+      private DevExpress.XtraGrid.Columns.GridColumn RqtpCode_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn RqtpDesc_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn RqttCode_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn RqttDesc_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn DcmtDesc_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn NeedType_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn OrigType_Clm;
+      private DevExpress.XtraGrid.Columns.GridColumn FrstNeed_Clm;
       private Windows.Forms.TextBox rCDC_DESCTextBox;
       private dxExample.PersianDateEdit dELV_DATEPersianDateEdit;
       private dxExample.PersianDateEdit eND_DATEPersianDateEdit;
@@ -1426,7 +1515,7 @@
       private Windows.Forms.BindingSource ImdcBs1;
       private Windows.Forms.TextBox rWNOTextBox;
       private Windows.Forms.TabPage tp_002;
-      private Windows.Forms.GroupBox groupBox3;
+      private Windows.Forms.GroupBox Image_Gb;
       private DevExpress.XtraEditors.PictureEdit PE_ImageShow;
       private DevExpress.XtraEditors.ZoomTrackBarControl ZC_ZoomImage;
       private Windows.Forms.ComboBox CB_Alignment;
@@ -1451,7 +1540,6 @@
       private Windows.Forms.PictureBox pb_source;
       private DevExpress.XtraEditors.LookUpEdit LOV_VideoSrc;
       private MaxUi.NewPickBtn Tb_StartStopVideo;
-      private MaxUi.NewMaxBtn mb_back;
       private Windows.Forms.Timer Tm_NewFrameProcess;
       private Windows.Forms.Label LB_Result;
       private Windows.Forms.PictureBox Pb_FaceZone;
@@ -1460,5 +1548,28 @@
       private MaxUi.NewPickBtn Npb_FaceZone;
       private DevExpress.XtraEditors.SimpleButton Btn_AcceptPicture;
       private DevExpress.XtraEditors.SimpleButton Btn_TakePicture;
+      private Windows.Forms.BindingNavigator RqstBn1;
+      private Windows.Forms.ToolStripButton RqstBnNew1;
+      private Windows.Forms.ToolStripLabel toolStripLabel1;
+      private Windows.Forms.ToolStripButton toolStripButton1;
+      private Windows.Forms.ToolStripButton toolStripButton2;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator1;
+      private Windows.Forms.ToolStripTextBox toolStripTextBox1;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator2;
+      private Windows.Forms.ToolStripButton toolStripButton3;
+      private Windows.Forms.ToolStripButton toolStripButton4;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator3;
+      private Windows.Forms.ToolStripButton RqstBnDelete1;
+      private Windows.Forms.ToolStripButton RqstBnARqt1;
+      private Windows.Forms.ToolStripSplitButton RqstMBnDefaultPrint1;
+      private Windows.Forms.ToolStripMenuItem RqstBnDefaultPrint1;
+      private Windows.Forms.ToolStripMenuItem RqstBnPrint1;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+      private Windows.Forms.ToolStripMenuItem RqstBnSettingPrint1;
+      private Windows.Forms.ToolStripButton RqstBnASav1;
+      private Windows.Forms.ToolStripButton RqstBnAResn1;
+      private Windows.Forms.ToolStripButton RqstBnADoc1;
+      private Windows.Forms.ToolStripButton RqstBnRegl01;
+      private Windows.Forms.ToolStripButton RqstBnExit1;
    }
 }

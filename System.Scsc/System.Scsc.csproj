@@ -908,15 +908,6 @@
     <Compile Include="Ui\ReportManager\RQST_TRAC_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\Settings\BAS_CPR_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\Settings\BAS_CPR_F.Designer.cs">
-      <DependentUpon>BAS_CPR_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\Settings\BAS_CPR_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Ui\Settings\CFG_STNG_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1399,9 +1390,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\ReportManager\RQST_TRAC_F.resx">
       <DependentUpon>RQST_TRAC_F.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ui\Settings\BAS_CPR_F.resx">
-      <DependentUpon>BAS_CPR_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Settings\CFG_STNG_F.resx">
       <DependentUpon>CFG_STNG_F.cs</DependentUpon>

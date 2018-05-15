@@ -614,7 +614,9 @@
          this.colCOCH_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn216 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DDebtBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Btn_Back = new System.MaxUi.NewMaxBtn();
+         this.panel2 = new System.Windows.Forms.Panel();
+         this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          fILE_NOLabel = new System.Windows.Forms.Label();
          bRTH_DATE_DNRMLabel = new System.Windows.Forms.Label();
          cELL_PHON_DNRMLabel = new System.Windows.Forms.Label();
@@ -811,6 +813,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit9.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).BeginInit();
+         this.panel2.SuspendLayout();
          this.SuspendLayout();
          // 
          // fILE_NOLabel
@@ -877,7 +880,7 @@
          fIGH_STATLabel.AutoSize = true;
          fIGH_STATLabel.Location = new System.Drawing.Point(174, 86);
          fIGH_STATLabel.Name = "fIGH_STATLabel";
-         fIGH_STATLabel.Size = new System.Drawing.Size(84, 14);
+         fIGH_STATLabel.Size = new System.Drawing.Size(92, 14);
          fIGH_STATLabel.TabIndex = 2;
          fIGH_STATLabel.Text = "وضعیت مشتری :";
          // 
@@ -937,7 +940,7 @@
          label13.AutoSize = true;
          label13.Location = new System.Drawing.Point(110, 90);
          label13.Name = "label13";
-         label13.Size = new System.Drawing.Size(64, 14);
+         label13.Size = new System.Drawing.Size(72, 14);
          label13.TabIndex = 19;
          label13.Text = "نوع مشتری :";
          // 
@@ -1117,7 +1120,7 @@
          label31.AutoSize = true;
          label31.Location = new System.Drawing.Point(374, 63);
          label31.Name = "label31";
-         label31.Size = new System.Drawing.Size(63, 14);
+         label31.Size = new System.Drawing.Size(71, 14);
          label31.TabIndex = 2;
          label31.Text = "نام مشتری :";
          // 
@@ -1665,29 +1668,27 @@
          // 
          // tb_master
          // 
-         this.tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.tb_master.Controls.Add(this.tp_001);
          this.tb_master.Controls.Add(this.tabPage2);
          this.tb_master.Controls.Add(this.tp_003);
          this.tb_master.Controls.Add(this.tabPage11);
          this.tb_master.Controls.Add(this.tabPage4);
          this.tb_master.Controls.Add(this.tabPage1);
+         this.tb_master.Dock = System.Windows.Forms.DockStyle.Fill;
          this.tb_master.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.tb_master.Location = new System.Drawing.Point(15, 28);
+         this.tb_master.Location = new System.Drawing.Point(0, 59);
          this.tb_master.Multiline = true;
          this.tb_master.Name = "tb_master";
          this.tb_master.RightToLeftLayout = true;
          this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(1205, 633);
+         this.tb_master.Size = new System.Drawing.Size(1233, 650);
          this.tb_master.TabIndex = 0;
          this.tb_master.SelectedIndexChanged += new System.EventHandler(this.tb_master_SelectedIndexChanged);
          // 
          // tp_001
          // 
          this.tp_001.AutoScroll = true;
-         this.tp_001.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tp_001.BackColor = System.Drawing.SystemColors.Control;
          this.tp_001.Controls.Add(this.UserProFile_Rb);
          this.tp_001.Controls.Add(this.Btn_Pblc);
          this.tp_001.Controls.Add(this.groupBox5);
@@ -1702,7 +1703,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(1197, 606);
+         this.tp_001.Size = new System.Drawing.Size(1225, 623);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "اطلاعات فعلی مشتری";
          // 
@@ -1720,7 +1721,7 @@
          this.UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
          this.UserProFile_Rb.ImageVisiable = false;
-         this.UserProFile_Rb.Location = new System.Drawing.Point(1090, 19);
+         this.UserProFile_Rb.Location = new System.Drawing.Point(1118, 19);
          this.UserProFile_Rb.Name = "UserProFile_Rb";
          this.UserProFile_Rb.NormalBorderColor = System.Drawing.Color.Black;
          this.UserProFile_Rb.NormalColorA = System.Drawing.Color.White;
@@ -1737,7 +1738,7 @@
          this.Btn_Pblc.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Btn_Pblc.Appearance.Options.UseBackColor = true;
          this.Btn_Pblc.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Pblc.Image")));
-         this.Btn_Pblc.Location = new System.Drawing.Point(1090, 181);
+         this.Btn_Pblc.Location = new System.Drawing.Point(1118, 181);
          this.Btn_Pblc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Btn_Pblc.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_Pblc.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1772,7 +1773,7 @@
          this.groupBox5.Controls.Add(this.PrintSetting_Butn);
          this.groupBox5.Controls.Add(this.Print_Butn);
          this.groupBox5.Controls.Add(this.PrintDefault_Butn);
-         this.groupBox5.Location = new System.Drawing.Point(62, 210);
+         this.groupBox5.Location = new System.Drawing.Point(90, 210);
          this.groupBox5.Name = "groupBox5";
          this.groupBox5.Size = new System.Drawing.Size(192, 87);
          this.groupBox5.TabIndex = 19;
@@ -1857,7 +1858,7 @@
          this.groupBox7.Controls.Add(this.FighBnSettingPrint);
          this.groupBox7.Controls.Add(this.FighBnPrint);
          this.groupBox7.Controls.Add(this.FighBnDefaultPrint);
-         this.groupBox7.Location = new System.Drawing.Point(62, 303);
+         this.groupBox7.Location = new System.Drawing.Point(90, 303);
          this.groupBox7.Name = "groupBox7";
          this.groupBox7.Size = new System.Drawing.Size(192, 114);
          this.groupBox7.TabIndex = 19;
@@ -1937,7 +1938,7 @@
          this.Btn_Mbsp.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Btn_Mbsp.Appearance.Options.UseBackColor = true;
          this.Btn_Mbsp.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Mbsp.Image")));
-         this.Btn_Mbsp.Location = new System.Drawing.Point(1090, 152);
+         this.Btn_Mbsp.Location = new System.Drawing.Point(1118, 152);
          this.Btn_Mbsp.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Btn_Mbsp.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_Mbsp.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1973,7 +1974,7 @@
          this.Btn_Blok.Appearance.Options.UseFont = true;
          this.Btn_Blok.Appearance.Options.UseForeColor = true;
          this.Btn_Blok.Image = global::System.Scsc.Properties.Resources.IMAGE_1420;
-         this.Btn_Blok.Location = new System.Drawing.Point(1090, 123);
+         this.Btn_Blok.Location = new System.Drawing.Point(1118, 123);
          this.Btn_Blok.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Btn_Blok.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_Blok.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2003,7 +2004,7 @@
          this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox6.Controls.Add(this.Mbfz_pn);
          this.groupBox6.Controls.Add(this.Mbco_Pn);
-         this.groupBox6.Location = new System.Drawing.Point(62, 13);
+         this.groupBox6.Location = new System.Drawing.Point(90, 13);
          this.groupBox6.Name = "groupBox6";
          this.groupBox6.Size = new System.Drawing.Size(485, 191);
          this.groupBox6.TabIndex = 16;
@@ -2246,7 +2247,7 @@
          this.groupBox4.Controls.Add(rQST_RQIDLabel);
          this.groupBox4.Controls.Add(this.textBox5);
          this.groupBox4.Controls.Add(this.rQST_RQIDTextBox);
-         this.groupBox4.Location = new System.Drawing.Point(260, 210);
+         this.groupBox4.Location = new System.Drawing.Point(288, 210);
          this.groupBox4.Name = "groupBox4";
          this.groupBox4.Size = new System.Drawing.Size(287, 114);
          this.groupBox4.TabIndex = 14;
@@ -2312,7 +2313,7 @@
          this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox3.Controls.Add(this.Mbsp_gc);
          this.groupBox3.Controls.Add(this.panel1);
-         this.groupBox3.Location = new System.Drawing.Point(553, 210);
+         this.groupBox3.Location = new System.Drawing.Point(581, 210);
          this.groupBox3.Name = "groupBox3";
          this.groupBox3.Size = new System.Drawing.Size(637, 393);
          this.groupBox3.TabIndex = 13;
@@ -2790,7 +2791,7 @@
          this.groupBox2.Controls.Add(this.tELL_PHON_DNRMTextBox);
          this.groupBox2.Controls.Add(cELL_PHON_DNRMLabel);
          this.groupBox2.Controls.Add(tELL_PHON_DNRMLabel);
-         this.groupBox2.Location = new System.Drawing.Point(260, 330);
+         this.groupBox2.Location = new System.Drawing.Point(288, 330);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(287, 87);
          this.groupBox2.TabIndex = 12;
@@ -2850,7 +2851,7 @@
          this.groupBox1.Controls.Add(this.nAME_DNRMTextBox);
          this.groupBox1.Controls.Add(fILE_NOLabel);
          this.groupBox1.Controls.Add(this.fILE_NOTextBox);
-         this.groupBox1.Location = new System.Drawing.Point(553, 13);
+         this.groupBox1.Location = new System.Drawing.Point(581, 13);
          this.groupBox1.Name = "groupBox1";
          this.groupBox1.Size = new System.Drawing.Size(531, 191);
          this.groupBox1.TabIndex = 0;
@@ -3287,7 +3288,7 @@
          // tabPage2
          // 
          this.tabPage2.AutoScroll = true;
-         this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
          this.tabPage2.Controls.Add(this.groupBox13);
          this.tabPage2.Controls.Add(this.groupBox15);
          this.tabPage2.Controls.Add(this.groupBox14);
@@ -4196,7 +4197,7 @@
          // FighterBn
          // 
          this.FighterBn.AddNewItem = this.bindingNavigatorAddNewItem;
-         this.FighterBn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.FighterBn.BackColor = System.Drawing.SystemColors.Control;
          this.FighterBn.BindingSource = this.vF_All_Info_FightersBs;
          this.FighterBn.CountItem = this.bindingNavigatorCountItem;
          this.FighterBn.DeleteItem = this.bindingNavigatorDeleteItem;
@@ -4316,7 +4317,7 @@
          // tp_003
          // 
          this.tp_003.AutoScroll = true;
-         this.tp_003.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tp_003.BackColor = System.Drawing.SystemColors.Control;
          this.tp_003.Controls.Add(this.splitContainerControl1);
          this.tp_003.Controls.Add(this.PaymentsBn);
          this.tp_003.Location = new System.Drawing.Point(4, 23);
@@ -4330,14 +4331,14 @@
          // 
          this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainerControl1.Horizontal = false;
-         this.splitContainerControl1.Location = new System.Drawing.Point(3, 35);
+         this.splitContainerControl1.Location = new System.Drawing.Point(3, 30);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.vF_PaymentsResultGridControl);
          this.splitContainerControl1.Panel1.Controls.Add(this.GustInfo_Pn);
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1191, 568);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1191, 573);
          this.splitContainerControl1.SplitterPosition = 272;
          this.splitContainerControl1.TabIndex = 15;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -4795,7 +4796,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.PydtDesc_TextEdit);
          this.splitContainerControl2.Panel2.Controls.Add(this.labelControl3);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1191, 291);
+         this.splitContainerControl2.Size = new System.Drawing.Size(1191, 296);
          this.splitContainerControl2.SplitterPosition = 541;
          this.splitContainerControl2.TabIndex = 0;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -4811,7 +4812,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl3.Panel2.Controls.Add(this.labelControl2);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(541, 291);
+         this.splitContainerControl3.Size = new System.Drawing.Size(541, 296);
          this.splitContainerControl3.SplitterPosition = 282;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -4828,7 +4829,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl3.Size = new System.Drawing.Size(282, 274);
+         this.gridControl3.Size = new System.Drawing.Size(282, 279);
          this.gridControl3.TabIndex = 11;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});
@@ -5065,7 +5066,7 @@
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(254, 274);
+         this.gridControl4.Size = new System.Drawing.Size(254, 279);
          this.gridControl4.TabIndex = 13;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView13});
@@ -5256,7 +5257,7 @@
          this.payment_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_RCTP,
             this.Pydt_Butn});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(645, 252);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(645, 257);
          this.payment_DetailsGridControl.TabIndex = 9;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -5539,7 +5540,7 @@
          // 
          this.PydtDesc_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtsBs1, "PYDT_DESC", true));
          this.PydtDesc_TextEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(0, 269);
+         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(0, 274);
          this.PydtDesc_TextEdit.Name = "PydtDesc_TextEdit";
          this.PydtDesc_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydtDesc_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -5571,7 +5572,7 @@
          // PaymentsBn
          // 
          this.PaymentsBn.AddNewItem = this.bindingNavigatorAddNewItem1;
-         this.PaymentsBn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.PaymentsBn.BackColor = System.Drawing.SystemColors.Control;
          this.PaymentsBn.BindingSource = this.vF_SavePaymentsBs;
          this.PaymentsBn.CountItem = this.bindingNavigatorCountItem1;
          this.PaymentsBn.DeleteItem = this.bindingNavigatorDeleteItem1;
@@ -5603,7 +5604,7 @@
          this.PaymentsBn.Name = "PaymentsBn";
          this.PaymentsBn.PositionItem = this.bindingNavigatorPositionItem1;
          this.PaymentsBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.PaymentsBn.Size = new System.Drawing.Size(1191, 32);
+         this.PaymentsBn.Size = new System.Drawing.Size(1191, 27);
          this.PaymentsBn.TabIndex = 1;
          this.PaymentsBn.Text = "bindingNavigator1";
          // 
@@ -5614,14 +5615,14 @@
          this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
          this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem1";
          this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 29);
+         this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(24, 24);
          this.bindingNavigatorAddNewItem1.Text = "Add new";
          this.bindingNavigatorAddNewItem1.Visible = false;
          // 
          // bindingNavigatorCountItem1
          // 
          this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
-         this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 29);
+         this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 24);
          this.bindingNavigatorCountItem1.Text = "of {0}";
          this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
          // 
@@ -5632,7 +5633,7 @@
          this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
          this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
          this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(24, 29);
+         this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(24, 24);
          this.bindingNavigatorDeleteItem1.Text = "Delete";
          this.bindingNavigatorDeleteItem1.Visible = false;
          // 
@@ -5642,7 +5643,7 @@
          this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
          this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
          this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 29);
+         this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(24, 24);
          this.bindingNavigatorMoveFirstItem1.Text = "Move first";
          // 
          // bindingNavigatorMovePreviousItem1
@@ -5651,13 +5652,13 @@
          this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
          this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
          this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 29);
+         this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(24, 24);
          this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
          // 
          // bindingNavigatorSeparator3
          // 
          this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
-         this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 32);
+         this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 27);
          // 
          // bindingNavigatorPositionItem1
          // 
@@ -5671,7 +5672,7 @@
          // bindingNavigatorSeparator4
          // 
          this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
-         this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 32);
+         this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 27);
          // 
          // bindingNavigatorMoveNextItem1
          // 
@@ -5679,7 +5680,7 @@
          this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
          this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
          this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 29);
+         this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(24, 24);
          this.bindingNavigatorMoveNextItem1.Text = "Move next";
          // 
          // bindingNavigatorMoveLastItem1
@@ -5688,13 +5689,13 @@
          this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
          this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
          this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
-         this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 29);
+         this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(24, 24);
          this.bindingNavigatorMoveLastItem1.Text = "Move last";
          // 
          // bindingNavigatorSeparator5
          // 
          this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
-         this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 32);
+         this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 27);
          // 
          // PymtSave_Butn
          // 
@@ -5702,7 +5703,7 @@
          this.PymtSave_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
          this.PymtSave_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.PymtSave_Butn.Name = "PymtSave_Butn";
-         this.PymtSave_Butn.Size = new System.Drawing.Size(24, 29);
+         this.PymtSave_Butn.Size = new System.Drawing.Size(24, 24);
          this.PymtSave_Butn.Text = "ویرایش و ذخیره کردن صورتحساب";
          this.PymtSave_Butn.Click += new System.EventHandler(this.PymtSave_Butn_Click);
          // 
@@ -5712,14 +5713,14 @@
          this.CmpsRcpt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1103;
          this.CmpsRcpt_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.CmpsRcpt_Butn.Name = "CmpsRcpt_Butn";
-         this.CmpsRcpt_Butn.Size = new System.Drawing.Size(24, 29);
+         this.CmpsRcpt_Butn.Size = new System.Drawing.Size(24, 24);
          this.CmpsRcpt_Butn.Text = "دریافت مرکب";
          this.CmpsRcpt_Butn.Click += new System.EventHandler(this.CmpsRcpt_Butn_Click);
          // 
          // toolStripSeparator4
          // 
          this.toolStripSeparator4.Name = "toolStripSeparator4";
-         this.toolStripSeparator4.Size = new System.Drawing.Size(6, 32);
+         this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
          // 
          // Tsb_ShowRqtp16
          // 
@@ -5727,7 +5728,7 @@
          this.Tsb_ShowRqtp16.Image = global::System.Scsc.Properties.Resources.IMAGE_1137;
          this.Tsb_ShowRqtp16.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Tsb_ShowRqtp16.Name = "Tsb_ShowRqtp16";
-         this.Tsb_ShowRqtp16.Size = new System.Drawing.Size(24, 29);
+         this.Tsb_ShowRqtp16.Size = new System.Drawing.Size(24, 24);
          this.Tsb_ShowRqtp16.Text = "صورتحساب های متفرقه";
          this.Tsb_ShowRqtp16.Click += new System.EventHandler(this.Tsb_ShowRqtp16_Click);
          // 
@@ -5737,14 +5738,14 @@
          this.Tsb_ClearRqtp.Image = global::System.Scsc.Properties.Resources.IMAGE_1123;
          this.Tsb_ClearRqtp.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Tsb_ClearRqtp.Name = "Tsb_ClearRqtp";
-         this.Tsb_ClearRqtp.Size = new System.Drawing.Size(24, 29);
+         this.Tsb_ClearRqtp.Size = new System.Drawing.Size(24, 24);
          this.Tsb_ClearRqtp.Text = "تمام صورتحساب ها";
          this.Tsb_ClearRqtp.Click += new System.EventHandler(this.Tsb_ClearRqtp_Click);
          // 
          // toolStripSeparator5
          // 
          this.toolStripSeparator5.Name = "toolStripSeparator5";
-         this.toolStripSeparator5.Size = new System.Drawing.Size(6, 32);
+         this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
          // 
          // toolStripDropDownButton1
          // 
@@ -5755,7 +5756,7 @@
          this.toolStripDropDownButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1072;
          this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-         this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 29);
+         this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 24);
          this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
          // 
          // ShowCrntReglYear_Butn
@@ -5774,7 +5775,7 @@
          // 
          // tabPage11
          // 
-         this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tabPage11.BackColor = System.Drawing.SystemColors.Control;
          this.tabPage11.Controls.Add(this.gridControl1);
          this.tabPage11.Controls.Add(this.RqstDcmtBn);
          this.tabPage11.Location = new System.Drawing.Point(4, 23);
@@ -5897,7 +5898,7 @@
          // RqstDcmtBn
          // 
          this.RqstDcmtBn.AddNewItem = this.toolStripButton1;
-         this.RqstDcmtBn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.RqstDcmtBn.BackColor = System.Drawing.SystemColors.Control;
          this.RqstDcmtBn.BindingSource = this.vF_Request_DocumentBs;
          this.RqstDcmtBn.CountItem = this.toolStripLabel1;
          this.RqstDcmtBn.DeleteItem = this.toolStripButton2;
@@ -6016,7 +6017,7 @@
          // 
          // tabPage4
          // 
-         this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
          this.tabPage4.Controls.Add(this.vF_Request_ChangingResultGridControl);
          this.tabPage4.Controls.Add(this.memoEdit1);
          this.tabPage4.Controls.Add(this.RequestChangingBn);
@@ -6284,7 +6285,7 @@
          // RequestChangingBn
          // 
          this.RequestChangingBn.AddNewItem = this.bindingNavigatorAddNewItem2;
-         this.RequestChangingBn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.RequestChangingBn.BackColor = System.Drawing.SystemColors.Control;
          this.RequestChangingBn.BindingSource = this.vF_Request_ChangingBs;
          this.RequestChangingBn.CountItem = this.bindingNavigatorCountItem2;
          this.RequestChangingBn.DeleteItem = this.bindingNavigatorDeleteItem2;
@@ -6403,12 +6404,12 @@
          // 
          // tabPage1
          // 
-         this.tabPage1.BackColor = System.Drawing.Color.Silver;
+         this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
          this.tabPage1.Controls.Add(this.AttnGridControl);
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(1197, 606);
+         this.tabPage1.Size = new System.Drawing.Size(1225, 623);
          this.tabPage1.TabIndex = 12;
          this.tabPage1.Text = "حضور غیاب";
          // 
@@ -6426,7 +6427,7 @@
             this.ActnAttn_Butn,
             this.repositoryItemLookUpEdit13,
             this.repositoryItemLookUpEdit14});
-         this.AttnGridControl.Size = new System.Drawing.Size(1191, 600);
+         this.AttnGridControl.Size = new System.Drawing.Size(1219, 617);
          this.AttnGridControl.TabIndex = 2;
          this.AttnGridControl.UseEmbeddedNavigator = true;
          this.AttnGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -6666,36 +6667,55 @@
          // 
          this.DDebtBs.DataSource = typeof(System.Scsc.Data.D_DEBT);
          // 
-         // Btn_Back
+         // panel2
          // 
-         this.Btn_Back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Btn_Back.BackColor = System.Drawing.Color.Transparent;
-         this.Btn_Back.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_Back.Caption = "بازگشت";
-         this.Btn_Back.Disabled = false;
-         this.Btn_Back.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_Back.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_Back.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_Back.ImageIndex = -1;
-         this.Btn_Back.ImageList = null;
-         this.Btn_Back.InToBold = false;
-         this.Btn_Back.Location = new System.Drawing.Point(570, 667);
-         this.Btn_Back.Name = "Btn_Back";
-         this.Btn_Back.Size = new System.Drawing.Size(93, 27);
-         this.Btn_Back.TabIndex = 3;
-         this.Btn_Back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_Back.TextColor = System.Drawing.Color.Black;
-         this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
+         this.panel2.Controls.Add(this.TitlForm_Lb);
+         this.panel2.Controls.Add(this.Back_Butn);
+         this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel2.Location = new System.Drawing.Point(0, 0);
+         this.panel2.Name = "panel2";
+         this.panel2.Size = new System.Drawing.Size(1233, 59);
+         this.panel2.TabIndex = 4;
+         // 
+         // TitlForm_Lb
+         // 
+         this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1056;
+         this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.TitlForm_Lb.Location = new System.Drawing.Point(996, 0);
+         this.TitlForm_Lb.Name = "TitlForm_Lb";
+         this.TitlForm_Lb.Size = new System.Drawing.Size(176, 59);
+         this.TitlForm_Lb.TabIndex = 1;
+         this.TitlForm_Lb.Text = "اطلاعات مشتری";
+         // 
+         // Back_Butn
+         // 
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(1172, 0);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.BackColor = System.Drawing.SystemColors.Control;
          this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-         this.Controls.Add(this.Btn_Back);
          this.Controls.Add(this.tb_master);
+         this.Controls.Add(this.panel2);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "ALL_FLDF_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6845,6 +6865,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).EndInit();
+         this.panel2.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -6977,7 +6998,6 @@
       private Windows.Forms.GroupBox groupBox7;
       private MaxUi.NewMaxBtn FighBnDefaultPrint;
       private DevExpress.XtraEditors.TextEdit bLOD_GROPTextEdit1;
-      private MaxUi.NewMaxBtn Btn_Back;
       private MaxUi.NewMaxBtn FighBnSettingPrint;
       private MaxUi.NewMaxBtn FighBnPrint;
       private Windows.Forms.TextBox textBox5;
@@ -7260,5 +7280,8 @@
       private DevExpress.XtraEditors.SimpleButton GlrIndc_Butn;
       private DevExpress.XtraEditors.TextEdit DpstAmntDnrm_Txt;
       private Windows.Forms.Label nAME_DNRMLabel;
+      private Windows.Forms.Panel panel2;
+      private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
+      private DevExpress.XtraEditors.SimpleButton Back_Butn;
    }
 }

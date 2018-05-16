@@ -29,17 +29,9 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label PymtAmnt_Lb;
-         System.Windows.Forms.Label PydsAmnt_Lb;
-         System.Windows.Forms.Label TotlAmnt_Lb;
-         System.Windows.Forms.Label GlobCode1_Lb;
-         System.Windows.Forms.Label SuntCode1_Lb;
-         System.Windows.Forms.Label CellPhon1_Lb;
-         System.Windows.Forms.Label TellPhon1_Clm;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LSI_FLDF_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label NatlCode1_Lb;
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -95,6 +87,14 @@
          DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         this.PymtAmnt_Lb = new System.Windows.Forms.Label();
+         this.PydsAmnt_Lb = new System.Windows.Forms.Label();
+         this.TotlAmnt_Lb = new System.Windows.Forms.Label();
+         this.GlobCode1_Lb = new System.Windows.Forms.Label();
+         this.SuntCode1_Lb = new System.Windows.Forms.Label();
+         this.CellPhon1_Lb = new System.Windows.Forms.Label();
+         this.TellPhon1_Clm = new System.Windows.Forms.Label();
+         this.NatlCode1_Lb = new System.Windows.Forms.Label();
          this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -257,14 +257,6 @@
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-         PymtAmnt_Lb = new System.Windows.Forms.Label();
-         PydsAmnt_Lb = new System.Windows.Forms.Label();
-         TotlAmnt_Lb = new System.Windows.Forms.Label();
-         GlobCode1_Lb = new System.Windows.Forms.Label();
-         SuntCode1_Lb = new System.Windows.Forms.Label();
-         CellPhon1_Lb = new System.Windows.Forms.Label();
-         TellPhon1_Clm = new System.Windows.Forms.Label();
-         NatlCode1_Lb = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -319,73 +311,83 @@
          // 
          // PymtAmnt_Lb
          // 
-         PymtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         PymtAmnt_Lb.AutoSize = true;
-         PymtAmnt_Lb.Location = new System.Drawing.Point(433, 42);
-         PymtAmnt_Lb.Name = "PymtAmnt_Lb";
-         PymtAmnt_Lb.Size = new System.Drawing.Size(91, 13);
-         PymtAmnt_Lb.TabIndex = 19;
-         PymtAmnt_Lb.Text = "کل مبلغ پرداختی :";
+         this.PymtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PymtAmnt_Lb.AutoSize = true;
+         this.PymtAmnt_Lb.Location = new System.Drawing.Point(433, 42);
+         this.PymtAmnt_Lb.Name = "PymtAmnt_Lb";
+         this.PymtAmnt_Lb.Size = new System.Drawing.Size(91, 13);
+         this.PymtAmnt_Lb.TabIndex = 19;
+         this.PymtAmnt_Lb.Text = "کل مبلغ پرداختی :";
          // 
          // PydsAmnt_Lb
          // 
-         PydsAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         PydsAmnt_Lb.AutoSize = true;
-         PydsAmnt_Lb.Location = new System.Drawing.Point(230, 12);
-         PydsAmnt_Lb.Name = "PydsAmnt_Lb";
-         PydsAmnt_Lb.Size = new System.Drawing.Size(83, 13);
-         PydsAmnt_Lb.TabIndex = 19;
-         PydsAmnt_Lb.Text = "کل مبلغ تخفیف :";
+         this.PydsAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsAmnt_Lb.AutoSize = true;
+         this.PydsAmnt_Lb.Location = new System.Drawing.Point(230, 12);
+         this.PydsAmnt_Lb.Name = "PydsAmnt_Lb";
+         this.PydsAmnt_Lb.Size = new System.Drawing.Size(83, 13);
+         this.PydsAmnt_Lb.TabIndex = 19;
+         this.PydsAmnt_Lb.Text = "کل مبلغ تخفیف :";
          // 
          // TotlAmnt_Lb
          // 
-         TotlAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         TotlAmnt_Lb.AutoSize = true;
-         TotlAmnt_Lb.Location = new System.Drawing.Point(433, 12);
-         TotlAmnt_Lb.Name = "TotlAmnt_Lb";
-         TotlAmnt_Lb.Size = new System.Drawing.Size(79, 13);
-         TotlAmnt_Lb.TabIndex = 19;
-         TotlAmnt_Lb.Text = "کل مبلغ هزینه :";
+         this.TotlAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TotlAmnt_Lb.AutoSize = true;
+         this.TotlAmnt_Lb.Location = new System.Drawing.Point(433, 12);
+         this.TotlAmnt_Lb.Name = "TotlAmnt_Lb";
+         this.TotlAmnt_Lb.Size = new System.Drawing.Size(79, 13);
+         this.TotlAmnt_Lb.TabIndex = 19;
+         this.TotlAmnt_Lb.Text = "کل مبلغ هزینه :";
          // 
          // GlobCode1_Lb
          // 
-         GlobCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         GlobCode1_Lb.AutoSize = true;
-         GlobCode1_Lb.Location = new System.Drawing.Point(161, 39);
-         GlobCode1_Lb.Name = "GlobCode1_Lb";
-         GlobCode1_Lb.Size = new System.Drawing.Size(66, 13);
-         GlobCode1_Lb.TabIndex = 19;
-         GlobCode1_Lb.Text = "کد پرسنلی :";
+         this.GlobCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GlobCode1_Lb.AutoSize = true;
+         this.GlobCode1_Lb.Location = new System.Drawing.Point(161, 39);
+         this.GlobCode1_Lb.Name = "GlobCode1_Lb";
+         this.GlobCode1_Lb.Size = new System.Drawing.Size(66, 13);
+         this.GlobCode1_Lb.TabIndex = 19;
+         this.GlobCode1_Lb.Text = "کد پرسنلی :";
          // 
          // SuntCode1_Lb
          // 
-         SuntCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         SuntCode1_Lb.AutoSize = true;
-         SuntCode1_Lb.Location = new System.Drawing.Point(158, 11);
-         SuntCode1_Lb.Name = "SuntCode1_Lb";
-         SuntCode1_Lb.Size = new System.Drawing.Size(84, 13);
-         SuntCode1_Lb.TabIndex = 19;
-         SuntCode1_Lb.Text = "عنوان سازمانی :";
+         this.SuntCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntCode1_Lb.AutoSize = true;
+         this.SuntCode1_Lb.Location = new System.Drawing.Point(158, 11);
+         this.SuntCode1_Lb.Name = "SuntCode1_Lb";
+         this.SuntCode1_Lb.Size = new System.Drawing.Size(84, 13);
+         this.SuntCode1_Lb.TabIndex = 19;
+         this.SuntCode1_Lb.Text = "عنوان سازمانی :";
          // 
          // CellPhon1_Lb
          // 
-         CellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CellPhon1_Lb.AutoSize = true;
-         CellPhon1_Lb.Location = new System.Drawing.Point(354, 11);
-         CellPhon1_Lb.Name = "CellPhon1_Lb";
-         CellPhon1_Lb.Size = new System.Drawing.Size(66, 13);
-         CellPhon1_Lb.TabIndex = 19;
-         CellPhon1_Lb.Text = "تلفن همراه :";
+         this.CellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon1_Lb.AutoSize = true;
+         this.CellPhon1_Lb.Location = new System.Drawing.Point(354, 11);
+         this.CellPhon1_Lb.Name = "CellPhon1_Lb";
+         this.CellPhon1_Lb.Size = new System.Drawing.Size(66, 13);
+         this.CellPhon1_Lb.TabIndex = 19;
+         this.CellPhon1_Lb.Text = "تلفن همراه :";
          // 
          // TellPhon1_Clm
          // 
-         TellPhon1_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         TellPhon1_Clm.AutoSize = true;
-         TellPhon1_Clm.Location = new System.Drawing.Point(354, 39);
-         TellPhon1_Clm.Name = "TellPhon1_Clm";
-         TellPhon1_Clm.Size = new System.Drawing.Size(57, 13);
-         TellPhon1_Clm.TabIndex = 19;
-         TellPhon1_Clm.Text = "تلفن ثابت :";
+         this.TellPhon1_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TellPhon1_Clm.AutoSize = true;
+         this.TellPhon1_Clm.Location = new System.Drawing.Point(354, 39);
+         this.TellPhon1_Clm.Name = "TellPhon1_Clm";
+         this.TellPhon1_Clm.Size = new System.Drawing.Size(57, 13);
+         this.TellPhon1_Clm.TabIndex = 19;
+         this.TellPhon1_Clm.Text = "تلفن ثابت :";
+         // 
+         // NatlCode1_Lb
+         // 
+         this.NatlCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NatlCode1_Lb.AutoSize = true;
+         this.NatlCode1_Lb.Location = new System.Drawing.Point(354, 67);
+         this.NatlCode1_Lb.Name = "NatlCode1_Lb";
+         this.NatlCode1_Lb.Size = new System.Drawing.Size(49, 13);
+         this.NatlCode1_Lb.TabIndex = 19;
+         this.NatlCode1_Lb.Text = "کد ملی :";
          // 
          // DebtDnrm_Clm
          // 
@@ -459,16 +461,6 @@
          // 
          this.gridColumn2.FieldName = "TYPE";
          this.gridColumn2.Name = "gridColumn2";
-         // 
-         // NatlCode1_Lb
-         // 
-         NatlCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         NatlCode1_Lb.AutoSize = true;
-         NatlCode1_Lb.Location = new System.Drawing.Point(354, 67);
-         NatlCode1_Lb.Name = "NatlCode1_Lb";
-         NatlCode1_Lb.Size = new System.Drawing.Size(49, 13);
-         NatlCode1_Lb.TabIndex = 19;
-         NatlCode1_Lb.Text = "کد ملی :";
          // 
          // vF_Last_Info_FighterResultBindingSource
          // 
@@ -1533,6 +1525,7 @@
          this.TrnsFngrPrnt_Butn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.TrnsFngrPrnt_Butn.Caption = "انتقال کاربری به دستگاه";
          this.TrnsFngrPrnt_Butn.Disabled = false;
+         this.TrnsFngrPrnt_Butn.Enabled = false;
          this.TrnsFngrPrnt_Butn.EnterColor = System.Drawing.Color.Transparent;
          this.TrnsFngrPrnt_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.TrnsFngrPrnt_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1546,6 +1539,7 @@
          this.TrnsFngrPrnt_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.TrnsFngrPrnt_Butn.TextColor = System.Drawing.Color.Black;
          this.TrnsFngrPrnt_Butn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.TrnsFngrPrnt_Butn.Visible = false;
          this.TrnsFngrPrnt_Butn.Click += new System.EventHandler(this.TrnsFngrPrnt_Butn_Click);
          // 
          // splitContainerControl1
@@ -2173,12 +2167,12 @@
          this.panel1.BackColor = System.Drawing.Color.Khaki;
          this.panel1.Controls.Add(this.PymtAmnt_Txt);
          this.panel1.Controls.Add(this.DscnAmnt_Txt);
-         this.panel1.Controls.Add(PymtAmnt_Lb);
+         this.panel1.Controls.Add(this.PymtAmnt_Lb);
          this.panel1.Controls.Add(this.ExpnAmnt_Txt);
-         this.panel1.Controls.Add(PydsAmnt_Lb);
+         this.panel1.Controls.Add(this.PydsAmnt_Lb);
          this.panel1.Controls.Add(this.MbspInfo_Butn);
          this.panel1.Controls.Add(this.MbspValdType_Butn);
-         this.panel1.Controls.Add(TotlAmnt_Lb);
+         this.panel1.Controls.Add(this.TotlAmnt_Lb);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(3, 111);
          this.panel1.Name = "panel1";
@@ -2293,15 +2287,15 @@
          this.panel2.Controls.Add(this.labelControl1);
          this.panel2.Controls.Add(this.UserProFile_Rb);
          this.panel2.Controls.Add(this.textEdit3);
-         this.panel2.Controls.Add(SuntCode1_Lb);
+         this.panel2.Controls.Add(this.SuntCode1_Lb);
          this.panel2.Controls.Add(this.GlobCodeDnrm_Txt);
-         this.panel2.Controls.Add(GlobCode1_Lb);
+         this.panel2.Controls.Add(this.GlobCode1_Lb);
          this.panel2.Controls.Add(this.textEdit1);
-         this.panel2.Controls.Add(NatlCode1_Lb);
+         this.panel2.Controls.Add(this.NatlCode1_Lb);
          this.panel2.Controls.Add(this.textEdit5);
-         this.panel2.Controls.Add(TellPhon1_Clm);
+         this.panel2.Controls.Add(this.TellPhon1_Clm);
          this.panel2.Controls.Add(this.textEdit4);
-         this.panel2.Controls.Add(CellPhon1_Lb);
+         this.panel2.Controls.Add(this.CellPhon1_Lb);
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(3, 17);
          this.panel2.Name = "panel2";
@@ -2676,5 +2670,13 @@
       private DevExpress.XtraEditors.TextEdit textEdit4;
       private DevExpress.XtraGrid.Columns.GridColumn DpstAmnt_Clm;
       private DevExpress.XtraEditors.TextEdit textEdit1;
+      private Windows.Forms.Label PymtAmnt_Lb;
+      private Windows.Forms.Label PydsAmnt_Lb;
+      private Windows.Forms.Label TotlAmnt_Lb;
+      private Windows.Forms.Label GlobCode1_Lb;
+      private Windows.Forms.Label SuntCode1_Lb;
+      private Windows.Forms.Label CellPhon1_Lb;
+      private Windows.Forms.Label TellPhon1_Clm;
+      private Windows.Forms.Label NatlCode1_Lb;
    }
 }

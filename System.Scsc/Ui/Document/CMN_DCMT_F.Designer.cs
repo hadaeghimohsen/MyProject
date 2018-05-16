@@ -29,18 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label StrtDate_Lb;
-         System.Windows.Forms.Label EndDate_Lb;
-         System.Windows.Forms.Label DelvDate_Lb;
-         System.Windows.Forms.Label RcdcDesc_Lb;
-         System.Windows.Forms.Label RcdcStat_Lb;
-         System.Windows.Forms.Label PermStat_Lb;
-         System.Windows.Forms.Label Rwno_Lb;
-         System.Windows.Forms.Label FileName_Lb;
-         System.Windows.Forms.Label ImageAlign_Lb;
-         System.Windows.Forms.Label ImageQulity_Lb;
-         System.Windows.Forms.Label Dimsn_Lb;
-         System.Windows.Forms.Label SelectCamera_Lb;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -48,6 +36,18 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMN_DCMT_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.StrtDate_Lb = new System.Windows.Forms.Label();
+         this.EndDate_Lb = new System.Windows.Forms.Label();
+         this.DelvDate_Lb = new System.Windows.Forms.Label();
+         this.RcdcDesc_Lb = new System.Windows.Forms.Label();
+         this.RcdcStat_Lb = new System.Windows.Forms.Label();
+         this.PermStat_Lb = new System.Windows.Forms.Label();
+         this.Rwno_Lb = new System.Windows.Forms.Label();
+         this.FileName_Lb = new System.Windows.Forms.Label();
+         this.ImageAlign_Lb = new System.Windows.Forms.Label();
+         this.ImageQulity_Lb = new System.Windows.Forms.Label();
+         this.Dimsn_Lb = new System.Windows.Forms.Label();
+         this.SelectCamera_Lb = new System.Windows.Forms.Label();
          this.TC_Dcmt = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.Dcmt_Gb = new System.Windows.Forms.GroupBox();
@@ -129,18 +129,6 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         StrtDate_Lb = new System.Windows.Forms.Label();
-         EndDate_Lb = new System.Windows.Forms.Label();
-         DelvDate_Lb = new System.Windows.Forms.Label();
-         RcdcDesc_Lb = new System.Windows.Forms.Label();
-         RcdcStat_Lb = new System.Windows.Forms.Label();
-         PermStat_Lb = new System.Windows.Forms.Label();
-         Rwno_Lb = new System.Windows.Forms.Label();
-         FileName_Lb = new System.Windows.Forms.Label();
-         ImageAlign_Lb = new System.Windows.Forms.Label();
-         ImageQulity_Lb = new System.Windows.Forms.Label();
-         Dimsn_Lb = new System.Windows.Forms.Label();
-         SelectCamera_Lb = new System.Windows.Forms.Label();
          this.TC_Dcmt.SuspendLayout();
          this.tp_001.SuspendLayout();
          this.Dcmt_Gb.SuspendLayout();
@@ -182,125 +170,125 @@
          // 
          // StrtDate_Lb
          // 
-         StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         StrtDate_Lb.AutoSize = true;
-         StrtDate_Lb.Location = new System.Drawing.Point(766, 24);
-         StrtDate_Lb.Name = "StrtDate_Lb";
-         StrtDate_Lb.Size = new System.Drawing.Size(102, 14);
-         StrtDate_Lb.TabIndex = 1;
-         StrtDate_Lb.Text = "تاریخ شروع مدرک :";
+         this.StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.StrtDate_Lb.AutoSize = true;
+         this.StrtDate_Lb.Location = new System.Drawing.Point(766, 24);
+         this.StrtDate_Lb.Name = "StrtDate_Lb";
+         this.StrtDate_Lb.Size = new System.Drawing.Size(102, 14);
+         this.StrtDate_Lb.TabIndex = 1;
+         this.StrtDate_Lb.Text = "تاریخ شروع مدرک :";
          // 
          // EndDate_Lb
          // 
-         EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         EndDate_Lb.AutoSize = true;
-         EndDate_Lb.Location = new System.Drawing.Point(766, 50);
-         EndDate_Lb.Name = "EndDate_Lb";
-         EndDate_Lb.Size = new System.Drawing.Size(97, 14);
-         EndDate_Lb.TabIndex = 3;
-         EndDate_Lb.Text = "تاریخ اتمام مدرک :";
+         this.EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.EndDate_Lb.AutoSize = true;
+         this.EndDate_Lb.Location = new System.Drawing.Point(766, 50);
+         this.EndDate_Lb.Name = "EndDate_Lb";
+         this.EndDate_Lb.Size = new System.Drawing.Size(97, 14);
+         this.EndDate_Lb.TabIndex = 3;
+         this.EndDate_Lb.Text = "تاریخ اتمام مدرک :";
          // 
          // DelvDate_Lb
          // 
-         DelvDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         DelvDate_Lb.AutoSize = true;
-         DelvDate_Lb.Location = new System.Drawing.Point(766, 76);
-         DelvDate_Lb.Name = "DelvDate_Lb";
-         DelvDate_Lb.Size = new System.Drawing.Size(101, 14);
-         DelvDate_Lb.TabIndex = 5;
-         DelvDate_Lb.Text = "تاریخ تحویل مدرک :";
+         this.DelvDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DelvDate_Lb.AutoSize = true;
+         this.DelvDate_Lb.Location = new System.Drawing.Point(766, 76);
+         this.DelvDate_Lb.Name = "DelvDate_Lb";
+         this.DelvDate_Lb.Size = new System.Drawing.Size(101, 14);
+         this.DelvDate_Lb.TabIndex = 5;
+         this.DelvDate_Lb.Text = "تاریخ تحویل مدرک :";
          // 
          // RcdcDesc_Lb
          // 
-         RcdcDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RcdcDesc_Lb.AutoSize = true;
-         RcdcDesc_Lb.Location = new System.Drawing.Point(766, 102);
-         RcdcDesc_Lb.Name = "RcdcDesc_Lb";
-         RcdcDesc_Lb.Size = new System.Drawing.Size(58, 14);
-         RcdcDesc_Lb.TabIndex = 7;
-         RcdcDesc_Lb.Text = "توضیحات :";
+         this.RcdcDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RcdcDesc_Lb.AutoSize = true;
+         this.RcdcDesc_Lb.Location = new System.Drawing.Point(766, 102);
+         this.RcdcDesc_Lb.Name = "RcdcDesc_Lb";
+         this.RcdcDesc_Lb.Size = new System.Drawing.Size(58, 14);
+         this.RcdcDesc_Lb.TabIndex = 7;
+         this.RcdcDesc_Lb.Text = "توضیحات :";
          // 
          // RcdcStat_Lb
          // 
-         RcdcStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RcdcStat_Lb.AutoSize = true;
-         RcdcStat_Lb.Location = new System.Drawing.Point(489, 24);
-         RcdcStat_Lb.Name = "RcdcStat_Lb";
-         RcdcStat_Lb.Size = new System.Drawing.Size(82, 14);
-         RcdcStat_Lb.TabIndex = 9;
-         RcdcStat_Lb.Text = "وضعیت مدرک :";
+         this.RcdcStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RcdcStat_Lb.AutoSize = true;
+         this.RcdcStat_Lb.Location = new System.Drawing.Point(489, 24);
+         this.RcdcStat_Lb.Name = "RcdcStat_Lb";
+         this.RcdcStat_Lb.Size = new System.Drawing.Size(82, 14);
+         this.RcdcStat_Lb.TabIndex = 9;
+         this.RcdcStat_Lb.Text = "وضعیت مدرک :";
          // 
          // PermStat_Lb
          // 
-         PermStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         PermStat_Lb.AutoSize = true;
-         PermStat_Lb.Location = new System.Drawing.Point(489, 50);
-         PermStat_Lb.Name = "PermStat_Lb";
-         PermStat_Lb.Size = new System.Drawing.Size(68, 14);
-         PermStat_Lb.TabIndex = 11;
-         PermStat_Lb.Text = "تايید مدرک :";
+         this.PermStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PermStat_Lb.AutoSize = true;
+         this.PermStat_Lb.Location = new System.Drawing.Point(489, 50);
+         this.PermStat_Lb.Name = "PermStat_Lb";
+         this.PermStat_Lb.Size = new System.Drawing.Size(68, 14);
+         this.PermStat_Lb.TabIndex = 11;
+         this.PermStat_Lb.Text = "تايید مدرک :";
          // 
          // Rwno_Lb
          // 
-         Rwno_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Rwno_Lb.AutoSize = true;
-         Rwno_Lb.Location = new System.Drawing.Point(766, 128);
-         Rwno_Lb.Name = "Rwno_Lb";
-         Rwno_Lb.Size = new System.Drawing.Size(39, 14);
-         Rwno_Lb.TabIndex = 0;
-         Rwno_Lb.Text = "ردیف :";
+         this.Rwno_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rwno_Lb.AutoSize = true;
+         this.Rwno_Lb.Location = new System.Drawing.Point(766, 128);
+         this.Rwno_Lb.Name = "Rwno_Lb";
+         this.Rwno_Lb.Size = new System.Drawing.Size(39, 14);
+         this.Rwno_Lb.TabIndex = 0;
+         this.Rwno_Lb.Text = "ردیف :";
          // 
          // FileName_Lb
          // 
-         FileName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FileName_Lb.AutoSize = true;
-         FileName_Lb.Enabled = false;
-         FileName_Lb.Location = new System.Drawing.Point(766, 154);
-         FileName_Lb.Name = "FileName_Lb";
-         FileName_Lb.Size = new System.Drawing.Size(68, 14);
-         FileName_Lb.TabIndex = 2;
-         FileName_Lb.Text = "آدرس فایل :";
-         FileName_Lb.Visible = false;
+         this.FileName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FileName_Lb.AutoSize = true;
+         this.FileName_Lb.Enabled = false;
+         this.FileName_Lb.Location = new System.Drawing.Point(766, 154);
+         this.FileName_Lb.Name = "FileName_Lb";
+         this.FileName_Lb.Size = new System.Drawing.Size(68, 14);
+         this.FileName_Lb.TabIndex = 2;
+         this.FileName_Lb.Text = "آدرس فایل :";
+         this.FileName_Lb.Visible = false;
          // 
          // ImageAlign_Lb
          // 
-         ImageAlign_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         ImageAlign_Lb.AutoSize = true;
-         ImageAlign_Lb.Location = new System.Drawing.Point(667, 68);
-         ImageAlign_Lb.Name = "ImageAlign_Lb";
-         ImageAlign_Lb.Size = new System.Drawing.Size(159, 14);
-         ImageAlign_Lb.TabIndex = 7;
-         ImageAlign_Lb.Text = "قرارگیری عکس بر روی صفحه :";
+         this.ImageAlign_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.ImageAlign_Lb.AutoSize = true;
+         this.ImageAlign_Lb.Location = new System.Drawing.Point(667, 68);
+         this.ImageAlign_Lb.Name = "ImageAlign_Lb";
+         this.ImageAlign_Lb.Size = new System.Drawing.Size(159, 14);
+         this.ImageAlign_Lb.TabIndex = 7;
+         this.ImageAlign_Lb.Text = "قرارگیری عکس بر روی صفحه :";
          // 
          // ImageQulity_Lb
          // 
-         ImageQulity_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         ImageQulity_Lb.AutoSize = true;
-         ImageQulity_Lb.Location = new System.Drawing.Point(697, 96);
-         ImageQulity_Lb.Name = "ImageQulity_Lb";
-         ImageQulity_Lb.Size = new System.Drawing.Size(135, 14);
-         ImageQulity_Lb.TabIndex = 8;
-         ImageQulity_Lb.Text = "نوع نمایش کیفیت عکس :";
+         this.ImageQulity_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.ImageQulity_Lb.AutoSize = true;
+         this.ImageQulity_Lb.Location = new System.Drawing.Point(697, 96);
+         this.ImageQulity_Lb.Name = "ImageQulity_Lb";
+         this.ImageQulity_Lb.Size = new System.Drawing.Size(135, 14);
+         this.ImageQulity_Lb.TabIndex = 8;
+         this.ImageQulity_Lb.Text = "نوع نمایش کیفیت عکس :";
          // 
          // Dimsn_Lb
          // 
-         Dimsn_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Dimsn_Lb.AutoSize = true;
-         Dimsn_Lb.Location = new System.Drawing.Point(629, 128);
-         Dimsn_Lb.Name = "Dimsn_Lb";
-         Dimsn_Lb.Size = new System.Drawing.Size(98, 14);
-         Dimsn_Lb.TabIndex = 0;
-         Dimsn_Lb.Text = "ابعاد تصویر مدرک :";
+         this.Dimsn_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Dimsn_Lb.AutoSize = true;
+         this.Dimsn_Lb.Location = new System.Drawing.Point(629, 128);
+         this.Dimsn_Lb.Name = "Dimsn_Lb";
+         this.Dimsn_Lb.Size = new System.Drawing.Size(98, 14);
+         this.Dimsn_Lb.TabIndex = 0;
+         this.Dimsn_Lb.Text = "ابعاد تصویر مدرک :";
          // 
          // SelectCamera_Lb
          // 
-         SelectCamera_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         SelectCamera_Lb.AutoSize = true;
-         SelectCamera_Lb.Location = new System.Drawing.Point(429, 213);
-         SelectCamera_Lb.Name = "SelectCamera_Lb";
-         SelectCamera_Lb.Size = new System.Drawing.Size(82, 14);
-         SelectCamera_Lb.TabIndex = 12;
-         SelectCamera_Lb.Text = "انتخاب دوربین :";
+         this.SelectCamera_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SelectCamera_Lb.AutoSize = true;
+         this.SelectCamera_Lb.Location = new System.Drawing.Point(429, 213);
+         this.SelectCamera_Lb.Name = "SelectCamera_Lb";
+         this.SelectCamera_Lb.Size = new System.Drawing.Size(82, 14);
+         this.SelectCamera_Lb.TabIndex = 12;
+         this.SelectCamera_Lb.Text = "انتخاب دوربین :";
          // 
          // TC_Dcmt
          // 
@@ -334,22 +322,22 @@
          this.Dcmt_Gb.BackColor = System.Drawing.SystemColors.Control;
          this.Dcmt_Gb.Controls.Add(this.CB_ImageSize);
          this.Dcmt_Gb.Controls.Add(this.Bt_SelectFile);
-         this.Dcmt_Gb.Controls.Add(PermStat_Lb);
-         this.Dcmt_Gb.Controls.Add(FileName_Lb);
+         this.Dcmt_Gb.Controls.Add(this.PermStat_Lb);
+         this.Dcmt_Gb.Controls.Add(this.FileName_Lb);
          this.Dcmt_Gb.Controls.Add(this.pERM_STATLookUpEdit);
          this.Dcmt_Gb.Controls.Add(this.FILE_NAME_TextBox);
-         this.Dcmt_Gb.Controls.Add(RcdcStat_Lb);
-         this.Dcmt_Gb.Controls.Add(Dimsn_Lb);
-         this.Dcmt_Gb.Controls.Add(Rwno_Lb);
+         this.Dcmt_Gb.Controls.Add(this.RcdcStat_Lb);
+         this.Dcmt_Gb.Controls.Add(this.Dimsn_Lb);
+         this.Dcmt_Gb.Controls.Add(this.Rwno_Lb);
          this.Dcmt_Gb.Controls.Add(this.rCDC_STATLookUpEdit);
          this.Dcmt_Gb.Controls.Add(this.rWNOTextBox);
-         this.Dcmt_Gb.Controls.Add(RcdcDesc_Lb);
+         this.Dcmt_Gb.Controls.Add(this.RcdcDesc_Lb);
          this.Dcmt_Gb.Controls.Add(this.rCDC_DESCTextBox);
-         this.Dcmt_Gb.Controls.Add(DelvDate_Lb);
+         this.Dcmt_Gb.Controls.Add(this.DelvDate_Lb);
          this.Dcmt_Gb.Controls.Add(this.dELV_DATEPersianDateEdit);
-         this.Dcmt_Gb.Controls.Add(EndDate_Lb);
+         this.Dcmt_Gb.Controls.Add(this.EndDate_Lb);
          this.Dcmt_Gb.Controls.Add(this.eND_DATEPersianDateEdit);
-         this.Dcmt_Gb.Controls.Add(StrtDate_Lb);
+         this.Dcmt_Gb.Controls.Add(this.StrtDate_Lb);
          this.Dcmt_Gb.Controls.Add(this.sTRT_DATEPersianDateEdit);
          this.Dcmt_Gb.Controls.Add(this.receive_DocumentGridControl);
          this.Dcmt_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -792,8 +780,8 @@
          this.Image_Gb.Controls.Add(this.Btn_SetProfileImage);
          this.Image_Gb.Controls.Add(this.Bt_RemvImage);
          this.Image_Gb.Controls.Add(this.UD_Interpolation);
-         this.Image_Gb.Controls.Add(ImageQulity_Lb);
-         this.Image_Gb.Controls.Add(ImageAlign_Lb);
+         this.Image_Gb.Controls.Add(this.ImageQulity_Lb);
+         this.Image_Gb.Controls.Add(this.ImageAlign_Lb);
          this.Image_Gb.Controls.Add(this.ZC_ZoomImage);
          this.Image_Gb.Controls.Add(this.CB_Alignment);
          this.Image_Gb.Controls.Add(this.CB_AllowMouseDrag);
@@ -960,7 +948,7 @@
          this.tp_003.Controls.Add(this.Npb_FaceZone);
          this.tp_003.Controls.Add(this.Tb_StartStopVideo);
          this.tp_003.Controls.Add(this.LB_Result);
-         this.tp_003.Controls.Add(SelectCamera_Lb);
+         this.tp_003.Controls.Add(this.SelectCamera_Lb);
          this.tp_003.Controls.Add(this.LOV_VideoSrc);
          this.tp_003.Controls.Add(this.Pb_Face3x4Zone);
          this.tp_003.Controls.Add(this.Pb_FaceZone);
@@ -1349,7 +1337,7 @@
          this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
          this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
          // 
          // RqstBnPrint1
@@ -1358,19 +1346,19 @@
          this.RqstBnPrint1.Name = "RqstBnPrint1";
          this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-         this.RqstBnPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnPrint1.Text = "انتخاب چاپ";
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 6);
          // 
          // RqstBnSettingPrint1
          // 
          this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
          this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
-         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(203, 22);
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(227, 46);
          this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
          // 
          // RqstBnASav1
@@ -1571,5 +1559,17 @@
       private Windows.Forms.ToolStripButton RqstBnADoc1;
       private Windows.Forms.ToolStripButton RqstBnRegl01;
       private Windows.Forms.ToolStripButton RqstBnExit1;
+      private Windows.Forms.Label StrtDate_Lb;
+      private Windows.Forms.Label EndDate_Lb;
+      private Windows.Forms.Label DelvDate_Lb;
+      private Windows.Forms.Label RcdcDesc_Lb;
+      private Windows.Forms.Label RcdcStat_Lb;
+      private Windows.Forms.Label PermStat_Lb;
+      private Windows.Forms.Label Rwno_Lb;
+      private Windows.Forms.Label FileName_Lb;
+      private Windows.Forms.Label ImageAlign_Lb;
+      private Windows.Forms.Label ImageQulity_Lb;
+      private Windows.Forms.Label Dimsn_Lb;
+      private Windows.Forms.Label SelectCamera_Lb;
    }
 }

@@ -48,7 +48,6 @@
          System.Windows.Forms.Label label35;
          System.Windows.Forms.Label ePIT_DESCLabel;
          System.Windows.Forms.Label tYPELabel1;
-         System.Windows.Forms.Label PortList_Lb;
          System.Windows.Forms.Label label14;
          System.Windows.Forms.Label label15;
          System.Windows.Forms.Label label16;
@@ -101,6 +100,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+         this.PortList_Lb = new System.Windows.Forms.Label();
+         this.colTYPE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CompName1_Lb = new System.Windows.Forms.Label();
          this.MostDebtAmnt_Lb = new System.Windows.Forms.Label();
          this.ShareKomod_Lb = new System.Windows.Forms.Label();
@@ -108,8 +110,6 @@
          this.LoadDataStat_Lb = new System.Windows.Forms.Label();
          this.ShareMbspStat_Lb = new System.Windows.Forms.Label();
          this.TlgrStat_Lb = new System.Windows.Forms.Label();
-         this.colTYPE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MoreAttnStat_Lb = new System.Windows.Forms.Label();
          this.ComPortName1_Lb = new System.Windows.Forms.Label();
          this.BandRate1_Lb = new System.Windows.Forms.Label();
@@ -288,7 +288,6 @@
          label35 = new System.Windows.Forms.Label();
          ePIT_DESCLabel = new System.Windows.Forms.Label();
          tYPELabel1 = new System.Windows.Forms.Label();
-         PortList_Lb = new System.Windows.Forms.Label();
          label14 = new System.Windows.Forms.Label();
          label15 = new System.Windows.Forms.Label();
          label16 = new System.Windows.Forms.Label();
@@ -446,15 +445,6 @@
          iP_ADDRLabel.TabIndex = 0;
          iP_ADDRLabel.Text = "IP :";
          // 
-         // CompName1_Lb
-         // 
-         this.CompName1_Lb.AutoSize = true;
-         this.CompName1_Lb.Location = new System.Drawing.Point(215, 50);
-         this.CompName1_Lb.Name = "CompName1_Lb";
-         this.CompName1_Lb.Size = new System.Drawing.Size(70, 14);
-         this.CompName1_Lb.TabIndex = 8;
-         this.CompName1_Lb.Text = "نام کامپیوتر :";
-         // 
          // label6
          // 
          label6.AutoSize = true;
@@ -463,15 +453,6 @@
          label6.Size = new System.Drawing.Size(26, 14);
          label6.TabIndex = 0;
          label6.Text = "IP :";
-         // 
-         // MostDebtAmnt_Lb
-         // 
-         this.MostDebtAmnt_Lb.AutoSize = true;
-         this.MostDebtAmnt_Lb.Location = new System.Drawing.Point(246, 30);
-         this.MostDebtAmnt_Lb.Name = "MostDebtAmnt_Lb";
-         this.MostDebtAmnt_Lb.Size = new System.Drawing.Size(100, 14);
-         this.MostDebtAmnt_Lb.TabIndex = 10;
-         this.MostDebtAmnt_Lb.Text = "میزان مبلغ بدهی :";
          // 
          // cASH_STATLabel
          // 
@@ -600,32 +581,14 @@
          tYPELabel1.TabIndex = 24;
          tYPELabel1.Text = "نوع آیتم :";
          // 
-         // ShareKomod_Lb
-         // 
-         this.ShareKomod_Lb.AutoSize = true;
-         this.ShareKomod_Lb.Location = new System.Drawing.Point(84, 24);
-         this.ShareKomod_Lb.Name = "ShareKomod_Lb";
-         this.ShareKomod_Lb.Size = new System.Drawing.Size(84, 14);
-         this.ShareKomod_Lb.TabIndex = 0;
-         this.ShareKomod_Lb.Text = "کمد اشتراکی :";
-         // 
          // PortList_Lb
          // 
-         PortList_Lb.AutoSize = true;
-         PortList_Lb.Location = new System.Drawing.Point(112, 47);
-         PortList_Lb.Name = "PortList_Lb";
-         PortList_Lb.Size = new System.Drawing.Size(72, 14);
-         PortList_Lb.TabIndex = 0;
-         PortList_Lb.Text = "لیست پورت :";
-         // 
-         // GateStat_Lb
-         // 
-         this.GateStat_Lb.AutoSize = true;
-         this.GateStat_Lb.Location = new System.Drawing.Point(112, 19);
-         this.GateStat_Lb.Name = "GateStat_Lb";
-         this.GateStat_Lb.Size = new System.Drawing.Size(50, 14);
-         this.GateStat_Lb.TabIndex = 0;
-         this.GateStat_Lb.Text = "وضعیت :";
+         this.PortList_Lb.AutoSize = true;
+         this.PortList_Lb.Location = new System.Drawing.Point(112, 47);
+         this.PortList_Lb.Name = "PortList_Lb";
+         this.PortList_Lb.Size = new System.Drawing.Size(72, 14);
+         this.PortList_Lb.TabIndex = 0;
+         this.PortList_Lb.Text = "لیست پورت :";
          // 
          // label14
          // 
@@ -702,6 +665,56 @@
          label26.TabIndex = 0;
          label26.Text = "لیست پورت :";
          // 
+         // colTYPE1
+         // 
+         this.colTYPE1.FieldName = "TYPE";
+         this.colTYPE1.Name = "colTYPE1";
+         this.colTYPE1.Width = 350;
+         // 
+         // colTYPE
+         // 
+         this.colTYPE.Caption = "نوع حساب";
+         this.colTYPE.FieldName = "TYPE";
+         this.colTYPE.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
+         this.colTYPE.Name = "colTYPE";
+         this.colTYPE.Width = 76;
+         // 
+         // CompName1_Lb
+         // 
+         this.CompName1_Lb.AutoSize = true;
+         this.CompName1_Lb.Location = new System.Drawing.Point(215, 50);
+         this.CompName1_Lb.Name = "CompName1_Lb";
+         this.CompName1_Lb.Size = new System.Drawing.Size(70, 14);
+         this.CompName1_Lb.TabIndex = 8;
+         this.CompName1_Lb.Text = "نام کامپیوتر :";
+         // 
+         // MostDebtAmnt_Lb
+         // 
+         this.MostDebtAmnt_Lb.AutoSize = true;
+         this.MostDebtAmnt_Lb.Location = new System.Drawing.Point(246, 30);
+         this.MostDebtAmnt_Lb.Name = "MostDebtAmnt_Lb";
+         this.MostDebtAmnt_Lb.Size = new System.Drawing.Size(100, 14);
+         this.MostDebtAmnt_Lb.TabIndex = 10;
+         this.MostDebtAmnt_Lb.Text = "میزان مبلغ بدهی :";
+         // 
+         // ShareKomod_Lb
+         // 
+         this.ShareKomod_Lb.AutoSize = true;
+         this.ShareKomod_Lb.Location = new System.Drawing.Point(84, 24);
+         this.ShareKomod_Lb.Name = "ShareKomod_Lb";
+         this.ShareKomod_Lb.Size = new System.Drawing.Size(84, 14);
+         this.ShareKomod_Lb.TabIndex = 0;
+         this.ShareKomod_Lb.Text = "کمد اشتراکی :";
+         // 
+         // GateStat_Lb
+         // 
+         this.GateStat_Lb.AutoSize = true;
+         this.GateStat_Lb.Location = new System.Drawing.Point(112, 19);
+         this.GateStat_Lb.Name = "GateStat_Lb";
+         this.GateStat_Lb.Size = new System.Drawing.Size(50, 14);
+         this.GateStat_Lb.TabIndex = 0;
+         this.GateStat_Lb.Text = "وضعیت :";
+         // 
          // LoadDataStat_Lb
          // 
          this.LoadDataStat_Lb.AutoSize = true;
@@ -729,20 +742,6 @@
          this.TlgrStat_Lb.TabIndex = 2;
          this.TlgrStat_Lb.Text = "وضعیت :";
          this.TlgrStat_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-         // 
-         // colTYPE1
-         // 
-         this.colTYPE1.FieldName = "TYPE";
-         this.colTYPE1.Name = "colTYPE1";
-         this.colTYPE1.Width = 350;
-         // 
-         // colTYPE
-         // 
-         this.colTYPE.Caption = "نوع حساب";
-         this.colTYPE.FieldName = "TYPE";
-         this.colTYPE.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
-         this.colTYPE.Name = "colTYPE";
-         this.colTYPE.Width = 76;
          // 
          // MoreAttnStat_Lb
          // 
@@ -1207,7 +1206,7 @@
          this.GateCtrl_Gb.Controls.Add(label16);
          this.GateCtrl_Gb.Controls.Add(this.GateStat_Lb);
          this.GateCtrl_Gb.Controls.Add(this.OutPort_Lb);
-         this.GateCtrl_Gb.Controls.Add(PortList_Lb);
+         this.GateCtrl_Gb.Controls.Add(this.PortList_Lb);
          this.GateCtrl_Gb.Controls.Add(this.spinEdit4);
          this.GateCtrl_Gb.Controls.Add(this.spinEdit3);
          this.GateCtrl_Gb.Controls.Add(this.lookUpEdit18);
@@ -3443,5 +3442,6 @@
       private Windows.Forms.Label ShareMbspStat_Lb;
       private Windows.Forms.Label TlgrStat_Lb;
       private Windows.Forms.Label ShowAttn_Lb;
+      private Windows.Forms.Label PortList_Lb;
    }
 }

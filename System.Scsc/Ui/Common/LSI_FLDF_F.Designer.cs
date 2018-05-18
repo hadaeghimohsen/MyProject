@@ -93,7 +93,7 @@
          this.GlobCode1_Lb = new System.Windows.Forms.Label();
          this.SuntCode1_Lb = new System.Windows.Forms.Label();
          this.CellPhon1_Lb = new System.Windows.Forms.Label();
-         this.TellPhon1_Clm = new System.Windows.Forms.Label();
+         this.TellPhon1_Lb = new System.Windows.Forms.Label();
          this.NatlCode1_Lb = new System.Windows.Forms.Label();
          this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -371,13 +371,13 @@
          // 
          // TellPhon1_Clm
          // 
-         this.TellPhon1_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.TellPhon1_Clm.AutoSize = true;
-         this.TellPhon1_Clm.Location = new System.Drawing.Point(354, 39);
-         this.TellPhon1_Clm.Name = "TellPhon1_Clm";
-         this.TellPhon1_Clm.Size = new System.Drawing.Size(57, 13);
-         this.TellPhon1_Clm.TabIndex = 19;
-         this.TellPhon1_Clm.Text = "تلفن ثابت :";
+         this.TellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TellPhon1_Lb.AutoSize = true;
+         this.TellPhon1_Lb.Location = new System.Drawing.Point(354, 39);
+         this.TellPhon1_Lb.Name = "TellPhon1_Clm";
+         this.TellPhon1_Lb.Size = new System.Drawing.Size(57, 13);
+         this.TellPhon1_Lb.TabIndex = 19;
+         this.TellPhon1_Lb.Text = "تلفن ثابت :";
          // 
          // NatlCode1_Lb
          // 
@@ -2293,7 +2293,7 @@
          this.panel2.Controls.Add(this.textEdit1);
          this.panel2.Controls.Add(this.NatlCode1_Lb);
          this.panel2.Controls.Add(this.textEdit5);
-         this.panel2.Controls.Add(this.TellPhon1_Clm);
+         this.panel2.Controls.Add(this.TellPhon1_Lb);
          this.panel2.Controls.Add(this.textEdit4);
          this.panel2.Controls.Add(this.CellPhon1_Lb);
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2676,7 +2676,7 @@
       private Windows.Forms.Label GlobCode1_Lb;
       private Windows.Forms.Label SuntCode1_Lb;
       private Windows.Forms.Label CellPhon1_Lb;
-      private Windows.Forms.Label TellPhon1_Clm;
+      private Windows.Forms.Label TellPhon1_Lb;
       private Windows.Forms.Label NatlCode1_Lb;
    }
 }

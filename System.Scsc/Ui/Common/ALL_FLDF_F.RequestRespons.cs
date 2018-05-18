@@ -745,18 +745,18 @@ namespace System.Scsc.Ui.Common
                      //CochFileNo1_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //CochFileNo1_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
-                  case "mtodcode1_lb":
-                     MtodCode1_Lb.Text = control.LABL_TEXT;
+                  case "mtodcode1_clm":
+                     MtodCode1_Clm.Caption = control.LABL_TEXT;
                      //MtodCode1_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MtodCode1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "ctgycode1_lb":
-                     CtgyCode1_Lb.Text = control.LABL_TEXT;
+                  case "ctgycode1_clm":
+                     CtgyCode1_Lb.Caption = control.LABL_TEXT;
                      //CtgyCode1_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CtgyCode1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "expncode1_lb":
-                     ExpnCode1_Lb.Text = control.LABL_TEXT;
+                  case "expncode1_clm":
+                     ExpnCode1_Clm.Caption = control.LABL_TEXT;
                      //ExpnCode1_Lb.Text = control.LABL_TEXT; // ToolTip
                      //ExpnCode1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

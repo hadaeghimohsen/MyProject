@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.UserAction
       //int step = 15;
       bool isPainted = false;
       //string Crnt_User;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -109,6 +110,47 @@ namespace System.Scsc.Ui.UserAction
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "titlhedr_lb":
+                     TitlHedr_Lb.Text = control.LABL_TEXT;
+                     //TitlHedr_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TitlHedr_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqtpcode_clm":
+                     RqtpCode_Clm.Caption = control.LABL_TEXT;
+                     //RqtpCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //RqtpCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cretby_clm":
+                     CretBy_Clm.Caption = control.LABL_TEXT;
+                     //CretBy_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //CretBy_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqstdate_clm":
+                     RqstDate_Clm.Caption = control.LABL_TEXT;
+                     //RqstDate_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //RqstDate_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqstchek_clm":
+                     RqstChek_Clm.Caption = control.LABL_TEXT;
+                     //RqstChek_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //RqstChek_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
 
          job.Status = StatusType.Successful;
       }

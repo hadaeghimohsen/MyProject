@@ -386,7 +386,7 @@
          this.FileName_TextEdit005 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.lookUpEdit14 = new DevExpress.XtraEditors.LookUpEdit();
-         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.tp_006 = new System.Windows.Forms.TabPage();
          this.lookUpEdit41 = new DevExpress.XtraEditors.LookUpEdit();
          this.MsgbBs6 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit21 = new DevExpress.XtraEditors.LookUpEdit();
@@ -401,7 +401,7 @@
          this.AdmTextCont_Lb = new System.Windows.Forms.Label();
          this.AdmText_Lb = new System.Windows.Forms.Label();
          this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-         this.tabPage2 = new System.Windows.Forms.TabPage();
+         this.tp_007 = new System.Windows.Forms.TabPage();
          this.lookUpEdit42 = new DevExpress.XtraEditors.LookUpEdit();
          this.MsgbBs7 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit26 = new DevExpress.XtraEditors.LookUpEdit();
@@ -416,7 +416,7 @@
          this.MbspTextCont_Lb = new System.Windows.Forms.Label();
          this.MbspText_Lb = new System.Windows.Forms.Label();
          this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-         this.tabPage3 = new System.Windows.Forms.TabPage();
+         this.tp_008 = new System.Windows.Forms.TabPage();
          this.lookUpEdit43 = new DevExpress.XtraEditors.LookUpEdit();
          this.MsgbBs8 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit31 = new DevExpress.XtraEditors.LookUpEdit();
@@ -535,7 +535,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.FileName_TextEdit005.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit14.Properties)).BeginInit();
-         this.tabPage1.SuspendLayout();
+         this.tp_006.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit41.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsgbBs6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit21.Properties)).BeginInit();
@@ -544,7 +544,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit23.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit24.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit25.Properties)).BeginInit();
-         this.tabPage2.SuspendLayout();
+         this.tp_007.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit42.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsgbBs7)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit26.Properties)).BeginInit();
@@ -553,7 +553,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit28.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit29.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit30.Properties)).BeginInit();
-         this.tabPage3.SuspendLayout();
+         this.tp_008.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit43.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsgbBs8)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit31.Properties)).BeginInit();
@@ -1142,9 +1142,9 @@
          this.tb_master.Controls.Add(this.tp_003);
          this.tb_master.Controls.Add(this.tp_004);
          this.tb_master.Controls.Add(this.tp_005);
-         this.tb_master.Controls.Add(this.tabPage1);
-         this.tb_master.Controls.Add(this.tabPage2);
-         this.tb_master.Controls.Add(this.tabPage3);
+         this.tb_master.Controls.Add(this.tp_006);
+         this.tb_master.Controls.Add(this.tp_007);
+         this.tb_master.Controls.Add(this.tp_008);
          this.tb_master.Dock = System.Windows.Forms.DockStyle.Fill;
          this.tb_master.Location = new System.Drawing.Point(0, 59);
          this.tb_master.Name = "tb_master";
@@ -4890,35 +4890,35 @@
          this.lookUpEdit14.Size = new System.Drawing.Size(157, 22);
          this.lookUpEdit14.TabIndex = 73;
          // 
-         // tabPage1
+         // tp_006
          // 
-         this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-         this.tabPage1.Controls.Add(this.AdmTelgStat_Lb);
-         this.tabPage1.Controls.Add(this.lookUpEdit41);
-         this.tabPage1.Controls.Add(this.AdmClubCode_Lb);
-         this.tabPage1.Controls.Add(this.lookUpEdit21);
-         this.tabPage1.Controls.Add(this.Btn_Preview006);
-         this.tabPage1.Controls.Add(this.AdmClubName_Lb);
-         this.tabPage1.Controls.Add(this.textEdit4);
-         this.tabPage1.Controls.Add(this.AdmInsClubStat_Lb);
-         this.tabPage1.Controls.Add(this.lookUpEdit22);
-         this.tabPage1.Controls.Add(this.AdmInsNameStat_Lb);
-         this.tabPage1.Controls.Add(this.lookUpEdit23);
-         this.tabPage1.Controls.Add(this.AdmSmsType_Lb);
-         this.tabPage1.Controls.Add(this.AdmSmsStat_Lb);
-         this.tabPage1.Controls.Add(this.lookUpEdit24);
-         this.tabPage1.Controls.Add(this.lookUpEdit25);
-         this.tabPage1.Controls.Add(this.textBox1);
-         this.tabPage1.Controls.Add(this.label66);
-         this.tabPage1.Controls.Add(this.AdmTextCont_Lb);
-         this.tabPage1.Controls.Add(this.AdmText_Lb);
-         this.tabPage1.Controls.Add(this.richTextBox1);
-         this.tabPage1.Location = new System.Drawing.Point(4, 23);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(936, 522);
-         this.tabPage1.TabIndex = 5;
-         this.tabPage1.Text = "پیامک ثبت نام";
+         this.tp_006.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_006.Controls.Add(this.AdmTelgStat_Lb);
+         this.tp_006.Controls.Add(this.lookUpEdit41);
+         this.tp_006.Controls.Add(this.AdmClubCode_Lb);
+         this.tp_006.Controls.Add(this.lookUpEdit21);
+         this.tp_006.Controls.Add(this.Btn_Preview006);
+         this.tp_006.Controls.Add(this.AdmClubName_Lb);
+         this.tp_006.Controls.Add(this.textEdit4);
+         this.tp_006.Controls.Add(this.AdmInsClubStat_Lb);
+         this.tp_006.Controls.Add(this.lookUpEdit22);
+         this.tp_006.Controls.Add(this.AdmInsNameStat_Lb);
+         this.tp_006.Controls.Add(this.lookUpEdit23);
+         this.tp_006.Controls.Add(this.AdmSmsType_Lb);
+         this.tp_006.Controls.Add(this.AdmSmsStat_Lb);
+         this.tp_006.Controls.Add(this.lookUpEdit24);
+         this.tp_006.Controls.Add(this.lookUpEdit25);
+         this.tp_006.Controls.Add(this.textBox1);
+         this.tp_006.Controls.Add(this.label66);
+         this.tp_006.Controls.Add(this.AdmTextCont_Lb);
+         this.tp_006.Controls.Add(this.AdmText_Lb);
+         this.tp_006.Controls.Add(this.richTextBox1);
+         this.tp_006.Location = new System.Drawing.Point(4, 23);
+         this.tp_006.Name = "tp_006";
+         this.tp_006.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_006.Size = new System.Drawing.Size(936, 522);
+         this.tp_006.TabIndex = 5;
+         this.tp_006.Text = "پیامک ثبت نام";
          // 
          // lookUpEdit41
          // 
@@ -5234,35 +5234,35 @@
          this.richTextBox1.TabIndex = 23;
          this.richTextBox1.Text = "";
          // 
-         // tabPage2
+         // tp_007
          // 
-         this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-         this.tabPage2.Controls.Add(this.MbspTelgStat_Lb);
-         this.tabPage2.Controls.Add(this.lookUpEdit42);
-         this.tabPage2.Controls.Add(this.MbspSmsStat_Lb);
-         this.tabPage2.Controls.Add(this.MbspClubCode_Lb);
-         this.tabPage2.Controls.Add(this.lookUpEdit26);
-         this.tabPage2.Controls.Add(this.Btn_Preview007);
-         this.tabPage2.Controls.Add(this.MbspClubName_Lb);
-         this.tabPage2.Controls.Add(this.textEdit5);
-         this.tabPage2.Controls.Add(this.MbspInsClubStat_Lb);
-         this.tabPage2.Controls.Add(this.lookUpEdit27);
-         this.tabPage2.Controls.Add(this.MbspInsNameStat_Lb);
-         this.tabPage2.Controls.Add(this.lookUpEdit28);
-         this.tabPage2.Controls.Add(this.MbspSmsType_Lb);
-         this.tabPage2.Controls.Add(this.lookUpEdit29);
-         this.tabPage2.Controls.Add(this.lookUpEdit30);
-         this.tabPage2.Controls.Add(this.textBox2);
-         this.tabPage2.Controls.Add(this.label75);
-         this.tabPage2.Controls.Add(this.MbspTextCont_Lb);
-         this.tabPage2.Controls.Add(this.MbspText_Lb);
-         this.tabPage2.Controls.Add(this.richTextBox2);
-         this.tabPage2.Location = new System.Drawing.Point(4, 23);
-         this.tabPage2.Name = "tabPage2";
-         this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(936, 522);
-         this.tabPage2.TabIndex = 6;
-         this.tabPage2.Text = "پیامک تمدید";
+         this.tp_007.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_007.Controls.Add(this.MbspTelgStat_Lb);
+         this.tp_007.Controls.Add(this.lookUpEdit42);
+         this.tp_007.Controls.Add(this.MbspSmsStat_Lb);
+         this.tp_007.Controls.Add(this.MbspClubCode_Lb);
+         this.tp_007.Controls.Add(this.lookUpEdit26);
+         this.tp_007.Controls.Add(this.Btn_Preview007);
+         this.tp_007.Controls.Add(this.MbspClubName_Lb);
+         this.tp_007.Controls.Add(this.textEdit5);
+         this.tp_007.Controls.Add(this.MbspInsClubStat_Lb);
+         this.tp_007.Controls.Add(this.lookUpEdit27);
+         this.tp_007.Controls.Add(this.MbspInsNameStat_Lb);
+         this.tp_007.Controls.Add(this.lookUpEdit28);
+         this.tp_007.Controls.Add(this.MbspSmsType_Lb);
+         this.tp_007.Controls.Add(this.lookUpEdit29);
+         this.tp_007.Controls.Add(this.lookUpEdit30);
+         this.tp_007.Controls.Add(this.textBox2);
+         this.tp_007.Controls.Add(this.label75);
+         this.tp_007.Controls.Add(this.MbspTextCont_Lb);
+         this.tp_007.Controls.Add(this.MbspText_Lb);
+         this.tp_007.Controls.Add(this.richTextBox2);
+         this.tp_007.Location = new System.Drawing.Point(4, 23);
+         this.tp_007.Name = "tp_007";
+         this.tp_007.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_007.Size = new System.Drawing.Size(936, 522);
+         this.tp_007.TabIndex = 6;
+         this.tp_007.Text = "پیامک تمدید";
          // 
          // lookUpEdit42
          // 
@@ -5578,35 +5578,35 @@
          this.richTextBox2.TabIndex = 41;
          this.richTextBox2.Text = "";
          // 
-         // tabPage3
+         // tp_008
          // 
-         this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-         this.tabPage3.Controls.Add(this.AttnTelgStat_Lb);
-         this.tabPage3.Controls.Add(this.lookUpEdit43);
-         this.tabPage3.Controls.Add(this.AttnClubCode_Lb);
-         this.tabPage3.Controls.Add(this.lookUpEdit31);
-         this.tabPage3.Controls.Add(this.newMaxBtn1);
-         this.tabPage3.Controls.Add(this.AttnClubName_Lb);
-         this.tabPage3.Controls.Add(this.textEdit7);
-         this.tabPage3.Controls.Add(this.AttnInsClubStat_Lb);
-         this.tabPage3.Controls.Add(this.lookUpEdit32);
-         this.tabPage3.Controls.Add(this.AttnInsNameStat_Lb);
-         this.tabPage3.Controls.Add(this.lookUpEdit33);
-         this.tabPage3.Controls.Add(this.AttnSmsType_Lb);
-         this.tabPage3.Controls.Add(this.AttnSmsStat_Lb);
-         this.tabPage3.Controls.Add(this.lookUpEdit34);
-         this.tabPage3.Controls.Add(this.lookUpEdit35);
-         this.tabPage3.Controls.Add(this.textBox3);
-         this.tabPage3.Controls.Add(this.label84);
-         this.tabPage3.Controls.Add(this.AttnTextCont_Lb);
-         this.tabPage3.Controls.Add(this.AttnText_Lb);
-         this.tabPage3.Controls.Add(this.richTextBox3);
-         this.tabPage3.Location = new System.Drawing.Point(4, 23);
-         this.tabPage3.Name = "tabPage3";
-         this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(936, 522);
-         this.tabPage3.TabIndex = 7;
-         this.tabPage3.Text = "پیامک حضور و غیاب";
+         this.tp_008.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_008.Controls.Add(this.AttnTelgStat_Lb);
+         this.tp_008.Controls.Add(this.lookUpEdit43);
+         this.tp_008.Controls.Add(this.AttnClubCode_Lb);
+         this.tp_008.Controls.Add(this.lookUpEdit31);
+         this.tp_008.Controls.Add(this.newMaxBtn1);
+         this.tp_008.Controls.Add(this.AttnClubName_Lb);
+         this.tp_008.Controls.Add(this.textEdit7);
+         this.tp_008.Controls.Add(this.AttnInsClubStat_Lb);
+         this.tp_008.Controls.Add(this.lookUpEdit32);
+         this.tp_008.Controls.Add(this.AttnInsNameStat_Lb);
+         this.tp_008.Controls.Add(this.lookUpEdit33);
+         this.tp_008.Controls.Add(this.AttnSmsType_Lb);
+         this.tp_008.Controls.Add(this.AttnSmsStat_Lb);
+         this.tp_008.Controls.Add(this.lookUpEdit34);
+         this.tp_008.Controls.Add(this.lookUpEdit35);
+         this.tp_008.Controls.Add(this.textBox3);
+         this.tp_008.Controls.Add(this.label84);
+         this.tp_008.Controls.Add(this.AttnTextCont_Lb);
+         this.tp_008.Controls.Add(this.AttnText_Lb);
+         this.tp_008.Controls.Add(this.richTextBox3);
+         this.tp_008.Location = new System.Drawing.Point(4, 23);
+         this.tp_008.Name = "tp_008";
+         this.tp_008.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_008.Size = new System.Drawing.Size(936, 522);
+         this.tp_008.TabIndex = 7;
+         this.tp_008.Text = "پیامک حضور و غیاب";
          // 
          // lookUpEdit43
          // 
@@ -6103,8 +6103,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.FileName_TextEdit005.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit14.Properties)).EndInit();
-         this.tabPage1.ResumeLayout(false);
-         this.tabPage1.PerformLayout();
+         this.tp_006.ResumeLayout(false);
+         this.tp_006.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit41.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsgbBs6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit21.Properties)).EndInit();
@@ -6113,8 +6113,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit23.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit24.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit25.Properties)).EndInit();
-         this.tabPage2.ResumeLayout(false);
-         this.tabPage2.PerformLayout();
+         this.tp_007.ResumeLayout(false);
+         this.tp_007.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit42.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsgbBs7)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit26.Properties)).EndInit();
@@ -6123,8 +6123,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit28.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit29.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit30.Properties)).EndInit();
-         this.tabPage3.ResumeLayout(false);
-         this.tabPage3.PerformLayout();
+         this.tp_008.ResumeLayout(false);
+         this.tp_008.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit43.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsgbBs8)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit31.Properties)).EndInit();
@@ -6370,8 +6370,8 @@
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit18;
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit19;
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit20;
-      private Windows.Forms.TabPage tabPage1;
-      private Windows.Forms.TabPage tabPage2;
+      private Windows.Forms.TabPage tp_006;
+      private Windows.Forms.TabPage tp_007;
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit21;
       private MaxUi.NewMaxBtn Btn_Preview006;
       private DevExpress.XtraEditors.TextEdit textEdit4;
@@ -6398,7 +6398,7 @@
       private Windows.Forms.RichTextBox richTextBox2;
       private Windows.Forms.BindingSource MsgbBs6;
       private Windows.Forms.BindingSource MsgbBs7;
-      private Windows.Forms.TabPage tabPage3;
+      private Windows.Forms.TabPage tp_008;
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit31;
       private MaxUi.NewMaxBtn newMaxBtn1;
       private DevExpress.XtraEditors.TextEdit textEdit7;

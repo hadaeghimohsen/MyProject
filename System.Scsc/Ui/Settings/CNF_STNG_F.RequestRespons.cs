@@ -18,6 +18,7 @@ namespace System.Scsc.Ui.Settings
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -108,6 +109,237 @@ namespace System.Scsc.Ui.Settings
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "attnmtod_gb":
+                     AttnMtod_Gb.Text = control.LABL_TEXT;
+                     //AttnMtod_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //AttnMtod_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tp_002":
+                     tp_002.Text = control.LABL_TEXT;
+                     //tp_002.Text = control.LABL_TEXT; // ToolTip
+                     //tp_002.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sharekomod_lb":
+                     ShareKomod_Lb.Text = control.LABL_TEXT;
+                     //ShareKomod_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ShareKomod_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "moreattnstat_lb":
+                     MoreAttnStat_Lb.Text = control.LABL_TEXT;
+                     //MoreAttnStat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MoreAttnStat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "debtattnchekstat_lb":
+                     DebtAttnChekStat_Lb.Text = control.LABL_TEXT;
+                     //DebtAttnChekStat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DebtAttnChekStat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fngrprnt_gb":
+                     FngrPrnt_Gb.Text = control.LABL_TEXT;
+                     //FngrPrnt_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //FngrPrnt_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "attnstat2_lb":
+                     AttnStat2_Lb.Text = control.LABL_TEXT;
+                     //AttnStat2_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AttnStat2_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "attnstat3_lb":
+                     AttnStat3_Lb.Text = control.LABL_TEXT;
+                     //AttnStat3_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AttnStat3_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gatestat_lb":
+                     GateStat_Lb.Text = control.LABL_TEXT;
+                     //GateStat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //GateStat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tp_001":
+                     tp_001.Text = control.LABL_TEXT;
+                     //tp_001.Text = control.LABL_TEXT; // ToolTip
+                     //tp_001.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "club_gb":
+                     Club_Gb.Text = control.LABL_TEXT;
+                     //Club_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Club_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "komod_gb":
+                     Komod_Gb.Text = control.LABL_TEXT;
+                     //Komod_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Komod_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "attnctrl_gb":
+                     AttnCtrl_Gb.Text = control.LABL_TEXT;
+                     //AttnCtrl_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //AttnCtrl_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "showattn_lb":
+                     ShowAttn_Lb.Text = control.LABL_TEXT;
+                     //ShowAttn_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ShowAttn_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tryvaldmbsp_lb":
+                     TryValdMbsp_Lb.Text = control.LABL_TEXT;
+                     //TryValdMbsp_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TryValdMbsp_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "attnprnt_lb":
+                     AttnPrnt_Lb.Text = control.LABL_TEXT;
+                     //AttnPrnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AttnPrnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "debtchek_gb":
+                     DebtChek_Gb.Text = control.LABL_TEXT;
+                     //DebtChek_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //DebtChek_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mostdebtamnt_lb":
+                     MostDebtAmnt_Lb.Text = control.LABL_TEXT;
+                     //MostDebtAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MostDebtAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "debtdayexp_lb":
+                     DebtDayExp_Lb.Text = control.LABL_TEXT;
+                     //DebtDayExp_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DebtDayExp_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cardreader_gb":
+                     CardReader_Gb.Text = control.LABL_TEXT;
+                     //CardReader_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //CardReader_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "comportname1_lb":
+                     ComPortName1_Lb.Text = control.LABL_TEXT;
+                     //ComPortName1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ComPortName1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bandrate1_lb":
+                     BandRate1_Lb.Text = control.LABL_TEXT;
+                     //BandRate1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //BandRate1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "attnstat1_lb":
+                     AttnStat1_Lb.Text = control.LABL_TEXT;
+                     //AttnStat1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AttnStat1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "barcodedatatype_lb":
+                     BarCodeDataType_Lb.Text = control.LABL_TEXT;
+                     //BarCodeDataType_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //BarCodeDataType_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "computer2_gb":
+                     Computer2_Gb.Text = control.LABL_TEXT;
+                     //Computer2_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Computer2_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "portnum1_lb":
+                     PortNum1_Lb.Text = control.LABL_TEXT;
+                     //PortNum1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //PortNum1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "compname1_lb":
+                     CompName1_Lb.Text = control.LABL_TEXT;
+                     //CompName1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CompName1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "computer3_gb":
+                     Computer3_Gb.Text = control.LABL_TEXT;
+                     //Computer3_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Computer3_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "comportnum2_lb":
+                     ComPortNum2_Lb.Text = control.LABL_TEXT;
+                     //ComPortNum2_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ComPortNum2_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "compname2_lb":
+                     CompName2_Lb.Text = control.LABL_TEXT;
+                     //CompName2_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CompName2_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gatectrl_gb":
+                     GateCtrl_Gb.Text = control.LABL_TEXT;
+                     //GateCtrl_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //GateCtrl_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "portlist_lb":
+                     PortList_Lb.Text = control.LABL_TEXT;
+                     //PortList_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //PortList_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "outport_lb":
+                     OutPort_Lb.Text = control.LABL_TEXT;
+                     //OutPort_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //OutPort_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "gatebandrate_lb":
+                     GateBandRate_Lb.Text = control.LABL_TEXT;
+                     //GateBandRate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //GateBandRate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "loaddatasserver_gb":
+                     LoadDatasServer_Gb.Text = control.LABL_TEXT;
+                     //LoadDatasServer_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //LoadDatasServer_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "loaddatastat_lb":
+                     LoadDataStat_Lb.Text = control.LABL_TEXT;
+                     //LoadDataStat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //LoadDataStat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sharembsp_gb":
+                     ShareMbsp_Gb.Text = control.LABL_TEXT;
+                     //ShareMbsp_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //ShareMbsp_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sharembspstat_lb":
+                     ShareMbspStat_Lb.Text = control.LABL_TEXT;
+                     //ShareMbspStat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ShareMbspStat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tlgr_gb":
+                     Tlgr_Gb.Text = control.LABL_TEXT;
+                     //Tlgr_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Tlgr_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tlgrstat_lb":
+                     TlgrStat_Lb.Text = control.LABL_TEXT;
+                     //TlgrStat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TlgrStat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "option_gb":
+                     Option_Gb.Text = control.LABL_TEXT;
+                     //Option_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Option_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "removezero_lb":
+                     RemoveZero_Lb.Text = control.LABL_TEXT;
+                     //RemoveZero_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RemoveZero_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "holyday_lb":
+                     HolyDay_Lb.Text = control.LABL_TEXT;
+                     //HolyDay_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //HolyDay_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
 
          job.Status = StatusType.Successful;
       }

@@ -18,6 +18,7 @@ namespace System.Scsc.Ui.ReportManager
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {

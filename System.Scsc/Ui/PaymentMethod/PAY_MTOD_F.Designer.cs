@@ -75,7 +75,7 @@
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.PydsDesc_Clm = new System.Windows.Forms.Label();
+         this.PydsDesc_Lb = new System.Windows.Forms.Label();
          this.richTextBox3 = new System.Windows.Forms.RichTextBox();
          this.PydsBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.PymtBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -631,7 +631,7 @@
          this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainerControl1.Location = new System.Drawing.Point(3, 3);
          this.splitContainerControl1.Name = "splitContainerControl1";
-         this.splitContainerControl1.Panel1.Controls.Add(this.PydsDesc_Clm);
+         this.splitContainerControl1.Panel1.Controls.Add(this.PydsDesc_Lb);
          this.splitContainerControl1.Panel1.Controls.Add(this.richTextBox3);
          this.splitContainerControl1.Panel1.Controls.Add(this.PydsSave_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.PydsDel_Butn);
@@ -659,13 +659,13 @@
          // 
          // PydsDesc_Clm
          // 
-         this.PydsDesc_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.PydsDesc_Clm.Location = new System.Drawing.Point(415, 531);
-         this.PydsDesc_Clm.Name = "PydsDesc_Clm";
-         this.PydsDesc_Clm.Size = new System.Drawing.Size(49, 43);
-         this.PydsDesc_Clm.TabIndex = 28;
-         this.PydsDesc_Clm.Text = "شرح تخفیف :";
-         this.PydsDesc_Clm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.PydsDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsDesc_Lb.Location = new System.Drawing.Point(415, 531);
+         this.PydsDesc_Lb.Name = "PydsDesc_Clm";
+         this.PydsDesc_Lb.Size = new System.Drawing.Size(49, 43);
+         this.PydsDesc_Lb.TabIndex = 28;
+         this.PydsDesc_Lb.Text = "شرح تخفیف :";
+         this.PydsDesc_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
          // richTextBox3
          // 
@@ -2939,7 +2939,7 @@
       private DevExpress.XtraEditors.SimpleButton ChekOK_Butn;
       private DevExpress.XtraEditors.SimpleButton SaveDiscountAmnt_Butn;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-      private Windows.Forms.Label PydsDesc_Clm;
+      private Windows.Forms.Label PydsDesc_Lb;
       private Windows.Forms.RichTextBox richTextBox3;
       private MaxUi.NewMaxBtn PydsSave_Butn;
       private MaxUi.NewMaxBtn PydsDel_Butn;

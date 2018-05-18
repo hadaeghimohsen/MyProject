@@ -14,6 +14,8 @@ namespace System.Scsc.Ui.Reason
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
+      private string RegnLang = "054";
+
       public void SendRequest(Job job)
       {
          switch (job.Method)
@@ -94,6 +96,57 @@ namespace System.Scsc.Ui.Reason
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "rqid_lb":
+                     Rqid_Lb.Text = control.LABL_TEXT;
+                     //Rqid_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqtpdesc_lb":
+                     RqtpDesc_Lb.Text = control.LABL_TEXT;
+                     //RqtpDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RqtpDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rqrorwno_lb":
+                     RqroRwno_Lb.Text = control.LABL_TEXT;
+                     //RqroRwno_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RqroRwno_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fileno_lb":
+                     FileNo_Lb.Text = control.LABL_TEXT;
+                     //FileNo_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FileNo_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rwno_clm":
+                     Rwno_Clm.Caption = control.LABL_TEXT;
+                     //Rwno_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //Rwno_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "resnrwno_clm":
+                     ResnRwno_Clm.Caption = control.LABL_TEXT;
+                     //ResnRwno_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //ResnRwno_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "othrdesc_clm":
+                     OthrDesc_Clm.Caption = control.LABL_TEXT;
+                     //OthrDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //OthrDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

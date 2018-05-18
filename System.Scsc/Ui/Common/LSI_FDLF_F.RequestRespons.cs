@@ -18,7 +18,7 @@ namespace System.Scsc.Ui.Common
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       private bool isFirstLoaded = false;
-
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -142,6 +142,137 @@ namespace System.Scsc.Ui.Common
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "debtdnrm_clm":
+                     DebtDnrm_Clm.Caption = control.LABL_TEXT;
+                     //DebtDnrm_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //DebtDnrm_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "bothsex_rb":
+                     BothSex_Rb.Text = control.LABL_TEXT;
+                     //BothSex_Rb.Text = control.LABL_TEXT; // ToolTip
+                     //BothSex_Rb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fighbndefaultprint":
+                     FighBnDefaultPrint.Text = control.LABL_TEXT;
+                     //FighBnDefaultPrint.Text = control.LABL_TEXT; // ToolTip
+                     //FighBnDefaultPrint.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fighbnsettingprint":
+                     FighBnSettingPrint.Text = control.LABL_TEXT;
+                     //FighBnSettingPrint.Text = control.LABL_TEXT; // ToolTip
+                     //FighBnSettingPrint.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "frstname_lb":
+                     FrstName_Lb.Text = control.LABL_TEXT;
+                     //FrstName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FrstName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "lastname_lb":
+                     LastName_Lb.Text = control.LABL_TEXT;
+                     //LastName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //LastName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "natlcode_lb":
+                     NatlCode_Lb.Text = control.LABL_TEXT;
+                     //NatlCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //NatlCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fngrprnt_lb":
+                     FngrPrnt_Lb.Text = control.LABL_TEXT;
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "globcode_lb":
+                     GlobCode_Lb.Text = control.LABL_TEXT;
+                     //GlobCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //GlobCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "servno_lb":
+                     ServNo_Lb.Text = control.LABL_TEXT;
+                     //ServNo_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ServNo_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cellphon_lb":
+                     CellPhon_Lb.Text = control.LABL_TEXT;
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tellphon_lb":
+                     TellPhon_Lb.Text = control.LABL_TEXT;
+                     //TellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "men_rb":
+                     Men_Rb.Text = control.LABL_TEXT;
+                     //Men_Rb.Text = control.LABL_TEXT; // ToolTip
+                     //Men_Rb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "women_rb":
+                     Women_Rb.Text = control.LABL_TEXT;
+                     //Women_Rb.Text = control.LABL_TEXT; // ToolTip
+                     //Women_Rb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "lastname_clm":
+                     LastName_Clm.Caption = control.LABL_TEXT;
+                     //LastName_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //LastName_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "frstname_clm":
+                     FrstName_Clm.Caption = control.LABL_TEXT;
+                     //FrstName_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //FrstName_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "natlcode_clm":
+                     NatlCode_Clm.Caption = control.LABL_TEXT;
+                     //NatlCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //NatlCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fngrprnt_clm":
+                     FngrPrnt_Clm.Caption = control.LABL_TEXT;
+                     //FngrPrnt_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //FngrPrnt_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "chatid_clm":
+                     ChatId_Clm.Caption = control.LABL_TEXT;
+                     //ChatId_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //ChatId_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "suntdesc_clm":
+                     SuntDesc_Clm.Caption = control.LABL_TEXT;
+                     //SuntDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //SuntDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cellphon_clm":
+                     CellPhon_Clm.Caption = control.LABL_TEXT;
+                     //CellPhon_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //CellPhon_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tellphon_clm":
+                     TellPhon_Clm.Caption = control.LABL_TEXT;
+                     //TellPhon_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //TellPhon_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "btn_back":
+                     Btn_Back.Text = control.LABL_TEXT;
+                     //Btn_Back.Text = control.LABL_TEXT; // ToolTip
+                     //Btn_Back.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

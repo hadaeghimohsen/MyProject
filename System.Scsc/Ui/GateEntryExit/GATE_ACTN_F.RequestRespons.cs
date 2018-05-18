@@ -17,6 +17,7 @@ namespace System.Scsc.Ui.GateEntryExit
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       private bool isFirstLoaded = false;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -103,6 +104,41 @@ namespace System.Scsc.Ui.GateEntryExit
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "gateactntitl_lb":
+                     GateActnTitl_Lb.Text = control.LABL_TEXT;
+                     //GateActnTitl_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //GateActnTitl_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "opengate_butn":
+                     OpenGate_Butn.Text = control.LABL_TEXT;
+                     //OpenGate_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //OpenGate_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "closegate_butn":
+                     CloseGate_Butn.Text = control.LABL_TEXT;
+                     //CloseGate_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //CloseGate_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "back_butn":
+                     Back_Butn.Text = control.LABL_TEXT;
+                     //Back_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Back_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
 
          job.Status = StatusType.Successful;
       }

@@ -97,7 +97,7 @@
          this.colPYMT_CASH_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RqtpCode2_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.FileNo2_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.ExpnCode2_Lb = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ExpnCode2_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PayStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Lov_PayStat = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -1092,7 +1092,7 @@
             this.colPYMT_CASH_CODE1,
             this.RqtpCode2_Clm,
             this.FileNo2_Clm,
-            this.ExpnCode2_Lb,
+            this.ExpnCode2_Clm,
             this.colCODE,
             this.PayStat_Clm,
             this.ExpnPric2_Clm,
@@ -1162,14 +1162,14 @@
          // 
          // ExpnCode2_Lb
          // 
-         this.ExpnCode2_Lb.Caption = "آیتم هزینه";
-         this.ExpnCode2_Lb.FieldName = "Expense.EXPN_DESC";
-         this.ExpnCode2_Lb.Name = "ExpnCode2_Lb";
-         this.ExpnCode2_Lb.OptionsColumn.AllowEdit = false;
-         this.ExpnCode2_Lb.OptionsColumn.ReadOnly = true;
-         this.ExpnCode2_Lb.Visible = true;
-         this.ExpnCode2_Lb.VisibleIndex = 8;
-         this.ExpnCode2_Lb.Width = 76;
+         this.ExpnCode2_Clm.Caption = "آیتم هزینه";
+         this.ExpnCode2_Clm.FieldName = "Expense.EXPN_DESC";
+         this.ExpnCode2_Clm.Name = "ExpnCode2_Lb";
+         this.ExpnCode2_Clm.OptionsColumn.AllowEdit = false;
+         this.ExpnCode2_Clm.OptionsColumn.ReadOnly = true;
+         this.ExpnCode2_Clm.Visible = true;
+         this.ExpnCode2_Clm.VisibleIndex = 8;
+         this.ExpnCode2_Clm.Width = 76;
          // 
          // colCODE
          // 
@@ -6361,7 +6361,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE1;
       private DevExpress.XtraGrid.Columns.GridColumn RqtpCode2_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn FileNo2_Clm;
-      private DevExpress.XtraGrid.Columns.GridColumn ExpnCode2_Lb;
+      private DevExpress.XtraGrid.Columns.GridColumn ExpnCode2_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
       private DevExpress.XtraGrid.Columns.GridColumn PayStat_Clm;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Lov_PayStat;

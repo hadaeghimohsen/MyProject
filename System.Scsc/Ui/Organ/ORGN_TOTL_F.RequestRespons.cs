@@ -18,6 +18,7 @@ namespace System.Scsc.Ui.Organ
       private List<long?> Fga_Uclb_U;
       //private long Rqid, FileNo;
       private bool isFirstLoaded = false;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -108,6 +109,152 @@ namespace System.Scsc.Ui.Organ
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "orgndesc_clm":
+                     OrgnDesc_Clm.Caption = control.LABL_TEXT;
+                     //OrgnDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //OrgnDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "stat_clm":
+                     Stat_Clm.Caption = control.LABL_TEXT;
+                     //Stat_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //Stat_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "todate_lb":
+                     ToDate_Lb.Text = control.LABL_TEXT;
+                     //ToDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ToDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "orgncode_gb":
+                     OrgnCode_Gb.Text = control.LABL_TEXT;
+                     //OrgnCode_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //OrgnCode_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "orgncode_clm":
+                     OrgnCode_Clm.Caption = control.LABL_TEXT;
+                     //OrgnCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //OrgnCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "deptcode_gb":
+                     DeptCode_Gb.Text = control.LABL_TEXT;
+                     //DeptCode_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //DeptCode_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "deptcode_clm":
+                     DeptCode_Clm.Caption = control.LABL_TEXT;
+                     //DeptCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //DeptCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "deptdesc_clm":
+                     DeptDesc_Clm.Caption = control.LABL_TEXT;
+                     //DeptDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //DeptDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "buntcode_gb":
+                     BuntCode_Gb.Text = control.LABL_TEXT;
+                     //BuntCode_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //BuntCode_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "buntcode_clm":
+                     BuntCode_Clm.Caption = control.LABL_TEXT;
+                     //BuntCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //BuntCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "buntdesc_clm":
+                     BuntDesc_Clm.Caption = control.LABL_TEXT;
+                     //BuntDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //BuntDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "suntcode_gb":
+                     SuntCode_Gb.Text = control.LABL_TEXT;
+                     //SuntCode_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //SuntCode_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "suntcode_clm":
+                     SuntCode_Clm.Caption = control.LABL_TEXT;
+                     //SuntCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //SuntCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "suntdesc_clm":
+                     SuntDesc_Clm.Caption = control.LABL_TEXT;
+                     //SuntDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //SuntDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "discount_gb":
+                     Discount_Gb.Text = control.LABL_TEXT;
+                     //Discount_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Discount_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rwno_clm":
+                     Rwno_Clm.Caption = control.LABL_TEXT;
+                     //Rwno_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //Rwno_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "actntype_clm":
+                     ActnType_Clm.Caption = control.LABL_TEXT;
+                     //ActnType_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //ActnType_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "reglyear_clm":
+                     ReglYear_Clm.Caption = control.LABL_TEXT;
+                     //ReglYear_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //ReglYear_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "reglcode_clm":
+                     ReglCode_Clm.Caption = control.LABL_TEXT;
+                     //ReglCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //ReglCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "epitcode_clm":
+                     EpitCode_Clm.Caption = control.LABL_TEXT;
+                     //EpitCode_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //EpitCode_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "dscttype_clm":
+                     DsctType_Clm.Caption = control.LABL_TEXT;
+                     //DsctType_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //DsctType_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "amntdsct_clm":
+                     AmntDsct_Clm.Caption = control.LABL_TEXT;
+                     //AmntDsct_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //AmntDsct_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "prctdsct_clm":
+                     PrctDsct_Clm.Caption = control.LABL_TEXT;
+                     //PrctDsct_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //PrctDsct_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "discountinfo_gb":
+                     DiscountInfo_Gb.Text = control.LABL_TEXT;
+                     //DiscountInfo_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //DiscountInfo_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "dsctdesc_lb":
+                     DsctDesc_Lb.Text = control.LABL_TEXT;
+                     //DsctDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DsctDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fromdate_lb":
+                     FromDate_Lb.Text = control.LABL_TEXT;
+                     //FromDate_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FromDate_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
 
          job.Status = StatusType.Successful;
       }

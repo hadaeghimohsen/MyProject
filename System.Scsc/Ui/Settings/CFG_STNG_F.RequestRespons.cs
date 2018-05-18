@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.Settings
       private List<long?> Fga_Uclb_U;
       private string Crnt_User;
       private string Modul_Name, Section_Name;
+      private string RegnLang = "054";
 
       public void SendRequest(Job job)
       {
@@ -171,6 +172,167 @@ namespace System.Scsc.Ui.Settings
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "mudlname_clm":
+                     MudlName_Clm.Caption = control.LABL_TEXT;
+                     //MudlName_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //MudlName_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sectname_lb":
+                     SectName_Lb.Text = control.LABL_TEXT;
+                     //SectName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //SectName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "titlform_lb":
+                     TitlForm_Lb.Text = control.LABL_TEXT;
+                     //TitlForm_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TitlForm_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tp_backuprestore":
+                     tp_backuprestore.Text = control.LABL_TEXT;
+                     //tp_backuprestore.Text = control.LABL_TEXT; // ToolTip
+                     //tp_backuprestore.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tp_printmodual":
+                     tp_printmodual.Text = control.LABL_TEXT;
+                     //tp_printmodual.Text = control.LABL_TEXT; // ToolTip
+                     //tp_printmodual.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "clubcode_lb":
+                     ClubCode_Lb.Text = control.LABL_TEXT;
+                     //ClubCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ClubCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "backup_gb":
+                     BackUp_Gb.Text = control.LABL_TEXT;
+                     //BackUp_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //BackUp_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "btn_takebackup":
+                     Btn_TakeBackup.Text = control.LABL_TEXT;
+                     //Btn_TakeBackup.Text = control.LABL_TEXT; // ToolTip
+                     //Btn_TakeBackup.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "btn_apply":
+                     Btn_APPLY.Text = control.LABL_TEXT;
+                     //Btn_APPLY.Text = control.LABL_TEXT; // ToolTip
+                     //Btn_APPLY.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "ckb_back_up_optn_path":
+                     Ckb_BACK_UP_OPTN_PATH.Text = control.LABL_TEXT;
+                     //Ckb_BACK_UP_OPTN_PATH.Text = control.LABL_TEXT; // ToolTip
+                     //Ckb_BACK_UP_OPTN_PATH.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "optionpath_lb":
+                     OptionPath_Lb.Text = control.LABL_TEXT;
+                     //OptionPath_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //OptionPath_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rootpath_lb":
+                     RootPath_Lb.Text = control.LABL_TEXT;
+                     //RootPath_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RootPath_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "restore_gb":
+                     Restore_Gb.Text = control.LABL_TEXT;
+                     //Restore_Gb.Text = control.LABL_TEXT; // ToolTip
+                     //Restore_Gb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "filename_clm":
+                     FileName_Clm.Caption = control.LABL_TEXT;
+                     //FileName_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //FileName_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "directory_clm":
+                     Directory_Clm.Caption = control.LABL_TEXT;
+                     //Directory_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //Directory_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "btn_restoredb":
+                     Btn_RestoreDb.Text = control.LABL_TEXT;
+                     //Btn_RestoreDb.Text = control.LABL_TEXT; // ToolTip
+                     //Btn_RestoreDb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "btn_deletebackup":
+                     Btn_DeleteBackup.Text = control.LABL_TEXT;
+                     //Btn_DeleteBackup.Text = control.LABL_TEXT; // ToolTip
+                     //Btn_DeleteBackup.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "btn_querybackupfile":
+                     Btn_QueryBackupFile.Text = control.LABL_TEXT;
+                     //Btn_QueryBackupFile.Text = control.LABL_TEXT; // ToolTip
+                     //Btn_QueryBackupFile.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rprtrwno_clm":
+                     RprtRwno_Clm.Caption = control.LABL_TEXT;
+                     //RprtRwno_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //RprtRwno_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mudldesc_clm":
+                     MudlDesc_Clm.Caption = control.LABL_TEXT;
+                     //MudlDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                     //MudlDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mudlname_lb":
+                     MudlName_Lb.Text = control.LABL_TEXT;
+                     //MudlName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MudlName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "showprvw_lb":
+                     ShowPrvw_Lb.Text = control.LABL_TEXT;
+                     //ShowPrvw_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ShowPrvw_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mudldesc_lb":
+                     MudlDesc_Lb.Text = control.LABL_TEXT;
+                     //MudlDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //MudlDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "afterprntpay_lb":
+                     AfterPrntPay_Lb.Text = control.LABL_TEXT;
+                     //AfterPrntPay_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AfterPrntPay_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sectdesc_lb":
+                     SectDesc_Lb.Text = control.LABL_TEXT;
+                     //SectDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //SectDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rprtpath_lb":
+                     RprtPath_Lb.Text = control.LABL_TEXT;
+                     //RprtPath_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RprtPath_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "rprtdesc_lb":
+                     RprtDesc_Lb.Text = control.LABL_TEXT;
+                     //RprtDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RprtDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "stat_lb":
+                     Stat_Lb.Text = control.LABL_TEXT;
+                     //Stat_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Stat_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "dflt_lb":
+                     Dflt_Lb.Text = control.LABL_TEXT;
+                     //Dflt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Dflt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
 
          job.Status = StatusType.Successful;
       }

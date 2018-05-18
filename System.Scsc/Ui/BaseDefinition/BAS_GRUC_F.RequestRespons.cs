@@ -16,6 +16,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private string ConnectionString;
       private string CurrentUser;
       private Data.Club Club;
+      private string RegnLang = "054";
 
 
       public void SendRequest(Job job)
@@ -104,6 +105,57 @@ namespace System.Scsc.Ui.BaseDefinition
 
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "acesuserclubtitl_lb":
+                     AcesUserClubTitl_Lb.Text = control.LABL_TEXT;
+                     //AcesUserClubTitl_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //AcesUserClubTitl_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc1_lb":
+                     Desc1_Lb.Text = control.LABL_TEXT;
+                     //Desc1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "username_clm":
+                     UserName_Clm.Caption = control.LABL_TEXT;
+                     //UserName_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //UserName_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "grantusertoclub_butn":
+                     GrantUserToClub_Butn.Text = control.LABL_TEXT;
+                     //GrantUserToClub_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //GrantUserToClub_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "clubname_lb":
+                     ClubName_Lb.Text = control.LABL_TEXT;
+                     //ClubName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ClubName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sysuser_clm":
+                     SysUser_Clm.Caption = control.LABL_TEXT;
+                     //SysUser_Clm.Text = control.LABL_TEXT; // ToolTip
+                     //SysUser_Clm.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "revokeuserfromclub_butn":
+                     RevokeUserFromClub_Butn.Text = control.LABL_TEXT;
+                     //RevokeUserFromClub_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //RevokeUserFromClub_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

@@ -15,6 +15,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
       private string CurrentUser;
+      private string RegnLang = "054";
 
 
       public void SendRequest(Job job)
@@ -103,6 +104,97 @@ namespace System.Scsc.Ui.BaseDefinition
 
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "cordx_lb":
+                     CordX_Lb.Text = control.LABL_TEXT;
+                     //CordX_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CordX_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "title_lbl":
+                     Title_Lbl.Text = control.LABL_TEXT;
+                     //Title_Lbl.Text = control.LABL_TEXT; // ToolTip
+                     //Title_Lbl.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc1_lb":
+                     Desc1_Lb.Text = control.LABL_TEXT;
+                     //Desc1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "name_lb":
+                     Name_Lb.Text = control.LABL_TEXT;
+                     //Name_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Name_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc2_lb":
+                     Desc2_Lb.Text = control.LABL_TEXT;
+                     //Desc2_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc2_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "regncode_lb":
+                     RegnCode_Lb.Text = control.LABL_TEXT;
+                     //RegnCode_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RegnCode_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc3_lb":
+                     Desc3_Lb.Text = control.LABL_TEXT;
+                     //Desc3_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc3_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cordy_lb":
+                     CordY_Lb.Text = control.LABL_TEXT;
+                     //CordY_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CordY_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc4_lb":
+                     Desc4_Lb.Text = control.LABL_TEXT;
+                     //Desc4_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc4_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "postadrs_lb":
+                     PostAdrs_Lb.Text = control.LABL_TEXT;
+                     //PostAdrs_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //PostAdrs_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "tellphon_lb":
+                     TellPhon_Lb.Text = control.LABL_TEXT;
+                     //TellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cellphon_lb":
+                     CellPhon_Lb.Text = control.LABL_TEXT;
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "website_lb":
+                     WebSite_Lb.Text = control.LABL_TEXT;
+                     //WebSite_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //WebSite_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "emaladrs_lb":
+                     EmalAdrs_Lb.Text = control.LABL_TEXT;
+                     //EmalAdrs_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //EmalAdrs_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "submitchange_butn":
+                     SubmitChange_Butn.Text = control.LABL_TEXT;
+                     //SubmitChange_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //SubmitChange_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

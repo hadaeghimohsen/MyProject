@@ -29,39 +29,39 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label CashCode_Lb;
-         System.Windows.Forms.Label RcptMtod_Lb;
-         System.Windows.Forms.Label Amnt_Lb;
-         System.Windows.Forms.Label TermNo_Lb;
-         System.Windows.Forms.Label Bank_Lb;
-         System.Windows.Forms.Label TranNo_Lb;
-         System.Windows.Forms.Label CardNo_Lb;
-         System.Windows.Forms.Label ActnDate_Lb;
-         System.Windows.Forms.Label RefNo_Lb;
-         System.Windows.Forms.Label FlowNo_Lb;
-         System.Windows.Forms.Label ChkAmnt_Lb;
-         System.Windows.Forms.Label ChekBank_Lb;
-         System.Windows.Forms.Label ChekNo_Lb;
-         System.Windows.Forms.Label PaidDate_Lb;
-         System.Windows.Forms.Label ChkType_Lb;
-         System.Windows.Forms.Label ChekOwnr_Lb;
-         System.Windows.Forms.Label ChekDate_Lb;
          System.Windows.Forms.Label label12;
          System.Windows.Forms.Label label10;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PAY_MTOD_F));
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.CashCode_Lb = new System.Windows.Forms.Label();
+         this.RcptMtod_Lb = new System.Windows.Forms.Label();
+         this.Amnt_Lb = new System.Windows.Forms.Label();
+         this.TermNo_Lb = new System.Windows.Forms.Label();
+         this.Bank_Lb = new System.Windows.Forms.Label();
+         this.TranNo_Lb = new System.Windows.Forms.Label();
+         this.CardNo_Lb = new System.Windows.Forms.Label();
+         this.ActnDate_Lb = new System.Windows.Forms.Label();
+         this.RefNo_Lb = new System.Windows.Forms.Label();
+         this.FlowNo_Lb = new System.Windows.Forms.Label();
+         this.ChkAmnt_Lb = new System.Windows.Forms.Label();
+         this.ChekBank_Lb = new System.Windows.Forms.Label();
+         this.ChekNo_Lb = new System.Windows.Forms.Label();
+         this.PaidDate_Lb = new System.Windows.Forms.Label();
+         this.ChkType_Lb = new System.Windows.Forms.Label();
+         this.ChekOwnr_Lb = new System.Windows.Forms.Label();
+         this.ChekDate_Lb = new System.Windows.Forms.Label();
          this.PydsStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DActvBs2 = new System.Windows.Forms.BindingSource(this.components);
@@ -256,23 +256,6 @@
          this.panel1 = new System.Windows.Forms.Panel();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         CashCode_Lb = new System.Windows.Forms.Label();
-         RcptMtod_Lb = new System.Windows.Forms.Label();
-         Amnt_Lb = new System.Windows.Forms.Label();
-         TermNo_Lb = new System.Windows.Forms.Label();
-         Bank_Lb = new System.Windows.Forms.Label();
-         TranNo_Lb = new System.Windows.Forms.Label();
-         CardNo_Lb = new System.Windows.Forms.Label();
-         ActnDate_Lb = new System.Windows.Forms.Label();
-         RefNo_Lb = new System.Windows.Forms.Label();
-         FlowNo_Lb = new System.Windows.Forms.Label();
-         ChkAmnt_Lb = new System.Windows.Forms.Label();
-         ChekBank_Lb = new System.Windows.Forms.Label();
-         ChekNo_Lb = new System.Windows.Forms.Label();
-         PaidDate_Lb = new System.Windows.Forms.Label();
-         ChkType_Lb = new System.Windows.Forms.Label();
-         ChekOwnr_Lb = new System.Windows.Forms.Label();
-         ChekDate_Lb = new System.Windows.Forms.Label();
          label12 = new System.Windows.Forms.Label();
          label10 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
@@ -338,173 +321,173 @@
          // 
          // CashCode_Lb
          // 
-         CashCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CashCode_Lb.AutoSize = true;
-         CashCode_Lb.Location = new System.Drawing.Point(406, 34);
-         CashCode_Lb.Name = "CashCode_Lb";
-         CashCode_Lb.Size = new System.Drawing.Size(65, 14);
-         CashCode_Lb.TabIndex = 3;
-         CashCode_Lb.Text = "پرداخت به :";
+         this.CashCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CashCode_Lb.AutoSize = true;
+         this.CashCode_Lb.Location = new System.Drawing.Point(406, 34);
+         this.CashCode_Lb.Name = "CashCode_Lb";
+         this.CashCode_Lb.Size = new System.Drawing.Size(65, 14);
+         this.CashCode_Lb.TabIndex = 3;
+         this.CashCode_Lb.Text = "پرداخت به :";
          // 
          // RcptMtod_Lb
          // 
-         RcptMtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RcptMtod_Lb.AutoSize = true;
-         RcptMtod_Lb.Location = new System.Drawing.Point(467, 173);
-         RcptMtod_Lb.Name = "RcptMtod_Lb";
-         RcptMtod_Lb.Size = new System.Drawing.Size(79, 14);
-         RcptMtod_Lb.TabIndex = 3;
-         RcptMtod_Lb.Text = "روش پرداخت :";
+         this.RcptMtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RcptMtod_Lb.AutoSize = true;
+         this.RcptMtod_Lb.Location = new System.Drawing.Point(467, 173);
+         this.RcptMtod_Lb.Name = "RcptMtod_Lb";
+         this.RcptMtod_Lb.Size = new System.Drawing.Size(79, 14);
+         this.RcptMtod_Lb.TabIndex = 3;
+         this.RcptMtod_Lb.Text = "روش پرداخت :";
          // 
          // Amnt_Lb
          // 
-         Amnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Amnt_Lb.AutoSize = true;
-         Amnt_Lb.Location = new System.Drawing.Point(467, 146);
-         Amnt_Lb.Name = "Amnt_Lb";
-         Amnt_Lb.Size = new System.Drawing.Size(36, 14);
-         Amnt_Lb.TabIndex = 5;
-         Amnt_Lb.Text = "مبلغ :";
+         this.Amnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Amnt_Lb.AutoSize = true;
+         this.Amnt_Lb.Location = new System.Drawing.Point(467, 146);
+         this.Amnt_Lb.Name = "Amnt_Lb";
+         this.Amnt_Lb.Size = new System.Drawing.Size(36, 14);
+         this.Amnt_Lb.TabIndex = 5;
+         this.Amnt_Lb.Text = "مبلغ :";
          // 
          // TermNo_Lb
          // 
-         TermNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         TermNo_Lb.AutoSize = true;
-         TermNo_Lb.Location = new System.Drawing.Point(379, 23);
-         TermNo_Lb.Name = "TermNo_Lb";
-         TermNo_Lb.Size = new System.Drawing.Size(75, 14);
-         TermNo_Lb.TabIndex = 22;
-         TermNo_Lb.Text = "شماره POS :";
+         this.TermNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.TermNo_Lb.AutoSize = true;
+         this.TermNo_Lb.Location = new System.Drawing.Point(379, 23);
+         this.TermNo_Lb.Name = "TermNo_Lb";
+         this.TermNo_Lb.Size = new System.Drawing.Size(75, 14);
+         this.TermNo_Lb.TabIndex = 22;
+         this.TermNo_Lb.Text = "شماره POS :";
          // 
          // Bank_Lb
          // 
-         Bank_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         Bank_Lb.AutoSize = true;
-         Bank_Lb.Location = new System.Drawing.Point(379, 101);
-         Bank_Lb.Name = "Bank_Lb";
-         Bank_Lb.Size = new System.Drawing.Size(37, 14);
-         Bank_Lb.TabIndex = 28;
-         Bank_Lb.Text = "بانک :";
+         this.Bank_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Bank_Lb.AutoSize = true;
+         this.Bank_Lb.Location = new System.Drawing.Point(379, 101);
+         this.Bank_Lb.Name = "Bank_Lb";
+         this.Bank_Lb.Size = new System.Drawing.Size(37, 14);
+         this.Bank_Lb.TabIndex = 28;
+         this.Bank_Lb.Text = "بانک :";
          // 
          // TranNo_Lb
          // 
-         TranNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         TranNo_Lb.AutoSize = true;
-         TranNo_Lb.Location = new System.Drawing.Point(379, 49);
-         TranNo_Lb.Name = "TranNo_Lb";
-         TranNo_Lb.Size = new System.Drawing.Size(89, 14);
-         TranNo_Lb.TabIndex = 24;
-         TranNo_Lb.Text = "شماره تراکنش :";
+         this.TranNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.TranNo_Lb.AutoSize = true;
+         this.TranNo_Lb.Location = new System.Drawing.Point(379, 49);
+         this.TranNo_Lb.Name = "TranNo_Lb";
+         this.TranNo_Lb.Size = new System.Drawing.Size(89, 14);
+         this.TranNo_Lb.TabIndex = 24;
+         this.TranNo_Lb.Text = "شماره تراکنش :";
          // 
          // CardNo_Lb
          // 
-         CardNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         CardNo_Lb.AutoSize = true;
-         CardNo_Lb.Location = new System.Drawing.Point(378, 75);
-         CardNo_Lb.Name = "CardNo_Lb";
-         CardNo_Lb.Size = new System.Drawing.Size(76, 14);
-         CardNo_Lb.TabIndex = 26;
-         CardNo_Lb.Text = "شماره کارت :";
+         this.CardNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.CardNo_Lb.AutoSize = true;
+         this.CardNo_Lb.Location = new System.Drawing.Point(378, 75);
+         this.CardNo_Lb.Name = "CardNo_Lb";
+         this.CardNo_Lb.Size = new System.Drawing.Size(76, 14);
+         this.CardNo_Lb.TabIndex = 26;
+         this.CardNo_Lb.Text = "شماره کارت :";
          // 
          // ActnDate_Lb
          // 
-         ActnDate_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ActnDate_Lb.AutoSize = true;
-         ActnDate_Lb.Location = new System.Drawing.Point(186, 75);
-         ActnDate_Lb.Name = "ActnDate_Lb";
-         ActnDate_Lb.Size = new System.Drawing.Size(77, 14);
-         ActnDate_Lb.TabIndex = 32;
-         ActnDate_Lb.Text = "تاریخ پرداخت :";
+         this.ActnDate_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ActnDate_Lb.AutoSize = true;
+         this.ActnDate_Lb.Location = new System.Drawing.Point(186, 75);
+         this.ActnDate_Lb.Name = "ActnDate_Lb";
+         this.ActnDate_Lb.Size = new System.Drawing.Size(77, 14);
+         this.ActnDate_Lb.TabIndex = 32;
+         this.ActnDate_Lb.Text = "تاریخ پرداخت :";
          // 
          // RefNo_Lb
          // 
-         RefNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         RefNo_Lb.AutoSize = true;
-         RefNo_Lb.Location = new System.Drawing.Point(185, 49);
-         RefNo_Lb.Name = "RefNo_Lb";
-         RefNo_Lb.Size = new System.Drawing.Size(78, 14);
-         RefNo_Lb.TabIndex = 32;
-         RefNo_Lb.Text = "شماره ارجاع :";
+         this.RefNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.RefNo_Lb.AutoSize = true;
+         this.RefNo_Lb.Location = new System.Drawing.Point(185, 49);
+         this.RefNo_Lb.Name = "RefNo_Lb";
+         this.RefNo_Lb.Size = new System.Drawing.Size(78, 14);
+         this.RefNo_Lb.TabIndex = 32;
+         this.RefNo_Lb.Text = "شماره ارجاع :";
          // 
          // FlowNo_Lb
          // 
-         FlowNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         FlowNo_Lb.AutoSize = true;
-         FlowNo_Lb.Location = new System.Drawing.Point(186, 23);
-         FlowNo_Lb.Name = "FlowNo_Lb";
-         FlowNo_Lb.Size = new System.Drawing.Size(84, 14);
-         FlowNo_Lb.TabIndex = 30;
-         FlowNo_Lb.Text = "شماره پیگیری :";
+         this.FlowNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.FlowNo_Lb.AutoSize = true;
+         this.FlowNo_Lb.Location = new System.Drawing.Point(186, 23);
+         this.FlowNo_Lb.Name = "FlowNo_Lb";
+         this.FlowNo_Lb.Size = new System.Drawing.Size(84, 14);
+         this.FlowNo_Lb.TabIndex = 30;
+         this.FlowNo_Lb.Text = "شماره پیگیری :";
          // 
          // ChkAmnt_Lb
          // 
-         ChkAmnt_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ChkAmnt_Lb.AutoSize = true;
-         ChkAmnt_Lb.Location = new System.Drawing.Point(741, 23);
-         ChkAmnt_Lb.Name = "ChkAmnt_Lb";
-         ChkAmnt_Lb.Size = new System.Drawing.Size(36, 14);
-         ChkAmnt_Lb.TabIndex = 22;
-         ChkAmnt_Lb.Text = "مبلغ :";
+         this.ChkAmnt_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ChkAmnt_Lb.AutoSize = true;
+         this.ChkAmnt_Lb.Location = new System.Drawing.Point(741, 23);
+         this.ChkAmnt_Lb.Name = "ChkAmnt_Lb";
+         this.ChkAmnt_Lb.Size = new System.Drawing.Size(36, 14);
+         this.ChkAmnt_Lb.TabIndex = 22;
+         this.ChkAmnt_Lb.Text = "مبلغ :";
          // 
          // ChekBank_Lb
          // 
-         ChekBank_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ChekBank_Lb.AutoSize = true;
-         ChekBank_Lb.Location = new System.Drawing.Point(741, 104);
-         ChekBank_Lb.Name = "ChekBank_Lb";
-         ChekBank_Lb.Size = new System.Drawing.Size(37, 14);
-         ChekBank_Lb.TabIndex = 28;
-         ChekBank_Lb.Text = "بانک :";
+         this.ChekBank_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ChekBank_Lb.AutoSize = true;
+         this.ChekBank_Lb.Location = new System.Drawing.Point(741, 104);
+         this.ChekBank_Lb.Name = "ChekBank_Lb";
+         this.ChekBank_Lb.Size = new System.Drawing.Size(37, 14);
+         this.ChekBank_Lb.TabIndex = 28;
+         this.ChekBank_Lb.Text = "بانک :";
          // 
          // ChekNo_Lb
          // 
-         ChekNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ChekNo_Lb.AutoSize = true;
-         ChekNo_Lb.Location = new System.Drawing.Point(547, 48);
-         ChekNo_Lb.Name = "ChekNo_Lb";
-         ChekNo_Lb.Size = new System.Drawing.Size(72, 14);
-         ChekNo_Lb.TabIndex = 24;
-         ChekNo_Lb.Text = "شماره چک :";
+         this.ChekNo_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ChekNo_Lb.AutoSize = true;
+         this.ChekNo_Lb.Location = new System.Drawing.Point(547, 48);
+         this.ChekNo_Lb.Name = "ChekNo_Lb";
+         this.ChekNo_Lb.Size = new System.Drawing.Size(72, 14);
+         this.ChekNo_Lb.TabIndex = 24;
+         this.ChekNo_Lb.Text = "شماره چک :";
          // 
          // PaidDate_Lb
          // 
-         PaidDate_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         PaidDate_Lb.AutoSize = true;
-         PaidDate_Lb.Location = new System.Drawing.Point(547, 76);
-         PaidDate_Lb.Name = "PaidDate_Lb";
-         PaidDate_Lb.Size = new System.Drawing.Size(77, 14);
-         PaidDate_Lb.TabIndex = 32;
-         PaidDate_Lb.Text = "تاریخ پرداخت :";
+         this.PaidDate_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.PaidDate_Lb.AutoSize = true;
+         this.PaidDate_Lb.Location = new System.Drawing.Point(547, 76);
+         this.PaidDate_Lb.Name = "PaidDate_Lb";
+         this.PaidDate_Lb.Size = new System.Drawing.Size(77, 14);
+         this.PaidDate_Lb.TabIndex = 32;
+         this.PaidDate_Lb.Text = "تاریخ پرداخت :";
          // 
          // ChkType_Lb
          // 
-         ChkType_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ChkType_Lb.AutoSize = true;
-         ChkType_Lb.Location = new System.Drawing.Point(741, 47);
-         ChkType_Lb.Name = "ChkType_Lb";
-         ChkType_Lb.Size = new System.Drawing.Size(74, 14);
-         ChkType_Lb.TabIndex = 32;
-         ChkType_Lb.Text = "وضعیت چک :";
+         this.ChkType_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ChkType_Lb.AutoSize = true;
+         this.ChkType_Lb.Location = new System.Drawing.Point(741, 47);
+         this.ChkType_Lb.Name = "ChkType_Lb";
+         this.ChkType_Lb.Size = new System.Drawing.Size(74, 14);
+         this.ChkType_Lb.TabIndex = 32;
+         this.ChkType_Lb.Text = "وضعیت چک :";
          // 
          // ChekOwnr_Lb
          // 
-         ChekOwnr_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ChekOwnr_Lb.AutoSize = true;
-         ChekOwnr_Lb.Location = new System.Drawing.Point(548, 23);
-         ChekOwnr_Lb.Name = "ChekOwnr_Lb";
-         ChekOwnr_Lb.Size = new System.Drawing.Size(71, 14);
-         ChekOwnr_Lb.TabIndex = 30;
-         ChekOwnr_Lb.Text = "صاحب چک :";
+         this.ChekOwnr_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ChekOwnr_Lb.AutoSize = true;
+         this.ChekOwnr_Lb.Location = new System.Drawing.Point(548, 23);
+         this.ChekOwnr_Lb.Name = "ChekOwnr_Lb";
+         this.ChekOwnr_Lb.Size = new System.Drawing.Size(71, 14);
+         this.ChekOwnr_Lb.TabIndex = 30;
+         this.ChekOwnr_Lb.Text = "صاحب چک :";
          // 
          // ChekDate_Lb
          // 
-         ChekDate_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         ChekDate_Lb.AutoSize = true;
-         ChekDate_Lb.Location = new System.Drawing.Point(742, 76);
-         ChekDate_Lb.Name = "ChekDate_Lb";
-         ChekDate_Lb.Size = new System.Drawing.Size(61, 14);
-         ChekDate_Lb.TabIndex = 32;
-         ChekDate_Lb.Text = "تاریخ چک :";
+         this.ChekDate_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ChekDate_Lb.AutoSize = true;
+         this.ChekDate_Lb.Location = new System.Drawing.Point(742, 76);
+         this.ChekDate_Lb.Name = "ChekDate_Lb";
+         this.ChekDate_Lb.Size = new System.Drawing.Size(61, 14);
+         this.ChekDate_Lb.TabIndex = 32;
+         this.ChekDate_Lb.Text = "تاریخ چک :";
          // 
          // label12
          // 
@@ -540,7 +523,7 @@
          // 
          this.repositoryItemLookUpEdit3.AutoHeight = false;
          this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.repositoryItemLookUpEdit3.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -568,7 +551,7 @@
          // 
          this.repositoryItemLookUpEdit2.AutoHeight = false;
          this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
          this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -664,10 +647,10 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.payment_MethodGridControl);
          this.splitContainerControl1.Panel2.Controls.Add(this.AmntType3_Lb);
          this.splitContainerControl1.Panel2.Controls.Add(this.PmmtBn1);
-         this.splitContainerControl1.Panel2.Controls.Add(Amnt_Lb);
+         this.splitContainerControl1.Panel2.Controls.Add(this.Amnt_Lb);
          this.splitContainerControl1.Panel2.Controls.Add(this.RcptMtod_Lov);
          this.splitContainerControl1.Panel2.Controls.Add(this.Amnt_Txt);
-         this.splitContainerControl1.Panel2.Controls.Add(RcptMtod_Lb);
+         this.splitContainerControl1.Panel2.Controls.Add(this.RcptMtod_Lb);
          this.splitContainerControl1.Panel2.Text = "Panel2";
          this.splitContainerControl1.Size = new System.Drawing.Size(1172, 577);
          this.splitContainerControl1.SplitterPosition = 614;
@@ -928,28 +911,28 @@
             this.colExpense,
             this.colPayment1,
             this.colRequest_Row1});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.PydsStat_Clm;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "002";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.PydsStat_Clm;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "001";
-         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-         styleFormatCondition3.Appearance.Options.UseBackColor = true;
-         styleFormatCondition3.ApplyToRow = true;
-         styleFormatCondition3.Column = this.AmntType_Clm;
-         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition3.Value1 = "004";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Column = this.PydsStat_Clm;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition6.Value1 = "002";
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition7.Appearance.Options.UseBackColor = true;
+         styleFormatCondition7.ApplyToRow = true;
+         styleFormatCondition7.Column = this.PydsStat_Clm;
+         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition7.Value1 = "001";
+         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+         styleFormatCondition8.Appearance.Options.UseBackColor = true;
+         styleFormatCondition8.ApplyToRow = true;
+         styleFormatCondition8.Column = this.AmntType_Clm;
+         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition8.Value1 = "004";
          this.gridView2.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2,
-            styleFormatCondition3});
+            styleFormatCondition6,
+            styleFormatCondition7,
+            styleFormatCondition8});
          this.gridView2.GridControl = this.payment_DiscountsGridControl;
          this.gridView2.Name = "gridView2";
          this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1076,7 +1059,7 @@
          this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -1124,7 +1107,7 @@
          this.Debt_Gb.Controls.Add(this.SaveDifferenceAmnt_Butn);
          this.Debt_Gb.Controls.Add(this.SaveDiscountAmnt_Butn);
          this.Debt_Gb.Controls.Add(this.CalcDiffAmnt_Cb);
-         this.Debt_Gb.Controls.Add(CashCode_Lb);
+         this.Debt_Gb.Controls.Add(this.CashCode_Lb);
          this.Debt_Gb.Controls.Add(this.cASH_CODELookUpEdit);
          this.Debt_Gb.Controls.Add(this.AmntType2_Lb);
          this.Debt_Gb.Controls.Add(this.AmntType1_Lb);
@@ -1195,7 +1178,7 @@
          this.cASH_CODELookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.cASH_CODELookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.cASH_CODELookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.cASH_CODELookUpEdit.Properties.DataSource = this.CashBs1;
          this.cASH_CODELookUpEdit.Properties.DisplayMember = "NAME";
          this.cASH_CODELookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1298,18 +1281,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox2.Controls.Add(this.tERM_NOTextEdit);
          this.groupBox2.Controls.Add(this.dateTimeSelector2);
-         this.groupBox2.Controls.Add(TermNo_Lb);
-         this.groupBox2.Controls.Add(Bank_Lb);
+         this.groupBox2.Controls.Add(this.TermNo_Lb);
+         this.groupBox2.Controls.Add(this.Bank_Lb);
          this.groupBox2.Controls.Add(this.tRAN_NOTextEdit);
          this.groupBox2.Controls.Add(this.bANKTextEdit);
-         this.groupBox2.Controls.Add(TranNo_Lb);
-         this.groupBox2.Controls.Add(CardNo_Lb);
-         this.groupBox2.Controls.Add(ActnDate_Lb);
-         this.groupBox2.Controls.Add(RefNo_Lb);
+         this.groupBox2.Controls.Add(this.TranNo_Lb);
+         this.groupBox2.Controls.Add(this.CardNo_Lb);
+         this.groupBox2.Controls.Add(this.ActnDate_Lb);
+         this.groupBox2.Controls.Add(this.RefNo_Lb);
          this.groupBox2.Controls.Add(this.cARD_NOTextEdit);
          this.groupBox2.Controls.Add(this.fLOW_NOTextEdit);
          this.groupBox2.Controls.Add(this.rEF_NOTextEdit);
-         this.groupBox2.Controls.Add(FlowNo_Lb);
+         this.groupBox2.Controls.Add(this.FlowNo_Lb);
          this.groupBox2.Location = new System.Drawing.Point(15, 440);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(535, 133);
@@ -1685,7 +1668,7 @@
          this.RcptMtod_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.RcptMtod_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.RcptMtod_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.RcptMtod_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "روش پرداخت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1889,21 +1872,21 @@
             this.colPayment2,
             this.colRequest_Row2,
             this.gridColumn1});
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colCODE;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-         styleFormatCondition4.Value1 = "0";
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colCODE;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "0";
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colCODE;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition1.Value1 = "0";
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colCODE;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition2.Value1 = "0";
          this.gridView3.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition4,
-            styleFormatCondition5});
+            styleFormatCondition1,
+            styleFormatCondition2});
          this.gridView3.GridControl = this.gridControl1;
          this.gridView3.Name = "gridView3";
          this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1939,7 +1922,7 @@
          // 
          this.Expn_Lov.AutoHeight = false;
          this.Expn_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Expn_Lov.DataSource = this.ExpnBs3;
          this.Expn_Lov.DisplayMember = "EXPN_DESC";
          this.Expn_Lov.Name = "Expn_Lov";
@@ -2338,17 +2321,17 @@
          this.groupBox3.Controls.Add(this.textEdit1);
          this.groupBox3.Controls.Add(this.dateTimeSelector3);
          this.groupBox3.Controls.Add(this.dateTimeSelector1);
-         this.groupBox3.Controls.Add(ChkAmnt_Lb);
-         this.groupBox3.Controls.Add(ChekBank_Lb);
+         this.groupBox3.Controls.Add(this.ChkAmnt_Lb);
+         this.groupBox3.Controls.Add(this.ChekBank_Lb);
          this.groupBox3.Controls.Add(this.textEdit6);
-         this.groupBox3.Controls.Add(ChkType_Lb);
+         this.groupBox3.Controls.Add(this.ChkType_Lb);
          this.groupBox3.Controls.Add(this.textEdit2);
          this.groupBox3.Controls.Add(this.textEdit3);
-         this.groupBox3.Controls.Add(ChekDate_Lb);
-         this.groupBox3.Controls.Add(ChekNo_Lb);
-         this.groupBox3.Controls.Add(PaidDate_Lb);
+         this.groupBox3.Controls.Add(this.ChekDate_Lb);
+         this.groupBox3.Controls.Add(this.ChekNo_Lb);
+         this.groupBox3.Controls.Add(this.PaidDate_Lb);
          this.groupBox3.Controls.Add(this.textEdit5);
-         this.groupBox3.Controls.Add(ChekOwnr_Lb);
+         this.groupBox3.Controls.Add(this.ChekOwnr_Lb);
          this.groupBox3.Location = new System.Drawing.Point(6, 445);
          this.groupBox3.Name = "groupBox3";
          this.groupBox3.Size = new System.Drawing.Size(1166, 132);
@@ -2416,7 +2399,7 @@
          this.textEdit6.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.textEdit6.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.textEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.textEdit6.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 53, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت چک", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -2645,7 +2628,7 @@
          // 
          this.repositoryItemLookUpEdit4.AutoHeight = false;
          this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.repositoryItemLookUpEdit4.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "روش پرداخت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -3000,5 +2983,22 @@
       private Windows.Forms.Panel panel1;
       private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
+      private Windows.Forms.Label CashCode_Lb;
+      private Windows.Forms.Label RcptMtod_Lb;
+      private Windows.Forms.Label Amnt_Lb;
+      private Windows.Forms.Label TermNo_Lb;
+      private Windows.Forms.Label Bank_Lb;
+      private Windows.Forms.Label TranNo_Lb;
+      private Windows.Forms.Label CardNo_Lb;
+      private Windows.Forms.Label ActnDate_Lb;
+      private Windows.Forms.Label RefNo_Lb;
+      private Windows.Forms.Label FlowNo_Lb;
+      private Windows.Forms.Label ChkAmnt_Lb;
+      private Windows.Forms.Label ChekBank_Lb;
+      private Windows.Forms.Label ChekNo_Lb;
+      private Windows.Forms.Label PaidDate_Lb;
+      private Windows.Forms.Label ChkType_Lb;
+      private Windows.Forms.Label ChekOwnr_Lb;
+      private Windows.Forms.Label ChekDate_Lb;
    }
 }

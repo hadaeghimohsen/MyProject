@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -36,14 +35,14 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          this.colSTAT2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_STAT3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DVldtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DVldtBs1 = new System.Windows.Forms.BindingSource();
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_STAT2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,22 +51,21 @@
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
-         this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
          this.PiugGv1 = new DevExpress.XtraGrid.GridControl();
-         this.PiugBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.PkinBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.PakgBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.SubSysBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PiugBs1 = new System.Windows.Forms.BindingSource();
+         this.PkinBs1 = new System.Windows.Forms.BindingSource();
+         this.PakgBs1 = new System.Windows.Forms.BindingSource();
+         this.SubSysBs1 = new System.Windows.Forms.BindingSource();
          this.PIUG1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPKIN_PAKG_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPKIN_PAKG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPKIN_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSGW_GTWY_MAC_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_GTWY1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.GtwyBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.GtwyBs1 = new System.Windows.Forms.BindingSource();
          this.colUSGW_USER_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_USER1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.UserBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.UserBs1 = new System.Windows.Forms.BindingSource();
          this.colUSGW_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -76,12 +74,12 @@
          this.colPackage_Instance = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUser_Gateway = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PkacGv = new DevExpress.XtraGrid.GridControl();
-         this.PkacBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PkacBs1 = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSSIT_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSSIT_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_SSIT1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.SsitBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.SsitBs1 = new System.Windows.Forms.BindingSource();
          this.colPAKG_SUB_SYS1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAKG_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -111,7 +109,6 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_System = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
          this.sub_SystemGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -123,8 +120,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.LOV_STAT1)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
-         this.radGroupBox2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.PiugGv1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PiugBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PkinBs1)).BeginInit();
@@ -144,8 +139,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.PKIN1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PakgGv1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
-         this.radGroupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sub_SystemGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          this.SuspendLayout();
@@ -283,30 +276,17 @@
          this.tp_001.AutoScroll = true;
          this.tp_001.AutoScrollMinSize = new System.Drawing.Size(857, 506);
          this.tp_001.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.tp_001.Controls.Add(this.radGroupBox2);
-         this.tp_001.Controls.Add(this.radGroupBox1);
+         this.tp_001.Controls.Add(this.PiugGv1);
+         this.tp_001.Controls.Add(this.sub_SystemGridControl);
+         this.tp_001.Controls.Add(this.PkinGv1);
+         this.tp_001.Controls.Add(this.PkacGv);
+         this.tp_001.Controls.Add(this.PakgGv1);
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
          this.tp_001.Size = new System.Drawing.Size(973, 546);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "بسته نرم افزار";
-         // 
-         // radGroupBox2
-         // 
-         this.radGroupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox2.Controls.Add(this.PiugGv1);
-         this.radGroupBox2.Controls.Add(this.PkacGv);
-         this.radGroupBox2.Controls.Add(this.PkinGv1);
-         this.radGroupBox2.Controls.Add(this.PakgGv1);
-         this.radGroupBox2.HeaderText = "بسته های نرم افزاری";
-         this.radGroupBox2.Location = new System.Drawing.Point(122, 162);
-         this.radGroupBox2.Name = "radGroupBox2";
-         this.radGroupBox2.Size = new System.Drawing.Size(845, 378);
-         this.radGroupBox2.TabIndex = 1;
-         this.radGroupBox2.Text = "بسته های نرم افزاری";
          // 
          // PiugGv1
          // 
@@ -315,7 +295,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.PiugGv1.DataSource = this.PiugBs1;
          this.PiugGv1.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.PiugGv_Nb_ButtonClick);
-         this.PiugGv1.Location = new System.Drawing.Point(16, 144);
+         this.PiugGv1.Location = new System.Drawing.Point(153, 251);
          this.PiugGv1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.PiugGv1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PiugGv1.MainView = this.PIUG1;
@@ -324,7 +304,7 @@
             this.LOV_STAT3,
             this.LOV_GTWY1,
             this.LOV_USER1});
-         this.PiugGv1.Size = new System.Drawing.Size(462, 222);
+         this.PiugGv1.Size = new System.Drawing.Size(462, 289);
          this.PiugGv1.TabIndex = 4;
          this.PiugGv1.UseEmbeddedNavigator = true;
          this.PiugGv1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -536,7 +516,7 @@
          // 
          this.PkacGv.DataSource = this.PkacBs1;
          this.PkacGv.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.PkacGv_Nb_ButtonClick);
-         this.PkacGv.Location = new System.Drawing.Point(16, 21);
+         this.PkacGv.Location = new System.Drawing.Point(153, 128);
          this.PkacGv.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.PkacGv.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PkacGv.MainView = this.gridView4;
@@ -573,21 +553,21 @@
             this.colMDFY_DATE2,
             this.colPackage1,
             this.colSub_System_Item});
-         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         styleFormatCondition3.Appearance.Options.UseBackColor = true;
-         styleFormatCondition3.ApplyToRow = true;
-         styleFormatCondition3.Column = this.colSTAT1;
-         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition3.Value1 = "001";
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colSTAT1;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition4.Value1 = "002";
+         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         styleFormatCondition5.Appearance.Options.UseBackColor = true;
+         styleFormatCondition5.ApplyToRow = true;
+         styleFormatCondition5.Column = this.colSTAT1;
+         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition5.Value1 = "001";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Column = this.colSTAT1;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition6.Value1 = "002";
          this.gridView4.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition5,
+            styleFormatCondition6});
          this.gridView4.GridControl = this.PkacGv;
          this.gridView4.Name = "gridView4";
          this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -683,14 +663,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.PkinGv1.DataSource = this.PkinBs1;
          this.PkinGv1.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.PkinGv_Nb_ButtonClick);
-         this.PkinGv1.Location = new System.Drawing.Point(484, 144);
+         this.PkinGv1.Location = new System.Drawing.Point(621, 251);
          this.PkinGv1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.PkinGv1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PkinGv1.MainView = this.PKIN1;
          this.PkinGv1.Name = "PkinGv1";
          this.PkinGv1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_STAT1});
-         this.PkinGv1.Size = new System.Drawing.Size(346, 222);
+         this.PkinGv1.Size = new System.Drawing.Size(346, 289);
          this.PkinGv1.TabIndex = 2;
          this.PkinGv1.UseEmbeddedNavigator = true;
          this.PkinGv1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -713,21 +693,21 @@
             this.colMDFY_BY1,
             this.colMDFY_DATE1,
             this.colPackage});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colSTAT;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "002";
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Column = this.colSTAT;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = "001";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colSTAT;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "002";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colSTAT;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "001";
          this.PKIN1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.PKIN1.GridControl = this.PkinGv1;
          this.PKIN1.Name = "PKIN1";
          this.PKIN1.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -795,7 +775,7 @@
          this.PakgGv1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PakgGv1.DataSource = this.PakgBs1;
          this.PakgGv1.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.PakgGv_Nb_ButtonClick);
-         this.PakgGv1.Location = new System.Drawing.Point(484, 21);
+         this.PakgGv1.Location = new System.Drawing.Point(621, 128);
          this.PakgGv1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.PakgGv1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PakgGv1.MainView = this.gridView2;
@@ -876,22 +856,10 @@
          this.colSub_System.FieldName = "Sub_System";
          this.colSub_System.Name = "colSub_System";
          // 
-         // radGroupBox1
-         // 
-         this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-         this.radGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radGroupBox1.Controls.Add(this.sub_SystemGridControl);
-         this.radGroupBox1.HeaderText = "زیرسیستم";
-         this.radGroupBox1.Location = new System.Drawing.Point(591, 6);
-         this.radGroupBox1.Name = "radGroupBox1";
-         this.radGroupBox1.Size = new System.Drawing.Size(376, 150);
-         this.radGroupBox1.TabIndex = 0;
-         this.radGroupBox1.Text = "زیرسیستم";
-         // 
          // sub_SystemGridControl
          // 
          this.sub_SystemGridControl.DataSource = this.SubSysBs1;
-         this.sub_SystemGridControl.Location = new System.Drawing.Point(15, 21);
+         this.sub_SystemGridControl.Location = new System.Drawing.Point(621, 6);
          this.sub_SystemGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.sub_SystemGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sub_SystemGridControl.MainView = this.gridView1;
@@ -962,8 +930,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.LOV_STAT1)).EndInit();
          this.tb_master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
-         this.radGroupBox2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.PiugGv1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PiugBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PkinBs1)).EndInit();
@@ -983,8 +949,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.PKIN1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PakgGv1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
-         this.radGroupBox1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.sub_SystemGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          this.ResumeLayout(false);
@@ -998,13 +962,11 @@
         private Windows.Forms.TabControl tb_master;
         private Windows.Forms.TabPage tp_001;
         private Windows.Forms.TabPage tp_002;
-        private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
         private DevExpress.XtraGrid.GridControl sub_SystemGridControl;
         private Windows.Forms.BindingSource SubSysBs1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colSUB_SYS;
         private DevExpress.XtraGrid.Columns.GridColumn colDESC;
-        private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
         private DevExpress.XtraGrid.GridControl PakgGv1;
         private Windows.Forms.BindingSource PakgBs1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;

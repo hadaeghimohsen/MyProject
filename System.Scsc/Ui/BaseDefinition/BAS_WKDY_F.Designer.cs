@@ -29,12 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label CochName_Lb;
-         System.Windows.Forms.Label Mtod_Lb;
-         System.Windows.Forms.Label DayType_Lb;
-         System.Windows.Forms.Label StrtTime_Lb;
-         System.Windows.Forms.Label SexType_Lb;
-         System.Windows.Forms.Label EndTime_Lb;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_WKDY_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -42,6 +36,12 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.CochName_Lb = new System.Windows.Forms.Label();
+         this.Mtod_Lb = new System.Windows.Forms.Label();
+         this.DayType_Lb = new System.Windows.Forms.Label();
+         this.StrtTime_Lb = new System.Windows.Forms.Label();
+         this.SexType_Lb = new System.Windows.Forms.Label();
+         this.EndTime_Lb = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
          this.CmwdTitl_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -68,12 +68,6 @@
          this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.SelectDay_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CochInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
-         CochName_Lb = new System.Windows.Forms.Label();
-         Mtod_Lb = new System.Windows.Forms.Label();
-         DayType_Lb = new System.Windows.Forms.Label();
-         StrtTime_Lb = new System.Windows.Forms.Label();
-         SexType_Lb = new System.Windows.Forms.Label();
-         EndTime_Lb = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
@@ -91,69 +85,69 @@
          // 
          // CochName_Lb
          // 
-         CochName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CochName_Lb.AutoSize = true;
-         CochName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         CochName_Lb.Location = new System.Drawing.Point(723, 170);
-         CochName_Lb.Name = "CochName_Lb";
-         CochName_Lb.Size = new System.Drawing.Size(44, 28);
-         CochName_Lb.TabIndex = 56;
-         CochName_Lb.Text = "مربی :";
+         this.CochName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CochName_Lb.AutoSize = true;
+         this.CochName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CochName_Lb.Location = new System.Drawing.Point(723, 170);
+         this.CochName_Lb.Name = "CochName_Lb";
+         this.CochName_Lb.Size = new System.Drawing.Size(44, 28);
+         this.CochName_Lb.TabIndex = 56;
+         this.CochName_Lb.Text = "مربی :";
          // 
          // Mtod_Lb
          // 
-         Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Mtod_Lb.AutoSize = true;
-         Mtod_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         Mtod_Lb.Location = new System.Drawing.Point(723, 134);
-         Mtod_Lb.Name = "Mtod_Lb";
-         Mtod_Lb.Size = new System.Drawing.Size(52, 28);
-         Mtod_Lb.TabIndex = 55;
-         Mtod_Lb.Text = "ورزش :";
+         this.Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Mtod_Lb.AutoSize = true;
+         this.Mtod_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Lb.Location = new System.Drawing.Point(723, 134);
+         this.Mtod_Lb.Name = "Mtod_Lb";
+         this.Mtod_Lb.Size = new System.Drawing.Size(52, 28);
+         this.Mtod_Lb.TabIndex = 55;
+         this.Mtod_Lb.Text = "ورزش :";
          // 
          // DayType_Lb
          // 
-         DayType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         DayType_Lb.AutoSize = true;
-         DayType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         DayType_Lb.Location = new System.Drawing.Point(723, 319);
-         DayType_Lb.Name = "DayType_Lb";
-         DayType_Lb.Size = new System.Drawing.Size(84, 28);
-         DayType_Lb.TabIndex = 54;
-         DayType_Lb.Text = "روزهای هفته :";
+         this.DayType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DayType_Lb.AutoSize = true;
+         this.DayType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DayType_Lb.Location = new System.Drawing.Point(723, 319);
+         this.DayType_Lb.Name = "DayType_Lb";
+         this.DayType_Lb.Size = new System.Drawing.Size(84, 28);
+         this.DayType_Lb.TabIndex = 54;
+         this.DayType_Lb.Text = "روزهای هفته :";
          // 
          // StrtTime_Lb
          // 
-         StrtTime_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         StrtTime_Lb.AutoSize = true;
-         StrtTime_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         StrtTime_Lb.Location = new System.Drawing.Point(723, 207);
-         StrtTime_Lb.Name = "StrtTime_Lb";
-         StrtTime_Lb.Size = new System.Drawing.Size(85, 28);
-         StrtTime_Lb.TabIndex = 53;
-         StrtTime_Lb.Text = "ساعت شروع :";
+         this.StrtTime_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.StrtTime_Lb.AutoSize = true;
+         this.StrtTime_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.StrtTime_Lb.Location = new System.Drawing.Point(723, 207);
+         this.StrtTime_Lb.Name = "StrtTime_Lb";
+         this.StrtTime_Lb.Size = new System.Drawing.Size(85, 28);
+         this.StrtTime_Lb.TabIndex = 53;
+         this.StrtTime_Lb.Text = "ساعت شروع :";
          // 
          // SexType_Lb
          // 
-         SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         SexType_Lb.AutoSize = true;
-         SexType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         SexType_Lb.Location = new System.Drawing.Point(722, 279);
-         SexType_Lb.Name = "SexType_Lb";
-         SexType_Lb.Size = new System.Drawing.Size(57, 28);
-         SexType_Lb.TabIndex = 54;
-         SexType_Lb.Text = "جنسیت :";
+         this.SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SexType_Lb.AutoSize = true;
+         this.SexType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SexType_Lb.Location = new System.Drawing.Point(722, 279);
+         this.SexType_Lb.Name = "SexType_Lb";
+         this.SexType_Lb.Size = new System.Drawing.Size(57, 28);
+         this.SexType_Lb.TabIndex = 54;
+         this.SexType_Lb.Text = "جنسیت :";
          // 
          // EndTime_Lb
          // 
-         EndTime_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         EndTime_Lb.AutoSize = true;
-         EndTime_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         EndTime_Lb.Location = new System.Drawing.Point(723, 243);
-         EndTime_Lb.Name = "EndTime_Lb";
-         EndTime_Lb.Size = new System.Drawing.Size(79, 28);
-         EndTime_Lb.TabIndex = 53;
-         EndTime_Lb.Text = "ساعت پایان :";
+         this.EndTime_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.EndTime_Lb.AutoSize = true;
+         this.EndTime_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.EndTime_Lb.Location = new System.Drawing.Point(723, 243);
+         this.EndTime_Lb.Name = "EndTime_Lb";
+         this.EndTime_Lb.Size = new System.Drawing.Size(79, 28);
+         this.EndTime_Lb.TabIndex = 53;
+         this.EndTime_Lb.Text = "ساعت پایان :";
          // 
          // panel1
          // 
@@ -680,12 +674,12 @@
          this.Controls.Add(this.CochInfo_Butn);
          this.Controls.Add(this.SelectDay_Butn);
          this.Controls.Add(this.WeekDays_Flp);
-         this.Controls.Add(CochName_Lb);
-         this.Controls.Add(Mtod_Lb);
-         this.Controls.Add(SexType_Lb);
-         this.Controls.Add(DayType_Lb);
-         this.Controls.Add(EndTime_Lb);
-         this.Controls.Add(StrtTime_Lb);
+         this.Controls.Add(this.CochName_Lb);
+         this.Controls.Add(this.Mtod_Lb);
+         this.Controls.Add(this.SexType_Lb);
+         this.Controls.Add(this.DayType_Lb);
+         this.Controls.Add(this.EndTime_Lb);
+         this.Controls.Add(this.StrtTime_Lb);
          this.Controls.Add(this.SexType_Lov);
          this.Controls.Add(this.Mtod_Lov);
          this.Controls.Add(this.CardNum_Txt);
@@ -745,6 +739,12 @@
       private Windows.Forms.BindingSource DActvBs1;
       private DevExpress.XtraEditors.SimpleButton SelectDay_Butn;
       private DevExpress.XtraEditors.SimpleButton CochInfo_Butn;
+      private Windows.Forms.Label CochName_Lb;
+      private Windows.Forms.Label Mtod_Lb;
+      private Windows.Forms.Label DayType_Lb;
+      private Windows.Forms.Label StrtTime_Lb;
+      private Windows.Forms.Label SexType_Lb;
+      private Windows.Forms.Label EndTime_Lb;
 
    }
 }

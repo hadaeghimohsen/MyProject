@@ -16,6 +16,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
       private string CurrentUser;
+      private string RegnLang = "054";
 
 
       public void SendRequest(Job job)
@@ -109,6 +110,87 @@ namespace System.Scsc.Ui.BaseDefinition
 
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "titlform_lb":
+                     TitlForm_Lb.Text = control.LABL_TEXT;
+                     //TitlForm_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //TitlForm_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc1_lb":
+                     Desc1_Lb.Text = control.LABL_TEXT;
+                     //Desc1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "frstname_lb":
+                     FrstName_Lb.Text = control.LABL_TEXT;
+                     //FrstName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FrstName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "lastname_lb":
+                     LastName_Lb.Text = control.LABL_TEXT;
+                     //LastName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //LastName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "fngrprnt_lb":
+                     FngrPrnt_Lb.Text = control.LABL_TEXT;
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cardno_lb":
+                     CardNo_Lb.Text = control.LABL_TEXT;
+                     //CardNo_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CardNo_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "chatid_lb":
+                     ChatId_Lb.Text = control.LABL_TEXT;
+                     //ChatId_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ChatId_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "mtod_lb":
+                     Mtod_Lb.Text = control.LABL_TEXT;
+                     //Mtod_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Mtod_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sextype_lb":
+                     SexType_Lb.Text = control.LABL_TEXT;
+                     //SexType_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //SexType_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc2_lb":
+                     Desc2_Lb.Text = control.LABL_TEXT;
+                     //Desc2_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc2_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc3_lb":
+                     Desc3_Lb.Text = control.LABL_TEXT;
+                     //Desc3_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc3_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "submitchange_butn":
+                     SubmitChange_Butn.Text = control.LABL_TEXT;
+                     //SubmitChange_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //SubmitChange_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "savenewcoch_butn":
+                     SaveNewCoch_Butn.Text = control.LABL_TEXT;
+                     //SaveNewCoch_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //SaveNewCoch_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

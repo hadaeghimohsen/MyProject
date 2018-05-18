@@ -16,6 +16,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
       private string CurrentUser;
+      private string RegnLang = "054";
 
 
       public void SendRequest(Job job)
@@ -104,6 +105,108 @@ namespace System.Scsc.Ui.BaseDefinition
 
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+
+
+         #region Set Localization
+         var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
+         if (regnlang.Count() > 0 && regnlang.First().REGN_LANG != RegnLang)
+         {
+            RegnLang = regnlang.First().REGN_LANG;
+            // Ready To Change Text Title
+            foreach (var control in regnlang)
+            {
+               switch (control.CNTL_NAME.ToLower())
+               {
+                  case "mtod_lb":
+                     Mtod_Lb.Text = control.LABL_TEXT;
+                     //Mtod_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Mtod_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy003_butn":
+                     Wkdy003_Butn.Text = control.LABL_TEXT;
+                     //Wkdy003_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy003_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cmwdtitl_lb":
+                     CmwdTitl_Lb.Text = control.LABL_TEXT;
+                     //CmwdTitl_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CmwdTitl_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "desc1_lb":
+                     Desc1_Lb.Text = control.LABL_TEXT;
+                     //Desc1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //Desc1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "cochname_lb":
+                     CochName_Lb.Text = control.LABL_TEXT;
+                     //CochName_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //CochName_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "strttime_lb":
+                     StrtTime_Lb.Text = control.LABL_TEXT;
+                     //StrtTime_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //StrtTime_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "endtime_lb":
+                     EndTime_Lb.Text = control.LABL_TEXT;
+                     //EndTime_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //EndTime_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "sextype_lb":
+                     SexType_Lb.Text = control.LABL_TEXT;
+                     //SexType_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //SexType_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "daytype_lb":
+                     DayType_Lb.Text = control.LABL_TEXT;
+                     //DayType_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //DayType_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "selectday_butn":
+                     SelectDay_Butn.Text = control.LABL_TEXT;
+                     //SelectDay_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //SelectDay_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy007_butn":
+                     Wkdy007_Butn.Text = control.LABL_TEXT;
+                     //Wkdy007_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy007_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy001_butn":
+                     Wkdy001_Butn.Text = control.LABL_TEXT;
+                     //Wkdy001_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy001_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy002_butn":
+                     Wkdy002_Butn.Text = control.LABL_TEXT;
+                     //Wkdy002_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy002_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy004_butn":
+                     Wkdy004_Butn.Text = control.LABL_TEXT;
+                     //Wkdy004_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy004_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy005_butn":
+                     Wkdy005_Butn.Text = control.LABL_TEXT;
+                     //Wkdy005_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy005_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "wkdy006_butn":
+                     Wkdy006_Butn.Text = control.LABL_TEXT;
+                     //Wkdy006_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //Wkdy006_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+                  case "submitchange_butn":
+                     SubmitChange_Butn.Text = control.LABL_TEXT;
+                     //SubmitChange_Butn.Text = control.LABL_TEXT; // ToolTip
+                     //SubmitChange_Butn.Text = control.LABL_TEXT; // Place Holder
+                     break;
+               }
+            }
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 

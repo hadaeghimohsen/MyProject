@@ -29,30 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label FromDate1_Lb;
-         System.Windows.Forms.Label ToDate1_Lb;
-         System.Windows.Forms.Label RqtpCode1_Lb;
-         System.Windows.Forms.Label CochFileNo1_Lb;
-         System.Windows.Forms.Label RcptMtod_Lb;
-         System.Windows.Forms.Label Cashier1_Lb;
-         System.Windows.Forms.Label Cashier2_Lb;
-         System.Windows.Forms.Label CochFileNo2_Lb;
-         System.Windows.Forms.Label RqtpCode2_Lb;
-         System.Windows.Forms.Label ToDate2_Lb;
-         System.Windows.Forms.Label FromDate2_Lb;
-         System.Windows.Forms.Label Cashier3_Lb;
-         System.Windows.Forms.Label CochFileNo3_Lb;
-         System.Windows.Forms.Label RqtpCode3_Lb;
-         System.Windows.Forms.Label ToDate3_Lb;
-         System.Windows.Forms.Label FromDate3_Lb;
-         System.Windows.Forms.Label ToDate4_Lb;
-         System.Windows.Forms.Label FromDate4_Lb;
-         System.Windows.Forms.Label Cashier5_Lb;
-         System.Windows.Forms.Label CochFileNo5_Lb;
-         System.Windows.Forms.Label RqtpCode5_Lb;
-         System.Windows.Forms.Label ToDate5_Lb;
-         System.Windows.Forms.Label FromDate5_Lb;
-         System.Windows.Forms.Label CbmtCode2_Lb;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RPT_PMMT_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -88,6 +64,30 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.FromDate1_Lb = new System.Windows.Forms.Label();
+         this.ToDate1_Lb = new System.Windows.Forms.Label();
+         this.RqtpCode1_Lb = new System.Windows.Forms.Label();
+         this.CochFileNo1_Lb = new System.Windows.Forms.Label();
+         this.RcptMtod_Lb = new System.Windows.Forms.Label();
+         this.Cashier1_Lb = new System.Windows.Forms.Label();
+         this.Cashier3_Lb = new System.Windows.Forms.Label();
+         this.CochFileNo3_Lb = new System.Windows.Forms.Label();
+         this.RqtpCode3_Lb = new System.Windows.Forms.Label();
+         this.ToDate3_Lb = new System.Windows.Forms.Label();
+         this.FromDate3_Lb = new System.Windows.Forms.Label();
+         this.ToDate4_Lb = new System.Windows.Forms.Label();
+         this.FromDate4_Lb = new System.Windows.Forms.Label();
+         this.Cashier5_Lb = new System.Windows.Forms.Label();
+         this.CochFileNo5_Lb = new System.Windows.Forms.Label();
+         this.RqtpCode5_Lb = new System.Windows.Forms.Label();
+         this.ToDate5_Lb = new System.Windows.Forms.Label();
+         this.FromDate5_Lb = new System.Windows.Forms.Label();
+         this.Cashier2_Lb = new System.Windows.Forms.Label();
+         this.CochFileNo2_Lb = new System.Windows.Forms.Label();
+         this.RqtpCode2_Lb = new System.Windows.Forms.Label();
+         this.ToDate2_Lb = new System.Windows.Forms.Label();
+         this.FromDate2_Lb = new System.Windows.Forms.Label();
+         this.CbmtCode2_Lb = new System.Windows.Forms.Label();
          this.tc_master = new System.Windows.Forms.TabControl();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -530,8 +530,8 @@
          this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Expn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.Parm4_Gb = new System.Windows.Forms.GroupBox();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+         this.Back5_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Find5_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ToDate4_Date = new Atf.UI.DateTimeSelector();
          this.FromDate4_Date = new Atf.UI.DateTimeSelector();
          this.tp_005 = new System.Windows.Forms.TabPage();
@@ -665,30 +665,6 @@
          this.RqstBnPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         FromDate1_Lb = new System.Windows.Forms.Label();
-         ToDate1_Lb = new System.Windows.Forms.Label();
-         RqtpCode1_Lb = new System.Windows.Forms.Label();
-         CochFileNo1_Lb = new System.Windows.Forms.Label();
-         RcptMtod_Lb = new System.Windows.Forms.Label();
-         Cashier1_Lb = new System.Windows.Forms.Label();
-         Cashier2_Lb = new System.Windows.Forms.Label();
-         CochFileNo2_Lb = new System.Windows.Forms.Label();
-         RqtpCode2_Lb = new System.Windows.Forms.Label();
-         ToDate2_Lb = new System.Windows.Forms.Label();
-         FromDate2_Lb = new System.Windows.Forms.Label();
-         Cashier3_Lb = new System.Windows.Forms.Label();
-         CochFileNo3_Lb = new System.Windows.Forms.Label();
-         RqtpCode3_Lb = new System.Windows.Forms.Label();
-         ToDate3_Lb = new System.Windows.Forms.Label();
-         FromDate3_Lb = new System.Windows.Forms.Label();
-         ToDate4_Lb = new System.Windows.Forms.Label();
-         FromDate4_Lb = new System.Windows.Forms.Label();
-         Cashier5_Lb = new System.Windows.Forms.Label();
-         CochFileNo5_Lb = new System.Windows.Forms.Label();
-         RqtpCode5_Lb = new System.Windows.Forms.Label();
-         ToDate5_Lb = new System.Windows.Forms.Label();
-         FromDate5_Lb = new System.Windows.Forms.Label();
-         CbmtCode2_Lb = new System.Windows.Forms.Label();
          this.tc_master.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -796,243 +772,243 @@
          // 
          // FromDate1_Lb
          // 
-         FromDate1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FromDate1_Lb.AutoSize = true;
-         FromDate1_Lb.Location = new System.Drawing.Point(204, 25);
-         FromDate1_Lb.Name = "FromDate1_Lb";
-         FromDate1_Lb.Size = new System.Drawing.Size(48, 14);
-         FromDate1_Lb.TabIndex = 16;
-         FromDate1_Lb.Text = "از تاریخ :";
+         this.FromDate1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate1_Lb.AutoSize = true;
+         this.FromDate1_Lb.Location = new System.Drawing.Point(204, 25);
+         this.FromDate1_Lb.Name = "FromDate1_Lb";
+         this.FromDate1_Lb.Size = new System.Drawing.Size(48, 14);
+         this.FromDate1_Lb.TabIndex = 16;
+         this.FromDate1_Lb.Text = "از تاریخ :";
          // 
          // ToDate1_Lb
          // 
-         ToDate1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         ToDate1_Lb.AutoSize = true;
-         ToDate1_Lb.Location = new System.Drawing.Point(204, 54);
-         ToDate1_Lb.Name = "ToDate1_Lb";
-         ToDate1_Lb.Size = new System.Drawing.Size(48, 14);
-         ToDate1_Lb.TabIndex = 16;
-         ToDate1_Lb.Text = "تا تاریخ :";
+         this.ToDate1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate1_Lb.AutoSize = true;
+         this.ToDate1_Lb.Location = new System.Drawing.Point(204, 54);
+         this.ToDate1_Lb.Name = "ToDate1_Lb";
+         this.ToDate1_Lb.Size = new System.Drawing.Size(48, 14);
+         this.ToDate1_Lb.TabIndex = 16;
+         this.ToDate1_Lb.Text = "تا تاریخ :";
          // 
          // RqtpCode1_Lb
          // 
-         RqtpCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RqtpCode1_Lb.AutoSize = true;
-         RqtpCode1_Lb.Location = new System.Drawing.Point(204, 81);
-         RqtpCode1_Lb.Name = "RqtpCode1_Lb";
-         RqtpCode1_Lb.Size = new System.Drawing.Size(83, 14);
-         RqtpCode1_Lb.TabIndex = 16;
-         RqtpCode1_Lb.Text = "نوع درخواست :";
+         this.RqtpCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqtpCode1_Lb.AutoSize = true;
+         this.RqtpCode1_Lb.Location = new System.Drawing.Point(204, 81);
+         this.RqtpCode1_Lb.Name = "RqtpCode1_Lb";
+         this.RqtpCode1_Lb.Size = new System.Drawing.Size(83, 14);
+         this.RqtpCode1_Lb.TabIndex = 16;
+         this.RqtpCode1_Lb.Text = "نوع درخواست :";
          // 
          // CochFileNo1_Lb
          // 
-         CochFileNo1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CochFileNo1_Lb.AutoSize = true;
-         CochFileNo1_Lb.Location = new System.Drawing.Point(204, 109);
-         CochFileNo1_Lb.Name = "CochFileNo1_Lb";
-         CochFileNo1_Lb.Size = new System.Drawing.Size(59, 14);
-         CochFileNo1_Lb.TabIndex = 16;
-         CochFileNo1_Lb.Text = "نام مربی :";
+         this.CochFileNo1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CochFileNo1_Lb.AutoSize = true;
+         this.CochFileNo1_Lb.Location = new System.Drawing.Point(204, 109);
+         this.CochFileNo1_Lb.Name = "CochFileNo1_Lb";
+         this.CochFileNo1_Lb.Size = new System.Drawing.Size(59, 14);
+         this.CochFileNo1_Lb.TabIndex = 16;
+         this.CochFileNo1_Lb.Text = "نام مربی :";
          // 
          // RcptMtod_Lb
          // 
-         RcptMtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RcptMtod_Lb.AutoSize = true;
-         RcptMtod_Lb.Location = new System.Drawing.Point(204, 137);
-         RcptMtod_Lb.Name = "RcptMtod_Lb";
-         RcptMtod_Lb.Size = new System.Drawing.Size(75, 14);
-         RcptMtod_Lb.TabIndex = 16;
-         RcptMtod_Lb.Text = "نوع پرداختی :";
+         this.RcptMtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RcptMtod_Lb.AutoSize = true;
+         this.RcptMtod_Lb.Location = new System.Drawing.Point(204, 137);
+         this.RcptMtod_Lb.Name = "RcptMtod_Lb";
+         this.RcptMtod_Lb.Size = new System.Drawing.Size(75, 14);
+         this.RcptMtod_Lb.TabIndex = 16;
+         this.RcptMtod_Lb.Text = "نوع پرداختی :";
          // 
          // Cashier1_Lb
          // 
-         Cashier1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Cashier1_Lb.AutoSize = true;
-         Cashier1_Lb.Location = new System.Drawing.Point(204, 165);
-         Cashier1_Lb.Name = "Cashier1_Lb";
-         Cashier1_Lb.Size = new System.Drawing.Size(59, 14);
-         Cashier1_Lb.TabIndex = 16;
-         Cashier1_Lb.Text = "صندوقدار :";
-         // 
-         // Cashier2_Lb
-         // 
-         Cashier2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Cashier2_Lb.AutoSize = true;
-         Cashier2_Lb.Location = new System.Drawing.Point(252, 137);
-         Cashier2_Lb.Name = "Cashier2_Lb";
-         Cashier2_Lb.Size = new System.Drawing.Size(59, 14);
-         Cashier2_Lb.TabIndex = 16;
-         Cashier2_Lb.Text = "صندوقدار :";
-         // 
-         // CochFileNo2_Lb
-         // 
-         CochFileNo2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CochFileNo2_Lb.AutoSize = true;
-         CochFileNo2_Lb.Location = new System.Drawing.Point(252, 109);
-         CochFileNo2_Lb.Name = "CochFileNo2_Lb";
-         CochFileNo2_Lb.Size = new System.Drawing.Size(59, 14);
-         CochFileNo2_Lb.TabIndex = 16;
-         CochFileNo2_Lb.Text = "نام مربی :";
-         // 
-         // RqtpCode2_Lb
-         // 
-         RqtpCode2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RqtpCode2_Lb.AutoSize = true;
-         RqtpCode2_Lb.Location = new System.Drawing.Point(252, 81);
-         RqtpCode2_Lb.Name = "RqtpCode2_Lb";
-         RqtpCode2_Lb.Size = new System.Drawing.Size(83, 14);
-         RqtpCode2_Lb.TabIndex = 16;
-         RqtpCode2_Lb.Text = "نوع درخواست :";
-         // 
-         // ToDate2_Lb
-         // 
-         ToDate2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         ToDate2_Lb.AutoSize = true;
-         ToDate2_Lb.Location = new System.Drawing.Point(252, 54);
-         ToDate2_Lb.Name = "ToDate2_Lb";
-         ToDate2_Lb.Size = new System.Drawing.Size(48, 14);
-         ToDate2_Lb.TabIndex = 16;
-         ToDate2_Lb.Text = "تا تاریخ :";
-         // 
-         // FromDate2_Lb
-         // 
-         FromDate2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FromDate2_Lb.AutoSize = true;
-         FromDate2_Lb.Location = new System.Drawing.Point(252, 25);
-         FromDate2_Lb.Name = "FromDate2_Lb";
-         FromDate2_Lb.Size = new System.Drawing.Size(48, 14);
-         FromDate2_Lb.TabIndex = 16;
-         FromDate2_Lb.Text = "از تاریخ :";
+         this.Cashier1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Cashier1_Lb.AutoSize = true;
+         this.Cashier1_Lb.Location = new System.Drawing.Point(204, 165);
+         this.Cashier1_Lb.Name = "Cashier1_Lb";
+         this.Cashier1_Lb.Size = new System.Drawing.Size(59, 14);
+         this.Cashier1_Lb.TabIndex = 16;
+         this.Cashier1_Lb.Text = "صندوقدار :";
          // 
          // Cashier3_Lb
          // 
-         Cashier3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Cashier3_Lb.AutoSize = true;
-         Cashier3_Lb.Location = new System.Drawing.Point(187, 137);
-         Cashier3_Lb.Name = "Cashier3_Lb";
-         Cashier3_Lb.Size = new System.Drawing.Size(59, 14);
-         Cashier3_Lb.TabIndex = 16;
-         Cashier3_Lb.Text = "صندوقدار :";
+         this.Cashier3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Cashier3_Lb.AutoSize = true;
+         this.Cashier3_Lb.Location = new System.Drawing.Point(187, 137);
+         this.Cashier3_Lb.Name = "Cashier3_Lb";
+         this.Cashier3_Lb.Size = new System.Drawing.Size(59, 14);
+         this.Cashier3_Lb.TabIndex = 16;
+         this.Cashier3_Lb.Text = "صندوقدار :";
          // 
          // CochFileNo3_Lb
          // 
-         CochFileNo3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CochFileNo3_Lb.AutoSize = true;
-         CochFileNo3_Lb.Location = new System.Drawing.Point(187, 109);
-         CochFileNo3_Lb.Name = "CochFileNo3_Lb";
-         CochFileNo3_Lb.Size = new System.Drawing.Size(59, 14);
-         CochFileNo3_Lb.TabIndex = 16;
-         CochFileNo3_Lb.Text = "نام مربی :";
+         this.CochFileNo3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CochFileNo3_Lb.AutoSize = true;
+         this.CochFileNo3_Lb.Location = new System.Drawing.Point(187, 109);
+         this.CochFileNo3_Lb.Name = "CochFileNo3_Lb";
+         this.CochFileNo3_Lb.Size = new System.Drawing.Size(59, 14);
+         this.CochFileNo3_Lb.TabIndex = 16;
+         this.CochFileNo3_Lb.Text = "نام مربی :";
          // 
          // RqtpCode3_Lb
          // 
-         RqtpCode3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RqtpCode3_Lb.AutoSize = true;
-         RqtpCode3_Lb.Location = new System.Drawing.Point(187, 81);
-         RqtpCode3_Lb.Name = "RqtpCode3_Lb";
-         RqtpCode3_Lb.Size = new System.Drawing.Size(83, 14);
-         RqtpCode3_Lb.TabIndex = 16;
-         RqtpCode3_Lb.Text = "نوع درخواست :";
+         this.RqtpCode3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqtpCode3_Lb.AutoSize = true;
+         this.RqtpCode3_Lb.Location = new System.Drawing.Point(187, 81);
+         this.RqtpCode3_Lb.Name = "RqtpCode3_Lb";
+         this.RqtpCode3_Lb.Size = new System.Drawing.Size(83, 14);
+         this.RqtpCode3_Lb.TabIndex = 16;
+         this.RqtpCode3_Lb.Text = "نوع درخواست :";
          // 
          // ToDate3_Lb
          // 
-         ToDate3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         ToDate3_Lb.AutoSize = true;
-         ToDate3_Lb.Location = new System.Drawing.Point(187, 54);
-         ToDate3_Lb.Name = "ToDate3_Lb";
-         ToDate3_Lb.Size = new System.Drawing.Size(48, 14);
-         ToDate3_Lb.TabIndex = 16;
-         ToDate3_Lb.Text = "تا تاریخ :";
+         this.ToDate3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate3_Lb.AutoSize = true;
+         this.ToDate3_Lb.Location = new System.Drawing.Point(187, 54);
+         this.ToDate3_Lb.Name = "ToDate3_Lb";
+         this.ToDate3_Lb.Size = new System.Drawing.Size(48, 14);
+         this.ToDate3_Lb.TabIndex = 16;
+         this.ToDate3_Lb.Text = "تا تاریخ :";
          // 
          // FromDate3_Lb
          // 
-         FromDate3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FromDate3_Lb.AutoSize = true;
-         FromDate3_Lb.Location = new System.Drawing.Point(187, 25);
-         FromDate3_Lb.Name = "FromDate3_Lb";
-         FromDate3_Lb.Size = new System.Drawing.Size(48, 14);
-         FromDate3_Lb.TabIndex = 16;
-         FromDate3_Lb.Text = "از تاریخ :";
+         this.FromDate3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate3_Lb.AutoSize = true;
+         this.FromDate3_Lb.Location = new System.Drawing.Point(187, 25);
+         this.FromDate3_Lb.Name = "FromDate3_Lb";
+         this.FromDate3_Lb.Size = new System.Drawing.Size(48, 14);
+         this.FromDate3_Lb.TabIndex = 16;
+         this.FromDate3_Lb.Text = "از تاریخ :";
          // 
          // ToDate4_Lb
          // 
-         ToDate4_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         ToDate4_Lb.AutoSize = true;
-         ToDate4_Lb.Location = new System.Drawing.Point(214, 54);
-         ToDate4_Lb.Name = "ToDate4_Lb";
-         ToDate4_Lb.Size = new System.Drawing.Size(48, 14);
-         ToDate4_Lb.TabIndex = 16;
-         ToDate4_Lb.Text = "تا تاریخ :";
+         this.ToDate4_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate4_Lb.AutoSize = true;
+         this.ToDate4_Lb.Location = new System.Drawing.Point(214, 54);
+         this.ToDate4_Lb.Name = "ToDate4_Lb";
+         this.ToDate4_Lb.Size = new System.Drawing.Size(48, 14);
+         this.ToDate4_Lb.TabIndex = 16;
+         this.ToDate4_Lb.Text = "تا تاریخ :";
          // 
          // FromDate4_Lb
          // 
-         FromDate4_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FromDate4_Lb.AutoSize = true;
-         FromDate4_Lb.Location = new System.Drawing.Point(214, 25);
-         FromDate4_Lb.Name = "FromDate4_Lb";
-         FromDate4_Lb.Size = new System.Drawing.Size(48, 14);
-         FromDate4_Lb.TabIndex = 16;
-         FromDate4_Lb.Text = "از تاریخ :";
+         this.FromDate4_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate4_Lb.AutoSize = true;
+         this.FromDate4_Lb.Location = new System.Drawing.Point(214, 25);
+         this.FromDate4_Lb.Name = "FromDate4_Lb";
+         this.FromDate4_Lb.Size = new System.Drawing.Size(48, 14);
+         this.FromDate4_Lb.TabIndex = 16;
+         this.FromDate4_Lb.Text = "از تاریخ :";
          // 
          // Cashier5_Lb
          // 
-         Cashier5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Cashier5_Lb.AutoSize = true;
-         Cashier5_Lb.Location = new System.Drawing.Point(187, 137);
-         Cashier5_Lb.Name = "Cashier5_Lb";
-         Cashier5_Lb.Size = new System.Drawing.Size(59, 14);
-         Cashier5_Lb.TabIndex = 16;
-         Cashier5_Lb.Text = "صندوقدار :";
+         this.Cashier5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Cashier5_Lb.AutoSize = true;
+         this.Cashier5_Lb.Location = new System.Drawing.Point(187, 137);
+         this.Cashier5_Lb.Name = "Cashier5_Lb";
+         this.Cashier5_Lb.Size = new System.Drawing.Size(59, 14);
+         this.Cashier5_Lb.TabIndex = 16;
+         this.Cashier5_Lb.Text = "صندوقدار :";
          // 
          // CochFileNo5_Lb
          // 
-         CochFileNo5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CochFileNo5_Lb.AutoSize = true;
-         CochFileNo5_Lb.Location = new System.Drawing.Point(187, 109);
-         CochFileNo5_Lb.Name = "CochFileNo5_Lb";
-         CochFileNo5_Lb.Size = new System.Drawing.Size(59, 14);
-         CochFileNo5_Lb.TabIndex = 16;
-         CochFileNo5_Lb.Text = "نام مربی :";
+         this.CochFileNo5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CochFileNo5_Lb.AutoSize = true;
+         this.CochFileNo5_Lb.Location = new System.Drawing.Point(187, 109);
+         this.CochFileNo5_Lb.Name = "CochFileNo5_Lb";
+         this.CochFileNo5_Lb.Size = new System.Drawing.Size(59, 14);
+         this.CochFileNo5_Lb.TabIndex = 16;
+         this.CochFileNo5_Lb.Text = "نام مربی :";
          // 
          // RqtpCode5_Lb
          // 
-         RqtpCode5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         RqtpCode5_Lb.AutoSize = true;
-         RqtpCode5_Lb.Location = new System.Drawing.Point(187, 81);
-         RqtpCode5_Lb.Name = "RqtpCode5_Lb";
-         RqtpCode5_Lb.Size = new System.Drawing.Size(83, 14);
-         RqtpCode5_Lb.TabIndex = 16;
-         RqtpCode5_Lb.Text = "نوع درخواست :";
+         this.RqtpCode5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqtpCode5_Lb.AutoSize = true;
+         this.RqtpCode5_Lb.Location = new System.Drawing.Point(187, 81);
+         this.RqtpCode5_Lb.Name = "RqtpCode5_Lb";
+         this.RqtpCode5_Lb.Size = new System.Drawing.Size(83, 14);
+         this.RqtpCode5_Lb.TabIndex = 16;
+         this.RqtpCode5_Lb.Text = "نوع درخواست :";
          // 
          // ToDate5_Lb
          // 
-         ToDate5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         ToDate5_Lb.AutoSize = true;
-         ToDate5_Lb.Location = new System.Drawing.Point(187, 54);
-         ToDate5_Lb.Name = "ToDate5_Lb";
-         ToDate5_Lb.Size = new System.Drawing.Size(48, 14);
-         ToDate5_Lb.TabIndex = 16;
-         ToDate5_Lb.Text = "تا تاریخ :";
+         this.ToDate5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate5_Lb.AutoSize = true;
+         this.ToDate5_Lb.Location = new System.Drawing.Point(187, 54);
+         this.ToDate5_Lb.Name = "ToDate5_Lb";
+         this.ToDate5_Lb.Size = new System.Drawing.Size(48, 14);
+         this.ToDate5_Lb.TabIndex = 16;
+         this.ToDate5_Lb.Text = "تا تاریخ :";
          // 
          // FromDate5_Lb
          // 
-         FromDate5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FromDate5_Lb.AutoSize = true;
-         FromDate5_Lb.Location = new System.Drawing.Point(187, 25);
-         FromDate5_Lb.Name = "FromDate5_Lb";
-         FromDate5_Lb.Size = new System.Drawing.Size(48, 14);
-         FromDate5_Lb.TabIndex = 16;
-         FromDate5_Lb.Text = "از تاریخ :";
+         this.FromDate5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate5_Lb.AutoSize = true;
+         this.FromDate5_Lb.Location = new System.Drawing.Point(187, 25);
+         this.FromDate5_Lb.Name = "FromDate5_Lb";
+         this.FromDate5_Lb.Size = new System.Drawing.Size(48, 14);
+         this.FromDate5_Lb.TabIndex = 16;
+         this.FromDate5_Lb.Text = "از تاریخ :";
+         // 
+         // Cashier2_Lb
+         // 
+         this.Cashier2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Cashier2_Lb.AutoSize = true;
+         this.Cashier2_Lb.Location = new System.Drawing.Point(252, 137);
+         this.Cashier2_Lb.Name = "Cashier2_Lb";
+         this.Cashier2_Lb.Size = new System.Drawing.Size(59, 14);
+         this.Cashier2_Lb.TabIndex = 16;
+         this.Cashier2_Lb.Text = "صندوقدار :";
+         // 
+         // CochFileNo2_Lb
+         // 
+         this.CochFileNo2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CochFileNo2_Lb.AutoSize = true;
+         this.CochFileNo2_Lb.Location = new System.Drawing.Point(252, 109);
+         this.CochFileNo2_Lb.Name = "CochFileNo2_Lb";
+         this.CochFileNo2_Lb.Size = new System.Drawing.Size(59, 14);
+         this.CochFileNo2_Lb.TabIndex = 16;
+         this.CochFileNo2_Lb.Text = "نام مربی :";
+         // 
+         // RqtpCode2_Lb
+         // 
+         this.RqtpCode2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqtpCode2_Lb.AutoSize = true;
+         this.RqtpCode2_Lb.Location = new System.Drawing.Point(252, 81);
+         this.RqtpCode2_Lb.Name = "RqtpCode2_Lb";
+         this.RqtpCode2_Lb.Size = new System.Drawing.Size(83, 14);
+         this.RqtpCode2_Lb.TabIndex = 16;
+         this.RqtpCode2_Lb.Text = "نوع درخواست :";
+         // 
+         // ToDate2_Lb
+         // 
+         this.ToDate2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate2_Lb.AutoSize = true;
+         this.ToDate2_Lb.Location = new System.Drawing.Point(252, 54);
+         this.ToDate2_Lb.Name = "ToDate2_Lb";
+         this.ToDate2_Lb.Size = new System.Drawing.Size(48, 14);
+         this.ToDate2_Lb.TabIndex = 16;
+         this.ToDate2_Lb.Text = "تا تاریخ :";
+         // 
+         // FromDate2_Lb
+         // 
+         this.FromDate2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate2_Lb.AutoSize = true;
+         this.FromDate2_Lb.Location = new System.Drawing.Point(252, 25);
+         this.FromDate2_Lb.Name = "FromDate2_Lb";
+         this.FromDate2_Lb.Size = new System.Drawing.Size(48, 14);
+         this.FromDate2_Lb.TabIndex = 16;
+         this.FromDate2_Lb.Text = "از تاریخ :";
          // 
          // CbmtCode2_Lb
          // 
-         CbmtCode2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CbmtCode2_Lb.Location = new System.Drawing.Point(252, 166);
-         CbmtCode2_Lb.Name = "CbmtCode2_Lb";
-         CbmtCode2_Lb.Size = new System.Drawing.Size(86, 47);
-         CbmtCode2_Lb.TabIndex = 20;
-         CbmtCode2_Lb.Text = "برنامه کلاسی :\r\n\r\n رسته :";
-         CbmtCode2_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.CbmtCode2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CbmtCode2_Lb.Location = new System.Drawing.Point(252, 166);
+         this.CbmtCode2_Lb.Name = "CbmtCode2_Lb";
+         this.CbmtCode2_Lb.Size = new System.Drawing.Size(86, 47);
+         this.CbmtCode2_Lb.TabIndex = 20;
+         this.CbmtCode2_Lb.Text = "برنامه کلاسی :\r\n\r\n رسته :";
+         this.CbmtCode2_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
          // tc_master
          // 
@@ -1501,7 +1477,7 @@
          this.Parm2_Gb.Controls.Add(this.Btn_Cbmt2);
          this.Parm2_Gb.Controls.Add(this.Ctgy_lov2);
          this.Parm2_Gb.Controls.Add(this.Cbmt_Lov2);
-         this.Parm2_Gb.Controls.Add(CbmtCode2_Lb);
+         this.Parm2_Gb.Controls.Add(this.CbmtCode2_Lb);
          this.Parm2_Gb.Controls.Add(this.ToTime2_Te);
          this.Parm2_Gb.Controls.Add(this.FromTime2_Te);
          this.Parm2_Gb.Controls.Add(this.Back2_Butn);
@@ -1510,13 +1486,13 @@
          this.Parm2_Gb.Controls.Add(this.Figh_Lov2);
          this.Parm2_Gb.Controls.Add(this.User_Lov2);
          this.Parm2_Gb.Controls.Add(this.Rqtp_Lov2);
-         this.Parm2_Gb.Controls.Add(Cashier2_Lb);
+         this.Parm2_Gb.Controls.Add(this.Cashier2_Lb);
          this.Parm2_Gb.Controls.Add(this.ToDate2_Date);
-         this.Parm2_Gb.Controls.Add(CochFileNo2_Lb);
-         this.Parm2_Gb.Controls.Add(RqtpCode2_Lb);
-         this.Parm2_Gb.Controls.Add(ToDate2_Lb);
+         this.Parm2_Gb.Controls.Add(this.CochFileNo2_Lb);
+         this.Parm2_Gb.Controls.Add(this.RqtpCode2_Lb);
+         this.Parm2_Gb.Controls.Add(this.ToDate2_Lb);
          this.Parm2_Gb.Controls.Add(this.FromDate2_Date);
-         this.Parm2_Gb.Controls.Add(FromDate2_Lb);
+         this.Parm2_Gb.Controls.Add(this.FromDate2_Lb);
          this.Parm2_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Parm2_Gb.Location = new System.Drawing.Point(0, 0);
          this.Parm2_Gb.Name = "Parm2_Gb";
@@ -2933,14 +2909,14 @@
          this.Parm1_Gb.Controls.Add(this.User_Lov);
          this.Parm1_Gb.Controls.Add(this.Rcmt_Lov);
          this.Parm1_Gb.Controls.Add(this.Rqtp_Lov);
-         this.Parm1_Gb.Controls.Add(Cashier1_Lb);
+         this.Parm1_Gb.Controls.Add(this.Cashier1_Lb);
          this.Parm1_Gb.Controls.Add(this.ToDate1_Date);
-         this.Parm1_Gb.Controls.Add(RcptMtod_Lb);
-         this.Parm1_Gb.Controls.Add(CochFileNo1_Lb);
-         this.Parm1_Gb.Controls.Add(RqtpCode1_Lb);
-         this.Parm1_Gb.Controls.Add(ToDate1_Lb);
+         this.Parm1_Gb.Controls.Add(this.RcptMtod_Lb);
+         this.Parm1_Gb.Controls.Add(this.CochFileNo1_Lb);
+         this.Parm1_Gb.Controls.Add(this.RqtpCode1_Lb);
+         this.Parm1_Gb.Controls.Add(this.ToDate1_Lb);
          this.Parm1_Gb.Controls.Add(this.FromDate1_Date);
-         this.Parm1_Gb.Controls.Add(FromDate1_Lb);
+         this.Parm1_Gb.Controls.Add(this.FromDate1_Lb);
          this.Parm1_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Parm1_Gb.Location = new System.Drawing.Point(0, 0);
          this.Parm1_Gb.Name = "Parm1_Gb";
@@ -3865,13 +3841,13 @@
          this.Parm3_Gb.Controls.Add(this.Figh_Lov3);
          this.Parm3_Gb.Controls.Add(this.User_Lov3);
          this.Parm3_Gb.Controls.Add(this.Rqtp_Lov3);
-         this.Parm3_Gb.Controls.Add(Cashier3_Lb);
+         this.Parm3_Gb.Controls.Add(this.Cashier3_Lb);
          this.Parm3_Gb.Controls.Add(this.ToDate3_Date);
-         this.Parm3_Gb.Controls.Add(CochFileNo3_Lb);
-         this.Parm3_Gb.Controls.Add(RqtpCode3_Lb);
-         this.Parm3_Gb.Controls.Add(ToDate3_Lb);
+         this.Parm3_Gb.Controls.Add(this.CochFileNo3_Lb);
+         this.Parm3_Gb.Controls.Add(this.RqtpCode3_Lb);
+         this.Parm3_Gb.Controls.Add(this.ToDate3_Lb);
          this.Parm3_Gb.Controls.Add(this.FromDate3_Date);
-         this.Parm3_Gb.Controls.Add(FromDate3_Lb);
+         this.Parm3_Gb.Controls.Add(this.FromDate3_Lb);
          this.Parm3_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Parm3_Gb.Location = new System.Drawing.Point(0, 0);
          this.Parm3_Gb.Name = "Parm3_Gb";
@@ -4823,12 +4799,12 @@
          // 
          // Parm4_Gb
          // 
-         this.Parm4_Gb.Controls.Add(this.simpleButton1);
-         this.Parm4_Gb.Controls.Add(this.simpleButton5);
+         this.Parm4_Gb.Controls.Add(this.Back5_Butn);
+         this.Parm4_Gb.Controls.Add(this.Find5_Butn);
          this.Parm4_Gb.Controls.Add(this.ToDate4_Date);
-         this.Parm4_Gb.Controls.Add(ToDate4_Lb);
+         this.Parm4_Gb.Controls.Add(this.ToDate4_Lb);
          this.Parm4_Gb.Controls.Add(this.FromDate4_Date);
-         this.Parm4_Gb.Controls.Add(FromDate4_Lb);
+         this.Parm4_Gb.Controls.Add(this.FromDate4_Lb);
          this.Parm4_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Parm4_Gb.Location = new System.Drawing.Point(0, 0);
          this.Parm4_Gb.Name = "Parm4_Gb";
@@ -4837,31 +4813,31 @@
          this.Parm4_Gb.TabStop = false;
          this.Parm4_Gb.Text = "اطلاعات پارامتری";
          // 
-         // simpleButton1
+         // Back5_Butn
          // 
-         this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-         this.simpleButton1.Location = new System.Drawing.Point(6, 79);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(106, 34);
-         this.simpleButton1.TabIndex = 7;
-         this.simpleButton1.Text = "بازگشت";
-         this.simpleButton1.Click += new System.EventHandler(this.Back_Butn_Click);
+         this.Back5_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back5_Butn.Image")));
+         this.Back5_Butn.Location = new System.Drawing.Point(6, 79);
+         this.Back5_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Back5_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back5_Butn.Name = "Back5_Butn";
+         this.Back5_Butn.Size = new System.Drawing.Size(106, 34);
+         this.Back5_Butn.TabIndex = 7;
+         this.Back5_Butn.Text = "بازگشت";
+         this.Back5_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
-         // simpleButton5
+         // Find5_Butn
          // 
-         this.simpleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.Find5_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton5.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.Image")));
-         this.simpleButton5.Location = new System.Drawing.Point(118, 79);
-         this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton5.Name = "simpleButton5";
-         this.simpleButton5.Size = new System.Drawing.Size(90, 34);
-         this.simpleButton5.TabIndex = 6;
-         this.simpleButton5.Text = "جستجو";
-         this.simpleButton5.Click += new System.EventHandler(this.Find_Butn_Click);
+         this.Find5_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Find5_Butn.Image")));
+         this.Find5_Butn.Location = new System.Drawing.Point(118, 79);
+         this.Find5_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Find5_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Find5_Butn.Name = "Find5_Butn";
+         this.Find5_Butn.Size = new System.Drawing.Size(90, 34);
+         this.Find5_Butn.TabIndex = 6;
+         this.Find5_Butn.Text = "جستجو";
+         this.Find5_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
          // ToDate4_Date
          // 
@@ -5340,13 +5316,13 @@
          this.Parm5_Gb.Controls.Add(this.Figh_Lov5);
          this.Parm5_Gb.Controls.Add(this.User_Lov5);
          this.Parm5_Gb.Controls.Add(this.Rqtp_Lov5);
-         this.Parm5_Gb.Controls.Add(Cashier5_Lb);
+         this.Parm5_Gb.Controls.Add(this.Cashier5_Lb);
          this.Parm5_Gb.Controls.Add(this.ToDate5_Date);
-         this.Parm5_Gb.Controls.Add(CochFileNo5_Lb);
-         this.Parm5_Gb.Controls.Add(RqtpCode5_Lb);
-         this.Parm5_Gb.Controls.Add(ToDate5_Lb);
+         this.Parm5_Gb.Controls.Add(this.CochFileNo5_Lb);
+         this.Parm5_Gb.Controls.Add(this.RqtpCode5_Lb);
+         this.Parm5_Gb.Controls.Add(this.ToDate5_Lb);
          this.Parm5_Gb.Controls.Add(this.FromDate5_Date);
-         this.Parm5_Gb.Controls.Add(FromDate5_Lb);
+         this.Parm5_Gb.Controls.Add(this.FromDate5_Lb);
          this.Parm5_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Parm5_Gb.Location = new System.Drawing.Point(0, 0);
          this.Parm5_Gb.Name = "Parm5_Gb";
@@ -6526,8 +6502,8 @@
       private Windows.Forms.TabPage tp_004;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
       private Windows.Forms.GroupBox Parm4_Gb;
-      private DevExpress.XtraEditors.SimpleButton simpleButton1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton5;
+      private DevExpress.XtraEditors.SimpleButton Back5_Butn;
+      private DevExpress.XtraEditors.SimpleButton Find5_Butn;
       private Atf.UI.DateTimeSelector ToDate4_Date;
       private Atf.UI.DateTimeSelector FromDate4_Date;
       private DevExpress.XtraGrid.GridControl misc_ExpenseGridControl1;
@@ -6760,5 +6736,29 @@
       private DevExpress.XtraGrid.Columns.GridColumn colDFLT_STAT1;
       private DevExpress.XtraGrid.Columns.GridColumn colCTGY_STAT;
       private DevExpress.XtraGrid.Columns.GridColumn colMethod2;
+      private Windows.Forms.Label Cashier2_Lb;
+      private Windows.Forms.Label CochFileNo2_Lb;
+      private Windows.Forms.Label RqtpCode2_Lb;
+      private Windows.Forms.Label ToDate2_Lb;
+      private Windows.Forms.Label FromDate2_Lb;
+      private Windows.Forms.Label CbmtCode2_Lb;
+      private Windows.Forms.Label FromDate1_Lb;
+      private Windows.Forms.Label ToDate1_Lb;
+      private Windows.Forms.Label RqtpCode1_Lb;
+      private Windows.Forms.Label CochFileNo1_Lb;
+      private Windows.Forms.Label RcptMtod_Lb;
+      private Windows.Forms.Label Cashier1_Lb;
+      private Windows.Forms.Label Cashier3_Lb;
+      private Windows.Forms.Label CochFileNo3_Lb;
+      private Windows.Forms.Label RqtpCode3_Lb;
+      private Windows.Forms.Label ToDate3_Lb;
+      private Windows.Forms.Label FromDate3_Lb;
+      private Windows.Forms.Label ToDate4_Lb;
+      private Windows.Forms.Label FromDate4_Lb;
+      private Windows.Forms.Label Cashier5_Lb;
+      private Windows.Forms.Label CochFileNo5_Lb;
+      private Windows.Forms.Label RqtpCode5_Lb;
+      private Windows.Forms.Label ToDate5_Lb;
+      private Windows.Forms.Label FromDate5_Lb;
    }
 }

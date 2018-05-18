@@ -29,25 +29,25 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label DutyPrct_Lb;
-         System.Windows.Forms.Label TaxPrct_Lb;
-         System.Windows.Forms.Label Type_Lb;
-         System.Windows.Forms.Label EndDate_Lb;
-         System.Windows.Forms.Label StrtDate_Lb;
-         System.Windows.Forms.Label LettDate_Lb;
-         System.Windows.Forms.Label LettOwnr_Lb;
-         System.Windows.Forms.Label LettNo_Lb;
-         System.Windows.Forms.Label Year_Lb;
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.DutyPrct_Lb = new System.Windows.Forms.Label();
+         this.TaxPrct_Lb = new System.Windows.Forms.Label();
+         this.Type_Lb = new System.Windows.Forms.Label();
+         this.EndDate_Lb = new System.Windows.Forms.Label();
+         this.StrtDate_Lb = new System.Windows.Forms.Label();
+         this.LettDate_Lb = new System.Windows.Forms.Label();
+         this.LettOwnr_Lb = new System.Windows.Forms.Label();
+         this.LettNo_Lb = new System.Windows.Forms.Label();
+         this.Year_Lb = new System.Windows.Forms.Label();
          this.dRGTPBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.regulationBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.dACTVBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -131,15 +131,6 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         DutyPrct_Lb = new System.Windows.Forms.Label();
-         TaxPrct_Lb = new System.Windows.Forms.Label();
-         Type_Lb = new System.Windows.Forms.Label();
-         EndDate_Lb = new System.Windows.Forms.Label();
-         StrtDate_Lb = new System.Windows.Forms.Label();
-         LettDate_Lb = new System.Windows.Forms.Label();
-         LettOwnr_Lb = new System.Windows.Forms.Label();
-         LettNo_Lb = new System.Windows.Forms.Label();
-         Year_Lb = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).BeginInit();
@@ -183,95 +174,95 @@
          // 
          // DutyPrct_Lb
          // 
-         DutyPrct_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         DutyPrct_Lb.AutoSize = true;
-         DutyPrct_Lb.Location = new System.Drawing.Point(239, 97);
-         DutyPrct_Lb.Name = "DutyPrct_Lb";
-         DutyPrct_Lb.Size = new System.Drawing.Size(46, 13);
-         DutyPrct_Lb.TabIndex = 12;
-         DutyPrct_Lb.Text = "عوارض :";
+         this.DutyPrct_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DutyPrct_Lb.AutoSize = true;
+         this.DutyPrct_Lb.Location = new System.Drawing.Point(239, 97);
+         this.DutyPrct_Lb.Name = "DutyPrct_Lb";
+         this.DutyPrct_Lb.Size = new System.Drawing.Size(46, 13);
+         this.DutyPrct_Lb.TabIndex = 12;
+         this.DutyPrct_Lb.Text = "عوارض :";
          // 
          // TaxPrct_Lb
          // 
-         TaxPrct_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         TaxPrct_Lb.AutoSize = true;
-         TaxPrct_Lb.Location = new System.Drawing.Point(240, 71);
-         TaxPrct_Lb.Name = "TaxPrct_Lb";
-         TaxPrct_Lb.Size = new System.Drawing.Size(45, 13);
-         TaxPrct_Lb.TabIndex = 10;
-         TaxPrct_Lb.Text = "مالیات : ";
+         this.TaxPrct_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TaxPrct_Lb.AutoSize = true;
+         this.TaxPrct_Lb.Location = new System.Drawing.Point(240, 71);
+         this.TaxPrct_Lb.Name = "TaxPrct_Lb";
+         this.TaxPrct_Lb.Size = new System.Drawing.Size(45, 13);
+         this.TaxPrct_Lb.TabIndex = 10;
+         this.TaxPrct_Lb.Text = "مالیات : ";
          // 
          // Type_Lb
          // 
-         Type_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Type_Lb.AutoSize = true;
-         Type_Lb.ForeColor = System.Drawing.Color.Maroon;
-         Type_Lb.Location = new System.Drawing.Point(421, 19);
-         Type_Lb.Name = "Type_Lb";
-         Type_Lb.Size = new System.Drawing.Size(77, 13);
-         Type_Lb.TabIndex = 8;
-         Type_Lb.Text = "نوع آیین نامه *:";
+         this.Type_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Type_Lb.AutoSize = true;
+         this.Type_Lb.ForeColor = System.Drawing.Color.Maroon;
+         this.Type_Lb.Location = new System.Drawing.Point(421, 19);
+         this.Type_Lb.Name = "Type_Lb";
+         this.Type_Lb.Size = new System.Drawing.Size(77, 13);
+         this.Type_Lb.TabIndex = 8;
+         this.Type_Lb.Text = "نوع آیین نامه *:";
          // 
          // EndDate_Lb
          // 
-         EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         EndDate_Lb.AutoSize = true;
-         EndDate_Lb.Location = new System.Drawing.Point(240, 45);
-         EndDate_Lb.Name = "EndDate_Lb";
-         EndDate_Lb.Size = new System.Drawing.Size(57, 13);
-         EndDate_Lb.TabIndex = 6;
-         EndDate_Lb.Text = "تاریخ پایان :";
+         this.EndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.EndDate_Lb.AutoSize = true;
+         this.EndDate_Lb.Location = new System.Drawing.Point(240, 45);
+         this.EndDate_Lb.Name = "EndDate_Lb";
+         this.EndDate_Lb.Size = new System.Drawing.Size(57, 13);
+         this.EndDate_Lb.TabIndex = 6;
+         this.EndDate_Lb.Text = "تاریخ پایان :";
          // 
          // StrtDate_Lb
          // 
-         StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         StrtDate_Lb.AutoSize = true;
-         StrtDate_Lb.Location = new System.Drawing.Point(240, 19);
-         StrtDate_Lb.Name = "StrtDate_Lb";
-         StrtDate_Lb.Size = new System.Drawing.Size(66, 13);
-         StrtDate_Lb.TabIndex = 6;
-         StrtDate_Lb.Text = "تاریخ شروع :";
+         this.StrtDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.StrtDate_Lb.AutoSize = true;
+         this.StrtDate_Lb.Location = new System.Drawing.Point(240, 19);
+         this.StrtDate_Lb.Name = "StrtDate_Lb";
+         this.StrtDate_Lb.Size = new System.Drawing.Size(66, 13);
+         this.StrtDate_Lb.TabIndex = 6;
+         this.StrtDate_Lb.Text = "تاریخ شروع :";
          // 
          // LettDate_Lb
          // 
-         LettDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         LettDate_Lb.AutoSize = true;
-         LettDate_Lb.Location = new System.Drawing.Point(614, 71);
-         LettDate_Lb.Name = "LettDate_Lb";
-         LettDate_Lb.Size = new System.Drawing.Size(56, 13);
-         LettDate_Lb.TabIndex = 6;
-         LettDate_Lb.Text = "تاریخ نامه :";
+         this.LettDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LettDate_Lb.AutoSize = true;
+         this.LettDate_Lb.Location = new System.Drawing.Point(614, 71);
+         this.LettDate_Lb.Name = "LettDate_Lb";
+         this.LettDate_Lb.Size = new System.Drawing.Size(56, 13);
+         this.LettDate_Lb.TabIndex = 6;
+         this.LettDate_Lb.Text = "تاریخ نامه :";
          // 
          // LettOwnr_Lb
          // 
-         LettOwnr_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         LettOwnr_Lb.AutoSize = true;
-         LettOwnr_Lb.Location = new System.Drawing.Point(614, 97);
-         LettOwnr_Lb.Name = "LettOwnr_Lb";
-         LettOwnr_Lb.Size = new System.Drawing.Size(75, 13);
-         LettOwnr_Lb.TabIndex = 4;
-         LettOwnr_Lb.Text = "فرستنده نامه :";
+         this.LettOwnr_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LettOwnr_Lb.AutoSize = true;
+         this.LettOwnr_Lb.Location = new System.Drawing.Point(614, 97);
+         this.LettOwnr_Lb.Name = "LettOwnr_Lb";
+         this.LettOwnr_Lb.Size = new System.Drawing.Size(75, 13);
+         this.LettOwnr_Lb.TabIndex = 4;
+         this.LettOwnr_Lb.Text = "فرستنده نامه :";
          // 
          // LettNo_Lb
          // 
-         LettNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         LettNo_Lb.AutoSize = true;
-         LettNo_Lb.Location = new System.Drawing.Point(614, 45);
-         LettNo_Lb.Name = "LettNo_Lb";
-         LettNo_Lb.Size = new System.Drawing.Size(65, 13);
-         LettNo_Lb.TabIndex = 2;
-         LettNo_Lb.Text = "شماره نامه :";
+         this.LettNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LettNo_Lb.AutoSize = true;
+         this.LettNo_Lb.Location = new System.Drawing.Point(614, 45);
+         this.LettNo_Lb.Name = "LettNo_Lb";
+         this.LettNo_Lb.Size = new System.Drawing.Size(65, 13);
+         this.LettNo_Lb.TabIndex = 2;
+         this.LettNo_Lb.Text = "شماره نامه :";
          // 
          // Year_Lb
          // 
-         Year_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Year_Lb.AutoSize = true;
-         Year_Lb.ForeColor = System.Drawing.Color.Maroon;
-         Year_Lb.Location = new System.Drawing.Point(614, 19);
-         Year_Lb.Name = "Year_Lb";
-         Year_Lb.Size = new System.Drawing.Size(41, 13);
-         Year_Lb.TabIndex = 0;
-         Year_Lb.Text = "سال *:";
+         this.Year_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Year_Lb.AutoSize = true;
+         this.Year_Lb.ForeColor = System.Drawing.Color.Maroon;
+         this.Year_Lb.Location = new System.Drawing.Point(614, 19);
+         this.Year_Lb.Name = "Year_Lb";
+         this.Year_Lb.Size = new System.Drawing.Size(41, 13);
+         this.Year_Lb.TabIndex = 0;
+         this.Year_Lb.Text = "سال *:";
          // 
          // dRGTPBindingSource
          // 
@@ -290,7 +281,7 @@
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.Orange;
          this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label4.Location = new System.Drawing.Point(510, 464);
+         this.label4.Location = new System.Drawing.Point(493, 464);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(20, 20);
          this.label4.TabIndex = 14;
@@ -300,7 +291,7 @@
          this.ReglAcnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglAcnt_Lb.AutoSize = true;
          this.ReglAcnt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglAcnt_Lb.Location = new System.Drawing.Point(400, 446);
+         this.ReglAcnt_Lb.Location = new System.Drawing.Point(383, 446);
          this.ReglAcnt_Lb.Name = "ReglAcnt_Lb";
          this.ReglAcnt_Lb.Size = new System.Drawing.Size(104, 13);
          this.ReglAcnt_Lb.TabIndex = 12;
@@ -311,7 +302,7 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.BackColor = System.Drawing.Color.Lime;
          this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label2.Location = new System.Drawing.Point(510, 441);
+         this.label2.Location = new System.Drawing.Point(493, 441);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(20, 20);
          this.label2.TabIndex = 15;
@@ -321,7 +312,7 @@
          this.ReglPymt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglPymt_Lb.AutoSize = true;
          this.ReglPymt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglPymt_Lb.Location = new System.Drawing.Point(407, 468);
+         this.ReglPymt_Lb.Location = new System.Drawing.Point(390, 468);
          this.ReglPymt_Lb.Name = "ReglPymt_Lb";
          this.ReglPymt_Lb.Size = new System.Drawing.Size(97, 13);
          this.ReglPymt_Lb.TabIndex = 13;
@@ -348,7 +339,7 @@
             this.LV_REGLSTAT,
             this.HL_INVSREGL,
             this.repositoryItemLookUpEdit1});
-         this.regulationGridControl.Size = new System.Drawing.Size(1237, 216);
+         this.regulationGridControl.Size = new System.Drawing.Size(1220, 216);
          this.regulationGridControl.TabIndex = 9;
          this.regulationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_REGL});
@@ -714,7 +705,7 @@
          // 
          this.HL_INVSREGL.AutoHeight = false;
          this.HL_INVSREGL.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "...", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "...", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.HL_INVSREGL.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.HL_INVSREGL.Name = "HL_INVSREGL";
          this.HL_INVSREGL.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.HL_INVSREGL_ButtonClick);
@@ -751,25 +742,25 @@
          this.PNL_REGL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.PNL_REGL.BackColor = System.Drawing.Color.Transparent;
          this.PNL_REGL.Controls.Add(this.Btn_SubmitInsRegl);
-         this.PNL_REGL.Controls.Add(DutyPrct_Lb);
+         this.PNL_REGL.Controls.Add(this.DutyPrct_Lb);
          this.PNL_REGL.Controls.Add(this.Spn_DutyPrct);
-         this.PNL_REGL.Controls.Add(TaxPrct_Lb);
+         this.PNL_REGL.Controls.Add(this.TaxPrct_Lb);
          this.PNL_REGL.Controls.Add(this.Spn_TaxPrct);
-         this.PNL_REGL.Controls.Add(Type_Lb);
-         this.PNL_REGL.Controls.Add(EndDate_Lb);
-         this.PNL_REGL.Controls.Add(StrtDate_Lb);
-         this.PNL_REGL.Controls.Add(LettDate_Lb);
-         this.PNL_REGL.Controls.Add(LettOwnr_Lb);
+         this.PNL_REGL.Controls.Add(this.Type_Lb);
+         this.PNL_REGL.Controls.Add(this.EndDate_Lb);
+         this.PNL_REGL.Controls.Add(this.StrtDate_Lb);
+         this.PNL_REGL.Controls.Add(this.LettDate_Lb);
+         this.PNL_REGL.Controls.Add(this.LettOwnr_Lb);
          this.PNL_REGL.Controls.Add(this.Txt_LettOwnr);
-         this.PNL_REGL.Controls.Add(LettNo_Lb);
+         this.PNL_REGL.Controls.Add(this.LettNo_Lb);
          this.PNL_REGL.Controls.Add(this.Txt_LettNo);
-         this.PNL_REGL.Controls.Add(Year_Lb);
+         this.PNL_REGL.Controls.Add(this.Year_Lb);
          this.PNL_REGL.Controls.Add(this.Dat_EndDate);
          this.PNL_REGL.Controls.Add(this.Dat_StrtDate);
          this.PNL_REGL.Controls.Add(this.Spn_Year);
          this.PNL_REGL.Controls.Add(this.Dat_LettDate);
          this.PNL_REGL.Controls.Add(this.Lov_ReglType);
-         this.PNL_REGL.Location = new System.Drawing.Point(536, 331);
+         this.PNL_REGL.Location = new System.Drawing.Point(519, 331);
          this.PNL_REGL.Name = "PNL_REGL";
          this.PNL_REGL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.PNL_REGL.Size = new System.Drawing.Size(704, 156);
@@ -813,7 +804,7 @@
          this.Spn_DutyPrct.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Spn_DutyPrct.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Spn_DutyPrct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.Spn_DutyPrct.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Spn_DutyPrct.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Spn_DutyPrct.Properties.Mask.EditMask = "f";
@@ -837,7 +828,7 @@
          this.Spn_TaxPrct.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Spn_TaxPrct.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Spn_TaxPrct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.Spn_TaxPrct.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Spn_TaxPrct.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Spn_TaxPrct.Properties.Mask.EditMask = "f";
@@ -883,7 +874,7 @@
          this.Dat_EndDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Dat_EndDate.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Dat_EndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Dat_EndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.Dat_EndDate.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -906,7 +897,7 @@
          this.Dat_StrtDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Dat_StrtDate.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Dat_StrtDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.Dat_StrtDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.Dat_StrtDate.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -935,7 +926,7 @@
          this.Spn_Year.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Spn_Year.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Spn_Year.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.Spn_Year.Properties.DisplayFormat.FormatString = "{0:d}";
          this.Spn_Year.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.Spn_Year.Properties.EditFormat.FormatString = "{0:d}";
@@ -958,7 +949,7 @@
          this.Dat_LettDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Dat_LettDate.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Dat_LettDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.Dat_LettDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.Dat_LettDate.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -981,7 +972,7 @@
          this.Lov_ReglType.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Lov_ReglType.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Lov_ReglType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.Lov_ReglType.Properties.DataSource = this.dRGTPBindingSource;
          this.Lov_ReglType.Properties.DisplayMember = "DOMN_DESC";
          this.Lov_ReglType.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1022,7 +1013,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1243, 59);
+         this.panel1.Size = new System.Drawing.Size(1226, 59);
          this.panel1.TabIndex = 19;
          // 
          // TitlForm_Lb
@@ -1034,7 +1025,7 @@
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(1063, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(1046, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
          this.TitlForm_Lb.Size = new System.Drawing.Size(119, 59);
          this.TitlForm_Lb.TabIndex = 1;
@@ -1047,7 +1038,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1182, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1165, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -1089,7 +1080,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.toolStripTextBox1;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1243, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1226, 47);
          this.RqstBn1.TabIndex = 27;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -1314,7 +1305,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "MSTR_REGL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1243, 495);
+         this.Size = new System.Drawing.Size(1226, 495);
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).EndInit();
@@ -1446,5 +1437,14 @@
       private Windows.Forms.ToolStripButton RqstBnADoc1;
       private Windows.Forms.ToolStripButton RqstBnRegl01;
       private Windows.Forms.ToolStripButton RqstBnExit1;
+      private Windows.Forms.Label DutyPrct_Lb;
+      private Windows.Forms.Label TaxPrct_Lb;
+      private Windows.Forms.Label Type_Lb;
+      private Windows.Forms.Label EndDate_Lb;
+      private Windows.Forms.Label StrtDate_Lb;
+      private Windows.Forms.Label LettDate_Lb;
+      private Windows.Forms.Label LettOwnr_Lb;
+      private Windows.Forms.Label LettNo_Lb;
+      private Windows.Forms.Label Year_Lb;
    }
 }

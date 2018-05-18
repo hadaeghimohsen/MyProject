@@ -29,13 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label LastName_Lb;
-         System.Windows.Forms.Label FrstName_Lb;
-         System.Windows.Forms.Label Mtod_Lb;
-         System.Windows.Forms.Label FngrPrnt_Lb;
-         System.Windows.Forms.Label SexType_Lb;
-         System.Windows.Forms.Label CardNo_Lb;
-         System.Windows.Forms.Label ChatId_Lb;
          System.Windows.Forms.Label label14;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_ADCH_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -45,6 +38,13 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.LastName_Lb = new System.Windows.Forms.Label();
+         this.FrstName_Lb = new System.Windows.Forms.Label();
+         this.Mtod_Lb = new System.Windows.Forms.Label();
+         this.FngrPrnt_Lb = new System.Windows.Forms.Label();
+         this.SexType_Lb = new System.Windows.Forms.Label();
+         this.CardNo_Lb = new System.Windows.Forms.Label();
+         this.ChatId_Lb = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -63,13 +63,6 @@
          this.CardNum_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.Chat_Id_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
          this.SaveNewCoch_Butn = new DevExpress.XtraEditors.SimpleButton();
-         LastName_Lb = new System.Windows.Forms.Label();
-         FrstName_Lb = new System.Windows.Forms.Label();
-         Mtod_Lb = new System.Windows.Forms.Label();
-         FngrPrnt_Lb = new System.Windows.Forms.Label();
-         SexType_Lb = new System.Windows.Forms.Label();
-         CardNo_Lb = new System.Windows.Forms.Label();
-         ChatId_Lb = new System.Windows.Forms.Label();
          label14 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).BeginInit();
@@ -85,80 +78,80 @@
          // 
          // LastName_Lb
          // 
-         LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         LastName_Lb.AutoSize = true;
-         LastName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         LastName_Lb.Location = new System.Drawing.Point(489, 170);
-         LastName_Lb.Name = "LastName_Lb";
-         LastName_Lb.Size = new System.Drawing.Size(84, 28);
-         LastName_Lb.TabIndex = 56;
-         LastName_Lb.Text = "نام خانوادگی :";
+         this.LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LastName_Lb.AutoSize = true;
+         this.LastName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LastName_Lb.Location = new System.Drawing.Point(489, 170);
+         this.LastName_Lb.Name = "LastName_Lb";
+         this.LastName_Lb.Size = new System.Drawing.Size(84, 28);
+         this.LastName_Lb.TabIndex = 56;
+         this.LastName_Lb.Text = "نام خانوادگی :";
          // 
          // FrstName_Lb
          // 
-         FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FrstName_Lb.AutoSize = true;
-         FrstName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         FrstName_Lb.Location = new System.Drawing.Point(489, 134);
-         FrstName_Lb.Name = "FrstName_Lb";
-         FrstName_Lb.Size = new System.Drawing.Size(32, 28);
-         FrstName_Lb.TabIndex = 55;
-         FrstName_Lb.Text = "نام :";
+         this.FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FrstName_Lb.AutoSize = true;
+         this.FrstName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FrstName_Lb.Location = new System.Drawing.Point(489, 134);
+         this.FrstName_Lb.Name = "FrstName_Lb";
+         this.FrstName_Lb.Size = new System.Drawing.Size(32, 28);
+         this.FrstName_Lb.TabIndex = 55;
+         this.FrstName_Lb.Text = "نام :";
          // 
          // Mtod_Lb
          // 
-         Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         Mtod_Lb.AutoSize = true;
-         Mtod_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         Mtod_Lb.Location = new System.Drawing.Point(489, 436);
-         Mtod_Lb.Name = "Mtod_Lb";
-         Mtod_Lb.Size = new System.Drawing.Size(85, 28);
-         Mtod_Lb.TabIndex = 54;
-         Mtod_Lb.Text = "گروه ورزشی :";
+         this.Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Mtod_Lb.AutoSize = true;
+         this.Mtod_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Lb.Location = new System.Drawing.Point(489, 436);
+         this.Mtod_Lb.Name = "Mtod_Lb";
+         this.Mtod_Lb.Size = new System.Drawing.Size(85, 28);
+         this.Mtod_Lb.TabIndex = 54;
+         this.Mtod_Lb.Text = "گروه ورزشی :";
          // 
          // FngrPrnt_Lb
          // 
-         FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         FngrPrnt_Lb.AutoSize = true;
-         FngrPrnt_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         FngrPrnt_Lb.Location = new System.Drawing.Point(489, 265);
-         FngrPrnt_Lb.Name = "FngrPrnt_Lb";
-         FngrPrnt_Lb.Size = new System.Drawing.Size(91, 28);
-         FngrPrnt_Lb.TabIndex = 53;
-         FngrPrnt_Lb.Text = "شماره انگشتی :";
+         this.FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FngrPrnt_Lb.AutoSize = true;
+         this.FngrPrnt_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FngrPrnt_Lb.Location = new System.Drawing.Point(489, 265);
+         this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
+         this.FngrPrnt_Lb.Size = new System.Drawing.Size(91, 28);
+         this.FngrPrnt_Lb.TabIndex = 53;
+         this.FngrPrnt_Lb.Text = "شماره انگشتی :";
          // 
          // SexType_Lb
          // 
-         SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         SexType_Lb.AutoSize = true;
-         SexType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         SexType_Lb.Location = new System.Drawing.Point(488, 476);
-         SexType_Lb.Name = "SexType_Lb";
-         SexType_Lb.Size = new System.Drawing.Size(57, 28);
-         SexType_Lb.TabIndex = 54;
-         SexType_Lb.Text = "جنسیت :";
+         this.SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SexType_Lb.AutoSize = true;
+         this.SexType_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SexType_Lb.Location = new System.Drawing.Point(488, 476);
+         this.SexType_Lb.Name = "SexType_Lb";
+         this.SexType_Lb.Size = new System.Drawing.Size(57, 28);
+         this.SexType_Lb.TabIndex = 54;
+         this.SexType_Lb.Text = "جنسیت :";
          // 
          // CardNo_Lb
          // 
-         CardNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         CardNo_Lb.AutoSize = true;
-         CardNo_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         CardNo_Lb.Location = new System.Drawing.Point(489, 301);
-         CardNo_Lb.Name = "CardNo_Lb";
-         CardNo_Lb.Size = new System.Drawing.Size(83, 28);
-         CardNo_Lb.TabIndex = 53;
-         CardNo_Lb.Text = "شماره کارت :";
+         this.CardNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CardNo_Lb.AutoSize = true;
+         this.CardNo_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CardNo_Lb.Location = new System.Drawing.Point(489, 301);
+         this.CardNo_Lb.Name = "CardNo_Lb";
+         this.CardNo_Lb.Size = new System.Drawing.Size(83, 28);
+         this.CardNo_Lb.TabIndex = 53;
+         this.CardNo_Lb.Text = "شماره کارت :";
          // 
          // ChatId_Lb
          // 
-         ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         ChatId_Lb.AutoSize = true;
-         ChatId_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         ChatId_Lb.Location = new System.Drawing.Point(489, 337);
-         ChatId_Lb.Name = "ChatId_Lb";
-         ChatId_Lb.Size = new System.Drawing.Size(70, 28);
-         ChatId_Lb.TabIndex = 53;
-         ChatId_Lb.Text = "کد تلگرام :";
+         this.ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ChatId_Lb.AutoSize = true;
+         this.ChatId_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ChatId_Lb.Location = new System.Drawing.Point(489, 337);
+         this.ChatId_Lb.Name = "ChatId_Lb";
+         this.ChatId_Lb.Size = new System.Drawing.Size(70, 28);
+         this.ChatId_Lb.TabIndex = 53;
+         this.ChatId_Lb.Text = "کد تلگرام :";
          // 
          // label14
          // 
@@ -568,13 +561,13 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.Controls.Add(label14);
-         this.Controls.Add(LastName_Lb);
-         this.Controls.Add(FrstName_Lb);
-         this.Controls.Add(SexType_Lb);
-         this.Controls.Add(Mtod_Lb);
-         this.Controls.Add(ChatId_Lb);
-         this.Controls.Add(CardNo_Lb);
-         this.Controls.Add(FngrPrnt_Lb);
+         this.Controls.Add(this.LastName_Lb);
+         this.Controls.Add(this.FrstName_Lb);
+         this.Controls.Add(this.SexType_Lb);
+         this.Controls.Add(this.Mtod_Lb);
+         this.Controls.Add(this.ChatId_Lb);
+         this.Controls.Add(this.CardNo_Lb);
+         this.Controls.Add(this.FngrPrnt_Lb);
          this.Controls.Add(this.SexType_Lov);
          this.Controls.Add(this.Mtod_Lov);
          this.Controls.Add(this.Chat_Id_TextEdit);
@@ -628,6 +621,13 @@
       private DevExpress.XtraEditors.ButtonEdit Chat_Id_TextEdit;
       private DevExpress.XtraEditors.SimpleButton SaveNewCoch_Butn;
       private DevExpress.XtraEditors.LabelControl Desc1_Lb;
+      private Windows.Forms.Label LastName_Lb;
+      private Windows.Forms.Label FrstName_Lb;
+      private Windows.Forms.Label Mtod_Lb;
+      private Windows.Forms.Label FngrPrnt_Lb;
+      private Windows.Forms.Label SexType_Lb;
+      private Windows.Forms.Label CardNo_Lb;
+      private Windows.Forms.Label ChatId_Lb;
 
    }
 }

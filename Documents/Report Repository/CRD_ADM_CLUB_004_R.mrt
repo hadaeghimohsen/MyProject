@@ -88,9 +88,9 @@
             </Image1>
             <Text2 Ref="7" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,2.2,3.2,0.6</ClientRectangle>
+              <ClientRectangle>3.2,2.2,3.2,1</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Titr,9.75,Bold,Point,False,178</Font>
+              <Font>B Zar,9.75,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
@@ -98,6 +98,7 @@
               <Parent isRef="5" />
               <Text>{iQuery.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
@@ -138,7 +139,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>3.2,4,1.8,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Courier New,10,Bold</Font>
+              <Font>B Zar,8,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
@@ -153,7 +154,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>3.2,3.6,2.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Courier New,10,Bold</Font>
+              <Font>B Zar,8,Bold</Font>
               <Guid>30de296077bb462da7c65aac5b30e9a2</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -172,7 +173,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>3.2,3.2,2.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Courier New,10,Bold</Font>
+              <Font>B Zar,8,Bold</Font>
               <Guid>0b5238d340ff4078a3303d7791128172</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -207,7 +208,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>5.4,3.6,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans,8</Font>
+              <Font>B Zar,8,Bold</Font>
               <Guid>96aa66b5503e44b3bb4ef92427ef5067</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -223,7 +224,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>5.4,3.2,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans,8</Font>
+              <Font>B Zar,8,Bold</Font>
               <Guid>d8f2acf8538b434993bd627c85667b93</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -239,7 +240,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>5,4,1.4,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans,8</Font>
+              <Font>B Zar,8,Bold</Font>
               <Guid>f8777a4d3e2f42f9bfd9aff6258fe0e5</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -317,10 +318,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>4/18/2018 9:50:17 AM</ReportChanged>
+  <ReportChanged>5/19/2018 12:21:33 PM</ReportChanged>
   <ReportCreated>1/25/2016 4:44:56 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\CRD_ADM_CLUB_004_R.mrt</ReportFile>
-  <ReportGuid>a631397b3d0f4dd0982009e268cd07ee</ReportGuid>
+  <ReportGuid>678c3b5e1a524716900c12ca8024850b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

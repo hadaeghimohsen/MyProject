@@ -290,6 +290,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
+            iProject.CommandTimeout = 18000;
+
             var subsys = SubSys_Lov.EditValue;
             if (subsys == null || subsys.ToString() == "") return;
 
@@ -330,6 +332,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var trgtregn = TrgtRegn_Lov.Text;
             if (trgtregn == null || trgtregn.ToString() == "") return;
 
+            if (_comboTo1.SelectedItem == null) return;
+
+            _comboFrom.SelectedItem = _comboFrom1.SelectedItem;
+            _comboTo.SelectedItem = _comboTo1.SelectedItem;
             //_comboFrom.SelectedItem = Translator.Languages.FirstOrDefault(l => sorcregn.ToString().Contains(l));
             //_comboTo.SelectedItem = Translator.Languages.FirstOrDefault(l => trgtregn.ToString().Contains(l));
 
@@ -451,6 +457,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var trgtregn = TrgtDomnRegn_Lov.Text;
             if (trgtregn == null || trgtregn.ToString() == "") return;
 
+            _comboFrom.SelectedItem = _comboFrom1.SelectedItem;
+            _comboTo.SelectedItem = _comboTo1.SelectedItem;
             //_comboFrom.SelectedItem = Translator.Languages.FirstOrDefault(l => sorcregn.ToString().Contains(l));
             //_comboTo.SelectedItem = Translator.Languages.FirstOrDefault(l => trgtregn.ToString().Contains(l));
 
@@ -626,6 +634,40 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   break;
             }
             
+         }
+         catch { }
+      }
+
+      private void TryAllTran_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var subsys = SubSys_Lov.EditValue;
+            if (subsys == null || subsys.ToString() == "") return;
+
+            var sorcregn = SorcRegn_Lov.Text;
+            if (sorcregn == null || sorcregn.ToString() == "") return;
+
+            var trgtregn = TrgtRegn_Lov.Text;
+            if (trgtregn == null || trgtregn.ToString() == "") return;
+
+            if (_comboTo1.SelectedItem == null) return;
+
+            _comboFrom.SelectedItem = _comboFrom1.SelectedItem;
+            _comboTo.SelectedItem = _comboTo1.SelectedItem;
+
+            Form_Lov.EditValue = null;
+
+            // ترجمه کردن فرم های نرم افزار
+            foreach (var form in FormBs.List.OfType<Data.Form>())
+            {
+               Form_Lov.EditValue = form.ID;
+               Translate_Butn_Click(null, null);
+            }
+
+            // ترجمه کردن دامنه های زیر سیستم
+
+            TranDomn_Butn_Click(null, null);
          }
          catch { }
       }

@@ -75,6 +75,10 @@
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.tp_002 = new System.Windows.Forms.TabPage();
+         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+         this._comboTo1 = new System.Windows.Forms.ComboBox();
+         this._comboFrom1 = new System.Windows.Forms.ComboBox();
          this.Tb_SubSys = new System.Windows.Forms.TabControl();
          this.tp_003 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -92,8 +96,8 @@
          this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
          this.repositoryItemTimeEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
-         this.Translate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TrgtRegn_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.Translate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sub_SystemGridControl = new DevExpress.XtraGrid.GridControl();
          this.SorcFcntBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -109,8 +113,8 @@
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.Form_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.FormBs = new System.Windows.Forms.BindingSource();
-         this.Compare_Duplicate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SorcRegn_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.Compare_Duplicate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tp_004 = new System.Windows.Forms.TabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
@@ -137,6 +141,7 @@
          this.repositoryItemTimeEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.CompDuplDomn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SorcDomnRegn_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.TryAllTran_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TryTran_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Refresh_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
@@ -145,8 +150,6 @@
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.comboBox1 = new System.Windows.Forms.ComboBox();
-         this.comboBox2 = new System.Windows.Forms.ComboBox();
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
@@ -682,7 +685,12 @@
          // 
          // tp_002
          // 
+         this.tp_002.Controls.Add(this.labelControl13);
+         this.tp_002.Controls.Add(this.labelControl14);
+         this.tp_002.Controls.Add(this._comboTo1);
+         this.tp_002.Controls.Add(this._comboFrom1);
          this.tp_002.Controls.Add(this.Tb_SubSys);
+         this.tp_002.Controls.Add(this.TryAllTran_Butn);
          this.tp_002.Controls.Add(this.TryTran_Butn);
          this.tp_002.Controls.Add(this.Refresh_Butn);
          this.tp_002.Controls.Add(this.labelControl11);
@@ -697,6 +705,62 @@
          this.tp_002.Tag = "2";
          this.tp_002.Text = "بومی سازی";
          this.tp_002.UseVisualStyleBackColor = true;
+         // 
+         // labelControl13
+         // 
+         this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl13.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl13.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl13.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.labelControl13.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+         this.labelControl13.Location = new System.Drawing.Point(377, 81);
+         this.labelControl13.Name = "labelControl13";
+         this.labelControl13.Size = new System.Drawing.Size(71, 26);
+         this.labelControl13.TabIndex = 23;
+         this.labelControl13.Text = "زبان خروجی";
+         // 
+         // labelControl14
+         // 
+         this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl14.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl14.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl14.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.labelControl14.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+         this.labelControl14.Location = new System.Drawing.Point(562, 84);
+         this.labelControl14.Name = "labelControl14";
+         this.labelControl14.Size = new System.Drawing.Size(53, 26);
+         this.labelControl14.TabIndex = 24;
+         this.labelControl14.Text = "زبان منبع";
+         // 
+         // _comboTo1
+         // 
+         this._comboTo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this._comboTo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this._comboTo1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this._comboTo1.FormattingEnabled = true;
+         this._comboTo1.Location = new System.Drawing.Point(274, 113);
+         this._comboTo1.MaxDropDownItems = 20;
+         this._comboTo1.Name = "_comboTo1";
+         this._comboTo1.Size = new System.Drawing.Size(174, 24);
+         this._comboTo1.TabIndex = 21;
+         // 
+         // _comboFrom1
+         // 
+         this._comboFrom1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this._comboFrom1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this._comboFrom1.Enabled = false;
+         this._comboFrom1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this._comboFrom1.FormattingEnabled = true;
+         this._comboFrom1.Location = new System.Drawing.Point(453, 114);
+         this._comboFrom1.MaxDropDownItems = 20;
+         this._comboFrom1.Name = "_comboFrom1";
+         this._comboFrom1.Size = new System.Drawing.Size(162, 24);
+         this._comboFrom1.Sorted = true;
+         this._comboFrom1.TabIndex = 21;
          // 
          // Tb_SubSys
          // 
@@ -730,13 +794,11 @@
          this.splitContainerControl2.Name = "splitContainerControl2";
          this.splitContainerControl2.Panel1.Controls.Add(this.gridControl1);
          this.splitContainerControl2.Panel1.Controls.Add(this.TrgtRegn_Lov);
-         this.splitContainerControl2.Panel1.Controls.Add(this.comboBox2);
          this.splitContainerControl2.Panel1.Controls.Add(this.Translate_Butn);
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.sub_SystemGridControl);
          this.splitContainerControl2.Panel2.Controls.Add(this.Form_Lov);
          this.splitContainerControl2.Panel2.Controls.Add(this.SorcRegn_Lov);
-         this.splitContainerControl2.Panel2.Controls.Add(this.comboBox1);
          this.splitContainerControl2.Panel2.Controls.Add(this.Compare_Duplicate_Butn);
          this.splitContainerControl2.Panel2.Text = "Panel2";
          this.splitContainerControl2.Size = new System.Drawing.Size(836, 383);
@@ -748,7 +810,7 @@
          // 
          this.gridControl1.DataSource = this.TrgtFcntBs;
          this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl1.Location = new System.Drawing.Point(0, 55);
+         this.gridControl1.Location = new System.Drawing.Point(0, 31);
          this.gridControl1.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView2;
@@ -756,7 +818,7 @@
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit2,
             this.repositoryItemTimeEdit2});
-         this.gridControl1.Size = new System.Drawing.Size(423, 288);
+         this.gridControl1.Size = new System.Drawing.Size(423, 312);
          this.gridControl1.TabIndex = 19;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -893,33 +955,11 @@
          this.repositoryItemTimeEdit2.Name = "repositoryItemTimeEdit2";
          this.repositoryItemTimeEdit2.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          // 
-         // Translate_Butn
-         // 
-         this.Translate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.Translate_Butn.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-         this.Translate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Translate_Butn.Appearance.Options.UseBackColor = true;
-         this.Translate_Butn.Appearance.Options.UseBorderColor = true;
-         this.Translate_Butn.Appearance.Options.UseFont = true;
-         this.Translate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-         this.Translate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.Translate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Translate_Butn.Image")));
-         this.Translate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Translate_Butn.Location = new System.Drawing.Point(0, 343);
-         this.Translate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Translate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Translate_Butn.Name = "Translate_Butn";
-         this.Translate_Butn.Size = new System.Drawing.Size(423, 40);
-         this.Translate_Butn.TabIndex = 20;
-         this.Translate_Butn.Text = "ترجمه کردن";
-         this.Translate_Butn.ToolTip = "بازگشت";
-         this.Translate_Butn.Click += new System.EventHandler(this.Translate_Butn_Click);
-         // 
          // TrgtRegn_Lov
          // 
          this.TrgtRegn_Lov.Dock = System.Windows.Forms.DockStyle.Top;
          this.TrgtRegn_Lov.EditValue = "017";
-         this.TrgtRegn_Lov.Location = new System.Drawing.Point(0, 24);
+         this.TrgtRegn_Lov.Location = new System.Drawing.Point(0, 0);
          this.TrgtRegn_Lov.Name = "TrgtRegn_Lov";
          this.TrgtRegn_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.TrgtRegn_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
@@ -955,11 +995,33 @@
          this.TrgtRegn_Lov.ToolTip = "زبان و منطقه";
          this.TrgtRegn_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.TrgtRegn_Lov_EditValueChanging);
          // 
+         // Translate_Butn
+         // 
+         this.Translate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Translate_Butn.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+         this.Translate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Translate_Butn.Appearance.Options.UseBackColor = true;
+         this.Translate_Butn.Appearance.Options.UseBorderColor = true;
+         this.Translate_Butn.Appearance.Options.UseFont = true;
+         this.Translate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.Translate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.Translate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Translate_Butn.Image")));
+         this.Translate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.Translate_Butn.Location = new System.Drawing.Point(0, 343);
+         this.Translate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Translate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Translate_Butn.Name = "Translate_Butn";
+         this.Translate_Butn.Size = new System.Drawing.Size(423, 40);
+         this.Translate_Butn.TabIndex = 20;
+         this.Translate_Butn.Text = "ترجمه کردن";
+         this.Translate_Butn.ToolTip = "بازگشت";
+         this.Translate_Butn.Click += new System.EventHandler(this.Translate_Butn_Click);
+         // 
          // sub_SystemGridControl
          // 
          this.sub_SystemGridControl.DataSource = this.SorcFcntBs;
          this.sub_SystemGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.sub_SystemGridControl.Location = new System.Drawing.Point(0, 86);
+         this.sub_SystemGridControl.Location = new System.Drawing.Point(0, 62);
          this.sub_SystemGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.sub_SystemGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sub_SystemGridControl.MainView = this.gridView1;
@@ -967,7 +1029,7 @@
          this.sub_SystemGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemTimeEdit1});
-         this.sub_SystemGridControl.Size = new System.Drawing.Size(408, 257);
+         this.sub_SystemGridControl.Size = new System.Drawing.Size(408, 281);
          this.sub_SystemGridControl.TabIndex = 2;
          this.sub_SystemGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1102,7 +1164,7 @@
          // Form_Lov
          // 
          this.Form_Lov.Dock = System.Windows.Forms.DockStyle.Top;
-         this.Form_Lov.Location = new System.Drawing.Point(0, 55);
+         this.Form_Lov.Location = new System.Drawing.Point(0, 31);
          this.Form_Lov.Name = "Form_Lov";
          this.Form_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Form_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
@@ -1150,33 +1212,11 @@
          // 
          this.FormBs.DataSource = typeof(System.DataGuard.Data.Form);
          // 
-         // Compare_Duplicate_Butn
-         // 
-         this.Compare_Duplicate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.Compare_Duplicate_Butn.Appearance.BorderColor = System.Drawing.Color.Blue;
-         this.Compare_Duplicate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Compare_Duplicate_Butn.Appearance.Options.UseBackColor = true;
-         this.Compare_Duplicate_Butn.Appearance.Options.UseBorderColor = true;
-         this.Compare_Duplicate_Butn.Appearance.Options.UseFont = true;
-         this.Compare_Duplicate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.Compare_Duplicate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.Compare_Duplicate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Compare_Duplicate_Butn.Image")));
-         this.Compare_Duplicate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Compare_Duplicate_Butn.Location = new System.Drawing.Point(0, 343);
-         this.Compare_Duplicate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Compare_Duplicate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Compare_Duplicate_Butn.Name = "Compare_Duplicate_Butn";
-         this.Compare_Duplicate_Butn.Size = new System.Drawing.Size(408, 40);
-         this.Compare_Duplicate_Butn.TabIndex = 20;
-         this.Compare_Duplicate_Butn.Text = "مقایسه و نمونه برداری";
-         this.Compare_Duplicate_Butn.ToolTip = "بازگشت";
-         this.Compare_Duplicate_Butn.Click += new System.EventHandler(this.Compare_Duplicate_Butn_Click);
-         // 
          // SorcRegn_Lov
          // 
          this.SorcRegn_Lov.Dock = System.Windows.Forms.DockStyle.Top;
          this.SorcRegn_Lov.EditValue = "054";
-         this.SorcRegn_Lov.Location = new System.Drawing.Point(0, 24);
+         this.SorcRegn_Lov.Location = new System.Drawing.Point(0, 0);
          this.SorcRegn_Lov.Name = "SorcRegn_Lov";
          this.SorcRegn_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.SorcRegn_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Black;
@@ -1211,6 +1251,28 @@
          this.SorcRegn_Lov.Size = new System.Drawing.Size(408, 31);
          this.SorcRegn_Lov.TabIndex = 17;
          this.SorcRegn_Lov.ToolTip = "زبان و منطقه";
+         // 
+         // Compare_Duplicate_Butn
+         // 
+         this.Compare_Duplicate_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.Compare_Duplicate_Butn.Appearance.BorderColor = System.Drawing.Color.Blue;
+         this.Compare_Duplicate_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Compare_Duplicate_Butn.Appearance.Options.UseBackColor = true;
+         this.Compare_Duplicate_Butn.Appearance.Options.UseBorderColor = true;
+         this.Compare_Duplicate_Butn.Appearance.Options.UseFont = true;
+         this.Compare_Duplicate_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.Compare_Duplicate_Butn.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.Compare_Duplicate_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Compare_Duplicate_Butn.Image")));
+         this.Compare_Duplicate_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.Compare_Duplicate_Butn.Location = new System.Drawing.Point(0, 343);
+         this.Compare_Duplicate_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Compare_Duplicate_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Compare_Duplicate_Butn.Name = "Compare_Duplicate_Butn";
+         this.Compare_Duplicate_Butn.Size = new System.Drawing.Size(408, 40);
+         this.Compare_Duplicate_Butn.TabIndex = 20;
+         this.Compare_Duplicate_Butn.Text = "مقایسه و نمونه برداری";
+         this.Compare_Duplicate_Butn.ToolTip = "بازگشت";
+         this.Compare_Duplicate_Butn.Click += new System.EventHandler(this.Compare_Duplicate_Butn_Click);
          // 
          // tp_004
          // 
@@ -1578,6 +1640,21 @@
          this.SorcDomnRegn_Lov.TabIndex = 17;
          this.SorcDomnRegn_Lov.ToolTip = "زبان و منطقه";
          // 
+         // TryAllTran_Butn
+         // 
+         this.TryAllTran_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.TryAllTran_Butn.Appearance.Options.UseBackColor = true;
+         this.TryAllTran_Butn.Image = ((System.Drawing.Image)(resources.GetObject("TryAllTran_Butn.Image")));
+         this.TryAllTran_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.TryAllTran_Butn.Location = new System.Drawing.Point(120, 94);
+         this.TryAllTran_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.TryAllTran_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TryAllTran_Butn.Name = "TryAllTran_Butn";
+         this.TryAllTran_Butn.Size = new System.Drawing.Size(45, 45);
+         this.TryAllTran_Butn.TabIndex = 21;
+         this.TryAllTran_Butn.ToolTip = "بازگشت";
+         this.TryAllTran_Butn.Click += new System.EventHandler(this.TryAllTran_Butn_Click);
+         // 
          // TryTran_Butn
          // 
          this.TryTran_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -1733,31 +1810,6 @@
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
-         // comboBox1
-         // 
-         this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-         this.comboBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.comboBox1.FormattingEnabled = true;
-         this.comboBox1.Location = new System.Drawing.Point(0, 0);
-         this.comboBox1.MaxDropDownItems = 20;
-         this.comboBox1.Name = "comboBox1";
-         this.comboBox1.Size = new System.Drawing.Size(408, 24);
-         this.comboBox1.Sorted = true;
-         this.comboBox1.TabIndex = 21;
-         // 
-         // comboBox2
-         // 
-         this.comboBox2.Dock = System.Windows.Forms.DockStyle.Top;
-         this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-         this.comboBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.comboBox2.FormattingEnabled = true;
-         this.comboBox2.Location = new System.Drawing.Point(0, 0);
-         this.comboBox2.MaxDropDownItems = 20;
-         this.comboBox2.Name = "comboBox2";
-         this.comboBox2.Size = new System.Drawing.Size(423, 24);
-         this.comboBox2.TabIndex = 21;
-         // 
          // SettingsRegion
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1779,6 +1831,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Regn_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DRegnBs)).EndInit();
          this.tp_002.ResumeLayout(false);
+         this.tp_002.PerformLayout();
          this.Tb_SubSys.ResumeLayout(false);
          this.tp_003.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
@@ -1930,8 +1983,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn colVALU;
       private DevExpress.XtraGrid.Columns.GridColumn colDOMN_DESC;
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_LANG;
-      private Windows.Forms.ComboBox comboBox2;
-      private Windows.Forms.ComboBox comboBox1;
+      private Windows.Forms.ComboBox _comboTo1;
+      private Windows.Forms.ComboBox _comboFrom1;
+      private DevExpress.XtraEditors.LabelControl labelControl13;
+      private DevExpress.XtraEditors.LabelControl labelControl14;
+      private DevExpress.XtraEditors.SimpleButton TryAllTran_Butn;
 
    }
 }

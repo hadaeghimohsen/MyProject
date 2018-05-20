@@ -186,10 +186,16 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          DYsnoBs.DataSource = iProject.D_YSNOs;
          DRegnBs.DataSource = iProject.D_REGNs;
 
-         this._comboFrom.Items.AddRange(Translator.Languages.ToArray());
-         this._comboTo.Items.AddRange(Translator.Languages.ToArray());
-         this._comboFrom.SelectedItem = "Persian";
-         this._comboTo.SelectedItem = "Arabic";
+         if (_comboFrom.Items.Count == 0)
+         {
+            this._comboFrom.Items.AddRange(Translator.Languages.ToArray());
+            this._comboFrom1.Items.AddRange(Translator.Languages.ToArray());
+            this._comboTo.Items.AddRange(Translator.Languages.ToArray());
+            this._comboTo1.Items.AddRange(Translator.Languages.ToArray());
+         }
+
+         this._comboFrom1.SelectedItem = this._comboFrom.SelectedItem = "Persian";
+         this._comboTo1.SelectedItem = this._comboTo.SelectedItem = "Arabic";
 
          job.Status = StatusType.Successful;
       }

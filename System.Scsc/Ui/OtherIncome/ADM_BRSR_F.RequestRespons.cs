@@ -118,7 +118,7 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstRqt1_Click(null, null);
          }
          else if (keyData == Keys.Enter)
@@ -132,12 +132,12 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.F8)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstDelete1_Click(null, null);
          }
          else if (keyData == Keys.F5)
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
                Btn_RqstRqt1_Click(null, null);
          }
          else if (keyData == Keys.F10)
@@ -289,7 +289,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                case "fighter":
                   //tb_master.TabPages.Add(tp_001);
-                  tb_master.SelectedTab = tp_001;
+                  //tb_master.SelectedTab = tp_001;
                   break;
                case "coach":
                   //tb_master.TabPages.Add(tp_002);

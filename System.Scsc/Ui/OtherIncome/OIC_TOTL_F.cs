@@ -180,6 +180,7 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("rqttcode", "001"),
                      new XAttribute("mdulname", GetType().Name),
                      new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XAttribute("rqstdesc", RqstDesc_Txt.EditValue ?? ""),
                      new XElement("Request_Row",
                         new XAttribute("fileno", Figh == null ? FILE_NO_LookUpEdit.EditValue ?? "" : Figh.FILE_NO),
                         new XElement("Fighter_Public", 

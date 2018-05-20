@@ -235,13 +235,13 @@
       <Association Name="Region_User_Region_Fgac" Member="User_Region_Fgacs" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="User_Region_Fgac" />
       <Association Name="Region_Misc_Expense" Member="Misc_Expenses" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Misc_Expense" />
       <Association Name="Region_Account" Member="Accounts" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Account" />
-      <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
       <Association Name="Region_Request_Row" Member="Request_Rows" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request_Row" />
       <Association Name="Region_Account_Detail" Member="Account_Details" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="ACTN_REGN_PRVN_CNTY_CODE,ACTN_REGN_PRVN_CODE,ACTN_REGN_CODE" Type="Account_Detail" />
       <Association Name="Region_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Aggregation_Operation" />
       <Association Name="Region_Club" Member="Clubs" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Club" />
       <Association Name="Region_Fighter_Public" Member="Fighter_Publics" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Fighter_Public" />
       <Association Name="Region_Fighter" Member="Fighters" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Fighter" />
+      <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
       <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
       <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -275,8 +275,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Request_Regulation_History" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Regulation_Request_Regulation_History" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Request_Request_Regulation_History" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Requester_Type" Member="Requester_Types">
@@ -291,11 +291,11 @@
       <Association Name="Requester_Type_Request_Requester" Member="Request_Requesters" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request_Requester" />
       <Association Name="Requester_Type_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Base_Calculate_Expense" />
       <Association Name="Requester_Type_Expense_Item" Member="Expense_Items" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Expense_Item" />
-      <Association Name="Requester_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request" />
       <Association Name="Requester_Type_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request_Row" />
       <Association Name="Requester_Type_User_Request_Requester_Fgac" Member="User_Request_Requester_Fgacs" ThisKey="CODE" OtherKey="RQTT_CODE" Type="User_Request_Requester_Fgac" />
       <Association Name="Requester_Type_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Aggregation_Operation" />
       <Association Name="Requester_Type_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Requester_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request" />
     </Type>
     <InsertFunction FunctionId="FunctionId16">
       <Argument Parameter="code" Member="CODE" />
@@ -1307,53 +1307,6 @@
       <Association Name="Request_Type_Expense_Item" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Request" Member="Requests">
-    <Type Name="Request">
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
-      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
-      <Association Name="Request_Committee" Member="Committees" ThisKey="RQID" OtherKey="RQST_RQID" Type="Committee" />
-      <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
-      <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
-      <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
-      <Association Name="Request_Account_Detail" Member="Account_Details" ThisKey="RQID" OtherKey="PYMT_RQST_RQID" Type="Account_Detail" />
-      <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
-      <Association Name="Request_Fighter_Public" Member="Fighter_Publics" ThisKey="RQID" OtherKey="CNTR_CODE" Type="Fighter_Public" />
-      <Association Name="Request_Fighter" Member="Fighters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter" />
-      <Association Name="Request_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="RQID" OtherKey="RQST_RQID" Type="Aggregation_Operation_Detail" />
-      <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
-      <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
-      <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
-      <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
-      <Association Name="Month_Base_Request" Member="Month_Base" ThisKey="CYCL" OtherKey="CYCL" Type="Month_Base" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Request_Letter" Member="Request_Letters">
     <Type Name="Request_Letter">
       <Column Name="RLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -1694,10 +1647,10 @@
       <Association Name="Request_Row_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Gain_Loss_Rial1" Member="Gain_Loss_Rials1" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Gain_Loss_Rial" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Fighter_Request_Row" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Finance_Document" Member="Finance_Documents">
@@ -2056,10 +2009,10 @@
       <Association Name="Request_Type_Request_Requester" Member="Request_Requesters" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request_Requester" />
       <Association Name="Request_Type_Reason_Spec" Member="Reason_Specs" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Reason_Spec" />
       <Association Name="Request_Type_Expense_Item" Member="Expense_Items" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Expense_Item" />
-      <Association Name="Request_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request" />
       <Association Name="Request_Type_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request_Row" />
       <Association Name="Request_Type_User_Request_Requester_Fgac" Member="User_Request_Requester_Fgacs" ThisKey="CODE" OtherKey="RQTP_CODE" Type="User_Request_Requester_Fgac" />
       <Association Name="Request_Type_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Aggregation_Operation" />
+      <Association Name="Request_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request" />
     </Type>
     <InsertFunction FunctionId="FunctionId59">
       <Argument Parameter="code" Member="CODE" />
@@ -2113,9 +2066,9 @@
       <Association Name="Cash_Account_Detail" Member="Cash" ThisKey="PYMT_CASH_CODE" OtherKey="CODE" Type="Cash" IsForeignKey="true" />
       <Association Name="Misc_Expense_Account_Detail" Member="Misc_Expense" ThisKey="MSEX_CODE" OtherKey="CODE" Type="Misc_Expense" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Region_Account_Detail" Member="Region" ThisKey="ACTN_REGN_PRVN_CNTY_CODE,ACTN_REGN_PRVN_CODE,ACTN_REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Account_Detail" Member="Request" ThisKey="PYMT_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Club_Account_Detail" Member="Club" ThisKey="ACTN_CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Payment_Account_Detail" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Account_Detail" Member="Request" ThisKey="PYMT_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Aggregation_Operation" Member="Aggregation_Operations">
@@ -3021,7 +2974,6 @@
       <Association Name="Fighter_Public_Present" Member="Presents" ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE" OtherKey="FGPB_FIGH_FILE_NO,FGPB_RWNO,FGPB_RECT_CODE" Type="Present" />
       <Association Name="Fighter_Public_Member_Ship" Member="Member_Ships" ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE" OtherKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM" Type="Member_Ship" />
       <Association Name="Club_Fighter_Public" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Request_Fighter_Public" Member="Request" ThisKey="CNTR_CODE" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Category_Belt_Fighter_Public" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Diseases_Type_Fighter_Public" Member="Diseases_Type" ThisKey="DISE_CODE" OtherKey="CODE" Type="Diseases_Type" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Method_Fighter_Public" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
@@ -3031,6 +2983,7 @@
       <Association Name="Fighter_Fighter_Public" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Fighter_Fighter_Public1" Member="Fighter1" ThisKey="INTR_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Club_Method_Fighter_Public" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Request_Fighter_Public" Member="Request" ThisKey="CNTR_CODE" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Gain_Loss_Rial" Member="Gain_Loss_Rials">
@@ -3166,8 +3119,8 @@
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Method_Fighter" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Region_Fighter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Fighter" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Sub_Unit_Fighter" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
+      <Association Name="Request_Fighter" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Gain_Loss_Rail_Detail" Member="Gain_Loss_Rail_Details">
@@ -3230,9 +3183,9 @@
       <Association Name="Aggregation_Operation_Aggregation_Operation_Detail" Member="Aggregation_Operation" ThisKey="AGOP_CODE" OtherKey="CODE" Type="Aggregation_Operation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Aggregation_Operation_Detail_Aggregation_Operation_Detail" Member="Aggregation_Operation_Detail1" ThisKey="AODT_AGOP_CODE,AODT_RWNO" OtherKey="AGOP_CODE,RWNO" Type="Aggregation_Operation_Detail" IsForeignKey="true" />
       <Association Name="Fighter_Aggregation_Operation_Detail" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
-      <Association Name="Request_Aggregation_Operation_Detail" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Expense_Aggregation_Operation_Detail" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Attendance_Aggregation_Operation_Detail" Member="Attendance" ThisKey="ATTN_CODE" OtherKey="CODE" Type="Attendance" IsForeignKey="true" />
+      <Association Name="Request_Aggregation_Operation_Detail" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
     <UpdateFunction FunctionId="FunctionId81">
       <Argument Parameter="agop_Code" Member="AGOP_CODE" />
@@ -3485,6 +3438,55 @@
       <Column Name="HLDY_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CLER_ZERO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Club_Setting" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Request" Member="Requests">
+    <Type Name="Request">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
+      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
+      <Association Name="Request_Committee" Member="Committees" ThisKey="RQID" OtherKey="RQST_RQID" Type="Committee" />
+      <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
+      <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
+      <Association Name="Request_Account_Detail" Member="Account_Details" ThisKey="RQID" OtherKey="PYMT_RQST_RQID" Type="Account_Detail" />
+      <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
+      <Association Name="Request_Fighter_Public" Member="Fighter_Publics" ThisKey="RQID" OtherKey="CNTR_CODE" Type="Fighter_Public" />
+      <Association Name="Request_Fighter" Member="Fighters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter" />
+      <Association Name="Request_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="RQID" OtherKey="RQST_RQID" Type="Aggregation_Operation_Detail" />
+      <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
+      <Association Name="Month_Base_Request" Member="Month_Base" ThisKey="CYCL" OtherKey="CYCL" Type="Month_Base" IsForeignKey="true" />
+      <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
+      <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
+      <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">

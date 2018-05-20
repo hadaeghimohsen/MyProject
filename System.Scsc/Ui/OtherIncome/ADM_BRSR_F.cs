@@ -31,7 +31,7 @@ namespace System.Scsc.Ui.OtherIncome
          setOnDebt = false;
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
 
@@ -141,8 +141,9 @@ namespace System.Scsc.Ui.OtherIncome
                                  new XElement("Cord_Y", ""),
                                  new XElement("Mtod_Code", MtodCode_LookupEdit001.EditValue ?? ""),
                                  new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? ""),
-                                 new XElement("Most_Debt_Clng", MostDebtClng_Txt.EditValue ?? ""),
-                                 new XElement("Serv_No", "")
+                                 new XElement("Most_Debt_Clng", ""),
+                                 new XElement("Serv_No", ""),
+                                 new XElement("Chat_Id", TelgCode_Txt.EditValue ?? "")
                               ),
                               new XElement("Member_Ship",
                                  new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
@@ -206,7 +207,7 @@ namespace System.Scsc.Ui.OtherIncome
                //MessageBox.Show(this, "مشتری حذف گردید!");
             }
             requery = true;
-            tc_pblc.SelectedTab = tp_pblcinfo;
+            //tc_pblc.SelectedTab = tp_pblcinfo;
          }
          catch (Exception ex)
          {
@@ -246,7 +247,7 @@ namespace System.Scsc.Ui.OtherIncome
                   )
                );
                requery = true;
-               tc_pblc.SelectedTab = tp_pblcinfo;
+               //tc_pblc.SelectedTab = tp_pblcinfo;
             }
          }
          catch (Exception ex)
@@ -262,6 +263,7 @@ namespace System.Scsc.Ui.OtherIncome
                //Set_Current_Record();
                //Create_Record();
                requery = false;
+               vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
             }
          }
       }
@@ -304,7 +306,7 @@ namespace System.Scsc.Ui.OtherIncome
       
       private void RqstBnADoc_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -319,7 +321,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            if (tb_master.SelectedTab == tp_001)
+            //if (tb_master.SelectedTab == tp_001)
             {
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -370,7 +372,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             Job _InteractWithScsc =
               new Job(SendType.External, "Localhost",
@@ -385,7 +387,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -402,7 +404,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -419,7 +421,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             if (RqstBs1.Current == null) return;
             var crnt = RqstBs1.Current as Data.Request;
@@ -436,7 +438,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnAResn_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
@@ -454,7 +456,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnRegl01_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedTab == tp_001)
+         //if (tb_master.SelectedTab == tp_001)
          {
             var Rg1 = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").Single();
             if (Rg1 == null) return;
@@ -616,21 +618,21 @@ namespace System.Scsc.Ui.OtherIncome
          var fileno = (vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
          try
          {
-            Pb_FighImg.Image = null;
+            UserProFile_Rb.ImageProfile = null;
             MemoryStream mStream = new MemoryStream();
             byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
             mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
             Bitmap bm = new Bitmap(mStream, false);
             mStream.Dispose();
 
-            Pb_FighImg.Visible = true;
+            UserProFile_Rb.Visible = true;
 
             if (InvokeRequired)
-               Invoke(new Action(() => Pb_FighImg.Image = bm));
+               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
             else
-               Pb_FighImg.Image = bm;
+               UserProFile_Rb.ImageProfile = bm;
          }
-         catch { Pb_FighImg.Visible = false; }
+         catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
       }
 
    }

@@ -206,6 +206,11 @@ namespace System.Scsc.Ui.OtherIncome
             {
                switch (control.CNTL_NAME.ToLower())
                {
+                  case "rqstdesc_lb":
+                     RqstDesc_Lb.Text = control.LABL_TEXT;
+                     //RqstDesc_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //RqstDesc_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "bn_paymentmethods1":
                      bn_PaymentMethods1.Text = control.LABL_TEXT;
                      //bn_PaymentMethods1.Text = control.LABL_TEXT; // ToolTip

@@ -76,6 +76,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).BeginInit();
          this.SuspendLayout();
          // 
+         // label14
+         // 
+         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         label14.Location = new System.Drawing.Point(319, 340);
+         label14.Name = "label14";
+         label14.Size = new System.Drawing.Size(26, 19);
+         label14.TabIndex = 6;
+         label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
+         // 
          // LastName_Lb
          // 
          this.LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -153,16 +163,6 @@
          this.ChatId_Lb.TabIndex = 53;
          this.ChatId_Lb.Text = "کد تلگرام :";
          // 
-         // label14
-         // 
-         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
-         label14.Location = new System.Drawing.Point(319, 340);
-         label14.Name = "label14";
-         label14.Size = new System.Drawing.Size(26, 19);
-         label14.TabIndex = 6;
-         label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
-         // 
          // panel1
          // 
          this.panel1.Controls.Add(this.TitlForm_Lb);
@@ -178,13 +178,12 @@
          this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1077;
          this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(320, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(89, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(216, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(447, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "اضافه کردن مربی جدید";
          // 

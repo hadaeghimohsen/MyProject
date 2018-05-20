@@ -281,7 +281,7 @@
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.Orange;
          this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label4.Location = new System.Drawing.Point(493, 464);
+         this.label4.Location = new System.Drawing.Point(476, 464);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(20, 20);
          this.label4.TabIndex = 14;
@@ -291,7 +291,7 @@
          this.ReglAcnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglAcnt_Lb.AutoSize = true;
          this.ReglAcnt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglAcnt_Lb.Location = new System.Drawing.Point(383, 446);
+         this.ReglAcnt_Lb.Location = new System.Drawing.Point(366, 446);
          this.ReglAcnt_Lb.Name = "ReglAcnt_Lb";
          this.ReglAcnt_Lb.Size = new System.Drawing.Size(104, 13);
          this.ReglAcnt_Lb.TabIndex = 12;
@@ -302,7 +302,7 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.BackColor = System.Drawing.Color.Lime;
          this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label2.Location = new System.Drawing.Point(493, 441);
+         this.label2.Location = new System.Drawing.Point(476, 441);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(20, 20);
          this.label2.TabIndex = 15;
@@ -312,7 +312,7 @@
          this.ReglPymt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglPymt_Lb.AutoSize = true;
          this.ReglPymt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglPymt_Lb.Location = new System.Drawing.Point(390, 468);
+         this.ReglPymt_Lb.Location = new System.Drawing.Point(373, 468);
          this.ReglPymt_Lb.Name = "ReglPymt_Lb";
          this.ReglPymt_Lb.Size = new System.Drawing.Size(97, 13);
          this.ReglPymt_Lb.TabIndex = 13;
@@ -339,7 +339,7 @@
             this.LV_REGLSTAT,
             this.HL_INVSREGL,
             this.repositoryItemLookUpEdit1});
-         this.regulationGridControl.Size = new System.Drawing.Size(1220, 216);
+         this.regulationGridControl.Size = new System.Drawing.Size(1203, 216);
          this.regulationGridControl.TabIndex = 9;
          this.regulationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_REGL});
@@ -760,7 +760,7 @@
          this.PNL_REGL.Controls.Add(this.Spn_Year);
          this.PNL_REGL.Controls.Add(this.Dat_LettDate);
          this.PNL_REGL.Controls.Add(this.Lov_ReglType);
-         this.PNL_REGL.Location = new System.Drawing.Point(519, 331);
+         this.PNL_REGL.Location = new System.Drawing.Point(502, 331);
          this.PNL_REGL.Name = "PNL_REGL";
          this.PNL_REGL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.PNL_REGL.Size = new System.Drawing.Size(704, 156);
@@ -1013,7 +1013,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1226, 59);
+         this.panel1.Size = new System.Drawing.Size(1209, 59);
          this.panel1.TabIndex = 19;
          // 
          // TitlForm_Lb
@@ -1021,13 +1021,12 @@
          this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1075;
          this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(1046, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(795, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(119, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(353, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "آیین نامه";
          // 
@@ -1038,7 +1037,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1165, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1148, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -1080,7 +1079,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.toolStripTextBox1;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1226, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1209, 47);
          this.RqstBn1.TabIndex = 27;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -1305,7 +1304,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "MSTR_REGL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1226, 495);
+         this.Size = new System.Drawing.Size(1209, 495);
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).EndInit();

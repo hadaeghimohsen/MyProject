@@ -133,8 +133,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.Mbsp1Mont_Lb = new System.Windows.Forms.Label();
-         this.MbfzEndDate_Lb = new System.Windows.Forms.Label();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.TotlDebtAmnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -147,6 +145,8 @@
          this.AttnStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit14 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DActvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Mbsp1Mont_Lb = new System.Windows.Forms.Label();
+         this.MbfzEndDate_Lb = new System.Windows.Forms.Label();
          this.FileNo_Lb = new System.Windows.Forms.Label();
          this.BrthDate_Lb = new System.Windows.Forms.Label();
          this.CellPhon_Lb = new System.Windows.Forms.Label();
@@ -489,7 +489,7 @@
          this.colPYMT_CASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.ExpnCode1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.ExpnCode1_Lb = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -512,7 +512,7 @@
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Pydt_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.CochFileNo1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.MtodCode1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.MtodCode1_Lb = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyCode1_Lb = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PydtDesc_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.PydtList_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -715,26 +715,6 @@
          this.panel2.SuspendLayout();
          this.SuspendLayout();
          // 
-         // Mbsp1Mont_Lb
-         // 
-         this.Mbsp1Mont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Mbsp1Mont_Lb.AutoSize = true;
-         this.Mbsp1Mont_Lb.Location = new System.Drawing.Point(248, 6);
-         this.Mbsp1Mont_Lb.Name = "Mbsp1Mont_Lb";
-         this.Mbsp1Mont_Lb.Size = new System.Drawing.Size(60, 14);
-         this.Mbsp1Mont_Lb.TabIndex = 4;
-         this.Mbsp1Mont_Lb.Text = "تعداد ماه :";
-         // 
-         // MbfzEndDate_Lb
-         // 
-         this.MbfzEndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.MbfzEndDate_Lb.AutoSize = true;
-         this.MbfzEndDate_Lb.Location = new System.Drawing.Point(169, 37);
-         this.MbfzEndDate_Lb.Name = "MbfzEndDate_Lb";
-         this.MbfzEndDate_Lb.Size = new System.Drawing.Size(63, 14);
-         this.MbfzEndDate_Lb.TabIndex = 29;
-         this.MbfzEndDate_Lb.Text = "تاریخ پایان :";
-         // 
          // colVALD_TYPE
          // 
          this.colVALD_TYPE.Caption = "gridColumn20";
@@ -838,6 +818,26 @@
          // DActvBs
          // 
          this.DActvBs.DataSource = typeof(System.Scsc.Data.D_ACTV);
+         // 
+         // Mbsp1Mont_Lb
+         // 
+         this.Mbsp1Mont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Mbsp1Mont_Lb.AutoSize = true;
+         this.Mbsp1Mont_Lb.Location = new System.Drawing.Point(248, 6);
+         this.Mbsp1Mont_Lb.Name = "Mbsp1Mont_Lb";
+         this.Mbsp1Mont_Lb.Size = new System.Drawing.Size(60, 14);
+         this.Mbsp1Mont_Lb.TabIndex = 4;
+         this.Mbsp1Mont_Lb.Text = "تعداد ماه :";
+         // 
+         // MbfzEndDate_Lb
+         // 
+         this.MbfzEndDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MbfzEndDate_Lb.AutoSize = true;
+         this.MbfzEndDate_Lb.Location = new System.Drawing.Point(169, 37);
+         this.MbfzEndDate_Lb.Name = "MbfzEndDate_Lb";
+         this.MbfzEndDate_Lb.Size = new System.Drawing.Size(63, 14);
+         this.MbfzEndDate_Lb.TabIndex = 29;
+         this.MbfzEndDate_Lb.Text = "تاریخ پایان :";
          // 
          // FileNo_Lb
          // 
@@ -5178,7 +5178,7 @@
             this.colPYMT_CASH_CODE,
             this.colPYMT_RQST_RQID,
             this.colRQRO_RWNO,
-            this.ExpnCode1_Clm,
+            this.ExpnCode1_Lb,
             this.gridColumn6,
             this.colPAY_STAT,
             this.ExpnPric_Clm,
@@ -5200,7 +5200,7 @@
             this.TotlExpn_Clm,
             this.gridColumn19,
             this.CochFileNo1_Clm,
-            this.MtodCode1_Clm,
+            this.MtodCode1_Lb,
             this.CtgyCode1_Lb});
          styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
          styleFormatCondition8.Appearance.Options.UseBackColor = true;
@@ -5235,14 +5235,14 @@
          // 
          // ExpnCode1_Lb
          // 
-         this.ExpnCode1_Clm.Caption = "آیتم هزینه";
-         this.ExpnCode1_Clm.FieldName = "Expense.EXPN_DESC";
-         this.ExpnCode1_Clm.Name = "ExpnCode1_Lb";
-         this.ExpnCode1_Clm.OptionsColumn.AllowEdit = false;
-         this.ExpnCode1_Clm.OptionsColumn.ReadOnly = true;
-         this.ExpnCode1_Clm.Visible = true;
-         this.ExpnCode1_Clm.VisibleIndex = 5;
-         this.ExpnCode1_Clm.Width = 109;
+         this.ExpnCode1_Lb.Caption = "آیتم هزینه";
+         this.ExpnCode1_Lb.FieldName = "Expense.EXPN_DESC";
+         this.ExpnCode1_Lb.Name = "ExpnCode1_Lb";
+         this.ExpnCode1_Lb.OptionsColumn.AllowEdit = false;
+         this.ExpnCode1_Lb.OptionsColumn.ReadOnly = true;
+         this.ExpnCode1_Lb.Visible = true;
+         this.ExpnCode1_Lb.VisibleIndex = 5;
+         this.ExpnCode1_Lb.Width = 109;
          // 
          // gridColumn6
          // 
@@ -5414,13 +5414,13 @@
          // 
          // MtodCode1_Lb
          // 
-         this.MtodCode1_Clm.Caption = "سبک";
-         this.MtodCode1_Clm.FieldName = "Method.MTOD_DESC";
-         this.MtodCode1_Clm.Name = "MtodCode1_Lb";
-         this.MtodCode1_Clm.OptionsColumn.ReadOnly = true;
-         this.MtodCode1_Clm.Visible = true;
-         this.MtodCode1_Clm.VisibleIndex = 7;
-         this.MtodCode1_Clm.Width = 79;
+         this.MtodCode1_Lb.Caption = "سبک";
+         this.MtodCode1_Lb.FieldName = "Method.MTOD_DESC";
+         this.MtodCode1_Lb.Name = "MtodCode1_Lb";
+         this.MtodCode1_Lb.OptionsColumn.ReadOnly = true;
+         this.MtodCode1_Lb.Visible = true;
+         this.MtodCode1_Lb.VisibleIndex = 7;
+         this.MtodCode1_Lb.Width = 79;
          // 
          // CtgyCode1_Lb
          // 
@@ -6336,13 +6336,12 @@
          this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1056;
          this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(996, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(782, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(176, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(390, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "اطلاعات مشتری";
          // 
@@ -6978,5 +6977,7 @@
       private Windows.Forms.Label SuntCode1_Lb;
       private Windows.Forms.Label MbfzEndDate_Lb;
       private Windows.Forms.Label Mbsp1Mont_Lb;
+      private DevExpress.XtraGrid.Columns.GridColumn ExpnCode1_Lb;
+      private DevExpress.XtraGrid.Columns.GridColumn MtodCode1_Lb;
    }
 }

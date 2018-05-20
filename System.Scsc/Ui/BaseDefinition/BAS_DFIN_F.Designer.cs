@@ -68,6 +68,16 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.colCASH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.CtgyStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MtodStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.CbmtMtodStat1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit12 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.Cbmt1MtodStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.CashStat_Lb = new System.Windows.Forms.Label();
          this.CashType_Lb = new System.Windows.Forms.Label();
          this.ShbaAcnt_Lb = new System.Windows.Forms.Label();
@@ -79,16 +89,6 @@
          this.ExitName_Lb = new System.Windows.Forms.Label();
          this.RqttCode_Lb = new System.Windows.Forms.Label();
          this.OExitName_Lb = new System.Windows.Forms.Label();
-         this.colCASH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.CtgyStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.MtodStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CbmtMtodStat1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit12 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.Cbmt1MtodStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.ExitCode_Lb = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
          this.Tilt_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -783,127 +783,6 @@
          this.flowLayoutPanel1.SuspendLayout();
          this.SuspendLayout();
          // 
-         // CashStat_Lb
-         // 
-         this.CashStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CashStat_Lb.AutoSize = true;
-         this.CashStat_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CashStat_Lb.Location = new System.Drawing.Point(794, 109);
-         this.CashStat_Lb.Name = "CashStat_Lb";
-         this.CashStat_Lb.Size = new System.Drawing.Size(110, 26);
-         this.CashStat_Lb.TabIndex = 52;
-         this.CashStat_Lb.Text = "وضعیت حساب :";
-         // 
-         // CashType_Lb
-         // 
-         this.CashType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CashType_Lb.AutoSize = true;
-         this.CashType_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CashType_Lb.Location = new System.Drawing.Point(794, 63);
-         this.CashType_Lb.Name = "CashType_Lb";
-         this.CashType_Lb.Size = new System.Drawing.Size(86, 26);
-         this.CashType_Lb.TabIndex = 50;
-         this.CashType_Lb.Text = "نوع حساب :";
-         // 
-         // ShbaAcnt_Lb
-         // 
-         this.ShbaAcnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ShbaAcnt_Lb.AutoSize = true;
-         this.ShbaAcnt_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShbaAcnt_Lb.Location = new System.Drawing.Point(485, 201);
-         this.ShbaAcnt_Lb.Name = "ShbaAcnt_Lb";
-         this.ShbaAcnt_Lb.Size = new System.Drawing.Size(59, 26);
-         this.ShbaAcnt_Lb.TabIndex = 47;
-         this.ShbaAcnt_Lb.Text = "کد شبا :";
-         // 
-         // BankBancCode_Lb
-         // 
-         this.BankBancCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BankBancCode_Lb.AutoSize = true;
-         this.BankBancCode_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BankBancCode_Lb.Location = new System.Drawing.Point(794, 201);
-         this.BankBancCode_Lb.Name = "BankBancCode_Lb";
-         this.BankBancCode_Lb.Size = new System.Drawing.Size(69, 26);
-         this.BankBancCode_Lb.TabIndex = 45;
-         this.BankBancCode_Lb.Text = "کد شعبه :";
-         // 
-         // CardNumb_Lb
-         // 
-         this.CardNumb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CardNumb_Lb.AutoSize = true;
-         this.CardNumb_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CardNumb_Lb.Location = new System.Drawing.Point(485, 155);
-         this.CardNumb_Lb.Name = "CardNumb_Lb";
-         this.CardNumb_Lb.Size = new System.Drawing.Size(86, 26);
-         this.CardNumb_Lb.TabIndex = 44;
-         this.CardNumb_Lb.Text = "شماره کارت :";
-         // 
-         // BankAcntCode_Lb
-         // 
-         this.BankAcntCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BankAcntCode_Lb.AutoSize = true;
-         this.BankAcntCode_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BankAcntCode_Lb.Location = new System.Drawing.Point(485, 109);
-         this.BankAcntCode_Lb.Name = "BankAcntCode_Lb";
-         this.BankAcntCode_Lb.Size = new System.Drawing.Size(98, 26);
-         this.BankAcntCode_Lb.TabIndex = 41;
-         this.BankAcntCode_Lb.Text = "شماره حساب :";
-         // 
-         // BankName_Lb
-         // 
-         this.BankName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BankName_Lb.AutoSize = true;
-         this.BankName_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BankName_Lb.Location = new System.Drawing.Point(794, 155);
-         this.BankName_Lb.Name = "BankName_Lb";
-         this.BankName_Lb.Size = new System.Drawing.Size(68, 26);
-         this.BankName_Lb.TabIndex = 40;
-         this.BankName_Lb.Text = "نام بانک :";
-         // 
-         // RqtpCode_Lb
-         // 
-         this.RqtpCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.RqtpCode_Lb.AutoSize = true;
-         this.RqtpCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RqtpCode_Lb.Location = new System.Drawing.Point(367, 101);
-         this.RqtpCode_Lb.Name = "RqtpCode_Lb";
-         this.RqtpCode_Lb.Size = new System.Drawing.Size(66, 28);
-         this.RqtpCode_Lb.TabIndex = 52;
-         this.RqtpCode_Lb.Text = "نوع تقاضا :";
-         // 
-         // ExitName_Lb
-         // 
-         this.ExitName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ExitName_Lb.AutoSize = true;
-         this.ExitName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ExitName_Lb.Location = new System.Drawing.Point(367, 61);
-         this.ExitName_Lb.Name = "ExitName_Lb";
-         this.ExitName_Lb.Size = new System.Drawing.Size(58, 28);
-         this.ExitName_Lb.TabIndex = 54;
-         this.ExitName_Lb.Text = "نام آیتم :";
-         // 
-         // RqttCode_Lb
-         // 
-         this.RqttCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.RqttCode_Lb.AutoSize = true;
-         this.RqttCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RqttCode_Lb.Location = new System.Drawing.Point(367, 141);
-         this.RqttCode_Lb.Name = "RqttCode_Lb";
-         this.RqttCode_Lb.Size = new System.Drawing.Size(77, 28);
-         this.RqttCode_Lb.TabIndex = 52;
-         this.RqttCode_Lb.Text = "نوع متقاضی :";
-         // 
-         // OExitName_Lb
-         // 
-         this.OExitName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OExitName_Lb.AutoSize = true;
-         this.OExitName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.OExitName_Lb.Location = new System.Drawing.Point(395, 61);
-         this.OExitName_Lb.Name = "OExitName_Lb";
-         this.OExitName_Lb.Size = new System.Drawing.Size(58, 28);
-         this.OExitName_Lb.TabIndex = 54;
-         this.OExitName_Lb.Text = "نام آیتم :";
-         // 
          // label5
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1061,6 +940,127 @@
          this.repositoryItemLookUpEdit6.NullText = "";
          this.repositoryItemLookUpEdit6.ValueMember = "VALU";
          // 
+         // CashStat_Lb
+         // 
+         this.CashStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CashStat_Lb.AutoSize = true;
+         this.CashStat_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CashStat_Lb.Location = new System.Drawing.Point(794, 109);
+         this.CashStat_Lb.Name = "CashStat_Lb";
+         this.CashStat_Lb.Size = new System.Drawing.Size(110, 26);
+         this.CashStat_Lb.TabIndex = 52;
+         this.CashStat_Lb.Text = "وضعیت حساب :";
+         // 
+         // CashType_Lb
+         // 
+         this.CashType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CashType_Lb.AutoSize = true;
+         this.CashType_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CashType_Lb.Location = new System.Drawing.Point(794, 63);
+         this.CashType_Lb.Name = "CashType_Lb";
+         this.CashType_Lb.Size = new System.Drawing.Size(86, 26);
+         this.CashType_Lb.TabIndex = 50;
+         this.CashType_Lb.Text = "نوع حساب :";
+         // 
+         // ShbaAcnt_Lb
+         // 
+         this.ShbaAcnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ShbaAcnt_Lb.AutoSize = true;
+         this.ShbaAcnt_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShbaAcnt_Lb.Location = new System.Drawing.Point(485, 201);
+         this.ShbaAcnt_Lb.Name = "ShbaAcnt_Lb";
+         this.ShbaAcnt_Lb.Size = new System.Drawing.Size(59, 26);
+         this.ShbaAcnt_Lb.TabIndex = 47;
+         this.ShbaAcnt_Lb.Text = "کد شبا :";
+         // 
+         // BankBancCode_Lb
+         // 
+         this.BankBancCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BankBancCode_Lb.AutoSize = true;
+         this.BankBancCode_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BankBancCode_Lb.Location = new System.Drawing.Point(794, 201);
+         this.BankBancCode_Lb.Name = "BankBancCode_Lb";
+         this.BankBancCode_Lb.Size = new System.Drawing.Size(69, 26);
+         this.BankBancCode_Lb.TabIndex = 45;
+         this.BankBancCode_Lb.Text = "کد شعبه :";
+         // 
+         // CardNumb_Lb
+         // 
+         this.CardNumb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CardNumb_Lb.AutoSize = true;
+         this.CardNumb_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CardNumb_Lb.Location = new System.Drawing.Point(485, 155);
+         this.CardNumb_Lb.Name = "CardNumb_Lb";
+         this.CardNumb_Lb.Size = new System.Drawing.Size(86, 26);
+         this.CardNumb_Lb.TabIndex = 44;
+         this.CardNumb_Lb.Text = "شماره کارت :";
+         // 
+         // BankAcntCode_Lb
+         // 
+         this.BankAcntCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BankAcntCode_Lb.AutoSize = true;
+         this.BankAcntCode_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BankAcntCode_Lb.Location = new System.Drawing.Point(485, 109);
+         this.BankAcntCode_Lb.Name = "BankAcntCode_Lb";
+         this.BankAcntCode_Lb.Size = new System.Drawing.Size(98, 26);
+         this.BankAcntCode_Lb.TabIndex = 41;
+         this.BankAcntCode_Lb.Text = "شماره حساب :";
+         // 
+         // BankName_Lb
+         // 
+         this.BankName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BankName_Lb.AutoSize = true;
+         this.BankName_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BankName_Lb.Location = new System.Drawing.Point(794, 155);
+         this.BankName_Lb.Name = "BankName_Lb";
+         this.BankName_Lb.Size = new System.Drawing.Size(68, 26);
+         this.BankName_Lb.TabIndex = 40;
+         this.BankName_Lb.Text = "نام بانک :";
+         // 
+         // RqtpCode_Lb
+         // 
+         this.RqtpCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqtpCode_Lb.AutoSize = true;
+         this.RqtpCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqtpCode_Lb.Location = new System.Drawing.Point(367, 101);
+         this.RqtpCode_Lb.Name = "RqtpCode_Lb";
+         this.RqtpCode_Lb.Size = new System.Drawing.Size(66, 28);
+         this.RqtpCode_Lb.TabIndex = 52;
+         this.RqtpCode_Lb.Text = "نوع تقاضا :";
+         // 
+         // ExitName_Lb
+         // 
+         this.ExitName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ExitName_Lb.AutoSize = true;
+         this.ExitName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ExitName_Lb.Location = new System.Drawing.Point(367, 61);
+         this.ExitName_Lb.Name = "ExitName_Lb";
+         this.ExitName_Lb.Size = new System.Drawing.Size(58, 28);
+         this.ExitName_Lb.TabIndex = 54;
+         this.ExitName_Lb.Text = "نام آیتم :";
+         // 
+         // RqttCode_Lb
+         // 
+         this.RqttCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqttCode_Lb.AutoSize = true;
+         this.RqttCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqttCode_Lb.Location = new System.Drawing.Point(367, 141);
+         this.RqttCode_Lb.Name = "RqttCode_Lb";
+         this.RqttCode_Lb.Size = new System.Drawing.Size(77, 28);
+         this.RqttCode_Lb.TabIndex = 52;
+         this.RqttCode_Lb.Text = "نوع متقاضی :";
+         // 
+         // OExitName_Lb
+         // 
+         this.OExitName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OExitName_Lb.AutoSize = true;
+         this.OExitName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OExitName_Lb.Location = new System.Drawing.Point(395, 61);
+         this.OExitName_Lb.Name = "OExitName_Lb";
+         this.OExitName_Lb.Size = new System.Drawing.Size(58, 28);
+         this.OExitName_Lb.TabIndex = 54;
+         this.OExitName_Lb.Text = "نام آیتم :";
+         // 
          // ExitCode_Lb
          // 
          this.ExitCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1087,13 +1087,12 @@
          this.Tilt_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Tilt_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1150;
          this.Tilt_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.Tilt_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Tilt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Tilt_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.Tilt_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Tilt_Lb.Location = new System.Drawing.Point(918, 0);
+         this.Tilt_Lb.Location = new System.Drawing.Point(504, 0);
          this.Tilt_Lb.Name = "Tilt_Lb";
-         this.Tilt_Lb.Size = new System.Drawing.Size(197, 59);
+         this.Tilt_Lb.Size = new System.Drawing.Size(611, 59);
          this.Tilt_Lb.TabIndex = 1;
          this.Tilt_Lb.Text = "اطلاعات پایه باشگاه";
          // 

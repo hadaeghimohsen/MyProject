@@ -50,11 +50,11 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.modual_ReportGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MdrpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -263,18 +263,66 @@
          this.panel1.Size = new System.Drawing.Size(867, 59);
          this.panel1.TabIndex = 5;
          // 
+         // simpleButton3
+         // 
+         this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.simpleButton3.Appearance.Options.UseBackColor = true;
+         this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton3.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton3.Location = new System.Drawing.Point(122, 0);
+         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton3.Name = "simpleButton3";
+         this.simpleButton3.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton3.TabIndex = 4;
+         this.simpleButton3.ToolTip = "بازگشت";
+         this.simpleButton3.Click += new System.EventHandler(this.mb_SelectReport_Click);
+         // 
+         // simpleButton2
+         // 
+         this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.simpleButton2.Appearance.Options.UseBackColor = true;
+         this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton2.Image = global::System.Scsc.Properties.Resources.IMAGE_1369;
+         this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton2.Location = new System.Drawing.Point(61, 0);
+         this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton2.Name = "simpleButton2";
+         this.simpleButton2.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton2.TabIndex = 3;
+         this.simpleButton2.ToolTip = "بازگشت";
+         this.simpleButton2.Click += new System.EventHandler(this.mb_reloading_Click);
+         // 
+         // simpleButton1
+         // 
+         this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1370;
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton1.Location = new System.Drawing.Point(0, 0);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton1.TabIndex = 2;
+         this.simpleButton1.ToolTip = "بازگشت";
+         this.simpleButton1.Click += new System.EventHandler(this.mb_CfgStngF_Click);
+         // 
          // TitlForm_Lb
          // 
          this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(610, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(413, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(196, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(393, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "انتخاب چاپ گزارش";
          // 
@@ -293,54 +341,6 @@
          this.Back_Butn.TabIndex = 0;
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.mb_back_Click);
-         // 
-         // simpleButton1
-         // 
-         this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-         this.simpleButton1.Appearance.Options.UseBackColor = true;
-         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1370;
-         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton1.Location = new System.Drawing.Point(0, 0);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
-         this.simpleButton1.TabIndex = 2;
-         this.simpleButton1.ToolTip = "بازگشت";
-         this.simpleButton1.Click += new System.EventHandler(this.mb_CfgStngF_Click);
-         // 
-         // simpleButton2
-         // 
-         this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-         this.simpleButton2.Appearance.Options.UseBackColor = true;
-         this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton2.Image = global::System.Scsc.Properties.Resources.IMAGE_1369;
-         this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton2.Location = new System.Drawing.Point(61, 0);
-         this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton2.Name = "simpleButton2";
-         this.simpleButton2.Size = new System.Drawing.Size(61, 59);
-         this.simpleButton2.TabIndex = 3;
-         this.simpleButton2.ToolTip = "بازگشت";
-         this.simpleButton2.Click += new System.EventHandler(this.mb_reloading_Click);
-         // 
-         // simpleButton3
-         // 
-         this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-         this.simpleButton3.Appearance.Options.UseBackColor = true;
-         this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton3.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
-         this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton3.Location = new System.Drawing.Point(122, 0);
-         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton3.Name = "simpleButton3";
-         this.simpleButton3.Size = new System.Drawing.Size(61, 59);
-         this.simpleButton3.TabIndex = 4;
-         this.simpleButton3.ToolTip = "بازگشت";
-         this.simpleButton3.Click += new System.EventHandler(this.mb_SelectReport_Click);
          // 
          // RPT_LRFM_F
          // 

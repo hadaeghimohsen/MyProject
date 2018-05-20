@@ -54,12 +54,15 @@
          this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.tc_Settings = new System.Windows.Forms.TabControl();
          this.tp_backuprestore = new System.Windows.Forms.TabPage();
+         this.Restore_Gb = new System.Windows.Forms.GroupBox();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
          this.RestBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.FileName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Directory_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Btn_DeleteBackup = new System.MaxUi.NewMaxBtn();
+         this.Btn_QueryBackupFile = new System.MaxUi.NewMaxBtn();
+         this.Btn_RestoreDb = new System.MaxUi.NewMaxBtn();
          this.BackUp_Gb = new System.MaxUi.GroupBox();
          this.Btn_TakeBackup = new System.MaxUi.NewMaxBtn();
          this.GB_BACKUP = new System.MaxUi.GroupBox();
@@ -76,11 +79,9 @@
          this.Ckb_BACK_UP_IN_TRED = new System.MaxUi.CheckBtn();
          this.Ckb_BACK_UP_APP_EXIT = new System.MaxUi.CheckBtn();
          this.Ckb_BACK_UP = new System.MaxUi.CheckBtn();
-         this.Btn_QueryBackupFile = new System.MaxUi.NewMaxBtn();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.ClubStng_Lookup = new DevExpress.XtraEditors.LookUpEdit();
          this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.Btn_RestoreDb = new System.MaxUi.NewMaxBtn();
          this.tp_printmodual = new System.Windows.Forms.TabPage();
          this.sECT_DESCTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.MdrpBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -135,13 +136,13 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Restore_Gb = new System.Windows.Forms.GroupBox();
          label13 = new System.Windows.Forms.Label();
          label14 = new System.Windows.Forms.Label();
          label17 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          this.tc_Settings.SuspendLayout();
          this.tp_backuprestore.SuspendLayout();
+         this.Restore_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RestBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -177,8 +178,37 @@
          ((System.ComponentModel.ISupportInitialize)(this.EPIT_RQTP_CODE_LOV.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EPIT_RQTT_CODE_LOV.Properties)).BeginInit();
          this.panel1.SuspendLayout();
-         this.Restore_Gb.SuspendLayout();
          this.SuspendLayout();
+         // 
+         // label13
+         // 
+         label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label13.AutoSize = true;
+         label13.Location = new System.Drawing.Point(270, 24);
+         label13.Name = "label13";
+         label13.Size = new System.Drawing.Size(179, 14);
+         label13.TabIndex = 3;
+         label13.Text = "اضافه شدن اتوماتیک به آیین نامه :";
+         // 
+         // label14
+         // 
+         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label14.AutoSize = true;
+         label14.Location = new System.Drawing.Point(337, 53);
+         label14.Name = "label14";
+         label14.Size = new System.Drawing.Size(127, 14);
+         label14.TabIndex = 3;
+         label14.Text = "آیتم مربوط به نوع تقاضا :";
+         // 
+         // label17
+         // 
+         label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label17.Location = new System.Drawing.Point(7, 106);
+         label17.Name = "label17";
+         label17.Size = new System.Drawing.Size(472, 37);
+         label17.TabIndex = 3;
+         label17.Text = "تذکر : گزینه های نوع تقاضا و نوع متقاضی اگر مقدار دهی نشده باشد به منزله این می ب" +
+    "اشد که این آیتم درآمدی برای تمامی تقاضا ها و متقاضی ها لحاظ شود.";
          // 
          // Dflt_Lb
          // 
@@ -289,36 +319,6 @@
          this.ClubCode_Lb.TabIndex = 9;
          this.ClubCode_Lb.Text = "لطفا باشگاه خود را انتخاب کنید :";
          // 
-         // label13
-         // 
-         label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label13.AutoSize = true;
-         label13.Location = new System.Drawing.Point(270, 24);
-         label13.Name = "label13";
-         label13.Size = new System.Drawing.Size(179, 14);
-         label13.TabIndex = 3;
-         label13.Text = "اضافه شدن اتوماتیک به آیین نامه :";
-         // 
-         // label14
-         // 
-         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label14.AutoSize = true;
-         label14.Location = new System.Drawing.Point(337, 53);
-         label14.Name = "label14";
-         label14.Size = new System.Drawing.Size(127, 14);
-         label14.TabIndex = 3;
-         label14.Text = "آیتم مربوط به نوع تقاضا :";
-         // 
-         // label17
-         // 
-         label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label17.Location = new System.Drawing.Point(7, 106);
-         label17.Name = "label17";
-         label17.Size = new System.Drawing.Size(472, 37);
-         label17.TabIndex = 3;
-         label17.Text = "تذکر : گزینه های نوع تقاضا و نوع متقاضی اگر مقدار دهی نشده باشد به منزله این می ب" +
-    "اشد که این آیتم درآمدی برای تمامی تقاضا ها و متقاضی ها لحاظ شود.";
-         // 
          // DActvBs1
          // 
          this.DActvBs1.DataSource = typeof(System.Scsc.Data.D_ACTV);
@@ -348,6 +348,20 @@
          this.tp_backuprestore.Size = new System.Drawing.Size(987, 599);
          this.tp_backuprestore.TabIndex = 1;
          this.tp_backuprestore.Text = "پشتیبان گیری / بازگردانی داده";
+         // 
+         // Restore_Gb
+         // 
+         this.Restore_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Restore_Gb.Controls.Add(this.gridControl1);
+         this.Restore_Gb.Controls.Add(this.Btn_DeleteBackup);
+         this.Restore_Gb.Controls.Add(this.Btn_QueryBackupFile);
+         this.Restore_Gb.Controls.Add(this.Btn_RestoreDb);
+         this.Restore_Gb.Location = new System.Drawing.Point(6, 6);
+         this.Restore_Gb.Name = "Restore_Gb";
+         this.Restore_Gb.Size = new System.Drawing.Size(468, 357);
+         this.Restore_Gb.TabIndex = 3;
+         this.Restore_Gb.TabStop = false;
+         this.Restore_Gb.Text = "نسخه های پشتیبان موجود";
          // 
          // gridControl1
          // 
@@ -427,6 +441,50 @@
          this.Btn_DeleteBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_DeleteBackup.Visible = false;
          this.Btn_DeleteBackup.Click += new System.EventHandler(this.Btn_DeleteBackup_Click);
+         // 
+         // Btn_QueryBackupFile
+         // 
+         this.Btn_QueryBackupFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_QueryBackupFile.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_QueryBackupFile.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Btn_QueryBackupFile.Caption = "بروزرسانی فایل ها";
+         this.Btn_QueryBackupFile.Disabled = false;
+         this.Btn_QueryBackupFile.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_QueryBackupFile.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_QueryBackupFile.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_QueryBackupFile.ImageIndex = -1;
+         this.Btn_QueryBackupFile.ImageList = null;
+         this.Btn_QueryBackupFile.InToBold = false;
+         this.Btn_QueryBackupFile.Location = new System.Drawing.Point(129, 324);
+         this.Btn_QueryBackupFile.Name = "Btn_QueryBackupFile";
+         this.Btn_QueryBackupFile.Size = new System.Drawing.Size(107, 27);
+         this.Btn_QueryBackupFile.TabIndex = 0;
+         this.Btn_QueryBackupFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_QueryBackupFile.TextColor = System.Drawing.Color.Black;
+         this.Btn_QueryBackupFile.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_QueryBackupFile.Click += new System.EventHandler(this.Btn_QueryBackupFile_Click);
+         // 
+         // Btn_RestoreDb
+         // 
+         this.Btn_RestoreDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_RestoreDb.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_RestoreDb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Btn_RestoreDb.Caption = "بازگردانی داده";
+         this.Btn_RestoreDb.Disabled = false;
+         this.Btn_RestoreDb.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_RestoreDb.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_RestoreDb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_RestoreDb.ImageIndex = -1;
+         this.Btn_RestoreDb.ImageList = null;
+         this.Btn_RestoreDb.InToBold = false;
+         this.Btn_RestoreDb.Location = new System.Drawing.Point(355, 324);
+         this.Btn_RestoreDb.Name = "Btn_RestoreDb";
+         this.Btn_RestoreDb.Size = new System.Drawing.Size(107, 27);
+         this.Btn_RestoreDb.TabIndex = 0;
+         this.Btn_RestoreDb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_RestoreDb.TextColor = System.Drawing.Color.Black;
+         this.Btn_RestoreDb.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_RestoreDb.Click += new System.EventHandler(this.Btn_RestoreDb_Click);
          // 
          // BackUp_Gb
          // 
@@ -670,28 +728,6 @@
          this.Ckb_BACK_UP.TabIndex = 6;
          this.Ckb_BACK_UP.StatusChange += new System.MaxUi.CheckBtn.StatusValueHandel(this.Ckb_BACK_UP_StatusChange);
          // 
-         // Btn_QueryBackupFile
-         // 
-         this.Btn_QueryBackupFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_QueryBackupFile.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_QueryBackupFile.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_QueryBackupFile.Caption = "بروزرسانی فایل ها";
-         this.Btn_QueryBackupFile.Disabled = false;
-         this.Btn_QueryBackupFile.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_QueryBackupFile.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_QueryBackupFile.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_QueryBackupFile.ImageIndex = -1;
-         this.Btn_QueryBackupFile.ImageList = null;
-         this.Btn_QueryBackupFile.InToBold = false;
-         this.Btn_QueryBackupFile.Location = new System.Drawing.Point(129, 324);
-         this.Btn_QueryBackupFile.Name = "Btn_QueryBackupFile";
-         this.Btn_QueryBackupFile.Size = new System.Drawing.Size(107, 27);
-         this.Btn_QueryBackupFile.TabIndex = 0;
-         this.Btn_QueryBackupFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_QueryBackupFile.TextColor = System.Drawing.Color.Black;
-         this.Btn_QueryBackupFile.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_QueryBackupFile.Click += new System.EventHandler(this.Btn_QueryBackupFile_Click);
-         // 
          // groupBox2
          // 
          this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -748,28 +784,6 @@
          // ClubBs1
          // 
          this.ClubBs1.DataSource = typeof(System.Scsc.Data.Club);
-         // 
-         // Btn_RestoreDb
-         // 
-         this.Btn_RestoreDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_RestoreDb.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_RestoreDb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_RestoreDb.Caption = "بازگردانی داده";
-         this.Btn_RestoreDb.Disabled = false;
-         this.Btn_RestoreDb.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_RestoreDb.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_RestoreDb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_RestoreDb.ImageIndex = -1;
-         this.Btn_RestoreDb.ImageList = null;
-         this.Btn_RestoreDb.InToBold = false;
-         this.Btn_RestoreDb.Location = new System.Drawing.Point(355, 324);
-         this.Btn_RestoreDb.Name = "Btn_RestoreDb";
-         this.Btn_RestoreDb.Size = new System.Drawing.Size(107, 27);
-         this.Btn_RestoreDb.TabIndex = 0;
-         this.Btn_RestoreDb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_RestoreDb.TextColor = System.Drawing.Color.Black;
-         this.Btn_RestoreDb.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_RestoreDb.Click += new System.EventHandler(this.Btn_RestoreDb_Click);
          // 
          // tp_printmodual
          // 
@@ -1434,13 +1448,12 @@
          this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1077;
          this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(669, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(434, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(265, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(500, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "تنظیمات چاپ و پشتیبان گیری";
          // 
@@ -1460,20 +1473,6 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // Restore_Gb
-         // 
-         this.Restore_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Restore_Gb.Controls.Add(this.gridControl1);
-         this.Restore_Gb.Controls.Add(this.Btn_DeleteBackup);
-         this.Restore_Gb.Controls.Add(this.Btn_QueryBackupFile);
-         this.Restore_Gb.Controls.Add(this.Btn_RestoreDb);
-         this.Restore_Gb.Location = new System.Drawing.Point(6, 6);
-         this.Restore_Gb.Name = "Restore_Gb";
-         this.Restore_Gb.Size = new System.Drawing.Size(468, 357);
-         this.Restore_Gb.TabIndex = 3;
-         this.Restore_Gb.TabStop = false;
-         this.Restore_Gb.Text = "نسخه های پشتیبان موجود";
-         // 
          // CFG_STNG_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1488,6 +1487,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          this.tc_Settings.ResumeLayout(false);
          this.tp_backuprestore.ResumeLayout(false);
+         this.Restore_Gb.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RestBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -1529,7 +1529,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.EPIT_RQTP_CODE_LOV.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EPIT_RQTT_CODE_LOV.Properties)).EndInit();
          this.panel1.ResumeLayout(false);
-         this.Restore_Gb.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

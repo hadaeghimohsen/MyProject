@@ -164,13 +164,12 @@
          this.CmwdTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CmwdTitl_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
          this.CmwdTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.CmwdTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.CmwdTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.CmwdTitl_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.CmwdTitl_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.CmwdTitl_Lb.Location = new System.Drawing.Point(561, 0);
+         this.CmwdTitl_Lb.Location = new System.Drawing.Point(244, 0);
          this.CmwdTitl_Lb.Name = "CmwdTitl_Lb";
-         this.CmwdTitl_Lb.Size = new System.Drawing.Size(209, 59);
+         this.CmwdTitl_Lb.Size = new System.Drawing.Size(526, 59);
          this.CmwdTitl_Lb.TabIndex = 1;
          this.CmwdTitl_Lb.Text = "ایام هفته برنامه کلاسی";
          // 

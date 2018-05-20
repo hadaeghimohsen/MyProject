@@ -89,15 +89,14 @@
          // 
          this.AcesUserClubTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.AcesUserClubTitl_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-         this.AcesUserClubTitl_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.Appearance.Image")));
+         this.AcesUserClubTitl_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("AcesUserClubTitl_Lb.Appearance.Image")));
          this.AcesUserClubTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.AcesUserClubTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AcesUserClubTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.AcesUserClubTitl_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.AcesUserClubTitl_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.AcesUserClubTitl_Lb.Location = new System.Drawing.Point(233, 0);
+         this.AcesUserClubTitl_Lb.Location = new System.Drawing.Point(102, 0);
          this.AcesUserClubTitl_Lb.Name = "AcesUserClubTitl_Lb";
-         this.AcesUserClubTitl_Lb.Size = new System.Drawing.Size(303, 59);
+         this.AcesUserClubTitl_Lb.Size = new System.Drawing.Size(434, 59);
          this.AcesUserClubTitl_Lb.TabIndex = 1;
          this.AcesUserClubTitl_Lb.Text = "دسترسی کاربران به شیفت باشگاه";
          // 

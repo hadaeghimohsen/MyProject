@@ -196,13 +196,12 @@
          this.Title_Lbl.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Title_Lbl.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
          this.Title_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.Title_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Title_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Title_Lbl.Dock = System.Windows.Forms.DockStyle.Right;
          this.Title_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Title_Lbl.Location = new System.Drawing.Point(310, 0);
+         this.Title_Lbl.Location = new System.Drawing.Point(65, 0);
          this.Title_Lbl.Name = "Title_Lbl";
-         this.Title_Lbl.Size = new System.Drawing.Size(226, 59);
+         this.Title_Lbl.Size = new System.Drawing.Size(471, 59);
          this.Title_Lbl.TabIndex = 1;
          this.Title_Lbl.Text = "اضافه کردن شیفت جدید";
          // 

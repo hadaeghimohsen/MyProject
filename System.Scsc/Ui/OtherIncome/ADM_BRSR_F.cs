@@ -263,7 +263,7 @@ namespace System.Scsc.Ui.OtherIncome
                //Set_Current_Record();
                //Create_Record();
                requery = false;
-               vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
+               vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
             }
          }
       }
@@ -563,7 +563,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if (true)
             {
-               var fileno = (vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
+               var fileno = (vf_FighBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
                var rqst = (from r in iScsc.Requests
                            join rr in iScsc.Request_Rows on r.RQID equals rr.RQST_RQID
                            where rr.FIGH_FILE_NO == Convert.ToInt64(fileno)
@@ -615,7 +615,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
-         var fileno = (vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
+         var fileno = (vf_FighBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
          try
          {
             UserProFile_Rb.ImageProfile = null;
@@ -633,6 +633,37 @@ namespace System.Scsc.Ui.OtherIncome
                UserProFile_Rb.ImageProfile = bm;
          }
          catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
+      }
+
+      private void UserProFile_Rb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var CrntFigh = vf_FighBs.Current as Data.VF_Last_Info_FighterResult;
+            if (CrntFigh == null) return;
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
+            );
+         }
+         catch { }
+      }
+
+      private void OthrInCm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var CrntFigh = vf_FighBs.Current as Data.VF_Last_Info_FighterResult;
+            if (CrntFigh == null) return;
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {                  
+                        new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                        new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", CrntFigh.FILE_NO)))}
+                     })
+            );
+         }
+         catch { }
       }
 
    }

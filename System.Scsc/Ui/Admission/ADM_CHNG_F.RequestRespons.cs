@@ -510,17 +510,24 @@ namespace System.Scsc.Ui.Admission
             DstpBs1.DataSource = iScsc.Diseases_Types;
             DFgtpBs1.DataSource = iScsc.D_FGTPs;
             DCetpBs1.DataSource = iScsc.D_CETPs;
-            DBlodBs1.DataSource = iScsc.D_BLODs;
-            OrgnBs1.DataSource = iScsc.Organs;
+            DBlodBs1.DataSource = iScsc.D_BLODs;            
 
             isFirstLoaded = true;
             finishcommand:
 
             if (InvokeRequired)
-               Invoke(new Action(() => CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101)));
+               Invoke(new Action(() => 
+                  {
+                     CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
+                     OrgnBs1.DataSource = iScsc.Organs;
+                  })
+               );
             else
+            {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
-
+               OrgnBs1.DataSource = iScsc.Organs;
+            }
+            
 
             //if (InvokeRequired)
             //   Invoke(new Action(() => FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" && !f.NAME_DNRM.Contains("مشتری, جلسه ای") && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM)));

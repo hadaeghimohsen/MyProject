@@ -144,19 +144,6 @@ namespace System.Scsc.Ui.Regulation
          requery = false;
       }
 
-      private void EXPN_TYPELookUpEdit_EditValueChanged(object sender, EventArgs e)
-      {
-          //if (EXPN_TYPELookUpEdit.EditValue == null || EXPN_TYPELookUpEdit.EditValue.ToString().Length != 3 ) return;
-          //if(EXPN_TYPELookUpEdit.EditValue.ToString() == "001")
-          //{
-          //    SE_BuyPric.Enabled = /*SE_BuyExtrPrct.Enabled = */SE_NumbOfStok.Enabled = SE_NumbOfSale.Enabled = SE_NumbOfRemnDnrm.Enabled = false;
-          //}
-          //else if(EXPN_TYPELookUpEdit.EditValue.ToString() == "002")
-          //{
-          //    SE_BuyPric.Enabled = /*SE_BuyExtrPrct.Enabled = */SE_NumbOfStok.Enabled = SE_NumbOfSale.Enabled = SE_NumbOfRemnDnrm.Enabled = true;
-          //}
-      }
-
       private void AddPreExpn_Butn_Click(object sender, EventArgs e)
       {
          try
@@ -425,6 +412,30 @@ namespace System.Scsc.Ui.Regulation
                Execute_Query();
             }
          }
+      }
+
+      private void ExpnBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs.Current as Data.Expense;
+            if (expn == null) return;
+
+            Grop_Lov.EditValue = expn.GROP_CODE;
+         }
+         catch { }
+      }
+
+      private void Grop_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs.Current as Data.Expense;
+            if (expn == null) return;
+
+            expn.GROP_CODE = GropBs.List.OfType<Data.Group_Expense>().First(g => g.CODE == (long)e.NewValue).CODE;
+         }
+         catch { }
       }
    }
 }

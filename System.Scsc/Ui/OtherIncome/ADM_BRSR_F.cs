@@ -119,7 +119,7 @@ namespace System.Scsc.Ui.OtherIncome
                                  new XElement("Last_Name", LAST_NAME_TextEdit.Text),
                                  new XElement("Fath_Name", ""),
                                  new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
-                                 new XElement("Natl_Code", ""),
+                                 new XElement("Natl_Code", NatlCode_Txt.EditValue ?? ""),
                                  new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                                  new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
                                  new XElement("Tell_Phon", TELL_PHON_TextEdit.Text),

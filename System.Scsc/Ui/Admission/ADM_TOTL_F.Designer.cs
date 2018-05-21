@@ -628,6 +628,7 @@
          this.PosStng_Butn.Name = "PosStng_Butn";
          this.PosStng_Butn.Size = new System.Drawing.Size(18, 21);
          this.PosStng_Butn.TabIndex = 22;
+         this.PosStng_Butn.Click += new System.EventHandler(this.PosStng_Butn_Click);
          // 
          // Pos_Lov
          // 

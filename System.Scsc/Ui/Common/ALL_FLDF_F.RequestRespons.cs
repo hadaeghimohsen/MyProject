@@ -635,6 +635,11 @@ namespace System.Scsc.Ui.Common
                      //ChatId_Lb.Text = control.LABL_TEXT; // ToolTip
                      //ChatId_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
+                  case "chatid1_lb":
+                     ChatId1_Lb.Text = control.LABL_TEXT;
+                     //ChatId1_Lb.Text = control.LABL_TEXT; // ToolTip
+                     //ChatId1_Lb.Text = control.LABL_TEXT; // Place Holder
+                     break;
                   case "grop11_gb":
                      Grop11_Gb.Text = control.LABL_TEXT;
                      //Grop11_Gb.Text = control.LABL_TEXT; // ToolTip

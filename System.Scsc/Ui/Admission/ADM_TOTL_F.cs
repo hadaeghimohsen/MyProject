@@ -2043,5 +2043,12 @@ namespace System.Scsc.Ui.Admission
          //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
          CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
       }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
    }
 }

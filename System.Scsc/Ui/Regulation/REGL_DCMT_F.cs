@@ -426,16 +426,32 @@ namespace System.Scsc.Ui.Regulation
          catch { }
       }
 
-      private void Grop_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      private void GropIng_Butn_Click(object sender, EventArgs e)
       {
          try
          {
             var expn = ExpnBs.Current as Data.Expense;
             if (expn == null) return;
 
-            expn.GROP_CODE = GropBs.List.OfType<Data.Group_Expense>().First(g => g.CODE == (long)e.NewValue).CODE;
+            var gropcode = Grop_Lov.EditValue;
+            if(gropcode == null || gropcode.ToString() == "")return;
+
+            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, (long)gropcode, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND);
          }
          catch { }
       }
+
+      private void DelGrop_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs.Current as Data.Expense;
+            if (expn == null) return;
+
+            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, null, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND);
+         }
+         catch { }
+      }
+
    }
 }

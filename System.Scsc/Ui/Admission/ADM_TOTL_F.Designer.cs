@@ -1884,7 +1884,7 @@
          this.UserProFile_Rb.HoverColorA = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
-         this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.UserProFile_Rb.ImageVisiable = true;
          this.UserProFile_Rb.Location = new System.Drawing.Point(9, 11);
          this.UserProFile_Rb.Name = "UserProFile_Rb";

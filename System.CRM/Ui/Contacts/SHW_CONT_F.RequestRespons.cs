@@ -229,7 +229,7 @@ namespace System.CRM.Ui.Contacts
                compcode = 0;
          }
 
-         var runqury = iCRM.Settings.FirstOrDefault(s => s.DFLT_STAT == "002").RUN_QURY;
+         var runqury = iCRM.Job_Personnels.FirstOrDefault(s => s.USER_NAME == CurrentUser).RUN_QURY;
 
          if (InvokeRequired)
          {

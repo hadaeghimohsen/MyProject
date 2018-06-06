@@ -32,7 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.Data.2, Version=2.0.20141.273, Culture=neutral, PublicKeyToken=900b028620cd3a1b, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -326,15 +325,6 @@
       <DependentUpon>CJBP_DFIN_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\BaseDefination\CJBP_DFIN_F.RequestRespons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\BaseDefination\STNG_DFIN_F.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ui\BaseDefination\STNG_DFIN_F.Designer.cs">
-      <DependentUpon>STNG_DFIN_F.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ui\BaseDefination\STNG_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefination\ISIC_DFIN_F.RequestRespons.cs">
@@ -2229,9 +2219,6 @@
     <EmbeddedResource Include="Ui\BaseDefination\CJBP_DFIN_F.resx">
       <DependentUpon>CJBP_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\BaseDefination\STNG_DFIN_F.resx">
-      <DependentUpon>STNG_DFIN_F.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefination\ISIC_DFIN_F.resx">
       <DependentUpon>ISIC_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -2462,9 +2449,11 @@
     <None Include="Properties\DataSources\System.CRM.Data.Department.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Document_Spec.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_ACTV.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_AFNT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_ATYP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CETP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLON.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CLVW.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CNTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CSTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CTTP.datasource" />
@@ -2489,6 +2478,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_SDRC.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SDST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SDTP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SFDB.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SFTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SIST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SLON.datasource" />
@@ -2559,7 +2549,6 @@
     <None Include="Properties\DataSources\System.CRM.Data.Service_Public.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Relation.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Type.datasource" />
-    <None Include="Properties\DataSources\System.CRM.Data.Setting.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Step_History_Detail.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Step_History_Summery.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Sub_State.datasource" />
@@ -2568,6 +2557,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Task.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Template1.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Template_Item1.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Transaction_Currency_Base.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.VF_Advance_Search_Request_ChangingResult.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.VF_CompaniesResult.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.VF_LogCallsResult.datasource" />
@@ -2576,6 +2566,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.VF_Save_PaymentsResult.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.VF_ServicesResult.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.VF_TrackAttendancesResult.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.V_ConfigurationSystem.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.V_TopNRelatedServicesOfCompany.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Weekday_Info.datasource" />

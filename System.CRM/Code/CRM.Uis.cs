@@ -12,7 +12,7 @@ namespace System.CRM.Code
       public ISendRequest _Wall { get; set; }
       
       internal Ui.MasterPage.FRST_PAGE_F _Frst_Page_F { get; set; }
-      internal Ui.BaseDefination.STNG_DFIN_F _Stng_Dfin_F { get; set; }
+      //internal Ui.BaseDefination.STNG_DFIN_F _Stng_Dfin_F { get; set; }
       internal Ui.BaseDefination.REGN_DFIN_F _Regn_Dfin_F { get; set; }
       internal Ui.BaseDefination.EPIT_DFIN_F _Epit_Dfin_F { get; set; }
       internal Ui.BaseDefination.BTRF_DFIN_F _Btrf_Dfin_F { get; set; }

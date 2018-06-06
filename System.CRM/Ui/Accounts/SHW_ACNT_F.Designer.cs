@@ -29,26 +29,16 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_ACNT_F));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_ACNT_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colHOST_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.panel1 = new System.Windows.Forms.Panel();
-         this.Lb_FilterCount = new System.Windows.Forms.Label();
-         this.IranMap_Butn = new System.MaxUi.RoundedButton();
-         this.Filter_Butn = new System.MaxUi.RoundedButton();
-         this.AddComp_Butn = new System.MaxUi.RoundedButton();
-         this.Back_Butn = new System.MaxUi.RoundedButton();
-         this.roundedButton3 = new System.MaxUi.RoundedButton();
-         this.AcntsSearch_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.DclonBs = new System.Windows.Forms.BindingSource(this.components);
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Acnt_Gc = new DevExpress.XtraGrid.GridControl();
          this.CompBs = new System.Windows.Forms.BindingSource(this.components);
          this.Comp_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -65,10 +55,6 @@
          this.Actn_Clmn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CompActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.ServInfoSearch_Pikb = new System.MaxUi.NewPickBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.roundedButton29 = new System.MaxUi.RoundedButton();
-         this.CompanyLogo_Butn = new System.MaxUi.RoundedButton();
          this.panel2 = new System.Windows.Forms.Panel();
          this.rb_2nd = new System.MaxUi.RoundedButton();
          this.lb_2nd = new DevExpress.XtraEditors.LabelControl();
@@ -78,9 +64,42 @@
          this.lb_3rd = new DevExpress.XtraEditors.LabelControl();
          this.rb_1st = new System.MaxUi.RoundedButton();
          this.lb_1st = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-         this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.AcntsSearch_Lov.Properties)).BeginInit();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
+         this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
+         this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
+         this.ribbonConfigToolBar1 = new C1.Win.C1Ribbon.RibbonConfigToolBar();
+         this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
+         this.ribbonTab1 = new C1.Win.C1Ribbon.RibbonTab();
+         this.ribbonGroup11 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton58 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton59 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton2 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton7 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton60 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton92 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton94 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton95 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton93 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton96 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton97 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton98 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton99 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton100 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton101 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton102 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton103 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton104 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton105 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton106 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.Filter_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
+         this.GridFind_Tgbt = new C1.Win.C1Ribbon.RibbonToggleButton();
+         this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
+         this.colEMAL_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.DclonBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompBs)).BeginInit();
@@ -89,6 +108,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
          this.panel2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.SuspendLayout();
          // 
          // colHOST_STAT
@@ -97,220 +117,9 @@
          this.colHOST_STAT.FieldName = "HOST_STAT";
          this.colHOST_STAT.Name = "colHOST_STAT";
          // 
-         // panel1
-         // 
-         this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.panel1.Controls.Add(this.Lb_FilterCount);
-         this.panel1.Controls.Add(this.IranMap_Butn);
-         this.panel1.Controls.Add(this.Filter_Butn);
-         this.panel1.Controls.Add(this.AddComp_Butn);
-         this.panel1.Controls.Add(this.Back_Butn);
-         this.panel1.Controls.Add(this.roundedButton3);
-         this.panel1.Controls.Add(this.AcntsSearch_Lov);
-         this.panel1.Controls.Add(this.labelControl1);
-         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel1.Location = new System.Drawing.Point(0, 0);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(963, 53);
-         this.panel1.TabIndex = 0;
-         // 
-         // Lb_FilterCount
-         // 
-         this.Lb_FilterCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(30)))));
-         this.Lb_FilterCount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Lb_FilterCount.ForeColor = System.Drawing.Color.White;
-         this.Lb_FilterCount.Location = new System.Drawing.Point(179, 5);
-         this.Lb_FilterCount.Name = "Lb_FilterCount";
-         this.Lb_FilterCount.Size = new System.Drawing.Size(24, 24);
-         this.Lb_FilterCount.TabIndex = 12;
-         this.Lb_FilterCount.Text = "5";
-         this.Lb_FilterCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Lb_FilterCount.Visible = false;
-         this.Lb_FilterCount.Click += new System.EventHandler(this.Lb_FilterCount_Click);
-         this.Lb_FilterCount.MouseEnter += new System.EventHandler(this.Lb_FilterCount_MouseEnter);
-         this.Lb_FilterCount.MouseLeave += new System.EventHandler(this.Lb_FilterCount_MouseLeave);
-         // 
-         // IranMap_Butn
-         // 
-         this.IranMap_Butn.Active = true;
-         this.IranMap_Butn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-         this.IranMap_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.IranMap_Butn.Caption = "";
-         this.IranMap_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.IranMap_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.IranMap_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.IranMap_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.IranMap_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.IranMap_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1623;
-         this.IranMap_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.IranMap_Butn.ImageVisiable = true;
-         this.IranMap_Butn.Location = new System.Drawing.Point(199, 6);
-         this.IranMap_Butn.Name = "IranMap_Butn";
-         this.IranMap_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.IranMap_Butn.NormalColorA = System.Drawing.Color.White;
-         this.IranMap_Butn.NormalColorB = System.Drawing.Color.White;
-         this.IranMap_Butn.Size = new System.Drawing.Size(40, 40);
-         this.IranMap_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.IranMap_Butn.TabIndex = 13;
-         this.IranMap_Butn.Tooltip = "فیلترینگ";
-         // 
-         // Filter_Butn
-         // 
-         this.Filter_Butn.Active = true;
-         this.Filter_Butn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-         this.Filter_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.Filter_Butn.Caption = "";
-         this.Filter_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.Filter_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.Filter_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.Filter_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.Filter_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.Filter_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1597;
-         this.Filter_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.Filter_Butn.ImageVisiable = true;
-         this.Filter_Butn.Location = new System.Drawing.Point(151, 7);
-         this.Filter_Butn.Name = "Filter_Butn";
-         this.Filter_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.Filter_Butn.NormalColorA = System.Drawing.Color.White;
-         this.Filter_Butn.NormalColorB = System.Drawing.Color.White;
-         this.Filter_Butn.Size = new System.Drawing.Size(40, 40);
-         this.Filter_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.Filter_Butn.TabIndex = 11;
-         this.Filter_Butn.Tooltip = "فیلترینگ";
-         this.Filter_Butn.Click += new System.EventHandler(this.Filter_Butn_Click);
-         // 
-         // AddComp_Butn
-         // 
-         this.AddComp_Butn.Active = true;
-         this.AddComp_Butn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-         this.AddComp_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.AddComp_Butn.Caption = "";
-         this.AddComp_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.AddComp_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.AddComp_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.AddComp_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.AddComp_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.AddComp_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1522;
-         this.AddComp_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.AddComp_Butn.ImageVisiable = true;
-         this.AddComp_Butn.Location = new System.Drawing.Point(105, 7);
-         this.AddComp_Butn.Name = "AddComp_Butn";
-         this.AddComp_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.AddComp_Butn.NormalColorA = System.Drawing.Color.White;
-         this.AddComp_Butn.NormalColorB = System.Drawing.Color.White;
-         this.AddComp_Butn.Size = new System.Drawing.Size(40, 40);
-         this.AddComp_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.AddComp_Butn.TabIndex = 3;
-         this.AddComp_Butn.Tooltip = null;
-         this.AddComp_Butn.Click += new System.EventHandler(this.AddComp_Butn_Click);
-         // 
-         // Back_Butn
-         // 
-         this.Back_Butn.Active = true;
-         this.Back_Butn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-         this.Back_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.Back_Butn.Caption = "";
-         this.Back_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.Back_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.Back_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.Back_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.Back_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.Back_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1520;
-         this.Back_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.Back_Butn.ImageVisiable = true;
-         this.Back_Butn.Location = new System.Drawing.Point(4, 3);
-         this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.Back_Butn.NormalColorA = System.Drawing.Color.White;
-         this.Back_Butn.NormalColorB = System.Drawing.Color.White;
-         this.Back_Butn.Size = new System.Drawing.Size(48, 48);
-         this.Back_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.Back_Butn.TabIndex = 4;
-         this.Back_Butn.Tooltip = null;
-         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
-         // 
-         // roundedButton3
-         // 
-         this.roundedButton3.Active = true;
-         this.roundedButton3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-         this.roundedButton3.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton3.Caption = "";
-         this.roundedButton3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.roundedButton3.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton3.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton3.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton3.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton3.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1521;
-         this.roundedButton3.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton3.ImageVisiable = true;
-         this.roundedButton3.Location = new System.Drawing.Point(59, 7);
-         this.roundedButton3.Name = "roundedButton3";
-         this.roundedButton3.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.roundedButton3.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton3.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton3.Size = new System.Drawing.Size(40, 40);
-         this.roundedButton3.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton3.TabIndex = 4;
-         this.roundedButton3.Tooltip = null;
-         // 
-         // AcntsSearch_Lov
-         // 
-         this.AcntsSearch_Lov.Anchor = System.Windows.Forms.AnchorStyles.Right;
-         this.AcntsSearch_Lov.EditValue = "001";
-         this.AcntsSearch_Lov.Location = new System.Drawing.Point(444, 12);
-         this.AcntsSearch_Lov.Name = "AcntsSearch_Lov";
-         this.AcntsSearch_Lov.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.AcntsSearch_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.AcntsSearch_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AcntsSearch_Lov.Properties.Appearance.Options.UseBackColor = true;
-         this.AcntsSearch_Lov.Properties.Appearance.Options.UseBorderColor = true;
-         this.AcntsSearch_Lov.Properties.Appearance.Options.UseFont = true;
-         this.AcntsSearch_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.AcntsSearch_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.AcntsSearch_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AcntsSearch_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
-         this.AcntsSearch_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.AcntsSearch_Lov.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.AcntsSearch_Lov.Properties.AppearanceFocused.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AcntsSearch_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.AcntsSearch_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.AcntsSearch_Lov.Properties.AppearanceFocused.Options.UseFont = true;
-         this.AcntsSearch_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.AcntsSearch_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
-         this.AcntsSearch_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 53, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع مشتریان", 83, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.AcntsSearch_Lov.Properties.DataSource = this.DclonBs;
-         this.AcntsSearch_Lov.Properties.DisplayMember = "DOMN_DESC";
-         this.AcntsSearch_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AcntsSearch_Lov.Properties.NullText = "نوع مشتری";
-         this.AcntsSearch_Lov.Properties.NullValuePrompt = "نوع مشتری";
-         this.AcntsSearch_Lov.Properties.NullValuePromptShowForEmptyValue = true;
-         this.AcntsSearch_Lov.Properties.ValueMember = "VALU";
-         this.AcntsSearch_Lov.Size = new System.Drawing.Size(299, 32);
-         this.AcntsSearch_Lov.TabIndex = 2;
-         this.AcntsSearch_Lov.Tag = "001";
-         this.AcntsSearch_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.AcntsSearch_Lov_EditValueChanging);
-         // 
          // DclonBs
          // 
          this.DclonBs.DataSource = typeof(System.CRM.Data.D_CLON);
-         // 
-         // labelControl1
-         // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.Appearance.Image")));
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.labelControl1.Location = new System.Drawing.Point(749, 0);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(214, 53);
-         this.labelControl1.TabIndex = 1;
-         this.labelControl1.Text = "لیست شرکت ها";
          // 
          // Acnt_Gc
          // 
@@ -323,7 +132,7 @@
          this.Acnt_Gc.Name = "Acnt_Gc";
          this.Acnt_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.CompActn_Butn});
-         this.Acnt_Gc.Size = new System.Drawing.Size(793, 394);
+         this.Acnt_Gc.Size = new System.Drawing.Size(850, 329);
          this.Acnt_Gc.TabIndex = 0;
          this.Acnt_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Comp_Gv});
@@ -359,21 +168,21 @@
             this.colCODE,
             this.colLAST_SERV_FILE_NO_DNRM,
             this.Actn_Clmn,
-            this.colHOST_STAT});
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colHOST_STAT;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "002";
+            this.colHOST_STAT,
+            this.colEMAL_ADRS});
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colHOST_STAT;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "002";
          this.Comp_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
          this.Comp_Gv.GridControl = this.Acnt_Gc;
          this.Comp_Gv.Name = "Comp_Gv";
          this.Comp_Gv.OptionsFind.AlwaysVisible = true;
          this.Comp_Gv.OptionsFind.FindDelay = 100;
          this.Comp_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Comp_Gv.OptionsView.EnableAppearanceEvenRow = true;
          this.Comp_Gv.OptionsView.ShowDetailButtons = false;
          this.Comp_Gv.OptionsView.ShowGroupPanel = false;
          this.Comp_Gv.OptionsView.ShowIndicator = false;
@@ -448,7 +257,7 @@
          this.colRQTP_DESC.OptionsColumn.AllowEdit = false;
          this.colRQTP_DESC.OptionsColumn.ReadOnly = true;
          this.colRQTP_DESC.Visible = true;
-         this.colRQTP_DESC.VisibleIndex = 3;
+         this.colRQTP_DESC.VisibleIndex = 2;
          this.colRQTP_DESC.Width = 90;
          // 
          // colSERV_NAME
@@ -459,7 +268,7 @@
          this.colSERV_NAME.OptionsColumn.AllowEdit = false;
          this.colSERV_NAME.OptionsColumn.ReadOnly = true;
          this.colSERV_NAME.Visible = true;
-         this.colSERV_NAME.VisibleIndex = 2;
+         this.colSERV_NAME.VisibleIndex = 1;
          this.colSERV_NAME.Width = 90;
          // 
          // colCRET_BY
@@ -469,8 +278,6 @@
          this.colCRET_BY.Name = "colCRET_BY";
          this.colCRET_BY.OptionsColumn.AllowEdit = false;
          this.colCRET_BY.OptionsColumn.ReadOnly = true;
-         this.colCRET_BY.Visible = true;
-         this.colCRET_BY.VisibleIndex = 1;
          this.colCRET_BY.Width = 101;
          // 
          // colCODE
@@ -499,11 +306,11 @@
          this.CompActn_Butn.AutoHeight = false;
          this.CompActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "ثبت تماس تلفنی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1566, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "ایجاد شرکت زیر مجموعه", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "حذف", "001", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "بازیابی", "002", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "ویرایش", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "ارسال ایمیل", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1566, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "ایجاد شرکت زیر مجموعه", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "حذف", "001", null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "بازیابی", "002", null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "ویرایش", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "ارسال ایمیل", null, null, true)});
          this.CompActn_Butn.Name = "CompActn_Butn";
          this.CompActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.CompActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LeadActn_Butn_ButtonClick);
@@ -511,104 +318,16 @@
          // splitContainerControl1
          // 
          this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.splitContainerControl1.Location = new System.Drawing.Point(0, 53);
+         this.splitContainerControl1.Location = new System.Drawing.Point(0, 118);
          this.splitContainerControl1.Name = "splitContainerControl1";
-         this.splitContainerControl1.Panel1.Controls.Add(this.ServInfoSearch_Pikb);
-         this.splitContainerControl1.Panel1.Controls.Add(this.roundedButton29);
-         this.splitContainerControl1.Panel1.Controls.Add(this.CompanyLogo_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.panel2);
-         this.splitContainerControl1.Panel1.Controls.Add(this.labelControl2);
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.Acnt_Gc);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(963, 394);
-         this.splitContainerControl1.SplitterPosition = 165;
+         this.splitContainerControl1.Size = new System.Drawing.Size(963, 329);
+         this.splitContainerControl1.SplitterPosition = 108;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
-         // 
-         // ServInfoSearch_Pikb
-         // 
-         this.ServInfoSearch_Pikb.BackColor = System.Drawing.Color.Transparent;
-         this.ServInfoSearch_Pikb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.ServInfoSearch_Pikb.Disabled = false;
-         this.ServInfoSearch_Pikb.First = null;
-         this.ServInfoSearch_Pikb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServInfoSearch_Pikb.ForceSelect = false;
-         this.ServInfoSearch_Pikb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ServInfoSearch_Pikb.ImageIndexPickDown = 1;
-         this.ServInfoSearch_Pikb.ImageIndexPickUp = 0;
-         this.ServInfoSearch_Pikb.ImageList = this.imageList1;
-         this.ServInfoSearch_Pikb.Location = new System.Drawing.Point(130, 6);
-         this.ServInfoSearch_Pikb.Name = "ServInfoSearch_Pikb";
-         this.ServInfoSearch_Pikb.Next = null;
-         this.ServInfoSearch_Pikb.PickChecked = true;
-         this.ServInfoSearch_Pikb.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServInfoSearch_Pikb.PickDownText = null;
-         this.ServInfoSearch_Pikb.PickDownTextColor = System.Drawing.Color.Empty;
-         this.ServInfoSearch_Pikb.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServInfoSearch_Pikb.PickUpText = null;
-         this.ServInfoSearch_Pikb.PickUpTextColor = System.Drawing.Color.Empty;
-         this.ServInfoSearch_Pikb.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.ServInfoSearch_Pikb.Size = new System.Drawing.Size(28, 25);
-         this.ServInfoSearch_Pikb.TabIndex = 37;
-         this.ServInfoSearch_Pikb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ServInfoSearch_Pikb.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ServInfoSearch_Pikb_PickCheckedChange);
-         // 
-         // imageList1
-         // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1037.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1009.png");
-         // 
-         // roundedButton29
-         // 
-         this.roundedButton29.Active = true;
-         this.roundedButton29.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.roundedButton29.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton29.Caption = "10";
-         this.roundedButton29.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.roundedButton29.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton29.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton29.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton29.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton29.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1512;
-         this.roundedButton29.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton29.ImageVisiable = false;
-         this.roundedButton29.Location = new System.Drawing.Point(125, 78);
-         this.roundedButton29.Name = "roundedButton29";
-         this.roundedButton29.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.roundedButton29.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton29.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton29.Size = new System.Drawing.Size(35, 35);
-         this.roundedButton29.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton29.TabIndex = 5;
-         this.roundedButton29.Tooltip = null;
-         // 
-         // CompanyLogo_Butn
-         // 
-         this.CompanyLogo_Butn.Active = true;
-         this.CompanyLogo_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.CompanyLogo_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.CompanyLogo_Butn.Caption = "";
-         this.CompanyLogo_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.CompanyLogo_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.CompanyLogo_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.CompanyLogo_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.CompanyLogo_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.CompanyLogo_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1102;
-         this.CompanyLogo_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.CompanyLogo_Butn.ImageVisiable = true;
-         this.CompanyLogo_Butn.Location = new System.Drawing.Point(32, 6);
-         this.CompanyLogo_Butn.Name = "CompanyLogo_Butn";
-         this.CompanyLogo_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.CompanyLogo_Butn.NormalColorA = System.Drawing.Color.White;
-         this.CompanyLogo_Butn.NormalColorB = System.Drawing.Color.White;
-         this.CompanyLogo_Butn.Size = new System.Drawing.Size(100, 100);
-         this.CompanyLogo_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.CompanyLogo_Butn.TabIndex = 1;
-         this.CompanyLogo_Butn.Tooltip = null;
-         this.CompanyLogo_Butn.Click += new System.EventHandler(this.ImageProfile_Butn_Click);
          // 
          // panel2
          // 
@@ -624,9 +343,9 @@
          this.panel2.Controls.Add(this.lb_3rd);
          this.panel2.Controls.Add(this.rb_1st);
          this.panel2.Controls.Add(this.lb_1st);
-         this.panel2.Location = new System.Drawing.Point(4, 136);
+         this.panel2.Location = new System.Drawing.Point(4, 6);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(158, 255);
+         this.panel2.Size = new System.Drawing.Size(101, 320);
          this.panel2.TabIndex = 6;
          // 
          // rb_2nd
@@ -643,12 +362,12 @@
          this.rb_2nd.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1148;
          this.rb_2nd.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.rb_2nd.ImageVisiable = true;
-         this.rb_2nd.Location = new System.Drawing.Point(35, 103);
+         this.rb_2nd.Location = new System.Drawing.Point(17, 83);
          this.rb_2nd.Name = "rb_2nd";
          this.rb_2nd.NormalBorderColor = System.Drawing.Color.LightGray;
          this.rb_2nd.NormalColorA = System.Drawing.Color.White;
          this.rb_2nd.NormalColorB = System.Drawing.Color.White;
-         this.rb_2nd.Size = new System.Drawing.Size(70, 70);
+         this.rb_2nd.Size = new System.Drawing.Size(50, 50);
          this.rb_2nd.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.rb_2nd.TabIndex = 1;
          this.rb_2nd.Tooltip = null;
@@ -662,9 +381,9 @@
          this.lb_2nd.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.lb_2nd.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.lb_2nd.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.lb_2nd.Location = new System.Drawing.Point(2, 179);
+         this.lb_2nd.Location = new System.Drawing.Point(5, 139);
          this.lb_2nd.Name = "lb_2nd";
-         this.lb_2nd.Size = new System.Drawing.Size(136, 18);
+         this.lb_2nd.Size = new System.Drawing.Size(89, 18);
          this.lb_2nd.TabIndex = 2;
          this.lb_2nd.Text = "خانم ***";
          this.lb_2nd.Visible = false;
@@ -672,7 +391,7 @@
          // rb_4th
          // 
          this.rb_4th.Active = true;
-         this.rb_4th.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.rb_4th.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
          this.rb_4th.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
          this.rb_4th.Caption = "";
          this.rb_4th.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
@@ -683,12 +402,12 @@
          this.rb_4th.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1087;
          this.rb_4th.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.rb_4th.ImageVisiable = true;
-         this.rb_4th.Location = new System.Drawing.Point(35, 303);
+         this.rb_4th.Location = new System.Drawing.Point(17, 243);
          this.rb_4th.Name = "rb_4th";
          this.rb_4th.NormalBorderColor = System.Drawing.Color.LightGray;
          this.rb_4th.NormalColorA = System.Drawing.Color.White;
          this.rb_4th.NormalColorB = System.Drawing.Color.White;
-         this.rb_4th.Size = new System.Drawing.Size(70, 70);
+         this.rb_4th.Size = new System.Drawing.Size(50, 50);
          this.rb_4th.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.rb_4th.TabIndex = 1;
          this.rb_4th.Tooltip = null;
@@ -696,14 +415,15 @@
          // 
          // lb_4th
          // 
+         this.lb_4th.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
          this.lb_4th.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.lb_4th.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.lb_4th.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.lb_4th.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.lb_4th.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.lb_4th.Location = new System.Drawing.Point(2, 379);
+         this.lb_4th.Location = new System.Drawing.Point(5, 299);
          this.lb_4th.Name = "lb_4th";
-         this.lb_4th.Size = new System.Drawing.Size(136, 18);
+         this.lb_4th.Size = new System.Drawing.Size(93, 18);
          this.lb_4th.TabIndex = 2;
          this.lb_4th.Text = "دیگر پرسنل";
          // 
@@ -721,12 +441,12 @@
          this.rb_3rd.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1076;
          this.rb_3rd.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.rb_3rd.ImageVisiable = true;
-         this.rb_3rd.Location = new System.Drawing.Point(35, 203);
+         this.rb_3rd.Location = new System.Drawing.Point(17, 163);
          this.rb_3rd.Name = "rb_3rd";
          this.rb_3rd.NormalBorderColor = System.Drawing.Color.LightGray;
          this.rb_3rd.NormalColorA = System.Drawing.Color.White;
          this.rb_3rd.NormalColorB = System.Drawing.Color.White;
-         this.rb_3rd.Size = new System.Drawing.Size(70, 70);
+         this.rb_3rd.Size = new System.Drawing.Size(50, 50);
          this.rb_3rd.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.rb_3rd.TabIndex = 1;
          this.rb_3rd.Tooltip = null;
@@ -740,9 +460,9 @@
          this.lb_3rd.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.lb_3rd.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.lb_3rd.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.lb_3rd.Location = new System.Drawing.Point(2, 279);
+         this.lb_3rd.Location = new System.Drawing.Point(5, 219);
          this.lb_3rd.Name = "lb_3rd";
-         this.lb_3rd.Size = new System.Drawing.Size(136, 18);
+         this.lb_3rd.Size = new System.Drawing.Size(89, 18);
          this.lb_3rd.TabIndex = 2;
          this.lb_3rd.Text = "آقای ***";
          this.lb_3rd.Visible = false;
@@ -761,12 +481,12 @@
          this.rb_1st.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1076;
          this.rb_1st.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.rb_1st.ImageVisiable = true;
-         this.rb_1st.Location = new System.Drawing.Point(35, 3);
+         this.rb_1st.Location = new System.Drawing.Point(17, 3);
          this.rb_1st.Name = "rb_1st";
          this.rb_1st.NormalBorderColor = System.Drawing.Color.LightGray;
          this.rb_1st.NormalColorA = System.Drawing.Color.White;
          this.rb_1st.NormalColorB = System.Drawing.Color.White;
-         this.rb_1st.Size = new System.Drawing.Size(70, 70);
+         this.rb_1st.Size = new System.Drawing.Size(50, 50);
          this.rb_1st.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.rb_1st.TabIndex = 1;
          this.rb_1st.Tooltip = null;
@@ -780,38 +500,283 @@
          this.lb_1st.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.lb_1st.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.lb_1st.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.lb_1st.Location = new System.Drawing.Point(2, 79);
+         this.lb_1st.Location = new System.Drawing.Point(5, 59);
          this.lb_1st.Name = "lb_1st";
-         this.lb_1st.Size = new System.Drawing.Size(136, 18);
+         this.lb_1st.Size = new System.Drawing.Size(89, 18);
          this.lb_1st.TabIndex = 2;
          this.lb_1st.Text = "آقای ***";
          this.lb_1st.Visible = false;
          // 
-         // labelControl2
+         // imageList1
          // 
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.labelControl2.LineVisible = true;
-         this.labelControl2.Location = new System.Drawing.Point(3, 112);
-         this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(159, 18);
-         this.labelControl2.TabIndex = 2;
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1037.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1009.png");
+         // 
+         // Menu_Rbn
+         // 
+         this.Menu_Rbn.ApplicationMenuHolder = this.ribbonApplicationMenu1;
+         this.Menu_Rbn.BottomToolBarHolder = this.ribbonBottomToolBar1;
+         this.Menu_Rbn.ConfigToolBarHolder = this.ribbonConfigToolBar1;
+         this.Menu_Rbn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Menu_Rbn.Location = new System.Drawing.Point(0, 0);
+         this.Menu_Rbn.Name = "Menu_Rbn";
+         this.Menu_Rbn.QatHolder = this.ribbonQat1;
+         this.Menu_Rbn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.Menu_Rbn.Size = new System.Drawing.Size(963, 118);
+         this.Menu_Rbn.Tabs.Add(this.ribbonTab1);
+         this.Menu_Rbn.ToolTipSettings.AutomaticDelay = 0;
+         this.Menu_Rbn.ToolTipSettings.BackColor = System.Drawing.Color.Khaki;
+         this.Menu_Rbn.ToolTipSettings.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Menu_Rbn.ToolTipSettings.IsBalloon = true;
+         this.Menu_Rbn.ToolTipSettings.RoundedCorners = true;
+         this.Menu_Rbn.ToolTipSettings.Shadow = true;
+         this.Menu_Rbn.ToolTipSettings.ShowAlways = true;
+         this.Menu_Rbn.ToolTipSettings.UseFading = true;
+         this.Menu_Rbn.TopToolBarHolder = this.ribbonTopToolBar1;
+         this.Menu_Rbn.VisualStyle = C1.Win.C1Ribbon.VisualStyle.Custom;
+         // 
+         // ribbonApplicationMenu1
+         // 
+         this.ribbonApplicationMenu1.Name = "ribbonApplicationMenu1";
+         this.ribbonApplicationMenu1.Visible = false;
+         // 
+         // ribbonBottomToolBar1
+         // 
+         this.ribbonBottomToolBar1.Name = "ribbonBottomToolBar1";
+         this.ribbonBottomToolBar1.Visible = false;
+         // 
+         // ribbonConfigToolBar1
+         // 
+         this.ribbonConfigToolBar1.Name = "ribbonConfigToolBar1";
+         this.ribbonConfigToolBar1.Visible = false;
+         // 
+         // ribbonQat1
+         // 
+         this.ribbonQat1.Name = "ribbonQat1";
+         this.ribbonQat1.Visible = false;
+         // 
+         // ribbonTab1
+         // 
+         this.ribbonTab1.Groups.Add(this.ribbonGroup11);
+         this.ribbonTab1.Groups.Add(this.ribbonGroup1);
+         this.ribbonTab1.Groups.Add(this.ribbonGroup2);
+         this.ribbonTab1.Name = "ribbonTab1";
+         this.ribbonTab1.Text = "مشتریان";
+         // 
+         // ribbonGroup11
+         // 
+         this.ribbonGroup11.Items.Add(this.ribbonButton58);
+         this.ribbonGroup11.Items.Add(this.ribbonButton59);
+         this.ribbonGroup11.Items.Add(this.ribbonButton2);
+         this.ribbonGroup11.Items.Add(this.ribbonButton7);
+         this.ribbonGroup11.Items.Add(this.ribbonButton60);
+         this.ribbonGroup11.Items.Add(this.ribbonButton92);
+         this.ribbonGroup11.Items.Add(this.ribbonButton94);
+         this.ribbonGroup11.Items.Add(this.ribbonButton95);
+         this.ribbonGroup11.Items.Add(this.ribbonButton93);
+         this.ribbonGroup11.Items.Add(this.ribbonButton96);
+         this.ribbonGroup11.Items.Add(this.ribbonButton97);
+         this.ribbonGroup11.Items.Add(this.ribbonButton98);
+         this.ribbonGroup11.Items.Add(this.ribbonButton99);
+         this.ribbonGroup11.Items.Add(this.ribbonButton100);
+         this.ribbonGroup11.Items.Add(this.ribbonButton101);
+         this.ribbonGroup11.Items.Add(this.ribbonButton102);
+         this.ribbonGroup11.Items.Add(this.ribbonButton103);
+         this.ribbonGroup11.Items.Add(this.ribbonButton104);
+         this.ribbonGroup11.Items.Add(this.ribbonButton105);
+         this.ribbonGroup11.Items.Add(this.ribbonButton106);
+         this.ribbonGroup11.Name = "ribbonGroup11";
+         this.ribbonGroup11.Text = "منوها";
+         // 
+         // ribbonButton58
+         // 
+         this.ribbonButton58.Name = "ribbonButton58";
+         this.ribbonButton58.SmallImage = global::System.CRM.Properties.Resources.IMAGE_1198;
+         this.ribbonButton58.ToolTip = "جدید";
+         this.ribbonButton58.Click += new System.EventHandler(this.AddComp_Butn_Click);
+         // 
+         // ribbonButton59
+         // 
+         this.ribbonButton59.Name = "ribbonButton59";
+         this.ribbonButton59.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton59.SmallImage")));
+         this.ribbonButton59.ToolTip = "ویرایش";
+         // 
+         // ribbonButton2
+         // 
+         this.ribbonButton2.Name = "ribbonButton2";
+         this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
+         this.ribbonButton2.ToolTip = "حذف";
+         // 
+         // ribbonButton7
+         // 
+         this.ribbonButton7.Name = "ribbonButton7";
+         this.ribbonButton7.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton7.SmallImage")));
+         this.ribbonButton7.ToolTip = "حذف فله";
+         // 
+         // ribbonButton60
+         // 
+         this.ribbonButton60.Name = "ribbonButton60";
+         this.ribbonButton60.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton60.SmallImage")));
+         this.ribbonButton60.ToolTip = "فعال";
+         // 
+         // ribbonButton92
+         // 
+         this.ribbonButton92.Name = "ribbonButton92";
+         this.ribbonButton92.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton92.SmallImage")));
+         this.ribbonButton92.ToolTip = "غیرفعال";
+         // 
+         // ribbonButton94
+         // 
+         this.ribbonButton94.Name = "ribbonButton94";
+         this.ribbonButton94.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton94.SmallImage")));
+         this.ribbonButton94.ToolTip = "پیدا کردن رکورد تکراری برای رکوردهای انتخاب شده";
+         // 
+         // ribbonButton95
+         // 
+         this.ribbonButton95.Name = "ribbonButton95";
+         this.ribbonButton95.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton95.SmallImage")));
+         this.ribbonButton95.ToolTip = "پیدا کردن رکورد تکراری برای همه رکوردها";
+         // 
+         // ribbonButton93
+         // 
+         this.ribbonButton93.Name = "ribbonButton93";
+         this.ribbonButton93.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton93.SmallImage")));
+         this.ribbonButton93.ToolTip = "ادغام";
+         // 
+         // ribbonButton96
+         // 
+         this.ribbonButton96.Name = "ribbonButton96";
+         this.ribbonButton96.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton96.SmallImage")));
+         this.ribbonButton96.ToolTip = "ارسال ایمیل مستقیم";
+         // 
+         // ribbonButton97
+         // 
+         this.ribbonButton97.Name = "ribbonButton97";
+         this.ribbonButton97.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton97.SmallImage")));
+         this.ribbonButton97.ToolTip = "اضافه کردن به لیست بازاریابی";
+         // 
+         // ribbonButton98
+         // 
+         this.ribbonButton98.Name = "ribbonButton98";
+         this.ribbonButton98.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton98.SmallImage")));
+         this.ribbonButton98.ToolTip = "الحاق کردن";
+         // 
+         // ribbonButton99
+         // 
+         this.ribbonButton99.Name = "ribbonButton99";
+         this.ribbonButton99.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton99.SmallImage")));
+         this.ribbonButton99.ToolTip = "اشتراک گذاری";
+         // 
+         // ribbonButton100
+         // 
+         this.ribbonButton100.Name = "ribbonButton100";
+         this.ribbonButton100.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton100.SmallImage")));
+         this.ribbonButton100.ToolTip = "اجرای گردش کار";
+         // 
+         // ribbonButton101
+         // 
+         this.ribbonButton101.Name = "ribbonButton101";
+         this.ribbonButton101.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton101.SmallImage")));
+         this.ribbonButton101.ToolTip = "دنبال کردن";
+         // 
+         // ribbonButton102
+         // 
+         this.ribbonButton102.Name = "ribbonButton102";
+         this.ribbonButton102.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton102.SmallImage")));
+         this.ribbonButton102.ToolTip = "دنبال نکردن";
+         // 
+         // ribbonButton103
+         // 
+         this.ribbonButton103.Name = "ribbonButton103";
+         this.ribbonButton103.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton103.SmallImage")));
+         this.ribbonButton103.ToolTip = "اجرای گزارش";
+         // 
+         // ribbonButton104
+         // 
+         this.ribbonButton104.Name = "ribbonButton104";
+         this.ribbonButton104.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton104.SmallImage")));
+         this.ribbonButton104.ToolTip = "تبلیغات سریع";
+         // 
+         // ribbonButton105
+         // 
+         this.ribbonButton105.Name = "ribbonButton105";
+         this.ribbonButton105.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton105.SmallImage")));
+         this.ribbonButton105.ToolTip = "ورود اطلاعات از اکسل";
+         // 
+         // ribbonButton106
+         // 
+         this.ribbonButton106.Name = "ribbonButton106";
+         this.ribbonButton106.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton106.SmallImage")));
+         this.ribbonButton106.ToolTip = "خروجی گرفتن به اکسل";
+         // 
+         // ribbonGroup1
+         // 
+         this.ribbonGroup1.Items.Add(this.Filter_Butn);
+         this.ribbonGroup1.Items.Add(this.ribbonButton3);
+         this.ribbonGroup1.Items.Add(this.GridFind_Tgbt);
+         this.ribbonGroup1.Name = "ribbonGroup1";
+         this.ribbonGroup1.Text = "جستجو";
+         // 
+         // Filter_Butn
+         // 
+         this.Filter_Butn.Name = "Filter_Butn";
+         this.Filter_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Filter_Butn.SmallImage")));
+         this.Filter_Butn.ToolTip = "معیار های جستجو گزینشی";
+         this.Filter_Butn.Click += new System.EventHandler(this.Filter_Butn_Click);
+         // 
+         // ribbonButton3
+         // 
+         this.ribbonButton3.Name = "ribbonButton3";
+         this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
+         this.ribbonButton3.ToolTip = "نمایش رکورد ها روی نقشه";
+         // 
+         // GridFind_Tgbt
+         // 
+         this.GridFind_Tgbt.Name = "GridFind_Tgbt";
+         this.GridFind_Tgbt.SmallImage = ((System.Drawing.Image)(resources.GetObject("GridFind_Tgbt.SmallImage")));
+         this.GridFind_Tgbt.ToolTip = "نمایش پنل جستجو ردیفی";
+         this.GridFind_Tgbt.Click += new System.EventHandler(this.GridFind_Tgbt_Click);
+         // 
+         // ribbonGroup2
+         // 
+         this.ribbonGroup2.Items.Add(this.ribbonButton4);
+         this.ribbonGroup2.Name = "ribbonGroup2";
+         this.ribbonGroup2.Text = "عملیات فرم";
+         // 
+         // ribbonButton4
+         // 
+         this.ribbonButton4.LargeImage = global::System.CRM.Properties.Resources.IMAGE_1015;
+         this.ribbonButton4.Name = "ribbonButton4";
+         this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
+         this.ribbonButton4.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
+         this.ribbonButton4.ToolTip = "بستن فرم";
+         this.ribbonButton4.Click += new System.EventHandler(this.Back_Butn_Click);
+         // 
+         // ribbonTopToolBar1
+         // 
+         this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
+         this.ribbonTopToolBar1.Visible = false;
+         // 
+         // colEMAL_ADRS
+         // 
+         this.colEMAL_ADRS.Caption = "آدرس ایمیل";
+         this.colEMAL_ADRS.FieldName = "EMAL_ADRS";
+         this.colEMAL_ADRS.Name = "colEMAL_ADRS";
+         this.colEMAL_ADRS.Visible = true;
+         this.colEMAL_ADRS.VisibleIndex = 3;
          // 
          // SHW_ACNT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.Controls.Add(this.splitContainerControl1);
-         this.Controls.Add(this.panel1);
+         this.Controls.Add(this.Menu_Rbn);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SHW_ACNT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(963, 447);
-         this.panel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.AcntsSearch_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DclonBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompBs)).EndInit();
@@ -820,25 +785,18 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
          this.panel2.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          this.ResumeLayout(false);
+         this.PerformLayout();
 
       }
 
       #endregion
 
-      private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
-      private DevExpress.XtraEditors.LookUpEdit AcntsSearch_Lov;
-      private MaxUi.RoundedButton AddComp_Butn;
-      private MaxUi.RoundedButton roundedButton3;
       private DevExpress.XtraGrid.GridControl Acnt_Gc;
       private Windows.Forms.BindingSource CompBs;
       private DevExpress.XtraGrid.Views.Grid.GridView Comp_Gv;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-      private MaxUi.RoundedButton CompanyLogo_Butn;
-      private DevExpress.XtraEditors.LabelControl labelControl2;
-      private MaxUi.RoundedButton Back_Butn;
-      private MaxUi.RoundedButton roundedButton29;
       private Windows.Forms.BindingSource DclonBs;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit CompActn_Butn;
       private Windows.Forms.Panel panel2;
@@ -850,8 +808,6 @@
       private DevExpress.XtraEditors.LabelControl lb_3rd;
       private MaxUi.RoundedButton rb_1st;
       private DevExpress.XtraEditors.LabelControl lb_1st;
-      private Windows.Forms.Label Lb_FilterCount;
-      private MaxUi.RoundedButton Filter_Butn;
       private DevExpress.XtraGrid.Columns.GridColumn colCNTY_NAME;
       private DevExpress.XtraGrid.Columns.GridColumn colPRVN_NAME;
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_NAME;
@@ -863,10 +819,43 @@
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
       private DevExpress.XtraGrid.Columns.GridColumn colLAST_SERV_FILE_NO_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn Actn_Clmn;
-      private MaxUi.NewPickBtn ServInfoSearch_Pikb;
       private Windows.Forms.ImageList imageList1;
       private DevExpress.XtraGrid.Columns.GridColumn colHOST_STAT;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-      private MaxUi.RoundedButton IranMap_Butn;
+      private C1.Win.C1Ribbon.C1Ribbon Menu_Rbn;
+      private C1.Win.C1Ribbon.RibbonApplicationMenu ribbonApplicationMenu1;
+      private C1.Win.C1Ribbon.RibbonBottomToolBar ribbonBottomToolBar1;
+      private C1.Win.C1Ribbon.RibbonConfigToolBar ribbonConfigToolBar1;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup11;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton58;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton59;
+      private C1.Win.C1Ribbon.RibbonQat ribbonQat1;
+      private C1.Win.C1Ribbon.RibbonTopToolBar ribbonTopToolBar1;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton2;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton7;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton60;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton92;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton94;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton95;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton93;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton96;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton97;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton98;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton99;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton100;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton101;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton102;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton103;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton104;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton105;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton106;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup1;
+      private C1.Win.C1Ribbon.RibbonButton Filter_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton3;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup2;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton4;
+      private C1.Win.C1Ribbon.RibbonTab ribbonTab1;
+      private C1.Win.C1Ribbon.RibbonToggleButton GridFind_Tgbt;
+      private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS;
    }
 }

@@ -316,7 +316,7 @@ namespace System.CRM.Code
                _Frst_Page_F.SendRequest(job);
                break;
             case "STNG_DFIN_F":
-               _Stng_Dfin_F.SendRequest(job);
+               //_Stng_Dfin_F.SendRequest(job);
                break;
             case "REGN_DFIN_F":
                _Regn_Dfin_F.SendRequest(job);

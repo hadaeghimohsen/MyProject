@@ -212,155 +212,11 @@ namespace System.CRM.Ui.BaseDefination
          try
          {
             var jobp = JbpsBs1.Current as Data.Job_Personnel;
-            if (jobp == null) return;
+            if (jobp == null) return;            
             
-            // Step 1 * Send Email
-            jobp.SEND_EMAL_WHEN_TASK_ASGN_TO_ME = jobp.SEND_EMAL_WHEN_TASK_ASGN_TO_ME == null ? "002" : jobp.SEND_EMAL_WHEN_TASK_ASGN_TO_ME;
-            switch (jobp.SEND_EMAL_WHEN_TASK_ASGN_TO_ME)
-            {
-               case "001":
-                  Tg_SendEmailWhenTaskAsignToMe.IsOn = false;
-                  break;
-               case "002":
-                  Tg_SendEmailWhenTaskAsignToMe.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 2 * Send Email
-            jobp.SEND_EMAL_WHEN_LCAD_ASGN_TO_ME = jobp.SEND_EMAL_WHEN_LCAD_ASGN_TO_ME == null ? "002" : jobp.SEND_EMAL_WHEN_LCAD_ASGN_TO_ME;
-            switch (jobp.SEND_EMAL_WHEN_LCAD_ASGN_TO_ME)
-            {
-               case "001":
-                  Tg_SendEmailWhenLCADAsignToMe.IsOn = false;
-                  break;
-               case "002":
-                  Tg_SendEmailWhenLCADAsignToMe.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 3 * Send Email
-            jobp.SEND_EMAL_WHEN_MY_LCAD_ASGN_TO_SOME_ONE = jobp.SEND_EMAL_WHEN_MY_LCAD_ASGN_TO_SOME_ONE == null ? "002" : jobp.SEND_EMAL_WHEN_MY_LCAD_ASGN_TO_SOME_ONE;
-            switch (jobp.SEND_EMAL_WHEN_MY_LCAD_ASGN_TO_SOME_ONE)
-            {
-               case "001":
-                  Tg_SendEmailWhenMyLCADToAsignOthers.IsOn = false;
-                  break;
-               case "002":
-                  Tg_SendEmailWhenMyLCADToAsignOthers.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 1 * Show Notification
-            jobp.SEND_NOTF_WHEN_TASK_ASGN_TO_ME = jobp.SEND_NOTF_WHEN_TASK_ASGN_TO_ME == null ? "002" : jobp.SEND_NOTF_WHEN_TASK_ASGN_TO_ME;
-            switch (jobp.SEND_NOTF_WHEN_TASK_ASGN_TO_ME)
-            {
-               case "001":
-                  Tg_ShowNotfWhenTaskToMe.IsOn = false;
-                  break;
-               case "002":
-                  Tg_ShowNotfWhenTaskToMe.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 2 * Show Notification
-            jobp.SEND_NOTF_WHEN_APPT_SCHD_FOR_ME = jobp.SEND_NOTF_WHEN_APPT_SCHD_FOR_ME == null ? "002" : jobp.SEND_NOTF_WHEN_APPT_SCHD_FOR_ME;
-            switch (jobp.SEND_NOTF_WHEN_APPT_SCHD_FOR_ME)
-            {
-               case "001":
-                  Tg_ShowNotfWhenAppointmentToMe.IsOn = false;
-                  break;
-               case "002":
-                  Tg_ShowNotfWhenAppointmentToMe.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 3 * Show Notification
-            jobp.SEND_NOTF_WHEN_LCAD_ASGN_TO_ME = jobp.SEND_NOTF_WHEN_LCAD_ASGN_TO_ME == null ? "002" : jobp.SEND_NOTF_WHEN_LCAD_ASGN_TO_ME;
-            switch (jobp.SEND_NOTF_WHEN_LCAD_ASGN_TO_ME)
-            {
-               case "001":
-                  Tg_ShowNotfWhenLCADAsignToMe.IsOn = false;
-                  break;
-               case "002":
-                  Tg_ShowNotfWhenLCADAsignToMe.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 1 * Show Alarm Day Notification Stat
-            jobp.ALRM_DAY_STAT = jobp.ALRM_DAY_STAT == null ? "001" : jobp.ALRM_DAY_STAT;
-            switch (jobp.ALRM_DAY_STAT)
-            {
-               case "001":
-                  Tg_AlrmDayStat.IsOn = false;
-                  break;
-               case "002":
-                  Tg_AlrmDayStat.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 1 * Default Stat
-            jobp.DFLT_STAT = jobp.DFLT_STAT == null ? "001" : jobp.DFLT_STAT;
-            switch (jobp.DFLT_STAT)
-            {
-               case "001":
-                  DfltStat_Butn.NormalColorA = DfltStat_Butn.NormalColorB = Color.Gainsboro;
-                  break;
-               case "002":
-                  DfltStat_Butn.NormalColorA = DfltStat_Butn.NormalColorB = Color.GreenYellow;
-                  break;
-               default:
-                  break;
-            }
-
-            // Step 1 * Add Log Call No Answer 
-            jobp.ADD_LOGC_RLST_NOAN = jobp.ADD_LOGC_RLST_NOAN == null ? "001" : jobp.ADD_LOGC_RLST_NOAN;
-            switch (jobp.ADD_LOGC_RLST_NOAN)
-            {
-               case "001":
-                  Tg_AddLogc.IsOn = false;
-                  break;
-               case "002":
-                  Tg_AddLogc.IsOn = true;
-                  break;
-               default:
-                  break;
-            }
          }
          catch (Exception)
          {  
-         }
-      }
-
-      private void DfltStat_Butn_Click(object sender, EventArgs e)
-      {
-         var jbps = JbpsBs1.Current as Data.Job_Personnel;
-         if (jbps == null) return;
-
-         jbps.DFLT_STAT = jbps.DFLT_STAT == "002" ? "001" : "002";
-         switch (jbps.DFLT_STAT)
-         {
-            case "001":
-               DfltStat_Butn.NormalColorA = DfltStat_Butn.NormalColorB = Color.Gainsboro;
-               break;
-            case "002":
-               DfltStat_Butn.NormalColorA = DfltStat_Butn.NormalColorB = Color.GreenYellow;
-               break;
-            default:
-               break;
          }
       }
 
@@ -406,6 +262,33 @@ namespace System.CRM.Ui.BaseDefination
                   }
               });
          _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void SectFormAppBase_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 79 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "SECTION_FORM"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

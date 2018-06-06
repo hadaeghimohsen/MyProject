@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
+using System.Xml.Linq;
 
 namespace System.CRM.Ui.BaseDefination
 {
@@ -30,81 +31,19 @@ namespace System.CRM.Ui.BaseDefination
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001)
-         {
-            int g = StngBs.Position;
-            StngBs.DataSource = iCRM.Settings;
-            StngBs.Position = g;
-         }
+         
+         StngBs.DataSource = iCRM.Settings.FirstOrDefault(s => s.USER_NAME == CurrentUser);
+
+         SignDigtTempBs.DataSource = iCRM.Templates.Where(t => t.TEMP_TYPE == "003");
+         EmalTempBs.DataSource = iCRM.Templates.Where(t => t.TEMP_TYPE == "002");
+         SmsTempBs.DataSource = iCRM.Templates.Where(t => t.TEMP_TYPE == "001");
+         
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)
       {
          Execute_Query();
          requery = false;
-      }
-
-      private void RootPath_TextButn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            var stng = StngBs.Current as Data.Setting;
-            if (stng == null) return;
-
-            if (FilePath_Fbd.ShowDialog() != DialogResult.OK) return;
-
-            stng.BACK_UP_ROOT_PATH = FilePath_Fbd.SelectedPath;
-         }
-         catch (Exception exc)
-         {}
-         finally { StngBs.EndEdit(); StngStorage_Gv.Invalidate(); }
-      }
-
-      private void OptnPath_TextButn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            var stng = StngBs.Current as Data.Setting;
-            if (stng == null) return;
-
-            if (FilePath_Fbd.ShowDialog() != DialogResult.OK) return;
-
-            stng.BACK_UP_OPTN_PATH_ADRS = FilePath_Fbd.SelectedPath;
-         }
-         catch (Exception exc)
-         { }
-         finally { StngBs.EndEdit(); }
-      }
-
-      private void UpldFilePath_TextButn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            var stng = StngBs.Current as Data.Setting;
-            if (stng == null) return;
-
-            if (FilePath_Fbd.ShowDialog() != DialogResult.OK) return;
-
-            stng.UPLD_FILE = FilePath_Fbd.SelectedPath;
-         }
-         catch (Exception exc)
-         { }
-         finally { StngBs.EndEdit(); }
-      }
-
-      private void DfltStng_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            var stng = StngBs.Current as Data.Setting;
-            if (stng == null) return;
-
-            StngBs.List.OfType<Data.Setting>().FirstOrDefault(s => s.DFLT_STAT == "002").DFLT_STAT = "001";
-            stng.DFLT_STAT = "002";
-         }
-         catch (Exception exc)
-         { }
-         finally { StngBs.EndEdit(); }
       }
 
       private void StngSubmitChange_Butn_Click(object sender, EventArgs e)
@@ -116,7 +55,7 @@ namespace System.CRM.Ui.BaseDefination
             iCRM.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
+         catch
          {}
          finally
          {
@@ -124,6 +63,33 @@ namespace System.CRM.Ui.BaseDefination
             {
                Execute_Query();
             }
+         }
+      }
+
+      private void AddNewAppBase_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 79 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "SECTION_FORM"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

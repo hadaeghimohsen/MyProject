@@ -256,15 +256,16 @@ namespace System.CRM.Ui.Activity
       {
          try
          {
-            var stng = iCRM.Settings.FirstOrDefault(s => s.DFLT_STAT == "002");
+            //var stng = iCRM.Settings.FirstOrDefault(s => s.USER_NAME == CurrentUser);
+            var stng = iCRM.V_ConfigurationSystems.FirstOrDefault();
 
-            if (!Directory.Exists(stng.UPLD_FILE + filename.Substring(0, filename.LastIndexOf('\\'))))
+            if (!Directory.Exists(stng.UPLD_FILE_PATH_ADRS + filename.Substring(0, filename.LastIndexOf('\\'))))
             {
-               DirectoryInfo di = Directory.CreateDirectory(stng.UPLD_FILE + filename.Substring(0, filename.LastIndexOf('\\')));
+               DirectoryInfo di = Directory.CreateDirectory(stng.UPLD_FILE_PATH_ADRS + filename.Substring(0, filename.LastIndexOf('\\')));
             }
 
 
-            using (var newFile = File.Create(stng.UPLD_FILE + filename))
+            using (var newFile = File.Create(stng.UPLD_FILE_PATH_ADRS + filename))
             {
                fileStream.CopyTo(newFile);
 
@@ -272,7 +273,7 @@ namespace System.CRM.Ui.Activity
                fileStream.Dispose();
             }
 
-            return stng.UPLD_FILE + filename;
+            return stng.UPLD_FILE_PATH_ADRS + filename;
          }
          catch (Exception exc)
          {

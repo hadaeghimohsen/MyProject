@@ -15,6 +15,7 @@ namespace System.CRM.Ui.BaseDefination
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -65,7 +66,7 @@ namespace System.CRM.Ui.BaseDefination
          }
          else if (keyData == Keys.Enter)
          {
-            if (!(Btn_Back.Focused))
+
                SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.Escape)
@@ -103,6 +104,7 @@ namespace System.CRM.Ui.BaseDefination
 
          var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          _DefaultGateway.Gateway(GetHostInfo);
+         CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -187,7 +189,14 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         Execute_Query();
+         DactvBs.DataSource = iCRM.D_ACTVs;
+         DafntBs.DataSource = iCRM.D_AFNTs;
+         DysnoBs.DataSource = iCRM.D_YSNOs;
+         DsfdbBs.DataSource = iCRM.D_SFDBs;
+         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+         InitSectBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "SECTION_FORM");
+
+         
          job.Status = StatusType.Successful;
       }
 
@@ -197,6 +206,7 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
 

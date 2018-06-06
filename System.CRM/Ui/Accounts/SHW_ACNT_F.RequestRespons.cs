@@ -307,7 +307,6 @@ namespace System.CRM.Ui.Acounts
          if (xinput != null)
          {
             var count = 0;
-            Lb_FilterCount.Visible = true;
             if (xinput.Element("Tags") != null)
                count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
             if (xinput.Element("Regions") != null)
@@ -316,25 +315,9 @@ namespace System.CRM.Ui.Acounts
                count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
             if (xinput.Element("Contact_Infos") != null)
                count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-
-            if (count != 0)
-            {
-               Lb_FilterCount.Visible = true;
-               Lb_FilterCount.Text = count.ToString();
-               Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1598;
-               Filter_Butn.Tag = xinput;
-            }
-            else
-            {
-               Lb_FilterCount.Visible = false;
-               Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
-               Filter_Butn.Tag = null;
-            }
          }
          else
          {
-            Lb_FilterCount.Visible = false;
-            Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
             Filter_Butn.Tag = null;
          }
          Execute_Query();

@@ -23,8 +23,8 @@ namespace System.CRM.Code
          }
          else if (value == "stng_dfin_f")
          {
-            if (_Stng_Dfin_F == null)
-               _Stng_Dfin_F = new Ui.BaseDefination.STNG_DFIN_F { _DefaultGateway = this };
+            //if (_Stng_Dfin_F == null)
+            //   _Stng_Dfin_F = new Ui.BaseDefination.STNG_DFIN_F { _DefaultGateway = this };
          }
          else if (value == "regn_dfin_f")
          {

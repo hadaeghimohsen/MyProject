@@ -21,11 +21,6 @@ namespace System.CRM.Ui.Acounts
       public SHW_ACNT_F()
       {
          InitializeComponent();
-
-         var path = new System.Drawing.Drawing2D.GraphicsPath();
-         path.AddEllipse(0, 0, Lb_FilterCount.Width, Lb_FilterCount.Height);
-
-         this.Lb_FilterCount.Region = new Region(path);
       }
 
       private bool requery = false;
@@ -63,40 +58,40 @@ namespace System.CRM.Ui.Acounts
                   )
                );
 
-            
-            switch(AcntsSearch_Lov.Tag.ToString())
-            {
-               case "001": // نمایش کل شرکت ها                  
-                  break;
-               case "002": // نمایش شرکت های پیش فرض نواحی
-                  Qxml.Add(
-                     new XElement("Company",
-                        new XAttribute("dfltstat", "002")
-                     )
-                  );
-                  break;
-               case "003": // نمایش شرکت های غیر از پیش فرض نواحی
-                  Qxml.Add(
-                     new XElement("Company",
-                        new XAttribute("dfltstat", "001")
-                     )
-                  );
-                  break;
-               case "004": // شرکت هایی که مشتری به آن متصل می باشد
-                  Qxml.Add(
-                     new XElement("Company",
-                        new XAttribute("empynumb", "002")
-                     )
-                  );
-                  break;
-               case "005": // شرکت هایی که مشتری با آن متصل نمی باشد
-                  Qxml.Add(
-                     new XElement("Company",
-                        new XAttribute("empynumb", "001")
-                     )
-                  );
-                  break;
-            }
+            ///******
+            //switch(AcntsSearch_Lov.Tag.ToString())
+            //{
+            //   case "001": // نمایش کل شرکت ها                  
+            //      break;
+            //   case "002": // نمایش شرکت های پیش فرض نواحی
+            //      Qxml.Add(
+            //         new XElement("Company",
+            //            new XAttribute("dfltstat", "002")
+            //         )
+            //      );
+            //      break;
+            //   case "003": // نمایش شرکت های غیر از پیش فرض نواحی
+            //      Qxml.Add(
+            //         new XElement("Company",
+            //            new XAttribute("dfltstat", "001")
+            //         )
+            //      );
+            //      break;
+            //   case "004": // شرکت هایی که مشتری به آن متصل می باشد
+            //      Qxml.Add(
+            //         new XElement("Company",
+            //            new XAttribute("empynumb", "002")
+            //         )
+            //      );
+            //      break;
+            //   case "005": // شرکت هایی که مشتری با آن متصل نمی باشد
+            //      Qxml.Add(
+            //         new XElement("Company",
+            //            new XAttribute("empynumb", "001")
+            //         )
+            //      );
+            //      break;
+            //}
             CompBs.DataSource =
                iCRM.VF_Companies(Qxml);
             requery = false;
@@ -383,24 +378,6 @@ namespace System.CRM.Ui.Acounts
                }
                ++i;
             }
-
-            if (comp.LOGO == null)
-            {
-               byte[] bytes = null;
-               MemoryStream ms = new MemoryStream();
-               Image img = Properties.Resources.IMAGE_1565;
-               img.Save(ms, ImageFormat.Bmp);
-               bytes = ms.ToArray();
-
-               //comp.LOGO = bytes;
-               CompanyLogo_Butn.ImageProfile = Properties.Resources.IMAGE_1565;
-            }
-            else
-            {
-               var stream = new MemoryStream(comp.LOGO.ToArray());
-               CompanyLogo_Butn.ImageProfile = Image.FromStream(stream);
-            }
-            
          }
          catch
          {}
@@ -410,7 +387,6 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {
-            CompanyLogo_Butn.ImageProfile = null;
             MemoryStream mStream = new MemoryStream();
             byte[] pData = iCRM.GET_PIMG_U(new XElement("Service", new XAttribute("fileno", servfileno))).ToArray();
             mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
@@ -519,7 +495,8 @@ namespace System.CRM.Ui.Acounts
 
       private void AcntsSearch_Lov_EditValueChanging(object sender, ChangingEventArgs e)
       {
-         AcntsSearch_Lov.Tag = e.NewValue;
+         ///*****
+         //AcntsSearch_Lov.Tag = e.NewValue;
          Execute_Query();
       }
 
@@ -543,34 +520,9 @@ namespace System.CRM.Ui.Acounts
          );
       }
 
-      private void Lb_FilterCount_Click(object sender, EventArgs e)
+      private void GridFind_Tgbt_Click(object sender, EventArgs e)
       {
-         // از بین بردن فیلتر
-         Lb_FilterCount.Visible = false;
-         Filter_Butn.Tag = null;
-         Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
-         Execute_Query();
-      }
-
-      private void Lb_FilterCount_MouseEnter(object sender, EventArgs e)
-      {
-         var lb = sender as Label;
-
-         lb.Tag = lb.Text;
-         lb.Text = "x";
-      }
-
-      private void Lb_FilterCount_MouseLeave(object sender, EventArgs e)
-      {
-         var lb = sender as Label;
-
-         lb.Text = lb.Tag.ToString();
-         lb.Tag = null;
-      }
-
-      private void ServInfoSearch_Pikb_PickCheckedChange(object sender)
-      {
-         Comp_Gv.OptionsFind.AlwaysVisible = ServInfoSearch_Pikb.PickChecked;
+         Comp_Gv.OptionsFind.AlwaysVisible = !Comp_Gv.OptionsFind.AlwaysVisible;
       }
    }
 }

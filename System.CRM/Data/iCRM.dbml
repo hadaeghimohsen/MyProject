@@ -148,8 +148,8 @@
       <Association Name="Region_Request_Row" Member="Request_Rows" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request_Row" />
       <Association Name="Region_Service" Member="Services" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Service" />
       <Association Name="Region_Service_Public" Member="Service_Publics" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Service_Public" />
-      <Association Name="Region_Company" Member="Companies" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Company" />
       <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
+      <Association Name="Region_Company" Member="Companies" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Company" />
       <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
       <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -1626,8 +1626,8 @@
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Service_Request_Row" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Company_Request_Row" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Company_Request_Row" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.V#TopNRelatedServicesOfCompany" Member="V_TopNRelatedServicesOfCompanies">
@@ -1658,9 +1658,9 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Service_Reminder" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+      <Association Name="Request_Reminder" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Job_Personnel_Reminder" Member="Job_Personnel" ThisKey="FROM_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Job_Personnel_Reminder1" Member="Job_Personnel1" ThisKey="TO_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
-      <Association Name="Request_Reminder" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Request_Type" Member="Request_Types">
@@ -1863,7 +1863,7 @@
       <Association Name="Request_Row_Appointment" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Appointment" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Appointment" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Appointment" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Appointment" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Event" Member="Events">
@@ -1887,7 +1887,7 @@
       <Association Name="Request_Row_Event" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Event" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Event" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Event" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Event" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Note" Member="Notes">
@@ -1908,7 +1908,7 @@
       <Association Name="Request_Row_Note" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Note" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Note" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Note" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Note" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Payment" Member="Payments">
@@ -1961,9 +1961,9 @@
       <Association Name="Service_Payment" Member="Service" ThisKey="REF_SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Payment1" Member="Service1" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Payment" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Payment" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
-      <Association Name="Company_Payment1" Member="Company1" ThisKey="REF_COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Request_Payment" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Company_Payment" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Company_Payment1" Member="Company1" ThisKey="REF_COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Task" Member="Tasks">
@@ -1990,7 +1990,7 @@
       <Association Name="Request_Row_Task" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Task" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Task" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Task" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Task" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.D$LCRS" Member="D_LCRs">
@@ -2020,7 +2020,7 @@
       <Association Name="Request_Row_Log_Call" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Log_Call" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Log_Call" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPN_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Log_Call" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Log_Call" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Final_Result" Member="Final_Results">
@@ -2043,7 +2043,7 @@
       <Association Name="Request_Row_Final_Result" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Final_Result" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Final_Result" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Final_Result" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Final_Result" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
     <InsertFunction FunctionId="FunctionId45">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
@@ -2063,20 +2063,6 @@
       <Argument Parameter="finr_Type_Stat" Member="FINR_TYPE_STAT" />
       <Argument Parameter="finr_Cmnt" Member="FINR_CMNT" />
     </UpdateFunction>
-  </Table>
-  <Table Name="dbo.Template" Member="Templates">
-    <Type Name="Template">
-      <Column Name="TMID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TEMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="TEMP_SUBJ" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="TEMP_TEXT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SHER_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TEMP_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-    </Type>
   </Table>
   <Table Name="dbo.Template_Item" Member="Template_Items">
     <Type Name="Template_Item">
@@ -2123,8 +2109,8 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Service_Mention" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Mention" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Request_Mention" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Job_Personnel_Mention" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tag" Member="Tags">
@@ -2146,7 +2132,7 @@
       <Association Name="App_Base_Define_Tag" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Service_Tag" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Tag" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Tag" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Tag" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
     <InsertFunction FunctionId="FunctionId47">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
@@ -2180,6 +2166,8 @@
       <Association Name="App_Base_Define_Contact_Info" Member="Contact_Infos" ThisKey="CODE" OtherKey="APBS_CODE" Type="Contact_Info" />
       <Association Name="App_Base_Define_Relation_Info" Member="Relation_Infos" ThisKey="CODE" OtherKey="APBS_CODE" Type="Relation_Info" />
       <Association Name="App_Base_Define_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="APBS_CODE" Type="Job_Personnel_Relation" />
+      <Association Name="App_Base_Define_Job_Personnel" Member="Job_Personnels" ThisKey="CODE" OtherKey="INIT_FORM_LOAD" Type="Job_Personnel" />
+      <Association Name="App_Base_Define_Job_Personnel1" Member="Job_Personnels1" ThisKey="CODE" OtherKey="INIT_SECT_LOAD" Type="Job_Personnel" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId50">
@@ -2215,7 +2203,7 @@
       <Association Name="Extra_Info_Extra_Info" Member="Extra_Info1" ThisKey="EXIF_CODE" OtherKey="CODE" Type="Extra_Info" IsForeignKey="true" />
       <Association Name="App_Base_Define_Extra_Info" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Service_Extra_Info" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-      <Association Name="Company_Extra_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Extra_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
     <InsertFunction FunctionId="FunctionId53">
       <Argument Parameter="comp_Code" Member="COMP_CODE" />
@@ -2241,7 +2229,7 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="App_Base_Define_Contact_Info" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Service_Contact_Info" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-      <Association Name="Company_Contact_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Contact_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
     <InsertFunction FunctionId="FunctionId55">
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
@@ -2271,7 +2259,7 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Service_Weekday_Info" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Company_Weekday_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Weekday_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Service" Member="Services">
@@ -2363,19 +2351,20 @@
       <Association Name="Service_Relation_Info1" Member="Relation_Infos1" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Relation_Info" />
       <Association Name="Service_Service_Join_Service_Type" Member="Service_Join_Service_Types" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Service_Join_Service_Type" />
       <Association Name="Service_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO_DNRM" Type="Personnel_Access_Service_Type" />
-      <Association Name="Service_Job_Personnel" Member="Job_Personnels" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Job_Personnel" />
-      <Association Name="Service_Company" Member="Companies" ThisKey="FILE_NO" OtherKey="LAST_SERV_FILE_NO_DNRM" Type="Company" />
       <Association Name="Service_Send_File" Member="Send_Files" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Send_File" />
       <Association Name="Service_Service_Project" Member="Service_Projects" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO_DNRM" Type="Service_Project" />
+      <Association Name="Service_Job_Personnel" Member="Job_Personnels" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Job_Personnel" />
+      <Association Name="Service_Company" Member="Companies" ThisKey="FILE_NO" OtherKey="PRIM_SERV_FILE_NO" Type="Company" />
+      <Association Name="Service_Company1" Member="Companies1" ThisKey="FILE_NO" OtherKey="LAST_SERV_FILE_NO_DNRM" Type="Company" />
       <Association Name="Base_Tariff_Service" Member="Base_Tariff" ThisKey="BTRF_CODE_DNRM" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" />
       <Association Name="Isic_Product_Service" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE_DNRM,ISCP_ISCA_CODE_DNRM,ISCP_CODE_DNRM" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
       <Association Name="Region_Service" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Service_Service" Member="Service1" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Sub_Unit_Service" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
       <Association Name="Base_Tariff_Detail_Service" Member="Base_Tariff_Detail" ThisKey="TRFD_CODE_DNRM" OtherKey="CODE" Type="Base_Tariff_Detail" IsForeignKey="true" />
-      <Association Name="Company_Service" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Request_Service" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Request_Service1" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Company_Service" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Service_Public" Member="Service_Publics">
@@ -2482,7 +2471,7 @@
       <Association Name="Request_Row_Message" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Service_Message" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Public_Message" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-      <Association Name="Company_Message" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Message" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Email" Member="Emails">
@@ -2531,7 +2520,7 @@
       <Association Name="Relation_Info_Relation_Info" Member="Relation_Info1" ThisKey="REF_CODE" OtherKey="CODE" Type="Relation_Info" IsForeignKey="true" />
       <Association Name="Service_Relation_Info" Member="Service" ThisKey="RLAT_SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Relation_Info1" Member="Service1" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-      <Association Name="Company_Relation_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Relation_Info" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Company_Relation_Info1" Member="Company1" ThisKey="RLAT_COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
@@ -2586,218 +2575,8 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Service_Personnel_Access_Service_Type" Member="Service" ThisKey="SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Type_Personnel_Access_Service_Type" Member="Service_Type" ThisKey="SRTP_CODE" OtherKey="CODE" Type="Service_Type" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Personnel_Access_Service_Type" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Personnel_Access_Service_Type" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-  </Table>
-  <Table Name="dbo.Job_Personnel" Member="Job_Personnels">
-    <Type Name="Job_Personnel">
-      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="JOB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="USER_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RMND_APPT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RMND_TASK" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_EMAL_WHEN_TASK_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_EMAL_WHEN_LCAD_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_EMAL_WHEN_MY_LCAD_ASGN_TO_SOME_ONE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_NOTF_WHEN_EMAL_SENT_BY_ME_OPEN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_NOTF_WHEN_EMAL_SENT_BY_ME_CLCK" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_NOTF_WHEN_RECV_EMAL_RPLY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_NOTF_WHEN_LCAD_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_NOTF_WHEN_TASK_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_NOTF_WHEN_APPT_SCHD_FOR_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RMND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RMND_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RMND_NOT_READ_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MNTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MNTN_NOT_READ_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ALRM_DAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ALRM_DAY_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ADD_LOGC_RLST_NOAN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ADD_LOGC_TIME_PROD" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Job_Personnel_Reminder" Member="Reminders" ThisKey="CODE" OtherKey="FROM_JOBP_CODE" Type="Reminder" />
-      <Association Name="Job_Personnel_Reminder1" Member="Reminders1" ThisKey="CODE" OtherKey="TO_JOBP_CODE" Type="Reminder" />
-      <Association Name="Job_Personnel_Like" Member="Likes" ThisKey="CODE" OtherKey="JOBP_CODE_DNRM" Type="Like" />
-      <Association Name="Job_Personnel_Collaborator" Member="Collaborators" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Collaborator" />
-      <Association Name="Job_Personnel_Comment" Member="Comments" ThisKey="CODE" OtherKey="JOBP_CODE_DNRM" Type="Comment" />
-      <Association Name="Job_Personnel_Mention" Member="Mentions" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Mention" />
-      <Association Name="Job_Personnel_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Personnel_Access_Service_Type" />
-      <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="RLAT_JOBP_CODE" Type="Job_Personnel_Relation" />
-      <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel_Relations1" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Job_Personnel_Relation" />
-      <Association Name="Job_Personnel_Job_Personel_Dashboard" Member="Job_Personel_Dashboards" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Job_Personel_Dashboard" />
-      <Association Name="Job_Personnel_Request" Member="Requests" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Request" />
-      <Association Name="Job_Personnel_Request1" Member="Requests1" ThisKey="CODE" OtherKey="LAST_JOBP_CODE_DNRM" Type="Request" />
-      <Association Name="Job_Job_Personnel" Member="Job" ThisKey="JOB_CODE" OtherKey="CODE" Type="Job" IsForeignKey="true" />
-      <Association Name="Service_Job_Personnel" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Company" Member="Companies">
-    <Type Name="Company">
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="ISCP_ISCA_ISCG_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ISCP_ISCA_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ISCP_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="POST_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMP_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REGS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ZIP_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ECON_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STRT_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="END_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EMPY_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BILL_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BILL_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BILL_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BILL_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SHIP_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SHIP_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SHIP_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SHIP_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FACE_BOOK_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LINK_IN_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TWTR_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_RQST_RQID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Company_Message_Broadcast" Member="Message_Broadcasts" ThisKey="CODE" OtherKey="COMP_CODE" Type="Message_Broadcast" />
-      <Association Name="Company_Company_Activity" Member="Company_Activities" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company_Activity" />
-      <Association Name="Company_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="COMP_CODE" Type="Request_Row" />
-      <Association Name="Company_Appointment" Member="Appointments" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Appointment" />
-      <Association Name="Company_Event" Member="Events" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Event" />
-      <Association Name="Company_Note" Member="Notes" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Note" />
-      <Association Name="Company_Payment" Member="Payments" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Payment" />
-      <Association Name="Company_Payment1" Member="Payments1" ThisKey="CODE" OtherKey="REF_COMP_CODE" Type="Payment" />
-      <Association Name="Company_Task" Member="Tasks" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Task" />
-      <Association Name="Company_Log_Call" Member="Log_Calls" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Log_Call" />
-      <Association Name="Company_Final_Result" Member="Final_Results" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Final_Result" />
-      <Association Name="Company_Tag" Member="Tags" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Tag" />
-      <Association Name="Company_Extra_Info" Member="Extra_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Extra_Info" />
-      <Association Name="Company_Contact_Info" Member="Contact_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Contact_Info" />
-      <Association Name="Company_Weekday_Info" Member="Weekday_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Weekday_Info" />
-      <Association Name="Company_Service" Member="Services" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Service" />
-      <Association Name="Company_Service_Public" Member="Service_Publics" ThisKey="CODE" OtherKey="COMP_CODE" Type="Service_Public" />
-      <Association Name="Company_Message" Member="Messages" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Message" />
-      <Association Name="Company_Email" Member="Emails" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Email" />
-      <Association Name="Company_Relation_Info" Member="Relation_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Relation_Info" />
-      <Association Name="Company_Relation_Info1" Member="Relation_Infos1" ThisKey="CODE" OtherKey="RLAT_COMP_CODE" Type="Relation_Info" />
-      <Association Name="Company_Company" Member="Companies" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company" />
-      <Association Name="Company_Send_File" Member="Send_Files" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Send_File" />
-      <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
-      <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Region_Company" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Service_Company" Member="Service" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-      <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId61">
-      <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
-      <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
-      <Argument Parameter="regn_Code" Member="REGN_CODE" />
-      <Argument Parameter="iscp_Isca_Iscg_Code" Member="ISCP_ISCA_ISCG_CODE" />
-      <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
-      <Argument Parameter="iscp_Code" Member="ISCP_CODE" />
-      <Argument Parameter="name" Member="NAME" />
-      <Argument Parameter="cord_X" Member="CORD_X" />
-      <Argument Parameter="cord_Y" Member="CORD_Y" />
-      <Argument Parameter="post_Addr_Zoom" Member="POST_ADDR_ZOOM" />
-      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
-      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
-      <Argument Parameter="web_Site" Member="WEB_SITE" />
-      <Argument Parameter="comp_Code" Member="COMP_CODE" />
-      <Argument Parameter="comp_Desc" Member="COMP_DESC" />
-      <Argument Parameter="regs_Date" Member="REGS_DATE" />
-      <Argument Parameter="zip_Code" Member="ZIP_CODE" />
-      <Argument Parameter="logo" Member="LOGO" />
-      <Argument Parameter="econ_Code" Member="ECON_CODE" />
-      <Argument Parameter="strt_Time" Member="STRT_TIME" />
-      <Argument Parameter="end_Time" Member="END_TIME" />
-      <Argument Parameter="type" Member="TYPE" />
-      <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
-      <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
-      <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
-      <Argument Parameter="bill_Addr" Member="BILL_ADDR" />
-      <Argument Parameter="ship_Addr_X" Member="SHIP_ADDR_X" />
-      <Argument Parameter="ship_Addr_Y" Member="SHIP_ADDR_Y" />
-      <Argument Parameter="ship_Addr_Zoom" Member="SHIP_ADDR_ZOOM" />
-      <Argument Parameter="ship_Addr" Member="SHIP_ADDR" />
-      <Argument Parameter="face_Book_Url" Member="FACE_BOOK_URL" />
-      <Argument Parameter="link_In_Url" Member="LINK_IN_URL" />
-      <Argument Parameter="twtr_Url" Member="TWTR_URL" />
-      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
-      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="host_Stat" Member="HOST_STAT" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId62">
-      <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
-      <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
-      <Argument Parameter="regn_Code" Member="REGN_CODE" />
-      <Argument Parameter="iscp_Isca_Iscg_Code" Member="ISCP_ISCA_ISCG_CODE" />
-      <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
-      <Argument Parameter="iscp_Code" Member="ISCP_CODE" />
-      <Argument Parameter="name" Member="NAME" />
-      <Argument Parameter="cord_X" Member="CORD_X" />
-      <Argument Parameter="cord_Y" Member="CORD_Y" />
-      <Argument Parameter="post_Addr_Zoom" Member="POST_ADDR_ZOOM" />
-      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
-      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
-      <Argument Parameter="web_Site" Member="WEB_SITE" />
-      <Argument Parameter="comp_Code" Member="COMP_CODE" />
-      <Argument Parameter="comp_Desc" Member="COMP_DESC" />
-      <Argument Parameter="regs_Date" Member="REGS_DATE" />
-      <Argument Parameter="zip_Code" Member="ZIP_CODE" />
-      <Argument Parameter="logo" Member="LOGO" />
-      <Argument Parameter="econ_Code" Member="ECON_CODE" />
-      <Argument Parameter="strt_Time" Member="STRT_TIME" />
-      <Argument Parameter="end_Time" Member="END_TIME" />
-      <Argument Parameter="type" Member="TYPE" />
-      <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
-      <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
-      <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
-      <Argument Parameter="bill_Addr" Member="BILL_ADDR" />
-      <Argument Parameter="ship_Addr_X" Member="SHIP_ADDR_X" />
-      <Argument Parameter="ship_Addr_Y" Member="SHIP_ADDR_Y" />
-      <Argument Parameter="ship_Addr_Zoom" Member="SHIP_ADDR_ZOOM" />
-      <Argument Parameter="ship_Addr" Member="SHIP_ADDR" />
-      <Argument Parameter="face_Book_Url" Member="FACE_BOOK_URL" />
-      <Argument Parameter="link_In_Url" Member="LINK_IN_URL" />
-      <Argument Parameter="twtr_Url" Member="TWTR_URL" />
-      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
-      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="host_Stat" Member="HOST_STAT" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId63">
-      <Argument Parameter="code" Member="CODE" />
-    </DeleteFunction>
   </Table>
   <Table Name="dbo.Send_File" Member="Send_Files">
     <Type Name="Send_File">
@@ -2825,10 +2604,10 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Comment_Send_File" Member="Comment" ThisKey="CMNT_CMID" OtherKey="CMID" Type="Comment" IsForeignKey="true" />
-      <Association Name="Company_Send_File" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Request_Row_Send_File" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Send_File" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Public_Send_File" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
+      <Association Name="Company_Send_File" Member="Company" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Job_Personnel_Relation" Member="Job_Personnel_Relations">
@@ -2848,17 +2627,17 @@
       <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel" ThisKey="RLAT_JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel1" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId64">
+    <InsertFunction FunctionId="FunctionId61">
       <Argument Parameter="jobp_Code" Member="JOBP_CODE" />
       <Argument Parameter="rlat_Jobp_Code" Member="RLAT_JOBP_CODE" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId65">
+    <UpdateFunction FunctionId="FunctionId62">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="rec_Stat" Member="REC_STAT" />
       <Argument Parameter="jbpr_Desc" Member="JBPR_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId66">
+    <DeleteFunction FunctionId="FunctionId63">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2879,7 +2658,7 @@
       <Association Name="Main_State_Step_History_Summery" Member="Main_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS" OtherKey="CODE,SUB_SYS" Type="Main_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Request_Step_History_Summery" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId67">
+    <InsertFunction FunctionId="FunctionId64">
       <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
       <Argument Parameter="sstt_Mstt_Code" Member="SSTT_MSTT_CODE" />
       <Argument Parameter="sstt_Mstt_Sub_Sys" Member="SSTT_MSTT_SUB_SYS" />
@@ -2887,14 +2666,14 @@
       <Argument Parameter="to_Date" Member="TO_DATE" />
       <Argument Parameter="mstt_Desc" Member="MSTT_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId68">
+    <UpdateFunction FunctionId="FunctionId65">
       <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
       <Argument Parameter="rwno" Member="RWNO" />
       <Argument Parameter="from_Date" Member="FROM_DATE" />
       <Argument Parameter="to_Date" Member="TO_DATE" />
       <Argument Parameter="mstt_Desc" Member="MSTT_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId69">
+    <DeleteFunction FunctionId="FunctionId66">
       <Argument Parameter="rqst_Rqid" Member="RQST_RQID" />
       <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
@@ -2917,7 +2696,7 @@
       <Association Name="Step_History_Summery_Step_History_Detail" Member="Step_History_Summery" ThisKey="SHIS_RQST_RQID,SHIS_RWNO" OtherKey="RQST_RQID,RWNO" Type="Step_History_Summery" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Sub_State_Step_History_Detail" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId70">
+    <InsertFunction FunctionId="FunctionId67">
       <Argument Parameter="shis_Rqst_Rqid" Member="SHIS_RQST_RQID" />
       <Argument Parameter="shis_Rwno" Member="SHIS_RWNO" />
       <Argument Parameter="sstt_Mstt_Sub_Sys" Member="SSTT_MSTT_SUB_SYS" />
@@ -2927,7 +2706,7 @@
       <Argument Parameter="to_Date" Member="TO_DATE" />
       <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId71">
+    <UpdateFunction FunctionId="FunctionId68">
       <Argument Parameter="shis_Rqst_Rqid" Member="SHIS_RQST_RQID" />
       <Argument Parameter="shis_Rwno" Member="SHIS_RWNO" />
       <Argument Parameter="rwno" Member="RWNO" />
@@ -2935,7 +2714,7 @@
       <Argument Parameter="to_Date" Member="TO_DATE" />
       <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId72">
+    <DeleteFunction FunctionId="FunctionId69">
       <Argument Parameter="shis_Rqst_Rqid" Member="SHIS_RQST_RQID" />
       <Argument Parameter="shis_Rwno" Member="SHIS_RWNO" />
       <Argument Parameter="rwno" Member="RWNO" />
@@ -2959,18 +2738,18 @@
       <Association Name="Service_Service_Project" Member="Service" ThisKey="SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Request_Service_Project" Member="Request" ThisKey="RQRO_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId73">
+    <InsertFunction FunctionId="FunctionId70">
       <Argument Parameter="rqro_Rqst_Rqid" Member="RQRO_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="jbpr_Code" Member="JBPR_CODE" />
       <Argument Parameter="rajp_Desc" Member="RAJP_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId74">
+    <UpdateFunction FunctionId="FunctionId71">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="rec_Stat" Member="REC_STAT" />
       <Argument Parameter="rajp_Desc" Member="RAJP_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId75">
+    <DeleteFunction FunctionId="FunctionId72">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2986,20 +2765,20 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Job_Personnel_Job_Personel_Dashboard" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Sub_State_Job_Personel_Dashboard" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Job_Personel_Dashboard" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId76">
+    <InsertFunction FunctionId="FunctionId73">
       <Argument Parameter="jobp_Code" Member="JOBP_CODE" />
       <Argument Parameter="sstt_mstt_sub_sys" Member="SSTT_MSTT_SUB_SYS" />
       <Argument Parameter="sstt_mstt_code" Member="SSTT_MSTT_CODE" />
       <Argument Parameter="sstt_code" Member="SSTT_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId77">
+    <UpdateFunction FunctionId="FunctionId74">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="rec_Stat" Member="REC_STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId78">
+    <DeleteFunction FunctionId="FunctionId75">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -3016,17 +2795,17 @@
       <Association Name="Main_State_Step_History_Summery" Member="Step_History_Summeries" ThisKey="CODE,SUB_SYS" OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS" Type="Step_History_Summery" />
       <Association Name="Main_State_Sub_State" Member="Sub_States" ThisKey="CODE,SUB_SYS" OtherKey="MSTT_CODE,MSTT_SUB_SYS" Type="Sub_State" />
     </Type>
-    <InsertFunction FunctionId="FunctionId79">
+    <InsertFunction FunctionId="FunctionId76">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="mSTT_DESC" Member="MSTT_DESC" />
       <Argument Parameter="mSTT_COLR" Member="MSTT_COLR" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId80">
+    <UpdateFunction FunctionId="FunctionId77">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="mSTT_DESC" Member="MSTT_DESC" />
       <Argument Parameter="mstt_Colr" Member="MSTT_COLR" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId81">
+    <DeleteFunction FunctionId="FunctionId78">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -3046,19 +2825,19 @@
       <Association Name="Sub_State_Request" Member="Requests" ThisKey="MSTT_CODE,MSTT_SUB_SYS,CODE" OtherKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" Type="Request" />
       <Association Name="Main_State_Sub_State" Member="Main_State" ThisKey="MSTT_CODE,MSTT_SUB_SYS" OtherKey="CODE,SUB_SYS" Type="Main_State" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId82">
+    <InsertFunction FunctionId="FunctionId79">
       <Argument Parameter="mstt_Code" Member="MSTT_CODE" />
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
       <Argument Parameter="sstt_Colr" Member="SSTT_COLR" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId83">
+    <UpdateFunction FunctionId="FunctionId80">
       <Argument Parameter="mstt_Code" Member="MSTT_CODE" />
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="sstt_Desc" Member="SSTT_DESC" />
       <Argument Parameter="sstt_Colr" Member="SSTT_COLR" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId84">
+    <DeleteFunction FunctionId="FunctionId81">
       <Argument Parameter="mstt_Code" Member="MSTT_CODE" />
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
@@ -3109,35 +2888,356 @@
       <Association Name="Request_Mention" Member="Mentions" ThisKey="RQID" OtherKey="RQST_RQID" Type="Mention" />
       <Association Name="Request_Service" Member="Services" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Service" />
       <Association Name="Request_Service1" Member="Services1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Service" />
-      <Association Name="Request_Company" Member="Companies" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Company" />
       <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
       <Association Name="Request_Service_Project" Member="Service_Projects" ThisKey="RQID" OtherKey="RQRO_RQST_RQID" Type="Service_Project" />
       <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="PROJ_RQST_RQID" Type="Request" />
       <Association Name="Request_Request1" Member="Requests1" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
+      <Association Name="Request_Company" Member="Companies" ThisKey="RQID" OtherKey="LAST_RQST_RQID_DNRM" Type="Company" />
       <Association Name="Request_Request" Member="Request1" ThisKey="PROJ_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Request" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Request1" Member="Job_Personnel1" ThisKey="LAST_JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Request1" Member="Request2" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Request" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Request1" Member="Job_Personnel1" ThisKey="LAST_JOBP_CODE_DNRM" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Settings" Member="Settings">
-    <Type Name="Setting">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BACK_UP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_APP_EXIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_IN_TRED" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_OPTN_PATH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_OPTN_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="BACK_UP_ROOT_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="UPLD_FILE" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="RUN_QURY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INQR_FRMT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+  <Table Name="dbo.Template_Attachment" Member="Template_Attachments">
+    <Type Name="Template_Attachment">
+      <Column Name="TEMP_TMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TAID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="FILE_SRVR_LINK" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SUBJ_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SHER_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Template_Template_Attachment" Member="Template" ThisKey="TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" />
     </Type>
+  </Table>
+  <Table Name="dbo.D$AFNT" Member="D_AFNTs">
+    <Type Name="D_AFNT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$CLVW" Member="D_CLVWs">
+    <Type Name="D_CLVW">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transaction_Currency_Base" Member="Transaction_Currency_Bases">
+    <Type Name="Transaction_Currency_Base">
+      <Column Name="TCID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ISO_CURN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CURN_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CURN_SYMB" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXCH_RATE" Type="System.Decimal" DbType="Decimal(23,10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CURN_PREC" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Transaction_Currency_Base_Job_Personnel" Member="Job_Personnels" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Job_Personnel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$SFDB" Member="D_SFDBs">
+    <Type Name="D_SFDB">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V#ConfigurationSystem" Member="V_ConfigurationSystems">
+    <Type Name="V_ConfigurationSystem">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SCHM_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DLL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CAN_UN_INST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DFLT_APP_STRT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LICN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LICN_TRIL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LICN_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="VERS_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DB_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SUPR_EMAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="JOBS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FREQ_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BACK_UP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BACK_UP_APP_EXIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BACK_UP_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UPLD_FILE_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Job_Personnel" Member="Job_Personnels">
+    <Type Name="Job_Personnel">
+      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="JOB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RMND_APPT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RMND_TASK" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_EMAL_WHEN_TASK_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_EMAL_WHEN_LCAD_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_EMAL_WHEN_MY_LCAD_ASGN_TO_SOME_ONE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_NOTF_WHEN_EMAL_SENT_BY_ME_OPEN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_NOTF_WHEN_EMAL_SENT_BY_ME_CLCK" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_NOTF_WHEN_RECV_EMAL_RPLY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_NOTF_WHEN_LCAD_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_NOTF_WHEN_TASK_ASGN_TO_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_NOTF_WHEN_APPT_SCHD_FOR_ME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RMND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RMND_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RMND_NOT_READ_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MNTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MNTN_NOT_READ_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_DAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_DAY_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADD_LOGC_RLST_NOAN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADD_LOGC_TIME_PROD" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RUN_QURY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FTCH_ROWS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INQR_FRMT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INIT_SECT_LOAD" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INIT_FORM_LOAD" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADVC_FIND_MODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TRCB_TCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CNTY_CODE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_CNTY_CODE" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_CLND_VIEW" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="END_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_FEED_BACK" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Job_Personnel_Reminder" Member="Reminders" ThisKey="CODE" OtherKey="FROM_JOBP_CODE" Type="Reminder" />
+      <Association Name="Job_Personnel_Reminder1" Member="Reminders1" ThisKey="CODE" OtherKey="TO_JOBP_CODE" Type="Reminder" />
+      <Association Name="Job_Personnel_Like" Member="Likes" ThisKey="CODE" OtherKey="JOBP_CODE_DNRM" Type="Like" />
+      <Association Name="Job_Personnel_Collaborator" Member="Collaborators" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Collaborator" />
+      <Association Name="Job_Personnel_Comment" Member="Comments" ThisKey="CODE" OtherKey="JOBP_CODE_DNRM" Type="Comment" />
+      <Association Name="Job_Personnel_Mention" Member="Mentions" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Mention" />
+      <Association Name="Job_Personnel_Personnel_Access_Service_Type" Member="Personnel_Access_Service_Types" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Personnel_Access_Service_Type" />
+      <Association Name="Job_Personnel_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="RLAT_JOBP_CODE" Type="Job_Personnel_Relation" />
+      <Association Name="Job_Personnel_Job_Personnel_Relation1" Member="Job_Personnel_Relations1" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Job_Personnel_Relation" />
+      <Association Name="Job_Personnel_Job_Personel_Dashboard" Member="Job_Personel_Dashboards" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Job_Personel_Dashboard" />
+      <Association Name="Job_Personnel_Request" Member="Requests" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Request" />
+      <Association Name="Job_Personnel_Request1" Member="Requests1" ThisKey="CODE" OtherKey="LAST_JOBP_CODE_DNRM" Type="Request" />
+      <Association Name="Job_Personnel_Template" Member="Templates" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Template" />
+      <Association Name="Job_Personnel_Company" Member="Companies" ThisKey="CODE" OtherKey="OWNR_CODE" Type="Company" />
+      <Association Name="App_Base_Define_Job_Personnel" Member="App_Base_Define" ThisKey="INIT_FORM_LOAD" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="App_Base_Define_Job_Personnel1" Member="App_Base_Define1" ThisKey="INIT_SECT_LOAD" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="Transaction_Currency_Base_Job_Personnel" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
+      <Association Name="Job_Job_Personnel" Member="Job" ThisKey="JOB_CODE" OtherKey="CODE" Type="Job" IsForeignKey="true" />
+      <Association Name="Service_Job_Personnel" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Template" Member="Templates">
+    <Type Name="Template">
+      <Column Name="JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TMID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TEMP_SECT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TEMP_SUBJ" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TEMP_TEXT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SHER_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TEMP_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Template_Template_Attachment" Member="Template_Attachments" ThisKey="TMID" OtherKey="TEMP_TMID" Type="Template_Attachment" />
+      <Association Name="Job_Personnel_Template" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Company" Member="Companies">
+    <Type Name="Company">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ISCP_ISCA_ISCG_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="ISCP_ISCA_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="ISCP_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="POST_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMP_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="REGS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ZIP_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ECON_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="STRT_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="END_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMPY_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BILL_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BILL_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BILL_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BILL_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SHIP_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SHIP_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SHIP_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SHIP_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FACE_BOOK_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="LINK_IN_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TWTR_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="FAX_NUMB" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LAST_RQST_RQID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PRIM_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Company_Message_Broadcast" Member="Message_Broadcasts" ThisKey="CODE" OtherKey="COMP_CODE" Type="Message_Broadcast" />
+      <Association Name="Company_Company_Activity" Member="Company_Activities" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company_Activity" />
+      <Association Name="Company_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="COMP_CODE" Type="Request_Row" />
+      <Association Name="Company_Appointment" Member="Appointments" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Appointment" />
+      <Association Name="Company_Event" Member="Events" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Event" />
+      <Association Name="Company_Note" Member="Notes" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Note" />
+      <Association Name="Company_Payment" Member="Payments" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Payment" />
+      <Association Name="Company_Payment1" Member="Payments1" ThisKey="CODE" OtherKey="REF_COMP_CODE" Type="Payment" />
+      <Association Name="Company_Task" Member="Tasks" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Task" />
+      <Association Name="Company_Log_Call" Member="Log_Calls" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Log_Call" />
+      <Association Name="Company_Final_Result" Member="Final_Results" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Final_Result" />
+      <Association Name="Company_Tag" Member="Tags" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Tag" />
+      <Association Name="Company_Extra_Info" Member="Extra_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Extra_Info" />
+      <Association Name="Company_Contact_Info" Member="Contact_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Contact_Info" />
+      <Association Name="Company_Weekday_Info" Member="Weekday_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Weekday_Info" />
+      <Association Name="Company_Service" Member="Services" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Service" />
+      <Association Name="Company_Service_Public" Member="Service_Publics" ThisKey="CODE" OtherKey="COMP_CODE" Type="Service_Public" />
+      <Association Name="Company_Message" Member="Messages" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Message" />
+      <Association Name="Company_Email" Member="Emails" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Email" />
+      <Association Name="Company_Relation_Info" Member="Relation_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Relation_Info" />
+      <Association Name="Company_Relation_Info1" Member="Relation_Infos1" ThisKey="CODE" OtherKey="RLAT_COMP_CODE" Type="Relation_Info" />
+      <Association Name="Company_Send_File" Member="Send_Files" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Send_File" />
+      <Association Name="Company_Company" Member="Companies" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company" />
+      <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Job_Personnel_Company" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Service_Company" Member="Service" ThisKey="PRIM_SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+      <Association Name="Region_Company" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Service_Company1" Member="Service1" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId82">
+      <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
+      <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
+      <Argument Parameter="regn_Code" Member="REGN_CODE" />
+      <Argument Parameter="iscp_Isca_Iscg_Code" Member="ISCP_ISCA_ISCG_CODE" />
+      <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
+      <Argument Parameter="iscp_Code" Member="ISCP_CODE" />
+      <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="post_Addr_Zoom" Member="POST_ADDR_ZOOM" />
+      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
+      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
+      <Argument Parameter="web_Site" Member="WEB_SITE" />
+      <Argument Parameter="comp_Code" Member="COMP_CODE" />
+      <Argument Parameter="comp_Desc" Member="COMP_DESC" />
+      <Argument Parameter="regs_Date" Member="REGS_DATE" />
+      <Argument Parameter="zip_Code" Member="ZIP_CODE" />
+      <Argument Parameter="logo" Member="LOGO" />
+      <Argument Parameter="econ_Code" Member="ECON_CODE" />
+      <Argument Parameter="strt_Time" Member="STRT_TIME" />
+      <Argument Parameter="end_Time" Member="END_TIME" />
+      <Argument Parameter="type" Member="TYPE" />
+      <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
+      <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
+      <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
+      <Argument Parameter="bill_Addr" Member="BILL_ADDR" />
+      <Argument Parameter="ship_Addr_X" Member="SHIP_ADDR_X" />
+      <Argument Parameter="ship_Addr_Y" Member="SHIP_ADDR_Y" />
+      <Argument Parameter="ship_Addr_Zoom" Member="SHIP_ADDR_ZOOM" />
+      <Argument Parameter="ship_Addr" Member="SHIP_ADDR" />
+      <Argument Parameter="face_Book_Url" Member="FACE_BOOK_URL" />
+      <Argument Parameter="link_In_Url" Member="LINK_IN_URL" />
+      <Argument Parameter="twtr_Url" Member="TWTR_URL" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="host_Stat" Member="HOST_STAT" />
+      <Argument Parameter="ownr_Code" Member="OWNR_CODE" />
+      <Argument Parameter="fax_NUmb" Member="FAX_NUMB" />
+      <Argument Parameter="prim_Serv_File_No" Member="PRIM_SERV_FILE_NO" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId83">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
+      <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
+      <Argument Parameter="regn_Code" Member="REGN_CODE" />
+      <Argument Parameter="iscp_Isca_Iscg_Code" Member="ISCP_ISCA_ISCG_CODE" />
+      <Argument Parameter="iscp_Isca_Code" Member="ISCP_ISCA_CODE" />
+      <Argument Parameter="iscp_Code" Member="ISCP_CODE" />
+      <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="post_Addr_Zoom" Member="POST_ADDR_ZOOM" />
+      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
+      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
+      <Argument Parameter="web_Site" Member="WEB_SITE" />
+      <Argument Parameter="comp_Code" Member="COMP_CODE" />
+      <Argument Parameter="comp_Desc" Member="COMP_DESC" />
+      <Argument Parameter="regs_Date" Member="REGS_DATE" />
+      <Argument Parameter="zip_Code" Member="ZIP_CODE" />
+      <Argument Parameter="logo" Member="LOGO" />
+      <Argument Parameter="econ_Code" Member="ECON_CODE" />
+      <Argument Parameter="strt_Time" Member="STRT_TIME" />
+      <Argument Parameter="end_Time" Member="END_TIME" />
+      <Argument Parameter="type" Member="TYPE" />
+      <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
+      <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
+      <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
+      <Argument Parameter="bill_Addr" Member="BILL_ADDR" />
+      <Argument Parameter="ship_Addr_X" Member="SHIP_ADDR_X" />
+      <Argument Parameter="ship_Addr_Y" Member="SHIP_ADDR_Y" />
+      <Argument Parameter="ship_Addr_Zoom" Member="SHIP_ADDR_ZOOM" />
+      <Argument Parameter="ship_Addr" Member="SHIP_ADDR" />
+      <Argument Parameter="face_Book_Url" Member="FACE_BOOK_URL" />
+      <Argument Parameter="link_In_Url" Member="LINK_IN_URL" />
+      <Argument Parameter="twtr_Url" Member="TWTR_URL" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="host_Stat" Member="HOST_STAT" />
+      <Argument Parameter="ownr_Code" Member="OWNR_CODE" />
+      <Argument Parameter="fax_Numb" Member="FAX_NUMB" />
+      <Argument Parameter="prim_Serv_File_No" Member="PRIM_SERV_FILE_NO" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId84">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
@@ -3839,7 +3939,7 @@
       <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId63" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
+  <Function Id="FunctionId84" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -4293,89 +4393,6 @@
     <Parameter Name="Rlt2_Apbs_Code" Parameter="rlt2_Apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId61" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
-    <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Iscp_Isca_Iscg_Code" Parameter="iscp_Isca_Iscg_Code" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="Iscp_Code" Parameter="iscp_Code" Type="System.String" DbType="VarChar(6)" />
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Post_Addr_Zoom" Parameter="post_Addr_Zoom" Type="System.Double" DbType="Float" />
-    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
-    <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Comp_Desc" Parameter="comp_Desc" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Regs_Date" Parameter="regs_Date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Zip_Code" Parameter="zip_Code" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Logo" Parameter="logo" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Parameter Name="Econ_Code" Parameter="econ_Code" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Strt_Time" Parameter="strt_Time" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="End_Time" Parameter="end_Time" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Empy_Numb" Parameter="empy_Numb" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Bill_Addr_X" Parameter="bill_Addr_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Bill_Addr_Y" Parameter="bill_Addr_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Bill_Addr_Zoom" Parameter="bill_Addr_Zoom" Type="System.Double" DbType="Float" />
-    <Parameter Name="Bill_Addr" Parameter="bill_Addr" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Ship_Addr_X" Parameter="ship_Addr_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Ship_Addr_Y" Parameter="ship_Addr_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Ship_Addr_Zoom" Parameter="ship_Addr_Zoom" Type="System.Double" DbType="Float" />
-    <Parameter Name="Ship_Addr" Parameter="ship_Addr" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Face_Book_Url" Parameter="face_Book_Url" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Link_In_Url" Parameter="link_In_Url" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Twtr_Url" Parameter="twtr_Url" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId62" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
-    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Iscp_Isca_Iscg_Code" Parameter="iscp_Isca_Iscg_Code" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="Iscp_Code" Parameter="iscp_Code" Type="System.String" DbType="VarChar(6)" />
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Post_Addr_Zoom" Parameter="post_Addr_Zoom" Type="System.Double" DbType="Float" />
-    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
-    <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Comp_Desc" Parameter="comp_Desc" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Regs_Date" Parameter="regs_Date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Zip_Code" Parameter="zip_Code" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Logo" Parameter="logo" Type="System.Data.Linq.Binary" DbType="Image" />
-    <Parameter Name="Econ_Code" Parameter="econ_Code" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Strt_Time" Parameter="strt_Time" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="End_Time" Parameter="end_Time" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Empy_Numb" Parameter="empy_Numb" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Bill_Addr_X" Parameter="bill_Addr_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Bill_Addr_Y" Parameter="bill_Addr_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Bill_Addr_Zoom" Parameter="bill_Addr_Zoom" Type="System.Double" DbType="Float" />
-    <Parameter Name="Bill_Addr" Parameter="bill_Addr" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Ship_Addr_X" Parameter="ship_Addr_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Ship_Addr_Y" Parameter="ship_Addr_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Ship_Addr_Zoom" Parameter="ship_Addr_Zoom" Type="System.Double" DbType="Float" />
-    <Parameter Name="Ship_Addr" Parameter="ship_Addr" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Face_Book_Url" Parameter="face_Book_Url" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Link_In_Url" Parameter="link_In_Url" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Twtr_Url" Parameter="twtr_Url" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.VF$Companies" Method="VF_Companies" IsComposable="true">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <ElementType Name="VF_CompaniesResult">
@@ -4433,27 +4450,27 @@
       <Column Name="NATL_CODE_DNRM" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId66" Name="dbo.DEL_JBPR_P" Method="DEL_JBPR_P">
+  <Function Id="FunctionId63" Name="dbo.DEL_JBPR_P" Method="DEL_JBPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId64" Name="dbo.INS_JBPR_P" Method="INS_JBPR_P">
+  <Function Id="FunctionId61" Name="dbo.INS_JBPR_P" Method="INS_JBPR_P">
     <Parameter Name="Jobp_Code" Parameter="jobp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rlat_Jobp_Code" Parameter="rlat_Jobp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId65" Name="dbo.UPD_JBPR_P" Method="UPD_JBPR_P">
+  <Function Id="FunctionId62" Name="dbo.UPD_JBPR_P" Method="UPD_JBPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Jbpr_Desc" Parameter="jbpr_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId75" Name="dbo.DEL_SRPR_P" Method="DEL_SRPR_P">
+  <Function Id="FunctionId72" Name="dbo.DEL_SRPR_P" Method="DEL_SRPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId74" Name="dbo.UPD_SRPR_P" Method="UPD_SRPR_P">
+  <Function Id="FunctionId71" Name="dbo.UPD_SRPR_P" Method="UPD_SRPR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
@@ -4517,27 +4534,27 @@
       <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId84" Name="dbo.DEL_SSTT_P" Method="DEL_SSTT_P">
+  <Function Id="FunctionId81" Name="dbo.DEL_SSTT_P" Method="DEL_SSTT_P">
     <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId81" Name="dbo.DEL_MSTT_P" Method="DEL_MSTT_P">
+  <Function Id="FunctionId78" Name="dbo.DEL_MSTT_P" Method="DEL_MSTT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId69" Name="dbo.DEL_SHIS_P" Method="DEL_SHIS_P">
+  <Function Id="FunctionId66" Name="dbo.DEL_SHIS_P" Method="DEL_SHIS_P">
     <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId72" Name="dbo.DEL_SHID_P" Method="DEL_SHID_P">
+  <Function Id="FunctionId69" Name="dbo.DEL_SHID_P" Method="DEL_SHID_P">
     <Parameter Name="Shis_Rqst_Rqid" Parameter="shis_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Shis_Rwno" Parameter="shis_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId70" Name="dbo.INS_SHID_P" Method="INS_SHID_P">
+  <Function Id="FunctionId67" Name="dbo.INS_SHID_P" Method="INS_SHID_P">
     <Parameter Name="Shis_Rqst_Rqid" Parameter="shis_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Shis_Rwno" Parameter="shis_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Sstt_Mstt_Sub_Sys" Parameter="sstt_Mstt_Sub_Sys" Type="System.Int16" DbType="SmallInt" />
@@ -4548,7 +4565,7 @@
     <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId71" Name="dbo.UPD_SHID_P" Method="UPD_SHID_P">
+  <Function Id="FunctionId68" Name="dbo.UPD_SHID_P" Method="UPD_SHID_P">
     <Parameter Name="Shis_Rqst_Rqid" Parameter="shis_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Shis_Rwno" Parameter="shis_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
@@ -4557,7 +4574,7 @@
     <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId68" Name="dbo.UPD_SHIS_P" Method="UPD_SHIS_P">
+  <Function Id="FunctionId65" Name="dbo.UPD_SHIS_P" Method="UPD_SHIS_P">
     <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="From_Date" Parameter="from_Date" Type="System.DateTime" DbType="DateTime" />
@@ -4565,7 +4582,7 @@
     <Parameter Name="Mstt_Desc" Parameter="mstt_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId67" Name="dbo.INS_SHIS_P" Method="INS_SHIS_P">
+  <Function Id="FunctionId64" Name="dbo.INS_SHIS_P" Method="INS_SHIS_P">
     <Parameter Name="Rqst_Rqid" Parameter="rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Sstt_Mstt_Code" Parameter="sstt_Mstt_Code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Sstt_Mstt_Sub_Sys" Parameter="sstt_Mstt_Sub_Sys" Type="System.Int16" DbType="SmallInt" />
@@ -4574,53 +4591,142 @@
     <Parameter Name="Mstt_Desc" Parameter="mstt_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId73" Name="dbo.INS_SRPR_P" Method="INS_SRPR_P">
+  <Function Id="FunctionId70" Name="dbo.INS_SRPR_P" Method="INS_SRPR_P">
     <Parameter Name="Rqro_Rqst_Rqid" Parameter="rqro_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Jbpr_Code" Parameter="jbpr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rajp_Desc" Parameter="rajp_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId78" Name="dbo.DEL_JBPD_P" Method="DEL_JBPD_P">
+  <Function Id="FunctionId75" Name="dbo.DEL_JBPD_P" Method="DEL_JBPD_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId76" Name="dbo.INS_JBPD_P" Method="INS_JBPD_P">
+  <Function Id="FunctionId73" Name="dbo.INS_JBPD_P" Method="INS_JBPD_P">
     <Parameter Name="Jobp_Code" Parameter="jobp_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="sstt_mstt_sub_sys" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="sstt_mstt_code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="sstt_code" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId77" Name="dbo.UPD_JBPD_P" Method="UPD_JBPD_P">
+  <Function Id="FunctionId74" Name="dbo.UPD_JBPD_P" Method="UPD_JBPD_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rec_Stat" Parameter="rec_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId79" Name="dbo.INS_MSTT_P" Method="INS_MSTT_P">
+  <Function Id="FunctionId76" Name="dbo.INS_MSTT_P" Method="INS_MSTT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="MSTT_DESC" Parameter="mSTT_DESC" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="MSTT_COLR" Parameter="mSTT_COLR" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId82" Name="dbo.INS_SSTT_P" Method="INS_SSTT_P">
+  <Function Id="FunctionId79" Name="dbo.INS_SSTT_P" Method="INS_SSTT_P">
     <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Sstt_Colr" Parameter="sstt_Colr" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId80" Name="dbo.UPD_MSTT_P" Method="UPD_MSTT_P">
+  <Function Id="FunctionId77" Name="dbo.UPD_MSTT_P" Method="UPD_MSTT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="MSTT_DESC" Parameter="mSTT_DESC" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Mstt_Colr" Parameter="mstt_Colr" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId83" Name="dbo.UPD_SSTT_P" Method="UPD_SSTT_P">
+  <Function Id="FunctionId80" Name="dbo.UPD_SSTT_P" Method="UPD_SSTT_P">
     <Parameter Name="Mstt_Code" Parameter="mstt_Code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Sstt_Desc" Parameter="sstt_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Sstt_Colr" Parameter="sstt_Colr" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId82" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
+    <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Iscp_Isca_Iscg_Code" Parameter="iscp_Isca_Iscg_Code" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Iscp_Code" Parameter="iscp_Code" Type="System.String" DbType="VarChar(6)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Addr_Zoom" Parameter="post_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Comp_Desc" Parameter="comp_Desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Regs_Date" Parameter="regs_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Zip_Code" Parameter="zip_Code" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Logo" Parameter="logo" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="Econ_Code" Parameter="econ_Code" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Strt_Time" Parameter="strt_Time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End_Time" Parameter="end_Time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Empy_Numb" Parameter="empy_Numb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Bill_Addr_X" Parameter="bill_Addr_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr_Y" Parameter="bill_Addr_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr_Zoom" Parameter="bill_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr" Parameter="bill_Addr" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Ship_Addr_X" Parameter="ship_Addr_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr_Y" Parameter="ship_Addr_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr_Zoom" Parameter="ship_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr" Parameter="ship_Addr" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Face_Book_Url" Parameter="face_Book_Url" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Link_In_Url" Parameter="link_In_Url" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Twtr_Url" Parameter="twtr_Url" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ownr_Code" Parameter="ownr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Fax_NUmb" Parameter="fax_NUmb" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Prim_Serv_File_No" Parameter="prim_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId83" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Iscp_Isca_Iscg_Code" Parameter="iscp_Isca_Iscg_Code" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Iscp_Isca_Code" Parameter="iscp_Isca_Code" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Iscp_Code" Parameter="iscp_Code" Type="System.String" DbType="VarChar(6)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Addr_Zoom" Parameter="post_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Comp_Desc" Parameter="comp_Desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Regs_Date" Parameter="regs_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Zip_Code" Parameter="zip_Code" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Logo" Parameter="logo" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="Econ_Code" Parameter="econ_Code" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Strt_Time" Parameter="strt_Time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End_Time" Parameter="end_Time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Empy_Numb" Parameter="empy_Numb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Bill_Addr_X" Parameter="bill_Addr_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr_Y" Parameter="bill_Addr_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr_Zoom" Parameter="bill_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Bill_Addr" Parameter="bill_Addr" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Ship_Addr_X" Parameter="ship_Addr_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr_Y" Parameter="ship_Addr_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr_Zoom" Parameter="ship_Addr_Zoom" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ship_Addr" Parameter="ship_Addr" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Face_Book_Url" Parameter="face_Book_Url" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Link_In_Url" Parameter="link_In_Url" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Twtr_Url" Parameter="twtr_Url" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Host_Stat" Parameter="host_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ownr_Code" Parameter="ownr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Fax_Numb" Parameter="fax_Numb" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Prim_Serv_File_No" Parameter="prim_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

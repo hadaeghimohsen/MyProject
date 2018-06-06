@@ -100,9 +100,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         this.PortList_Lb = new System.Windows.Forms.Label();
          this.colTYPE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.PortList_Lb = new System.Windows.Forms.Label();
          this.CompName1_Lb = new System.Windows.Forms.Label();
          this.MostDebtAmnt_Lb = new System.Windows.Forms.Label();
          this.ShareKomod_Lb = new System.Windows.Forms.Label();
@@ -581,15 +581,6 @@
          tYPELabel1.TabIndex = 24;
          tYPELabel1.Text = "نوع آیتم :";
          // 
-         // PortList_Lb
-         // 
-         this.PortList_Lb.AutoSize = true;
-         this.PortList_Lb.Location = new System.Drawing.Point(112, 47);
-         this.PortList_Lb.Name = "PortList_Lb";
-         this.PortList_Lb.Size = new System.Drawing.Size(72, 14);
-         this.PortList_Lb.TabIndex = 0;
-         this.PortList_Lb.Text = "لیست پورت :";
-         // 
          // label14
          // 
          label14.Location = new System.Drawing.Point(112, 131);
@@ -678,6 +669,15 @@
          this.colTYPE.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.colTYPE.Name = "colTYPE";
          this.colTYPE.Width = 76;
+         // 
+         // PortList_Lb
+         // 
+         this.PortList_Lb.AutoSize = true;
+         this.PortList_Lb.Location = new System.Drawing.Point(112, 47);
+         this.PortList_Lb.Name = "PortList_Lb";
+         this.PortList_Lb.Size = new System.Drawing.Size(72, 14);
+         this.PortList_Lb.TabIndex = 0;
+         this.PortList_Lb.Text = "لیست پورت :";
          // 
          // CompName1_Lb
          // 
@@ -1518,6 +1518,7 @@
          this.lookUpEdit7.Properties.ValueMember = "VALU";
          this.lookUpEdit7.Size = new System.Drawing.Size(122, 22);
          this.lookUpEdit7.TabIndex = 11;
+         this.lookUpEdit7.Visible = false;
          // 
          // AttnPrntStat_Lov
          // 

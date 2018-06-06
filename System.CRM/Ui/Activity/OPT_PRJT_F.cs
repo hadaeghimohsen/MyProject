@@ -316,7 +316,7 @@ namespace System.CRM.Ui.Activity
       {
          try
          {
-            var stng = iCRM.Settings.FirstOrDefault(s => s.DFLT_STAT == "002");
+            var stng = iCRM.Job_Personnels.FirstOrDefault(s => s.USER_NAME == CurrentUser);
             if (stng == null || (stng.INQR_FRMT ?? "") == "") return;
 
             var rqst = RqstBs.Current as Data.Request;

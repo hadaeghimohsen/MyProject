@@ -2523,7 +2523,22 @@ namespace System.Scsc.Ui.MasterPage
             else if(e.Button.Index == 3)
             {
                axCZKEM1_OnAttTransactionEx(CardNumb_Text.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
-            }      
+            }    
+            else if(e.Button.Index == 4)
+            {
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == CardNumb_Text.Text || (CardNumb_Text.Text.Length == 10 && f.NATL_CODE_DNRM == CardNumb_Text.Text));
+
+               if (figh == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                        })
+               );
+            }
          }
          catch (Exception )
          { CardNumb_Text.Text = ""; }

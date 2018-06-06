@@ -182,8 +182,12 @@ namespace System.CRM.Ui.BaseDefination
       private void LoadData(Job job)
       {
          DysnoBs1.DataSource = iCRM.D_YSNOs;
-
-         Execute_Query();
+         DactvBs.DataSource = iCRM.D_ACTVs;
+         DafntBs.DataSource = iCRM.D_AFNTs;
+         DclvwBs.DataSource = iCRM.D_CLVWs;
+         DsfdbBs.DataSource = iCRM.D_SFDBs;
+         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+         InitSectBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "SECTION_FORM");
          job.Status = StatusType.Successful;
       }
 
@@ -193,6 +197,7 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
 

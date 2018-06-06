@@ -407,6 +407,13 @@ namespace System.CRM.Ui.Contacts
             TagBs.DataSource = iCRM.Tags.Where(t => t.SERV_FILE_NO == serv.FILE_NO);
             ExifBs.DataSource = iCRM.Extra_Infos.Where(ex => ex.SERV_FILE_NO == serv.FILE_NO && ex.EXIF_CODE == null);
             ContBs.DataSource = iCRM.Contact_Infos.Where(c => c.SERV_FILE_NO == serv.FILE_NO);
+            RqstProjBs.DataSource =
+            iCRM.Requests.Where(t =>
+               t.RQTP_CODE == "013" &&
+               t.RQTT_CODE == "004" &&
+                  //t.Request_Rows.Any(rr => rr.SERV_FILE_NO == fileno) &&
+               t.Request_Rows.FirstOrDefault(rr => rr.SERV_FILE_NO == serv.FILE_NO).Service_Projects.Any(sp => sp.REC_STAT == "002" && sp.Job_Personnel_Relation.Job_Personnel.USER_NAME == CurrentUser)
+            );
          }
       }
 

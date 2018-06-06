@@ -87,6 +87,13 @@
          DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
+         this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.AttnMbsp_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PymtAmnt_Lb = new System.Windows.Forms.Label();
          this.PydsAmnt_Lb = new System.Windows.Forms.Label();
          this.TotlAmnt_Lb = new System.Windows.Forms.Label();
@@ -95,13 +102,6 @@
          this.CellPhon1_Lb = new System.Windows.Forms.Label();
          this.TellPhon1_Lb = new System.Windows.Forms.Label();
          this.NatlCode1_Lb = new System.Windows.Forms.Label();
-         this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
-         this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.AttnMbsp_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.vF_Last_Info_FighterResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.vF_Last_Info_FighterResultGridControl = new DevExpress.XtraGrid.GridControl();
          this.PBLC = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -309,86 +309,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
          this.SuspendLayout();
          // 
-         // PymtAmnt_Lb
-         // 
-         this.PymtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PymtAmnt_Lb.AutoSize = true;
-         this.PymtAmnt_Lb.Location = new System.Drawing.Point(433, 42);
-         this.PymtAmnt_Lb.Name = "PymtAmnt_Lb";
-         this.PymtAmnt_Lb.Size = new System.Drawing.Size(91, 13);
-         this.PymtAmnt_Lb.TabIndex = 19;
-         this.PymtAmnt_Lb.Text = "کل مبلغ پرداختی :";
-         // 
-         // PydsAmnt_Lb
-         // 
-         this.PydsAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PydsAmnt_Lb.AutoSize = true;
-         this.PydsAmnt_Lb.Location = new System.Drawing.Point(230, 12);
-         this.PydsAmnt_Lb.Name = "PydsAmnt_Lb";
-         this.PydsAmnt_Lb.Size = new System.Drawing.Size(83, 13);
-         this.PydsAmnt_Lb.TabIndex = 19;
-         this.PydsAmnt_Lb.Text = "کل مبلغ تخفیف :";
-         // 
-         // TotlAmnt_Lb
-         // 
-         this.TotlAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.TotlAmnt_Lb.AutoSize = true;
-         this.TotlAmnt_Lb.Location = new System.Drawing.Point(433, 12);
-         this.TotlAmnt_Lb.Name = "TotlAmnt_Lb";
-         this.TotlAmnt_Lb.Size = new System.Drawing.Size(79, 13);
-         this.TotlAmnt_Lb.TabIndex = 19;
-         this.TotlAmnt_Lb.Text = "کل مبلغ هزینه :";
-         // 
-         // GlobCode1_Lb
-         // 
-         this.GlobCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GlobCode1_Lb.AutoSize = true;
-         this.GlobCode1_Lb.Location = new System.Drawing.Point(161, 39);
-         this.GlobCode1_Lb.Name = "GlobCode1_Lb";
-         this.GlobCode1_Lb.Size = new System.Drawing.Size(66, 13);
-         this.GlobCode1_Lb.TabIndex = 19;
-         this.GlobCode1_Lb.Text = "کد پرسنلی :";
-         // 
-         // SuntCode1_Lb
-         // 
-         this.SuntCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.SuntCode1_Lb.AutoSize = true;
-         this.SuntCode1_Lb.Location = new System.Drawing.Point(158, 11);
-         this.SuntCode1_Lb.Name = "SuntCode1_Lb";
-         this.SuntCode1_Lb.Size = new System.Drawing.Size(84, 13);
-         this.SuntCode1_Lb.TabIndex = 19;
-         this.SuntCode1_Lb.Text = "عنوان سازمانی :";
-         // 
-         // CellPhon1_Lb
-         // 
-         this.CellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CellPhon1_Lb.AutoSize = true;
-         this.CellPhon1_Lb.Location = new System.Drawing.Point(354, 11);
-         this.CellPhon1_Lb.Name = "CellPhon1_Lb";
-         this.CellPhon1_Lb.Size = new System.Drawing.Size(66, 13);
-         this.CellPhon1_Lb.TabIndex = 19;
-         this.CellPhon1_Lb.Text = "تلفن همراه :";
-         // 
-         // TellPhon1_Clm
-         // 
-         this.TellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.TellPhon1_Lb.AutoSize = true;
-         this.TellPhon1_Lb.Location = new System.Drawing.Point(354, 39);
-         this.TellPhon1_Lb.Name = "TellPhon1_Clm";
-         this.TellPhon1_Lb.Size = new System.Drawing.Size(57, 13);
-         this.TellPhon1_Lb.TabIndex = 19;
-         this.TellPhon1_Lb.Text = "تلفن ثابت :";
-         // 
-         // NatlCode1_Lb
-         // 
-         this.NatlCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.NatlCode1_Lb.AutoSize = true;
-         this.NatlCode1_Lb.Location = new System.Drawing.Point(354, 67);
-         this.NatlCode1_Lb.Name = "NatlCode1_Lb";
-         this.NatlCode1_Lb.Size = new System.Drawing.Size(49, 13);
-         this.NatlCode1_Lb.TabIndex = 19;
-         this.NatlCode1_Lb.Text = "کد ملی :";
-         // 
          // DebtDnrm_Clm
          // 
          this.DebtDnrm_Clm.Caption = "مبلغ بدهی";
@@ -461,6 +381,86 @@
          // 
          this.gridColumn2.FieldName = "TYPE";
          this.gridColumn2.Name = "gridColumn2";
+         // 
+         // PymtAmnt_Lb
+         // 
+         this.PymtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PymtAmnt_Lb.AutoSize = true;
+         this.PymtAmnt_Lb.Location = new System.Drawing.Point(433, 42);
+         this.PymtAmnt_Lb.Name = "PymtAmnt_Lb";
+         this.PymtAmnt_Lb.Size = new System.Drawing.Size(91, 13);
+         this.PymtAmnt_Lb.TabIndex = 19;
+         this.PymtAmnt_Lb.Text = "کل مبلغ پرداختی :";
+         // 
+         // PydsAmnt_Lb
+         // 
+         this.PydsAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsAmnt_Lb.AutoSize = true;
+         this.PydsAmnt_Lb.Location = new System.Drawing.Point(230, 12);
+         this.PydsAmnt_Lb.Name = "PydsAmnt_Lb";
+         this.PydsAmnt_Lb.Size = new System.Drawing.Size(83, 13);
+         this.PydsAmnt_Lb.TabIndex = 19;
+         this.PydsAmnt_Lb.Text = "کل مبلغ تخفیف :";
+         // 
+         // TotlAmnt_Lb
+         // 
+         this.TotlAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TotlAmnt_Lb.AutoSize = true;
+         this.TotlAmnt_Lb.Location = new System.Drawing.Point(433, 12);
+         this.TotlAmnt_Lb.Name = "TotlAmnt_Lb";
+         this.TotlAmnt_Lb.Size = new System.Drawing.Size(79, 13);
+         this.TotlAmnt_Lb.TabIndex = 19;
+         this.TotlAmnt_Lb.Text = "کل مبلغ هزینه :";
+         // 
+         // GlobCode1_Lb
+         // 
+         this.GlobCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GlobCode1_Lb.AutoSize = true;
+         this.GlobCode1_Lb.Location = new System.Drawing.Point(161, 39);
+         this.GlobCode1_Lb.Name = "GlobCode1_Lb";
+         this.GlobCode1_Lb.Size = new System.Drawing.Size(66, 13);
+         this.GlobCode1_Lb.TabIndex = 19;
+         this.GlobCode1_Lb.Text = "کد پرسنلی :";
+         // 
+         // SuntCode1_Lb
+         // 
+         this.SuntCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SuntCode1_Lb.AutoSize = true;
+         this.SuntCode1_Lb.Location = new System.Drawing.Point(158, 11);
+         this.SuntCode1_Lb.Name = "SuntCode1_Lb";
+         this.SuntCode1_Lb.Size = new System.Drawing.Size(84, 13);
+         this.SuntCode1_Lb.TabIndex = 19;
+         this.SuntCode1_Lb.Text = "عنوان سازمانی :";
+         // 
+         // CellPhon1_Lb
+         // 
+         this.CellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon1_Lb.AutoSize = true;
+         this.CellPhon1_Lb.Location = new System.Drawing.Point(354, 11);
+         this.CellPhon1_Lb.Name = "CellPhon1_Lb";
+         this.CellPhon1_Lb.Size = new System.Drawing.Size(66, 13);
+         this.CellPhon1_Lb.TabIndex = 19;
+         this.CellPhon1_Lb.Text = "تلفن همراه :";
+         // 
+         // TellPhon1_Lb
+         // 
+         this.TellPhon1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TellPhon1_Lb.AutoSize = true;
+         this.TellPhon1_Lb.Location = new System.Drawing.Point(354, 39);
+         this.TellPhon1_Lb.Name = "TellPhon1_Lb";
+         this.TellPhon1_Lb.Size = new System.Drawing.Size(57, 13);
+         this.TellPhon1_Lb.TabIndex = 19;
+         this.TellPhon1_Lb.Text = "تلفن ثابت :";
+         // 
+         // NatlCode1_Lb
+         // 
+         this.NatlCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NatlCode1_Lb.AutoSize = true;
+         this.NatlCode1_Lb.Location = new System.Drawing.Point(354, 67);
+         this.NatlCode1_Lb.Name = "NatlCode1_Lb";
+         this.NatlCode1_Lb.Size = new System.Drawing.Size(49, 13);
+         this.NatlCode1_Lb.TabIndex = 19;
+         this.NatlCode1_Lb.Text = "کد ملی :";
          // 
          // vF_Last_Info_FighterResultBindingSource
          // 
@@ -2326,7 +2326,7 @@
          this.UserProFile_Rb.HoverColorA = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
-         this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.UserProFile_Rb.ImageVisiable = false;
          this.UserProFile_Rb.Location = new System.Drawing.Point(443, 7);
          this.UserProFile_Rb.Name = "UserProFile_Rb";

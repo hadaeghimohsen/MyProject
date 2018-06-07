@@ -1121,7 +1121,7 @@
          this.AddSubCompany_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1566;
          this.AddSubCompany_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AddSubCompany_Butn.ImageVisiable = true;
-         this.AddSubCompany_Butn.Location = new System.Drawing.Point(85, 6);
+         this.AddSubCompany_Butn.Location = new System.Drawing.Point(85, 4);
          this.AddSubCompany_Butn.Name = "AddSubCompany_Butn";
          this.AddSubCompany_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AddSubCompany_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1147,7 +1147,7 @@
          this.EditCompany_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1516;
          this.EditCompany_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.EditCompany_Butn.ImageVisiable = true;
-         this.EditCompany_Butn.Location = new System.Drawing.Point(44, 6);
+         this.EditCompany_Butn.Location = new System.Drawing.Point(44, 4);
          this.EditCompany_Butn.Name = "EditCompany_Butn";
          this.EditCompany_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.EditCompany_Butn.NormalColorA = System.Drawing.Color.White;

@@ -2178,12 +2178,12 @@ namespace System.CRM.Data
 		
 		private void InsertCompany(Company obj)
 		{
-			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)));
+			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)), ((System.Nullable<long>)(obj.TRCB_TCID)), obj.CRDT_STAT, ((System.Nullable<long>)(obj.CRDT_AMNT)), obj.PYMT_TERM, obj.OWNR_SHIP, obj.GET_KNOW_US, obj.GET_KNOW_CUST, obj.CONT_MTOD, obj.ALOW_EMAL, obj.ALOW_BULK_EMAL, obj.ALOW_PHON, obj.ALOW_FAX, obj.ALOW_LETT, obj.SHIP_MTOD, obj.SHIP_CHRG);
 		}
 		
 		private void UpdateCompany(Company obj)
 		{
-			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)));
+			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)), ((System.Nullable<long>)(obj.TRCB_TCID)), obj.CRDT_STAT, ((System.Nullable<long>)(obj.CRDT_AMNT)), obj.PYMT_TERM, obj.OWNR_SHIP, obj.GET_KNOW_US, obj.GET_KNOW_CUST, obj.CONT_MTOD, obj.ALOW_EMAL, obj.ALOW_BULK_EMAL, obj.ALOW_PHON, obj.ALOW_FAX, obj.ALOW_LETT, obj.SHIP_MTOD, obj.SHIP_CHRG);
 		}
 		
 		private void DeleteCompany(Company obj)
@@ -3430,9 +3430,24 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ownr_Code", DbType="BigInt")] System.Nullable<long> ownr_Code, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fax_NUmb", DbType="VarChar(15)")] string fax_NUmb, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Prim_Serv_File_No", DbType="BigInt")] System.Nullable<long> prim_Serv_File_No)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Prim_Serv_File_No", DbType="BigInt")] System.Nullable<long> prim_Serv_File_No, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Trcb_Tcid", DbType="BigInt")] System.Nullable<long> trcb_Tcid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crdt_Stat", DbType="VarChar(3)")] string crdt_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crdt_Amnt", DbType="BigInt")] System.Nullable<long> crdt_Amnt, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Term", DbType="VarChar(3)")] string pymt_Term, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ownr_Ship", DbType="VarChar(3)")] string ownr_Ship, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Get_Know_Us", DbType="VarChar(3)")] string get_Know_Us, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Get_Know_Cust", DbType="VarChar(3)")] string get_Know_Cust, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cont_Mtod", DbType="VarChar(3)")] string cont_Mtod, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Emal", DbType="VarChar(3)")] string alow_Emal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Bulk_Emal", DbType="VarChar(3)")] string alow_Bulk_Emal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Phon", DbType="VarChar(3)")] string alow_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Fax", DbType="VarChar(3)")] string alow_Fax, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Lett", DbType="VarChar(3)")] string alow_Lett, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mtod", DbType="VarChar(3)")] string ship_Mtod, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Chrg", DbType="VarChar(3)")] string ship_Chrg)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_NUmb, prim_Serv_File_No);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_NUmb, prim_Serv_File_No, trcb_Tcid, crdt_Stat, crdt_Amnt, pymt_Term, ownr_Ship, get_Know_Us, get_Know_Cust, cont_Mtod, alow_Emal, alow_Bulk_Emal, alow_Phon, alow_Fax, alow_Lett, ship_Mtod, ship_Chrg);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -3479,9 +3494,24 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Host_Stat", DbType="VarChar(3)")] string host_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ownr_Code", DbType="BigInt")] System.Nullable<long> ownr_Code, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fax_Numb", DbType="VarChar(15)")] string fax_Numb, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Prim_Serv_File_No", DbType="BigInt")] System.Nullable<long> prim_Serv_File_No)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Prim_Serv_File_No", DbType="BigInt")] System.Nullable<long> prim_Serv_File_No, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Trcb_Tcid", DbType="BigInt")] System.Nullable<long> trcb_Tcid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crdt_Stat", DbType="VarChar(3)")] string crdt_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crdt_Amnt", DbType="BigInt")] System.Nullable<long> crdt_Amnt, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Term", DbType="VarChar(3)")] string pymt_Term, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ownr_Ship", DbType="VarChar(3)")] string ownr_Ship, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Get_Know_Us", DbType="VarChar(3)")] string get_Know_Us, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Get_Know_Cust", DbType="VarChar(3)")] string get_Know_Cust, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cont_Mtod", DbType="VarChar(3)")] string cont_Mtod, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Emal", DbType="VarChar(3)")] string alow_Emal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Bulk_Emal", DbType="VarChar(3)")] string alow_Bulk_Emal, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Phon", DbType="VarChar(3)")] string alow_Phon, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Fax", DbType="VarChar(3)")] string alow_Fax, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Lett", DbType="VarChar(3)")] string alow_Lett, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mtod", DbType="VarChar(3)")] string ship_Mtod, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Chrg", DbType="VarChar(3)")] string ship_Chrg)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_Numb, prim_Serv_File_No);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_Numb, prim_Serv_File_No, trcb_Tcid, crdt_Stat, crdt_Amnt, pymt_Term, ownr_Ship, get_Know_Us, get_Know_Cust, cont_Mtod, alow_Emal, alow_Bulk_Emal, alow_Phon, alow_Fax, alow_Lett, ship_Mtod, ship_Chrg);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -52486,6 +52516,8 @@ namespace System.CRM.Data
 		
 		private EntitySet<Job_Personnel> _Job_Personnels;
 		
+		private EntitySet<Company> _Companies;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -52515,6 +52547,7 @@ namespace System.CRM.Data
 		public Transaction_Currency_Base()
 		{
 			this._Job_Personnels = new EntitySet<Job_Personnel>(new Action<Job_Personnel>(this.attach_Job_Personnels), new Action<Job_Personnel>(this.detach_Job_Personnels));
+			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			OnCreated();
 		}
 		
@@ -52731,6 +52764,19 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaction_Currency_Base_Company", Storage="_Companies", ThisKey="TCID", OtherKey="TRCB_TCID")]
+		public EntitySet<Company> Companies
+		{
+			get
+			{
+				return this._Companies;
+			}
+			set
+			{
+				this._Companies.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -52758,6 +52804,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Job_Personnels(Job_Personnel entity)
+		{
+			this.SendPropertyChanging();
+			entity.Transaction_Currency_Base = null;
+		}
+		
+		private void attach_Companies(Company entity)
+		{
+			this.SendPropertyChanging();
+			entity.Transaction_Currency_Base = this;
+		}
+		
+		private void detach_Companies(Company entity)
 		{
 			this.SendPropertyChanging();
 			entity.Transaction_Currency_Base = null;
@@ -55494,6 +55552,36 @@ namespace System.CRM.Data
 		
 		private System.Nullable<long> _PRIM_SERV_FILE_NO;
 		
+		private System.Nullable<long> _TRCB_TCID;
+		
+		private string _CRDT_STAT;
+		
+		private System.Nullable<long> _CRDT_AMNT;
+		
+		private string _PYMT_TERM;
+		
+		private string _OWNR_SHIP;
+		
+		private string _GET_KNOW_US;
+		
+		private string _GET_KNOW_CUST;
+		
+		private string _CONT_MTOD;
+		
+		private string _ALOW_EMAL;
+		
+		private string _ALOW_BULK_EMAL;
+		
+		private string _ALOW_PHON;
+		
+		private string _ALOW_FAX;
+		
+		private string _ALOW_LETT;
+		
+		private string _SHIP_MTOD;
+		
+		private string _SHIP_CHRG;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -55561,6 +55649,8 @@ namespace System.CRM.Data
 		private EntityRef<Request> _Request;
 		
 		private EntityRef<Service> _Service1;
+		
+		private EntityRef<Transaction_Currency_Base> _Transaction_Currency_Base;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -55658,6 +55748,36 @@ namespace System.CRM.Data
     partial void OnOWNR_CODEChanged();
     partial void OnPRIM_SERV_FILE_NOChanging(System.Nullable<long> value);
     partial void OnPRIM_SERV_FILE_NOChanged();
+    partial void OnTRCB_TCIDChanging(System.Nullable<long> value);
+    partial void OnTRCB_TCIDChanged();
+    partial void OnCRDT_STATChanging(string value);
+    partial void OnCRDT_STATChanged();
+    partial void OnCRDT_AMNTChanging(System.Nullable<long> value);
+    partial void OnCRDT_AMNTChanged();
+    partial void OnPYMT_TERMChanging(string value);
+    partial void OnPYMT_TERMChanged();
+    partial void OnOWNR_SHIPChanging(string value);
+    partial void OnOWNR_SHIPChanged();
+    partial void OnGET_KNOW_USChanging(string value);
+    partial void OnGET_KNOW_USChanged();
+    partial void OnGET_KNOW_CUSTChanging(string value);
+    partial void OnGET_KNOW_CUSTChanged();
+    partial void OnCONT_MTODChanging(string value);
+    partial void OnCONT_MTODChanged();
+    partial void OnALOW_EMALChanging(string value);
+    partial void OnALOW_EMALChanged();
+    partial void OnALOW_BULK_EMALChanging(string value);
+    partial void OnALOW_BULK_EMALChanged();
+    partial void OnALOW_PHONChanging(string value);
+    partial void OnALOW_PHONChanged();
+    partial void OnALOW_FAXChanging(string value);
+    partial void OnALOW_FAXChanged();
+    partial void OnALOW_LETTChanging(string value);
+    partial void OnALOW_LETTChanged();
+    partial void OnSHIP_MTODChanging(string value);
+    partial void OnSHIP_MTODChanged();
+    partial void OnSHIP_CHRGChanging(string value);
+    partial void OnSHIP_CHRGChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -55700,6 +55820,7 @@ namespace System.CRM.Data
 			this._Region = default(EntityRef<Region>);
 			this._Request = default(EntityRef<Request>);
 			this._Service1 = default(EntityRef<Service>);
+			this._Transaction_Currency_Base = default(EntityRef<Transaction_Currency_Base>);
 			OnCreated();
 		}
 		
@@ -56667,6 +56788,310 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRCB_TCID", DbType="BigInt")]
+		public System.Nullable<long> TRCB_TCID
+		{
+			get
+			{
+				return this._TRCB_TCID;
+			}
+			set
+			{
+				if ((this._TRCB_TCID != value))
+				{
+					if (this._Transaction_Currency_Base.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTRCB_TCIDChanging(value);
+					this.SendPropertyChanging();
+					this._TRCB_TCID = value;
+					this.SendPropertyChanged("TRCB_TCID");
+					this.OnTRCB_TCIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRDT_STAT", DbType="VarChar(3)")]
+		public string CRDT_STAT
+		{
+			get
+			{
+				return this._CRDT_STAT;
+			}
+			set
+			{
+				if ((this._CRDT_STAT != value))
+				{
+					this.OnCRDT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CRDT_STAT = value;
+					this.SendPropertyChanged("CRDT_STAT");
+					this.OnCRDT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRDT_AMNT", DbType="BigInt")]
+		public System.Nullable<long> CRDT_AMNT
+		{
+			get
+			{
+				return this._CRDT_AMNT;
+			}
+			set
+			{
+				if ((this._CRDT_AMNT != value))
+				{
+					this.OnCRDT_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CRDT_AMNT = value;
+					this.SendPropertyChanged("CRDT_AMNT");
+					this.OnCRDT_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_TERM", DbType="VarChar(3)")]
+		public string PYMT_TERM
+		{
+			get
+			{
+				return this._PYMT_TERM;
+			}
+			set
+			{
+				if ((this._PYMT_TERM != value))
+				{
+					this.OnPYMT_TERMChanging(value);
+					this.SendPropertyChanging();
+					this._PYMT_TERM = value;
+					this.SendPropertyChanged("PYMT_TERM");
+					this.OnPYMT_TERMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OWNR_SHIP", DbType="VarChar(3)")]
+		public string OWNR_SHIP
+		{
+			get
+			{
+				return this._OWNR_SHIP;
+			}
+			set
+			{
+				if ((this._OWNR_SHIP != value))
+				{
+					this.OnOWNR_SHIPChanging(value);
+					this.SendPropertyChanging();
+					this._OWNR_SHIP = value;
+					this.SendPropertyChanged("OWNR_SHIP");
+					this.OnOWNR_SHIPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GET_KNOW_US", DbType="VarChar(3)")]
+		public string GET_KNOW_US
+		{
+			get
+			{
+				return this._GET_KNOW_US;
+			}
+			set
+			{
+				if ((this._GET_KNOW_US != value))
+				{
+					this.OnGET_KNOW_USChanging(value);
+					this.SendPropertyChanging();
+					this._GET_KNOW_US = value;
+					this.SendPropertyChanged("GET_KNOW_US");
+					this.OnGET_KNOW_USChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GET_KNOW_CUST", DbType="VarChar(3)")]
+		public string GET_KNOW_CUST
+		{
+			get
+			{
+				return this._GET_KNOW_CUST;
+			}
+			set
+			{
+				if ((this._GET_KNOW_CUST != value))
+				{
+					this.OnGET_KNOW_CUSTChanging(value);
+					this.SendPropertyChanging();
+					this._GET_KNOW_CUST = value;
+					this.SendPropertyChanged("GET_KNOW_CUST");
+					this.OnGET_KNOW_CUSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONT_MTOD", DbType="VarChar(3)")]
+		public string CONT_MTOD
+		{
+			get
+			{
+				return this._CONT_MTOD;
+			}
+			set
+			{
+				if ((this._CONT_MTOD != value))
+				{
+					this.OnCONT_MTODChanging(value);
+					this.SendPropertyChanging();
+					this._CONT_MTOD = value;
+					this.SendPropertyChanged("CONT_MTOD");
+					this.OnCONT_MTODChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_EMAL", DbType="VarChar(3)")]
+		public string ALOW_EMAL
+		{
+			get
+			{
+				return this._ALOW_EMAL;
+			}
+			set
+			{
+				if ((this._ALOW_EMAL != value))
+				{
+					this.OnALOW_EMALChanging(value);
+					this.SendPropertyChanging();
+					this._ALOW_EMAL = value;
+					this.SendPropertyChanged("ALOW_EMAL");
+					this.OnALOW_EMALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_BULK_EMAL", DbType="VarChar(3)")]
+		public string ALOW_BULK_EMAL
+		{
+			get
+			{
+				return this._ALOW_BULK_EMAL;
+			}
+			set
+			{
+				if ((this._ALOW_BULK_EMAL != value))
+				{
+					this.OnALOW_BULK_EMALChanging(value);
+					this.SendPropertyChanging();
+					this._ALOW_BULK_EMAL = value;
+					this.SendPropertyChanged("ALOW_BULK_EMAL");
+					this.OnALOW_BULK_EMALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_PHON", DbType="VarChar(3)")]
+		public string ALOW_PHON
+		{
+			get
+			{
+				return this._ALOW_PHON;
+			}
+			set
+			{
+				if ((this._ALOW_PHON != value))
+				{
+					this.OnALOW_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._ALOW_PHON = value;
+					this.SendPropertyChanged("ALOW_PHON");
+					this.OnALOW_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_FAX", DbType="VarChar(3)")]
+		public string ALOW_FAX
+		{
+			get
+			{
+				return this._ALOW_FAX;
+			}
+			set
+			{
+				if ((this._ALOW_FAX != value))
+				{
+					this.OnALOW_FAXChanging(value);
+					this.SendPropertyChanging();
+					this._ALOW_FAX = value;
+					this.SendPropertyChanged("ALOW_FAX");
+					this.OnALOW_FAXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_LETT", DbType="VarChar(3)")]
+		public string ALOW_LETT
+		{
+			get
+			{
+				return this._ALOW_LETT;
+			}
+			set
+			{
+				if ((this._ALOW_LETT != value))
+				{
+					this.OnALOW_LETTChanging(value);
+					this.SendPropertyChanging();
+					this._ALOW_LETT = value;
+					this.SendPropertyChanged("ALOW_LETT");
+					this.OnALOW_LETTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_MTOD", DbType="VarChar(3)")]
+		public string SHIP_MTOD
+		{
+			get
+			{
+				return this._SHIP_MTOD;
+			}
+			set
+			{
+				if ((this._SHIP_MTOD != value))
+				{
+					this.OnSHIP_MTODChanging(value);
+					this.SendPropertyChanging();
+					this._SHIP_MTOD = value;
+					this.SendPropertyChanged("SHIP_MTOD");
+					this.OnSHIP_MTODChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_CHRG", DbType="VarChar(3)")]
+		public string SHIP_CHRG
+		{
+			get
+			{
+				return this._SHIP_CHRG;
+			}
+			set
+			{
+				if ((this._SHIP_CHRG != value))
+				{
+					this.OnSHIP_CHRGChanging(value);
+					this.SendPropertyChanging();
+					this._SHIP_CHRG = value;
+					this.SendPropertyChanged("SHIP_CHRG");
+					this.OnSHIP_CHRGChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
@@ -57288,6 +57713,40 @@ namespace System.CRM.Data
 						this._LAST_SERV_FILE_NO_DNRM = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaction_Currency_Base_Company", Storage="_Transaction_Currency_Base", ThisKey="TRCB_TCID", OtherKey="TCID", IsForeignKey=true)]
+		public Transaction_Currency_Base Transaction_Currency_Base
+		{
+			get
+			{
+				return this._Transaction_Currency_Base.Entity;
+			}
+			set
+			{
+				Transaction_Currency_Base previousValue = this._Transaction_Currency_Base.Entity;
+				if (((previousValue != value) 
+							|| (this._Transaction_Currency_Base.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Transaction_Currency_Base.Entity = null;
+						previousValue.Companies.Remove(this);
+					}
+					this._Transaction_Currency_Base.Entity = value;
+					if ((value != null))
+					{
+						value.Companies.Add(this);
+						this._TRCB_TCID = value.TCID;
+					}
+					else
+					{
+						this._TRCB_TCID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Transaction_Currency_Base");
 				}
 			}
 		}

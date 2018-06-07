@@ -2943,6 +2943,7 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Transaction_Currency_Base_Job_Personnel" Member="Job_Personnels" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Job_Personnel" />
+      <Association Name="Transaction_Currency_Base_Company" Member="Companies" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Company" />
     </Type>
   </Table>
   <Table Name="dbo.D$SFDB" Member="D_SFDBs">
@@ -3115,6 +3116,21 @@
       <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="PRIM_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TRCB_TCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRDT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PYMT_TERM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="OWNR_SHIP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GET_KNOW_US" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GET_KNOW_CUST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CONT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ALOW_EMAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ALOW_BULK_EMAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ALOW_PHON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ALOW_FAX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ALOW_LETT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHIP_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHIP_CHRG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -3149,6 +3165,7 @@
       <Association Name="Region_Company" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Request_Company" Member="Request" ThisKey="LAST_RQST_RQID_DNRM" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Service_Company1" Member="Service1" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+      <Association Name="Transaction_Currency_Base_Company" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId82">
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
@@ -3191,6 +3208,21 @@
       <Argument Parameter="ownr_Code" Member="OWNR_CODE" />
       <Argument Parameter="fax_NUmb" Member="FAX_NUMB" />
       <Argument Parameter="prim_Serv_File_No" Member="PRIM_SERV_FILE_NO" />
+      <Argument Parameter="trcb_Tcid" Member="TRCB_TCID" />
+      <Argument Parameter="crdt_Stat" Member="CRDT_STAT" />
+      <Argument Parameter="crdt_Amnt" Member="CRDT_AMNT" />
+      <Argument Parameter="pymt_Term" Member="PYMT_TERM" />
+      <Argument Parameter="ownr_Ship" Member="OWNR_SHIP" />
+      <Argument Parameter="get_Know_Us" Member="GET_KNOW_US" />
+      <Argument Parameter="get_Know_Cust" Member="GET_KNOW_CUST" />
+      <Argument Parameter="cont_Mtod" Member="CONT_MTOD" />
+      <Argument Parameter="alow_Emal" Member="ALOW_EMAL" />
+      <Argument Parameter="alow_Bulk_Emal" Member="ALOW_BULK_EMAL" />
+      <Argument Parameter="alow_Phon" Member="ALOW_PHON" />
+      <Argument Parameter="alow_Fax" Member="ALOW_FAX" />
+      <Argument Parameter="alow_Lett" Member="ALOW_LETT" />
+      <Argument Parameter="ship_Mtod" Member="SHIP_MTOD" />
+      <Argument Parameter="ship_Chrg" Member="SHIP_CHRG" />
     </InsertFunction>
     <UpdateFunction FunctionId="FunctionId83">
       <Argument Parameter="code" Member="CODE" />
@@ -3234,6 +3266,21 @@
       <Argument Parameter="ownr_Code" Member="OWNR_CODE" />
       <Argument Parameter="fax_Numb" Member="FAX_NUMB" />
       <Argument Parameter="prim_Serv_File_No" Member="PRIM_SERV_FILE_NO" />
+      <Argument Parameter="trcb_Tcid" Member="TRCB_TCID" />
+      <Argument Parameter="crdt_Stat" Member="CRDT_STAT" />
+      <Argument Parameter="crdt_Amnt" Member="CRDT_AMNT" />
+      <Argument Parameter="pymt_Term" Member="PYMT_TERM" />
+      <Argument Parameter="ownr_Ship" Member="OWNR_SHIP" />
+      <Argument Parameter="get_Know_Us" Member="GET_KNOW_US" />
+      <Argument Parameter="get_Know_Cust" Member="GET_KNOW_CUST" />
+      <Argument Parameter="cont_Mtod" Member="CONT_MTOD" />
+      <Argument Parameter="alow_Emal" Member="ALOW_EMAL" />
+      <Argument Parameter="alow_Bulk_Emal" Member="ALOW_BULK_EMAL" />
+      <Argument Parameter="alow_Phon" Member="ALOW_PHON" />
+      <Argument Parameter="alow_Fax" Member="ALOW_FAX" />
+      <Argument Parameter="alow_Lett" Member="ALOW_LETT" />
+      <Argument Parameter="ship_Mtod" Member="SHIP_MTOD" />
+      <Argument Parameter="ship_Chrg" Member="SHIP_CHRG" />
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId84">
       <Argument Parameter="code" Member="CODE" />
@@ -4682,6 +4729,21 @@
     <Parameter Name="Ownr_Code" Parameter="ownr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Fax_NUmb" Parameter="fax_NUmb" Type="System.String" DbType="VarChar(15)" />
     <Parameter Name="Prim_Serv_File_No" Parameter="prim_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Trcb_Tcid" Parameter="trcb_Tcid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Crdt_Stat" Parameter="crdt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crdt_Amnt" Parameter="crdt_Amnt" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Pymt_Term" Parameter="pymt_Term" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ownr_Ship" Parameter="ownr_Ship" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Get_Know_Us" Parameter="get_Know_Us" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Get_Know_Cust" Parameter="get_Know_Cust" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cont_Mtod" Parameter="cont_Mtod" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Emal" Parameter="alow_Emal" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Bulk_Emal" Parameter="alow_Bulk_Emal" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Phon" Parameter="alow_Phon" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Fax" Parameter="alow_Fax" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Lett" Parameter="alow_Lett" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ship_Mtod" Parameter="ship_Mtod" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ship_Chrg" Parameter="ship_Chrg" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId83" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
@@ -4727,6 +4789,21 @@
     <Parameter Name="Ownr_Code" Parameter="ownr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Fax_Numb" Parameter="fax_Numb" Type="System.String" DbType="VarChar(15)" />
     <Parameter Name="Prim_Serv_File_No" Parameter="prim_Serv_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Trcb_Tcid" Parameter="trcb_Tcid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Crdt_Stat" Parameter="crdt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crdt_Amnt" Parameter="crdt_Amnt" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Pymt_Term" Parameter="pymt_Term" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ownr_Ship" Parameter="ownr_Ship" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Get_Know_Us" Parameter="get_Know_Us" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Get_Know_Cust" Parameter="get_Know_Cust" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cont_Mtod" Parameter="cont_Mtod" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Emal" Parameter="alow_Emal" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Bulk_Emal" Parameter="alow_Bulk_Emal" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Phon" Parameter="alow_Phon" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Fax" Parameter="alow_Fax" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Alow_Lett" Parameter="alow_Lett" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ship_Mtod" Parameter="ship_Mtod" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ship_Chrg" Parameter="ship_Chrg" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

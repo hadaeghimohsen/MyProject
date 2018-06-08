@@ -1764,6 +1764,46 @@ namespace System.CRM.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<D_PMTM> D_PMTMs
+		{
+			get
+			{
+				return this.GetTable<D_PMTM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_SHPM> D_SHPMs
+		{
+			get
+			{
+				return this.GetTable<D_SHPM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_SHPC> D_SHPCs
+		{
+			get
+			{
+				return this.GetTable<D_SHPC>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_OWNR> D_OWNRs
+		{
+			get
+			{
+				return this.GetTable<D_OWNR>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_ISOC> D_ISOCs
+		{
+			get
+			{
+				return this.GetTable<D_ISOC>();
+			}
+		}
+		
 		private void InsertIsic_Activity(Isic_Activity obj)
 		{
 			this.INS_ISCA_P(obj.FRSI_DESC, obj.ISCG_CODE, obj.CODE);
@@ -58045,6 +58085,231 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Company1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$PMTM")]
+	public partial class D_PMTM
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_PMTM()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SHPM")]
+	public partial class D_SHPM
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_SHPM()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SHPC")]
+	public partial class D_SHPC
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_SHPC()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$OWNR")]
+	public partial class D_OWNR
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_OWNR()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$ISOC")]
+	public partial class D_ISOC
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_ISOC()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
 		}
 	}
 	

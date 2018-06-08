@@ -202,6 +202,18 @@ namespace System.CRM.Ui.Acounts
          }
          DAtypBs.DataSource = iCRM.D_ATYPs;
          DPstgBs.DataSource = iCRM.D_PSTGs;
+         DsistBs.DataSource = iCRM.D_SISTs;
+         ServsBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);
+         CompsBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
+         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+         DrcstBs.DataSource = iCRM.D_RCSTs;
+         DysnoBs.DataSource = iCRM.D_YSNOs;
+         DcntpBs.DataSource = iCRM.D_CNTPs;
+         DshpmBs.DataSource = iCRM.D_SHPMs;
+         DshpcBs.DataSource = iCRM.D_SHPCs;
+         DownrBs.DataSource = iCRM.D_OWNRs;
+         DpmtmBs.DataSource = iCRM.D_PMTMs;
+
          job.Status = StatusType.Successful;
       }
 

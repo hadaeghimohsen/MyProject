@@ -2141,6 +2141,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1618.png">
       <Link>Resources\IMAGE_1618.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1620.png">
+      <Link>Resources\IMAGE_1620.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1621.png">
+      <Link>Resources\IMAGE_1621.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1623.png">
       <Link>Resources\IMAGE_1623.png</Link>
     </Content>
@@ -2464,15 +2470,19 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_ECTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_EXPT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_FINR1.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_ISOC.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_ITTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_JBTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_LCTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_MRTP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_OWNR.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PERM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PLTP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_PMTM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PSTG.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PYD.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RCMT.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RGTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RLTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SDRC.datasource" />
@@ -2480,6 +2490,8 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_SDTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SFDB.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SFTP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SHPC.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SHPM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SIST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SLON.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SRTP.datasource" />

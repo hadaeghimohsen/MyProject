@@ -54,6 +54,7 @@
          this.colLAST_SERV_FILE_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actn_Clmn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CompActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.colEMAL_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.panel2 = new System.Windows.Forms.Panel();
          this.rb_2nd = new System.MaxUi.RoundedButton();
@@ -99,7 +100,6 @@
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
-         this.colEMAL_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.DclonBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompBs)).BeginInit();
@@ -314,6 +314,16 @@
          this.CompActn_Butn.Name = "CompActn_Butn";
          this.CompActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.CompActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LeadActn_Butn_ButtonClick);
+         // 
+         // colEMAL_ADRS
+         // 
+         this.colEMAL_ADRS.Caption = "آدرس ایمیل";
+         this.colEMAL_ADRS.FieldName = "EMAL_ADRS";
+         this.colEMAL_ADRS.Name = "colEMAL_ADRS";
+         this.colEMAL_ADRS.OptionsColumn.AllowEdit = false;
+         this.colEMAL_ADRS.OptionsColumn.ReadOnly = true;
+         this.colEMAL_ADRS.Visible = true;
+         this.colEMAL_ADRS.VisibleIndex = 3;
          // 
          // splitContainerControl1
          // 
@@ -758,14 +768,6 @@
          // 
          this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
          this.ribbonTopToolBar1.Visible = false;
-         // 
-         // colEMAL_ADRS
-         // 
-         this.colEMAL_ADRS.Caption = "آدرس ایمیل";
-         this.colEMAL_ADRS.FieldName = "EMAL_ADRS";
-         this.colEMAL_ADRS.Name = "colEMAL_ADRS";
-         this.colEMAL_ADRS.Visible = true;
-         this.colEMAL_ADRS.VisibleIndex = 3;
          // 
          // SHW_ACNT_F
          // 

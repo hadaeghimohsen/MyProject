@@ -16,6 +16,7 @@ using Itenso.TimePeriod;
 using System.Drawing.Imaging;
 using DevExpress.XtraGrid.Views.Grid;
 using System.MaxUi;
+using DevExpress.XtraEditors;
 
 namespace System.CRM.Ui.Acounts
 {
@@ -42,6 +43,7 @@ namespace System.CRM.Ui.Acounts
          //RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
          //PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode, null);
          MsttBs.DataSource = iCRM.Main_States;
+
          requery = false;
       }
 
@@ -50,6 +52,14 @@ namespace System.CRM.Ui.Acounts
          var comp = CompBs.Current as Data.Company;
 
          if (comp == null) return;
+
+         CntyBs.DataSource = iCRM.Countries;//.Where(c => c.CODE == comp.REGN_PRVN_CNTY_CODE);
+         PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == comp.REGN_PRVN_CNTY_CODE);
+         RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CNTY_CODE == comp.REGN_PRVN_CNTY_CODE && r.PRVN_CODE == comp.REGN_PRVN_CODE);
+
+         IsicGropBs.DataSource = iCRM.Isic_Groups;//.Where(g => g.CODE == comp.ISCP_ISCA_ISCG_CODE);
+         IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == comp.ISCP_ISCA_ISCG_CODE);
+         IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_ISCG_CODE == comp.ISCP_ISCA_ISCG_CODE && p.ISCA_CODE == comp.ISCP_ISCA_CODE);
 
          if (comp.FACE_BOOK_URL == null || comp.FACE_BOOK_URL == "")
             FacebookUrl_Butn.Enabled = false;
@@ -1991,6 +2001,78 @@ namespace System.CRM.Ui.Acounts
                 }
               });
          _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void SubmitChangeCompany_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CompBs.EndEdit();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+            SubmitChangeCompany_Butn.Visible = false;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ObjectBaseEdit_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)
+            {
+               var control = sender as BaseEdit;
+               if (control != null)
+                  control.EditValue = null;
+            }
+         }
+         catch { }
+      }
+
+      private void Cnty_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == e.NewValue.ToString());
+         }
+         catch { }
+      }
+
+      private void Prvn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try 
+         {
+            RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CODE == e.NewValue.ToString() && r.PRVN_CNTY_CODE == Cnty_Lov.EditValue.ToString());
+         }
+         catch { }
+      }
+
+      private void IsicGrop_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == e.NewValue.ToString());
+         }
+         catch { }
+      }
+
+      private void IsicActv_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_CODE == e.NewValue.ToString() && p.ISCA_ISCG_CODE == IsicGrop_Lov.EditValue.ToString());
+         }
+         catch { }
       }
    }
 }

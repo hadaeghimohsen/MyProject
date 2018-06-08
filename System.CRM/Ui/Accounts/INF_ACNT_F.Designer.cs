@@ -1332,7 +1332,7 @@
          this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl40.Location = new System.Drawing.Point(565, 377);
          this.labelControl40.Name = "labelControl40";
-         this.labelControl40.Size = new System.Drawing.Size(83, 27);
+         this.labelControl40.Size = new System.Drawing.Size(67, 27);
          this.labelControl40.TabIndex = 14;
          this.labelControl40.Text = "ایمیل";
          // 
@@ -1759,6 +1759,7 @@
          // 
          // tabPage1
          // 
+         this.tabPage1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.tabPage1.Controls.Add(this.splitContainerControl3);
          this.tabPage1.Location = new System.Drawing.Point(4, 49);
          this.tabPage1.Name = "tabPage1";
@@ -1766,7 +1767,6 @@
          this.tabPage1.Size = new System.Drawing.Size(327, 539);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "یادداشت ها";
-         this.tabPage1.UseVisualStyleBackColor = true;
          // 
          // splitContainerControl3
          // 
@@ -1824,6 +1824,8 @@
          // 
          // EditNote_Butn
          // 
+         this.EditNote_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditNote_Butn.Appearance.Options.UseBackColor = true;
          this.EditNote_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1533;
          this.EditNote_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditNote_Butn.Location = new System.Drawing.Point(9, 9);
@@ -2362,6 +2364,7 @@
          // 
          // panel5
          // 
+         this.panel5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel5.Controls.Add(this.labelControl30);
          this.panel5.Controls.Add(this.labelControl31);
          this.panel5.Controls.Add(this.EditTask_Butn);
@@ -2402,6 +2405,8 @@
          // 
          // EditTask_Butn
          // 
+         this.EditTask_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditTask_Butn.Appearance.Options.UseBackColor = true;
          this.EditTask_Butn.Image = ((System.Drawing.Image)(resources.GetObject("EditTask_Butn.Image")));
          this.EditTask_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditTask_Butn.Location = new System.Drawing.Point(3, 9);
@@ -2707,6 +2712,7 @@
          // 
          // panel8
          // 
+         this.panel8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel8.Controls.Add(this.labelControl28);
          this.panel8.Controls.Add(this.labelControl29);
          this.panel8.Controls.Add(this.EditAppointment_Butn);
@@ -2747,6 +2753,8 @@
          // 
          // EditAppointment_Butn
          // 
+         this.EditAppointment_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditAppointment_Butn.Appearance.Options.UseBackColor = true;
          this.EditAppointment_Butn.Image = ((System.Drawing.Image)(resources.GetObject("EditAppointment_Butn.Image")));
          this.EditAppointment_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditAppointment_Butn.Location = new System.Drawing.Point(3, 9);
@@ -3067,6 +3075,7 @@
          // 
          // panel10
          // 
+         this.panel10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel10.Controls.Add(this.SendFileRelatedService_Pb);
          this.panel10.Controls.Add(this.EditSendFile_Butn);
          this.panel10.Controls.Add(this.labelControl19);
@@ -3103,6 +3112,8 @@
          // 
          // EditSendFile_Butn
          // 
+         this.EditSendFile_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditSendFile_Butn.Appearance.Options.UseBackColor = true;
          this.EditSendFile_Butn.Image = ((System.Drawing.Image)(resources.GetObject("EditSendFile_Butn.Image")));
          this.EditSendFile_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditSendFile_Butn.Location = new System.Drawing.Point(3, 9);
@@ -3383,6 +3394,7 @@
          // 
          // panel7
          // 
+         this.panel7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel7.Controls.Add(this.memoEdit2);
          this.panel7.Controls.Add(this.linkLabel3);
          this.panel7.Controls.Add(this.labelControl52);
@@ -3440,6 +3452,7 @@
          // 
          // panel2
          // 
+         this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel2.Controls.Add(this.MessageRelatedService_Pb);
          this.panel2.Controls.Add(this.simpleButton1);
          this.panel2.Controls.Add(this.labelControl34);
@@ -3476,6 +3489,8 @@
          // 
          // simpleButton1
          // 
+         this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
          this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
          this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.simpleButton1.Location = new System.Drawing.Point(3, 9);
@@ -3683,6 +3698,7 @@
          // 
          // panel9
          // 
+         this.panel9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel9.Controls.Add(this.LogCallRelatedService_Pb);
          this.panel9.Controls.Add(this.EditLogc_Butn);
          this.panel9.Controls.Add(this.labelControl50);
@@ -3719,6 +3735,8 @@
          // 
          // EditLogc_Butn
          // 
+         this.EditLogc_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditLogc_Butn.Appearance.Options.UseBackColor = true;
          this.EditLogc_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.EditLogc_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditLogc_Butn.Location = new System.Drawing.Point(3, 9);
@@ -3932,6 +3950,7 @@
          // 
          // panel11
          // 
+         this.panel11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel11.Controls.Add(this.EmailRelatedService_Pb);
          this.panel11.Controls.Add(this.EditEmal_Butn);
          this.panel11.Controls.Add(this.labelControl54);
@@ -3968,6 +3987,8 @@
          // 
          // EditEmal_Butn
          // 
+         this.EditEmal_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditEmal_Butn.Appearance.Options.UseBackColor = true;
          this.EditEmal_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1527;
          this.EditEmal_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditEmal_Butn.Location = new System.Drawing.Point(3, 9);
@@ -4153,6 +4174,7 @@
          // 
          // panel12
          // 
+         this.panel12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panel12.Controls.Add(this.roundedButton3);
          this.panel12.Controls.Add(this.EditPymt_Butn);
          this.panel12.Controls.Add(this.labelControl57);
@@ -4190,6 +4212,8 @@
          // 
          // EditPymt_Butn
          // 
+         this.EditPymt_Butn.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.EditPymt_Butn.Appearance.Options.UseBackColor = true;
          this.EditPymt_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1544;
          this.EditPymt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.EditPymt_Butn.Location = new System.Drawing.Point(3, 9);
@@ -4277,7 +4301,7 @@
          this.gridControl1.DataSource = this.RqstProjBs;
          this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.gridControl1.Location = new System.Drawing.Point(0, 40);
-         this.gridControl1.LookAndFeel.SkinName = "Office 2013";
+         this.gridControl1.LookAndFeel.SkinName = "DevExpress Design";
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.CallLog_Gv;
          this.gridControl1.Name = "gridControl1";
@@ -4298,6 +4322,8 @@
          // 
          // CallLog_Gv
          // 
+         this.CallLog_Gv.Appearance.FilterPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.CallLog_Gv.Appearance.FilterPanel.Options.UseBackColor = true;
          this.CallLog_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.CallLog_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
          this.CallLog_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -4639,13 +4665,14 @@
          // 
          // panelControl5
          // 
-         this.panelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.panelControl5.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panelControl5.Appearance.Options.UseBackColor = true;
          this.panelControl5.Controls.Add(this.EditProj_Butn);
          this.panelControl5.Controls.Add(this.labelControl15);
          this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
          this.panelControl5.Location = new System.Drawing.Point(0, 0);
-         this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.panelControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.panelControl5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl5.Name = "panelControl5";
          this.panelControl5.Size = new System.Drawing.Size(910, 40);
          this.panelControl5.TabIndex = 6;
@@ -4913,7 +4940,7 @@
          // 
          // panelControl9
          // 
-         this.panelControl9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.panelControl9.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panelControl9.Appearance.Options.UseBackColor = true;
          this.panelControl9.Controls.Add(this.SaveSstt_Butn);
          this.panelControl9.Controls.Add(this.SubStat_Lov);
@@ -4922,6 +4949,8 @@
          this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
          this.panelControl9.Location = new System.Drawing.Point(0, 0);
          this.panelControl9.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.panelControl9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.panelControl9.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl9.Name = "panelControl9";
          this.panelControl9.Size = new System.Drawing.Size(443, 40);
          this.panelControl9.TabIndex = 8;
@@ -4939,7 +4968,7 @@
          this.SaveSstt_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1195;
          this.SaveSstt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.SaveSstt_Butn.ImageVisiable = true;
-         this.SaveSstt_Butn.Location = new System.Drawing.Point(44, 4);
+         this.SaveSstt_Butn.Location = new System.Drawing.Point(44, 3);
          this.SaveSstt_Butn.Name = "SaveSstt_Butn";
          this.SaveSstt_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.SaveSstt_Butn.NormalColorA = System.Drawing.Color.White;
@@ -4954,7 +4983,7 @@
          // 
          this.SubStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.SubStat_Lov.Location = new System.Drawing.Point(83, 5);
+         this.SubStat_Lov.Location = new System.Drawing.Point(83, 4);
          this.SubStat_Lov.Name = "SubStat_Lov";
          this.SubStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.SubStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -5002,7 +5031,7 @@
          // AddSstt_Butn
          // 
          this.AddSstt_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1599;
-         this.AddSstt_Butn.Location = new System.Drawing.Point(5, 4);
+         this.AddSstt_Butn.Location = new System.Drawing.Point(5, 3);
          this.AddSstt_Butn.Name = "AddSstt_Butn";
          this.AddSstt_Butn.Size = new System.Drawing.Size(33, 33);
          this.AddSstt_Butn.TabIndex = 43;
@@ -5017,9 +5046,9 @@
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(307, 2);
+         this.labelControl17.Location = new System.Drawing.Point(306, 3);
          this.labelControl17.Name = "labelControl17";
-         this.labelControl17.Size = new System.Drawing.Size(134, 36);
+         this.labelControl17.Size = new System.Drawing.Size(134, 34);
          this.labelControl17.TabIndex = 2;
          this.labelControl17.Text = "وضعیت فرعی";
          // 
@@ -5209,7 +5238,7 @@
          // 
          // panelControl10
          // 
-         this.panelControl10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.panelControl10.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panelControl10.Appearance.Options.UseBackColor = true;
          this.panelControl10.Controls.Add(this.SaveMstt_Butn);
          this.panelControl10.Controls.Add(this.MainStat_Lov);
@@ -5218,6 +5247,8 @@
          this.panelControl10.Dock = System.Windows.Forms.DockStyle.Top;
          this.panelControl10.Location = new System.Drawing.Point(0, 0);
          this.panelControl10.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.panelControl10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl10.Name = "panelControl10";
          this.panelControl10.Size = new System.Drawing.Size(462, 40);
          this.panelControl10.TabIndex = 7;
@@ -5235,7 +5266,7 @@
          this.SaveMstt_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1195;
          this.SaveMstt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.SaveMstt_Butn.ImageVisiable = true;
-         this.SaveMstt_Butn.Location = new System.Drawing.Point(44, 5);
+         this.SaveMstt_Butn.Location = new System.Drawing.Point(44, 3);
          this.SaveMstt_Butn.Name = "SaveMstt_Butn";
          this.SaveMstt_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.SaveMstt_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5250,7 +5281,7 @@
          // 
          this.MainStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.MainStat_Lov.Location = new System.Drawing.Point(83, 6);
+         this.MainStat_Lov.Location = new System.Drawing.Point(83, 4);
          this.MainStat_Lov.Name = "MainStat_Lov";
          this.MainStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.MainStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -5296,7 +5327,7 @@
          // AddMstt_Butn
          // 
          this.AddMstt_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1599;
-         this.AddMstt_Butn.Location = new System.Drawing.Point(5, 5);
+         this.AddMstt_Butn.Location = new System.Drawing.Point(5, 3);
          this.AddMstt_Butn.Name = "AddMstt_Butn";
          this.AddMstt_Butn.Size = new System.Drawing.Size(33, 33);
          this.AddMstt_Butn.TabIndex = 41;
@@ -5311,9 +5342,9 @@
          this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl27.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl27.Location = new System.Drawing.Point(324, 2);
+         this.labelControl27.Location = new System.Drawing.Point(323, 3);
          this.labelControl27.Name = "labelControl27";
-         this.labelControl27.Size = new System.Drawing.Size(136, 36);
+         this.labelControl27.Size = new System.Drawing.Size(136, 34);
          this.labelControl27.TabIndex = 2;
          this.labelControl27.Text = "وضعیت اصلی";
          // 
@@ -5649,12 +5680,13 @@
          // 
          // panelControl6
          // 
-         this.panelControl6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.panelControl6.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.panelControl6.Appearance.Options.UseBackColor = true;
          this.panelControl6.Controls.Add(this.labelControl12);
          this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
          this.panelControl6.Location = new System.Drawing.Point(0, 0);
-         this.panelControl6.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.panelControl6.LookAndFeel.SkinName = "Office 2013 Light Gray";
+         this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl6.Name = "panelControl6";
          this.panelControl6.Size = new System.Drawing.Size(910, 40);
@@ -9088,6 +9120,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.Controls.Add(this.panel4);
          this.Controls.Add(this.panelControl3);
          this.Controls.Add(this.panel1);

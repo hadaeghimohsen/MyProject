@@ -3068,73 +3068,143 @@
       <Association Name="Job_Personnel_Template" Member="Job_Personnel" ThisKey="JOBP_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.D$PMTM" Member="D_PMTMs">
+    <Type Name="D_PMTM">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$SHPM" Member="D_SHPMs">
+    <Type Name="D_SHPM">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$SHPC" Member="D_SHPCs">
+    <Type Name="D_SHPC">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$OWNR" Member="D_OWNRs">
+    <Type Name="D_OWNR">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$ISOC" Member="D_ISOCs">
+    <Type Name="D_ISOC">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$CMTP" Member="D_CMTPs">
+    <Type Name="D_CMTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$CPTP" Member="D_CPTPs">
+    <Type Name="D_CPTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Competitor_Difference" Member="Competitor_Differences">
+    <Type Name="Competitor_Difference">
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Company_Competitor_Difference" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId82">
+      <Argument Parameter="comp_Code" Member="COMP_CODE" />
+      <Argument Parameter="type" Member="TYPE" />
+      <Argument Parameter="cmnt" Member="CMNT" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId83">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="type" Member="TYPE" />
+      <Argument Parameter="cmnt" Member="CMNT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId84">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
+  </Table>
   <Table Name="dbo.Company" Member="Companies">
     <Type Name="Company">
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="ISCP_ISCA_ISCG_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="ISCP_ISCA_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="ISCP_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ISCP_ISCA_ISCG_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ISCP_ISCA_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ISCP_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="POST_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="COMP_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="REGS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ZIP_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POST_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ZIP_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ECON_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="STRT_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="END_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMPY_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BILL_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BILL_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BILL_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BILL_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="SHIP_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SHIP_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SHIP_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SHIP_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FACE_BOOK_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="LINK_IN_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="TWTR_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="FAX_NUMB" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="LAST_RQST_RQID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PRIM_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TRCB_TCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRDT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PYMT_TERM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="OWNR_SHIP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GET_KNOW_US" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GET_KNOW_CUST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CONT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ALOW_EMAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ALOW_BULK_EMAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ALOW_PHON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ALOW_FAX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ALOW_LETT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHIP_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHIP_CHRG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ECON_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="END_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMPY_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_ADDR_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_ADDR_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_ADDR_ZOOM" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_ADDR" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FACE_BOOK_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINK_IN_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TWTR_URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FAX_NUMB" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_RQST_RQID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRIM_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TRCB_TCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRDT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PYMT_TERM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OWNR_SHIP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GET_KNOW_US" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GET_KNOW_CUST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOW_EMAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOW_BULK_EMAL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOW_PHON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOW_FAX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOW_LETT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHIP_CHRG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REVN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMPY_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Company_Message_Broadcast" Member="Message_Broadcasts" ThisKey="CODE" OtherKey="COMP_CODE" Type="Message_Broadcast" />
       <Association Name="Company_Company_Activity" Member="Company_Activities" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company_Activity" />
       <Association Name="Company_Request_Row" Member="Request_Rows" ThisKey="CODE" OtherKey="COMP_CODE" Type="Request_Row" />
@@ -3157,6 +3227,7 @@
       <Association Name="Company_Relation_Info" Member="Relation_Infos" ThisKey="CODE" OtherKey="COMP_CODE" Type="Relation_Info" />
       <Association Name="Company_Relation_Info1" Member="Relation_Infos1" ThisKey="CODE" OtherKey="RLAT_COMP_CODE" Type="Relation_Info" />
       <Association Name="Company_Send_File" Member="Send_Files" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Send_File" />
+      <Association Name="Company_Competitor_Difference" Member="Competitor_Differences" ThisKey="CODE" OtherKey="COMP_CODE" Type="Competitor_Difference" />
       <Association Name="Company_Company" Member="Companies" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company" />
       <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
@@ -3167,7 +3238,7 @@
       <Association Name="Service_Company1" Member="Service1" ThisKey="LAST_SERV_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Transaction_Currency_Base_Company" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId82">
+    <InsertFunction FunctionId="FunctionId85">
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
       <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
       <Argument Parameter="regn_Code" Member="REGN_CODE" />
@@ -3190,6 +3261,7 @@
       <Argument Parameter="strt_Time" Member="STRT_TIME" />
       <Argument Parameter="end_Time" Member="END_TIME" />
       <Argument Parameter="type" Member="TYPE" />
+      <Argument Parameter="empy_Numb" Member="EMPY_NUMB" />
       <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
       <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
       <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
@@ -3223,8 +3295,9 @@
       <Argument Parameter="alow_Lett" Member="ALOW_LETT" />
       <Argument Parameter="ship_Mtod" Member="SHIP_MTOD" />
       <Argument Parameter="ship_Chrg" Member="SHIP_CHRG" />
+      <Argument Parameter="revn_Amnt" Member="REVN_AMNT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId83">
+    <UpdateFunction FunctionId="FunctionId86">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="regn_Prvn_Cnty_Code" Member="REGN_PRVN_CNTY_CODE" />
       <Argument Parameter="regn_Prvn_Code" Member="REGN_PRVN_CODE" />
@@ -3248,6 +3321,7 @@
       <Argument Parameter="strt_Time" Member="STRT_TIME" />
       <Argument Parameter="end_Time" Member="END_TIME" />
       <Argument Parameter="type" Member="TYPE" />
+      <Argument Parameter="empy_Numb" Member="EMPY_NUMB" />
       <Argument Parameter="bill_Addr_X" Member="BILL_ADDR_X" />
       <Argument Parameter="bill_Addr_Y" Member="BILL_ADDR_Y" />
       <Argument Parameter="bill_Addr_Zoom" Member="BILL_ADDR_ZOOM" />
@@ -3281,40 +3355,11 @@
       <Argument Parameter="alow_Lett" Member="ALOW_LETT" />
       <Argument Parameter="ship_Mtod" Member="SHIP_MTOD" />
       <Argument Parameter="ship_Chrg" Member="SHIP_CHRG" />
+      <Argument Parameter="revn_Amnt" Member="REVN_AMNT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId84">
+    <DeleteFunction FunctionId="FunctionId87">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
-  </Table>
-  <Table Name="dbo.D$PMTM" Member="D_PMTMs">
-    <Type Name="D_PMTM">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$SHPM" Member="D_SHPMs">
-    <Type Name="D_SHPM">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$SHPC" Member="D_SHPCs">
-    <Type Name="D_SHPC">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$OWNR" Member="D_OWNRs">
-    <Type Name="D_OWNR">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$ISOC" Member="D_ISOCs">
-    <Type Name="D_ISOC">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
@@ -4016,7 +4061,7 @@
       <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId84" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
+  <Function Id="FunctionId87" Name="dbo.DEL_COMP_P" Method="DEL_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -4470,25 +4515,6 @@
     <Parameter Name="Rlt2_Apbs_Code" Parameter="rlt2_Apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.VF$Companies" Method="VF_Companies" IsComposable="true">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
-    <ElementType Name="VF_CompaniesResult">
-      <Column Name="CNTY_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="PRVN_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="REGN_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SERV_NAME" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Id="FunctionId58" Name="dbo.INS_SRTP_P" Method="INS_SRTP_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Srtp_Desc" Parameter="srtp_Desc" Type="System.String" DbType="NVarChar(50)" />
@@ -4717,7 +4743,7 @@
     <Parameter Name="Sstt_Colr" Parameter="sstt_Colr" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId82" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
+  <Function Id="FunctionId85" Name="dbo.INS_COMP_P" Method="INS_COMP_P">
     <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Code" Parameter="regn_Code" Type="System.String" DbType="VarChar(3)" />
@@ -4774,9 +4800,10 @@
     <Parameter Name="Alow_Lett" Parameter="alow_Lett" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Ship_Mtod" Parameter="ship_Mtod" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Ship_Chrg" Parameter="ship_Chrg" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Revn_Amnt" Parameter="revn_Amnt" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId83" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
+  <Function Id="FunctionId86" Name="dbo.UPD_COMP_P" Method="UPD_COMP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Regn_Prvn_Cnty_Code" Parameter="regn_Prvn_Cnty_Code" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Regn_Prvn_Code" Parameter="regn_Prvn_Code" Type="System.String" DbType="VarChar(3)" />
@@ -4834,6 +4861,44 @@
     <Parameter Name="Alow_Lett" Parameter="alow_Lett" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Ship_Mtod" Parameter="ship_Mtod" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Ship_Chrg" Parameter="ship_Chrg" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Revn_Amnt" Parameter="revn_Amnt" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId82" Name="dbo.INS_CMDF_P" Method="INS_CMDF_P">
+    <Parameter Name="Comp_Code" Parameter="comp_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cmnt" Parameter="cmnt" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId83" Name="dbo.UPD_CMDF_P" Method="UPD_CMDF_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cmnt" Parameter="cmnt" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId84" Name="dbo.DEL_CMDF_P" Method="DEL_CMDF_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VF$Companies" Method="VF_Companies" IsComposable="true">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="VF_CompaniesResult">
+      <Column Name="CNTY_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PRVN_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="REGN_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SERV_NAME" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_SERV_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HOST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

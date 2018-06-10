@@ -99,5 +99,8 @@ namespace System.CRM.Code
       internal Ui.BaseDefination.MSTT_DFIN_F _Mstt_Dfin_F { get; set; }
       internal Ui.BaseDefination.JBPD_DFIN_F _Jbpd_Dfin_F { get; set; }
       internal Ui.Activity.OPT_INFO_F _Opt_Info_F { get; set; }
+
+      internal Ui.Competitor.SHW_CMPT_F _Shw_Cmpt_F { get; set; }
+      internal Ui.Competitor.INF_CMPT_F _Inf_Cmpt_F { get; set; }
    }
 }

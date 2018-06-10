@@ -173,6 +173,7 @@ namespace System.CRM.Ui.MasterPage
       }
       #endregion
 
+      #region MainMenu
       private void rb_adms_Click(object sender, EventArgs e)
       {
          Job _InteractWithCRM =
@@ -480,6 +481,7 @@ namespace System.CRM.Ui.MasterPage
               });
          _DefaultGateway.Gateway(_InteractWithCRM);
       }
+      #endregion
 
       #region Service Info Radial Menu
       private void HistLogc_Butn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -673,6 +675,7 @@ namespace System.CRM.Ui.MasterPage
 
       #endregion      
 
+      #region Region 1
       private void Mention_Butn_Click(object sender, EventArgs e)
       {
          Mention_Butn.ImageProfile = Properties.Resources.IMAGE_1595;
@@ -761,6 +764,475 @@ namespace System.CRM.Ui.MasterPage
       private void Cont_Rtab_Select(object sender, EventArgs e)
       {
          rb_showcontact_Click(null, null);
-      }      
+      }
+      #endregion
+
+      /// <summary>
+      /// منوهای اصلی نرم افزار در پایین می باشد و مابقی بایستی حذف گردند
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
+
+      #region Supplier
+      #endregion
+
+      #region Sale
+      private void SaleDashboard_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleWhatsNew_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleShowAcnt_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 38 /* Execute Shw_Cont_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_ACNT_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Company", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void SaleShowCont_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 33 /* Execute Shw_Cont_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CONT_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Service", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void SaleShowLead_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleShowOptn_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleShowCmpt_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 92 /* Execute Shw_Cmpt_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Competitor", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void SaleQuotes_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleOrder_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleInvoice_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleProduct_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleLiterature_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleMarketingList_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleQuickCampaign_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleGoal_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleGoalMetrics_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleRollupQuery_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleReport_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleAlert_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaleCalendar_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Service
+      private void ServiceDashboard_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceShowAcnt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceShowCont_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceShowSocialProfile_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceCase_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceServiceCalendar_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceQueues_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceArticles_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ribbonButton36_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceProduct_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceService_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceGoal_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceGoalMetrics_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceRollupQuery_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceReport_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceAlert_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ServiceCalendar_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Marketing
+      private void MarketingDashboard_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingShowAcnt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingShowCont_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingLead_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingList_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingCampaign_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingQuickCampaign_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingProduct_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingSaleLiterature_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingReport_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingAlert_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MarketingCalendar_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Settings
+      private void SettingBussinesManagement_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingTemplate_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingProductCatlog_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingServiceManagement_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingCustomization_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingSolution_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingDynamicMarketplace_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingPluginHistory_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingAdministration_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingSecurity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingDataManagment_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingSystemJob_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingDocumentManagement_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingAuditing_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingEmailConfig_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingActivityFeedConfig_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingActivityFeedRole_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingSocialNetwork_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingProcess_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SettingInteractiveServiceHub_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Help
+      private void HelpHelp_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpSaleVideoTrainging_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpApplyClassTraining_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpApplyRemoteTraining_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Utility
+      private void UtilityNew_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void UtilityLastActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void UtilityAdvanceFilter_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void UtilityOption_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void UtilitySearch_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
    }
 }

@@ -456,6 +456,16 @@ namespace System.CRM.Code
             if (_Opt_Info_F == null)
                _Opt_Info_F = new Ui.Activity.OPT_INFO_F { _DefaultGateway = this };
          }
+         else if (value == "shw_cmpt_f")
+         {
+            if (_Shw_Cmpt_F == null)
+               _Shw_Cmpt_F = new Ui.Competitor.SHW_CMPT_F { _DefaultGateway = this };
+         }
+         else if (value == "inf_cmpt_f")
+         {
+            if (_Inf_Cmpt_F == null)
+               _Inf_Cmpt_F = new Ui.Competitor.INF_CMPT_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -2657,6 +2667,56 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "OPT_INFO_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "OPT_INFO_F", 03 /* Execute Paint */),
                   new Job(SendType.SelfToUserInterface, "OPT_INFO_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 92
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Cmpt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_cmpt_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 93
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Cmpt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_cmpt_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 05 /* Execute OpenDrawer */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

@@ -37,133 +37,133 @@
          this.ribbonContextualTabGroup2 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
          this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup11 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton58 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton59 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton60 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierDashboard_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierWhatsNew_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierActivity_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup32 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton61 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton62 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierShowAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierShowCont_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup33 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton63 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton64 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton65 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierReport_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierAlert_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SupplierCalendar_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonContextualTabGroup3 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
          this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup12 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleDashboard_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleWhatsNew_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleActivity_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton6 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleShowAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleShowCont_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup18 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton8 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton9 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton10 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleShowLead_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleShowOptn_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleShowCmpt_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup19 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton11 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton12 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton13 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton14 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton15 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleQuotes_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleOrder_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleInvoice_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleProduct_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleLiterature_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup20 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton16 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton17 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleMarketingList_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleQuickCampaign_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup21 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton18 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton22 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton23 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleGoal_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleGoalMetrics_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleRollupQuery_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup22 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton24 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton25 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton26 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleReport_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleAlert_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SaleCalendar_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab5 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup15 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton27 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton28 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceDashboard_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceActivity_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup23 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton29 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton30 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton31 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceShowAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceShowCont_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceShowSocialProfile_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup24 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton32 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton33 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton34 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceCase_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceServiceCalendar_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceQueues_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup25 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton35 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceArticles_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonButton36 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton37 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton38 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceProduct_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceService_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup26 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton39 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton40 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton41 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceGoal_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceGoalMetrics_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceRollupQuery_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup27 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton42 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton43 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton44 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceReport_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceAlert_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceCalendar_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab7 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup16 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton45 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton46 = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingDashboard_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingActivity_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup28 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton47 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton48 = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingShowAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingShowCont_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup29 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton49 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton50 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton51 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton52 = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingLead_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingList_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingCampaign_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingQuickCampaign_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup30 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton53 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton54 = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingProduct_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingSaleLiterature_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup31 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton55 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton56 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton57 = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingReport_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingAlert_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.MarketingCalendar_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonContextualTabGroup1 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
          this.ribbonTab6 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton19 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton20 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton21 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton66 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingBussinesManagement_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingTemplate_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingProductCatlog_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingServiceManagement_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup34 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton67 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton68 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton69 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton70 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingCustomization_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingSolution_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingDynamicMarketplace_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingPluginHistory_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup35 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton71 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton72 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton73 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton74 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton75 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton76 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton77 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton78 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton79 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton80 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingAdministration_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingSecurity_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingDataManagment_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingSystemJob_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingDocumentManagement_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingAuditing_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingEmailConfig_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingActivityFeedConfig_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingActivityFeedRole_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingSocialNetwork_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup36 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton81 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingProcess_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup37 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton82 = new C1.Win.C1Ribbon.RibbonButton();
+         this.SettingInteractiveServiceHub_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonContextualTabGroup4 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
          this.ribbonTab8 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup38 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton86 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton85 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton83 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton84 = new C1.Win.C1Ribbon.RibbonButton();
+         this.HelpHelp_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.HelpSaleVideoTrainging_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.HelpApplyClassTraining_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.HelpApplyRemoteTraining_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonContextualTabGroup5 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
          this.ribbonTab9 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup39 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton89 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton88 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton90 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton91 = new C1.Win.C1Ribbon.RibbonButton();
+         this.UtilityNew_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.UtilityLastActivity_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.UtilityAdvanceFilter_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.UtilityOption_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTextBox1 = new C1.Win.C1Ribbon.RibbonTextBox();
-         this.ribbonButton87 = new C1.Win.C1Ribbon.RibbonButton();
+         this.UtilitySearch_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
          this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_stngdfin = new C1.Win.C1Ribbon.RibbonButton();
@@ -231,6 +231,7 @@
          this.User_Butn = new System.MaxUi.RoundedButton();
          this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.ToolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+         this.roundedButton1 = new System.MaxUi.RoundedButton();
          this.InfoServ_Rm = new DevExpress.XtraBars.Ribbon.RadialMenu();
          this.HistLogc_Butn = new DevExpress.XtraBars.BarButtonItem();
          this.HistMesg_Butn = new DevExpress.XtraBars.BarButtonItem();
@@ -256,9 +257,8 @@
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
          this.Tm_Refreshing = new System.Windows.Forms.Timer(this.components);
          this.ShowInfo_Pn = new System.Windows.Forms.Panel();
-         this.roundedButton1 = new System.MaxUi.RoundedButton();
-         this.TextInfo_Txt = new System.Windows.Forms.Label();
          this.CloseInfo_Butn = new System.Windows.Forms.Button();
+         this.TextInfo_Txt = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IntervalTime_Nud)).BeginInit();
@@ -331,74 +331,74 @@
          // 
          // ribbonGroup11
          // 
-         this.ribbonGroup11.Items.Add(this.ribbonButton58);
-         this.ribbonGroup11.Items.Add(this.ribbonButton59);
-         this.ribbonGroup11.Items.Add(this.ribbonButton60);
+         this.ribbonGroup11.Items.Add(this.SupplierDashboard_Butn);
+         this.ribbonGroup11.Items.Add(this.SupplierWhatsNew_Butn);
+         this.ribbonGroup11.Items.Add(this.SupplierActivity_Butn);
          this.ribbonGroup11.Name = "ribbonGroup11";
          this.ribbonGroup11.Text = "کار من";
          // 
-         // ribbonButton58
+         // SupplierDashboard_Butn
          // 
-         this.ribbonButton58.Name = "ribbonButton58";
-         this.ribbonButton58.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton58.SmallImage")));
-         this.ribbonButton58.ToolTip = "داشبورد";
+         this.SupplierDashboard_Butn.Name = "SupplierDashboard_Butn";
+         this.SupplierDashboard_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierDashboard_Butn.SmallImage")));
+         this.SupplierDashboard_Butn.ToolTip = "داشبورد";
          // 
-         // ribbonButton59
+         // SupplierWhatsNew_Butn
          // 
-         this.ribbonButton59.Name = "ribbonButton59";
-         this.ribbonButton59.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton59.SmallImage")));
-         this.ribbonButton59.ToolTip = "چه خبر";
+         this.SupplierWhatsNew_Butn.Name = "SupplierWhatsNew_Butn";
+         this.SupplierWhatsNew_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierWhatsNew_Butn.SmallImage")));
+         this.SupplierWhatsNew_Butn.ToolTip = "چه خبر";
          // 
-         // ribbonButton60
+         // SupplierActivity_Butn
          // 
-         this.ribbonButton60.Name = "ribbonButton60";
-         this.ribbonButton60.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton60.SmallImage")));
-         this.ribbonButton60.ToolTip = "فعالیت ها";
+         this.SupplierActivity_Butn.Name = "SupplierActivity_Butn";
+         this.SupplierActivity_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierActivity_Butn.SmallImage")));
+         this.SupplierActivity_Butn.ToolTip = "فعالیت ها";
          // 
          // ribbonGroup32
          // 
-         this.ribbonGroup32.Items.Add(this.ribbonButton61);
-         this.ribbonGroup32.Items.Add(this.ribbonButton62);
+         this.ribbonGroup32.Items.Add(this.SupplierShowAcnt_Butn);
+         this.ribbonGroup32.Items.Add(this.SupplierShowCont_Butn);
          this.ribbonGroup32.Name = "ribbonGroup32";
          this.ribbonGroup32.Text = "تامین کنندگان";
          // 
-         // ribbonButton61
+         // SupplierShowAcnt_Butn
          // 
-         this.ribbonButton61.Name = "ribbonButton61";
-         this.ribbonButton61.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton61.SmallImage")));
-         this.ribbonButton61.ToolTip = "مشتری ها";
+         this.SupplierShowAcnt_Butn.Name = "SupplierShowAcnt_Butn";
+         this.SupplierShowAcnt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierShowAcnt_Butn.SmallImage")));
+         this.SupplierShowAcnt_Butn.ToolTip = "تامین کننده";
          // 
-         // ribbonButton62
+         // SupplierShowCont_Butn
          // 
-         this.ribbonButton62.Name = "ribbonButton62";
-         this.ribbonButton62.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton62.SmallImage")));
-         this.ribbonButton62.ToolTip = "اشخاص";
+         this.SupplierShowCont_Butn.Name = "SupplierShowCont_Butn";
+         this.SupplierShowCont_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierShowCont_Butn.SmallImage")));
+         this.SupplierShowCont_Butn.ToolTip = "اشخاص";
          // 
          // ribbonGroup33
          // 
-         this.ribbonGroup33.Items.Add(this.ribbonButton63);
-         this.ribbonGroup33.Items.Add(this.ribbonButton64);
-         this.ribbonGroup33.Items.Add(this.ribbonButton65);
+         this.ribbonGroup33.Items.Add(this.SupplierReport_Butn);
+         this.ribbonGroup33.Items.Add(this.SupplierAlert_Butn);
+         this.ribbonGroup33.Items.Add(this.SupplierCalendar_Butn);
          this.ribbonGroup33.Name = "ribbonGroup33";
          this.ribbonGroup33.Text = "ابزار ها";
          // 
-         // ribbonButton63
+         // SupplierReport_Butn
          // 
-         this.ribbonButton63.Name = "ribbonButton63";
-         this.ribbonButton63.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton63.SmallImage")));
-         this.ribbonButton63.ToolTip = "گزارش ها";
+         this.SupplierReport_Butn.Name = "SupplierReport_Butn";
+         this.SupplierReport_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierReport_Butn.SmallImage")));
+         this.SupplierReport_Butn.ToolTip = "گزارش ها";
          // 
-         // ribbonButton64
+         // SupplierAlert_Butn
          // 
-         this.ribbonButton64.Name = "ribbonButton64";
-         this.ribbonButton64.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton64.SmallImage")));
-         this.ribbonButton64.ToolTip = "هشدار";
+         this.SupplierAlert_Butn.Name = "SupplierAlert_Butn";
+         this.SupplierAlert_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierAlert_Butn.SmallImage")));
+         this.SupplierAlert_Butn.ToolTip = "هشدار";
          // 
-         // ribbonButton65
+         // SupplierCalendar_Butn
          // 
-         this.ribbonButton65.Name = "ribbonButton65";
-         this.ribbonButton65.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton65.SmallImage")));
-         this.ribbonButton65.ToolTip = "تقویم";
+         this.SupplierCalendar_Butn.Name = "SupplierCalendar_Butn";
+         this.SupplierCalendar_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SupplierCalendar_Butn.SmallImage")));
+         this.SupplierCalendar_Butn.ToolTip = "تقویم";
          // 
          // ribbonContextualTabGroup3
          // 
@@ -422,186 +422,206 @@
          // 
          // ribbonGroup12
          // 
-         this.ribbonGroup12.Items.Add(this.ribbonButton1);
-         this.ribbonGroup12.Items.Add(this.ribbonButton3);
-         this.ribbonGroup12.Items.Add(this.ribbonButton4);
+         this.ribbonGroup12.Items.Add(this.SaleDashboard_Butn);
+         this.ribbonGroup12.Items.Add(this.SaleWhatsNew_Butn);
+         this.ribbonGroup12.Items.Add(this.SaleActivity_Butn);
          this.ribbonGroup12.Name = "ribbonGroup12";
          this.ribbonGroup12.Text = "کار من";
          // 
-         // ribbonButton1
+         // SaleDashboard_Butn
          // 
-         this.ribbonButton1.Name = "ribbonButton1";
-         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-         this.ribbonButton1.ToolTip = "داشبورد";
+         this.SaleDashboard_Butn.Name = "SaleDashboard_Butn";
+         this.SaleDashboard_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleDashboard_Butn.SmallImage")));
+         this.SaleDashboard_Butn.ToolTip = "داشبورد";
+         this.SaleDashboard_Butn.Click += new System.EventHandler(this.SaleDashboard_Butn_Click);
          // 
-         // ribbonButton3
+         // SaleWhatsNew_Butn
          // 
-         this.ribbonButton3.Name = "ribbonButton3";
-         this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-         this.ribbonButton3.ToolTip = "چه خبر";
+         this.SaleWhatsNew_Butn.Name = "SaleWhatsNew_Butn";
+         this.SaleWhatsNew_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleWhatsNew_Butn.SmallImage")));
+         this.SaleWhatsNew_Butn.ToolTip = "چه خبر";
+         this.SaleWhatsNew_Butn.Click += new System.EventHandler(this.SaleWhatsNew_Butn_Click);
          // 
-         // ribbonButton4
+         // SaleActivity_Butn
          // 
-         this.ribbonButton4.Name = "ribbonButton4";
-         this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
-         this.ribbonButton4.ToolTip = "فعالیت ها";
+         this.SaleActivity_Butn.Name = "SaleActivity_Butn";
+         this.SaleActivity_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleActivity_Butn.SmallImage")));
+         this.SaleActivity_Butn.ToolTip = "فعالیت ها";
+         this.SaleActivity_Butn.Click += new System.EventHandler(this.SaleActivity_Butn_Click);
          // 
          // ribbonGroup17
          // 
-         this.ribbonGroup17.Items.Add(this.ribbonButton5);
-         this.ribbonGroup17.Items.Add(this.ribbonButton6);
+         this.ribbonGroup17.Items.Add(this.SaleShowAcnt_Butn);
+         this.ribbonGroup17.Items.Add(this.SaleShowCont_Butn);
          this.ribbonGroup17.Name = "ribbonGroup17";
          this.ribbonGroup17.Text = "مشتریان";
          // 
-         // ribbonButton5
+         // SaleShowAcnt_Butn
          // 
-         this.ribbonButton5.Name = "ribbonButton5";
-         this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-         this.ribbonButton5.ToolTip = "مشتری ها";
-         this.ribbonButton5.Click += new System.EventHandler(this.rb_listcomp_Click);
+         this.SaleShowAcnt_Butn.Name = "SaleShowAcnt_Butn";
+         this.SaleShowAcnt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleShowAcnt_Butn.SmallImage")));
+         this.SaleShowAcnt_Butn.ToolTip = "مشتری ها";
+         this.SaleShowAcnt_Butn.Click += new System.EventHandler(this.SaleShowAcnt_Butn_Click);
          // 
-         // ribbonButton6
+         // SaleShowCont_Butn
          // 
-         this.ribbonButton6.Name = "ribbonButton6";
-         this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
-         this.ribbonButton6.ToolTip = "اشخاص";
+         this.SaleShowCont_Butn.Name = "SaleShowCont_Butn";
+         this.SaleShowCont_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleShowCont_Butn.SmallImage")));
+         this.SaleShowCont_Butn.ToolTip = "اشخاص";
+         this.SaleShowCont_Butn.Click += new System.EventHandler(this.SaleShowCont_Butn_Click);
          // 
          // ribbonGroup18
          // 
-         this.ribbonGroup18.Items.Add(this.ribbonButton8);
-         this.ribbonGroup18.Items.Add(this.ribbonButton9);
-         this.ribbonGroup18.Items.Add(this.ribbonButton10);
+         this.ribbonGroup18.Items.Add(this.SaleShowLead_Butn);
+         this.ribbonGroup18.Items.Add(this.SaleShowOptn_Butn);
+         this.ribbonGroup18.Items.Add(this.SaleShowCmpt_Butn);
          this.ribbonGroup18.Name = "ribbonGroup18";
          this.ribbonGroup18.Text = "فروش";
          // 
-         // ribbonButton8
+         // SaleShowLead_Butn
          // 
-         this.ribbonButton8.Name = "ribbonButton8";
-         this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
-         this.ribbonButton8.ToolTip = "سرنخ های تجاری";
+         this.SaleShowLead_Butn.Name = "SaleShowLead_Butn";
+         this.SaleShowLead_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleShowLead_Butn.SmallImage")));
+         this.SaleShowLead_Butn.ToolTip = "سرنخ های تجاری";
+         this.SaleShowLead_Butn.Click += new System.EventHandler(this.SaleShowLead_Butn_Click);
          // 
-         // ribbonButton9
+         // SaleShowOptn_Butn
          // 
-         this.ribbonButton9.Name = "ribbonButton9";
-         this.ribbonButton9.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton9.SmallImage")));
-         this.ribbonButton9.ToolTip = "فرصت های تجاری";
+         this.SaleShowOptn_Butn.Name = "SaleShowOptn_Butn";
+         this.SaleShowOptn_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleShowOptn_Butn.SmallImage")));
+         this.SaleShowOptn_Butn.ToolTip = "فرصت های تجاری";
+         this.SaleShowOptn_Butn.Click += new System.EventHandler(this.SaleShowOptn_Butn_Click);
          // 
-         // ribbonButton10
+         // SaleShowCmpt_Butn
          // 
-         this.ribbonButton10.Name = "ribbonButton10";
-         this.ribbonButton10.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton10.SmallImage")));
-         this.ribbonButton10.ToolTip = "رقبا";
+         this.SaleShowCmpt_Butn.Name = "SaleShowCmpt_Butn";
+         this.SaleShowCmpt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleShowCmpt_Butn.SmallImage")));
+         this.SaleShowCmpt_Butn.ToolTip = "رقبا";
+         this.SaleShowCmpt_Butn.Click += new System.EventHandler(this.SaleShowCmpt_Butn_Click);
          // 
          // ribbonGroup19
          // 
-         this.ribbonGroup19.Items.Add(this.ribbonButton11);
-         this.ribbonGroup19.Items.Add(this.ribbonButton12);
-         this.ribbonGroup19.Items.Add(this.ribbonButton13);
-         this.ribbonGroup19.Items.Add(this.ribbonButton14);
-         this.ribbonGroup19.Items.Add(this.ribbonButton15);
+         this.ribbonGroup19.Items.Add(this.SaleQuotes_Butn);
+         this.ribbonGroup19.Items.Add(this.SaleOrder_Butn);
+         this.ribbonGroup19.Items.Add(this.SaleInvoice_Butn);
+         this.ribbonGroup19.Items.Add(this.SaleProduct_Butn);
+         this.ribbonGroup19.Items.Add(this.SaleLiterature_Butn);
          this.ribbonGroup19.Name = "ribbonGroup19";
          this.ribbonGroup19.Text = "وثیقه";
          // 
-         // ribbonButton11
+         // SaleQuotes_Butn
          // 
-         this.ribbonButton11.Name = "ribbonButton11";
-         this.ribbonButton11.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.SmallImage")));
-         this.ribbonButton11.ToolTip = "پیشنهادی قیمت";
+         this.SaleQuotes_Butn.Name = "SaleQuotes_Butn";
+         this.SaleQuotes_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleQuotes_Butn.SmallImage")));
+         this.SaleQuotes_Butn.ToolTip = "پیشنهادی قیمت";
+         this.SaleQuotes_Butn.Click += new System.EventHandler(this.SaleQuotes_Butn_Click);
          // 
-         // ribbonButton12
+         // SaleOrder_Butn
          // 
-         this.ribbonButton12.Name = "ribbonButton12";
-         this.ribbonButton12.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton12.SmallImage")));
-         this.ribbonButton12.ToolTip = "سفارشات";
+         this.SaleOrder_Butn.Name = "SaleOrder_Butn";
+         this.SaleOrder_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleOrder_Butn.SmallImage")));
+         this.SaleOrder_Butn.ToolTip = "سفارشات";
+         this.SaleOrder_Butn.Click += new System.EventHandler(this.SaleOrder_Butn_Click);
          // 
-         // ribbonButton13
+         // SaleInvoice_Butn
          // 
-         this.ribbonButton13.Name = "ribbonButton13";
-         this.ribbonButton13.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton13.SmallImage")));
-         this.ribbonButton13.ToolTip = "فاکتور های فروش";
+         this.SaleInvoice_Butn.Name = "SaleInvoice_Butn";
+         this.SaleInvoice_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleInvoice_Butn.SmallImage")));
+         this.SaleInvoice_Butn.ToolTip = "فاکتور های فروش";
+         this.SaleInvoice_Butn.Click += new System.EventHandler(this.SaleInvoice_Butn_Click);
          // 
-         // ribbonButton14
+         // SaleProduct_Butn
          // 
-         this.ribbonButton14.Name = "ribbonButton14";
-         this.ribbonButton14.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton14.SmallImage")));
-         this.ribbonButton14.ToolTip = "محصولات";
+         this.SaleProduct_Butn.Name = "SaleProduct_Butn";
+         this.SaleProduct_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleProduct_Butn.SmallImage")));
+         this.SaleProduct_Butn.ToolTip = "محصولات";
+         this.SaleProduct_Butn.Click += new System.EventHandler(this.SaleProduct_Butn_Click);
          // 
-         // ribbonButton15
+         // SaleLiterature_Butn
          // 
-         this.ribbonButton15.Name = "ribbonButton15";
-         this.ribbonButton15.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.SmallImage")));
-         this.ribbonButton15.ToolTip = "ادبیات فروش";
+         this.SaleLiterature_Butn.Name = "SaleLiterature_Butn";
+         this.SaleLiterature_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleLiterature_Butn.SmallImage")));
+         this.SaleLiterature_Butn.ToolTip = "ادبیات فروش";
+         this.SaleLiterature_Butn.Click += new System.EventHandler(this.SaleLiterature_Butn_Click);
          // 
          // ribbonGroup20
          // 
-         this.ribbonGroup20.Items.Add(this.ribbonButton16);
-         this.ribbonGroup20.Items.Add(this.ribbonButton17);
+         this.ribbonGroup20.Items.Add(this.SaleMarketingList_Butn);
+         this.ribbonGroup20.Items.Add(this.SaleQuickCampaign_Butn);
          this.ribbonGroup20.Name = "ribbonGroup20";
          this.ribbonGroup20.Text = "بازازیابی";
          // 
-         // ribbonButton16
+         // SaleMarketingList_Butn
          // 
-         this.ribbonButton16.Name = "ribbonButton16";
-         this.ribbonButton16.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.SmallImage")));
-         this.ribbonButton16.ToolTip = "فهرست های بازاریابی";
+         this.SaleMarketingList_Butn.Name = "SaleMarketingList_Butn";
+         this.SaleMarketingList_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleMarketingList_Butn.SmallImage")));
+         this.SaleMarketingList_Butn.ToolTip = "فهرست های بازاریابی";
+         this.SaleMarketingList_Butn.Click += new System.EventHandler(this.SaleMarketingList_Butn_Click);
          // 
-         // ribbonButton17
+         // SaleQuickCampaign_Butn
          // 
-         this.ribbonButton17.Name = "ribbonButton17";
-         this.ribbonButton17.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton17.SmallImage")));
-         this.ribbonButton17.ToolTip = "تبلیغات سریع";
+         this.SaleQuickCampaign_Butn.Name = "SaleQuickCampaign_Butn";
+         this.SaleQuickCampaign_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleQuickCampaign_Butn.SmallImage")));
+         this.SaleQuickCampaign_Butn.ToolTip = "تبلیغات سریع";
+         this.SaleQuickCampaign_Butn.Click += new System.EventHandler(this.SaleQuickCampaign_Butn_Click);
          // 
          // ribbonGroup21
          // 
-         this.ribbonGroup21.Items.Add(this.ribbonButton18);
-         this.ribbonGroup21.Items.Add(this.ribbonButton22);
-         this.ribbonGroup21.Items.Add(this.ribbonButton23);
+         this.ribbonGroup21.Items.Add(this.SaleGoal_Butn);
+         this.ribbonGroup21.Items.Add(this.SaleGoalMetrics_Butn);
+         this.ribbonGroup21.Items.Add(this.SaleRollupQuery_Butn);
          this.ribbonGroup21.Name = "ribbonGroup21";
          this.ribbonGroup21.Text = "اهداف";
          // 
-         // ribbonButton18
+         // SaleGoal_Butn
          // 
-         this.ribbonButton18.Name = "ribbonButton18";
-         this.ribbonButton18.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton18.SmallImage")));
-         this.ribbonButton18.ToolTip = "اهداف";
+         this.SaleGoal_Butn.Name = "SaleGoal_Butn";
+         this.SaleGoal_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleGoal_Butn.SmallImage")));
+         this.SaleGoal_Butn.ToolTip = "اهداف";
+         this.SaleGoal_Butn.Click += new System.EventHandler(this.SaleGoal_Butn_Click);
          // 
-         // ribbonButton22
+         // SaleGoalMetrics_Butn
          // 
-         this.ribbonButton22.Name = "ribbonButton22";
-         this.ribbonButton22.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton22.SmallImage")));
-         this.ribbonButton22.ToolTip = "معیار های هدف";
+         this.SaleGoalMetrics_Butn.Name = "SaleGoalMetrics_Butn";
+         this.SaleGoalMetrics_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleGoalMetrics_Butn.SmallImage")));
+         this.SaleGoalMetrics_Butn.ToolTip = "معیار های هدف";
+         this.SaleGoalMetrics_Butn.Click += new System.EventHandler(this.SaleGoalMetrics_Butn_Click);
          // 
-         // ribbonButton23
+         // SaleRollupQuery_Butn
          // 
-         this.ribbonButton23.Name = "ribbonButton23";
-         this.ribbonButton23.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton23.SmallImage")));
-         this.ribbonButton23.ToolTip = "جستجو های معیار جستجو";
+         this.SaleRollupQuery_Butn.Name = "SaleRollupQuery_Butn";
+         this.SaleRollupQuery_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleRollupQuery_Butn.SmallImage")));
+         this.SaleRollupQuery_Butn.ToolTip = "جستجو های معیار جستجو";
+         this.SaleRollupQuery_Butn.Click += new System.EventHandler(this.SaleRollupQuery_Butn_Click);
          // 
          // ribbonGroup22
          // 
-         this.ribbonGroup22.Items.Add(this.ribbonButton24);
-         this.ribbonGroup22.Items.Add(this.ribbonButton25);
-         this.ribbonGroup22.Items.Add(this.ribbonButton26);
+         this.ribbonGroup22.Items.Add(this.SaleReport_Butn);
+         this.ribbonGroup22.Items.Add(this.SaleAlert_Butn);
+         this.ribbonGroup22.Items.Add(this.SaleCalendar_Butn);
          this.ribbonGroup22.Name = "ribbonGroup22";
          this.ribbonGroup22.Text = "ابزار ها";
          // 
-         // ribbonButton24
+         // SaleReport_Butn
          // 
-         this.ribbonButton24.Name = "ribbonButton24";
-         this.ribbonButton24.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton24.SmallImage")));
-         this.ribbonButton24.ToolTip = "گزارش ها";
+         this.SaleReport_Butn.Name = "SaleReport_Butn";
+         this.SaleReport_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleReport_Butn.SmallImage")));
+         this.SaleReport_Butn.ToolTip = "گزارش ها";
+         this.SaleReport_Butn.Click += new System.EventHandler(this.SaleReport_Butn_Click);
          // 
-         // ribbonButton25
+         // SaleAlert_Butn
          // 
-         this.ribbonButton25.Name = "ribbonButton25";
-         this.ribbonButton25.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton25.SmallImage")));
-         this.ribbonButton25.ToolTip = "هشدار";
+         this.SaleAlert_Butn.Name = "SaleAlert_Butn";
+         this.SaleAlert_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleAlert_Butn.SmallImage")));
+         this.SaleAlert_Butn.ToolTip = "هشدار";
+         this.SaleAlert_Butn.Click += new System.EventHandler(this.SaleAlert_Butn_Click);
          // 
-         // ribbonButton26
+         // SaleCalendar_Butn
          // 
-         this.ribbonButton26.Name = "ribbonButton26";
-         this.ribbonButton26.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton26.SmallImage")));
-         this.ribbonButton26.ToolTip = "تقویم";
+         this.SaleCalendar_Butn.Name = "SaleCalendar_Butn";
+         this.SaleCalendar_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleCalendar_Butn.SmallImage")));
+         this.SaleCalendar_Butn.ToolTip = "تقویم";
+         this.SaleCalendar_Butn.Click += new System.EventHandler(this.SaleCalendar_Butn_Click);
          // 
          // ribbonTab5
          // 
@@ -616,159 +636,177 @@
          // 
          // ribbonGroup15
          // 
-         this.ribbonGroup15.Items.Add(this.ribbonButton27);
-         this.ribbonGroup15.Items.Add(this.ribbonButton28);
+         this.ribbonGroup15.Items.Add(this.ServiceDashboard_Butn);
+         this.ribbonGroup15.Items.Add(this.ServiceActivity_Butn);
          this.ribbonGroup15.Name = "ribbonGroup15";
          this.ribbonGroup15.Text = "کار من";
          // 
-         // ribbonButton27
+         // ServiceDashboard_Butn
          // 
-         this.ribbonButton27.Name = "ribbonButton27";
-         this.ribbonButton27.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton27.SmallImage")));
-         this.ribbonButton27.ToolTip = "داشبورد";
+         this.ServiceDashboard_Butn.Name = "ServiceDashboard_Butn";
+         this.ServiceDashboard_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceDashboard_Butn.SmallImage")));
+         this.ServiceDashboard_Butn.ToolTip = "داشبورد";
+         this.ServiceDashboard_Butn.Click += new System.EventHandler(this.ServiceDashboard_Butn_Click);
          // 
-         // ribbonButton28
+         // ServiceActivity_Butn
          // 
-         this.ribbonButton28.Name = "ribbonButton28";
-         this.ribbonButton28.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton28.SmallImage")));
-         this.ribbonButton28.ToolTip = "فعالیت ها";
+         this.ServiceActivity_Butn.Name = "ServiceActivity_Butn";
+         this.ServiceActivity_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceActivity_Butn.SmallImage")));
+         this.ServiceActivity_Butn.ToolTip = "فعالیت ها";
+         this.ServiceActivity_Butn.Click += new System.EventHandler(this.ServiceActivity_Butn_Click);
          // 
          // ribbonGroup23
          // 
-         this.ribbonGroup23.Items.Add(this.ribbonButton29);
-         this.ribbonGroup23.Items.Add(this.ribbonButton30);
-         this.ribbonGroup23.Items.Add(this.ribbonButton31);
+         this.ribbonGroup23.Items.Add(this.ServiceShowAcnt_Butn);
+         this.ribbonGroup23.Items.Add(this.ServiceShowCont_Butn);
+         this.ribbonGroup23.Items.Add(this.ServiceShowSocialProfile_Butn);
          this.ribbonGroup23.Name = "ribbonGroup23";
          this.ribbonGroup23.Text = "مشتریان";
          // 
-         // ribbonButton29
+         // ServiceShowAcnt_Butn
          // 
-         this.ribbonButton29.Name = "ribbonButton29";
-         this.ribbonButton29.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton29.SmallImage")));
-         this.ribbonButton29.ToolTip = "مشتری ها";
+         this.ServiceShowAcnt_Butn.Name = "ServiceShowAcnt_Butn";
+         this.ServiceShowAcnt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceShowAcnt_Butn.SmallImage")));
+         this.ServiceShowAcnt_Butn.ToolTip = "مشتری ها";
+         this.ServiceShowAcnt_Butn.Click += new System.EventHandler(this.ServiceShowAcnt_Butn_Click);
          // 
-         // ribbonButton30
+         // ServiceShowCont_Butn
          // 
-         this.ribbonButton30.Name = "ribbonButton30";
-         this.ribbonButton30.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.SmallImage")));
-         this.ribbonButton30.ToolTip = "اشخاص";
+         this.ServiceShowCont_Butn.Name = "ServiceShowCont_Butn";
+         this.ServiceShowCont_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceShowCont_Butn.SmallImage")));
+         this.ServiceShowCont_Butn.ToolTip = "اشخاص";
+         this.ServiceShowCont_Butn.Click += new System.EventHandler(this.ServiceShowCont_Butn_Click);
          // 
-         // ribbonButton31
+         // ServiceShowSocialProfile_Butn
          // 
-         this.ribbonButton31.Name = "ribbonButton31";
-         this.ribbonButton31.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton31.SmallImage")));
-         this.ribbonButton31.ToolTip = "نمایه های اجتماعی";
+         this.ServiceShowSocialProfile_Butn.Name = "ServiceShowSocialProfile_Butn";
+         this.ServiceShowSocialProfile_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceShowSocialProfile_Butn.SmallImage")));
+         this.ServiceShowSocialProfile_Butn.ToolTip = "نمایه های اجتماعی";
+         this.ServiceShowSocialProfile_Butn.Click += new System.EventHandler(this.ServiceShowSocialProfile_Butn_Click);
          // 
          // ribbonGroup24
          // 
-         this.ribbonGroup24.Items.Add(this.ribbonButton32);
-         this.ribbonGroup24.Items.Add(this.ribbonButton33);
-         this.ribbonGroup24.Items.Add(this.ribbonButton34);
+         this.ribbonGroup24.Items.Add(this.ServiceCase_Butn);
+         this.ribbonGroup24.Items.Add(this.ServiceServiceCalendar_Butn);
+         this.ribbonGroup24.Items.Add(this.ServiceQueues_Butn);
          this.ribbonGroup24.Name = "ribbonGroup24";
          this.ribbonGroup24.Text = "خدمت";
          // 
-         // ribbonButton32
+         // ServiceCase_Butn
          // 
-         this.ribbonButton32.Name = "ribbonButton32";
-         this.ribbonButton32.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton32.SmallImage")));
-         this.ribbonButton32.ToolTip = "پرونده ها";
+         this.ServiceCase_Butn.Name = "ServiceCase_Butn";
+         this.ServiceCase_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceCase_Butn.SmallImage")));
+         this.ServiceCase_Butn.ToolTip = "پرونده ها";
+         this.ServiceCase_Butn.Click += new System.EventHandler(this.ServiceCase_Butn_Click);
          // 
-         // ribbonButton33
+         // ServiceServiceCalendar_Butn
          // 
-         this.ribbonButton33.Name = "ribbonButton33";
-         this.ribbonButton33.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton33.SmallImage")));
-         this.ribbonButton33.ToolTip = "تقویم خدمات";
+         this.ServiceServiceCalendar_Butn.Name = "ServiceServiceCalendar_Butn";
+         this.ServiceServiceCalendar_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceServiceCalendar_Butn.SmallImage")));
+         this.ServiceServiceCalendar_Butn.ToolTip = "تقویم خدمات";
+         this.ServiceServiceCalendar_Butn.Click += new System.EventHandler(this.ServiceServiceCalendar_Butn_Click);
          // 
-         // ribbonButton34
+         // ServiceQueues_Butn
          // 
-         this.ribbonButton34.Name = "ribbonButton34";
-         this.ribbonButton34.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton34.SmallImage")));
-         this.ribbonButton34.ToolTip = "صف ها";
+         this.ServiceQueues_Butn.Name = "ServiceQueues_Butn";
+         this.ServiceQueues_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceQueues_Butn.SmallImage")));
+         this.ServiceQueues_Butn.ToolTip = "صف ها";
+         this.ServiceQueues_Butn.Click += new System.EventHandler(this.ServiceQueues_Butn_Click);
          // 
          // ribbonGroup25
          // 
-         this.ribbonGroup25.Items.Add(this.ribbonButton35);
+         this.ribbonGroup25.Items.Add(this.ServiceArticles_Butn);
          this.ribbonGroup25.Items.Add(this.ribbonButton36);
-         this.ribbonGroup25.Items.Add(this.ribbonButton37);
-         this.ribbonGroup25.Items.Add(this.ribbonButton38);
+         this.ribbonGroup25.Items.Add(this.ServiceProduct_Butn);
+         this.ribbonGroup25.Items.Add(this.ServiceService_Butn);
          this.ribbonGroup25.Name = "ribbonGroup25";
          this.ribbonGroup25.Text = "وثیقه";
          // 
-         // ribbonButton35
+         // ServiceArticles_Butn
          // 
-         this.ribbonButton35.Name = "ribbonButton35";
-         this.ribbonButton35.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton35.SmallImage")));
-         this.ribbonButton35.ToolTip = "مقالات";
+         this.ServiceArticles_Butn.Name = "ServiceArticles_Butn";
+         this.ServiceArticles_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceArticles_Butn.SmallImage")));
+         this.ServiceArticles_Butn.ToolTip = "مقالات";
+         this.ServiceArticles_Butn.Click += new System.EventHandler(this.ServiceArticles_Butn_Click);
          // 
          // ribbonButton36
          // 
          this.ribbonButton36.Name = "ribbonButton36";
          this.ribbonButton36.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton36.SmallImage")));
          this.ribbonButton36.ToolTip = "قراردادها";
+         this.ribbonButton36.Click += new System.EventHandler(this.ribbonButton36_Click);
          // 
-         // ribbonButton37
+         // ServiceProduct_Butn
          // 
-         this.ribbonButton37.Name = "ribbonButton37";
-         this.ribbonButton37.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton37.SmallImage")));
-         this.ribbonButton37.ToolTip = "محصولات";
+         this.ServiceProduct_Butn.Name = "ServiceProduct_Butn";
+         this.ServiceProduct_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceProduct_Butn.SmallImage")));
+         this.ServiceProduct_Butn.ToolTip = "محصولات";
+         this.ServiceProduct_Butn.Click += new System.EventHandler(this.ServiceProduct_Butn_Click);
          // 
-         // ribbonButton38
+         // ServiceService_Butn
          // 
-         this.ribbonButton38.Name = "ribbonButton38";
-         this.ribbonButton38.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton38.SmallImage")));
-         this.ribbonButton38.ToolTip = "خدمات";
+         this.ServiceService_Butn.Name = "ServiceService_Butn";
+         this.ServiceService_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceService_Butn.SmallImage")));
+         this.ServiceService_Butn.ToolTip = "خدمات";
+         this.ServiceService_Butn.Click += new System.EventHandler(this.ServiceService_Butn_Click);
          // 
          // ribbonGroup26
          // 
-         this.ribbonGroup26.Items.Add(this.ribbonButton39);
-         this.ribbonGroup26.Items.Add(this.ribbonButton40);
-         this.ribbonGroup26.Items.Add(this.ribbonButton41);
+         this.ribbonGroup26.Items.Add(this.ServiceGoal_Butn);
+         this.ribbonGroup26.Items.Add(this.ServiceGoalMetrics_Butn);
+         this.ribbonGroup26.Items.Add(this.ServiceRollupQuery_Butn);
          this.ribbonGroup26.Name = "ribbonGroup26";
          this.ribbonGroup26.Text = "اهداف";
          // 
-         // ribbonButton39
+         // ServiceGoal_Butn
          // 
-         this.ribbonButton39.Name = "ribbonButton39";
-         this.ribbonButton39.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton39.SmallImage")));
-         this.ribbonButton39.ToolTip = "اهداف";
+         this.ServiceGoal_Butn.Name = "ServiceGoal_Butn";
+         this.ServiceGoal_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceGoal_Butn.SmallImage")));
+         this.ServiceGoal_Butn.ToolTip = "اهداف";
+         this.ServiceGoal_Butn.Click += new System.EventHandler(this.ServiceGoal_Butn_Click);
          // 
-         // ribbonButton40
+         // ServiceGoalMetrics_Butn
          // 
-         this.ribbonButton40.Name = "ribbonButton40";
-         this.ribbonButton40.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton40.SmallImage")));
-         this.ribbonButton40.ToolTip = "معیار های هدف";
+         this.ServiceGoalMetrics_Butn.Name = "ServiceGoalMetrics_Butn";
+         this.ServiceGoalMetrics_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceGoalMetrics_Butn.SmallImage")));
+         this.ServiceGoalMetrics_Butn.ToolTip = "معیار های هدف";
+         this.ServiceGoalMetrics_Butn.Click += new System.EventHandler(this.ServiceGoalMetrics_Butn_Click);
          // 
-         // ribbonButton41
+         // ServiceRollupQuery_Butn
          // 
-         this.ribbonButton41.Name = "ribbonButton41";
-         this.ribbonButton41.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton41.SmallImage")));
-         this.ribbonButton41.ToolTip = "جستجوهای معیار جستجو";
+         this.ServiceRollupQuery_Butn.Name = "ServiceRollupQuery_Butn";
+         this.ServiceRollupQuery_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceRollupQuery_Butn.SmallImage")));
+         this.ServiceRollupQuery_Butn.ToolTip = "جستجوهای معیار جستجو";
+         this.ServiceRollupQuery_Butn.Click += new System.EventHandler(this.ServiceRollupQuery_Butn_Click);
          // 
          // ribbonGroup27
          // 
-         this.ribbonGroup27.Items.Add(this.ribbonButton42);
-         this.ribbonGroup27.Items.Add(this.ribbonButton43);
-         this.ribbonGroup27.Items.Add(this.ribbonButton44);
+         this.ribbonGroup27.Items.Add(this.ServiceReport_Butn);
+         this.ribbonGroup27.Items.Add(this.ServiceAlert_Butn);
+         this.ribbonGroup27.Items.Add(this.ServiceCalendar_Butn);
          this.ribbonGroup27.Name = "ribbonGroup27";
          this.ribbonGroup27.Text = "ابزار";
          // 
-         // ribbonButton42
+         // ServiceReport_Butn
          // 
-         this.ribbonButton42.Name = "ribbonButton42";
-         this.ribbonButton42.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton42.SmallImage")));
-         this.ribbonButton42.ToolTip = "گزارش ها";
+         this.ServiceReport_Butn.Name = "ServiceReport_Butn";
+         this.ServiceReport_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceReport_Butn.SmallImage")));
+         this.ServiceReport_Butn.ToolTip = "گزارش ها";
+         this.ServiceReport_Butn.Click += new System.EventHandler(this.ServiceReport_Butn_Click);
          // 
-         // ribbonButton43
+         // ServiceAlert_Butn
          // 
-         this.ribbonButton43.Name = "ribbonButton43";
-         this.ribbonButton43.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton43.SmallImage")));
-         this.ribbonButton43.ToolTip = "هشدار";
+         this.ServiceAlert_Butn.Name = "ServiceAlert_Butn";
+         this.ServiceAlert_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceAlert_Butn.SmallImage")));
+         this.ServiceAlert_Butn.ToolTip = "هشدار";
+         this.ServiceAlert_Butn.Click += new System.EventHandler(this.ServiceAlert_Butn_Click);
          // 
-         // ribbonButton44
+         // ServiceCalendar_Butn
          // 
-         this.ribbonButton44.Name = "ribbonButton44";
-         this.ribbonButton44.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton44.SmallImage")));
-         this.ribbonButton44.ToolTip = "تقویم";
+         this.ServiceCalendar_Butn.Name = "ServiceCalendar_Butn";
+         this.ServiceCalendar_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceCalendar_Butn.SmallImage")));
+         this.ServiceCalendar_Butn.ToolTip = "تقویم";
+         this.ServiceCalendar_Butn.Click += new System.EventHandler(this.ServiceCalendar_Butn_Click);
          // 
          // ribbonTab7
          // 
@@ -782,119 +820,132 @@
          // 
          // ribbonGroup16
          // 
-         this.ribbonGroup16.Items.Add(this.ribbonButton45);
-         this.ribbonGroup16.Items.Add(this.ribbonButton46);
+         this.ribbonGroup16.Items.Add(this.MarketingDashboard_Butn);
+         this.ribbonGroup16.Items.Add(this.MarketingActivity_Butn);
          this.ribbonGroup16.Name = "ribbonGroup16";
          this.ribbonGroup16.Text = "کار من";
          // 
-         // ribbonButton45
+         // MarketingDashboard_Butn
          // 
-         this.ribbonButton45.Name = "ribbonButton45";
-         this.ribbonButton45.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton45.SmallImage")));
-         this.ribbonButton45.ToolTip = "داشبوردها";
+         this.MarketingDashboard_Butn.Name = "MarketingDashboard_Butn";
+         this.MarketingDashboard_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingDashboard_Butn.SmallImage")));
+         this.MarketingDashboard_Butn.ToolTip = "داشبوردها";
+         this.MarketingDashboard_Butn.Click += new System.EventHandler(this.MarketingDashboard_Butn_Click);
          // 
-         // ribbonButton46
+         // MarketingActivity_Butn
          // 
-         this.ribbonButton46.Name = "ribbonButton46";
-         this.ribbonButton46.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton46.SmallImage")));
-         this.ribbonButton46.ToolTip = "فعالیت ها";
+         this.MarketingActivity_Butn.Name = "MarketingActivity_Butn";
+         this.MarketingActivity_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingActivity_Butn.SmallImage")));
+         this.MarketingActivity_Butn.ToolTip = "فعالیت ها";
+         this.MarketingActivity_Butn.Click += new System.EventHandler(this.MarketingActivity_Butn_Click);
          // 
          // ribbonGroup28
          // 
-         this.ribbonGroup28.Items.Add(this.ribbonButton47);
-         this.ribbonGroup28.Items.Add(this.ribbonButton48);
+         this.ribbonGroup28.Items.Add(this.MarketingShowAcnt_Butn);
+         this.ribbonGroup28.Items.Add(this.MarketingShowCont_Butn);
          this.ribbonGroup28.Name = "ribbonGroup28";
          this.ribbonGroup28.Text = "مشتریان";
          // 
-         // ribbonButton47
+         // MarketingShowAcnt_Butn
          // 
-         this.ribbonButton47.Name = "ribbonButton47";
-         this.ribbonButton47.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton47.SmallImage")));
-         this.ribbonButton47.ToolTip = "مشتری ها";
+         this.MarketingShowAcnt_Butn.Name = "MarketingShowAcnt_Butn";
+         this.MarketingShowAcnt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingShowAcnt_Butn.SmallImage")));
+         this.MarketingShowAcnt_Butn.ToolTip = "مشتری ها";
+         this.MarketingShowAcnt_Butn.Click += new System.EventHandler(this.MarketingShowAcnt_Butn_Click);
          // 
-         // ribbonButton48
+         // MarketingShowCont_Butn
          // 
-         this.ribbonButton48.Name = "ribbonButton48";
-         this.ribbonButton48.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton48.SmallImage")));
-         this.ribbonButton48.ToolTip = "اشخاص";
+         this.MarketingShowCont_Butn.Name = "MarketingShowCont_Butn";
+         this.MarketingShowCont_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingShowCont_Butn.SmallImage")));
+         this.MarketingShowCont_Butn.ToolTip = "اشخاص";
+         this.MarketingShowCont_Butn.Click += new System.EventHandler(this.MarketingShowCont_Butn_Click);
          // 
          // ribbonGroup29
          // 
-         this.ribbonGroup29.Items.Add(this.ribbonButton49);
-         this.ribbonGroup29.Items.Add(this.ribbonButton50);
-         this.ribbonGroup29.Items.Add(this.ribbonButton51);
-         this.ribbonGroup29.Items.Add(this.ribbonButton52);
+         this.ribbonGroup29.Items.Add(this.MarketingLead_Butn);
+         this.ribbonGroup29.Items.Add(this.MarketingList_Butn);
+         this.ribbonGroup29.Items.Add(this.MarketingCampaign_Butn);
+         this.ribbonGroup29.Items.Add(this.MarketingQuickCampaign_Butn);
          this.ribbonGroup29.Name = "ribbonGroup29";
          this.ribbonGroup29.Text = "بازاریابی";
          // 
-         // ribbonButton49
+         // MarketingLead_Butn
          // 
-         this.ribbonButton49.Name = "ribbonButton49";
-         this.ribbonButton49.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton49.SmallImage")));
-         this.ribbonButton49.ToolTip = "سرنخ های تجاری";
+         this.MarketingLead_Butn.Name = "MarketingLead_Butn";
+         this.MarketingLead_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingLead_Butn.SmallImage")));
+         this.MarketingLead_Butn.ToolTip = "سرنخ های تجاری";
+         this.MarketingLead_Butn.Click += new System.EventHandler(this.MarketingLead_Butn_Click);
          // 
-         // ribbonButton50
+         // MarketingList_Butn
          // 
-         this.ribbonButton50.Name = "ribbonButton50";
-         this.ribbonButton50.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton50.SmallImage")));
-         this.ribbonButton50.ToolTip = "فهرست های بازاریابی";
+         this.MarketingList_Butn.Name = "MarketingList_Butn";
+         this.MarketingList_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingList_Butn.SmallImage")));
+         this.MarketingList_Butn.ToolTip = "فهرست های بازاریابی";
+         this.MarketingList_Butn.Click += new System.EventHandler(this.MarketingList_Butn_Click);
          // 
-         // ribbonButton51
+         // MarketingCampaign_Butn
          // 
-         this.ribbonButton51.Name = "ribbonButton51";
-         this.ribbonButton51.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton51.SmallImage")));
-         this.ribbonButton51.ToolTip = "فعالیت های تبلیغی";
+         this.MarketingCampaign_Butn.Name = "MarketingCampaign_Butn";
+         this.MarketingCampaign_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingCampaign_Butn.SmallImage")));
+         this.MarketingCampaign_Butn.ToolTip = "فعالیت های تبلیغی";
+         this.MarketingCampaign_Butn.Click += new System.EventHandler(this.MarketingCampaign_Butn_Click);
          // 
-         // ribbonButton52
+         // MarketingQuickCampaign_Butn
          // 
-         this.ribbonButton52.Name = "ribbonButton52";
-         this.ribbonButton52.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton52.SmallImage")));
-         this.ribbonButton52.ToolTip = "تبلیغات سریع";
+         this.MarketingQuickCampaign_Butn.Name = "MarketingQuickCampaign_Butn";
+         this.MarketingQuickCampaign_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingQuickCampaign_Butn.SmallImage")));
+         this.MarketingQuickCampaign_Butn.ToolTip = "تبلیغات سریع";
+         this.MarketingQuickCampaign_Butn.Click += new System.EventHandler(this.MarketingQuickCampaign_Butn_Click);
          // 
          // ribbonGroup30
          // 
-         this.ribbonGroup30.Items.Add(this.ribbonButton53);
-         this.ribbonGroup30.Items.Add(this.ribbonButton54);
+         this.ribbonGroup30.Items.Add(this.MarketingProduct_Butn);
+         this.ribbonGroup30.Items.Add(this.MarketingSaleLiterature_Butn);
          this.ribbonGroup30.Name = "ribbonGroup30";
          this.ribbonGroup30.Text = "وثیقه";
          // 
-         // ribbonButton53
+         // MarketingProduct_Butn
          // 
-         this.ribbonButton53.Name = "ribbonButton53";
-         this.ribbonButton53.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton53.SmallImage")));
-         this.ribbonButton53.ToolTip = "محصولات";
+         this.MarketingProduct_Butn.Name = "MarketingProduct_Butn";
+         this.MarketingProduct_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingProduct_Butn.SmallImage")));
+         this.MarketingProduct_Butn.ToolTip = "محصولات";
+         this.MarketingProduct_Butn.Click += new System.EventHandler(this.MarketingProduct_Butn_Click);
          // 
-         // ribbonButton54
+         // MarketingSaleLiterature_Butn
          // 
-         this.ribbonButton54.Name = "ribbonButton54";
-         this.ribbonButton54.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton54.SmallImage")));
-         this.ribbonButton54.ToolTip = "ادبیات فروش";
+         this.MarketingSaleLiterature_Butn.Name = "MarketingSaleLiterature_Butn";
+         this.MarketingSaleLiterature_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingSaleLiterature_Butn.SmallImage")));
+         this.MarketingSaleLiterature_Butn.ToolTip = "ادبیات فروش";
+         this.MarketingSaleLiterature_Butn.Click += new System.EventHandler(this.MarketingSaleLiterature_Butn_Click);
          // 
          // ribbonGroup31
          // 
-         this.ribbonGroup31.Items.Add(this.ribbonButton55);
-         this.ribbonGroup31.Items.Add(this.ribbonButton56);
-         this.ribbonGroup31.Items.Add(this.ribbonButton57);
+         this.ribbonGroup31.Items.Add(this.MarketingReport_Butn);
+         this.ribbonGroup31.Items.Add(this.MarketingAlert_Butn);
+         this.ribbonGroup31.Items.Add(this.MarketingCalendar_Butn);
          this.ribbonGroup31.Name = "ribbonGroup31";
          this.ribbonGroup31.Text = "ابزار";
          // 
-         // ribbonButton55
+         // MarketingReport_Butn
          // 
-         this.ribbonButton55.Name = "ribbonButton55";
-         this.ribbonButton55.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton55.SmallImage")));
-         this.ribbonButton55.ToolTip = "گزارش ها";
+         this.MarketingReport_Butn.Name = "MarketingReport_Butn";
+         this.MarketingReport_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingReport_Butn.SmallImage")));
+         this.MarketingReport_Butn.ToolTip = "گزارش ها";
+         this.MarketingReport_Butn.Click += new System.EventHandler(this.MarketingReport_Butn_Click);
          // 
-         // ribbonButton56
+         // MarketingAlert_Butn
          // 
-         this.ribbonButton56.Name = "ribbonButton56";
-         this.ribbonButton56.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton56.SmallImage")));
-         this.ribbonButton56.ToolTip = "هشدار";
+         this.MarketingAlert_Butn.Name = "MarketingAlert_Butn";
+         this.MarketingAlert_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingAlert_Butn.SmallImage")));
+         this.MarketingAlert_Butn.ToolTip = "هشدار";
+         this.MarketingAlert_Butn.Click += new System.EventHandler(this.MarketingAlert_Butn_Click);
          // 
-         // ribbonButton57
+         // MarketingCalendar_Butn
          // 
-         this.ribbonButton57.Name = "ribbonButton57";
-         this.ribbonButton57.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton57.SmallImage")));
-         this.ribbonButton57.ToolTip = "تقویم";
+         this.MarketingCalendar_Butn.Name = "MarketingCalendar_Butn";
+         this.MarketingCalendar_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MarketingCalendar_Butn.SmallImage")));
+         this.MarketingCalendar_Butn.ToolTip = "تقویم";
+         this.MarketingCalendar_Butn.Click += new System.EventHandler(this.MarketingCalendar_Butn_Click);
          // 
          // ribbonContextualTabGroup1
          // 
@@ -914,168 +965,188 @@
          // 
          // ribbonGroup7
          // 
-         this.ribbonGroup7.Items.Add(this.ribbonButton19);
-         this.ribbonGroup7.Items.Add(this.ribbonButton20);
-         this.ribbonGroup7.Items.Add(this.ribbonButton21);
-         this.ribbonGroup7.Items.Add(this.ribbonButton66);
+         this.ribbonGroup7.Items.Add(this.SettingBussinesManagement_Butn);
+         this.ribbonGroup7.Items.Add(this.SettingTemplate_Butn);
+         this.ribbonGroup7.Items.Add(this.SettingProductCatlog_Butn);
+         this.ribbonGroup7.Items.Add(this.SettingServiceManagement_Butn);
          this.ribbonGroup7.Name = "ribbonGroup7";
          this.ribbonGroup7.Text = "تجاری";
          // 
-         // ribbonButton19
+         // SettingBussinesManagement_Butn
          // 
-         this.ribbonButton19.Name = "ribbonButton19";
-         this.ribbonButton19.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton19.SmallImage")));
-         this.ribbonButton19.ToolTip = "مدیریت واحد تجاری";
+         this.SettingBussinesManagement_Butn.Name = "SettingBussinesManagement_Butn";
+         this.SettingBussinesManagement_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingBussinesManagement_Butn.SmallImage")));
+         this.SettingBussinesManagement_Butn.ToolTip = "مدیریت واحد تجاری";
+         this.SettingBussinesManagement_Butn.Click += new System.EventHandler(this.SettingBussinesManagement_Butn_Click);
          // 
-         // ribbonButton20
+         // SettingTemplate_Butn
          // 
-         this.ribbonButton20.Name = "ribbonButton20";
-         this.ribbonButton20.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton20.SmallImage")));
-         this.ribbonButton20.ToolTip = "قالب ها";
+         this.SettingTemplate_Butn.Name = "SettingTemplate_Butn";
+         this.SettingTemplate_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingTemplate_Butn.SmallImage")));
+         this.SettingTemplate_Butn.ToolTip = "قالب ها";
+         this.SettingTemplate_Butn.Click += new System.EventHandler(this.SettingTemplate_Butn_Click);
          // 
-         // ribbonButton21
+         // SettingProductCatlog_Butn
          // 
-         this.ribbonButton21.Name = "ribbonButton21";
-         this.ribbonButton21.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.SmallImage")));
-         this.ribbonButton21.ToolTip = "کاتالوگ محصولات";
+         this.SettingProductCatlog_Butn.Name = "SettingProductCatlog_Butn";
+         this.SettingProductCatlog_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingProductCatlog_Butn.SmallImage")));
+         this.SettingProductCatlog_Butn.ToolTip = "کاتالوگ محصولات";
+         this.SettingProductCatlog_Butn.Click += new System.EventHandler(this.SettingProductCatlog_Butn_Click);
          // 
-         // ribbonButton66
+         // SettingServiceManagement_Butn
          // 
-         this.ribbonButton66.Name = "ribbonButton66";
-         this.ribbonButton66.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton66.SmallImage")));
-         this.ribbonButton66.ToolTip = "مدیریت خدمات";
+         this.SettingServiceManagement_Butn.Name = "SettingServiceManagement_Butn";
+         this.SettingServiceManagement_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingServiceManagement_Butn.SmallImage")));
+         this.SettingServiceManagement_Butn.ToolTip = "مدیریت خدمات";
+         this.SettingServiceManagement_Butn.Click += new System.EventHandler(this.SettingServiceManagement_Butn_Click);
          // 
          // ribbonGroup34
          // 
-         this.ribbonGroup34.Items.Add(this.ribbonButton67);
-         this.ribbonGroup34.Items.Add(this.ribbonButton68);
-         this.ribbonGroup34.Items.Add(this.ribbonButton69);
-         this.ribbonGroup34.Items.Add(this.ribbonButton70);
+         this.ribbonGroup34.Items.Add(this.SettingCustomization_Butn);
+         this.ribbonGroup34.Items.Add(this.SettingSolution_Butn);
+         this.ribbonGroup34.Items.Add(this.SettingDynamicMarketplace_Butn);
+         this.ribbonGroup34.Items.Add(this.SettingPluginHistory_Butn);
          this.ribbonGroup34.Name = "ribbonGroup34";
          this.ribbonGroup34.Text = "سفارشی سازی";
          // 
-         // ribbonButton67
+         // SettingCustomization_Butn
          // 
-         this.ribbonButton67.Name = "ribbonButton67";
-         this.ribbonButton67.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton67.SmallImage")));
-         this.ribbonButton67.ToolTip = "سفارشی سازی ها";
+         this.SettingCustomization_Butn.Name = "SettingCustomization_Butn";
+         this.SettingCustomization_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingCustomization_Butn.SmallImage")));
+         this.SettingCustomization_Butn.ToolTip = "سفارشی سازی ها";
+         this.SettingCustomization_Butn.Click += new System.EventHandler(this.SettingCustomization_Butn_Click);
          // 
-         // ribbonButton68
+         // SettingSolution_Butn
          // 
-         this.ribbonButton68.Name = "ribbonButton68";
-         this.ribbonButton68.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton68.SmallImage")));
-         this.ribbonButton68.ToolTip = "راه حل";
+         this.SettingSolution_Butn.Name = "SettingSolution_Butn";
+         this.SettingSolution_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingSolution_Butn.SmallImage")));
+         this.SettingSolution_Butn.ToolTip = "راه حل";
+         this.SettingSolution_Butn.Click += new System.EventHandler(this.SettingSolution_Butn_Click);
          // 
-         // ribbonButton69
+         // SettingDynamicMarketplace_Butn
          // 
-         this.ribbonButton69.Name = "ribbonButton69";
-         this.ribbonButton69.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton69.SmallImage")));
-         this.ribbonButton69.ToolTip = "بازار پویا";
+         this.SettingDynamicMarketplace_Butn.Name = "SettingDynamicMarketplace_Butn";
+         this.SettingDynamicMarketplace_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingDynamicMarketplace_Butn.SmallImage")));
+         this.SettingDynamicMarketplace_Butn.ToolTip = "بازار پویا";
+         this.SettingDynamicMarketplace_Butn.Click += new System.EventHandler(this.SettingDynamicMarketplace_Butn_Click);
          // 
-         // ribbonButton70
+         // SettingPluginHistory_Butn
          // 
-         this.ribbonButton70.Name = "ribbonButton70";
-         this.ribbonButton70.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton70.SmallImage")));
-         this.ribbonButton70.ToolTip = "سابقه اثر پلاگین";
+         this.SettingPluginHistory_Butn.Name = "SettingPluginHistory_Butn";
+         this.SettingPluginHistory_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingPluginHistory_Butn.SmallImage")));
+         this.SettingPluginHistory_Butn.ToolTip = "سابقه اثر پلاگین";
+         this.SettingPluginHistory_Butn.Click += new System.EventHandler(this.SettingPluginHistory_Butn_Click);
          // 
          // ribbonGroup35
          // 
-         this.ribbonGroup35.Items.Add(this.ribbonButton71);
-         this.ribbonGroup35.Items.Add(this.ribbonButton72);
-         this.ribbonGroup35.Items.Add(this.ribbonButton73);
-         this.ribbonGroup35.Items.Add(this.ribbonButton74);
-         this.ribbonGroup35.Items.Add(this.ribbonButton75);
-         this.ribbonGroup35.Items.Add(this.ribbonButton76);
-         this.ribbonGroup35.Items.Add(this.ribbonButton77);
-         this.ribbonGroup35.Items.Add(this.ribbonButton78);
-         this.ribbonGroup35.Items.Add(this.ribbonButton79);
-         this.ribbonGroup35.Items.Add(this.ribbonButton80);
+         this.ribbonGroup35.Items.Add(this.SettingAdministration_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingSecurity_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingDataManagment_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingSystemJob_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingDocumentManagement_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingAuditing_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingEmailConfig_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingActivityFeedConfig_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingActivityFeedRole_Butn);
+         this.ribbonGroup35.Items.Add(this.SettingSocialNetwork_Butn);
          this.ribbonGroup35.Name = "ribbonGroup35";
          this.ribbonGroup35.Text = "سیستم";
          // 
-         // ribbonButton71
+         // SettingAdministration_Butn
          // 
-         this.ribbonButton71.Name = "ribbonButton71";
-         this.ribbonButton71.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton71.SmallImage")));
-         this.ribbonButton71.ToolTip = "مدیریت";
+         this.SettingAdministration_Butn.Name = "SettingAdministration_Butn";
+         this.SettingAdministration_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingAdministration_Butn.SmallImage")));
+         this.SettingAdministration_Butn.ToolTip = "مدیریت";
+         this.SettingAdministration_Butn.Click += new System.EventHandler(this.SettingAdministration_Butn_Click);
          // 
-         // ribbonButton72
+         // SettingSecurity_Butn
          // 
-         this.ribbonButton72.Name = "ribbonButton72";
-         this.ribbonButton72.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton72.SmallImage")));
-         this.ribbonButton72.ToolTip = "امنیت";
+         this.SettingSecurity_Butn.Name = "SettingSecurity_Butn";
+         this.SettingSecurity_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingSecurity_Butn.SmallImage")));
+         this.SettingSecurity_Butn.ToolTip = "امنیت";
+         this.SettingSecurity_Butn.Click += new System.EventHandler(this.SettingSecurity_Butn_Click);
          // 
-         // ribbonButton73
+         // SettingDataManagment_Butn
          // 
-         this.ribbonButton73.Name = "ribbonButton73";
-         this.ribbonButton73.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton73.SmallImage")));
-         this.ribbonButton73.ToolTip = "مدیریت داده ها";
+         this.SettingDataManagment_Butn.Name = "SettingDataManagment_Butn";
+         this.SettingDataManagment_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingDataManagment_Butn.SmallImage")));
+         this.SettingDataManagment_Butn.ToolTip = "مدیریت داده ها";
+         this.SettingDataManagment_Butn.Click += new System.EventHandler(this.SettingDataManagment_Butn_Click);
          // 
-         // ribbonButton74
+         // SettingSystemJob_Butn
          // 
-         this.ribbonButton74.Name = "ribbonButton74";
-         this.ribbonButton74.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton74.SmallImage")));
-         this.ribbonButton74.ToolTip = "کارهای سیستم";
+         this.SettingSystemJob_Butn.Name = "SettingSystemJob_Butn";
+         this.SettingSystemJob_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingSystemJob_Butn.SmallImage")));
+         this.SettingSystemJob_Butn.ToolTip = "کارهای سیستم";
+         this.SettingSystemJob_Butn.Click += new System.EventHandler(this.SettingSystemJob_Butn_Click);
          // 
-         // ribbonButton75
+         // SettingDocumentManagement_Butn
          // 
-         this.ribbonButton75.Name = "ribbonButton75";
-         this.ribbonButton75.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton75.SmallImage")));
-         this.ribbonButton75.ToolTip = "مدیریت سند";
+         this.SettingDocumentManagement_Butn.Name = "SettingDocumentManagement_Butn";
+         this.SettingDocumentManagement_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingDocumentManagement_Butn.SmallImage")));
+         this.SettingDocumentManagement_Butn.ToolTip = "مدیریت سند";
+         this.SettingDocumentManagement_Butn.Click += new System.EventHandler(this.SettingDocumentManagement_Butn_Click);
          // 
-         // ribbonButton76
+         // SettingAuditing_Butn
          // 
-         this.ribbonButton76.Name = "ribbonButton76";
-         this.ribbonButton76.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton76.SmallImage")));
-         this.ribbonButton76.ToolTip = "ثبت وقایع";
+         this.SettingAuditing_Butn.Name = "SettingAuditing_Butn";
+         this.SettingAuditing_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingAuditing_Butn.SmallImage")));
+         this.SettingAuditing_Butn.ToolTip = "ثبت وقایع";
+         this.SettingAuditing_Butn.Click += new System.EventHandler(this.SettingAuditing_Butn_Click);
          // 
-         // ribbonButton77
+         // SettingEmailConfig_Butn
          // 
-         this.ribbonButton77.Name = "ribbonButton77";
-         this.ribbonButton77.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton77.SmallImage")));
-         this.ribbonButton77.ToolTip = "پیکربندی پست الکترونیک";
+         this.SettingEmailConfig_Butn.Name = "SettingEmailConfig_Butn";
+         this.SettingEmailConfig_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingEmailConfig_Butn.SmallImage")));
+         this.SettingEmailConfig_Butn.ToolTip = "پیکربندی پست الکترونیک";
+         this.SettingEmailConfig_Butn.Click += new System.EventHandler(this.SettingEmailConfig_Butn_Click);
          // 
-         // ribbonButton78
+         // SettingActivityFeedConfig_Butn
          // 
-         this.ribbonButton78.Name = "ribbonButton78";
-         this.ribbonButton78.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton78.SmallImage")));
-         this.ribbonButton78.ToolTip = "پیکربندی Feeds فعالیت";
+         this.SettingActivityFeedConfig_Butn.Name = "SettingActivityFeedConfig_Butn";
+         this.SettingActivityFeedConfig_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingActivityFeedConfig_Butn.SmallImage")));
+         this.SettingActivityFeedConfig_Butn.ToolTip = "پیکربندی Feeds فعالیت";
+         this.SettingActivityFeedConfig_Butn.Click += new System.EventHandler(this.SettingActivityFeedConfig_Butn_Click);
          // 
-         // ribbonButton79
+         // SettingActivityFeedRole_Butn
          // 
-         this.ribbonButton79.Name = "ribbonButton79";
-         this.ribbonButton79.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton79.SmallImage")));
-         this.ribbonButton79.ToolTip = "قوانین Feeds فعالیت ها";
+         this.SettingActivityFeedRole_Butn.Name = "SettingActivityFeedRole_Butn";
+         this.SettingActivityFeedRole_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingActivityFeedRole_Butn.SmallImage")));
+         this.SettingActivityFeedRole_Butn.ToolTip = "قوانین Feeds فعالیت ها";
+         this.SettingActivityFeedRole_Butn.Click += new System.EventHandler(this.SettingActivityFeedRole_Butn_Click);
          // 
-         // ribbonButton80
+         // SettingSocialNetwork_Butn
          // 
-         this.ribbonButton80.Name = "ribbonButton80";
-         this.ribbonButton80.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton80.SmallImage")));
-         this.ribbonButton80.ToolTip = "نرم افزار CRM برای تلگرام";
+         this.SettingSocialNetwork_Butn.Name = "SettingSocialNetwork_Butn";
+         this.SettingSocialNetwork_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingSocialNetwork_Butn.SmallImage")));
+         this.SettingSocialNetwork_Butn.ToolTip = "نرم افزار CRM برای تلگرام";
+         this.SettingSocialNetwork_Butn.Click += new System.EventHandler(this.SettingSocialNetwork_Butn_Click);
          // 
          // ribbonGroup36
          // 
-         this.ribbonGroup36.Items.Add(this.ribbonButton81);
+         this.ribbonGroup36.Items.Add(this.SettingProcess_Butn);
          this.ribbonGroup36.Name = "ribbonGroup36";
          this.ribbonGroup36.Text = "مرکز عملیات";
          // 
-         // ribbonButton81
+         // SettingProcess_Butn
          // 
-         this.ribbonButton81.Name = "ribbonButton81";
-         this.ribbonButton81.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton81.SmallImage")));
-         this.ribbonButton81.ToolTip = "فرآیند ها";
+         this.SettingProcess_Butn.Name = "SettingProcess_Butn";
+         this.SettingProcess_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingProcess_Butn.SmallImage")));
+         this.SettingProcess_Butn.ToolTip = "فرآیند ها";
+         this.SettingProcess_Butn.Click += new System.EventHandler(this.SettingProcess_Butn_Click);
          // 
          // ribbonGroup37
          // 
-         this.ribbonGroup37.Items.Add(this.ribbonButton82);
+         this.ribbonGroup37.Items.Add(this.SettingInteractiveServiceHub_Butn);
          this.ribbonGroup37.Name = "ribbonGroup37";
          this.ribbonGroup37.Text = "Application";
          // 
-         // ribbonButton82
+         // SettingInteractiveServiceHub_Butn
          // 
-         this.ribbonButton82.Name = "ribbonButton82";
-         this.ribbonButton82.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton82.SmallImage")));
-         this.ribbonButton82.Text = "Intertactive service hub";
+         this.SettingInteractiveServiceHub_Butn.Name = "SettingInteractiveServiceHub_Butn";
+         this.SettingInteractiveServiceHub_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SettingInteractiveServiceHub_Butn.SmallImage")));
+         this.SettingInteractiveServiceHub_Butn.Text = "Intertactive service hub";
+         this.SettingInteractiveServiceHub_Butn.Click += new System.EventHandler(this.SettingInteractiveServiceHub_Butn_Click);
          // 
          // ribbonContextualTabGroup4
          // 
@@ -1091,36 +1162,40 @@
          // 
          // ribbonGroup38
          // 
-         this.ribbonGroup38.Items.Add(this.ribbonButton86);
-         this.ribbonGroup38.Items.Add(this.ribbonButton85);
-         this.ribbonGroup38.Items.Add(this.ribbonButton83);
-         this.ribbonGroup38.Items.Add(this.ribbonButton84);
+         this.ribbonGroup38.Items.Add(this.HelpHelp_Butn);
+         this.ribbonGroup38.Items.Add(this.HelpSaleVideoTrainging_Butn);
+         this.ribbonGroup38.Items.Add(this.HelpApplyClassTraining_Butn);
+         this.ribbonGroup38.Items.Add(this.HelpApplyRemoteTraining_Butn);
          this.ribbonGroup38.Name = "ribbonGroup38";
          this.ribbonGroup38.Text = "به کمک نیاز دارید";
          // 
-         // ribbonButton86
+         // HelpHelp_Butn
          // 
-         this.ribbonButton86.Name = "ribbonButton86";
-         this.ribbonButton86.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton86.SmallImage")));
-         this.ribbonButton86.ToolTip = "راهنما";
+         this.HelpHelp_Butn.Name = "HelpHelp_Butn";
+         this.HelpHelp_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("HelpHelp_Butn.SmallImage")));
+         this.HelpHelp_Butn.ToolTip = "راهنما";
+         this.HelpHelp_Butn.Click += new System.EventHandler(this.HelpHelp_Butn_Click);
          // 
-         // ribbonButton85
+         // HelpSaleVideoTrainging_Butn
          // 
-         this.ribbonButton85.Name = "ribbonButton85";
-         this.ribbonButton85.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton85.SmallImage")));
-         this.ribbonButton85.ToolTip = "خرید فیلم های آموزش";
+         this.HelpSaleVideoTrainging_Butn.Name = "HelpSaleVideoTrainging_Butn";
+         this.HelpSaleVideoTrainging_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("HelpSaleVideoTrainging_Butn.SmallImage")));
+         this.HelpSaleVideoTrainging_Butn.ToolTip = "خرید فیلم های آموزش";
+         this.HelpSaleVideoTrainging_Butn.Click += new System.EventHandler(this.HelpSaleVideoTrainging_Butn_Click);
          // 
-         // ribbonButton83
+         // HelpApplyClassTraining_Butn
          // 
-         this.ribbonButton83.Name = "ribbonButton83";
-         this.ribbonButton83.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton83.SmallImage")));
-         this.ribbonButton83.ToolTip = "درخواست کلاس آموزش حضوری";
+         this.HelpApplyClassTraining_Butn.Name = "HelpApplyClassTraining_Butn";
+         this.HelpApplyClassTraining_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("HelpApplyClassTraining_Butn.SmallImage")));
+         this.HelpApplyClassTraining_Butn.ToolTip = "درخواست کلاس آموزش حضوری";
+         this.HelpApplyClassTraining_Butn.Click += new System.EventHandler(this.HelpApplyClassTraining_Butn_Click);
          // 
-         // ribbonButton84
+         // HelpApplyRemoteTraining_Butn
          // 
-         this.ribbonButton84.Name = "ribbonButton84";
-         this.ribbonButton84.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton84.SmallImage")));
-         this.ribbonButton84.ToolTip = "درخواست آموزش از راه دور";
+         this.HelpApplyRemoteTraining_Butn.Name = "HelpApplyRemoteTraining_Butn";
+         this.HelpApplyRemoteTraining_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("HelpApplyRemoteTraining_Butn.SmallImage")));
+         this.HelpApplyRemoteTraining_Butn.ToolTip = "درخواست آموزش از راه دور";
+         this.HelpApplyRemoteTraining_Butn.Click += new System.EventHandler(this.HelpApplyRemoteTraining_Butn_Click);
          // 
          // ribbonContextualTabGroup5
          // 
@@ -1136,38 +1211,42 @@
          // 
          // ribbonGroup39
          // 
-         this.ribbonGroup39.Items.Add(this.ribbonButton89);
-         this.ribbonGroup39.Items.Add(this.ribbonButton88);
-         this.ribbonGroup39.Items.Add(this.ribbonButton90);
-         this.ribbonGroup39.Items.Add(this.ribbonButton91);
+         this.ribbonGroup39.Items.Add(this.UtilityNew_Butn);
+         this.ribbonGroup39.Items.Add(this.UtilityLastActivity_Butn);
+         this.ribbonGroup39.Items.Add(this.UtilityAdvanceFilter_Butn);
+         this.ribbonGroup39.Items.Add(this.UtilityOption_Butn);
          this.ribbonGroup39.Items.Add(this.ribbonTextBox1);
-         this.ribbonGroup39.Items.Add(this.ribbonButton87);
+         this.ribbonGroup39.Items.Add(this.UtilitySearch_Butn);
          this.ribbonGroup39.Name = "ribbonGroup39";
          this.ribbonGroup39.Text = "چی میخوای";
          // 
-         // ribbonButton89
+         // UtilityNew_Butn
          // 
-         this.ribbonButton89.Name = "ribbonButton89";
-         this.ribbonButton89.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton89.SmallImage")));
-         this.ribbonButton89.ToolTip = "جدید";
+         this.UtilityNew_Butn.Name = "UtilityNew_Butn";
+         this.UtilityNew_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UtilityNew_Butn.SmallImage")));
+         this.UtilityNew_Butn.ToolTip = "جدید";
+         this.UtilityNew_Butn.Click += new System.EventHandler(this.UtilityNew_Butn_Click);
          // 
-         // ribbonButton88
+         // UtilityLastActivity_Butn
          // 
-         this.ribbonButton88.Name = "ribbonButton88";
-         this.ribbonButton88.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton88.SmallImage")));
-         this.ribbonButton88.ToolTip = "آخرین فعالیت های انجام شده";
+         this.UtilityLastActivity_Butn.Name = "UtilityLastActivity_Butn";
+         this.UtilityLastActivity_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UtilityLastActivity_Butn.SmallImage")));
+         this.UtilityLastActivity_Butn.ToolTip = "آخرین فعالیت های انجام شده";
+         this.UtilityLastActivity_Butn.Click += new System.EventHandler(this.UtilityLastActivity_Butn_Click);
          // 
-         // ribbonButton90
+         // UtilityAdvanceFilter_Butn
          // 
-         this.ribbonButton90.Name = "ribbonButton90";
-         this.ribbonButton90.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton90.SmallImage")));
-         this.ribbonButton90.ToolTip = "فیلترینگ پیشرفته";
+         this.UtilityAdvanceFilter_Butn.Name = "UtilityAdvanceFilter_Butn";
+         this.UtilityAdvanceFilter_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UtilityAdvanceFilter_Butn.SmallImage")));
+         this.UtilityAdvanceFilter_Butn.ToolTip = "فیلترینگ پیشرفته";
+         this.UtilityAdvanceFilter_Butn.Click += new System.EventHandler(this.UtilityAdvanceFilter_Butn_Click);
          // 
-         // ribbonButton91
+         // UtilityOption_Butn
          // 
-         this.ribbonButton91.Name = "ribbonButton91";
-         this.ribbonButton91.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton91.SmallImage")));
-         this.ribbonButton91.ToolTip = "گزینه ها";
+         this.UtilityOption_Butn.Name = "UtilityOption_Butn";
+         this.UtilityOption_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UtilityOption_Butn.SmallImage")));
+         this.UtilityOption_Butn.ToolTip = "گزینه ها";
+         this.UtilityOption_Butn.Click += new System.EventHandler(this.UtilityOption_Butn_Click);
          // 
          // ribbonTextBox1
          // 
@@ -1175,11 +1254,12 @@
          this.ribbonTextBox1.Name = "ribbonTextBox1";
          this.ribbonTextBox1.TextAreaWidth = 100;
          // 
-         // ribbonButton87
+         // UtilitySearch_Butn
          // 
-         this.ribbonButton87.Name = "ribbonButton87";
-         this.ribbonButton87.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton87.SmallImage")));
-         this.ribbonButton87.ToolTip = "جستجو";
+         this.UtilitySearch_Butn.Name = "UtilitySearch_Butn";
+         this.UtilitySearch_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UtilitySearch_Butn.SmallImage")));
+         this.UtilitySearch_Butn.ToolTip = "جستجو";
+         this.UtilitySearch_Butn.Click += new System.EventHandler(this.UtilitySearch_Butn_Click);
          // 
          // ribbonQat1
          // 
@@ -1885,6 +1965,32 @@
          // 
          this.ServBs.DataSource = typeof(System.CRM.Data.Service);
          // 
+         // roundedButton1
+         // 
+         this.roundedButton1.Active = true;
+         this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.roundedButton1.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.roundedButton1.Caption = "!";
+         this.roundedButton1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.roundedButton1.ForeColor = System.Drawing.Color.White;
+         this.roundedButton1.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.roundedButton1.HoverBorderColor = System.Drawing.Color.Gold;
+         this.roundedButton1.HoverColorA = System.Drawing.Color.LightGray;
+         this.roundedButton1.HoverColorB = System.Drawing.Color.LightGray;
+         this.roundedButton1.ImageProfile = null;
+         this.roundedButton1.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.roundedButton1.ImageVisiable = true;
+         this.roundedButton1.Location = new System.Drawing.Point(733, 1);
+         this.roundedButton1.Name = "roundedButton1";
+         this.roundedButton1.NormalBorderColor = System.Drawing.Color.LightGray;
+         this.roundedButton1.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(177)))));
+         this.roundedButton1.NormalColorB = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(177)))));
+         this.roundedButton1.Size = new System.Drawing.Size(30, 30);
+         this.roundedButton1.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.roundedButton1.TabIndex = 1;
+         this.roundedButton1.Tooltip = "یادآوری";
+         this.ToolTipInfo.SetToolTip(this.roundedButton1, "پیغام ها");
+         // 
          // InfoServ_Rm
          // 
          this.InfoServ_Rm.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -2099,31 +2205,15 @@
          this.ShowInfo_Pn.Size = new System.Drawing.Size(766, 32);
          this.ShowInfo_Pn.TabIndex = 10;
          // 
-         // roundedButton1
+         // CloseInfo_Butn
          // 
-         this.roundedButton1.Active = true;
-         this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.roundedButton1.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton1.Caption = "!";
-         this.roundedButton1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.roundedButton1.ForeColor = System.Drawing.Color.White;
-         this.roundedButton1.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton1.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton1.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton1.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton1.ImageProfile = null;
-         this.roundedButton1.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton1.ImageVisiable = true;
-         this.roundedButton1.Location = new System.Drawing.Point(733, 1);
-         this.roundedButton1.Name = "roundedButton1";
-         this.roundedButton1.NormalBorderColor = System.Drawing.Color.LightGray;
-         this.roundedButton1.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(177)))));
-         this.roundedButton1.NormalColorB = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(177)))));
-         this.roundedButton1.Size = new System.Drawing.Size(30, 30);
-         this.roundedButton1.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton1.TabIndex = 1;
-         this.roundedButton1.Tooltip = "یادآوری";
-         this.ToolTipInfo.SetToolTip(this.roundedButton1, "پیغام ها");
+         this.CloseInfo_Butn.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CloseInfo_Butn.Location = new System.Drawing.Point(3, 4);
+         this.CloseInfo_Butn.Name = "CloseInfo_Butn";
+         this.CloseInfo_Butn.Size = new System.Drawing.Size(24, 24);
+         this.CloseInfo_Butn.TabIndex = 10;
+         this.CloseInfo_Butn.Text = "X";
+         this.CloseInfo_Butn.UseVisualStyleBackColor = true;
          // 
          // TextInfo_Txt
          // 
@@ -2138,16 +2228,6 @@
          this.TextInfo_Txt.TabIndex = 7;
          this.TextInfo_Txt.Text = "سیستم در حالت عادی می باشد";
          this.TextInfo_Txt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
-         // CloseInfo_Butn
-         // 
-         this.CloseInfo_Butn.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.CloseInfo_Butn.Location = new System.Drawing.Point(3, 4);
-         this.CloseInfo_Butn.Name = "CloseInfo_Butn";
-         this.CloseInfo_Butn.Size = new System.Drawing.Size(24, 24);
-         this.CloseInfo_Butn.TabIndex = 10;
-         this.CloseInfo_Butn.Text = "X";
-         this.CloseInfo_Butn.UseVisualStyleBackColor = true;
          // 
          // FRST_PAGE_F
          // 
@@ -2282,128 +2362,128 @@
       private C1.Win.C1Ribbon.RibbonContextualTabGroup ribbonContextualTabGroup3;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab4;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup12;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton1;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton3;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton4;
+      private C1.Win.C1Ribbon.RibbonButton SaleDashboard_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleWhatsNew_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleActivity_Butn;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab5;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup15;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab7;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup16;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup17;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton5;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton6;
+      private C1.Win.C1Ribbon.RibbonButton SaleShowAcnt_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleShowCont_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup18;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton8;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton9;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton10;
+      private C1.Win.C1Ribbon.RibbonButton SaleShowLead_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleShowOptn_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleShowCmpt_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup19;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton11;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton12;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton13;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton14;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton15;
+      private C1.Win.C1Ribbon.RibbonButton SaleQuotes_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleOrder_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleInvoice_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleProduct_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleLiterature_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup20;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton16;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton17;
+      private C1.Win.C1Ribbon.RibbonButton SaleMarketingList_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleQuickCampaign_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup21;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton18;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton22;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton23;
+      private C1.Win.C1Ribbon.RibbonButton SaleGoal_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleGoalMetrics_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleRollupQuery_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup22;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton24;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton25;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton26;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton27;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton28;
+      private C1.Win.C1Ribbon.RibbonButton SaleReport_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleAlert_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SaleCalendar_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceDashboard_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceActivity_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup23;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton29;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton30;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton31;
+      private C1.Win.C1Ribbon.RibbonButton ServiceShowAcnt_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceShowCont_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceShowSocialProfile_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup24;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton32;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton33;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton34;
+      private C1.Win.C1Ribbon.RibbonButton ServiceCase_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceServiceCalendar_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceQueues_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup25;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton35;
+      private C1.Win.C1Ribbon.RibbonButton ServiceArticles_Butn;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton36;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton37;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton38;
+      private C1.Win.C1Ribbon.RibbonButton ServiceProduct_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceService_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup26;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton39;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton40;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton41;
+      private C1.Win.C1Ribbon.RibbonButton ServiceGoal_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceGoalMetrics_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceRollupQuery_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup27;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton42;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton43;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton44;
+      private C1.Win.C1Ribbon.RibbonButton ServiceReport_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceAlert_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ServiceCalendar_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup28;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup29;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup30;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup31;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton45;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton46;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton47;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton48;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton49;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton50;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton51;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton52;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton53;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton54;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton55;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton56;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton57;
+      private C1.Win.C1Ribbon.RibbonButton MarketingDashboard_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingActivity_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingShowAcnt_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingShowCont_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingLead_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingList_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingCampaign_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingQuickCampaign_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingProduct_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingSaleLiterature_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingReport_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingAlert_Butn;
+      private C1.Win.C1Ribbon.RibbonButton MarketingCalendar_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup32;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup33;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton58;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton59;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton60;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton61;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton62;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton63;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton64;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton65;
+      private C1.Win.C1Ribbon.RibbonButton SupplierDashboard_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierWhatsNew_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierActivity_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierShowAcnt_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierShowCont_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierReport_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierAlert_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SupplierCalendar_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup7;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup34;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup35;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup36;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup37;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton19;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton20;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton21;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton66;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton67;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton68;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton69;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton70;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton71;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton72;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton73;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton74;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton75;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton76;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton77;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton78;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton79;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton80;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton81;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton82;
+      private C1.Win.C1Ribbon.RibbonButton SettingBussinesManagement_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingTemplate_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingProductCatlog_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingServiceManagement_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingCustomization_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingSolution_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingDynamicMarketplace_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingPluginHistory_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingAdministration_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingSecurity_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingDataManagment_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingSystemJob_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingDocumentManagement_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingAuditing_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingEmailConfig_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingActivityFeedConfig_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingActivityFeedRole_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingSocialNetwork_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingProcess_Butn;
+      private C1.Win.C1Ribbon.RibbonButton SettingInteractiveServiceHub_Butn;
       private C1.Win.C1Ribbon.RibbonContextualTabGroup ribbonContextualTabGroup4;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab8;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup38;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton86;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton85;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton83;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton84;
+      private C1.Win.C1Ribbon.RibbonButton HelpHelp_Butn;
+      private C1.Win.C1Ribbon.RibbonButton HelpSaleVideoTrainging_Butn;
+      private C1.Win.C1Ribbon.RibbonButton HelpApplyClassTraining_Butn;
+      private C1.Win.C1Ribbon.RibbonButton HelpApplyRemoteTraining_Butn;
       private C1.Win.C1Ribbon.RibbonContextualTabGroup ribbonContextualTabGroup5;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab9;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup39;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton89;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton88;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton90;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton91;
+      private C1.Win.C1Ribbon.RibbonButton UtilityNew_Butn;
+      private C1.Win.C1Ribbon.RibbonButton UtilityLastActivity_Butn;
+      private C1.Win.C1Ribbon.RibbonButton UtilityAdvanceFilter_Butn;
+      private C1.Win.C1Ribbon.RibbonButton UtilityOption_Butn;
       private C1.Win.C1Ribbon.RibbonTextBox ribbonTextBox1;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton87;
+      private C1.Win.C1Ribbon.RibbonButton UtilitySearch_Butn;
       private Windows.Forms.Panel ShowInfo_Pn;
       private MaxUi.RoundedButton roundedButton1;
       private Windows.Forms.Label TextInfo_Txt;

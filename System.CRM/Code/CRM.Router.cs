@@ -299,6 +299,12 @@ namespace System.CRM.Code
             case 91:
                Opt_Info_F(job);
                break;
+            case 92:
+               Shw_Cmpt_F(job);
+               break;
+            case 93:
+               Inf_Cmpt_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -575,6 +581,12 @@ namespace System.CRM.Code
                break;
             case "OPT_INFO_F":
                _Opt_Info_F.SendRequest(job);
+               break;
+            case "SHW_CMPT_F":
+               _Shw_Cmpt_F.SendRequest(job);
+               break;
+            case "INF_CMPT_F":
+               _Inf_Cmpt_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

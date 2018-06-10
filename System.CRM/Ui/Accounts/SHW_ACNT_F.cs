@@ -49,12 +49,14 @@ namespace System.CRM.Ui.Acounts
             if (Qxml == null)
                Qxml =
                   new XElement("Company",
-                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001")
+                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001"),
+                     new XAttribute("type", "001")
                   );
             else
                Qxml.Add(
                   new XElement("Company",
-                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001")
+                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001"),
+                     new XAttribute("type", "001")
                   )
                );
 

@@ -4275,7 +4275,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(893, 1723);
+         this.splitContainerControl2.Size = new System.Drawing.Size(876, 1723);
          this.splitContainerControl2.SplitterPosition = 531;
          this.splitContainerControl2.TabIndex = 6;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -4291,7 +4291,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl8);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(893, 531);
+         this.splitContainerControl4.Size = new System.Drawing.Size(876, 531);
          this.splitContainerControl4.SplitterPosition = 260;
          this.splitContainerControl4.TabIndex = 6;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -4310,7 +4310,7 @@
             this.repositoryItemTimeEdit1,
             this.RqstStat_Butn});
          this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.gridControl1.Size = new System.Drawing.Size(893, 220);
+         this.gridControl1.Size = new System.Drawing.Size(876, 220);
          this.gridControl1.TabIndex = 7;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CallLog_Gv});
@@ -4674,7 +4674,7 @@
          this.panelControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(893, 40);
+         this.panelControl5.Size = new System.Drawing.Size(876, 40);
          this.panelControl5.TabIndex = 6;
          // 
          // EditProj_Butn
@@ -4710,7 +4710,7 @@
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(626, 3);
+         this.labelControl15.Location = new System.Drawing.Point(609, 3);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(264, 34);
          this.labelControl15.TabIndex = 2;
@@ -4727,7 +4727,7 @@
          this.splitContainerControl8.Panel2.Controls.Add(this.splitContainerControl9);
          this.splitContainerControl8.Panel2.Controls.Add(this.panelControl10);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(893, 266);
+         this.splitContainerControl8.Size = new System.Drawing.Size(876, 266);
          this.splitContainerControl8.SplitterPosition = 443;
          this.splitContainerControl8.TabIndex = 1;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -5062,7 +5062,7 @@
          this.splitContainerControl9.Panel1.Text = "Panel1";
          this.splitContainerControl9.Panel2.Controls.Add(this.memoEdit5);
          this.splitContainerControl9.Panel2.Text = "Panel2";
-         this.splitContainerControl9.Size = new System.Drawing.Size(445, 226);
+         this.splitContainerControl9.Size = new System.Drawing.Size(428, 226);
          this.splitContainerControl9.SplitterPosition = 169;
          this.splitContainerControl9.TabIndex = 8;
          this.splitContainerControl9.Text = "splitContainerControl9";
@@ -5079,7 +5079,7 @@
          this.gridControl12.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit12,
             this.repositoryItemTimeEdit12});
-         this.gridControl12.Size = new System.Drawing.Size(445, 169);
+         this.gridControl12.Size = new System.Drawing.Size(428, 169);
          this.gridControl12.TabIndex = 8;
          this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Shis_Gv});
@@ -5233,7 +5233,7 @@
          this.memoEdit5.Properties.Appearance.Options.UseFont = true;
          this.memoEdit5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.memoEdit5.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.memoEdit5.Size = new System.Drawing.Size(445, 52);
+         this.memoEdit5.Size = new System.Drawing.Size(428, 52);
          this.memoEdit5.TabIndex = 9;
          // 
          // panelControl10
@@ -5250,7 +5250,7 @@
          this.panelControl10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl10.Name = "panelControl10";
-         this.panelControl10.Size = new System.Drawing.Size(445, 40);
+         this.panelControl10.Size = new System.Drawing.Size(428, 40);
          this.panelControl10.TabIndex = 7;
          // 
          // SaveMstt_Butn
@@ -5316,7 +5316,7 @@
          this.MainStat_Lov.Properties.NullValuePrompt = "وضعیت اصلی";
          this.MainStat_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.MainStat_Lov.Properties.ValueMember = "CODE";
-         this.MainStat_Lov.Size = new System.Drawing.Size(218, 32);
+         this.MainStat_Lov.Size = new System.Drawing.Size(201, 32);
          this.MainStat_Lov.TabIndex = 42;
          this.MainStat_Lov.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.MainStat_Lov_ButtonClick);
          // 
@@ -5342,7 +5342,7 @@
          this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl27.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl27.Location = new System.Drawing.Point(306, 3);
+         this.labelControl27.Location = new System.Drawing.Point(289, 3);
          this.labelControl27.Name = "labelControl27";
          this.labelControl27.Size = new System.Drawing.Size(136, 34);
          this.labelControl27.TabIndex = 2;
@@ -5375,7 +5375,7 @@
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl7);
          this.splitContainerControl5.Panel2.Controls.Add(this.panelControl2);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(893, 1187);
+         this.splitContainerControl5.Size = new System.Drawing.Size(876, 1187);
          this.splitContainerControl5.SplitterPosition = 557;
          this.splitContainerControl5.TabIndex = 12;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -5394,7 +5394,7 @@
          this.AllActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1524;
          this.AllActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.AllActivity_Butn.ImageVisiable = true;
-         this.AllActivity_Butn.Location = new System.Drawing.Point(822, 488);
+         this.AllActivity_Butn.Location = new System.Drawing.Point(805, 488);
          this.AllActivity_Butn.Name = "AllActivity_Butn";
          this.AllActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.AllActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5418,7 +5418,7 @@
          this.TodayActivity_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1523;
          this.TodayActivity_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.TodayActivity_Butn.ImageVisiable = true;
-         this.TodayActivity_Butn.Location = new System.Drawing.Point(822, 46);
+         this.TodayActivity_Butn.Location = new System.Drawing.Point(805, 46);
          this.TodayActivity_Butn.Name = "TodayActivity_Butn";
          this.TodayActivity_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.TodayActivity_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5442,7 +5442,7 @@
          this.Activity2_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1527;
          this.Activity2_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity2_Butn.ImageVisiable = true;
-         this.Activity2_Butn.Location = new System.Drawing.Point(823, 262);
+         this.Activity2_Butn.Location = new System.Drawing.Point(806, 262);
          this.Activity2_Butn.Name = "Activity2_Butn";
          this.Activity2_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity2_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5467,7 +5467,7 @@
          this.Activity1_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1528;
          this.Activity1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity1_Butn.ImageVisiable = true;
-         this.Activity1_Butn.Location = new System.Drawing.Point(822, 338);
+         this.Activity1_Butn.Location = new System.Drawing.Point(805, 338);
          this.Activity1_Butn.Name = "Activity1_Butn";
          this.Activity1_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5492,7 +5492,7 @@
          this.Activity0_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1530;
          this.Activity0_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity0_Butn.ImageVisiable = true;
-         this.Activity0_Butn.Location = new System.Drawing.Point(823, 413);
+         this.Activity0_Butn.Location = new System.Drawing.Point(806, 413);
          this.Activity0_Butn.Name = "Activity0_Butn";
          this.Activity0_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity0_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5517,7 +5517,7 @@
          this.Activity3_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity3_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity3_Butn.ImageVisiable = true;
-         this.Activity3_Butn.Location = new System.Drawing.Point(822, 190);
+         this.Activity3_Butn.Location = new System.Drawing.Point(805, 190);
          this.Activity3_Butn.Name = "Activity3_Butn";
          this.Activity3_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity3_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5542,7 +5542,7 @@
          this.Activity4_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1526;
          this.Activity4_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Activity4_Butn.ImageVisiable = true;
-         this.Activity4_Butn.Location = new System.Drawing.Point(822, 116);
+         this.Activity4_Butn.Location = new System.Drawing.Point(805, 116);
          this.Activity4_Butn.Name = "Activity4_Butn";
          this.Activity4_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.Activity4_Butn.NormalColorA = System.Drawing.Color.White;
@@ -5672,7 +5672,7 @@
          this.AllActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AllActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.AllActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AllActivity_Txt.Location = new System.Drawing.Point(545, 488);
+         this.AllActivity_Txt.Location = new System.Drawing.Point(528, 488);
          this.AllActivity_Txt.Name = "AllActivity_Txt";
          this.AllActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.AllActivity_Txt.TabIndex = 11;
@@ -5689,7 +5689,7 @@
          this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl6.Name = "panelControl6";
-         this.panelControl6.Size = new System.Drawing.Size(893, 40);
+         this.panelControl6.Size = new System.Drawing.Size(876, 40);
          this.panelControl6.TabIndex = 6;
          // 
          // labelControl12
@@ -5701,7 +5701,7 @@
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(626, 3);
+         this.labelControl12.Location = new System.Drawing.Point(609, 3);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(264, 34);
          this.labelControl12.TabIndex = 2;
@@ -5715,7 +5715,7 @@
          this.TodayActivity_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.TodayActivity_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.TodayActivity_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TodayActivity_Txt.Location = new System.Drawing.Point(545, 46);
+         this.TodayActivity_Txt.Location = new System.Drawing.Point(528, 46);
          this.TodayActivity_Txt.Name = "TodayActivity_Txt";
          this.TodayActivity_Txt.Size = new System.Drawing.Size(262, 58);
          this.TodayActivity_Txt.TabIndex = 8;
@@ -5729,7 +5729,7 @@
          this.Activity1_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity1_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity1_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity1_Txt.Location = new System.Drawing.Point(545, 338);
+         this.Activity1_Txt.Location = new System.Drawing.Point(528, 338);
          this.Activity1_Txt.Name = "Activity1_Txt";
          this.Activity1_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity1_Txt.TabIndex = 8;
@@ -5741,7 +5741,7 @@
          this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.panelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.panelControl7.Appearance.Options.UseBackColor = true;
-         this.panelControl7.Location = new System.Drawing.Point(843, 94);
+         this.panelControl7.Location = new System.Drawing.Point(826, 94);
          this.panelControl7.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl7.Name = "panelControl7";
@@ -5756,7 +5756,7 @@
          this.Activity2_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity2_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity2_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity2_Txt.Location = new System.Drawing.Point(545, 262);
+         this.Activity2_Txt.Location = new System.Drawing.Point(528, 262);
          this.Activity2_Txt.Name = "Activity2_Txt";
          this.Activity2_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity2_Txt.TabIndex = 8;
@@ -5771,7 +5771,7 @@
          this.Activity3_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity3_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity3_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity3_Txt.Location = new System.Drawing.Point(545, 190);
+         this.Activity3_Txt.Location = new System.Drawing.Point(528, 190);
          this.Activity3_Txt.Name = "Activity3_Txt";
          this.Activity3_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity3_Txt.TabIndex = 8;
@@ -5786,7 +5786,7 @@
          this.Activity0_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity0_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity0_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity0_Txt.Location = new System.Drawing.Point(545, 413);
+         this.Activity0_Txt.Location = new System.Drawing.Point(528, 413);
          this.Activity0_Txt.Name = "Activity0_Txt";
          this.Activity0_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity0_Txt.TabIndex = 8;
@@ -5801,7 +5801,7 @@
          this.Activity4_Txt.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Activity4_Txt.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Activity4_Txt.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Activity4_Txt.Location = new System.Drawing.Point(545, 116);
+         this.Activity4_Txt.Location = new System.Drawing.Point(528, 116);
          this.Activity4_Txt.Name = "Activity4_Txt";
          this.Activity4_Txt.Size = new System.Drawing.Size(262, 58);
          this.Activity4_Txt.TabIndex = 8;
@@ -5823,7 +5823,7 @@
             this.repositoryItemTimeEdit7,
             this.Atyp_Lov,
             this.Pstg_Lov});
-         this.gridControl7.Size = new System.Drawing.Size(893, 585);
+         this.gridControl7.Size = new System.Drawing.Size(876, 585);
          this.gridControl7.TabIndex = 8;
          this.gridControl7.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Pymt_Gv});
@@ -6275,7 +6275,7 @@
          this.panelControl2.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(893, 40);
+         this.panelControl2.Size = new System.Drawing.Size(876, 40);
          this.panelControl2.TabIndex = 7;
          // 
          // labelControl35
@@ -6287,7 +6287,7 @@
          this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl35.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(627, 2);
+         this.labelControl35.Location = new System.Drawing.Point(610, 2);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(264, 36);
          this.labelControl35.TabIndex = 2;
@@ -6434,8 +6434,8 @@
          this.CompDesc_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CompDesc_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CompDesc_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.CompDesc_Txt.Properties.NullText = "توضیحات";
-         this.CompDesc_Txt.Properties.NullValuePrompt = "توضیحات";
+         this.CompDesc_Txt.Properties.NullText = "---";
+         this.CompDesc_Txt.Properties.NullValuePrompt = "---";
          this.CompDesc_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.CompDesc_Txt.Size = new System.Drawing.Size(299, 132);
          this.CompDesc_Txt.TabIndex = 27;
@@ -6464,8 +6464,8 @@
          this.TrcbTcid_Lov.Properties.DataSource = this.TrcbBs;
          this.TrcbTcid_Lov.Properties.DisplayMember = "CURN_NAME";
          this.TrcbTcid_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.TrcbTcid_Lov.Properties.NullText = "واحد پول";
-         this.TrcbTcid_Lov.Properties.NullValuePrompt = "واحد پول";
+         this.TrcbTcid_Lov.Properties.NullText = "---";
+         this.TrcbTcid_Lov.Properties.NullValuePrompt = "---";
          this.TrcbTcid_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.TrcbTcid_Lov.Properties.PopupFormSize = new System.Drawing.Size(400, 0);
          this.TrcbTcid_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -6553,8 +6553,8 @@
          this.GetKnowCust_Lov.Properties.DataSource = this.DsistBs;
          this.GetKnowCust_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.GetKnowCust_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.GetKnowCust_Lov.Properties.NullText = "نحوه آشنایی با مشتری";
-         this.GetKnowCust_Lov.Properties.NullValuePrompt = "نحوه آشنایی با مشتری";
+         this.GetKnowCust_Lov.Properties.NullText = "---";
+         this.GetKnowCust_Lov.Properties.NullValuePrompt = "---";
          this.GetKnowCust_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.GetKnowCust_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.GetKnowCust_Lov.Properties.ValueMember = "VALU";
@@ -6596,8 +6596,8 @@
          this.getKnowUs_Lov.Properties.DataSource = this.DsistBs;
          this.getKnowUs_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.getKnowUs_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.getKnowUs_Lov.Properties.NullText = "نحوه آشنایی با ما";
-         this.getKnowUs_Lov.Properties.NullValuePrompt = "نحوه آشنایی با ما";
+         this.getKnowUs_Lov.Properties.NullText = "---";
+         this.getKnowUs_Lov.Properties.NullValuePrompt = "---";
          this.getKnowUs_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.getKnowUs_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.getKnowUs_Lov.Properties.ValueMember = "VALU";
@@ -6645,8 +6645,8 @@
          this.Regn_Lov.Properties.DataSource = this.RegnBs;
          this.Regn_Lov.Properties.DisplayMember = "NAME";
          this.Regn_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Regn_Lov.Properties.NullText = "ناحیه";
-         this.Regn_Lov.Properties.NullValuePrompt = "ناحیه";
+         this.Regn_Lov.Properties.NullText = "---";
+         this.Regn_Lov.Properties.NullValuePrompt = "---";
          this.Regn_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.Regn_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Regn_Lov.Properties.ValueMember = "CODE";
@@ -6695,8 +6695,8 @@
          this.Prvn_Lov.Properties.DataSource = this.PrvnBs;
          this.Prvn_Lov.Properties.DisplayMember = "NAME";
          this.Prvn_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Prvn_Lov.Properties.NullText = "استان";
-         this.Prvn_Lov.Properties.NullValuePrompt = "استان";
+         this.Prvn_Lov.Properties.NullText = "---";
+         this.Prvn_Lov.Properties.NullValuePrompt = "---";
          this.Prvn_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.Prvn_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Prvn_Lov.Properties.ValueMember = "CODE";
@@ -6739,8 +6739,8 @@
          this.ShipChrg_Lov.Properties.DataSource = this.DshpcBs;
          this.ShipChrg_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.ShipChrg_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ShipChrg_Lov.Properties.NullText = "شرایط حمل";
-         this.ShipChrg_Lov.Properties.NullValuePrompt = "شرابط حمل";
+         this.ShipChrg_Lov.Properties.NullText = "---";
+         this.ShipChrg_Lov.Properties.NullValuePrompt = "---";
          this.ShipChrg_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.ShipChrg_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.ShipChrg_Lov.Properties.ValueMember = "VALU";
@@ -6782,8 +6782,8 @@
          this.ShipMtod_Lov.Properties.DataSource = this.DshpmBs;
          this.ShipMtod_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.ShipMtod_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ShipMtod_Lov.Properties.NullText = "روش حمل کالا";
-         this.ShipMtod_Lov.Properties.NullValuePrompt = "روش حمل کالا";
+         this.ShipMtod_Lov.Properties.NullText = "---";
+         this.ShipMtod_Lov.Properties.NullValuePrompt = "---";
          this.ShipMtod_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.ShipMtod_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.ShipMtod_Lov.Properties.ValueMember = "VALU";
@@ -6825,8 +6825,8 @@
          this.AlowLett_Lov.Properties.DataSource = this.DysnoBs;
          this.AlowLett_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.AlowLett_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AlowLett_Lov.Properties.NullText = "نامه";
-         this.AlowLett_Lov.Properties.NullValuePrompt = "نامه";
+         this.AlowLett_Lov.Properties.NullText = "---";
+         this.AlowLett_Lov.Properties.NullValuePrompt = "---";
          this.AlowLett_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.AlowLett_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.AlowLett_Lov.Properties.ValueMember = "VALU";
@@ -6868,8 +6868,8 @@
          this.AlowFax_Lov.Properties.DataSource = this.DysnoBs;
          this.AlowFax_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.AlowFax_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AlowFax_Lov.Properties.NullText = "فکس";
-         this.AlowFax_Lov.Properties.NullValuePrompt = "فکس";
+         this.AlowFax_Lov.Properties.NullText = "---";
+         this.AlowFax_Lov.Properties.NullValuePrompt = "---";
          this.AlowFax_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.AlowFax_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.AlowFax_Lov.Properties.ValueMember = "VALU";
@@ -6907,8 +6907,8 @@
          this.AlowPhon_Lov.Properties.DataSource = this.DysnoBs;
          this.AlowPhon_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.AlowPhon_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AlowPhon_Lov.Properties.NullText = "تلفن";
-         this.AlowPhon_Lov.Properties.NullValuePrompt = "تلفن";
+         this.AlowPhon_Lov.Properties.NullText = "---";
+         this.AlowPhon_Lov.Properties.NullValuePrompt = "---";
          this.AlowPhon_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.AlowPhon_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.AlowPhon_Lov.Properties.ValueMember = "VALU";
@@ -6946,8 +6946,8 @@
          this.AlowBulkEmal_Lov.Properties.DataSource = this.DysnoBs;
          this.AlowBulkEmal_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.AlowBulkEmal_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AlowBulkEmal_Lov.Properties.NullText = "پست الکترونیک گروهی";
-         this.AlowBulkEmal_Lov.Properties.NullValuePrompt = "پست الکترونیک گروهی";
+         this.AlowBulkEmal_Lov.Properties.NullText = "---";
+         this.AlowBulkEmal_Lov.Properties.NullValuePrompt = "---";
          this.AlowBulkEmal_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.AlowBulkEmal_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.AlowBulkEmal_Lov.Properties.ValueMember = "VALU";
@@ -6985,8 +6985,8 @@
          this.AlowEmal_Lov.Properties.DataSource = this.DysnoBs;
          this.AlowEmal_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.AlowEmal_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AlowEmal_Lov.Properties.NullText = "پست الکترونیک";
-         this.AlowEmal_Lov.Properties.NullValuePrompt = "پست الکترونیک";
+         this.AlowEmal_Lov.Properties.NullText = "---";
+         this.AlowEmal_Lov.Properties.NullValuePrompt = "---";
          this.AlowEmal_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.AlowEmal_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.AlowEmal_Lov.Properties.ValueMember = "VALU";
@@ -7024,8 +7024,8 @@
          this.ContMtod_Lov.Properties.DataSource = this.DcntpBs;
          this.ContMtod_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.ContMtod_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ContMtod_Lov.Properties.NullText = "شیوه تماس";
-         this.ContMtod_Lov.Properties.NullValuePrompt = "شیوه تماس";
+         this.ContMtod_Lov.Properties.NullText = "---";
+         this.ContMtod_Lov.Properties.NullValuePrompt = "---";
          this.ContMtod_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.ContMtod_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.ContMtod_Lov.Properties.ValueMember = "VALU";
@@ -7067,8 +7067,8 @@
          this.PymtTerm_Lov.Properties.DataSource = this.DpmtmBs;
          this.PymtTerm_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.PymtTerm_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PymtTerm_Lov.Properties.NullText = "ضوابط پرداخت";
-         this.PymtTerm_Lov.Properties.NullValuePrompt = "ضوابط پرداخت";
+         this.PymtTerm_Lov.Properties.NullText = "---";
+         this.PymtTerm_Lov.Properties.NullValuePrompt = "---";
          this.PymtTerm_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.PymtTerm_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.PymtTerm_Lov.Properties.ValueMember = "VALU";
@@ -7110,8 +7110,8 @@
          this.CrdtStat_Lov.Properties.DataSource = this.DrcstBs;
          this.CrdtStat_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.CrdtStat_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.CrdtStat_Lov.Properties.NullText = "وضعیت اعتبار";
-         this.CrdtStat_Lov.Properties.NullValuePrompt = "وضعیت اعتبار";
+         this.CrdtStat_Lov.Properties.NullText = "---";
+         this.CrdtStat_Lov.Properties.NullValuePrompt = "---";
          this.CrdtStat_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.CrdtStat_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.CrdtStat_Lov.Properties.ValueMember = "VALU";
@@ -7153,8 +7153,8 @@
          this.OwnrShip_Lov.Properties.DataSource = this.DownrBs;
          this.OwnrShip_Lov.Properties.DisplayMember = "DOMN_DESC";
          this.OwnrShip_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.OwnrShip_Lov.Properties.NullText = "مالکیت";
-         this.OwnrShip_Lov.Properties.NullValuePrompt = "مالکیت";
+         this.OwnrShip_Lov.Properties.NullText = "---";
+         this.OwnrShip_Lov.Properties.NullValuePrompt = "---";
          this.OwnrShip_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.OwnrShip_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.OwnrShip_Lov.Properties.ValueMember = "VALU";
@@ -7201,8 +7201,8 @@
          this.Cnty_Lov.Properties.DataSource = this.CntyBs;
          this.Cnty_Lov.Properties.DisplayMember = "NAME";
          this.Cnty_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Cnty_Lov.Properties.NullText = "کشور";
-         this.Cnty_Lov.Properties.NullValuePrompt = "کشور";
+         this.Cnty_Lov.Properties.NullText = "---";
+         this.Cnty_Lov.Properties.NullValuePrompt = "---";
          this.Cnty_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.Cnty_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Cnty_Lov.Properties.ValueMember = "CODE";
@@ -7250,6 +7250,7 @@
          this.gridView1.Appearance.Row.Options.UseFont = true;
          this.gridView1.Appearance.Row.Options.UseTextOptions = true;
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colREGN_PRVN_CNTY_CODE3,
             this.colREGN_PRVN_CODE3,
@@ -7268,7 +7269,9 @@
          this.gridView1.OptionsView.ColumnAutoWidth = false;
          this.gridView1.OptionsView.ShowDetailButtons = false;
          this.gridView1.OptionsView.ShowGroupPanel = false;
+         this.gridView1.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
          this.gridView1.OptionsView.ShowIndicator = false;
+         this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
          // 
          // colREGN_PRVN_CNTY_CODE3
          // 
@@ -7797,8 +7800,8 @@
          this.CellPhon_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject78, "", null, null, true)});
          this.CellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.CellPhon_Txt.Properties.NullText = "شماره موبایل";
-         this.CellPhon_Txt.Properties.NullValuePrompt = "شماره موبایل";
+         this.CellPhon_Txt.Properties.NullText = "---";
+         this.CellPhon_Txt.Properties.NullValuePrompt = "---";
          this.CellPhon_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.CellPhon_Txt.Size = new System.Drawing.Size(228, 28);
          this.CellPhon_Txt.TabIndex = 2;
@@ -7825,8 +7828,8 @@
          this.TellPhon_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject79, "", null, null, true)});
          this.TellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.TellPhon_Txt.Properties.NullText = "شماره تلفن";
-         this.TellPhon_Txt.Properties.NullValuePrompt = "شماره تلفن";
+         this.TellPhon_Txt.Properties.NullText = "---";
+         this.TellPhon_Txt.Properties.NullValuePrompt = "---";
          this.TellPhon_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.TellPhon_Txt.Size = new System.Drawing.Size(228, 28);
          this.TellPhon_Txt.TabIndex = 1;
@@ -7853,8 +7856,8 @@
          this.Fax_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject80, "", null, null, true)});
          this.Fax_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Fax_Txt.Properties.NullText = "شماره فکس";
-         this.Fax_Txt.Properties.NullValuePrompt = "شماره فکس";
+         this.Fax_Txt.Properties.NullText = "---";
+         this.Fax_Txt.Properties.NullValuePrompt = "---";
          this.Fax_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.Fax_Txt.Size = new System.Drawing.Size(228, 28);
          this.Fax_Txt.TabIndex = 3;
@@ -7883,8 +7886,8 @@
          this.EmalAdrs_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject81, "", null, null, true)});
          this.EmalAdrs_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.EmalAdrs_Txt.Properties.NullText = "ایمیل";
-         this.EmalAdrs_Txt.Properties.NullValuePrompt = "ایمیل";
+         this.EmalAdrs_Txt.Properties.NullText = "---";
+         this.EmalAdrs_Txt.Properties.NullValuePrompt = "---";
          this.EmalAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.EmalAdrs_Txt.Size = new System.Drawing.Size(541, 26);
          this.EmalAdrs_Txt.TabIndex = 11;
@@ -7917,8 +7920,8 @@
          this.CrdtAmnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CrdtAmnt_Txt.Properties.Mask.EditMask = "n0";
          this.CrdtAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.CrdtAmnt_Txt.Properties.NullText = "میزان اعتبار";
-         this.CrdtAmnt_Txt.Properties.NullValuePrompt = "میزان اعتبار";
+         this.CrdtAmnt_Txt.Properties.NullText = "---";
+         this.CrdtAmnt_Txt.Properties.NullValuePrompt = "---";
          this.CrdtAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.CrdtAmnt_Txt.Size = new System.Drawing.Size(152, 28);
          this.CrdtAmnt_Txt.TabIndex = 24;
@@ -7945,8 +7948,8 @@
          this.EconCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject83, "", null, null, true)});
          this.EconCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.EconCode_Txt.Properties.NullText = "کد اقتصادی";
-         this.EconCode_Txt.Properties.NullValuePrompt = "کد اقتصادی";
+         this.EconCode_Txt.Properties.NullText = "---";
+         this.EconCode_Txt.Properties.NullValuePrompt = "---";
          this.EconCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.EconCode_Txt.Size = new System.Drawing.Size(213, 28);
          this.EconCode_Txt.TabIndex = 21;
@@ -7975,8 +7978,8 @@
          this.WebSite_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject84, "", null, null, true)});
          this.WebSite_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.WebSite_Txt.Properties.NullText = "وب سایت";
-         this.WebSite_Txt.Properties.NullValuePrompt = "وب سایت";
+         this.WebSite_Txt.Properties.NullText = "---";
+         this.WebSite_Txt.Properties.NullValuePrompt = "---";
          this.WebSite_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.WebSite_Txt.Size = new System.Drawing.Size(228, 26);
          this.WebSite_Txt.TabIndex = 4;
@@ -8003,8 +8006,8 @@
          this.Name_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject85, "", null, null, true)});
          this.Name_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Name_Txt.Properties.NullText = "نام شرکت";
-         this.Name_Txt.Properties.NullValuePrompt = "نام شرکت";
+         this.Name_Txt.Properties.NullText = "---";
+         this.Name_Txt.Properties.NullValuePrompt = "---";
          this.Name_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.Name_Txt.Size = new System.Drawing.Size(541, 28);
          this.Name_Txt.TabIndex = 0;
@@ -8031,8 +8034,8 @@
          this.ZipCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject86, "", null, null, true)});
          this.ZipCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ZipCode_Txt.Properties.NullText = "کد پستی";
-         this.ZipCode_Txt.Properties.NullValuePrompt = "کد پستی";
+         this.ZipCode_Txt.Properties.NullText = "---";
+         this.ZipCode_Txt.Properties.NullValuePrompt = "---";
          this.ZipCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.ZipCode_Txt.Size = new System.Drawing.Size(208, 28);
          this.ZipCode_Txt.TabIndex = 12;
@@ -8068,8 +8071,8 @@
          this.EndTime_Tm.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.EndTime_Tm.Properties.Mask.EditMask = "";
          this.EndTime_Tm.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-         this.EndTime_Tm.Properties.NullText = "ساعت پایان";
-         this.EndTime_Tm.Properties.NullValuePrompt = "ساعت پایان";
+         this.EndTime_Tm.Properties.NullText = "---";
+         this.EndTime_Tm.Properties.NullValuePrompt = "---";
          this.EndTime_Tm.Properties.NullValuePromptShowForEmptyValue = true;
          this.EndTime_Tm.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.EndTime_Tm.Size = new System.Drawing.Size(71, 28);
@@ -8106,8 +8109,8 @@
          this.StrtTime_Tm.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.StrtTime_Tm.Properties.Mask.EditMask = "";
          this.StrtTime_Tm.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-         this.StrtTime_Tm.Properties.NullText = "ساعت شروع";
-         this.StrtTime_Tm.Properties.NullValuePrompt = "ساعت شروع";
+         this.StrtTime_Tm.Properties.NullText = "---";
+         this.StrtTime_Tm.Properties.NullValuePrompt = "---";
          this.StrtTime_Tm.Properties.NullValuePromptShowForEmptyValue = true;
          this.StrtTime_Tm.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.StrtTime_Tm.Size = new System.Drawing.Size(71, 28);
@@ -8133,8 +8136,8 @@
          this.PostAdrs_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.PostAdrs_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.PostAdrs_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PostAdrs_Txt.Properties.NullText = "آدرس پستی";
-         this.PostAdrs_Txt.Properties.NullValuePrompt = "آدرس پستی";
+         this.PostAdrs_Txt.Properties.NullText = "---";
+         this.PostAdrs_Txt.Properties.NullValuePrompt = "---";
          this.PostAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.PostAdrs_Txt.Size = new System.Drawing.Size(228, 62);
          this.PostAdrs_Txt.TabIndex = 7;
@@ -8164,8 +8167,8 @@
          this.CompCode_Lov.Properties.DataSource = this.CompsBs;
          this.CompCode_Lov.Properties.DisplayMember = "NAME";
          this.CompCode_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.CompCode_Lov.Properties.NullText = "شرکت مادر";
-         this.CompCode_Lov.Properties.NullValuePrompt = "شرکت مادر";
+         this.CompCode_Lov.Properties.NullText = "---";
+         this.CompCode_Lov.Properties.NullValuePrompt = "---";
          this.CompCode_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.CompCode_Lov.Properties.PopupFormSize = new System.Drawing.Size(1000, 0);
          this.CompCode_Lov.Properties.ValueMember = "CODE";
@@ -8307,8 +8310,8 @@
          this.PrimServFileNo_Lov.Properties.DataSource = this.ServsBs;
          this.PrimServFileNo_Lov.Properties.DisplayMember = "NAME_DNRM";
          this.PrimServFileNo_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PrimServFileNo_Lov.Properties.NullText = "شخص اصلی";
-         this.PrimServFileNo_Lov.Properties.NullValuePrompt = "شخص اصلی";
+         this.PrimServFileNo_Lov.Properties.NullText = "---";
+         this.PrimServFileNo_Lov.Properties.NullValuePrompt = "---";
          this.PrimServFileNo_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.PrimServFileNo_Lov.Properties.PopupFormSize = new System.Drawing.Size(1000, 0);
          this.PrimServFileNo_Lov.Properties.ValueMember = "FILE_NO";
@@ -8456,8 +8459,8 @@
          this.IsicGrop_Lov.Properties.DataSource = this.IsicGropBs;
          this.IsicGrop_Lov.Properties.DisplayMember = "FRSI_DESC";
          this.IsicGrop_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.IsicGrop_Lov.Properties.NullText = "گروه صنعت";
-         this.IsicGrop_Lov.Properties.NullValuePrompt = "گروه صنعت";
+         this.IsicGrop_Lov.Properties.NullText = "---";
+         this.IsicGrop_Lov.Properties.NullValuePrompt = "---";
          this.IsicGrop_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.IsicGrop_Lov.Properties.ValueMember = "CODE";
          this.IsicGrop_Lov.Properties.View = this.gridView4;
@@ -8517,8 +8520,8 @@
          this.IsicActv_Lov.Properties.DataSource = this.IsicActvBs;
          this.IsicActv_Lov.Properties.DisplayMember = "FRSI_DESC";
          this.IsicActv_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.IsicActv_Lov.Properties.NullText = "فعالیت صعنت";
-         this.IsicActv_Lov.Properties.NullValuePrompt = "فعالیت صعنت";
+         this.IsicActv_Lov.Properties.NullText = "---";
+         this.IsicActv_Lov.Properties.NullValuePrompt = "---";
          this.IsicActv_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.IsicActv_Lov.Properties.ValueMember = "CODE";
          this.IsicActv_Lov.Properties.View = this.gridView9;
@@ -8578,8 +8581,8 @@
          this.IsicProd_Lov.Properties.DataSource = this.IsicProdBs;
          this.IsicProd_Lov.Properties.DisplayMember = "ISCP_DESC";
          this.IsicProd_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.IsicProd_Lov.Properties.NullText = "محصول صنعت";
-         this.IsicProd_Lov.Properties.NullValuePrompt = "محصول صنعت";
+         this.IsicProd_Lov.Properties.NullText = "---";
+         this.IsicProd_Lov.Properties.NullValuePrompt = "---";
          this.IsicProd_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.IsicProd_Lov.Properties.ValueMember = "CODE";
          this.IsicProd_Lov.Properties.View = this.gridView10;
@@ -8705,7 +8708,9 @@
          this.gridView8.OptionsView.ColumnAutoWidth = false;
          this.gridView8.OptionsView.ShowDetailButtons = false;
          this.gridView8.OptionsView.ShowGroupPanel = false;
+         this.gridView8.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
          this.gridView8.OptionsView.ShowIndicator = false;
+         this.gridView8.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
          // 
          // gridColumn42
          // 
@@ -8807,7 +8812,9 @@
          this.gridView7.OptionsView.ColumnAutoWidth = false;
          this.gridView7.OptionsView.ShowDetailButtons = false;
          this.gridView7.OptionsView.ShowGroupPanel = false;
+         this.gridView7.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
          this.gridView7.OptionsView.ShowIndicator = false;
+         this.gridView7.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
          // 
          // gridColumn40
          // 
@@ -8934,7 +8941,9 @@
          this.gridView6.OptionsView.ColumnAutoWidth = false;
          this.gridView6.OptionsView.ShowDetailButtons = false;
          this.gridView6.OptionsView.ShowGroupPanel = false;
+         this.gridView6.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
          this.gridView6.OptionsView.ShowIndicator = false;
+         this.gridView6.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
          // 
          // gridColumn38
          // 
@@ -9067,7 +9076,9 @@
          this.gridView5.OptionsView.ColumnAutoWidth = false;
          this.gridView5.OptionsView.ShowDetailButtons = false;
          this.gridView5.OptionsView.ShowGroupPanel = false;
+         this.gridView5.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
          this.gridView5.OptionsView.ShowIndicator = false;
+         this.gridView5.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
          // 
          // colNAME_DNRM
          // 

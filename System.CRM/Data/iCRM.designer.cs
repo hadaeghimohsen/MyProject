@@ -1756,14 +1756,6 @@ namespace System.CRM.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Company> Companies
-		{
-			get
-			{
-				return this.GetTable<Company>();
-			}
-		}
-		
 		public System.Data.Linq.Table<D_PMTM> D_PMTMs
 		{
 			get
@@ -1801,6 +1793,38 @@ namespace System.CRM.Data
 			get
 			{
 				return this.GetTable<D_ISOC>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_CMTP> D_CMTPs
+		{
+			get
+			{
+				return this.GetTable<D_CMTP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_CPTP> D_CPTPs
+		{
+			get
+			{
+				return this.GetTable<D_CPTP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Competitor_Difference> Competitor_Differences
+		{
+			get
+			{
+				return this.GetTable<Competitor_Difference>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Company> Companies
+		{
+			get
+			{
+				return this.GetTable<Company>();
 			}
 		}
 		
@@ -2216,14 +2240,29 @@ namespace System.CRM.Data
 			this.DEL_SSTT_P(((System.Nullable<short>)(obj.MSTT_CODE)), ((System.Nullable<short>)(obj.CODE)));
 		}
 		
+		private void InsertCompetitor_Difference(Competitor_Difference obj)
+		{
+			this.INS_CMDF_P(((System.Nullable<long>)(obj.COMP_CODE)), obj.TYPE, obj.CMNT);
+		}
+		
+		private void UpdateCompetitor_Difference(Competitor_Difference obj)
+		{
+			this.UPD_CMDF_P(((System.Nullable<long>)(obj.CODE)), obj.TYPE, obj.CMNT);
+		}
+		
+		private void DeleteCompetitor_Difference(Competitor_Difference obj)
+		{
+			this.DEL_CMDF_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
 		private void InsertCompany(Company obj)
 		{
-			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)), ((System.Nullable<long>)(obj.TRCB_TCID)), obj.CRDT_STAT, ((System.Nullable<long>)(obj.CRDT_AMNT)), obj.PYMT_TERM, obj.OWNR_SHIP, obj.GET_KNOW_US, obj.GET_KNOW_CUST, obj.CONT_MTOD, obj.ALOW_EMAL, obj.ALOW_BULK_EMAL, obj.ALOW_PHON, obj.ALOW_FAX, obj.ALOW_LETT, obj.SHIP_MTOD, obj.SHIP_CHRG);
+			this.INS_COMP_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, ((System.Nullable<int>)(obj.EMPY_NUMB)), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)), ((System.Nullable<long>)(obj.TRCB_TCID)), obj.CRDT_STAT, ((System.Nullable<long>)(obj.CRDT_AMNT)), obj.PYMT_TERM, obj.OWNR_SHIP, obj.GET_KNOW_US, obj.GET_KNOW_CUST, obj.CONT_MTOD, obj.ALOW_EMAL, obj.ALOW_BULK_EMAL, obj.ALOW_PHON, obj.ALOW_FAX, obj.ALOW_LETT, obj.SHIP_MTOD, obj.SHIP_CHRG, ((System.Nullable<long>)(obj.REVN_AMNT)));
 		}
 		
 		private void UpdateCompany(Company obj)
 		{
-			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, default(System.Nullable<int>), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)), ((System.Nullable<long>)(obj.TRCB_TCID)), obj.CRDT_STAT, ((System.Nullable<long>)(obj.CRDT_AMNT)), obj.PYMT_TERM, obj.OWNR_SHIP, obj.GET_KNOW_US, obj.GET_KNOW_CUST, obj.CONT_MTOD, obj.ALOW_EMAL, obj.ALOW_BULK_EMAL, obj.ALOW_PHON, obj.ALOW_FAX, obj.ALOW_LETT, obj.SHIP_MTOD, obj.SHIP_CHRG);
+			this.UPD_COMP_P(((System.Nullable<long>)(obj.CODE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.ISCP_ISCA_ISCG_CODE, obj.ISCP_ISCA_CODE, obj.ISCP_CODE, obj.NAME, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), ((System.Nullable<double>)(obj.POST_ADDR_ZOOM)), obj.POST_ADRS, obj.EMAL_ADRS, obj.WEB_SITE, ((System.Nullable<long>)(obj.COMP_CODE)), obj.COMP_DESC, ((System.Nullable<System.DateTime>)(obj.REGS_DATE)), obj.ZIP_CODE, obj.LOGO, obj.ECON_CODE, ((System.Nullable<System.DateTime>)(obj.STRT_TIME)), ((System.Nullable<System.DateTime>)(obj.END_TIME)), obj.TYPE, ((System.Nullable<int>)(obj.EMPY_NUMB)), ((System.Nullable<double>)(obj.BILL_ADDR_X)), ((System.Nullable<double>)(obj.BILL_ADDR_Y)), ((System.Nullable<double>)(obj.BILL_ADDR_ZOOM)), obj.BILL_ADDR, ((System.Nullable<double>)(obj.SHIP_ADDR_X)), ((System.Nullable<double>)(obj.SHIP_ADDR_Y)), ((System.Nullable<double>)(obj.SHIP_ADDR_ZOOM)), obj.SHIP_ADDR, obj.FACE_BOOK_URL, obj.LINK_IN_URL, obj.TWTR_URL, obj.CELL_PHON, obj.TELL_PHON, obj.DFLT_STAT, obj.HOST_STAT, ((System.Nullable<long>)(obj.OWNR_CODE)), obj.FAX_NUMB, ((System.Nullable<long>)(obj.PRIM_SERV_FILE_NO)), ((System.Nullable<long>)(obj.TRCB_TCID)), obj.CRDT_STAT, ((System.Nullable<long>)(obj.CRDT_AMNT)), obj.PYMT_TERM, obj.OWNR_SHIP, obj.GET_KNOW_US, obj.GET_KNOW_CUST, obj.CONT_MTOD, obj.ALOW_EMAL, obj.ALOW_BULK_EMAL, obj.ALOW_PHON, obj.ALOW_FAX, obj.ALOW_LETT, obj.SHIP_MTOD, obj.SHIP_CHRG, ((System.Nullable<long>)(obj.REVN_AMNT)));
 		}
 		
 		private void DeleteCompany(Company obj)
@@ -3229,12 +3268,6 @@ namespace System.CRM.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Companies", IsComposable=true)]
-		public IQueryable<VF_CompaniesResult> VF_Companies([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
-		{
-			return this.CreateMethodCallQuery<VF_CompaniesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SRTP_P")]
 		public int INS_SRTP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srtp_Desc", DbType="NVarChar(50)")] string srtp_Desc)
 		{
@@ -3485,9 +3518,10 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Fax", DbType="VarChar(3)")] string alow_Fax, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Lett", DbType="VarChar(3)")] string alow_Lett, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mtod", DbType="VarChar(3)")] string ship_Mtod, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Chrg", DbType="VarChar(3)")] string ship_Chrg)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Chrg", DbType="VarChar(3)")] string ship_Chrg, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Revn_Amnt", DbType="BigInt")] System.Nullable<long> revn_Amnt)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_NUmb, prim_Serv_File_No, trcb_Tcid, crdt_Stat, crdt_Amnt, pymt_Term, ownr_Ship, get_Know_Us, get_Know_Cust, cont_Mtod, alow_Emal, alow_Bulk_Emal, alow_Phon, alow_Fax, alow_Lett, ship_Mtod, ship_Chrg);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_NUmb, prim_Serv_File_No, trcb_Tcid, crdt_Stat, crdt_Amnt, pymt_Term, ownr_Ship, get_Know_Us, get_Know_Cust, cont_Mtod, alow_Emal, alow_Bulk_Emal, alow_Phon, alow_Fax, alow_Lett, ship_Mtod, ship_Chrg, revn_Amnt);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -3549,10 +3583,38 @@ namespace System.CRM.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Fax", DbType="VarChar(3)")] string alow_Fax, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Alow_Lett", DbType="VarChar(3)")] string alow_Lett, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mtod", DbType="VarChar(3)")] string ship_Mtod, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Chrg", DbType="VarChar(3)")] string ship_Chrg)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Chrg", DbType="VarChar(3)")] string ship_Chrg, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Revn_Amnt", DbType="BigInt")] System.Nullable<long> revn_Amnt)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_Numb, prim_Serv_File_No, trcb_Tcid, crdt_Stat, crdt_Amnt, pymt_Term, ownr_Ship, get_Know_Us, get_Know_Cust, cont_Mtod, alow_Emal, alow_Bulk_Emal, alow_Phon, alow_Fax, alow_Lett, ship_Mtod, ship_Chrg);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, iscp_Isca_Iscg_Code, iscp_Isca_Code, iscp_Code, name, cord_X, cord_Y, post_Addr_Zoom, post_Adrs, emal_Adrs, web_Site, comp_Code, comp_Desc, regs_Date, zip_Code, logo, econ_Code, strt_Time, end_Time, type, empy_Numb, bill_Addr_X, bill_Addr_Y, bill_Addr_Zoom, bill_Addr, ship_Addr_X, ship_Addr_Y, ship_Addr_Zoom, ship_Addr, face_Book_Url, link_In_Url, twtr_Url, cell_Phon, tell_Phon, dflt_Stat, host_Stat, ownr_Code, fax_Numb, prim_Serv_File_No, trcb_Tcid, crdt_Stat, crdt_Amnt, pymt_Term, ownr_Ship, get_Know_Us, get_Know_Cust, cont_Mtod, alow_Emal, alow_Bulk_Emal, alow_Phon, alow_Fax, alow_Lett, ship_Mtod, ship_Chrg, revn_Amnt);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_CMDF_P")]
+		public int INS_CMDF_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(500)")] string cmnt)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), comp_Code, type, cmnt);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_CMDF_P")]
+		public int UPD_CMDF_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(500)")] string cmnt)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, type, cmnt);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CMDF_P")]
+		public int DEL_CMDF_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Companies", IsComposable=true)]
+		public IQueryable<VF_CompaniesResult> VF_Companies([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			return this.CreateMethodCallQuery<VF_CompaniesResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 		}
 	}
 	
@@ -55494,6 +55556,592 @@ namespace System.CRM.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$PMTM")]
+	public partial class D_PMTM
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_PMTM()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SHPM")]
+	public partial class D_SHPM
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_SHPM()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SHPC")]
+	public partial class D_SHPC
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_SHPC()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$OWNR")]
+	public partial class D_OWNR
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_OWNR()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$ISOC")]
+	public partial class D_ISOC
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_ISOC()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$CMTP")]
+	public partial class D_CMTP
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_CMTP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$CPTP")]
+	public partial class D_CPTP
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_CPTP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Competitor_Difference")]
+	public partial class Competitor_Difference : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _COMP_CODE;
+		
+		private long _CODE;
+		
+		private string _TYPE;
+		
+		private string _CMNT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Company> _Company;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCOMP_CODEChanging(System.Nullable<long> value);
+    partial void OnCOMP_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnTYPEChanging(string value);
+    partial void OnTYPEChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Competitor_Difference()
+		{
+			this._Company = default(EntityRef<Company>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> COMP_CODE
+		{
+			get
+			{
+				return this._COMP_CODE;
+			}
+			set
+			{
+				if ((this._COMP_CODE != value))
+				{
+					if (this._Company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCOMP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_CODE = value;
+					this.SendPropertyChanged("COMP_CODE");
+					this.OnCOMP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this.OnTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TYPE = value;
+					this.SendPropertyChanged("TYPE");
+					this.OnTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Competitor_Difference", Storage="_Company", ThisKey="COMP_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Competitor_Differences.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Competitor_Differences.Add(this);
+						this._COMP_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Company")]
 	public partial class Company : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -55622,6 +56270,10 @@ namespace System.CRM.Data
 		
 		private string _SHIP_CHRG;
 		
+		private System.Nullable<long> _REVN_AMNT;
+		
+		private System.Nullable<int> _EMPY_NUMB;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -55673,6 +56325,8 @@ namespace System.CRM.Data
 		private EntitySet<Relation_Info> _Relation_Infos1;
 		
 		private EntitySet<Send_File> _Send_Files;
+		
+		private EntitySet<Competitor_Difference> _Competitor_Differences;
 		
 		private EntitySet<Company> _Companies;
 		
@@ -55818,6 +56472,10 @@ namespace System.CRM.Data
     partial void OnSHIP_MTODChanged();
     partial void OnSHIP_CHRGChanging(string value);
     partial void OnSHIP_CHRGChanged();
+    partial void OnREVN_AMNTChanging(System.Nullable<long> value);
+    partial void OnREVN_AMNTChanged();
+    partial void OnEMPY_NUMBChanging(System.Nullable<int> value);
+    partial void OnEMPY_NUMBChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -55852,6 +56510,7 @@ namespace System.CRM.Data
 			this._Relation_Infos = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos), new Action<Relation_Info>(this.detach_Relation_Infos));
 			this._Relation_Infos1 = new EntitySet<Relation_Info>(new Action<Relation_Info>(this.attach_Relation_Infos1), new Action<Relation_Info>(this.detach_Relation_Infos1));
 			this._Send_Files = new EntitySet<Send_File>(new Action<Send_File>(this.attach_Send_Files), new Action<Send_File>(this.detach_Send_Files));
+			this._Competitor_Differences = new EntitySet<Competitor_Difference>(new Action<Competitor_Difference>(this.attach_Competitor_Differences), new Action<Competitor_Difference>(this.detach_Competitor_Differences));
 			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._Company1 = default(EntityRef<Company>);
 			this._Isic_Product = default(EntityRef<Isic_Product>);
@@ -55864,7 +56523,7 @@ namespace System.CRM.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string REGN_PRVN_CNTY_CODE
 		{
 			get
@@ -55888,7 +56547,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string REGN_PRVN_CODE
 		{
 			get
@@ -55912,7 +56571,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string REGN_CODE
 		{
 			get
@@ -55936,7 +56595,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_ISCG_CODE", DbType="VarChar(2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_ISCG_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
 		public string ISCP_ISCA_ISCG_CODE
 		{
 			get
@@ -55960,7 +56619,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_CODE", DbType="VarChar(2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_ISCA_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
 		public string ISCP_ISCA_CODE
 		{
 			get
@@ -55984,7 +56643,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_CODE", DbType="VarChar(6)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISCP_CODE", DbType="VarChar(6)", UpdateCheck=UpdateCheck.Never)]
 		public string ISCP_CODE
 		{
 			get
@@ -56028,7 +56687,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> DEBT_DNRM
 		{
 			get
@@ -56048,7 +56707,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string NAME
 		{
 			get
@@ -56068,7 +56727,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_X
 		{
 			get
@@ -56088,7 +56747,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_Y
 		{
 			get
@@ -56108,7 +56767,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADDR_ZOOM", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> POST_ADDR_ZOOM
 		{
 			get
@@ -56128,7 +56787,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string POST_ADRS
 		{
 			get
@@ -56148,7 +56807,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string EMAL_ADRS
 		{
 			get
@@ -56168,7 +56827,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string WEB_SITE
 		{
 			get
@@ -56188,7 +56847,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> COMP_CODE
 		{
 			get
@@ -56212,7 +56871,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_DESC", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_DESC", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public string COMP_DESC
 		{
 			get
@@ -56232,7 +56891,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGS_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGS_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> REGS_DATE
 		{
 			get
@@ -56252,7 +56911,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP_CODE", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP_CODE", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string ZIP_CODE
 		{
 			get
@@ -56292,7 +56951,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ECON_CODE", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ECON_CODE", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
 		public string ECON_CODE
 		{
 			get
@@ -56312,7 +56971,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_TIME", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> STRT_TIME
 		{
 			get
@@ -56332,7 +56991,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_TIME", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> END_TIME
 		{
 			get
@@ -56352,7 +57011,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string TYPE
 		{
 			get
@@ -56372,7 +57031,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPY_NUMB_DNRM", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPY_NUMB_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> EMPY_NUMB_DNRM
 		{
 			get
@@ -56392,7 +57051,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> BILL_ADDR_X
 		{
 			get
@@ -56412,7 +57071,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> BILL_ADDR_Y
 		{
 			get
@@ -56432,7 +57091,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_ZOOM", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> BILL_ADDR_ZOOM
 		{
 			get
@@ -56452,7 +57111,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BILL_ADDR", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string BILL_ADDR
 		{
 			get
@@ -56472,7 +57131,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> SHIP_ADDR_X
 		{
 			get
@@ -56492,7 +57151,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> SHIP_ADDR_Y
 		{
 			get
@@ -56512,7 +57171,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_ZOOM", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR_ZOOM", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> SHIP_ADDR_ZOOM
 		{
 			get
@@ -56532,7 +57191,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_ADDR", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string SHIP_ADDR
 		{
 			get
@@ -56552,7 +57211,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string DFLT_STAT
 		{
 			get
@@ -56572,7 +57231,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FACE_BOOK_URL", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FACE_BOOK_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string FACE_BOOK_URL
 		{
 			get
@@ -56592,7 +57251,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINK_IN_URL", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINK_IN_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string LINK_IN_URL
 		{
 			get
@@ -56612,7 +57271,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TWTR_URL", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TWTR_URL", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string TWTR_URL
 		{
 			get
@@ -56632,7 +57291,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
 		public string CELL_PHON
 		{
 			get
@@ -56652,7 +57311,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
 		public string TELL_PHON
 		{
 			get
@@ -56672,7 +57331,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAX_NUMB", DbType="VarChar(15)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAX_NUMB", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
 		public string FAX_NUMB
 		{
 			get
@@ -56692,7 +57351,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
 		{
 			get
@@ -56716,7 +57375,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_RQST_RQID_DNRM", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_RQST_RQID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> LAST_RQST_RQID_DNRM
 		{
 			get
@@ -56740,7 +57399,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string RECD_STAT
 		{
 			get
@@ -56760,7 +57419,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string HOST_STAT
 		{
 			get
@@ -56780,7 +57439,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OWNR_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OWNR_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> OWNR_CODE
 		{
 			get
@@ -56804,7 +57463,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRIM_SERV_FILE_NO", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRIM_SERV_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> PRIM_SERV_FILE_NO
 		{
 			get
@@ -56828,7 +57487,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRCB_TCID", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRCB_TCID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> TRCB_TCID
 		{
 			get
@@ -56852,7 +57511,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRDT_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRDT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CRDT_STAT
 		{
 			get
@@ -56872,7 +57531,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRDT_AMNT", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRDT_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> CRDT_AMNT
 		{
 			get
@@ -56892,7 +57551,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_TERM", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_TERM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string PYMT_TERM
 		{
 			get
@@ -56912,7 +57571,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OWNR_SHIP", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OWNR_SHIP", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string OWNR_SHIP
 		{
 			get
@@ -56932,7 +57591,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GET_KNOW_US", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GET_KNOW_US", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string GET_KNOW_US
 		{
 			get
@@ -56952,7 +57611,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GET_KNOW_CUST", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GET_KNOW_CUST", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string GET_KNOW_CUST
 		{
 			get
@@ -56972,7 +57631,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONT_MTOD", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONT_MTOD", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CONT_MTOD
 		{
 			get
@@ -56992,7 +57651,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_EMAL", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_EMAL", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ALOW_EMAL
 		{
 			get
@@ -57012,7 +57671,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_BULK_EMAL", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_BULK_EMAL", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ALOW_BULK_EMAL
 		{
 			get
@@ -57032,7 +57691,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_PHON", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_PHON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ALOW_PHON
 		{
 			get
@@ -57052,7 +57711,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_FAX", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_FAX", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ALOW_FAX
 		{
 			get
@@ -57072,7 +57731,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_LETT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOW_LETT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ALOW_LETT
 		{
 			get
@@ -57092,7 +57751,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_MTOD", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_MTOD", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SHIP_MTOD
 		{
 			get
@@ -57112,7 +57771,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_CHRG", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHIP_CHRG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SHIP_CHRG
 		{
 			get
@@ -57132,7 +57791,47 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REVN_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> REVN_AMNT
+		{
+			get
+			{
+				return this._REVN_AMNT;
+			}
+			set
+			{
+				if ((this._REVN_AMNT != value))
+				{
+					this.OnREVN_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._REVN_AMNT = value;
+					this.SendPropertyChanged("REVN_AMNT");
+					this.OnREVN_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPY_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> EMPY_NUMB
+		{
+			get
+			{
+				return this._EMPY_NUMB;
+			}
+			set
+			{
+				if ((this._EMPY_NUMB != value))
+				{
+					this.OnEMPY_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._EMPY_NUMB = value;
+					this.SendPropertyChanged("EMPY_NUMB");
+					this.OnEMPY_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -57152,7 +57851,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -57172,7 +57871,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -57192,7 +57891,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -57495,6 +58194,19 @@ namespace System.CRM.Data
 			set
 			{
 				this._Send_Files.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Competitor_Difference", Storage="_Competitor_Differences", ThisKey="CODE", OtherKey="COMP_CODE")]
+		public EntitySet<Competitor_Difference> Competitor_Differences
+		{
+			get
+			{
+				return this._Competitor_Differences;
+			}
+			set
+			{
+				this._Competitor_Differences.Assign(value);
 			}
 		}
 		
@@ -58075,6 +58787,18 @@ namespace System.CRM.Data
 			entity.Company = null;
 		}
 		
+		private void attach_Competitor_Differences(Competitor_Difference entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Competitor_Differences(Competitor_Difference entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
 		private void attach_Companies(Company entity)
 		{
 			this.SendPropertyChanging();
@@ -58085,231 +58809,6 @@ namespace System.CRM.Data
 		{
 			this.SendPropertyChanging();
 			entity.Company1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$PMTM")]
-	public partial class D_PMTM
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_PMTM()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SHPM")]
-	public partial class D_SHPM
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_SHPM()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SHPC")]
-	public partial class D_SHPC
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_SHPC()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$OWNR")]
-	public partial class D_OWNR
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_OWNR()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$ISOC")]
-	public partial class D_ISOC
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_ISOC()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
 		}
 	}
 	
@@ -64403,266 +64902,6 @@ namespace System.CRM.Data
 		}
 	}
 	
-	public partial class VF_CompaniesResult
-	{
-		
-		private string _CNTY_NAME;
-		
-		private string _PRVN_NAME;
-		
-		private string _REGN_NAME;
-		
-		private string _COMP_NAME;
-		
-		private System.Nullable<long> _DEBT_DNRM;
-		
-		private string _RQTP_DESC;
-		
-		private string _SERV_NAME;
-		
-		private string _CRET_BY;
-		
-		private long _CODE;
-		
-		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
-		
-		private string _RECD_STAT;
-		
-		private string _EMAL_ADRS;
-		
-		private System.Data.Linq.Binary _LOGO;
-		
-		private string _HOST_STAT;
-		
-		public VF_CompaniesResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTY_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string CNTY_NAME
-		{
-			get
-			{
-				return this._CNTY_NAME;
-			}
-			set
-			{
-				if ((this._CNTY_NAME != value))
-				{
-					this._CNTY_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
-		public string PRVN_NAME
-		{
-			get
-			{
-				return this._PRVN_NAME;
-			}
-			set
-			{
-				if ((this._PRVN_NAME != value))
-				{
-					this._PRVN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string REGN_NAME
-		{
-			get
-			{
-				return this._REGN_NAME;
-			}
-			set
-			{
-				if ((this._REGN_NAME != value))
-				{
-					this._REGN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string COMP_NAME
-		{
-			get
-			{
-				return this._COMP_NAME;
-			}
-			set
-			{
-				if ((this._COMP_NAME != value))
-				{
-					this._COMP_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
-		public System.Nullable<long> DEBT_DNRM
-		{
-			get
-			{
-				return this._DEBT_DNRM;
-			}
-			set
-			{
-				if ((this._DEBT_DNRM != value))
-				{
-					this._DEBT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
-		public string RQTP_DESC
-		{
-			get
-			{
-				return this._RQTP_DESC;
-			}
-			set
-			{
-				if ((this._RQTP_DESC != value))
-				{
-					this._RQTP_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME", DbType="NVarChar(500)")]
-		public string SERV_NAME
-		{
-			get
-			{
-				return this._SERV_NAME;
-			}
-			set
-			{
-				if ((this._SERV_NAME != value))
-				{
-					this._SERV_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this._CRET_BY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this._CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
-		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._LAST_SERV_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_SERV_FILE_NO_DNRM != value))
-				{
-					this._LAST_SERV_FILE_NO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
-		public string RECD_STAT
-		{
-			get
-			{
-				return this._RECD_STAT;
-			}
-			set
-			{
-				if ((this._RECD_STAT != value))
-				{
-					this._RECD_STAT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
-		public string EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this._EMAL_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary LOGO
-		{
-			get
-			{
-				return this._LOGO;
-			}
-			set
-			{
-				if ((this._LOGO != value))
-				{
-					this._LOGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)")]
-		public string HOST_STAT
-		{
-			get
-			{
-				return this._HOST_STAT;
-			}
-			set
-			{
-				if ((this._HOST_STAT != value))
-				{
-					this._HOST_STAT = value;
-				}
-			}
-		}
-	}
-	
 	public partial class VF_ServicesResult
 	{
 		
@@ -65708,6 +65947,302 @@ namespace System.CRM.Data
 				if ((this._COMP_NAME != value))
 				{
 					this._COMP_NAME = value;
+				}
+			}
+		}
+	}
+	
+	public partial class VF_CompaniesResult
+	{
+		
+		private string _CNTY_NAME;
+		
+		private string _PRVN_NAME;
+		
+		private string _REGN_NAME;
+		
+		private string _COMP_NAME;
+		
+		private System.Nullable<long> _DEBT_DNRM;
+		
+		private string _RQTP_DESC;
+		
+		private string _SERV_NAME;
+		
+		private string _CRET_BY;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _LAST_SERV_FILE_NO_DNRM;
+		
+		private string _RECD_STAT;
+		
+		private string _EMAL_ADRS;
+		
+		private System.Data.Linq.Binary _LOGO;
+		
+		private string _HOST_STAT;
+		
+		private string _WEB_SITE;
+		
+		private string _POST_ADRS;
+		
+		public VF_CompaniesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNTY_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string CNTY_NAME
+		{
+			get
+			{
+				return this._CNTY_NAME;
+			}
+			set
+			{
+				if ((this._CNTY_NAME != value))
+				{
+					this._CNTY_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
+		public string PRVN_NAME
+		{
+			get
+			{
+				return this._PRVN_NAME;
+			}
+			set
+			{
+				if ((this._PRVN_NAME != value))
+				{
+					this._PRVN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string REGN_NAME
+		{
+			get
+			{
+				return this._REGN_NAME;
+			}
+			set
+			{
+				if ((this._REGN_NAME != value))
+				{
+					this._REGN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string COMP_NAME
+		{
+			get
+			{
+				return this._COMP_NAME;
+			}
+			set
+			{
+				if ((this._COMP_NAME != value))
+				{
+					this._COMP_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DEBT_DNRM
+		{
+			get
+			{
+				return this._DEBT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_DNRM != value))
+				{
+					this._DEBT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
+		public string RQTP_DESC
+		{
+			get
+			{
+				return this._RQTP_DESC;
+			}
+			set
+			{
+				if ((this._RQTP_DESC != value))
+				{
+					this._RQTP_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME", DbType="NVarChar(500)")]
+		public string SERV_NAME
+		{
+			get
+			{
+				return this._SERV_NAME;
+			}
+			set
+			{
+				if ((this._SERV_NAME != value))
+				{
+					this._SERV_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this._CRET_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_SERV_FILE_NO_DNRM", DbType="BigInt")]
+		public System.Nullable<long> LAST_SERV_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._LAST_SERV_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_SERV_FILE_NO_DNRM != value))
+				{
+					this._LAST_SERV_FILE_NO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)")]
+		public string RECD_STAT
+		{
+			get
+			{
+				return this._RECD_STAT;
+			}
+			set
+			{
+				if ((this._RECD_STAT != value))
+				{
+					this._RECD_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this._EMAL_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOGO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary LOGO
+		{
+			get
+			{
+				return this._LOGO;
+			}
+			set
+			{
+				if ((this._LOGO != value))
+				{
+					this._LOGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOST_STAT", DbType="VarChar(3)")]
+		public string HOST_STAT
+		{
+			get
+			{
+				return this._HOST_STAT;
+			}
+			set
+			{
+				if ((this._HOST_STAT != value))
+				{
+					this._HOST_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(500)")]
+		public string WEB_SITE
+		{
+			get
+			{
+				return this._WEB_SITE;
+			}
+			set
+			{
+				if ((this._WEB_SITE != value))
+				{
+					this._WEB_SITE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
+		public string POST_ADRS
+		{
+			get
+			{
+				return this._POST_ADRS;
+			}
+			set
+			{
+				if ((this._POST_ADRS != value))
+				{
+					this._POST_ADRS = value;
 				}
 			}
 		}

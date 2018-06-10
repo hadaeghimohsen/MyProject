@@ -456,6 +456,24 @@
     <Compile Include="Ui\CommonInformation\LST_CUST_F.Designer.cs">
       <DependentUpon>LST_CUST_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Competitor\INF_CMPT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Competitor\INF_CMPT_F.Designer.cs">
+      <DependentUpon>INF_CMPT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Competitor\INF_CMPT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Competitor\SHW_CMPT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Competitor\SHW_CMPT_F.Designer.cs">
+      <DependentUpon>SHW_CMPT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Competitor\SHW_CMPT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Contacts\INF_CONT_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2246,6 +2264,12 @@
     <EmbeddedResource Include="Ui\CommonInformation\LST_CUST_F.resx">
       <DependentUpon>LST_CUST_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Competitor\INF_CMPT_F.resx">
+      <DependentUpon>INF_CMPT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Competitor\SHW_CMPT_F.resx">
+      <DependentUpon>SHW_CMPT_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Contacts\INF_CONT_F.resx">
       <DependentUpon>INF_CONT_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -2450,6 +2474,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Comment.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Company.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Company_Activity.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Competitor_Difference.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Contact_Info.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Department.datasource" />
@@ -2460,7 +2485,9 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_CETP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLON.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLVW.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CNTP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CPTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CSTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CTTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CYCL.datasource" />

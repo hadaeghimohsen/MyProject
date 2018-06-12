@@ -690,6 +690,24 @@
     <Compile Include="Ui\Leads\SHW_LEAD_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\MarketingList\INF_CMPT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\INF_CMPT_F.Designer.cs">
+      <DependentUpon>INF_CMPT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MarketingList\INF_CMPT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\SHW_CMPT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\SHW_CMPT_F.Designer.cs">
+      <DependentUpon>SHW_CMPT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MarketingList\SHW_CMPT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2341,6 +2359,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Leads\SHW_LEAD_F.resx">
       <DependentUpon>SHW_LEAD_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MarketingList\INF_CMPT_F.resx">
+      <DependentUpon>INF_CMPT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MarketingList\SHW_CMPT_F.resx">
+      <DependentUpon>SHW_CMPT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notification\MNTN_TOTL_F.resx">
       <DependentUpon>MNTN_TOTL_F.cs</DependentUpon>

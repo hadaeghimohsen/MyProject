@@ -102,5 +102,14 @@ namespace System.CRM.Code
 
       internal Ui.Competitor.SHW_CMPT_F _Shw_Cmpt_F { get; set; }
       internal Ui.Competitor.INF_CMPT_F _Inf_Cmpt_F { get; set; }
+
+      internal Ui.MarketingList.INF_MKLT_F _Inf_Mklt_F { get; set; }
+      internal Ui.MarketingList.SHW_MKLT_F _Shw_Mklt_F { get; set; }
+
+      internal Ui.Campaign.INF_CAMP_F _Inf_Camp_F { get; set; }
+      internal Ui.Campaign.SHW_CAMP_F _Shw_Camp_F { get; set; }
+
+      internal Ui.CampaignQuick.INF_CAMQ_F _Inf_Camq_F { get; set; }
+      internal Ui.CampaignQuick.SHW_CAMQ_F _Shw_Camq_F { get; set; }
    }
 }

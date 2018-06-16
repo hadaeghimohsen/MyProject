@@ -96,26 +96,7 @@ namespace System.CRM.Ui.Competitor
             );
 
             switch (formCaller)
-            {
-               case "LST_SERV_F":
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost",
-                        new List<Job>
-                        {
-                           new Job(SendType.Self, 57 /* Execute Lst_Serv_F */),
-                           new Job(SendType.SelfToUserInterface, "LST_SERV_F", 10 /* Execute Actn_Calf_F */)
-                           {
-                              Input = 
-                                 new XElement("Request", 
-                                    new XAttribute("fileno", ""),
-                                    new XAttribute("rqid", xinput.Attribute("rqstrqid").Value),
-                                    new XAttribute("formcaller", xinput.Attribute("formcaller").Value)
-                                 )
-                           }                     
-                        }
-                     )
-                  );
-                  break;
+            {               
                case "SHW_CMPT_F":                  
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",

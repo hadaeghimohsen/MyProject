@@ -8,16 +8,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.CRM.Ui.Competitor
+namespace System.CRM.Ui.CampaignQuick
 {
-   partial class INF_CMPT_F : ISendRequest
+   partial class SHW_CAMQ_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
-      private string Fga_Uprv_U, Fga_Urgn_U;
-      private List<long?> Fga_Uagc_U;
-      private string CurrentUser = "";
+      private string CurrentUser;
+      private string formcaller = "none";
 
       public void SendRequest(Job job)
       {
@@ -49,8 +48,11 @@ namespace System.CRM.Ui.Competitor
             case 10:
                Actn_CalF_P(job);
                break;
-            case 40:
-               CordinateGetSet(job);
+            case 11:
+               GetNewRecord(job);
+               break;
+            case 100:
+               SetFilterOnQuery(job);
                break;
             default:
                break;
@@ -65,74 +67,14 @@ namespace System.CRM.Ui.Competitor
       {
          Keys keyData = (Keys)job.Input;
 
-         if (keyData == (Keys.Control | Keys.Insert))
-         {
-         }
-         else if(keyData == (Keys.Control | Keys.Delete))
-         {
-         }
-         else if(keyData == Keys.F5)
-         {
-         }
-         else if(keyData == (Keys.Control | Keys.P))
-         {
-            RqstBnDefaultPrint1_Click(null, null);
-         }
-         else if(keyData == (Keys.Control | Keys.Shift | Keys.P))
-         {
-            RqstBnPrint1_Click(null, null);
-         }
-         else if(keyData == Keys.F10 && SubmitChange_Butn.Enabled)
-         {
-         }
-         else if (keyData == Keys.Enter)
+         if (keyData == Keys.Enter)
          {
             SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.Escape)
          {
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", GetType().Name, 04 /* Execute UnPaint */, SendType.SelfToUserInterface)
-            );
-
-            switch (formCaller)
-            {
-               case "LST_SERV_F":
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost",
-                        new List<Job>
-                        {
-                           new Job(SendType.Self, 57 /* Execute Lst_Serv_F */),
-                           new Job(SendType.SelfToUserInterface, "LST_SERV_F", 10 /* Execute Actn_Calf_F */)
-                           {
-                              Input = 
-                                 new XElement("Request", 
-                                    new XAttribute("fileno", ""),
-                                    new XAttribute("rqid", xinput.Attribute("rqstrqid").Value),
-                                    new XAttribute("formcaller", xinput.Attribute("formcaller").Value)
-                                 )
-                           }                     
-                        }
-                     )
-                  );
-                  break;
-               case "SHW_CMPT_F":                  
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, formCaller, 10 /* Execute Actn_CalF_P */)
-                          {                          
-                             Input = 
-                               new XElement("Competitor", 
-                                  new XAttribute("onoftag", "on")                               
-                               )
-                          }
-                       }
-                     )
-                  );
-                  break;
-            }
+            job.Next =
+               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
 
          job.Status = StatusType.Successful;
@@ -158,16 +100,13 @@ namespace System.CRM.Ui.Competitor
          _DefaultGateway.Gateway(
             GetConnectionString
          );
-         
+
          ConnectionString = GetConnectionString.Output.ToString();
          iCRM = new Data.iCRMDataContext(GetConnectionString.Output.ToString());
-         Fga_Uprv_U = iCRM.FGA_UPRV_U() ?? "";
-         Fga_Urgn_U = iCRM.FGA_URGN_U() ?? "";
-         Fga_Uagc_U = (iCRM.FGA_UAGC_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
-         CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
-         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         //_DefaultGateway.Gateway(GetHostInfo);
+         CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -192,6 +131,7 @@ namespace System.CRM.Ui.Competitor
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
+
          job.Status = StatusType.Successful;
       }
 
@@ -230,20 +170,20 @@ namespace System.CRM.Ui.Competitor
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>58</Privilege><Sub_Sys>11</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>67</Privilege><Sub_Sys>11</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 58 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 67 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
                         #endregion                        
                      })                     
                   });
-         _DefaultGateway.Gateway(_InteractWithJob);         
+         _DefaultGateway.Gateway(_InteractWithJob);
       }
 
       /// <summary>
@@ -252,10 +192,13 @@ namespace System.CRM.Ui.Competitor
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-         DcptpBs.DataSource = iCRM.D_CPTPs;
+         JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
+
+         DcntpBs.DataSource = iCRM.D_CNTPs;
+         DcmstBs.DataSource = iCRM.D_CMSTs;
+
          job.Status = StatusType.Successful;
-      }
+      }      
 
       /// <summary>
       /// Code 10
@@ -263,56 +206,91 @@ namespace System.CRM.Ui.Competitor
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         xinput = job.Input as XElement;
-         if (xinput != null)
-         {            
-            if (xinput.Attribute("formcaller") != null)
-               formCaller = xinput.Attribute("formcaller").Value;
-
-            if (xinput.Attribute("cmptcode") != null)
-               cmptcode = Convert.ToInt64(xinput.Attribute("cmptcode").Value);
-            else
-               cmptcode = null;
-
-         }
-         Execute_Query();
+         if (InvokeRequired)
+            Invoke(new Action(() => Execute_Query()));
+         else
+            Execute_Query();
          job.Status = StatusType.Successful;
       }
 
       /// <summary>
-      /// Code 40
+      /// Code 11
       /// </summary>
       /// <param name="job"></param>
-      private void CordinateGetSet(Job job)
+      private void GetNewRecord(Job job)
       {
-         //var xinput = job.Input as XElement;
-         //if (xinput != null)
-         //{
-         //   var srpb = SrpbBs1.Current as Data.Service_Public;
-         //   if (xinput.Attribute("outputtype").Value == "servcord")
-         //   {
-         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
-         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+         var mklt = CamqBs.Current as Data.Marketing_List;
+         if (mklt == null) return;
 
-         //      if (cordx != srpb.CORD_X && cordy != srpb.CORD_Y)
-         //      {
-         //         // Call Update Service_Public
-         //         try
-         //         {
-         //            srpb.CORD_X = cordx;
-         //            srpb.CORD_Y = cordy;
-         //            requery = true;
-         //         }
-         //         catch (Exception exc)
-         //         {
-         //            MessageBox.Show(exc.Message);
-         //         }
-         //      }
-         //   }
-         //}
+         var xinput = job.Input as XElement;
+         var newmklt = CamqBs.Current as Data.Marketing_List;
 
+         if (xinput != null)
+         {
+            switch (xinput.Attribute("moveposition").Value)
+            {
+               case "next":
+                  CamqBs.MoveNext();
+                  newmklt = CamqBs.Current as Data.Marketing_List;
+
+                  if (mklt == newmklt) return;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                       new List<Job>
+                       { 
+                          new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Marketing_List", new XAttribute("code", newmklt.MLID))},
+                       })
+                  );
+                  break;
+               case "previous":
+                  CamqBs.MovePrevious();
+                  newmklt = CamqBs.Current as Data.Marketing_List;
+
+                  if (mklt == newmklt) return;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                       new List<Job>
+                       { 
+                          new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Marketing_List", new XAttribute("code", newmklt.MLID))},
+                       })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
          job.Status = StatusType.Successful;
       }
 
+      /// <summary>
+      /// 100
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetFilterOnQuery(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            var count = 0;
+            if (xinput.Element("Tags") != null)
+               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
+            if (xinput.Element("Regions") != null)
+               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
+            if (xinput.Element("Extra_Infos") != null)
+               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
+            if (xinput.Element("Contact_Infos") != null)
+               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
+         }
+         else
+         {
+            Filter_Butn.Tag = null;
+         }
+         Execute_Query();
+         job.Status = StatusType.Successful;
+      }
    }
 }
+
+

@@ -228,20 +228,10 @@ namespace System.CRM.Ui.Competitor
          }
 
          if (InvokeRequired)
-         {
-            Invoke(
-               new Action(
-                  () =>
-                  {
-                     Execute_Query();
-                  }
-               )
-            );
-         }
+            Invoke(new Action(() => Execute_Query()));
          else
-         {
             Execute_Query();
-         }
+
          job.Status = StatusType.Successful;
       }
 

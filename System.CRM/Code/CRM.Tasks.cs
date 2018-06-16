@@ -466,6 +466,36 @@ namespace System.CRM.Code
             if (_Inf_Cmpt_F == null)
                _Inf_Cmpt_F = new Ui.Competitor.INF_CMPT_F { _DefaultGateway = this };
          }
+         else if (value == "shw_mklt_f")
+         {
+            if (_Shw_Mklt_F == null)
+               _Shw_Mklt_F = new Ui.MarketingList.SHW_MKLT_F { _DefaultGateway = this };
+         }
+         else if (value == "inf_mklt_f")
+         {
+            if (_Inf_Mklt_F == null)
+               _Inf_Mklt_F = new Ui.MarketingList.INF_MKLT_F { _DefaultGateway = this };
+         }
+         else if (value == "shw_camp_f")
+         {
+            if (_Shw_Camp_F == null)
+               _Shw_Camp_F = new Ui.Campaign.SHW_CAMP_F { _DefaultGateway = this };
+         }
+         else if (value == "inf_camp_f")
+         {
+            if (_Inf_Camp_F == null)
+               _Inf_Camp_F = new Ui.Campaign.INF_CAMP_F { _DefaultGateway = this };
+         }
+         else if (value == "shw_camq_f")
+         {
+            if (_Shw_Camq_F == null)
+               _Shw_Camq_F = new Ui.CampaignQuick.SHW_CAMQ_F { _DefaultGateway = this };
+         }
+         else if (value == "inf_camq_f")
+         {
+            if (_Inf_Camq_F == null)
+               _Inf_Camq_F = new Ui.CampaignQuick.INF_CAMQ_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -2717,6 +2747,156 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 03 /* Execute Paint */),
                   new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 94
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Mklt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_mklt_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 95
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Mklt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_mklt_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 96
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Camp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_camp_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 97
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Camp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_camp_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 98
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Camq_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_camq_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 05 /* Execute OpenDrawer */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 99
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Camq_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_camq_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 03 /* Execute Paint */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 05 /* Execute OpenDrawer */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

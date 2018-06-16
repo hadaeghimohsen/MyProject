@@ -42,13 +42,15 @@ namespace System.CRM.Ui.Competitor
          if (cmptcode != null)
          {
             int cmdf = CmdfBs.Position;
-            
+
             CmptBs.DataSource = iCRM.Companies.Where(c => c.CODE == cmptcode);
 
             CmdfBs.Position = cmdf;
          }
          else
+         {
             CmptBs.AddNew();
+         }
 
          requery = false;
       }
@@ -155,10 +157,10 @@ namespace System.CRM.Ui.Competitor
             {
                if (cmptcode == null)
                {
-                  Btn_Back_Click(null, null);                  
+                  iCRM = new Data.iCRMDataContext(ConnectionString);                  
+                  cmptcode = iCRM.Companies.FirstOrDefault(c => c.NAME == Name_Txt.Text && c.CRET_BY == CurrentUser && c.CRET_DATE.Value.Date == DateTime.Now.Date).CODE;
                }
-               else
-                  Execute_Query();
+               Execute_Query();
             }
          }
       }
@@ -208,6 +210,12 @@ namespace System.CRM.Ui.Competitor
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void SubmitChangeClose_Butn_Click(object sender, EventArgs e)
+      {
+         SubmitChange_Butn_Click(null, null);
+         Btn_Back_Click(null, null);
       }
    }
 }

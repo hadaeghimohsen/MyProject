@@ -14,11 +14,11 @@ using System.CRM.ExceptionHandlings;
 using System.IO;
 using System.Drawing.Imaging;
 
-namespace System.CRM.Ui.Competitor
+namespace System.CRM.Ui.CampaignQuick
 {
-   public partial class SHW_CMPT_F : UserControl
+   public partial class SHW_CAMQ_F : UserControl
    {
-      public SHW_CMPT_F()
+      public SHW_CAMQ_F()
       {
          InitializeComponent();
       }
@@ -36,72 +36,11 @@ namespace System.CRM.Ui.Competitor
       {
          try
          {
-            if (CompActn_Butn.Buttons.OfType<EditorButton>().Any(b => b.Tag != null && b.Visible == false))
-               CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Visible == false).Visible = true;
-
-            CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Tag.ToString() == (onoftag == "on" ? "002" : "001")).Visible = false;
-
-            iCRM = new Data.iCRMDataContext(ConnectionString);
-
-            var Qxml = Filter_Butn.Tag as XElement;
-            
-            if (Qxml == null)
-               Qxml =
-                  new XElement("Company",
-                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001"),
-                     new XAttribute("type", "002")
-                  );
-            else
-               Qxml.Add(
-                  new XElement("Company",
-                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001"),
-                     new XAttribute("type", "002")
-                  )
-               );
-
-            ///******
-            //switch(AcntsSearch_Lov.Tag.ToString())
-            //{
-            //   case "001": // نمایش کل شرکت ها                  
-            //      break;
-            //   case "002": // نمایش شرکت های پیش فرض نواحی
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("dfltstat", "002")
-            //         )
-            //      );
-            //      break;
-            //   case "003": // نمایش شرکت های غیر از پیش فرض نواحی
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("dfltstat", "001")
-            //         )
-            //      );
-            //      break;
-            //   case "004": // شرکت هایی که مشتری به آن متصل می باشد
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("empynumb", "002")
-            //         )
-            //      );
-            //      break;
-            //   case "005": // شرکت هایی که مشتری با آن متصل نمی باشد
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("empynumb", "001")
-            //         )
-            //      );
-            //      break;
-            //}
-            CmptBs.DataSource =
-               iCRM.VF_Companies(Qxml);
+            CamqBs.DataSource = iCRM.Campaign_Quicks;
+               
             requery = false;
          }
-         catch { }
-         finally
-         {
-            Comp_Gv.BestFitColumns();
-         }
+         catch { }         
       }
 
       #region Menu
@@ -111,11 +50,11 @@ namespace System.CRM.Ui.Competitor
            new Job(SendType.External, "Localhost",
               new List<Job>
               {                  
-                new Job(SendType.Self, 93 /* Execute Inf_Cmpt_F */),
-                new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 10 /* Execute Actn_Calf_F */)
+                new Job(SendType.Self, 99 /* Execute Inf_Camq_F */),
+                new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 10 /* Execute Actn_Calf_F */)
                 {
                    Input = 
-                     new XElement("Competitor",
+                     new XElement("Campaign_Quick",
                         new XAttribute("formcaller", GetType().Name)
                      )
                 }
@@ -127,20 +66,20 @@ namespace System.CRM.Ui.Competitor
       {
          try
          {
-            var cmpt = CmptBs.Current as Data.VF_CompaniesResult;
-            if (cmpt == null) return;
+            var camq = CamqBs.Current as Data.Campaign_Quick;
+            if (camq == null) return;
 
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
                  {                  
-                   new Job(SendType.Self, 93 /* Execute Inf_Cmpt_F */),
-                   new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 10 /* Execute Actn_Calf_F */)
+                   new Job(SendType.Self, 99 /* Execute Inf_Camq_F */),
+                   new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 10 /* Execute Actn_Calf_F */)
                    {
                       Input = 
-                        new XElement("Competitor",
+                        new XElement("Campaign",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("cmptcode", cmpt.CODE)
+                           new XAttribute("camqcode", camq.QCID)
                         )
                    }
                  }
@@ -148,8 +87,7 @@ namespace System.CRM.Ui.Competitor
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
          catch
-         {
-            
+         {            
             throw;
          }
       }

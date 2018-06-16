@@ -8,18 +8,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.CRM.Ui.Competitor
+namespace System.CRM.Ui.Campaign
 {
-   partial class SHW_CMPT_F : ISendRequest
+   partial class INF_CAMP_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
-      private string CurrentUser;
-      private string onoftag;
-      private long? fileno;
-      private string actntype = "none";
-      private string formcaller = "none";
+      private string CurrentUser = "";
 
       public void SendRequest(Job job)
       {
@@ -51,11 +47,8 @@ namespace System.CRM.Ui.Competitor
             case 10:
                Actn_CalF_P(job);
                break;
-            case 11:
-               GetNewRecord(job);
-               break;
-            case 100:
-               SetFilterOnQuery(job);
+            case 40:
+               CordinateGetSet(job);
                break;
             default:
                break;
@@ -70,14 +63,56 @@ namespace System.CRM.Ui.Competitor
       {
          Keys keyData = (Keys)job.Input;
 
-         if (keyData == Keys.Enter)
+         if (keyData == (Keys.Control | Keys.Insert))
+         {
+         }
+         else if(keyData == (Keys.Control | Keys.Delete))
+         {
+         }
+         else if(keyData == Keys.F5)
+         {
+         }
+         else if(keyData == (Keys.Control | Keys.P))
+         {
+            RqstBnDefaultPrint1_Click(null, null);
+         }
+         else if(keyData == (Keys.Control | Keys.Shift | Keys.P))
+         {
+            RqstBnPrint1_Click(null, null);
+         }
+         else if(keyData == Keys.F10 && SubmitChangeClose_Butn.Enabled)
+         {
+         }
+         else if (keyData == Keys.Enter)
          {
             SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.Escape)
          {
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", GetType().Name, 04 /* Execute UnPaint */, SendType.SelfToUserInterface)
+            );
+
+            switch (formCaller)
+            {
+               case "SHW_CAMP_F":                  
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                       new List<Job>
+                       {                  
+                         new Job(SendType.Self, 96 /* Execute Shw_Camp_F */),
+                         new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 10 /* Execute Actn_CalF_P */)
+                         {
+                            Executive = ExecutiveType.Asynchronous,
+                            Input = 
+                              new XElement("Campaign", 
+                                 new XAttribute("onoftag", "on")
+                              )
+                         }
+                       })
+                  );
+                  break;
+            }
          }
 
          job.Status = StatusType.Successful;
@@ -103,13 +138,13 @@ namespace System.CRM.Ui.Competitor
          _DefaultGateway.Gateway(
             GetConnectionString
          );
-
+         
          ConnectionString = GetConnectionString.Output.ToString();
          iCRM = new Data.iCRMDataContext(GetConnectionString.Output.ToString());
-
          CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
-         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         _DefaultGateway.Gateway(GetHostInfo);
+
+         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         //_DefaultGateway.Gateway(GetHostInfo);
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -134,7 +169,6 @@ namespace System.CRM.Ui.Competitor
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
-
          job.Status = StatusType.Successful;
       }
 
@@ -173,20 +207,20 @@ namespace System.CRM.Ui.Competitor
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>67</Privilege><Sub_Sys>11</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>58</Privilege><Sub_Sys>11</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 67 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 58 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
                         #endregion                        
                      })                     
                   });
-         _DefaultGateway.Gateway(_InteractWithJob);
+         _DefaultGateway.Gateway(_InteractWithJob);         
       }
 
       /// <summary>
@@ -194,9 +228,16 @@ namespace System.CRM.Ui.Competitor
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
-      {         
+      {
+         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+         JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+
+         DcmstBs.DataSource = iCRM.D_CMSTs;
+         DcamtBs.DataSource = iCRM.D_CAMTs;
+         DysnoBs.DataSource = iCRM.D_YSNOs;         
+
          job.Status = StatusType.Successful;
-      }      
+      }
 
       /// <summary>
       /// Code 10
@@ -204,125 +245,56 @@ namespace System.CRM.Ui.Competitor
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         var xinput = job.Input as XElement;
-         if(xinput != null)
-         {
-            if (xinput.Attribute("onoftag") != null)
-               onoftag = xinput.Attribute("onoftag").Value;
-
-            if (xinput.Attribute("actntype") != null)
-               actntype = xinput.Attribute("actntype").Value;
-            else
-               actntype = "none";
-
+         xinput = job.Input as XElement;
+         if (xinput != null)
+         {            
             if (xinput.Attribute("formcaller") != null)
-               formcaller = xinput.Attribute("formcaller").Value;
+               formCaller = xinput.Attribute("formcaller").Value;
+
+            if (xinput.Attribute("campcode") != null)
+               campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
             else
-               formcaller = "none";
+               campcode = null;
 
-            if (xinput.Attribute("fileno") != null)
-               fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-            else
-               fileno = null;
-
-         }
-
-         if (InvokeRequired)
-         {
-            Invoke(
-               new Action(
-                  () =>
-                  {
-                     Execute_Query();
-                  }
-               )
-            );
-         }
-         else
-         {
-            Execute_Query();
-         }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// Code 11
-      /// </summary>
-      /// <param name="job"></param>
-      private void GetNewRecord(Job job)
-      {
-         var comp = CmptBs.Current as Data.VF_CompaniesResult;
-         if (comp == null) return;
-
-         var xinput = job.Input as XElement;
-         var newcomp = CmptBs.Current as Data.VF_CompaniesResult;
-
-         if (xinput != null)
-         {
-            switch (xinput.Attribute("moveposition").Value)
-            {
-               case "next":
-                  CmptBs.MoveNext();
-                  newcomp = CmptBs.Current as Data.VF_CompaniesResult;
-
-                  if (comp == newcomp) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_ACNT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Company", new XAttribute("code", newcomp.CODE))},
-                       })
-                  );
-                  break;
-               case "previous":
-                  CmptBs.MovePrevious();
-                  newcomp = CmptBs.Current as Data.VF_CompaniesResult;
-
-                  if (comp == newcomp) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_ACNT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Company", new XAttribute("code", newcomp.CODE))},
-                       })
-                  );
-                  break;
-               default:
-                  break;
-            }
-         }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetFilterOnQuery(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            var count = 0;
-            if (xinput.Element("Tags") != null)
-               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
-            if (xinput.Element("Regions") != null)
-               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
-            if (xinput.Element("Extra_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
-            if (xinput.Element("Contact_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-         }
-         else
-         {
-            Filter_Butn.Tag = null;
          }
          Execute_Query();
          job.Status = StatusType.Successful;
       }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void CordinateGetSet(Job job)
+      {
+         //var xinput = job.Input as XElement;
+         //if (xinput != null)
+         //{
+         //   var srpb = SrpbBs1.Current as Data.Service_Public;
+         //   if (xinput.Attribute("outputtype").Value == "servcord")
+         //   {
+         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+
+         //      if (cordx != srpb.CORD_X && cordy != srpb.CORD_Y)
+         //      {
+         //         // Call Update Service_Public
+         //         try
+         //         {
+         //            srpb.CORD_X = cordx;
+         //            srpb.CORD_Y = cordy;
+         //            requery = true;
+         //         }
+         //         catch (Exception exc)
+         //         {
+         //            MessageBox.Show(exc.Message);
+         //         }
+         //      }
+         //   }
+         //}
+
+         job.Status = StatusType.Successful;
+      }
+
    }
 }
-
-

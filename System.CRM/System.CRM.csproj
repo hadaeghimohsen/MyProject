@@ -35,6 +35,7 @@
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SuperTooltip.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="DataEditShamsi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DataEditShamsi.dll</HintPath>
@@ -438,6 +439,24 @@
     <Compile Include="Ui\BaseDefination\SJBP_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\CampaignQuick\INF_CAMQ_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CampaignQuick\INF_CAMQ_F.Designer.cs">
+      <DependentUpon>INF_CAMQ_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CampaignQuick\INF_CAMQ_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CampaignQuick\SHW_CAMQ_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CampaignQuick\SHW_CAMQ_F.Designer.cs">
+      <DependentUpon>SHW_CAMQ_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CampaignQuick\SHW_CAMQ_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\CommonInformation\INF_CUST_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -690,22 +709,40 @@
     <Compile Include="Ui\Leads\SHW_LEAD_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\MarketingList\INF_CMPT_F.cs">
+    <Compile Include="Ui\Campaign\INF_CAMP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\MarketingList\INF_CMPT_F.Designer.cs">
-      <DependentUpon>INF_CMPT_F.cs</DependentUpon>
+    <Compile Include="Ui\Campaign\INF_CAMP_F.Designer.cs">
+      <DependentUpon>INF_CAMP_F.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\MarketingList\INF_CMPT_F.RequestRespons.cs">
+    <Compile Include="Ui\Campaign\INF_CAMP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\MarketingList\SHW_CMPT_F.cs">
+    <Compile Include="Ui\Campaign\SHW_CAMP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ui\MarketingList\SHW_CMPT_F.Designer.cs">
-      <DependentUpon>SHW_CMPT_F.cs</DependentUpon>
+    <Compile Include="Ui\Campaign\SHW_CAMP_F.Designer.cs">
+      <DependentUpon>SHW_CAMP_F.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\MarketingList\SHW_CMPT_F.RequestRespons.cs">
+    <Compile Include="Ui\Campaign\SHW_CAMP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\INF_MKLT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\INF_MKLT_F.Designer.cs">
+      <DependentUpon>INF_MKLT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MarketingList\INF_MKLT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\SHW_MKLT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MarketingList\SHW_MKLT_F.Designer.cs">
+      <DependentUpon>SHW_MKLT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MarketingList\SHW_MKLT_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
@@ -2189,6 +2226,33 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1624.jpg">
       <Link>Resources\IMAGE_1624.jpg</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1625.png">
+      <Link>Resources\IMAGE_1625.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1626.png">
+      <Link>Resources\IMAGE_1626.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1627.png">
+      <Link>Resources\IMAGE_1627.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1628.png">
+      <Link>Resources\IMAGE_1628.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1629.png">
+      <Link>Resources\IMAGE_1629.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1630.png">
+      <Link>Resources\IMAGE_1630.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1631.png">
+      <Link>Resources\IMAGE_1631.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1632.png">
+      <Link>Resources\IMAGE_1632.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1633.png">
+      <Link>Resources\IMAGE_1633.png</Link>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
@@ -2276,6 +2340,12 @@
     <EmbeddedResource Include="Ui\BaseDefination\SJBP_DFIN_F.resx">
       <DependentUpon>SJBP_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CampaignQuick\INF_CAMQ_F.resx">
+      <DependentUpon>INF_CAMQ_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CampaignQuick\SHW_CAMQ_F.resx">
+      <DependentUpon>SHW_CAMQ_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\CommonInformation\INF_CUST_F.resx">
       <DependentUpon>INF_CUST_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -2360,11 +2430,17 @@
     <EmbeddedResource Include="Ui\Leads\SHW_LEAD_F.resx">
       <DependentUpon>SHW_LEAD_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\MarketingList\INF_CMPT_F.resx">
-      <DependentUpon>INF_CMPT_F.cs</DependentUpon>
+    <EmbeddedResource Include="Ui\Campaign\INF_CAMP_F.resx">
+      <DependentUpon>INF_CAMP_F.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\MarketingList\SHW_CMPT_F.resx">
-      <DependentUpon>SHW_CMPT_F.cs</DependentUpon>
+    <EmbeddedResource Include="Ui\Campaign\SHW_CAMP_F.resx">
+      <DependentUpon>SHW_CAMP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MarketingList\INF_MKLT_F.resx">
+      <DependentUpon>INF_MKLT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MarketingList\SHW_MKLT_F.resx">
+      <DependentUpon>SHW_MKLT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notification\MNTN_TOTL_F.resx">
       <DependentUpon>MNTN_TOTL_F.cs</DependentUpon>
@@ -2492,6 +2568,8 @@
     <None Include="Properties\DataSources\System.CRM.Data.Base_Tariff_Detail.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Base_Unit.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Basic_Calculate_Discount.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Campaign.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Campaign_Quick.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Cash.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Check_List.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Collaborator.datasource" />
@@ -2506,9 +2584,11 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_AFNT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_ATYP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CAMT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CETP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLON.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLVW.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CMST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CNTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CPTP.datasource" />
@@ -2545,11 +2625,14 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_SHPM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SIST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SLON.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SRST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SRTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SSTG.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_STDY.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SXDC.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SXTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TMTP1.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_TRGT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TSKT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TSTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_WKDY.datasource" />
@@ -2576,6 +2659,8 @@
     <None Include="Properties\DataSources\System.CRM.Data.Like.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Log_Call.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Main_State.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Marketing_List.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Marketing_List_Campaign.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Mention.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Message.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Message_Broadcast.datasource" />

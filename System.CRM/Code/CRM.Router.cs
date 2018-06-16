@@ -305,6 +305,24 @@ namespace System.CRM.Code
             case 93:
                Inf_Cmpt_F(job);
                break;
+            case 94:
+               Shw_Mklt_F(job);
+               break;
+            case 95:
+               Inf_Mklt_F(job);
+               break;
+            case 96:
+               Shw_Camp_F(job);
+               break;
+            case 97:
+               Inf_Camp_F(job);
+               break;
+            case 98:
+               Shw_Camq_F(job);
+               break;
+            case 99:
+               Inf_Camq_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -587,6 +605,24 @@ namespace System.CRM.Code
                break;
             case "INF_CMPT_F":
                _Inf_Cmpt_F.SendRequest(job);
+               break;
+            case "SHW_MKLT_F":
+               _Shw_Mklt_F.SendRequest(job);
+               break;
+            case "INF_MKLT_F":
+               _Inf_Mklt_F.SendRequest(job);
+               break;
+            case "SHW_CAMP_F":
+               _Shw_Camp_F.SendRequest(job);
+               break;
+            case "INF_CAMP_F":
+               _Inf_Camp_F.SendRequest(job);
+               break;
+            case "SHW_CAMQ_F":
+               _Shw_Camq_F.SendRequest(job);
+               break;
+            case "INF_CAMQ_F":
+               _Inf_Camq_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

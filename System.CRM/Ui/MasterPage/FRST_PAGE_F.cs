@@ -1045,17 +1045,59 @@ namespace System.CRM.Ui.MasterPage
 
       private void MarketingList_Butn_Click(object sender, EventArgs e)
       {
-
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 94 /* Execute Shw_Mklt_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Marketing_List", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void MarketingCampaign_Butn_Click(object sender, EventArgs e)
       {
-
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 96 /* Execute Shw_Camp_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Campaign", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void MarketingQuickCampaign_Butn_Click(object sender, EventArgs e)
       {
-
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 98 /* Execute Shw_Camq_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Campaign_Quick", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void MarketingProduct_Butn_Click(object sender, EventArgs e)

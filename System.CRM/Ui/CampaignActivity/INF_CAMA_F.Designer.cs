@@ -1,6 +1,6 @@
-﻿namespace System.CRM.Ui.Campaign
+﻿namespace System.CRM.Ui.CampaignActivity
 {
-   partial class INF_CAMP_F
+   partial class INF_CAMA_F
    {
       /// <summary> 
       /// Required designer variable.

@@ -439,6 +439,24 @@
     <Compile Include="Ui\BaseDefination\SJBP_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\CampaignActivity\INF_CAMA_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CampaignActivity\INF_CAMA_F.Designer.cs">
+      <DependentUpon>INF_CAMA_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CampaignActivity\INF_CAMA_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CampaignActivity\SHW_CAMA_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\CampaignActivity\SHW_CAMA_F.Designer.cs">
+      <DependentUpon>SHW_CAMA_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\CampaignActivity\SHW_CAMA_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\CampaignQuick\INF_CAMQ_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2340,6 +2358,12 @@
     <EmbeddedResource Include="Ui\BaseDefination\SJBP_DFIN_F.resx">
       <DependentUpon>SJBP_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CampaignActivity\INF_CAMA_F.resx">
+      <DependentUpon>INF_CAMA_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\CampaignActivity\SHW_CAMA_F.resx">
+      <DependentUpon>SHW_CAMA_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\CampaignQuick\INF_CAMQ_F.resx">
       <DependentUpon>INF_CAMQ_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -2569,6 +2593,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Base_Unit.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Basic_Calculate_Discount.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Campaign.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Campaign_Activity.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Campaign_Quick.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Cash.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Check_List.datasource" />
@@ -2668,6 +2693,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Note.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Organ_Document.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Outsource_Vendor.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Payment.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Payment_Detail.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Payment_Detail_Commodity_Sale.datasource" />

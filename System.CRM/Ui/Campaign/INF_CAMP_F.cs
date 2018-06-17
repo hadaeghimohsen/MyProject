@@ -49,6 +49,7 @@ namespace System.CRM.Ui.Campaign
          }
          else
          {
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
             CampBs.AddNew();
             var camp = CampBs.Current as Data.Campaign;
 

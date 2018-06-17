@@ -49,6 +49,7 @@ namespace System.CRM.Ui.CampaignQuick
          }
          else
          {
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
             CamqBs.AddNew();
             var camq = CamqBs.Current as Data.Campaign_Quick;
 

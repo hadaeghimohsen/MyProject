@@ -49,6 +49,7 @@ namespace System.CRM.Ui.MarketingList
          }
          else
          {
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
             MkltBs.AddNew();
             var mklt = MkltBs.Current as Data.Marketing_List;
 

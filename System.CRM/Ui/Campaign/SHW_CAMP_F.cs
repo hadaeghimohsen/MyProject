@@ -24,6 +24,8 @@ namespace System.CRM.Ui.Campaign
       }
 
       private bool requery = false;
+      private long? mkltcode;
+      private XElement xinput;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -36,7 +38,7 @@ namespace System.CRM.Ui.Campaign
       {
          try
          {
-            CampBs.DataSource = iCRM.Campaigns;
+            CampBs.DataSource = iCRM.Campaigns.Where(c => (mkltcode == null || c.Marketing_List_Campaigns.Any(mc => mc.MKLT_MLID == mkltcode)));
                
             requery = false;
          }
@@ -55,7 +57,8 @@ namespace System.CRM.Ui.Campaign
                 {
                    Input = 
                      new XElement("Campaign",
-                        new XAttribute("formcaller", GetType().Name)
+                        new XAttribute("formcaller", GetType().Name),
+                        (mkltcode != null ? new XAttribute("mkltcode", mkltcode) : null)
                      )
                 }
               });
@@ -182,7 +185,7 @@ namespace System.CRM.Ui.Campaign
 
       private void GridFind_Tgbt_Click(object sender, EventArgs e)
       {
-         Comp_Gv.OptionsFind.AlwaysVisible = !Comp_Gv.OptionsFind.AlwaysVisible;
+         Camp_Gv.OptionsFind.AlwaysVisible = !Camp_Gv.OptionsFind.AlwaysVisible;
       }
       #endregion
    }

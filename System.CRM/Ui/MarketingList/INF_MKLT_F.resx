@@ -285,81 +285,6 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="c1Button4.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button5.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button6.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button8.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button17.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
   <data name="c1Button18.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
@@ -514,12 +439,87 @@
     <value>805, 17</value>
   </metadata>
   <metadata name="CamqBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1195, 17</value>
+  </metadata>
+  <data name="SaveCamq_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="HelpCamq_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="ShowCamq_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="DelCamq_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="AddCamq_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <metadata name="DcntpBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
-  <metadata name="DcntpBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>113, 56</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>85</value>
+    <value>93</value>
   </metadata>
 </root>

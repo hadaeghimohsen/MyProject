@@ -24,6 +24,8 @@ namespace System.CRM.Ui.MarketingList
       }
 
       private bool requery = false;
+      private long? campcode;
+      private XElement xinput;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -36,7 +38,7 @@ namespace System.CRM.Ui.MarketingList
       {
          try
          {
-            MkltBs.DataSource = iCRM.Marketing_Lists;
+            MkltBs.DataSource = iCRM.Marketing_Lists.Where(m => (campcode == null || m.Marketing_List_Campaigns.Any(mc => mc.CAMP_CMID == campcode)));
                
             requery = false;
          }
@@ -55,7 +57,8 @@ namespace System.CRM.Ui.MarketingList
                 {
                    Input = 
                      new XElement("Marketing_List",
-                        new XAttribute("formcaller", GetType().Name)
+                        new XAttribute("formcaller", GetType().Name),
+                        (campcode != null ? new XAttribute("campcode", campcode) : null)
                      )
                 }
               });

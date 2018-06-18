@@ -24,7 +24,7 @@ namespace System.CRM.Ui.MarketingList
       private bool requery = false;
       private string formCaller;
       private XElement xinput;
-      private long? mkltcode;
+      private long? mkltcode, campcode;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -123,6 +123,12 @@ namespace System.CRM.Ui.MarketingList
                   iCRM = new Data.iCRMDataContext(ConnectionString);
                   var ownrcode = (long?)Ownr_Lov.EditValue;
                   mkltcode = iCRM.Marketing_Lists.FirstOrDefault(mk => mk.OWNR_CODE == ownrcode && mk.NAME == Name_Txt.Text && mk.CRET_BY == CurrentUser && mk.CRET_DATE.Value.Date == DateTime.Now.Date).MLID;
+
+                  if (campcode != null)
+                  {
+                     AddCamp_Butn_Click(null, null);
+                     SaveCamp_Butn_Click(null, null);
+                  }
                }
                Execute_Query();
             }
@@ -205,6 +211,32 @@ namespace System.CRM.Ui.MarketingList
       #endregion
 
       #region Campaign
+      private void Camp_Lov_AddNewValue(object sender, DevExpress.XtraEditors.Controls.AddNewValueEventArgs e)
+      {
+         NewCamp_Butn_Click(null, null);
+      }
+
+      private void NewCamp_Butn_Click(object sender, EventArgs e)
+      {
+         if (mkltcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 97 /* Execute Inf_Camp_F */),
+                new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 10 /* Execute Actn_Calf_F */)
+                {
+                   Input = 
+                     new XElement("Campaign",
+                        new XAttribute("formcaller", GetType().Name),
+                        new XAttribute("mkltcode", mkltcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
       private void AddCamp_Butn_Click(object sender, EventArgs e)
       {
          if (mkltcode == null) return;
@@ -213,6 +245,7 @@ namespace System.CRM.Ui.MarketingList
          MklcBs.AddNew();
          var mklc = MklcBs.Current as Data.Marketing_List_Campaign;
          mklc.MKLT_MLID = mkltcode;
+         mklc.CAMP_CMID = campcode;
 
          Mklc_Gv.SelectRow(Mklc_Gv.RowCount - 1);
 
@@ -255,8 +288,6 @@ namespace System.CRM.Ui.MarketingList
       {
          try
          {
-            MklcBs.EndEdit();
-
             iCRM.SubmitChanges();
 
             requery = true;
@@ -274,7 +305,24 @@ namespace System.CRM.Ui.MarketingList
 
       private void ShowCamp_Butn_Click(object sender, EventArgs e)
       {
+         if (mkltcode == null) return;
 
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 96 /* Execute Shw_Camp_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Campaign", 
+                        new XAttribute("onoftag", "on"),
+                        new XAttribute("mkltcode", mkltcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void HelpCamp_Butn_Click(object sender, EventArgs e)

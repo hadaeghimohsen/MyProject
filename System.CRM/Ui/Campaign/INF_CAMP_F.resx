@@ -118,30 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="CampBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>107, 17</value>
   </metadata>
   <metadata name="TrcbBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>201, 17</value>
+    <value>300, 17</value>
   </metadata>
   <metadata name="CampBn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>111, 17</value>
+    <value>203, 17</value>
   </metadata>
   <metadata name="DcamtBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>381, 17</value>
+    <value>486, 17</value>
   </metadata>
   <metadata name="DcmstBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>289, 17</value>
+    <value>388, 17</value>
   </metadata>
   <metadata name="JobpBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>476, 17</value>
+    <value>585, 17</value>
   </metadata>
   <metadata name="DysnoBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>566, 17</value>
+    <value>675, 17</value>
+  </metadata>
+  <metadata name="MklcBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="LstMkltBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1005, 17</value>
   </metadata>
   <metadata name="c1SuperTooltip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>664, 17</value>
+    <value>773, 17</value>
   </metadata>
-  <data name="SaveCampignActivity_Butn.ToolTip" xml:space="preserve">
+  <data name="SaveMklt_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -156,7 +162,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="HelpCampignActivity_Butn.ToolTip" xml:space="preserve">
+  <data name="HelpMklt_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -171,7 +177,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="ShowCampignActivity_Butn.ToolTip" xml:space="preserve">
+  <data name="ShowMklt_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -186,7 +192,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="DelCampignActivity_Butn.ToolTip" xml:space="preserve">
+  <data name="DelMklt_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -201,82 +207,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="AddCampignActivity_Butn.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="SaveCamp_Butn.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="HelpCamp_Butn.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="ShowCamp_Butn.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="DelCamp_Butn.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="AddCamp_Butn.ToolTip" xml:space="preserve">
+  <data name="AddMklt_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -366,8 +297,83 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
+  <data name="SaveCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="HelpCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="ShowCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="DelCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="AddCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
   <metadata name="NoteBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>805, 17</value>
+    <value>914, 17</value>
   </metadata>
   <data name="HelpNote_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;

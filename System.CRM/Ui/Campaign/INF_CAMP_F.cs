@@ -24,8 +24,8 @@ namespace System.CRM.Ui.Campaign
       private bool requery = false;
       private string formCaller;
       private XElement xinput;
-      private long? campcode;
-
+      private long? campcode, mkltcode;
+      
       private void Btn_Back_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(
@@ -56,7 +56,7 @@ namespace System.CRM.Ui.Campaign
             camp.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;
             camp.TEMP = "001";
             camp.STAT = "001";
-            camp.TYPE = "001";           
+            camp.TYPE = "001";
 
             iCRM.Campaigns.InsertOnSubmit(camp);
          }
@@ -123,6 +123,12 @@ namespace System.CRM.Ui.Campaign
                   iCRM = new Data.iCRMDataContext(ConnectionString);
                   var ownrcode = (long?)Ownr_Lov.EditValue;
                   campcode = iCRM.Campaigns.FirstOrDefault(c => c.OWNR_CODE == ownrcode && c.NAME == Name_Txt.Text && c.CRET_BY == CurrentUser && c.CRET_DATE.Value.Date == DateTime.Now.Date).CMID;
+
+                  if (mkltcode != null)
+                  {
+                     AddMklt_Butn_Click(null, null);
+                     SaveMklt_Butn_Click(null, null);
+                  }
                }
                Execute_Query();
             }
@@ -263,5 +269,94 @@ namespace System.CRM.Ui.Campaign
 
       }
       #endregion
+
+      #region Marketing List
+      private void NewMklt_Butn_Click(object sender, EventArgs e)
+      {
+         if (campcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 95 /* Execute Inf_Mklt_F */),
+                new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute Actn_Calf_F */)
+                {
+                   Input = 
+                     new XElement("Marketing_List",
+                        new XAttribute("formcaller", GetType().Name),
+                        new XAttribute("campcode", campcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void AddMklt_Butn_Click(object sender, EventArgs e)
+      {
+         if (campcode == null) return;
+         if (MklcBs.List.OfType<Data.Marketing_List_Campaign>().Any(mc => mc.MCID == 0)) return;
+
+         MklcBs.AddNew();
+         var mklc = MklcBs.Current as Data.Marketing_List_Campaign;
+         mklc.CAMP_CMID = campcode;
+         mklc.MKLT_MLID = mkltcode;
+
+         Mklc_Gv.SelectRow(Mklc_Gv.RowCount - 1);
+
+         iCRM.Marketing_List_Campaigns.InsertOnSubmit(mklc);
+      }
+
+      private void DelMklt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaveMklt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowMklt_Butn_Click(object sender, EventArgs e)
+      {
+         if (campcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 94 /* Execute Shw_Mklt_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Marketing_List", 
+                        new XAttribute("onoftag", "on"),
+                        new XAttribute("campcode", campcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void HelpMklt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion      
    }
 }

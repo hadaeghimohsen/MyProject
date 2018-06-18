@@ -233,6 +233,7 @@ namespace System.CRM.Ui.Campaign
          {
             Invoke(new Action(() =>
                {
+                  LstMkltBs.DataSource = iCRM.Marketing_Lists;
                   TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
                   JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
@@ -243,6 +244,7 @@ namespace System.CRM.Ui.Campaign
          }
          else
          {
+            LstMkltBs.DataSource = iCRM.Marketing_Lists;
             TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
             JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
@@ -269,6 +271,11 @@ namespace System.CRM.Ui.Campaign
                campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
             else
                campcode = null;
+
+            if (xinput.Attribute("mkltcode") != null)
+               mkltcode = Convert.ToInt64(xinput.Attribute("mkltcode").Value);
+            else
+               mkltcode = null;
 
          }
          if (InvokeRequired)

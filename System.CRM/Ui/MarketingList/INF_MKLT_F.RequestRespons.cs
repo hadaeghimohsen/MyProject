@@ -279,6 +279,11 @@ namespace System.CRM.Ui.MarketingList
             else
                mkltcode = null;
 
+            if (xinput.Attribute("campcode") != null)
+               campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
+            else
+               campcode = null;
+
          }
          if (InvokeRequired)
             Invoke(new Action(() => Execute_Query()));

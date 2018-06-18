@@ -24,6 +24,8 @@ namespace System.CRM.Ui.CampaignActivity
       }
 
       private bool requery = false;
+      private XElement xinput;
+      private long? campcode;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -36,7 +38,7 @@ namespace System.CRM.Ui.CampaignActivity
       {
          try
          {
-            CamaBs.DataSource = iCRM.Campaigns;
+            CamaBs.DataSource = iCRM.Campaign_Activities;
                
             requery = false;
          }
@@ -50,12 +52,13 @@ namespace System.CRM.Ui.CampaignActivity
            new Job(SendType.External, "Localhost",
               new List<Job>
               {                  
-                new Job(SendType.Self, 97 /* Execute Inf_Camp_F */),
-                new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 10 /* Execute Actn_Calf_F */)
+                new Job(SendType.Self, 101 /* Execute Inf_Cama_F */),
+                new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 10 /* Execute Actn_Calf_F */)
                 {
                    Input = 
                      new XElement("Campaign",
-                        new XAttribute("formcaller", GetType().Name)
+                        new XAttribute("formcaller", GetType().Name),
+                        new XAttribute("campcode", campcode)
                      )
                 }
               });

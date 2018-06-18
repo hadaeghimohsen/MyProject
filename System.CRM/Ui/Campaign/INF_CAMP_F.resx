@@ -141,6 +141,81 @@
   <metadata name="c1SuperTooltip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>664, 17</value>
   </metadata>
+  <data name="SaveCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="HelpCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="ShowCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="DelCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="AddCampignActivity_Butn.ToolTip" xml:space="preserve">
+    <value>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;div style='margin:1 12'&gt;&lt;parm&gt;
+  
+&lt;/parm&gt;&lt;/div&gt;
+&lt;parm&gt;&lt;/parm&gt;
+&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</value>
+  </data>
   <data name="SaveCamp_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
@@ -277,81 +352,6 @@
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
   <data name="c1Button9.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button10.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button11.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button12.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button13.ToolTip" xml:space="preserve">
-    <value>&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;div style='margin:1 12'&gt;&lt;parm&gt;
-  
-&lt;/parm&gt;&lt;/div&gt;
-&lt;parm&gt;&lt;/parm&gt;
-&lt;table&gt;&lt;tr&gt;
-  &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;</value>
-  </data>
-  <data name="c1Button14.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -504,7 +504,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="c1Button1.ToolTip" xml:space="preserve">
+  <data name="SaveRespons_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;ذخیره&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -519,7 +519,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="c1Button2.ToolTip" xml:space="preserve">
+  <data name="HelpRespons_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;راهنما&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -534,7 +534,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="c1Button3.ToolTip" xml:space="preserve">
+  <data name="ShowRespons_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;نمایش&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -549,7 +549,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="c1Button7.ToolTip" xml:space="preserve">
+  <data name="DelRespons_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;حذف&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
@@ -564,7 +564,7 @@
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <data name="c1Button20.ToolTip" xml:space="preserve">
+  <data name="AddRespons_Butn.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;جدید&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;

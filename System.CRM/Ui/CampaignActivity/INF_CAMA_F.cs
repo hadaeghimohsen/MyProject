@@ -24,7 +24,7 @@ namespace System.CRM.Ui.CampaignActivity
       private bool requery = false;
       private string formCaller;
       private XElement xinput;
-      private long? campcode;
+      private long? camacode, campcode;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -37,28 +37,28 @@ namespace System.CRM.Ui.CampaignActivity
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
 
-         //CmptBs.List.Clear();
+         CampBs.DataSource = iCRM.Campaigns.Where(c => c.CMID == campcode);
 
-         if (campcode != null)
+         if (camacode != null)
          {
-            int cmdf = CampBs.Position;
+            int cmdf = CamaBs.Position;
 
-            CampBs.DataSource = iCRM.Campaigns.Where(c => c.CMID == campcode);
+            CamaBs.DataSource = iCRM.Campaigns.Where(c => c.CMID == camacode);
 
-            CampBs.Position = cmdf;
+            CamaBs.Position = cmdf;
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-            CampBs.AddNew();
-            var camp = CampBs.Current as Data.Campaign;
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");            
 
-            camp.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;
-            camp.TEMP = "001";
-            camp.STAT = "001";
-            camp.TYPE = "001";           
+            CamaBs.AddNew();
+            var cama = CamaBs.Current as Data.Campaign_Activity;
 
-            iCRM.Campaigns.InsertOnSubmit(camp);
+            cama.CAMP_CMID = campcode;
+            cama.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;            
+            cama.TYPE = "001";           
+
+            iCRM.Campaign_Activities.InsertOnSubmit(cama);
          }
 
          requery = false;
@@ -104,7 +104,7 @@ namespace System.CRM.Ui.CampaignActivity
          {            
             if (Name_Txt.EditValue == null || Name_Txt.EditValue.ToString() == "") { Name_Txt.Focus(); return; }
 
-            CampBs.EndEdit();
+            CamaBs.EndEdit();
 
             iCRM.SubmitChanges();
             
@@ -118,11 +118,11 @@ namespace System.CRM.Ui.CampaignActivity
          {
             if (requery)
             {
-               if (campcode == null)
+               if (camacode == null)
                {
                   iCRM = new Data.iCRMDataContext(ConnectionString);
                   var ownrcode = (long?)Ownr_Lov.EditValue;
-                  campcode = iCRM.Campaigns.FirstOrDefault(c => c.OWNR_CODE == ownrcode && c.NAME == Name_Txt.Text && c.CRET_BY == CurrentUser && c.CRET_DATE.Value.Date == DateTime.Now.Date).CMID;
+                  camacode = iCRM.Campaigns.FirstOrDefault(c => c.OWNR_CODE == ownrcode && c.NAME == Name_Txt.Text && c.CRET_BY == CurrentUser && c.CRET_DATE.Value.Date == DateTime.Now.Date).CMID;
                }
                Execute_Query();
             }
@@ -138,12 +138,12 @@ namespace System.CRM.Ui.CampaignActivity
       #region Note
       private void AddNote_Butn_Click(object sender, EventArgs e)
       {
-         if (campcode == null) return;
+         if (camacode == null) return;
          if (NoteBs.List.OfType<Data.Note>().Any(n => n.NTID == 0)) return;
 
          NoteBs.AddNew();
          var note = NoteBs.Current as Data.Note;
-         note.CAMP_CMID = campcode;
+         note.CAMP_CMID = camacode;
 
          Note_Gv.SelectRow(Note_Gv.RowCount - 1);
 
@@ -154,7 +154,7 @@ namespace System.CRM.Ui.CampaignActivity
       {
          try
          {
-            if (campcode == null) return;
+            if (camacode == null) return;
 
             if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 

@@ -229,13 +229,27 @@ namespace System.CRM.Ui.Campaign
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-         JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+         if (InvokeRequired)
+         {
+            Invoke(new Action(() =>
+               {
+                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
-         DcmstBs.DataSource = iCRM.D_CMSTs;
-         DcamtBs.DataSource = iCRM.D_CAMTs;
-         DysnoBs.DataSource = iCRM.D_YSNOs;         
+                  DcmstBs.DataSource = iCRM.D_CMSTs;
+                  DcamtBs.DataSource = iCRM.D_CAMTs;
+                  DysnoBs.DataSource = iCRM.D_YSNOs;
+               }));            
+         }
+         else
+         {
+            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+            DcamtBs.DataSource = iCRM.D_CAMTs;
+            DysnoBs.DataSource = iCRM.D_YSNOs;
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -257,7 +271,10 @@ namespace System.CRM.Ui.Campaign
                campcode = null;
 
          }
-         Execute_Query();
+         if (InvokeRequired)
+            Invoke(new Action(() => Execute_Query()));
+         else
+            Execute_Query();
          job.Status = StatusType.Successful;
       }
 

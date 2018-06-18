@@ -28,19 +28,26 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INF_CAMP_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INF_CAMP_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -48,20 +55,12 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
          this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-         this.CampBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CampBs = new System.Windows.Forms.BindingSource();
          this.TrcbTcid_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TrcbBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TrcbBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCURN_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCURN_SYMB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,26 +87,26 @@
          this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
          this.SubmitChangeClose_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.CampBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.CampBn = new System.Windows.Forms.BindingNavigator();
          this.SubmitChange_Butn = new System.Windows.Forms.ToolStripButton();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.label3 = new System.Windows.Forms.Label();
          this.ListType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DcamtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcamtBs = new System.Windows.Forms.BindingSource();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-         this.DcmstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcmstBs = new System.Windows.Forms.BindingSource();
          this.Cost_Lov = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.Ownr_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.JobpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.JobpBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DESC_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cmnt_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.LockStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DysnoBs = new System.Windows.Forms.BindingSource();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.label1 = new System.Windows.Forms.Label();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -158,11 +157,11 @@
          this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.panel5 = new System.Windows.Forms.Panel();
-         this.c1Button10 = new C1.Win.C1Input.C1Button();
-         this.c1Button11 = new C1.Win.C1Input.C1Button();
-         this.c1Button12 = new C1.Win.C1Input.C1Button();
-         this.c1Button13 = new C1.Win.C1Input.C1Button();
-         this.c1Button14 = new C1.Win.C1Input.C1Button();
+         this.SaveCampignActivity_Butn = new C1.Win.C1Input.C1Button();
+         this.HelpCampignActivity_Butn = new C1.Win.C1Input.C1Button();
+         this.ShowCampignActivity_Butn = new C1.Win.C1Input.C1Button();
+         this.DelCampignActivity_Butn = new C1.Win.C1Input.C1Button();
+         this.AddCampignActivity_Butn = new C1.Win.C1Input.C1Button();
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
@@ -205,7 +204,7 @@
          this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
+         this.NoteBs = new System.Windows.Forms.BindingSource();
          this.Note_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colNOTE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -219,17 +218,17 @@
          this.DelNote_Butn = new C1.Win.C1Input.C1Button();
          this.AddNote_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
+         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip();
          this.c1Button15 = new C1.Win.C1Input.C1Button();
          this.c1Button16 = new C1.Win.C1Input.C1Button();
          this.c1Button17 = new C1.Win.C1Input.C1Button();
          this.c1Button18 = new C1.Win.C1Input.C1Button();
          this.c1Button19 = new C1.Win.C1Input.C1Button();
-         this.c1Button1 = new C1.Win.C1Input.C1Button();
-         this.c1Button2 = new C1.Win.C1Input.C1Button();
-         this.c1Button3 = new C1.Win.C1Input.C1Button();
-         this.c1Button7 = new C1.Win.C1Input.C1Button();
-         this.c1Button20 = new C1.Win.C1Input.C1Button();
+         this.SaveRespons_Butn = new C1.Win.C1Input.C1Button();
+         this.HelpRespons_Butn = new C1.Win.C1Input.C1Button();
+         this.ShowRespons_Butn = new C1.Win.C1Input.C1Button();
+         this.DelRespons_Butn = new C1.Win.C1Input.C1Button();
+         this.AddRespons_Butn = new C1.Win.C1Input.C1Button();
          this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
          this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
@@ -315,11 +314,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView11)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit5)).BeginInit();
          this.panel5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button14)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveCampignActivity_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpCampignActivity_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowCampignActivity_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelCampignActivity_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddCampignActivity_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
@@ -347,11 +346,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.c1Button17)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button18)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button19)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveRespons_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpRespons_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowRespons_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelRespons_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddRespons_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
          this.xtraTabControl4.SuspendLayout();
          this.xtraTabPage4.SuspendLayout();
@@ -382,7 +381,7 @@
          this.labelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(1146, 83);
+         this.labelControl39.Location = new System.Drawing.Point(1118, 83);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(79, 27);
          this.labelControl39.TabIndex = 4;
@@ -397,7 +396,7 @@
          this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(1146, 152);
+         this.labelControl20.Location = new System.Drawing.Point(1118, 152);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(79, 26);
          this.labelControl20.TabIndex = 24;
@@ -415,7 +414,7 @@
          this.labelControl11.LineColor = System.Drawing.Color.Blue;
          this.labelControl11.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl11.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl11.Location = new System.Drawing.Point(572, 82);
+         this.labelControl11.Location = new System.Drawing.Point(544, 82);
          this.labelControl11.Name = "labelControl11";
          this.labelControl11.Size = new System.Drawing.Size(75, 27);
          this.labelControl11.TabIndex = 26;
@@ -431,7 +430,7 @@
          this.TrcbTcid_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TrcbTcid_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "TRCB_TCID", true));
          this.TrcbTcid_Lov.EditValue = "";
-         this.TrcbTcid_Lov.Location = new System.Drawing.Point(885, 150);
+         this.TrcbTcid_Lov.Location = new System.Drawing.Point(857, 150);
          this.TrcbTcid_Lov.Name = "TrcbTcid_Lov";
          this.TrcbTcid_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.TrcbTcid_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -445,8 +444,8 @@
          this.TrcbTcid_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.TrcbTcid_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.TrcbTcid_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
          this.TrcbTcid_Lov.Properties.DataSource = this.TrcbBs;
          this.TrcbTcid_Lov.Properties.DisplayMember = "CURN_NAME";
          this.TrcbTcid_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -514,7 +513,7 @@
          this.Name_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Name_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "NAME", true));
          this.Name_Txt.EditValue = "";
-         this.Name_Txt.Location = new System.Drawing.Point(885, 82);
+         this.Name_Txt.Location = new System.Drawing.Point(857, 82);
          this.Name_Txt.Name = "Name_Txt";
          this.Name_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Name_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -528,7 +527,7 @@
          this.Name_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Name_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Name_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "", null, null, true)});
          this.Name_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Name_Txt.Properties.NullText = "---";
          this.Name_Txt.Properties.NullValuePrompt = "---";
@@ -734,7 +733,7 @@
          this.CampBn.Name = "CampBn";
          this.CampBn.PositionItem = null;
          this.CampBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.CampBn.Size = new System.Drawing.Size(1228, 47);
+         this.CampBn.Size = new System.Drawing.Size(1200, 47);
          this.CampBn.TabIndex = 1;
          this.CampBn.Text = "bindingNavigator1";
          // 
@@ -757,7 +756,7 @@
          this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(1066, 50);
+         this.labelControl4.Location = new System.Drawing.Point(1038, 50);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(143, 27);
          this.labelControl4.TabIndex = 16;
@@ -775,7 +774,7 @@
          this.labelControl1.LineColor = System.Drawing.Color.Blue;
          this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl1.Location = new System.Drawing.Point(661, 627);
+         this.labelControl1.Location = new System.Drawing.Point(633, 627);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(36, 27);
          this.labelControl1.TabIndex = 26;
@@ -785,7 +784,7 @@
          // 
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label3.Location = new System.Drawing.Point(651, 82);
+         this.label3.Location = new System.Drawing.Point(623, 82);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(6, 60);
          this.label3.TabIndex = 50;
@@ -794,7 +793,7 @@
          // 
          this.ListType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ListType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "TYPE", true));
-         this.ListType_Lov.Location = new System.Drawing.Point(980, 116);
+         this.ListType_Lov.Location = new System.Drawing.Point(952, 116);
          this.ListType_Lov.Name = "ListType_Lov";
          this.ListType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ListType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -812,8 +811,8 @@
          this.ListType_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.ListType_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.ListType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, "", null, null, true)});
          this.ListType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -841,7 +840,7 @@
          this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(1146, 117);
+         this.labelControl6.Location = new System.Drawing.Point(1118, 117);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(79, 27);
          this.labelControl6.TabIndex = 4;
@@ -856,7 +855,7 @@
          this.Cost_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cost_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "EXPT_RESP", true));
          this.Cost_Lov.EditValue = "";
-         this.Cost_Lov.Location = new System.Drawing.Point(1066, 184);
+         this.Cost_Lov.Location = new System.Drawing.Point(1038, 184);
          this.Cost_Lov.Name = "Cost_Lov";
          this.Cost_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cost_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -870,7 +869,7 @@
          this.Cost_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Cost_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Cost_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject26, "", null, null, true)});
          this.Cost_Lov.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.Cost_Lov.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.Cost_Lov.Properties.EditFormat.FormatString = "{0:n0}";
@@ -898,7 +897,7 @@
          this.labelControl9.LineColor = System.Drawing.Color.Blue;
          this.labelControl9.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl9.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl9.Location = new System.Drawing.Point(1146, 184);
+         this.labelControl9.Location = new System.Drawing.Point(1118, 184);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(79, 27);
          this.labelControl9.TabIndex = 26;
@@ -909,7 +908,7 @@
          this.Ownr_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ownr_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "OWNR_CODE", true));
          this.Ownr_Lov.EditValue = "";
-         this.Ownr_Lov.Location = new System.Drawing.Point(487, 626);
+         this.Ownr_Lov.Location = new System.Drawing.Point(459, 626);
          this.Ownr_Lov.Name = "Ownr_Lov";
          this.Ownr_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Ownr_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -923,8 +922,8 @@
          this.Ownr_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Ownr_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Ownr_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject27, "", null, null, true)});
          this.Ownr_Lov.Properties.DataSource = this.JobpBs;
          this.Ownr_Lov.Properties.DisplayMember = "USER_DESC_DNRM";
          this.Ownr_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -974,7 +973,7 @@
          this.Cmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cmnt_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "OFER_DESC", true));
          this.Cmnt_Txt.EditValue = "";
-         this.Cmnt_Txt.Location = new System.Drawing.Point(885, 368);
+         this.Cmnt_Txt.Location = new System.Drawing.Point(857, 368);
          this.Cmnt_Txt.Name = "Cmnt_Txt";
          this.Cmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cmnt_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1006,7 +1005,7 @@
          this.labelControl3.LineColor = System.Drawing.Color.Blue;
          this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl3.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl3.Location = new System.Drawing.Point(1146, 369);
+         this.labelControl3.Location = new System.Drawing.Point(1118, 369);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(79, 27);
          this.labelControl3.TabIndex = 26;
@@ -1016,7 +1015,7 @@
          // 
          this.LockStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LockStat_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "TEMP", true));
-         this.LockStat_Lov.Location = new System.Drawing.Point(552, 114);
+         this.LockStat_Lov.Location = new System.Drawing.Point(524, 114);
          this.LockStat_Lov.Name = "LockStat_Lov";
          this.LockStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.LockStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1034,8 +1033,8 @@
          this.LockStat_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.LockStat_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.LockStat_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "", null, null, true)});
          this.LockStat_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1067,7 +1066,7 @@
          this.labelControl2.LineColor = System.Drawing.Color.Blue;
          this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl2.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl2.Location = new System.Drawing.Point(493, 82);
+         this.labelControl2.Location = new System.Drawing.Point(465, 82);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(41, 27);
          this.labelControl2.TabIndex = 26;
@@ -1077,7 +1076,7 @@
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label1.Location = new System.Drawing.Point(540, 82);
+         this.label1.Location = new System.Drawing.Point(512, 82);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(6, 60);
          this.label1.TabIndex = 50;
@@ -1086,7 +1085,7 @@
          // 
          this.splitContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.splitContainerControl1.Horizontal = false;
-         this.splitContainerControl1.Location = new System.Drawing.Point(83, 148);
+         this.splitContainerControl1.Location = new System.Drawing.Point(55, 148);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel1.Text = "Panel1";
@@ -1198,7 +1197,7 @@
          // 
          this.repositoryItemSearchLookUpEdit2.AutoHeight = false;
          this.repositoryItemSearchLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.repositoryItemSearchLookUpEdit2.DisplayMember = "NAME";
          this.repositoryItemSearchLookUpEdit2.Name = "repositoryItemSearchLookUpEdit2";
          this.repositoryItemSearchLookUpEdit2.NullText = "---";
@@ -1453,7 +1452,7 @@
          // 
          this.repositoryItemSearchLookUpEdit1.AutoHeight = false;
          this.repositoryItemSearchLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.repositoryItemSearchLookUpEdit1.DisplayMember = "NAME";
          this.repositoryItemSearchLookUpEdit1.Name = "repositoryItemSearchLookUpEdit1";
          this.repositoryItemSearchLookUpEdit1.NullText = "---";
@@ -1708,7 +1707,7 @@
          // 
          this.repositoryItemSearchLookUpEdit3.AutoHeight = false;
          this.repositoryItemSearchLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.repositoryItemSearchLookUpEdit3.DisplayMember = "NAME";
          this.repositoryItemSearchLookUpEdit3.Name = "repositoryItemSearchLookUpEdit3";
          this.repositoryItemSearchLookUpEdit3.NullText = "---";
@@ -1781,101 +1780,106 @@
          // 
          // panel5
          // 
-         this.panel5.Controls.Add(this.c1Button10);
-         this.panel5.Controls.Add(this.c1Button11);
-         this.panel5.Controls.Add(this.c1Button12);
-         this.panel5.Controls.Add(this.c1Button13);
-         this.panel5.Controls.Add(this.c1Button14);
+         this.panel5.Controls.Add(this.SaveCampignActivity_Butn);
+         this.panel5.Controls.Add(this.HelpCampignActivity_Butn);
+         this.panel5.Controls.Add(this.ShowCampignActivity_Butn);
+         this.panel5.Controls.Add(this.DelCampignActivity_Butn);
+         this.panel5.Controls.Add(this.AddCampignActivity_Butn);
          this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel5.Location = new System.Drawing.Point(0, 0);
          this.panel5.Name = "panel5";
          this.panel5.Size = new System.Drawing.Size(315, 31);
          this.panel5.TabIndex = 55;
          // 
-         // c1Button10
+         // SaveCampignActivity_Butn
          // 
-         this.c1Button10.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button10.FlatAppearance.BorderSize = 0;
-         this.c1Button10.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button10.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button10.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
-         this.c1Button10.Location = new System.Drawing.Point(65, 3);
-         this.c1Button10.Name = "c1Button10";
-         this.c1Button10.Size = new System.Drawing.Size(25, 25);
-         this.c1Button10.TabIndex = 63;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button10, resources.GetString("c1Button10.ToolTip"));
-         this.c1Button10.UseVisualStyleBackColor = true;
-         this.c1Button10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.SaveCampignActivity_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SaveCampignActivity_Butn.FlatAppearance.BorderSize = 0;
+         this.SaveCampignActivity_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.SaveCampignActivity_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.SaveCampignActivity_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveCampignActivity_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveCampignActivity_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
+         this.SaveCampignActivity_Butn.Location = new System.Drawing.Point(65, 3);
+         this.SaveCampignActivity_Butn.Name = "SaveCampignActivity_Butn";
+         this.SaveCampignActivity_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SaveCampignActivity_Butn.TabIndex = 63;
+         this.c1SuperTooltip1.SetToolTip(this.SaveCampignActivity_Butn, resources.GetString("SaveCampignActivity_Butn.ToolTip"));
+         this.SaveCampignActivity_Butn.UseVisualStyleBackColor = true;
+         this.SaveCampignActivity_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.SaveCampignActivity_Butn.Click += new System.EventHandler(this.SaveCampignActivity_Butn_Click);
          // 
-         // c1Button11
+         // HelpCampignActivity_Butn
          // 
-         this.c1Button11.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button11.FlatAppearance.BorderSize = 0;
-         this.c1Button11.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button11.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button11.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
-         this.c1Button11.Location = new System.Drawing.Point(123, 3);
-         this.c1Button11.Name = "c1Button11";
-         this.c1Button11.Size = new System.Drawing.Size(25, 25);
-         this.c1Button11.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button11, resources.GetString("c1Button11.ToolTip"));
-         this.c1Button11.UseVisualStyleBackColor = true;
-         this.c1Button11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.HelpCampignActivity_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.HelpCampignActivity_Butn.FlatAppearance.BorderSize = 0;
+         this.HelpCampignActivity_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.HelpCampignActivity_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.HelpCampignActivity_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.HelpCampignActivity_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.HelpCampignActivity_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
+         this.HelpCampignActivity_Butn.Location = new System.Drawing.Point(123, 3);
+         this.HelpCampignActivity_Butn.Name = "HelpCampignActivity_Butn";
+         this.HelpCampignActivity_Butn.Size = new System.Drawing.Size(25, 25);
+         this.HelpCampignActivity_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.HelpCampignActivity_Butn, resources.GetString("HelpCampignActivity_Butn.ToolTip"));
+         this.HelpCampignActivity_Butn.UseVisualStyleBackColor = true;
+         this.HelpCampignActivity_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.HelpCampignActivity_Butn.Click += new System.EventHandler(this.HelpCampignActivity_Butn_Click);
          // 
-         // c1Button12
+         // ShowCampignActivity_Butn
          // 
-         this.c1Button12.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button12.FlatAppearance.BorderSize = 0;
-         this.c1Button12.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button12.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button12.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
-         this.c1Button12.Location = new System.Drawing.Point(96, 3);
-         this.c1Button12.Name = "c1Button12";
-         this.c1Button12.Size = new System.Drawing.Size(25, 25);
-         this.c1Button12.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button12, resources.GetString("c1Button12.ToolTip"));
-         this.c1Button12.UseVisualStyleBackColor = true;
-         this.c1Button12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.ShowCampignActivity_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.ShowCampignActivity_Butn.FlatAppearance.BorderSize = 0;
+         this.ShowCampignActivity_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.ShowCampignActivity_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.ShowCampignActivity_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowCampignActivity_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowCampignActivity_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
+         this.ShowCampignActivity_Butn.Location = new System.Drawing.Point(96, 3);
+         this.ShowCampignActivity_Butn.Name = "ShowCampignActivity_Butn";
+         this.ShowCampignActivity_Butn.Size = new System.Drawing.Size(25, 25);
+         this.ShowCampignActivity_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.ShowCampignActivity_Butn, resources.GetString("ShowCampignActivity_Butn.ToolTip"));
+         this.ShowCampignActivity_Butn.UseVisualStyleBackColor = true;
+         this.ShowCampignActivity_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.ShowCampignActivity_Butn.Click += new System.EventHandler(this.ShowCampignActivity_Butn_Click);
          // 
-         // c1Button13
+         // DelCampignActivity_Butn
          // 
-         this.c1Button13.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button13.FlatAppearance.BorderSize = 0;
-         this.c1Button13.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button13.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button13.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
-         this.c1Button13.Location = new System.Drawing.Point(34, 3);
-         this.c1Button13.Name = "c1Button13";
-         this.c1Button13.Size = new System.Drawing.Size(25, 25);
-         this.c1Button13.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button13, resources.GetString("c1Button13.ToolTip"));
-         this.c1Button13.UseVisualStyleBackColor = true;
-         this.c1Button13.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.DelCampignActivity_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.DelCampignActivity_Butn.FlatAppearance.BorderSize = 0;
+         this.DelCampignActivity_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.DelCampignActivity_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.DelCampignActivity_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.DelCampignActivity_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DelCampignActivity_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
+         this.DelCampignActivity_Butn.Location = new System.Drawing.Point(34, 3);
+         this.DelCampignActivity_Butn.Name = "DelCampignActivity_Butn";
+         this.DelCampignActivity_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DelCampignActivity_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.DelCampignActivity_Butn, resources.GetString("DelCampignActivity_Butn.ToolTip"));
+         this.DelCampignActivity_Butn.UseVisualStyleBackColor = true;
+         this.DelCampignActivity_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.DelCampignActivity_Butn.Click += new System.EventHandler(this.DelCampignActivity_Butn_Click);
          // 
-         // c1Button14
+         // AddCampignActivity_Butn
          // 
-         this.c1Button14.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button14.FlatAppearance.BorderSize = 0;
-         this.c1Button14.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button14.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button14.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button14.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
-         this.c1Button14.Location = new System.Drawing.Point(3, 3);
-         this.c1Button14.Name = "c1Button14";
-         this.c1Button14.Size = new System.Drawing.Size(25, 25);
-         this.c1Button14.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button14, resources.GetString("c1Button14.ToolTip"));
-         this.c1Button14.UseVisualStyleBackColor = true;
-         this.c1Button14.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.AddCampignActivity_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.AddCampignActivity_Butn.FlatAppearance.BorderSize = 0;
+         this.AddCampignActivity_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.AddCampignActivity_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.AddCampignActivity_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddCampignActivity_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddCampignActivity_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
+         this.AddCampignActivity_Butn.Location = new System.Drawing.Point(3, 3);
+         this.AddCampignActivity_Butn.Name = "AddCampignActivity_Butn";
+         this.AddCampignActivity_Butn.Size = new System.Drawing.Size(25, 25);
+         this.AddCampignActivity_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.AddCampignActivity_Butn, resources.GetString("AddCampignActivity_Butn.ToolTip"));
+         this.AddCampignActivity_Butn.UseVisualStyleBackColor = true;
+         this.AddCampignActivity_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.AddCampignActivity_Butn.Click += new System.EventHandler(this.AddCampignActivity_Butn_Click);
          // 
          // dateTimeSelector1
          // 
@@ -1883,7 +1887,7 @@
          this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CampBs, "PROP_STRT_DATE", true));
          this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(1041, 252);
+         this.dateTimeSelector1.Location = new System.Drawing.Point(1013, 252);
          this.dateTimeSelector1.Name = "dateTimeSelector1";
          this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector1.Size = new System.Drawing.Size(100, 23);
@@ -1897,7 +1901,7 @@
          this.labelControl12.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(1146, 219);
+         this.labelControl12.Location = new System.Drawing.Point(1118, 219);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(63, 27);
          this.labelControl12.TabIndex = 16;
@@ -1915,7 +1919,7 @@
          this.labelControl13.LineColor = System.Drawing.Color.Blue;
          this.labelControl13.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl13.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl13.Location = new System.Drawing.Point(1146, 250);
+         this.labelControl13.Location = new System.Drawing.Point(1118, 250);
          this.labelControl13.Name = "labelControl13";
          this.labelControl13.Size = new System.Drawing.Size(79, 27);
          this.labelControl13.TabIndex = 26;
@@ -1933,7 +1937,7 @@
          this.labelControl5.LineColor = System.Drawing.Color.Blue;
          this.labelControl5.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl5.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl5.Location = new System.Drawing.Point(1146, 279);
+         this.labelControl5.Location = new System.Drawing.Point(1118, 279);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(79, 27);
          this.labelControl5.TabIndex = 26;
@@ -1945,7 +1949,7 @@
          this.dateTimeSelector2.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CampBs, "PROP_END_DATE", true));
          this.dateTimeSelector2.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector2.Location = new System.Drawing.Point(1041, 281);
+         this.dateTimeSelector2.Location = new System.Drawing.Point(1013, 281);
          this.dateTimeSelector2.Name = "dateTimeSelector2";
          this.dateTimeSelector2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector2.Size = new System.Drawing.Size(100, 23);
@@ -1964,7 +1968,7 @@
          this.labelControl8.LineColor = System.Drawing.Color.Blue;
          this.labelControl8.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl8.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl8.Location = new System.Drawing.Point(1146, 308);
+         this.labelControl8.Location = new System.Drawing.Point(1118, 308);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(79, 27);
          this.labelControl8.TabIndex = 26;
@@ -1982,7 +1986,7 @@
          this.labelControl10.LineColor = System.Drawing.Color.Blue;
          this.labelControl10.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl10.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl10.Location = new System.Drawing.Point(1146, 337);
+         this.labelControl10.Location = new System.Drawing.Point(1118, 337);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(79, 27);
          this.labelControl10.TabIndex = 26;
@@ -1994,7 +1998,7 @@
          this.dateTimeSelector3.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CampBs, "ACTL_STRT_DATE", true));
          this.dateTimeSelector3.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector3.Location = new System.Drawing.Point(1041, 310);
+         this.dateTimeSelector3.Location = new System.Drawing.Point(1013, 310);
          this.dateTimeSelector3.Name = "dateTimeSelector3";
          this.dateTimeSelector3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector3.Size = new System.Drawing.Size(100, 23);
@@ -2007,7 +2011,7 @@
          this.dateTimeSelector4.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector4.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CampBs, "ACTL_END_DATE", true));
          this.dateTimeSelector4.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector4.Location = new System.Drawing.Point(1041, 339);
+         this.dateTimeSelector4.Location = new System.Drawing.Point(1013, 339);
          this.dateTimeSelector4.Name = "dateTimeSelector4";
          this.dateTimeSelector4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector4.Size = new System.Drawing.Size(100, 23);
@@ -2018,7 +2022,7 @@
          // 
          this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "STAT", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(416, 114);
+         this.lookUpEdit1.Location = new System.Drawing.Point(388, 114);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.lookUpEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2036,8 +2040,8 @@
          this.lookUpEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.lookUpEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -2058,7 +2062,7 @@
          this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "ESTM_REVN_AMNT", true));
          this.buttonEdit1.EditValue = "";
-         this.buttonEdit1.Location = new System.Drawing.Point(249, 114);
+         this.buttonEdit1.Location = new System.Drawing.Point(221, 114);
          this.buttonEdit1.Name = "buttonEdit1";
          this.buttonEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2072,7 +2076,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.buttonEdit1.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.buttonEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.buttonEdit1.Properties.EditFormat.FormatString = "{0:n0}";
@@ -2097,7 +2101,7 @@
          this.labelControl15.LineColor = System.Drawing.Color.Blue;
          this.labelControl15.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl15.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl15.Location = new System.Drawing.Point(288, 82);
+         this.labelControl15.Location = new System.Drawing.Point(260, 82);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(110, 27);
          this.labelControl15.TabIndex = 26;
@@ -2107,7 +2111,7 @@
          // 
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label2.Location = new System.Drawing.Point(404, 82);
+         this.label2.Location = new System.Drawing.Point(376, 82);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(6, 60);
          this.label2.TabIndex = 50;
@@ -2120,7 +2124,7 @@
          this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(1146, 561);
+         this.labelControl14.Location = new System.Drawing.Point(1118, 561);
          this.labelControl14.Name = "labelControl14";
          this.labelControl14.Size = new System.Drawing.Size(63, 27);
          this.labelControl14.TabIndex = 16;
@@ -2133,7 +2137,7 @@
          this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl16.Location = new System.Drawing.Point(1165, 594);
+         this.labelControl16.Location = new System.Drawing.Point(1137, 594);
          this.labelControl16.Name = "labelControl16";
          this.labelControl16.Size = new System.Drawing.Size(44, 27);
          this.labelControl16.TabIndex = 16;
@@ -2151,7 +2155,7 @@
          this.labelControl17.LineColor = System.Drawing.Color.Blue;
          this.labelControl17.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl17.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl17.Location = new System.Drawing.Point(1146, 627);
+         this.labelControl17.Location = new System.Drawing.Point(1118, 627);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(62, 27);
          this.labelControl17.TabIndex = 26;
@@ -2162,7 +2166,7 @@
          this.buttonEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "ACTV_COST_AMNT", true));
          this.buttonEdit2.EditValue = "";
-         this.buttonEdit2.Location = new System.Drawing.Point(1023, 626);
+         this.buttonEdit2.Location = new System.Drawing.Point(995, 626);
          this.buttonEdit2.Name = "buttonEdit2";
          this.buttonEdit2.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit2.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2176,7 +2180,7 @@
          this.buttonEdit2.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.buttonEdit2.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.buttonEdit2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.buttonEdit2.Properties.EditFormat.FormatString = "{0:n0}";
@@ -2203,7 +2207,7 @@
          this.labelControl18.LineColor = System.Drawing.Color.Blue;
          this.labelControl18.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl18.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl18.Location = new System.Drawing.Point(1146, 661);
+         this.labelControl18.Location = new System.Drawing.Point(1118, 661);
          this.labelControl18.Name = "labelControl18";
          this.labelControl18.Size = new System.Drawing.Size(62, 27);
          this.labelControl18.TabIndex = 26;
@@ -2214,7 +2218,7 @@
          this.buttonEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "MISC_COST_AMNT", true));
          this.buttonEdit3.EditValue = "";
-         this.buttonEdit3.Location = new System.Drawing.Point(1023, 660);
+         this.buttonEdit3.Location = new System.Drawing.Point(995, 660);
          this.buttonEdit3.Name = "buttonEdit3";
          this.buttonEdit3.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit3.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2228,7 +2232,7 @@
          this.buttonEdit3.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
          this.buttonEdit3.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.buttonEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.buttonEdit3.Properties.EditFormat.FormatString = "{0:n0}";
@@ -2255,7 +2259,7 @@
          this.labelControl19.LineColor = System.Drawing.Color.Blue;
          this.labelControl19.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl19.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl19.Location = new System.Drawing.Point(890, 627);
+         this.labelControl19.Location = new System.Drawing.Point(862, 627);
          this.labelControl19.Name = "labelControl19";
          this.labelControl19.Size = new System.Drawing.Size(127, 27);
          this.labelControl19.TabIndex = 26;
@@ -2273,7 +2277,7 @@
          this.labelControl21.LineColor = System.Drawing.Color.Blue;
          this.labelControl21.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl21.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl21.Location = new System.Drawing.Point(890, 661);
+         this.labelControl21.Location = new System.Drawing.Point(862, 661);
          this.labelControl21.Name = "labelControl21";
          this.labelControl21.Size = new System.Drawing.Size(127, 27);
          this.labelControl21.TabIndex = 26;
@@ -2284,7 +2288,7 @@
          this.buttonEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "ALOC_BUDG_AMNT", true));
          this.buttonEdit4.EditValue = "";
-         this.buttonEdit4.Location = new System.Drawing.Point(771, 626);
+         this.buttonEdit4.Location = new System.Drawing.Point(743, 626);
          this.buttonEdit4.Name = "buttonEdit4";
          this.buttonEdit4.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit4.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2298,7 +2302,7 @@
          this.buttonEdit4.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit4.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.buttonEdit4.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.buttonEdit4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.buttonEdit4.Properties.EditFormat.FormatString = "{0:n0}";
@@ -2318,7 +2322,7 @@
          this.buttonEdit5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "TOTL_COST_AMNT", true));
          this.buttonEdit5.EditValue = "";
-         this.buttonEdit5.Location = new System.Drawing.Point(771, 660);
+         this.buttonEdit5.Location = new System.Drawing.Point(743, 660);
          this.buttonEdit5.Name = "buttonEdit5";
          this.buttonEdit5.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit5.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2332,7 +2336,7 @@
          this.buttonEdit5.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit5.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.buttonEdit5.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.buttonEdit5.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.buttonEdit5.Properties.EditFormat.FormatString = "{0:n0}";
@@ -2359,7 +2363,7 @@
          this.labelControl22.LineColor = System.Drawing.Color.Blue;
          this.labelControl22.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl22.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl22.Location = new System.Drawing.Point(1146, 695);
+         this.labelControl22.Location = new System.Drawing.Point(1118, 695);
          this.labelControl22.Name = "labelControl22";
          this.labelControl22.Size = new System.Drawing.Size(57, 27);
          this.labelControl22.TabIndex = 26;
@@ -2370,7 +2374,7 @@
          this.memoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.memoEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "CMNT", true));
          this.memoEdit1.EditValue = "";
-         this.memoEdit1.Location = new System.Drawing.Point(771, 694);
+         this.memoEdit1.Location = new System.Drawing.Point(743, 694);
          this.memoEdit1.Name = "memoEdit1";
          this.memoEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.memoEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2397,7 +2401,7 @@
          this.labelControl23.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl23.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl23.Location = new System.Drawing.Point(661, 594);
+         this.labelControl23.Location = new System.Drawing.Point(633, 594);
          this.labelControl23.Name = "labelControl23";
          this.labelControl23.Size = new System.Drawing.Size(87, 27);
          this.labelControl23.TabIndex = 16;
@@ -2410,7 +2414,7 @@
          this.MdfyDate_Dat.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CampBs, "CRET_DATE", true));
          this.MdfyDate_Dat.Enabled = false;
          this.MdfyDate_Dat.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.MdfyDate_Dat.Location = new System.Drawing.Point(552, 694);
+         this.MdfyDate_Dat.Location = new System.Drawing.Point(524, 694);
          this.MdfyDate_Dat.Name = "MdfyDate_Dat";
          this.MdfyDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.MdfyDate_Dat.Size = new System.Drawing.Size(100, 23);
@@ -2429,7 +2433,7 @@
          this.labelControl24.LineColor = System.Drawing.Color.Blue;
          this.labelControl24.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl24.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl24.Location = new System.Drawing.Point(658, 692);
+         this.labelControl24.Location = new System.Drawing.Point(630, 692);
          this.labelControl24.Name = "labelControl24";
          this.labelControl24.Size = new System.Drawing.Size(79, 27);
          this.labelControl24.TabIndex = 55;
@@ -2447,7 +2451,7 @@
          this.labelControl25.LineColor = System.Drawing.Color.Blue;
          this.labelControl25.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl25.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl25.Location = new System.Drawing.Point(658, 721);
+         this.labelControl25.Location = new System.Drawing.Point(630, 721);
          this.labelControl25.Name = "labelControl25";
          this.labelControl25.Size = new System.Drawing.Size(79, 27);
          this.labelControl25.TabIndex = 55;
@@ -2460,7 +2464,7 @@
          this.dateTimeSelector5.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CampBs, "MDFY_DATE", true));
          this.dateTimeSelector5.Enabled = false;
          this.dateTimeSelector5.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector5.Location = new System.Drawing.Point(552, 723);
+         this.dateTimeSelector5.Location = new System.Drawing.Point(524, 723);
          this.dateTimeSelector5.Name = "dateTimeSelector5";
          this.dateTimeSelector5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector5.Size = new System.Drawing.Size(100, 23);
@@ -2479,7 +2483,7 @@
          this.labelControl26.LineColor = System.Drawing.Color.Blue;
          this.labelControl26.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl26.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl26.Location = new System.Drawing.Point(660, 661);
+         this.labelControl26.Location = new System.Drawing.Point(632, 661);
          this.labelControl26.Name = "labelControl26";
          this.labelControl26.Size = new System.Drawing.Size(91, 27);
          this.labelControl26.TabIndex = 26;
@@ -2490,7 +2494,7 @@
          this.gridLookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.gridLookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "MDFY_BY", true));
          this.gridLookUpEdit1.EditValue = "";
-         this.gridLookUpEdit1.Location = new System.Drawing.Point(487, 660);
+         this.gridLookUpEdit1.Location = new System.Drawing.Point(459, 660);
          this.gridLookUpEdit1.Name = "gridLookUpEdit1";
          this.gridLookUpEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.gridLookUpEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2504,8 +2508,8 @@
          this.gridLookUpEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.gridLookUpEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
          this.gridLookUpEdit1.Properties.DataSource = this.JobpBs;
          this.gridLookUpEdit1.Properties.DisplayMember = "USER_DESC_DNRM";
          this.gridLookUpEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -2550,7 +2554,7 @@
          // 
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label4.Location = new System.Drawing.Point(237, 82);
+         this.label4.Location = new System.Drawing.Point(209, 82);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(6, 60);
          this.label4.TabIndex = 50;
@@ -2567,7 +2571,7 @@
          this.labelControl27.LineColor = System.Drawing.Color.Blue;
          this.labelControl27.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl27.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl27.Location = new System.Drawing.Point(179, 84);
+         this.labelControl27.Location = new System.Drawing.Point(151, 84);
          this.labelControl27.Name = "labelControl27";
          this.labelControl27.Size = new System.Drawing.Size(52, 27);
          this.labelControl27.TabIndex = 26;
@@ -2578,7 +2582,7 @@
          this.gridLookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.gridLookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CampBs, "OWNR_CODE", true));
          this.gridLookUpEdit2.EditValue = "";
-         this.gridLookUpEdit2.Location = new System.Drawing.Point(83, 114);
+         this.gridLookUpEdit2.Location = new System.Drawing.Point(55, 114);
          this.gridLookUpEdit2.Name = "gridLookUpEdit2";
          this.gridLookUpEdit2.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.gridLookUpEdit2.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2592,8 +2596,8 @@
          this.gridLookUpEdit2.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.gridLookUpEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.gridLookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
          this.gridLookUpEdit2.Properties.DataSource = this.JobpBs;
          this.gridLookUpEdit2.Properties.DisplayMember = "USER_DESC_DNRM";
          this.gridLookUpEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -2841,7 +2845,7 @@
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(1146, 758);
+         this.labelControl7.Location = new System.Drawing.Point(1118, 758);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(63, 27);
          this.labelControl7.TabIndex = 16;
@@ -2939,90 +2943,90 @@
          this.c1Button19.UseVisualStyleBackColor = true;
          this.c1Button19.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button1
+         // SaveRespons_Butn
          // 
-         this.c1Button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button1.FlatAppearance.BorderSize = 0;
-         this.c1Button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button1.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
-         this.c1Button1.Location = new System.Drawing.Point(65, 3);
-         this.c1Button1.Name = "c1Button1";
-         this.c1Button1.Size = new System.Drawing.Size(25, 25);
-         this.c1Button1.TabIndex = 63;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button1, resources.GetString("c1Button1.ToolTip"));
-         this.c1Button1.UseVisualStyleBackColor = true;
-         this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.SaveRespons_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SaveRespons_Butn.FlatAppearance.BorderSize = 0;
+         this.SaveRespons_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.SaveRespons_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.SaveRespons_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveRespons_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveRespons_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
+         this.SaveRespons_Butn.Location = new System.Drawing.Point(65, 3);
+         this.SaveRespons_Butn.Name = "SaveRespons_Butn";
+         this.SaveRespons_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SaveRespons_Butn.TabIndex = 63;
+         this.c1SuperTooltip1.SetToolTip(this.SaveRespons_Butn, resources.GetString("SaveRespons_Butn.ToolTip"));
+         this.SaveRespons_Butn.UseVisualStyleBackColor = true;
+         this.SaveRespons_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button2
+         // HelpRespons_Butn
          // 
-         this.c1Button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button2.FlatAppearance.BorderSize = 0;
-         this.c1Button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button2.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
-         this.c1Button2.Location = new System.Drawing.Point(123, 3);
-         this.c1Button2.Name = "c1Button2";
-         this.c1Button2.Size = new System.Drawing.Size(25, 25);
-         this.c1Button2.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button2, resources.GetString("c1Button2.ToolTip"));
-         this.c1Button2.UseVisualStyleBackColor = true;
-         this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.HelpRespons_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.HelpRespons_Butn.FlatAppearance.BorderSize = 0;
+         this.HelpRespons_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.HelpRespons_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.HelpRespons_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.HelpRespons_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.HelpRespons_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
+         this.HelpRespons_Butn.Location = new System.Drawing.Point(123, 3);
+         this.HelpRespons_Butn.Name = "HelpRespons_Butn";
+         this.HelpRespons_Butn.Size = new System.Drawing.Size(25, 25);
+         this.HelpRespons_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.HelpRespons_Butn, resources.GetString("HelpRespons_Butn.ToolTip"));
+         this.HelpRespons_Butn.UseVisualStyleBackColor = true;
+         this.HelpRespons_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button3
+         // ShowRespons_Butn
          // 
-         this.c1Button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button3.FlatAppearance.BorderSize = 0;
-         this.c1Button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button3.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
-         this.c1Button3.Location = new System.Drawing.Point(96, 3);
-         this.c1Button3.Name = "c1Button3";
-         this.c1Button3.Size = new System.Drawing.Size(25, 25);
-         this.c1Button3.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button3, resources.GetString("c1Button3.ToolTip"));
-         this.c1Button3.UseVisualStyleBackColor = true;
-         this.c1Button3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.ShowRespons_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.ShowRespons_Butn.FlatAppearance.BorderSize = 0;
+         this.ShowRespons_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.ShowRespons_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.ShowRespons_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowRespons_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRespons_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
+         this.ShowRespons_Butn.Location = new System.Drawing.Point(96, 3);
+         this.ShowRespons_Butn.Name = "ShowRespons_Butn";
+         this.ShowRespons_Butn.Size = new System.Drawing.Size(25, 25);
+         this.ShowRespons_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.ShowRespons_Butn, resources.GetString("ShowRespons_Butn.ToolTip"));
+         this.ShowRespons_Butn.UseVisualStyleBackColor = true;
+         this.ShowRespons_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button7
+         // DelRespons_Butn
          // 
-         this.c1Button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button7.FlatAppearance.BorderSize = 0;
-         this.c1Button7.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button7.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
-         this.c1Button7.Location = new System.Drawing.Point(34, 3);
-         this.c1Button7.Name = "c1Button7";
-         this.c1Button7.Size = new System.Drawing.Size(25, 25);
-         this.c1Button7.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button7, resources.GetString("c1Button7.ToolTip"));
-         this.c1Button7.UseVisualStyleBackColor = true;
-         this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.DelRespons_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.DelRespons_Butn.FlatAppearance.BorderSize = 0;
+         this.DelRespons_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.DelRespons_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.DelRespons_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.DelRespons_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DelRespons_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
+         this.DelRespons_Butn.Location = new System.Drawing.Point(34, 3);
+         this.DelRespons_Butn.Name = "DelRespons_Butn";
+         this.DelRespons_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DelRespons_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.DelRespons_Butn, resources.GetString("DelRespons_Butn.ToolTip"));
+         this.DelRespons_Butn.UseVisualStyleBackColor = true;
+         this.DelRespons_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button20
+         // AddRespons_Butn
          // 
-         this.c1Button20.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button20.FlatAppearance.BorderSize = 0;
-         this.c1Button20.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button20.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button20.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button20.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
-         this.c1Button20.Location = new System.Drawing.Point(3, 3);
-         this.c1Button20.Name = "c1Button20";
-         this.c1Button20.Size = new System.Drawing.Size(25, 25);
-         this.c1Button20.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button20, resources.GetString("c1Button20.ToolTip"));
-         this.c1Button20.UseVisualStyleBackColor = true;
-         this.c1Button20.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.AddRespons_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.AddRespons_Butn.FlatAppearance.BorderSize = 0;
+         this.AddRespons_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.AddRespons_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.AddRespons_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddRespons_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddRespons_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
+         this.AddRespons_Butn.Location = new System.Drawing.Point(3, 3);
+         this.AddRespons_Butn.Name = "AddRespons_Butn";
+         this.AddRespons_Butn.Size = new System.Drawing.Size(25, 25);
+         this.AddRespons_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.AddRespons_Butn, resources.GetString("AddRespons_Butn.ToolTip"));
+         this.AddRespons_Butn.UseVisualStyleBackColor = true;
+         this.AddRespons_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
          // xtraTabControl4
          // 
@@ -3035,7 +3039,7 @@
          this.xtraTabControl4.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl4.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl4.Location = new System.Drawing.Point(430, 149);
+         this.xtraTabControl4.Location = new System.Drawing.Point(402, 149);
          this.xtraTabControl4.Name = "xtraTabControl4";
          this.xtraTabControl4.PaintStyleName = "PropertyView";
          this.xtraTabControl4.SelectedTabPage = this.xtraTabPage4;
@@ -3112,7 +3116,7 @@
          // 
          this.repositoryItemSearchLookUpEdit4.AutoHeight = false;
          this.repositoryItemSearchLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
          this.repositoryItemSearchLookUpEdit4.DisplayMember = "NAME";
          this.repositoryItemSearchLookUpEdit4.Name = "repositoryItemSearchLookUpEdit4";
          this.repositoryItemSearchLookUpEdit4.NullText = "---";
@@ -3215,7 +3219,7 @@
          this.xtraTabControl5.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl5.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl5.Location = new System.Drawing.Point(83, 791);
+         this.xtraTabControl5.Location = new System.Drawing.Point(55, 791);
          this.xtraTabControl5.Name = "xtraTabControl5";
          this.xtraTabControl5.PaintStyleName = "PropertyView";
          this.xtraTabControl5.SelectedTabPage = this.xtraTabPage6;
@@ -3290,7 +3294,7 @@
          // 
          this.repositoryItemSearchLookUpEdit5.AutoHeight = false;
          this.repositoryItemSearchLookUpEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject26, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
          this.repositoryItemSearchLookUpEdit5.DisplayMember = "NAME";
          this.repositoryItemSearchLookUpEdit5.Name = "repositoryItemSearchLookUpEdit5";
          this.repositoryItemSearchLookUpEdit5.NullText = "---";
@@ -3363,11 +3367,11 @@
          // 
          // panel3
          // 
-         this.panel3.Controls.Add(this.c1Button1);
-         this.panel3.Controls.Add(this.c1Button2);
-         this.panel3.Controls.Add(this.c1Button3);
-         this.panel3.Controls.Add(this.c1Button7);
-         this.panel3.Controls.Add(this.c1Button20);
+         this.panel3.Controls.Add(this.SaveRespons_Butn);
+         this.panel3.Controls.Add(this.HelpRespons_Butn);
+         this.panel3.Controls.Add(this.ShowRespons_Butn);
+         this.panel3.Controls.Add(this.DelRespons_Butn);
+         this.panel3.Controls.Add(this.AddRespons_Butn);
          this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel3.Location = new System.Drawing.Point(0, 0);
          this.panel3.Name = "panel3";
@@ -3442,7 +3446,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "INF_CAMP_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1228, 666);
+         this.Size = new System.Drawing.Size(1177, 632);
          ((System.ComponentModel.ISupportInitialize)(this.CampBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbTcid_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbBs)).EndInit();
@@ -3504,11 +3508,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView11)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit5)).EndInit();
          this.panel5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button14)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveCampignActivity_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpCampignActivity_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowCampignActivity_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelCampignActivity_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddCampignActivity_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).EndInit();
@@ -3536,11 +3540,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.c1Button17)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button18)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button19)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveRespons_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpRespons_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowRespons_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelRespons_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddRespons_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
          this.xtraTabControl4.ResumeLayout(false);
          this.xtraTabPage4.ResumeLayout(false);
@@ -3726,11 +3730,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
       private Windows.Forms.Panel panel5;
-      private C1.Win.C1Input.C1Button c1Button10;
-      private C1.Win.C1Input.C1Button c1Button11;
-      private C1.Win.C1Input.C1Button c1Button12;
-      private C1.Win.C1Input.C1Button c1Button13;
-      private C1.Win.C1Input.C1Button c1Button14;
+      private C1.Win.C1Input.C1Button SaveCampignActivity_Butn;
+      private C1.Win.C1Input.C1Button HelpCampignActivity_Butn;
+      private C1.Win.C1Input.C1Button ShowCampignActivity_Butn;
+      private C1.Win.C1Input.C1Button DelCampignActivity_Butn;
+      private C1.Win.C1Input.C1Button AddCampignActivity_Butn;
       private DevExpress.XtraTab.XtraTabControl xtraTabControl4;
       private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
       private DevExpress.XtraGrid.GridControl gridControl6;
@@ -3761,11 +3765,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private Windows.Forms.Panel panel3;
-      private C1.Win.C1Input.C1Button c1Button1;
-      private C1.Win.C1Input.C1Button c1Button2;
-      private C1.Win.C1Input.C1Button c1Button3;
-      private C1.Win.C1Input.C1Button c1Button7;
-      private C1.Win.C1Input.C1Button c1Button20;
+      private C1.Win.C1Input.C1Button SaveRespons_Butn;
+      private C1.Win.C1Input.C1Button HelpRespons_Butn;
+      private C1.Win.C1Input.C1Button ShowRespons_Butn;
+      private C1.Win.C1Input.C1Button DelRespons_Butn;
+      private C1.Win.C1Input.C1Button AddRespons_Butn;
 
 
    }

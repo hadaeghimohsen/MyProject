@@ -192,9 +192,19 @@ namespace System.CRM.Ui.Campaign
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DysnoBs.DataSource = iCRM.D_YSNOs;
-         DcmstBs.DataSource = iCRM.D_CMSTs;
-
+         if (InvokeRequired)
+         {
+            Invoke(new Action(() =>
+            {
+               DysnoBs.DataSource = iCRM.D_YSNOs;
+               DcmstBs.DataSource = iCRM.D_CMSTs;
+            }));
+         }
+         else
+         {
+            DysnoBs.DataSource = iCRM.D_YSNOs;
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+         }
          job.Status = StatusType.Successful;
       }      
 

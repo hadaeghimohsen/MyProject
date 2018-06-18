@@ -496,6 +496,16 @@ namespace System.CRM.Code
             if (_Inf_Camq_F == null)
                _Inf_Camq_F = new Ui.CampaignQuick.INF_CAMQ_F { _DefaultGateway = this };
          }
+         else if (value == "shw_cama_f")
+         {
+            if (_Shw_Cama_F == null)
+               _Shw_Cama_F = new Ui.CampaignActivity.SHW_CAMA_F { _DefaultGateway = this };
+         }
+         else if (value == "inf_cama_f")
+         {
+            if (_Inf_Cama_F == null)
+               _Inf_Cama_F = new Ui.CampaignActivity.INF_CAMA_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -2719,9 +2729,9 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_cmpt_f"},
                   new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 02 /* Execute Set */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 07 /* Execute Load_Data */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 05 /* Execute OpenDrawer */)
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_CMPT_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2744,9 +2754,9 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_cmpt_f"},
                   new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 02 /* Execute Set */),
-                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "INF_CMPT_F", 05 /* Execute OpenDrawer */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2769,9 +2779,9 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_mklt_f"},
                   new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
-                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 05 /* Execute OpenDrawer */)
+                  new Job(SendType.SelfToUserInterface, "SHW_MKLT_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2794,9 +2804,9 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_mklt_f"},
                   new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
-                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 05 /* Execute OpenDrawer */)
+                  new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2819,9 +2829,9 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_camp_f"},
                   new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 02 /* Execute Set */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 07 /* Execute Load_Data */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 05 /* Execute OpenDrawer */)
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMP_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2844,9 +2854,10 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_camp_f"},
                   new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 02 /* Execute Set */),
-                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "INF_CAMP_F", 05 /* Execute OpenDrawer */)
+                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2869,9 +2880,10 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_camq_f"},
                   new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 02 /* Execute Set */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 05 /* Execute OpenDrawer */)
+                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -2894,9 +2906,60 @@ namespace System.CRM.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_camq_f"},
                   new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 02 /* Execute Set */),
-                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 03 /* Execute Paint */),
-                  new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 05 /* Execute OpenDrawer */)
+                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 100
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Cama_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_cama_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMA_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMA_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMA_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_CAMA_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 101
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Cama_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_cama_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

@@ -203,5 +203,65 @@ namespace System.CRM.Ui.Campaign
          }
       }
       #endregion
+
+      #region Campign Activity
+      private void AddCampignActivity_Butn_Click(object sender, EventArgs e)
+      {
+         if (campcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 97 /* Execute Inf_Camp_F */),
+                new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 10 /* Execute Actn_Calf_F */)
+                {
+                   Input = 
+                     new XElement("Campaign",
+                        new XAttribute("formcaller", GetType().Name),
+                        new XAttribute("campcode", campcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void DelCampignActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaveCampignActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ShowCampignActivity_Butn_Click(object sender, EventArgs e)
+      {
+         if (campcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 100 /* Execute Shw_Cama_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CAMA_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Campaign_Activity", 
+                        new XAttribute("onoftag", "on"),
+                        new XAttribute("campcode", campcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void HelpCampignActivity_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
    }
 }

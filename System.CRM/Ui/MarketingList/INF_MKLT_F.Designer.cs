@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -51,9 +50,9 @@
          this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-         this.MkltBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MkltBs = new System.Windows.Forms.BindingSource();
          this.TrcbTcid_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TrcbBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TrcbBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCURN_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCURN_SYMB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,7 +79,7 @@
          this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
          this.SubmitChangeClose_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.MkltBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.MkltBn = new System.Windows.Forms.BindingNavigator();
          this.SubmitChange_Butn = new System.Windows.Forms.ToolStripButton();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -89,46 +88,46 @@
          this.PrpsDesc_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.ListType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DstdyBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DstdyBs = new System.Windows.Forms.BindingSource();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.Trgt_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DtrgtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DtrgtBs = new System.Windows.Forms.BindingSource();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.Sorc_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.Cost_Lov = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.Ownr_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.JobpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.JobpBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DESC_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cmnt_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.LockStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DysnoBs = new System.Windows.Forms.BindingSource();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.label1 = new System.Windows.Forms.Label();
          this.MdfyDate_Dat = new Atf.UI.DateTimeSelector();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.MklcBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MklcBs = new System.Windows.Forms.BindingSource();
          this.Mklc_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCAMP_CMID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-         this.LstCampBs = new System.Windows.Forms.BindingSource(this.components);
+         this.LstCampBs = new System.Windows.Forms.BindingSource();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DcmstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcmstBs = new System.Windows.Forms.BindingSource();
          this.panel3 = new System.Windows.Forms.Panel();
          this.SaveCamp_Butn = new C1.Win.C1Input.C1Button();
          this.HelpCamp_Butn = new C1.Win.C1Input.C1Button();
          this.ShowCamp_Butn = new C1.Win.C1Input.C1Button();
          this.DelCamp_Butn = new C1.Win.C1Input.C1Button();
          this.AddCamp_Butn = new C1.Win.C1Input.C1Button();
-         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
+         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip();
          this.HelpNote_Butn = new C1.Win.C1Input.C1Button();
          this.SaveNote_Butn = new C1.Win.C1Input.C1Button();
          this.DelNote_Butn = new C1.Win.C1Input.C1Button();
@@ -149,7 +148,7 @@
          this.c1Button26 = new C1.Win.C1Input.C1Button();
          this.c1Button27 = new C1.Win.C1Input.C1Button();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
+         this.NoteBs = new System.Windows.Forms.BindingSource();
          this.Note_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colNOTE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -163,7 +162,7 @@
          this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
          this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.CamqBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CamqBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colOWNR_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUBJ_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -178,7 +177,7 @@
          this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
-         this.DcntpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcntpBs = new System.Windows.Forms.BindingSource();
          this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
          this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
@@ -314,7 +313,7 @@
          this.labelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(1112, 83);
+         this.labelControl39.Location = new System.Drawing.Point(1132, 83);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(62, 27);
          this.labelControl39.TabIndex = 4;
@@ -328,7 +327,7 @@
          this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(1112, 252);
+         this.labelControl20.Location = new System.Drawing.Point(1132, 252);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(63, 26);
          this.labelControl20.TabIndex = 24;
@@ -346,7 +345,7 @@
          this.labelControl11.LineColor = System.Drawing.Color.Blue;
          this.labelControl11.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl11.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl11.Location = new System.Drawing.Point(311, 83);
+         this.labelControl11.Location = new System.Drawing.Point(331, 83);
          this.labelControl11.Name = "labelControl11";
          this.labelControl11.Size = new System.Drawing.Size(75, 27);
          this.labelControl11.TabIndex = 26;
@@ -362,7 +361,7 @@
          this.TrcbTcid_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TrcbTcid_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "TRCB_TCID", true));
          this.TrcbTcid_Lov.EditValue = "";
-         this.TrcbTcid_Lov.Location = new System.Drawing.Point(859, 250);
+         this.TrcbTcid_Lov.Location = new System.Drawing.Point(879, 250);
          this.TrcbTcid_Lov.Name = "TrcbTcid_Lov";
          this.TrcbTcid_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.TrcbTcid_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -445,7 +444,7 @@
          this.Name_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Name_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "NAME", true));
          this.Name_Txt.EditValue = "";
-         this.Name_Txt.Location = new System.Drawing.Point(859, 82);
+         this.Name_Txt.Location = new System.Drawing.Point(879, 82);
          this.Name_Txt.Name = "Name_Txt";
          this.Name_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Name_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -665,7 +664,7 @@
          this.MkltBn.Name = "MkltBn";
          this.MkltBn.PositionItem = null;
          this.MkltBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.MkltBn.Size = new System.Drawing.Size(1194, 47);
+         this.MkltBn.Size = new System.Drawing.Size(1214, 47);
          this.MkltBn.TabIndex = 1;
          this.MkltBn.Text = "bindingNavigator1";
          // 
@@ -688,7 +687,7 @@
          this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(1053, 50);
+         this.labelControl4.Location = new System.Drawing.Point(1073, 50);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(122, 27);
          this.labelControl4.TabIndex = 16;
@@ -706,7 +705,7 @@
          this.labelControl1.LineColor = System.Drawing.Color.Blue;
          this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl1.Location = new System.Drawing.Point(214, 83);
+         this.labelControl1.Location = new System.Drawing.Point(234, 83);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(60, 27);
          this.labelControl1.TabIndex = 26;
@@ -716,7 +715,7 @@
          // 
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label3.Location = new System.Drawing.Point(390, 83);
+         this.label3.Location = new System.Drawing.Point(410, 83);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(6, 60);
          this.label3.TabIndex = 50;
@@ -725,7 +724,7 @@
          // 
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label4.Location = new System.Drawing.Point(279, 83);
+         this.label4.Location = new System.Drawing.Point(299, 83);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(6, 60);
          this.label4.TabIndex = 50;
@@ -735,7 +734,7 @@
          this.PrpsDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PrpsDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "PRPS_DESC", true));
          this.PrpsDesc_Txt.EditValue = "";
-         this.PrpsDesc_Txt.Location = new System.Drawing.Point(859, 150);
+         this.PrpsDesc_Txt.Location = new System.Drawing.Point(879, 150);
          this.PrpsDesc_Txt.Name = "PrpsDesc_Txt";
          this.PrpsDesc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.PrpsDesc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -766,7 +765,7 @@
          this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(1112, 151);
+         this.labelControl5.Location = new System.Drawing.Point(1132, 151);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(61, 25);
          this.labelControl5.TabIndex = 22;
@@ -776,7 +775,7 @@
          // 
          this.ListType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ListType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "LIST_TYPE", true));
-         this.ListType_Lov.Location = new System.Drawing.Point(946, 116);
+         this.ListType_Lov.Location = new System.Drawing.Point(966, 116);
          this.ListType_Lov.Name = "ListType_Lov";
          this.ListType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ListType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -824,7 +823,7 @@
          this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(1112, 117);
+         this.labelControl6.Location = new System.Drawing.Point(1132, 117);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(77, 27);
          this.labelControl6.TabIndex = 4;
@@ -834,7 +833,7 @@
          // 
          this.Trgt_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Trgt_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "TRGT", true));
-         this.Trgt_Lov.Location = new System.Drawing.Point(946, 182);
+         this.Trgt_Lov.Location = new System.Drawing.Point(966, 182);
          this.Trgt_Lov.Name = "Trgt_Lov";
          this.Trgt_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Trgt_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -882,7 +881,7 @@
          this.labelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(1112, 183);
+         this.labelControl7.Location = new System.Drawing.Point(1132, 183);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(79, 27);
          this.labelControl7.TabIndex = 4;
@@ -893,7 +892,7 @@
          this.Sorc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Sorc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "SORC", true));
          this.Sorc_Txt.EditValue = "";
-         this.Sorc_Txt.Location = new System.Drawing.Point(859, 216);
+         this.Sorc_Txt.Location = new System.Drawing.Point(879, 216);
          this.Sorc_Txt.Name = "Sorc_Txt";
          this.Sorc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Sorc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -924,7 +923,7 @@
          this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl8.Location = new System.Drawing.Point(1112, 217);
+         this.labelControl8.Location = new System.Drawing.Point(1132, 217);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(61, 25);
          this.labelControl8.TabIndex = 22;
@@ -935,7 +934,7 @@
          this.Cost_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cost_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "COST_AMNT", true));
          this.Cost_Lov.EditValue = "";
-         this.Cost_Lov.Location = new System.Drawing.Point(946, 284);
+         this.Cost_Lov.Location = new System.Drawing.Point(966, 284);
          this.Cost_Lov.Name = "Cost_Lov";
          this.Cost_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cost_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -974,7 +973,7 @@
          this.labelControl9.LineColor = System.Drawing.Color.Blue;
          this.labelControl9.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl9.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl9.Location = new System.Drawing.Point(1112, 284);
+         this.labelControl9.Location = new System.Drawing.Point(1132, 284);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(57, 27);
          this.labelControl9.TabIndex = 26;
@@ -985,7 +984,7 @@
          this.Ownr_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ownr_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "OWNR_CODE", true));
          this.Ownr_Lov.EditValue = "";
-         this.Ownr_Lov.Location = new System.Drawing.Point(125, 115);
+         this.Ownr_Lov.Location = new System.Drawing.Point(145, 115);
          this.Ownr_Lov.Name = "Ownr_Lov";
          this.Ownr_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Ownr_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1049,7 +1048,7 @@
          this.Cmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cmnt_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "CMNT", true));
          this.Cmnt_Txt.EditValue = "";
-         this.Cmnt_Txt.Location = new System.Drawing.Point(859, 318);
+         this.Cmnt_Txt.Location = new System.Drawing.Point(879, 318);
          this.Cmnt_Txt.Name = "Cmnt_Txt";
          this.Cmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cmnt_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1081,7 +1080,7 @@
          this.labelControl3.LineColor = System.Drawing.Color.Blue;
          this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl3.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl3.Location = new System.Drawing.Point(1112, 319);
+         this.labelControl3.Location = new System.Drawing.Point(1132, 319);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(57, 27);
          this.labelControl3.TabIndex = 26;
@@ -1091,7 +1090,7 @@
          // 
          this.LockStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LockStat_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "LOCK_STAT", true));
-         this.LockStat_Lov.Location = new System.Drawing.Point(291, 115);
+         this.LockStat_Lov.Location = new System.Drawing.Point(311, 115);
          this.LockStat_Lov.Name = "LockStat_Lov";
          this.LockStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.LockStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1142,7 +1141,7 @@
          this.labelControl2.LineColor = System.Drawing.Color.Blue;
          this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl2.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl2.Location = new System.Drawing.Point(7, 83);
+         this.labelControl2.Location = new System.Drawing.Point(27, 83);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(100, 27);
          this.labelControl2.TabIndex = 26;
@@ -1152,7 +1151,7 @@
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label1.Location = new System.Drawing.Point(113, 83);
+         this.label1.Location = new System.Drawing.Point(133, 83);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(6, 60);
          this.label1.TabIndex = 50;
@@ -1163,7 +1162,7 @@
          this.MdfyDate_Dat.CustomFormat = "dd/MM/yyyy";
          this.MdfyDate_Dat.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.MkltBs, "MDFY_DATE", true));
          this.MdfyDate_Dat.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.MdfyDate_Dat.Location = new System.Drawing.Point(7, 118);
+         this.MdfyDate_Dat.Location = new System.Drawing.Point(27, 118);
          this.MdfyDate_Dat.Name = "MdfyDate_Dat";
          this.MdfyDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.MdfyDate_Dat.Size = new System.Drawing.Size(100, 23);
@@ -1884,7 +1883,7 @@
          this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(1064, 422);
+         this.labelControl10.Location = new System.Drawing.Point(1084, 422);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(105, 27);
          this.labelControl10.TabIndex = 59;
@@ -1901,7 +1900,7 @@
          this.xtraTabControl1.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl1.Location = new System.Drawing.Point(7, 153);
+         this.xtraTabControl1.Location = new System.Drawing.Point(27, 153);
          this.xtraTabControl1.Name = "xtraTabControl1";
          this.xtraTabControl1.PaintStyleName = "PropertyView";
          this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
@@ -2135,11 +2134,11 @@
          this.xtraTabControl2.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl2.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl2.Location = new System.Drawing.Point(431, 83);
+         this.xtraTabControl2.Location = new System.Drawing.Point(444, 83);
          this.xtraTabControl2.Name = "xtraTabControl2";
          this.xtraTabControl2.PaintStyleName = "PropertyView";
          this.xtraTabControl2.SelectedTabPage = this.xtraTabPage3;
-         this.xtraTabControl2.Size = new System.Drawing.Size(388, 333);
+         this.xtraTabControl2.Size = new System.Drawing.Size(408, 333);
          this.xtraTabControl2.TabIndex = 61;
          this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
@@ -2155,7 +2154,7 @@
          this.xtraTabPage3.Controls.Add(this.panel4);
          this.xtraTabPage3.Name = "xtraTabPage3";
          this.xtraTabPage3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage3.Size = new System.Drawing.Size(388, 312);
+         this.xtraTabPage3.Size = new System.Drawing.Size(408, 312);
          this.xtraTabPage3.Text = "سرنخ های تجاری";
          // 
          // gridControl4
@@ -2170,7 +2169,7 @@
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.repositoryItemSearchLookUpEdit3});
-         this.gridControl4.Size = new System.Drawing.Size(388, 281);
+         this.gridControl4.Size = new System.Drawing.Size(408, 281);
          this.gridControl4.TabIndex = 59;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2296,7 +2295,7 @@
          this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel4.Location = new System.Drawing.Point(0, 0);
          this.panel4.Name = "panel4";
-         this.panel4.Size = new System.Drawing.Size(388, 31);
+         this.panel4.Size = new System.Drawing.Size(408, 31);
          this.panel4.TabIndex = 55;
          // 
          // xtraTabPage4
@@ -2508,7 +2507,7 @@
          this.xtraTabControl4.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl4.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl4.Location = new System.Drawing.Point(7, 455);
+         this.xtraTabControl4.Location = new System.Drawing.Point(27, 455);
          this.xtraTabControl4.Name = "xtraTabControl4";
          this.xtraTabControl4.PaintStyleName = "PropertyView";
          this.xtraTabControl4.SelectedTabPage = this.xtraTabPage7;
@@ -2566,7 +2565,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "INF_MKLT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1194, 696);
+         this.Size = new System.Drawing.Size(1214, 696);
          ((System.ComponentModel.ISupportInitialize)(this.MkltBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbTcid_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbBs)).EndInit();

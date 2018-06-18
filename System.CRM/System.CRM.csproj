@@ -2613,6 +2613,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_CETP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLON.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLVW.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CMAT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CMST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CNTP.datasource" />
@@ -2635,6 +2636,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_PERM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PLTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PMTM.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_PRIO.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PSTG.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PYD.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RCMT.datasource" />

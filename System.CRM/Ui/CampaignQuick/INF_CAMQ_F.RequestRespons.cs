@@ -229,11 +229,27 @@ namespace System.CRM.Ui.CampaignQuick
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+         if (InvokeRequired)
+         {
+            Invoke(
+               new Action(() =>
+                  {
+                     JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
-         DcmstBs.DataSource = iCRM.D_CMSTs;
-         DtrgtBs.DataSource = iCRM.D_TRGTs;
-         DcntpBs.DataSource = iCRM.D_CNTPs;         
+                     DcmstBs.DataSource = iCRM.D_CMSTs;
+                     DtrgtBs.DataSource = iCRM.D_TRGTs;
+                     DcntpBs.DataSource = iCRM.D_CNTPs;
+                  })
+               );
+         }
+         else
+         {
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+            DtrgtBs.DataSource = iCRM.D_TRGTs;
+            DcntpBs.DataSource = iCRM.D_CNTPs;
+         }
 
          job.Status = StatusType.Successful;
       }
@@ -256,7 +272,10 @@ namespace System.CRM.Ui.CampaignQuick
                camqcode = null;
 
          }
-         Execute_Query();
+         if (InvokeRequired)
+            Invoke(new Action(() => Execute_Query()));
+         else 
+            Execute_Query();
          job.Status = StatusType.Successful;
       }
 

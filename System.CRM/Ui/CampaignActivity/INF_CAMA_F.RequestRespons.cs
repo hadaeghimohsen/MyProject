@@ -229,13 +229,27 @@ namespace System.CRM.Ui.CampaignActivity
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-         JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+         if (InvokeRequired)
+         {
+            Invoke(new Action(() =>
+               {
+                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
-         DcmstBs.DataSource = iCRM.D_CMSTs;
-         DcamtBs.DataSource = iCRM.D_CAMTs;
-         DysnoBs.DataSource = iCRM.D_YSNOs;         
+                  DcmstBs.DataSource = iCRM.D_CMSTs;
+                  DcmatBs.DataSource = iCRM.D_CMATs;
+                  DcntpBs.DataSource = iCRM.D_YSNOs;
+               }));
+         }
+         else
+         {
+            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+            DcmatBs.DataSource = iCRM.D_CMATs;
+            DcntpBs.DataSource = iCRM.D_YSNOs;
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -251,13 +265,21 @@ namespace System.CRM.Ui.CampaignActivity
             if (xinput.Attribute("formcaller") != null)
                formCaller = xinput.Attribute("formcaller").Value;
 
+            if (xinput.Attribute("camacode") != null)
+               camacode = Convert.ToInt64(xinput.Attribute("camacode").Value);
+            else
+               camacode = null;
+
             if (xinput.Attribute("campcode") != null)
                campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
             else
                campcode = null;
 
          }
-         Execute_Query();
+         if (InvokeRequired)
+            Invoke(new Action(() => Execute_Query()));
+         else
+            Execute_Query();
          job.Status = StatusType.Successful;
       }
 

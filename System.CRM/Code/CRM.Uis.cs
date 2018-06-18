@@ -111,5 +111,8 @@ namespace System.CRM.Code
 
       internal Ui.CampaignQuick.INF_CAMQ_F _Inf_Camq_F { get; set; }
       internal Ui.CampaignQuick.SHW_CAMQ_F _Shw_Camq_F { get; set; }
+
+      internal Ui.CampaignActivity.INF_CAMA_F _Inf_Cama_F { get; set; }
+      internal Ui.CampaignActivity.SHW_CAMA_F _Shw_Cama_F { get; set; }
    }
 }

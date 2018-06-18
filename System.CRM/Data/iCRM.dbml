@@ -3738,6 +3738,18 @@
       <Argument Parameter="ovid" Member="OVID" />
     </DeleteFunction>
   </Table>
+  <Table Name="dbo.D$PRIO" Member="D_PRIOs">
+    <Type Name="D_PRIO">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$CMAT" Member="D_CMATs">
+    <Type Name="D_CMAT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />

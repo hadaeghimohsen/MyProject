@@ -192,11 +192,25 @@ namespace System.CRM.Ui.CampaignQuick
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
+         if (InvokeRequired)
+         {
+            Invoke(
+               new Action(() =>
+               {
+                  JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
 
-         DcntpBs.DataSource = iCRM.D_CNTPs;
-         DcmstBs.DataSource = iCRM.D_CMSTs;
+                  DcntpBs.DataSource = iCRM.D_CNTPs;
+                  DcmstBs.DataSource = iCRM.D_CMSTs;
+               })
+            );
+         }
+         else
+         {
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
 
+            DcntpBs.DataSource = iCRM.D_CNTPs;
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+         }
          job.Status = StatusType.Successful;
       }      
 

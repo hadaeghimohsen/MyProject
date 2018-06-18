@@ -16,7 +16,7 @@ namespace System.CRM.Ui.CampaignActivity
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private string formcaller = "none";
+      private string formCaller = "none";
 
       public void SendRequest(Job job)
       {
@@ -192,9 +192,21 @@ namespace System.CRM.Ui.CampaignActivity
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DysnoBs.DataSource = iCRM.D_YSNOs;
-         DcmstBs.DataSource = iCRM.D_CMSTs;
-
+         if (InvokeRequired)
+         {
+            Invoke(new Action(() =>
+            {
+               JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
+               DcmstBs.DataSource = iCRM.D_CMSTs;
+               DcntpBs.DataSource = iCRM.D_CNTPs;
+            }));
+         }
+         else
+         {
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+            DcntpBs.DataSource = iCRM.D_CNTPs;
+         }
          job.Status = StatusType.Successful;
       }      
 
@@ -204,6 +216,18 @@ namespace System.CRM.Ui.CampaignActivity
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            if (xinput.Attribute("formcaller") != null)
+               formCaller = xinput.Attribute("formcaller").Value;
+
+            if (xinput.Attribute("campcode") != null)
+               campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
+            else
+               campcode = null;
+         }
+
          if (InvokeRequired)
             Invoke(new Action(() => Execute_Query()));
          else

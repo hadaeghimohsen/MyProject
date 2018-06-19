@@ -16,7 +16,7 @@ namespace System.CRM.Ui.CampaignQuick
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private string formcaller = "none";
+      private string formCaller = "none";
 
       public void SendRequest(Job job)
       {
@@ -220,6 +220,17 @@ namespace System.CRM.Ui.CampaignQuick
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            if (xinput.Attribute("formcaller") != null)
+               formCaller = xinput.Attribute("formcaller").Value;
+
+            if (xinput.Attribute("mkltcode") != null)
+               mkltcode = Convert.ToInt64(xinput.Attribute("mkltcode").Value);
+            else
+               mkltcode = null;
+         }
          if (InvokeRequired)
             Invoke(new Action(() => Execute_Query()));
          else

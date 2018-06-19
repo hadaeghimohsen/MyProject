@@ -271,6 +271,10 @@ namespace System.CRM.Ui.CampaignQuick
             else
                camqcode = null;
 
+            if (xinput.Attribute("mkltcode") != null)
+               mkltcode = Convert.ToInt64(xinput.Attribute("mkltcode").Value);
+            else
+               mkltcode = null;
          }
          if (InvokeRequired)
             Invoke(new Action(() => Execute_Query()));

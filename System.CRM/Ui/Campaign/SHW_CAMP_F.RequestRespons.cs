@@ -224,7 +224,6 @@ namespace System.CRM.Ui.Campaign
                mkltcode = Convert.ToInt64(xinput.Attribute("mkltcode").Value);
             else
                mkltcode = null;
-
          }
          if (InvokeRequired)
             Invoke(new Action(() => Execute_Query()));

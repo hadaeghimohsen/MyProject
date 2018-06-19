@@ -24,6 +24,8 @@ namespace System.CRM.Ui.CampaignQuick
       }
 
       private bool requery = false;
+      private XElement xinput;
+      private long? mkltcode;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -36,7 +38,7 @@ namespace System.CRM.Ui.CampaignQuick
       {
          try
          {
-            CamqBs.DataSource = iCRM.Campaign_Quicks;
+            CamqBs.DataSource = iCRM.Campaign_Quicks.Where(cq => (mkltcode == null || cq.MKLT_MLID == mkltcode));
                
             requery = false;
          }
@@ -46,6 +48,8 @@ namespace System.CRM.Ui.CampaignQuick
       #region Menu
       private void New_Butn_Click(object sender, EventArgs e)
       {
+         if (mkltcode == null) return;
+
          Job _InteractWithCRM =
            new Job(SendType.External, "Localhost",
               new List<Job>
@@ -55,7 +59,8 @@ namespace System.CRM.Ui.CampaignQuick
                 {
                    Input = 
                      new XElement("Campaign_Quick",
-                        new XAttribute("formcaller", GetType().Name)
+                        new XAttribute("formcaller", GetType().Name),
+                        new XAttribute("mkltcode", mkltcode)
                      )
                 }
               });
@@ -79,7 +84,8 @@ namespace System.CRM.Ui.CampaignQuick
                       Input = 
                         new XElement("Campaign",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("camqcode", camq.QCID)
+                           new XAttribute("camqcode", camq.QCID),
+                           new XAttribute("mkltcode", camq.MKLT_MLID)
                         )
                    }
                  }

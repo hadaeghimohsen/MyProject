@@ -24,7 +24,7 @@ namespace System.CRM.Ui.CampaignQuick
       private bool requery = false;
       private string formCaller;
       private XElement xinput;
-      private long? camqcode;
+      private long? camqcode, mkltcode;
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -37,7 +37,7 @@ namespace System.CRM.Ui.CampaignQuick
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
 
-         //CmptBs.List.Clear();
+         LstMkltBs.DataSource = iCRM.Marketing_Lists.Where(m => m.MLID == mkltcode);
 
          if (camqcode != null)
          {
@@ -49,11 +49,13 @@ namespace System.CRM.Ui.CampaignQuick
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");            
+
             CamqBs.AddNew();
             var camq = CamqBs.Current as Data.Campaign_Quick;
 
             camq.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;
+            camq.MKLT_MLID = mkltcode;
             camq.MEMB_TYPE = "001";
             camq.STAT_RESN = "001";
             camq.ACTV_TYPE = "001";           

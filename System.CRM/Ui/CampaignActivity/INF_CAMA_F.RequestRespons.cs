@@ -274,8 +274,8 @@ namespace System.CRM.Ui.CampaignActivity
                campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
             else
                campcode = null;
-
          }
+
          if (InvokeRequired)
             Invoke(new Action(() => Execute_Query()));
          else

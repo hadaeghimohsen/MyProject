@@ -45,6 +45,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.CamqBs = new System.Windows.Forms.BindingSource(this.components);
@@ -184,6 +186,12 @@
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.panel3 = new System.Windows.Forms.Panel();
+         this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
+         this.LstMkltBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          ((System.ComponentModel.ISupportInitialize)(this.CamqBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubjDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).BeginInit();
@@ -272,6 +280,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView14)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          this.panel3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstMkltBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
          this.SuspendLayout();
          // 
          // labelControl39
@@ -283,7 +294,7 @@
          this.labelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(1118, 83);
+         this.labelControl39.Location = new System.Drawing.Point(1068, 83);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(62, 27);
          this.labelControl39.TabIndex = 4;
@@ -300,7 +311,7 @@
          this.labelControl11.LineColor = System.Drawing.Color.Blue;
          this.labelControl11.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl11.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl11.Location = new System.Drawing.Point(539, 81);
+         this.labelControl11.Location = new System.Drawing.Point(523, 81);
          this.labelControl11.Name = "labelControl11";
          this.labelControl11.Size = new System.Drawing.Size(75, 27);
          this.labelControl11.TabIndex = 26;
@@ -316,11 +327,11 @@
          this.SubjDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SubjDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "SUBJ_DESC", true));
          this.SubjDesc_Txt.EditValue = "";
-         this.SubjDesc_Txt.Location = new System.Drawing.Point(857, 82);
+         this.SubjDesc_Txt.Location = new System.Drawing.Point(807, 82);
          this.SubjDesc_Txt.Name = "SubjDesc_Txt";
          this.SubjDesc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.SubjDesc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.SubjDesc_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SubjDesc_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SubjDesc_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.SubjDesc_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.SubjDesc_Txt.Properties.Appearance.Options.UseFont = true;
@@ -536,7 +547,7 @@
          this.CampBn.Name = "CampBn";
          this.CampBn.PositionItem = null;
          this.CampBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.CampBn.Size = new System.Drawing.Size(1200, 47);
+         this.CampBn.Size = new System.Drawing.Size(1150, 47);
          this.CampBn.TabIndex = 1;
          this.CampBn.Text = "bindingNavigator1";
          // 
@@ -559,7 +570,7 @@
          this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(1038, 50);
+         this.labelControl4.Location = new System.Drawing.Point(988, 50);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(143, 27);
          this.labelControl4.TabIndex = 16;
@@ -569,7 +580,7 @@
          // 
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label3.Location = new System.Drawing.Point(618, 81);
+         this.label3.Location = new System.Drawing.Point(602, 81);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(6, 60);
          this.label3.TabIndex = 50;
@@ -578,11 +589,11 @@
          // 
          this.ListType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ListType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "ACTV_TYPE", true));
-         this.ListType_Lov.Location = new System.Drawing.Point(952, 116);
+         this.ListType_Lov.Location = new System.Drawing.Point(902, 116);
          this.ListType_Lov.Name = "ListType_Lov";
          this.ListType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ListType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.ListType_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ListType_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ListType_Lov.Properties.Appearance.Options.UseBackColor = true;
          this.ListType_Lov.Properties.Appearance.Options.UseBorderColor = true;
          this.ListType_Lov.Properties.Appearance.Options.UseFont = true;
@@ -630,7 +641,7 @@
          this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(1118, 117);
+         this.labelControl6.Location = new System.Drawing.Point(1068, 117);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(68, 27);
          this.labelControl6.TabIndex = 4;
@@ -645,11 +656,11 @@
          this.Cost_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cost_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "NUMB_SUCS", true));
          this.Cost_Lov.EditValue = "";
-         this.Cost_Lov.Location = new System.Drawing.Point(1038, 150);
+         this.Cost_Lov.Location = new System.Drawing.Point(988, 184);
          this.Cost_Lov.Name = "Cost_Lov";
          this.Cost_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cost_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Cost_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cost_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Cost_Lov.Properties.Appearance.Options.UseBackColor = true;
          this.Cost_Lov.Properties.Appearance.Options.UseBorderColor = true;
          this.Cost_Lov.Properties.Appearance.Options.UseFont = true;
@@ -687,7 +698,7 @@
          this.labelControl9.LineColor = System.Drawing.Color.Blue;
          this.labelControl9.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl9.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl9.Location = new System.Drawing.Point(1118, 150);
+         this.labelControl9.Location = new System.Drawing.Point(1068, 184);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(79, 27);
          this.labelControl9.TabIndex = 26;
@@ -701,11 +712,11 @@
          // 
          this.LockStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LockStat_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "MEMB_TYPE", true));
-         this.LockStat_Lov.Location = new System.Drawing.Point(470, 113);
+         this.LockStat_Lov.Location = new System.Drawing.Point(454, 113);
          this.LockStat_Lov.Name = "LockStat_Lov";
          this.LockStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.LockStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.LockStat_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LockStat_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LockStat_Lov.Properties.Appearance.Options.UseBackColor = true;
          this.LockStat_Lov.Properties.Appearance.Options.UseBorderColor = true;
          this.LockStat_Lov.Properties.Appearance.Options.UseFont = true;
@@ -748,7 +759,7 @@
          this.labelControl2.LineColor = System.Drawing.Color.Blue;
          this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl2.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl2.Location = new System.Drawing.Point(411, 81);
+         this.labelControl2.Location = new System.Drawing.Point(395, 81);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(41, 27);
          this.labelControl2.TabIndex = 26;
@@ -758,7 +769,7 @@
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label1.Location = new System.Drawing.Point(458, 81);
+         this.label1.Location = new System.Drawing.Point(442, 81);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(6, 60);
          this.label1.TabIndex = 50;
@@ -767,13 +778,13 @@
          // 
          this.splitContainerControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.splitContainerControl2.Horizontal = false;
-         this.splitContainerControl2.Location = new System.Drawing.Point(50, 147);
+         this.splitContainerControl2.Location = new System.Drawing.Point(34, 147);
          this.splitContainerControl2.Name = "splitContainerControl2";
          this.splitContainerControl2.Panel1.Controls.Add(this.xtraTabControl1);
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.xtraTabControl2);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(315, 410);
+         this.splitContainerControl2.Size = new System.Drawing.Size(323, 410);
          this.splitContainerControl2.SplitterPosition = 196;
          this.splitContainerControl2.TabIndex = 0;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -793,7 +804,7 @@
          this.xtraTabControl1.Name = "xtraTabControl1";
          this.xtraTabControl1.PaintStyleName = "PropertyView";
          this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-         this.xtraTabControl1.Size = new System.Drawing.Size(315, 196);
+         this.xtraTabControl1.Size = new System.Drawing.Size(323, 196);
          this.xtraTabControl1.TabIndex = 63;
          this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -806,7 +817,7 @@
          this.xtraTabPage1.Controls.Add(this.panel7);
          this.xtraTabPage1.Name = "xtraTabPage1";
          this.xtraTabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage1.Size = new System.Drawing.Size(315, 175);
+         this.xtraTabPage1.Size = new System.Drawing.Size(323, 175);
          this.xtraTabPage1.Text = "اعضای انتخاب شده";
          // 
          // gridControl4
@@ -820,7 +831,7 @@
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2,
             this.repositoryItemSearchLookUpEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(315, 144);
+         this.gridControl4.Size = new System.Drawing.Size(323, 144);
          this.gridControl4.TabIndex = 59;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Mklc_Gv});
@@ -945,7 +956,7 @@
          this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel7.Location = new System.Drawing.Point(0, 0);
          this.panel7.Name = "panel7";
-         this.panel7.Size = new System.Drawing.Size(315, 31);
+         this.panel7.Size = new System.Drawing.Size(323, 31);
          this.panel7.TabIndex = 55;
          // 
          // SaveCamp_Butn
@@ -1048,7 +1059,7 @@
          this.xtraTabControl2.Name = "xtraTabControl2";
          this.xtraTabControl2.PaintStyleName = "PropertyView";
          this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
-         this.xtraTabControl2.Size = new System.Drawing.Size(315, 209);
+         this.xtraTabControl2.Size = new System.Drawing.Size(323, 209);
          this.xtraTabControl2.TabIndex = 63;
          this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage2});
@@ -1061,7 +1072,7 @@
          this.xtraTabPage2.Controls.Add(this.panel2);
          this.xtraTabPage2.Name = "xtraTabPage2";
          this.xtraTabPage2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage2.Size = new System.Drawing.Size(315, 188);
+         this.xtraTabPage2.Size = new System.Drawing.Size(323, 188);
          this.xtraTabPage2.Text = "اعضای حذف شده";
          // 
          // gridControl2
@@ -1075,7 +1086,7 @@
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.repositoryItemSearchLookUpEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(315, 157);
+         this.gridControl2.Size = new System.Drawing.Size(323, 157);
          this.gridControl2.TabIndex = 59;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1200,7 +1211,7 @@
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(0, 0);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(315, 31);
+         this.panel2.Size = new System.Drawing.Size(323, 31);
          this.panel2.TabIndex = 55;
          // 
          // c1Button6
@@ -1292,11 +1303,11 @@
          // 
          this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "STAT_RESN", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(334, 113);
+         this.lookUpEdit1.Location = new System.Drawing.Point(318, 113);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.lookUpEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.lookUpEdit1.Properties.Appearance.Options.UseBackColor = true;
          this.lookUpEdit1.Properties.Appearance.Options.UseBorderColor = true;
          this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
@@ -1331,7 +1342,7 @@
          // 
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label2.Location = new System.Drawing.Point(322, 81);
+         this.label2.Location = new System.Drawing.Point(306, 81);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(6, 60);
          this.label2.TabIndex = 50;
@@ -1340,7 +1351,7 @@
          // 
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label4.Location = new System.Drawing.Point(204, 81);
+         this.label4.Location = new System.Drawing.Point(188, 81);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(6, 60);
          this.label4.TabIndex = 50;
@@ -1358,7 +1369,7 @@
          this.labelControl27.LineColor = System.Drawing.Color.Blue;
          this.labelControl27.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl27.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl27.Location = new System.Drawing.Point(161, 83);
+         this.labelControl27.Location = new System.Drawing.Point(145, 83);
          this.labelControl27.Name = "labelControl27";
          this.labelControl27.Size = new System.Drawing.Size(37, 27);
          this.labelControl27.TabIndex = 26;
@@ -1369,11 +1380,11 @@
          this.Ownr_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ownr_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "OWNR_CODE", true));
          this.Ownr_Lov.EditValue = "";
-         this.Ownr_Lov.Location = new System.Drawing.Point(50, 113);
+         this.Ownr_Lov.Location = new System.Drawing.Point(34, 113);
          this.Ownr_Lov.Name = "Ownr_Lov";
          this.Ownr_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Ownr_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Ownr_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Ownr_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Ownr_Lov.Properties.Appearance.Options.UseBackColor = true;
          this.Ownr_Lov.Properties.Appearance.Options.UseBorderColor = true;
          this.Ownr_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1436,7 +1447,7 @@
          this.labelControl1.LineColor = System.Drawing.Color.Blue;
          this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl1.Location = new System.Drawing.Point(1118, 184);
+         this.labelControl1.Location = new System.Drawing.Point(1068, 218);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(79, 27);
          this.labelControl1.TabIndex = 26;
@@ -1447,11 +1458,11 @@
          this.buttonEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "NUMB_FAIL", true));
          this.buttonEdit2.EditValue = "";
-         this.buttonEdit2.Location = new System.Drawing.Point(1038, 184);
+         this.buttonEdit2.Location = new System.Drawing.Point(988, 218);
          this.buttonEdit2.Name = "buttonEdit2";
          this.buttonEdit2.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit2.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.buttonEdit2.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.buttonEdit2.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.buttonEdit2.Properties.Appearance.Options.UseBackColor = true;
          this.buttonEdit2.Properties.Appearance.Options.UseBorderColor = true;
          this.buttonEdit2.Properties.Appearance.Options.UseFont = true;
@@ -1482,11 +1493,11 @@
          this.Cmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cmnt_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "EROR_DESC", true));
          this.Cmnt_Txt.EditValue = "";
-         this.Cmnt_Txt.Location = new System.Drawing.Point(857, 218);
+         this.Cmnt_Txt.Location = new System.Drawing.Point(807, 252);
          this.Cmnt_Txt.Name = "Cmnt_Txt";
          this.Cmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cmnt_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Cmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Cmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Cmnt_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.Cmnt_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.Cmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1499,7 +1510,7 @@
          this.Cmnt_Txt.Properties.NullText = "---";
          this.Cmnt_Txt.Properties.NullValuePrompt = "---";
          this.Cmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.Cmnt_Txt.Size = new System.Drawing.Size(256, 339);
+         this.Cmnt_Txt.Size = new System.Drawing.Size(256, 305);
          this.Cmnt_Txt.TabIndex = 4;
          // 
          // labelControl3
@@ -1514,7 +1525,7 @@
          this.labelControl3.LineColor = System.Drawing.Color.Blue;
          this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl3.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl3.Location = new System.Drawing.Point(1118, 219);
+         this.labelControl3.Location = new System.Drawing.Point(1068, 254);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(57, 27);
          this.labelControl3.TabIndex = 58;
@@ -1526,7 +1537,7 @@
          this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CamqBs, "CRET_DATE", true));
          this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(216, 116);
+         this.dateTimeSelector1.Location = new System.Drawing.Point(200, 116);
          this.dateTimeSelector1.Name = "dateTimeSelector1";
          this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector1.Size = new System.Drawing.Size(100, 23);
@@ -1544,7 +1555,7 @@
          this.labelControl5.LineColor = System.Drawing.Color.Blue;
          this.labelControl5.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl5.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl5.Location = new System.Drawing.Point(253, 83);
+         this.labelControl5.Location = new System.Drawing.Point(237, 83);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(63, 27);
          this.labelControl5.TabIndex = 26;
@@ -1808,7 +1819,7 @@
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(1121, 563);
+         this.labelControl7.Location = new System.Drawing.Point(1071, 563);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(63, 27);
          this.labelControl7.TabIndex = 63;
@@ -1825,11 +1836,11 @@
          this.xtraTabControl4.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl4.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl4.Location = new System.Drawing.Point(396, 148);
+         this.xtraTabControl4.Location = new System.Drawing.Point(382, 148);
          this.xtraTabControl4.Name = "xtraTabControl4";
          this.xtraTabControl4.PaintStyleName = "PropertyView";
          this.xtraTabControl4.SelectedTabPage = this.xtraTabPage4;
-         this.xtraTabControl4.Size = new System.Drawing.Size(434, 409);
+         this.xtraTabControl4.Size = new System.Drawing.Size(398, 409);
          this.xtraTabControl4.TabIndex = 64;
          this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage4,
@@ -1844,7 +1855,7 @@
          this.xtraTabPage4.Controls.Add(this.panel6);
          this.xtraTabPage4.Name = "xtraTabPage4";
          this.xtraTabPage4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage4.Size = new System.Drawing.Size(434, 388);
+         this.xtraTabPage4.Size = new System.Drawing.Size(398, 388);
          this.xtraTabPage4.Text = "فعالیت ها";
          // 
          // gridControl6
@@ -1858,7 +1869,7 @@
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit6,
             this.repositoryItemSearchLookUpEdit4});
-         this.gridControl6.Size = new System.Drawing.Size(434, 357);
+         this.gridControl6.Size = new System.Drawing.Size(398, 357);
          this.gridControl6.TabIndex = 59;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1983,7 +1994,7 @@
          this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel6.Location = new System.Drawing.Point(0, 0);
          this.panel6.Name = "panel6";
-         this.panel6.Size = new System.Drawing.Size(434, 31);
+         this.panel6.Size = new System.Drawing.Size(398, 31);
          this.panel6.TabIndex = 55;
          // 
          // xtraTabPage5
@@ -2129,11 +2140,11 @@
          this.xtraTabControl5.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl5.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl5.Location = new System.Drawing.Point(50, 596);
+         this.xtraTabControl5.Location = new System.Drawing.Point(34, 596);
          this.xtraTabControl5.Name = "xtraTabControl5";
          this.xtraTabControl5.PaintStyleName = "PropertyView";
          this.xtraTabControl5.SelectedTabPage = this.xtraTabPage6;
-         this.xtraTabControl5.Size = new System.Drawing.Size(1063, 206);
+         this.xtraTabControl5.Size = new System.Drawing.Size(1029, 206);
          this.xtraTabControl5.TabIndex = 66;
          this.xtraTabControl5.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage6});
@@ -2146,7 +2157,7 @@
          this.xtraTabPage6.Controls.Add(this.panel3);
          this.xtraTabPage6.Name = "xtraTabPage6";
          this.xtraTabPage6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage6.Size = new System.Drawing.Size(1063, 185);
+         this.xtraTabPage6.Size = new System.Drawing.Size(1029, 185);
          this.xtraTabPage6.Text = "پاسخ های دریافتی";
          // 
          // gridControl3
@@ -2160,7 +2171,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSearchLookUpEdit5});
-         this.gridControl3.Size = new System.Drawing.Size(1063, 154);
+         this.gridControl3.Size = new System.Drawing.Size(1029, 154);
          this.gridControl3.TabIndex = 59;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -2285,15 +2296,97 @@
          this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel3.Location = new System.Drawing.Point(0, 0);
          this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(1063, 31);
+         this.panel3.Size = new System.Drawing.Size(1029, 31);
          this.panel3.TabIndex = 55;
+         // 
+         // gridLookUpEdit1
+         // 
+         this.gridLookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridLookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CamqBs, "MKLT_MLID", true));
+         this.gridLookUpEdit1.EditValue = "";
+         this.gridLookUpEdit1.Location = new System.Drawing.Point(807, 150);
+         this.gridLookUpEdit1.Name = "gridLookUpEdit1";
+         this.gridLookUpEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.gridLookUpEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.gridLookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridLookUpEdit1.Properties.Appearance.Options.UseBackColor = true;
+         this.gridLookUpEdit1.Properties.Appearance.Options.UseBorderColor = true;
+         this.gridLookUpEdit1.Properties.Appearance.Options.UseFont = true;
+         this.gridLookUpEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.gridLookUpEdit1.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.gridLookUpEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.gridLookUpEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.gridLookUpEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
+         this.gridLookUpEdit1.Properties.DataSource = this.LstMkltBs;
+         this.gridLookUpEdit1.Properties.DisplayMember = "NAME";
+         this.gridLookUpEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.gridLookUpEdit1.Properties.NullText = "---";
+         this.gridLookUpEdit1.Properties.NullValuePrompt = "---";
+         this.gridLookUpEdit1.Properties.NullValuePromptShowForEmptyValue = true;
+         this.gridLookUpEdit1.Properties.PopupFormSize = new System.Drawing.Size(400, 0);
+         this.gridLookUpEdit1.Properties.ReadOnly = true;
+         this.gridLookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+         this.gridLookUpEdit1.Properties.ValueMember = "MLID";
+         this.gridLookUpEdit1.Properties.View = this.gridView7;
+         this.gridLookUpEdit1.Size = new System.Drawing.Size(256, 28);
+         this.gridLookUpEdit1.TabIndex = 8;
+         // 
+         // LstMkltBs
+         // 
+         this.LstMkltBs.DataSource = typeof(System.CRM.Data.Marketing_List);
+         // 
+         // gridView7
+         // 
+         this.gridView7.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn13,
+            this.gridColumn14});
+         this.gridView7.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+         this.gridView7.Name = "gridView7";
+         this.gridView7.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView7.OptionsView.ShowGroupPanel = false;
+         // 
+         // gridColumn13
+         // 
+         this.gridColumn13.Caption = "نام کاربری سیستم";
+         this.gridColumn13.FieldName = "USER_NAME";
+         this.gridColumn13.Name = "gridColumn13";
+         this.gridColumn13.Visible = true;
+         this.gridColumn13.VisibleIndex = 0;
+         // 
+         // gridColumn14
+         // 
+         this.gridColumn14.Caption = "نام کاربر";
+         this.gridColumn14.FieldName = "USER_DESC_DNRM";
+         this.gridColumn14.Name = "gridColumn14";
+         this.gridColumn14.Visible = true;
+         this.gridColumn14.VisibleIndex = 1;
+         // 
+         // labelControl8
+         // 
+         this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl8.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl8.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl8.LineColor = System.Drawing.Color.Blue;
+         this.labelControl8.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
+         this.labelControl8.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl8.Location = new System.Drawing.Point(1068, 151);
+         this.labelControl8.Name = "labelControl8";
+         this.labelControl8.Size = new System.Drawing.Size(79, 27);
+         this.labelControl8.TabIndex = 26;
+         this.labelControl8.Text = "فهرست بازاریابی";
          // 
          // INF_CAMQ_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.AutoScroll = true;
-         this.AutoScrollMinSize = new System.Drawing.Size(1200, 800);
          this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.Controls.Add(this.xtraTabControl5);
          this.Controls.Add(this.xtraTabControl4);
@@ -2302,6 +2395,7 @@
          this.Controls.Add(this.Cmnt_Txt);
          this.Controls.Add(this.labelControl3);
          this.Controls.Add(this.splitContainerControl2);
+         this.Controls.Add(this.gridLookUpEdit1);
          this.Controls.Add(this.Ownr_Lov);
          this.Controls.Add(this.label4);
          this.Controls.Add(this.label2);
@@ -2318,6 +2412,7 @@
          this.Controls.Add(this.ListType_Lov);
          this.Controls.Add(this.labelControl4);
          this.Controls.Add(this.labelControl27);
+         this.Controls.Add(this.labelControl8);
          this.Controls.Add(this.labelControl1);
          this.Controls.Add(this.labelControl5);
          this.Controls.Add(this.labelControl2);
@@ -2326,7 +2421,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "INF_CAMQ_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1146, 661);
+         this.Size = new System.Drawing.Size(1150, 644);
          ((System.ComponentModel.ISupportInitialize)(this.CamqBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubjDesc_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.base_Tariff_DetailsGridControl)).EndInit();
@@ -2416,6 +2511,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView14)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          this.panel3.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstMkltBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2562,6 +2660,12 @@
       private C1.Win.C1Input.C1Button c1Button9;
       private C1.Win.C1Input.C1Button c1Button10;
       private C1.Win.C1Input.C1Button c1Button11;
+      private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEdit1;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+      private DevExpress.XtraEditors.LabelControl labelControl8;
+      private Windows.Forms.BindingSource LstMkltBs;
 
 
    }

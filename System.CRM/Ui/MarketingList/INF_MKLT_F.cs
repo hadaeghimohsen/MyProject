@@ -330,5 +330,70 @@ namespace System.CRM.Ui.MarketingList
 
       }
       #endregion      
+
+      #region Quick Campaign
+      private void NewCamq_Butn_Click(object sender, EventArgs e)
+      {
+         if (mkltcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 99 /* Execute Inf_Camq_F */),
+                new Job(SendType.SelfToUserInterface, "INF_CAMQ_F", 10 /* Execute Actn_Calf_F */)
+                {
+                   Input = 
+                     new XElement("Campaign_Quick",
+                        new XAttribute("formcaller", GetType().Name),
+                        new XAttribute("mkltcode", mkltcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void AddCamq_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DelCamq_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaveCamq_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ShowCamq_Butn_Click(object sender, EventArgs e)
+      {
+         if (mkltcode == null) return;
+
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 98 /* Execute Shw_Camq_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CAMQ_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Campaign_Quick", 
+                        new XAttribute("onoftag", "on"),
+                        new XAttribute("mkltcode", mkltcode)
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void HelpCamq_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
    }
 }

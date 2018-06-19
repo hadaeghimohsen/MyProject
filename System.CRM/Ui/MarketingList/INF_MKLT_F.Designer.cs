@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -48,12 +47,13 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-         this.MkltBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MkltBs = new System.Windows.Forms.BindingSource();
          this.TrcbTcid_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TrcbBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TrcbBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCURN_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCURN_SYMB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,7 +80,7 @@
          this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
          this.SubmitChangeClose_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.MkltBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.MkltBn = new System.Windows.Forms.BindingNavigator();
          this.SubmitChange_Butn = new System.Windows.Forms.ToolStripButton();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -89,39 +89,39 @@
          this.PrpsDesc_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.ListType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DstdyBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DstdyBs = new System.Windows.Forms.BindingSource();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.Trgt_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DtrgtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DtrgtBs = new System.Windows.Forms.BindingSource();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.Sorc_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.Cost_Lov = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.Ownr_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.JobpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.JobpBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DESC_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cmnt_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.LockStat_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DysnoBs = new System.Windows.Forms.BindingSource();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.label1 = new System.Windows.Forms.Label();
          this.MdfyDate_Dat = new Atf.UI.DateTimeSelector();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.MklcBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MklcBs = new System.Windows.Forms.BindingSource();
          this.Mklc_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCAMP_CMID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Camp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-         this.LstCampBs = new System.Windows.Forms.BindingSource(this.components);
+         this.LstCampBs = new System.Windows.Forms.BindingSource();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DcmstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcmstBs = new System.Windows.Forms.BindingSource();
          this.panel3 = new System.Windows.Forms.Panel();
          this.SaveCamp_Butn = new C1.Win.C1Input.C1Button();
          this.HelpCamp_Butn = new C1.Win.C1Input.C1Button();
@@ -129,28 +129,33 @@
          this.DelCamp_Butn = new C1.Win.C1Input.C1Button();
          this.NewCamp_Butn = new C1.Win.C1Input.C1Button();
          this.AddCamp_Butn = new C1.Win.C1Input.C1Button();
-         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
+         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip();
          this.HelpNote_Butn = new C1.Win.C1Input.C1Button();
          this.SaveNote_Butn = new C1.Win.C1Input.C1Button();
          this.DelNote_Butn = new C1.Win.C1Input.C1Button();
          this.AddNote_Butn = new C1.Win.C1Input.C1Button();
-         this.c1Button18 = new C1.Win.C1Input.C1Button();
-         this.c1Button19 = new C1.Win.C1Input.C1Button();
-         this.c1Button20 = new C1.Win.C1Input.C1Button();
-         this.c1Button21 = new C1.Win.C1Input.C1Button();
-         this.c1Button22 = new C1.Win.C1Input.C1Button();
-         this.c1Button23 = new C1.Win.C1Input.C1Button();
-         this.c1Button24 = new C1.Win.C1Input.C1Button();
-         this.c1Button25 = new C1.Win.C1Input.C1Button();
-         this.c1Button26 = new C1.Win.C1Input.C1Button();
-         this.c1Button27 = new C1.Win.C1Input.C1Button();
+         this.SaveLead_Butn = new C1.Win.C1Input.C1Button();
+         this.HelpLead_Butn = new C1.Win.C1Input.C1Button();
+         this.ShowLead_Butn = new C1.Win.C1Input.C1Button();
+         this.DelLead_Butn = new C1.Win.C1Input.C1Button();
+         this.AddLead_Butn = new C1.Win.C1Input.C1Button();
+         this.SaveComp_Butn = new C1.Win.C1Input.C1Button();
+         this.HelpComp_Butn = new C1.Win.C1Input.C1Button();
+         this.ShowComp_Butn = new C1.Win.C1Input.C1Button();
+         this.DelComp_Butn = new C1.Win.C1Input.C1Button();
+         this.AddComp_Butn = new C1.Win.C1Input.C1Button();
          this.SaveCamq_Butn = new C1.Win.C1Input.C1Button();
          this.HelpCamq_Butn = new C1.Win.C1Input.C1Button();
          this.ShowCamq_Butn = new C1.Win.C1Input.C1Button();
          this.DelCamq_Butn = new C1.Win.C1Input.C1Button();
          this.AddCamq_Butn = new C1.Win.C1Input.C1Button();
+         this.SaveServ_Butn = new C1.Win.C1Input.C1Button();
+         this.HelpServ_Butn = new C1.Win.C1Input.C1Button();
+         this.ShowServ_Butn = new C1.Win.C1Input.C1Button();
+         this.DelServ_Butn = new C1.Win.C1Input.C1Button();
+         this.AddServ_Butn = new C1.Win.C1Input.C1Button();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
+         this.NoteBs = new System.Windows.Forms.BindingSource();
          this.Note_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colNOTE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -164,7 +169,7 @@
          this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
          this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.CamqBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CamqBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colOWNR_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUBJ_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -172,7 +177,7 @@
          this.colNUMB_FAIL = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colACTV_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DcntpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcntpBs = new System.Windows.Forms.BindingSource();
          this.colSTAT_RESN = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -182,8 +187,8 @@
          this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.NewCamq_Butn = new C1.Win.C1Input.C1Button();
-         this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
-         this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+         this.Trgt_Tc = new DevExpress.XtraTab.XtraTabControl();
+         this.Lead_Tp = new DevExpress.XtraTab.XtraTabPage();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -194,7 +199,8 @@
          this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.panel4 = new System.Windows.Forms.Panel();
-         this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+         this.NewLead_Butn = new C1.Win.C1Input.C1Button();
+         this.Company_Tp = new DevExpress.XtraTab.XtraTabPage();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
          this.gridView12 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -210,9 +216,92 @@
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel5 = new System.Windows.Forms.Panel();
-         this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+         this.NewComp_Butn = new C1.Win.C1Input.C1Button();
+         this.Service_Tp = new DevExpress.XtraTab.XtraTabPage();
+         this.gridControl5 = new DevExpress.XtraGrid.GridControl();
+         this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.repositoryItemSearchLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+         this.gridView10 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.panel6 = new System.Windows.Forms.Panel();
+         this.NewServ_Butn = new C1.Win.C1Input.C1Button();
          this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
          this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+         this.ServBs = new System.Windows.Forms.BindingSource();
+         this.LstServBs = new System.Windows.Forms.BindingSource();
+         this.CompBs = new System.Windows.Forms.BindingSource();
+         this.LstCompBs = new System.Windows.Forms.BindingSource();
+         this.LeadBs = new System.Windows.Forms.BindingSource();
+         this.LstLeadBs = new System.Windows.Forms.BindingSource();
+         this.colSERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTARF_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMOST_DEBT_CLNG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSRPB_RWNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCONF_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCONF_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFRST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colLAST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFATH_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPOST_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSEX_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBRTH_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSRPB_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEST_DATE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTRFD_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBTRF_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCOMP_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colONOF_TAG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colIMAG_RCDC_RCID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colIMAG_RWNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUNT_BUNT_DEPT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUNT_BUNT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUNT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colISCP_ISCA_ISCG_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colISCP_ISCA_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colISCP_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCORD_X_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCORD_Y_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMRID_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRLGN_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colETHN_CITY_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCUST_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSTIF_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colJOB_TITL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colLAST_RQST_RQID_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSCOR_LEVL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_STAG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colEMAL_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFACE_BOOK_URL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colLINK_IN_URL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTWTR_URL_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNATL_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBase_Tariff = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colIsic_Product = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colService1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBase_Tariff_Detail = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRequest = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRequest1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCompany = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.MkltBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbTcid_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbBs)).BeginInit();
@@ -254,21 +343,26 @@
          ((System.ComponentModel.ISupportInitialize)(this.SaveNote_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DelNote_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AddNote_Butn)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button18)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button19)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button24)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button26)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveLead_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpLead_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowLead_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelLead_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddLead_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveComp_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpComp_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowComp_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelComp_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddComp_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SaveCamq_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.HelpCamq_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ShowCamq_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DelCamq_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AddCamq_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveServ_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpServ_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowServ_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelServ_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddServ_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NoteBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Note_Gv)).BeginInit();
@@ -290,25 +384,41 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.NewCamq_Butn)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
-         this.xtraTabControl2.SuspendLayout();
-         this.xtraTabPage3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Trgt_Tc)).BeginInit();
+         this.Trgt_Tc.SuspendLayout();
+         this.Lead_Tp.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          this.panel4.SuspendLayout();
-         this.xtraTabPage4.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.NewLead_Butn)).BeginInit();
+         this.Company_Tp.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView12)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView13)).BeginInit();
          this.panel5.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.NewComp_Butn)).BeginInit();
+         this.Service_Tp.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView8)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView10)).BeginInit();
+         this.panel6.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.NewServ_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
          this.xtraTabControl4.SuspendLayout();
          this.xtraTabPage7.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ServBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstServBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CompBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstCompBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstLeadBs)).BeginInit();
          this.SuspendLayout();
          // 
          // labelControl39
@@ -320,7 +430,7 @@
          this.labelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(1054, 96);
+         this.labelControl39.Location = new System.Drawing.Point(1085, 96);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(62, 27);
          this.labelControl39.TabIndex = 4;
@@ -334,7 +444,7 @@
          this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(1054, 265);
+         this.labelControl20.Location = new System.Drawing.Point(1085, 265);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(63, 26);
          this.labelControl20.TabIndex = 24;
@@ -352,7 +462,7 @@
          this.labelControl11.LineColor = System.Drawing.Color.Blue;
          this.labelControl11.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl11.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl11.Location = new System.Drawing.Point(329, 96);
+         this.labelControl11.Location = new System.Drawing.Point(360, 96);
          this.labelControl11.Name = "labelControl11";
          this.labelControl11.Size = new System.Drawing.Size(75, 27);
          this.labelControl11.TabIndex = 26;
@@ -368,7 +478,7 @@
          this.TrcbTcid_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TrcbTcid_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "TRCB_TCID", true));
          this.TrcbTcid_Lov.EditValue = "";
-         this.TrcbTcid_Lov.Location = new System.Drawing.Point(816, 263);
+         this.TrcbTcid_Lov.Location = new System.Drawing.Point(847, 263);
          this.TrcbTcid_Lov.Name = "TrcbTcid_Lov";
          this.TrcbTcid_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.TrcbTcid_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -451,7 +561,7 @@
          this.Name_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Name_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "NAME", true));
          this.Name_Txt.EditValue = "";
-         this.Name_Txt.Location = new System.Drawing.Point(816, 95);
+         this.Name_Txt.Location = new System.Drawing.Point(847, 95);
          this.Name_Txt.Name = "Name_Txt";
          this.Name_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Name_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -671,7 +781,7 @@
          this.MkltBn.Name = "MkltBn";
          this.MkltBn.PositionItem = null;
          this.MkltBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.MkltBn.Size = new System.Drawing.Size(1143, 47);
+         this.MkltBn.Size = new System.Drawing.Size(1174, 47);
          this.MkltBn.TabIndex = 1;
          this.MkltBn.Text = "bindingNavigator1";
          // 
@@ -694,7 +804,7 @@
          this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(1009, 63);
+         this.labelControl4.Location = new System.Drawing.Point(1040, 63);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(122, 27);
          this.labelControl4.TabIndex = 16;
@@ -712,7 +822,7 @@
          this.labelControl1.LineColor = System.Drawing.Color.Blue;
          this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl1.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl1.Location = new System.Drawing.Point(229, 97);
+         this.labelControl1.Location = new System.Drawing.Point(260, 97);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(60, 27);
          this.labelControl1.TabIndex = 26;
@@ -722,7 +832,7 @@
          // 
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label3.Location = new System.Drawing.Point(408, 96);
+         this.label3.Location = new System.Drawing.Point(439, 96);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(6, 60);
          this.label3.TabIndex = 50;
@@ -731,7 +841,7 @@
          // 
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label4.Location = new System.Drawing.Point(294, 97);
+         this.label4.Location = new System.Drawing.Point(325, 97);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(6, 60);
          this.label4.TabIndex = 50;
@@ -741,7 +851,7 @@
          this.PrpsDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PrpsDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "PRPS_DESC", true));
          this.PrpsDesc_Txt.EditValue = "";
-         this.PrpsDesc_Txt.Location = new System.Drawing.Point(816, 163);
+         this.PrpsDesc_Txt.Location = new System.Drawing.Point(847, 163);
          this.PrpsDesc_Txt.Name = "PrpsDesc_Txt";
          this.PrpsDesc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.PrpsDesc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -772,7 +882,7 @@
          this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(1054, 164);
+         this.labelControl5.Location = new System.Drawing.Point(1085, 164);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(61, 25);
          this.labelControl5.TabIndex = 22;
@@ -782,7 +892,7 @@
          // 
          this.ListType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ListType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "LIST_TYPE", true));
-         this.ListType_Lov.Location = new System.Drawing.Point(903, 129);
+         this.ListType_Lov.Location = new System.Drawing.Point(934, 129);
          this.ListType_Lov.Name = "ListType_Lov";
          this.ListType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ListType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -830,7 +940,7 @@
          this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(1054, 130);
+         this.labelControl6.Location = new System.Drawing.Point(1085, 130);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(77, 27);
          this.labelControl6.TabIndex = 4;
@@ -840,7 +950,7 @@
          // 
          this.Trgt_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Trgt_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "TRGT", true));
-         this.Trgt_Lov.Location = new System.Drawing.Point(903, 195);
+         this.Trgt_Lov.Location = new System.Drawing.Point(934, 195);
          this.Trgt_Lov.Name = "Trgt_Lov";
          this.Trgt_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Trgt_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -888,7 +998,7 @@
          this.labelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(1054, 196);
+         this.labelControl7.Location = new System.Drawing.Point(1085, 196);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(79, 27);
          this.labelControl7.TabIndex = 4;
@@ -899,7 +1009,7 @@
          this.Sorc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Sorc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "SORC", true));
          this.Sorc_Txt.EditValue = "";
-         this.Sorc_Txt.Location = new System.Drawing.Point(816, 229);
+         this.Sorc_Txt.Location = new System.Drawing.Point(847, 229);
          this.Sorc_Txt.Name = "Sorc_Txt";
          this.Sorc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Sorc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -930,7 +1040,7 @@
          this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl8.Location = new System.Drawing.Point(1054, 230);
+         this.labelControl8.Location = new System.Drawing.Point(1085, 230);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(61, 25);
          this.labelControl8.TabIndex = 22;
@@ -941,7 +1051,7 @@
          this.Cost_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cost_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "COST_AMNT", true));
          this.Cost_Lov.EditValue = "";
-         this.Cost_Lov.Location = new System.Drawing.Point(903, 297);
+         this.Cost_Lov.Location = new System.Drawing.Point(934, 297);
          this.Cost_Lov.Name = "Cost_Lov";
          this.Cost_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cost_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -980,7 +1090,7 @@
          this.labelControl9.LineColor = System.Drawing.Color.Blue;
          this.labelControl9.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl9.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl9.Location = new System.Drawing.Point(1054, 298);
+         this.labelControl9.Location = new System.Drawing.Point(1085, 298);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(57, 27);
          this.labelControl9.TabIndex = 26;
@@ -991,7 +1101,7 @@
          this.Ownr_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ownr_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "OWNR_CODE", true));
          this.Ownr_Lov.EditValue = "";
-         this.Ownr_Lov.Location = new System.Drawing.Point(143, 129);
+         this.Ownr_Lov.Location = new System.Drawing.Point(174, 129);
          this.Ownr_Lov.Name = "Ownr_Lov";
          this.Ownr_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Ownr_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1055,7 +1165,7 @@
          this.Cmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cmnt_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "CMNT", true));
          this.Cmnt_Txt.EditValue = "";
-         this.Cmnt_Txt.Location = new System.Drawing.Point(816, 331);
+         this.Cmnt_Txt.Location = new System.Drawing.Point(847, 331);
          this.Cmnt_Txt.Name = "Cmnt_Txt";
          this.Cmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cmnt_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1087,7 +1197,7 @@
          this.labelControl3.LineColor = System.Drawing.Color.Blue;
          this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl3.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl3.Location = new System.Drawing.Point(1054, 332);
+         this.labelControl3.Location = new System.Drawing.Point(1085, 332);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(57, 27);
          this.labelControl3.TabIndex = 26;
@@ -1097,7 +1207,7 @@
          // 
          this.LockStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LockStat_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MkltBs, "LOCK_STAT", true));
-         this.LockStat_Lov.Location = new System.Drawing.Point(309, 128);
+         this.LockStat_Lov.Location = new System.Drawing.Point(340, 128);
          this.LockStat_Lov.Name = "LockStat_Lov";
          this.LockStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.LockStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1148,7 +1258,7 @@
          this.labelControl2.LineColor = System.Drawing.Color.Blue;
          this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl2.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl2.Location = new System.Drawing.Point(25, 97);
+         this.labelControl2.Location = new System.Drawing.Point(56, 97);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(100, 27);
          this.labelControl2.TabIndex = 26;
@@ -1158,7 +1268,7 @@
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.label1.Location = new System.Drawing.Point(131, 97);
+         this.label1.Location = new System.Drawing.Point(162, 97);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(6, 60);
          this.label1.TabIndex = 50;
@@ -1169,7 +1279,7 @@
          this.MdfyDate_Dat.CustomFormat = "dd/MM/yyyy";
          this.MdfyDate_Dat.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.MkltBs, "MDFY_DATE", true));
          this.MdfyDate_Dat.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.MdfyDate_Dat.Location = new System.Drawing.Point(25, 132);
+         this.MdfyDate_Dat.Location = new System.Drawing.Point(56, 132);
          this.MdfyDate_Dat.Name = "MdfyDate_Dat";
          this.MdfyDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.MdfyDate_Dat.Size = new System.Drawing.Size(100, 23);
@@ -1518,175 +1628,175 @@
          this.AddNote_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          this.AddNote_Butn.Click += new System.EventHandler(this.AddNote_Butn_Click);
          // 
-         // c1Button18
+         // SaveLead_Butn
          // 
-         this.c1Button18.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button18.FlatAppearance.BorderSize = 0;
-         this.c1Button18.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button18.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button18.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
-         this.c1Button18.Location = new System.Drawing.Point(65, 3);
-         this.c1Button18.Name = "c1Button18";
-         this.c1Button18.Size = new System.Drawing.Size(25, 25);
-         this.c1Button18.TabIndex = 63;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button18, resources.GetString("c1Button18.ToolTip"));
-         this.c1Button18.UseVisualStyleBackColor = true;
-         this.c1Button18.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.SaveLead_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SaveLead_Butn.FlatAppearance.BorderSize = 0;
+         this.SaveLead_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.SaveLead_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.SaveLead_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveLead_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveLead_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
+         this.SaveLead_Butn.Location = new System.Drawing.Point(96, 3);
+         this.SaveLead_Butn.Name = "SaveLead_Butn";
+         this.SaveLead_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SaveLead_Butn.TabIndex = 63;
+         this.c1SuperTooltip1.SetToolTip(this.SaveLead_Butn, resources.GetString("SaveLead_Butn.ToolTip"));
+         this.SaveLead_Butn.UseVisualStyleBackColor = true;
+         this.SaveLead_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button19
+         // HelpLead_Butn
          // 
-         this.c1Button19.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button19.FlatAppearance.BorderSize = 0;
-         this.c1Button19.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button19.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button19.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button19.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
-         this.c1Button19.Location = new System.Drawing.Point(123, 3);
-         this.c1Button19.Name = "c1Button19";
-         this.c1Button19.Size = new System.Drawing.Size(25, 25);
-         this.c1Button19.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button19, resources.GetString("c1Button19.ToolTip"));
-         this.c1Button19.UseVisualStyleBackColor = true;
-         this.c1Button19.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.HelpLead_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.HelpLead_Butn.FlatAppearance.BorderSize = 0;
+         this.HelpLead_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.HelpLead_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.HelpLead_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.HelpLead_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.HelpLead_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
+         this.HelpLead_Butn.Location = new System.Drawing.Point(154, 3);
+         this.HelpLead_Butn.Name = "HelpLead_Butn";
+         this.HelpLead_Butn.Size = new System.Drawing.Size(25, 25);
+         this.HelpLead_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.HelpLead_Butn, resources.GetString("HelpLead_Butn.ToolTip"));
+         this.HelpLead_Butn.UseVisualStyleBackColor = true;
+         this.HelpLead_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button20
+         // ShowLead_Butn
          // 
-         this.c1Button20.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button20.FlatAppearance.BorderSize = 0;
-         this.c1Button20.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button20.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button20.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button20.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
-         this.c1Button20.Location = new System.Drawing.Point(96, 3);
-         this.c1Button20.Name = "c1Button20";
-         this.c1Button20.Size = new System.Drawing.Size(25, 25);
-         this.c1Button20.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button20, resources.GetString("c1Button20.ToolTip"));
-         this.c1Button20.UseVisualStyleBackColor = true;
-         this.c1Button20.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.ShowLead_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.ShowLead_Butn.FlatAppearance.BorderSize = 0;
+         this.ShowLead_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.ShowLead_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.ShowLead_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowLead_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowLead_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
+         this.ShowLead_Butn.Location = new System.Drawing.Point(127, 3);
+         this.ShowLead_Butn.Name = "ShowLead_Butn";
+         this.ShowLead_Butn.Size = new System.Drawing.Size(25, 25);
+         this.ShowLead_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.ShowLead_Butn, resources.GetString("ShowLead_Butn.ToolTip"));
+         this.ShowLead_Butn.UseVisualStyleBackColor = true;
+         this.ShowLead_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button21
+         // DelLead_Butn
          // 
-         this.c1Button21.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button21.FlatAppearance.BorderSize = 0;
-         this.c1Button21.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button21.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button21.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button21.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
-         this.c1Button21.Location = new System.Drawing.Point(34, 3);
-         this.c1Button21.Name = "c1Button21";
-         this.c1Button21.Size = new System.Drawing.Size(25, 25);
-         this.c1Button21.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button21, resources.GetString("c1Button21.ToolTip"));
-         this.c1Button21.UseVisualStyleBackColor = true;
-         this.c1Button21.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.DelLead_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.DelLead_Butn.FlatAppearance.BorderSize = 0;
+         this.DelLead_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.DelLead_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.DelLead_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.DelLead_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DelLead_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
+         this.DelLead_Butn.Location = new System.Drawing.Point(65, 3);
+         this.DelLead_Butn.Name = "DelLead_Butn";
+         this.DelLead_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DelLead_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.DelLead_Butn, resources.GetString("DelLead_Butn.ToolTip"));
+         this.DelLead_Butn.UseVisualStyleBackColor = true;
+         this.DelLead_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button22
+         // AddLead_Butn
          // 
-         this.c1Button22.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button22.FlatAppearance.BorderSize = 0;
-         this.c1Button22.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button22.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button22.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button22.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
-         this.c1Button22.Location = new System.Drawing.Point(3, 3);
-         this.c1Button22.Name = "c1Button22";
-         this.c1Button22.Size = new System.Drawing.Size(25, 25);
-         this.c1Button22.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button22, resources.GetString("c1Button22.ToolTip"));
-         this.c1Button22.UseVisualStyleBackColor = true;
-         this.c1Button22.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.AddLead_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.AddLead_Butn.FlatAppearance.BorderSize = 0;
+         this.AddLead_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.AddLead_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.AddLead_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddLead_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddLead_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
+         this.AddLead_Butn.Location = new System.Drawing.Point(34, 3);
+         this.AddLead_Butn.Name = "AddLead_Butn";
+         this.AddLead_Butn.Size = new System.Drawing.Size(25, 25);
+         this.AddLead_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.AddLead_Butn, resources.GetString("AddLead_Butn.ToolTip"));
+         this.AddLead_Butn.UseVisualStyleBackColor = true;
+         this.AddLead_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button23
+         // SaveComp_Butn
          // 
-         this.c1Button23.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button23.FlatAppearance.BorderSize = 0;
-         this.c1Button23.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button23.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button23.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
-         this.c1Button23.Location = new System.Drawing.Point(65, 3);
-         this.c1Button23.Name = "c1Button23";
-         this.c1Button23.Size = new System.Drawing.Size(25, 25);
-         this.c1Button23.TabIndex = 63;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button23, resources.GetString("c1Button23.ToolTip"));
-         this.c1Button23.UseVisualStyleBackColor = true;
-         this.c1Button23.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.SaveComp_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SaveComp_Butn.FlatAppearance.BorderSize = 0;
+         this.SaveComp_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.SaveComp_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.SaveComp_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveComp_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveComp_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
+         this.SaveComp_Butn.Location = new System.Drawing.Point(96, 3);
+         this.SaveComp_Butn.Name = "SaveComp_Butn";
+         this.SaveComp_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SaveComp_Butn.TabIndex = 63;
+         this.c1SuperTooltip1.SetToolTip(this.SaveComp_Butn, resources.GetString("SaveComp_Butn.ToolTip"));
+         this.SaveComp_Butn.UseVisualStyleBackColor = true;
+         this.SaveComp_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button24
+         // HelpComp_Butn
          // 
-         this.c1Button24.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button24.FlatAppearance.BorderSize = 0;
-         this.c1Button24.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button24.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button24.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button24.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
-         this.c1Button24.Location = new System.Drawing.Point(123, 3);
-         this.c1Button24.Name = "c1Button24";
-         this.c1Button24.Size = new System.Drawing.Size(25, 25);
-         this.c1Button24.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button24, resources.GetString("c1Button24.ToolTip"));
-         this.c1Button24.UseVisualStyleBackColor = true;
-         this.c1Button24.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.HelpComp_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.HelpComp_Butn.FlatAppearance.BorderSize = 0;
+         this.HelpComp_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.HelpComp_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.HelpComp_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.HelpComp_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.HelpComp_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
+         this.HelpComp_Butn.Location = new System.Drawing.Point(154, 3);
+         this.HelpComp_Butn.Name = "HelpComp_Butn";
+         this.HelpComp_Butn.Size = new System.Drawing.Size(25, 25);
+         this.HelpComp_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.HelpComp_Butn, resources.GetString("HelpComp_Butn.ToolTip"));
+         this.HelpComp_Butn.UseVisualStyleBackColor = true;
+         this.HelpComp_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button25
+         // ShowComp_Butn
          // 
-         this.c1Button25.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button25.FlatAppearance.BorderSize = 0;
-         this.c1Button25.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button25.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button25.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
-         this.c1Button25.Location = new System.Drawing.Point(96, 3);
-         this.c1Button25.Name = "c1Button25";
-         this.c1Button25.Size = new System.Drawing.Size(25, 25);
-         this.c1Button25.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button25, resources.GetString("c1Button25.ToolTip"));
-         this.c1Button25.UseVisualStyleBackColor = true;
-         this.c1Button25.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.ShowComp_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.ShowComp_Butn.FlatAppearance.BorderSize = 0;
+         this.ShowComp_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.ShowComp_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.ShowComp_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowComp_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowComp_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
+         this.ShowComp_Butn.Location = new System.Drawing.Point(127, 3);
+         this.ShowComp_Butn.Name = "ShowComp_Butn";
+         this.ShowComp_Butn.Size = new System.Drawing.Size(25, 25);
+         this.ShowComp_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.ShowComp_Butn, resources.GetString("ShowComp_Butn.ToolTip"));
+         this.ShowComp_Butn.UseVisualStyleBackColor = true;
+         this.ShowComp_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button26
+         // DelComp_Butn
          // 
-         this.c1Button26.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button26.FlatAppearance.BorderSize = 0;
-         this.c1Button26.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button26.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button26.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button26.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
-         this.c1Button26.Location = new System.Drawing.Point(34, 3);
-         this.c1Button26.Name = "c1Button26";
-         this.c1Button26.Size = new System.Drawing.Size(25, 25);
-         this.c1Button26.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button26, resources.GetString("c1Button26.ToolTip"));
-         this.c1Button26.UseVisualStyleBackColor = true;
-         this.c1Button26.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.DelComp_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.DelComp_Butn.FlatAppearance.BorderSize = 0;
+         this.DelComp_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.DelComp_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.DelComp_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.DelComp_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DelComp_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
+         this.DelComp_Butn.Location = new System.Drawing.Point(65, 3);
+         this.DelComp_Butn.Name = "DelComp_Butn";
+         this.DelComp_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DelComp_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.DelComp_Butn, resources.GetString("DelComp_Butn.ToolTip"));
+         this.DelComp_Butn.UseVisualStyleBackColor = true;
+         this.DelComp_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
-         // c1Button27
+         // AddComp_Butn
          // 
-         this.c1Button27.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.c1Button27.FlatAppearance.BorderSize = 0;
-         this.c1Button27.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.c1Button27.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.c1Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button27.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button27.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
-         this.c1Button27.Location = new System.Drawing.Point(3, 3);
-         this.c1Button27.Name = "c1Button27";
-         this.c1Button27.Size = new System.Drawing.Size(25, 25);
-         this.c1Button27.TabIndex = 62;
-         this.c1SuperTooltip1.SetToolTip(this.c1Button27, resources.GetString("c1Button27.ToolTip"));
-         this.c1Button27.UseVisualStyleBackColor = true;
-         this.c1Button27.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.AddComp_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.AddComp_Butn.FlatAppearance.BorderSize = 0;
+         this.AddComp_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.AddComp_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.AddComp_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddComp_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddComp_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
+         this.AddComp_Butn.Location = new System.Drawing.Point(34, 3);
+         this.AddComp_Butn.Name = "AddComp_Butn";
+         this.AddComp_Butn.Size = new System.Drawing.Size(25, 25);
+         this.AddComp_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.AddComp_Butn, resources.GetString("AddComp_Butn.ToolTip"));
+         this.AddComp_Butn.UseVisualStyleBackColor = true;
+         this.AddComp_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
          // SaveCamq_Butn
          // 
@@ -1780,6 +1890,91 @@
          this.AddCamq_Butn.UseVisualStyleBackColor = true;
          this.AddCamq_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          this.AddCamq_Butn.Click += new System.EventHandler(this.AddCamq_Butn_Click);
+         // 
+         // SaveServ_Butn
+         // 
+         this.SaveServ_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SaveServ_Butn.FlatAppearance.BorderSize = 0;
+         this.SaveServ_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.SaveServ_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.SaveServ_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveServ_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveServ_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
+         this.SaveServ_Butn.Location = new System.Drawing.Point(96, 3);
+         this.SaveServ_Butn.Name = "SaveServ_Butn";
+         this.SaveServ_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SaveServ_Butn.TabIndex = 63;
+         this.c1SuperTooltip1.SetToolTip(this.SaveServ_Butn, resources.GetString("SaveServ_Butn.ToolTip"));
+         this.SaveServ_Butn.UseVisualStyleBackColor = true;
+         this.SaveServ_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         // 
+         // HelpServ_Butn
+         // 
+         this.HelpServ_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.HelpServ_Butn.FlatAppearance.BorderSize = 0;
+         this.HelpServ_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.HelpServ_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.HelpServ_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.HelpServ_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.HelpServ_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1632;
+         this.HelpServ_Butn.Location = new System.Drawing.Point(154, 3);
+         this.HelpServ_Butn.Name = "HelpServ_Butn";
+         this.HelpServ_Butn.Size = new System.Drawing.Size(25, 25);
+         this.HelpServ_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.HelpServ_Butn, resources.GetString("HelpServ_Butn.ToolTip"));
+         this.HelpServ_Butn.UseVisualStyleBackColor = true;
+         this.HelpServ_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         // 
+         // ShowServ_Butn
+         // 
+         this.ShowServ_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.ShowServ_Butn.FlatAppearance.BorderSize = 0;
+         this.ShowServ_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.ShowServ_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.ShowServ_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowServ_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowServ_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1631;
+         this.ShowServ_Butn.Location = new System.Drawing.Point(127, 3);
+         this.ShowServ_Butn.Name = "ShowServ_Butn";
+         this.ShowServ_Butn.Size = new System.Drawing.Size(25, 25);
+         this.ShowServ_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.ShowServ_Butn, resources.GetString("ShowServ_Butn.ToolTip"));
+         this.ShowServ_Butn.UseVisualStyleBackColor = true;
+         this.ShowServ_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         // 
+         // DelServ_Butn
+         // 
+         this.DelServ_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.DelServ_Butn.FlatAppearance.BorderSize = 0;
+         this.DelServ_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.DelServ_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.DelServ_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.DelServ_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DelServ_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1630;
+         this.DelServ_Butn.Location = new System.Drawing.Point(65, 3);
+         this.DelServ_Butn.Name = "DelServ_Butn";
+         this.DelServ_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DelServ_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.DelServ_Butn, resources.GetString("DelServ_Butn.ToolTip"));
+         this.DelServ_Butn.UseVisualStyleBackColor = true;
+         this.DelServ_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         // 
+         // AddServ_Butn
+         // 
+         this.AddServ_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.AddServ_Butn.FlatAppearance.BorderSize = 0;
+         this.AddServ_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.AddServ_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.AddServ_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddServ_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddServ_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
+         this.AddServ_Butn.Location = new System.Drawing.Point(34, 3);
+         this.AddServ_Butn.Name = "AddServ_Butn";
+         this.AddServ_Butn.Size = new System.Drawing.Size(25, 25);
+         this.AddServ_Butn.TabIndex = 62;
+         this.c1SuperTooltip1.SetToolTip(this.AddServ_Butn, resources.GetString("AddServ_Butn.ToolTip"));
+         this.AddServ_Butn.UseVisualStyleBackColor = true;
+         this.AddServ_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
          // gridControl2
          // 
@@ -1918,7 +2113,7 @@
          this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(1041, 435);
+         this.labelControl10.Location = new System.Drawing.Point(1072, 438);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(84, 27);
          this.labelControl10.TabIndex = 59;
@@ -1935,7 +2130,7 @@
          this.xtraTabControl1.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl1.Location = new System.Drawing.Point(25, 166);
+         this.xtraTabControl1.Location = new System.Drawing.Point(56, 166);
          this.xtraTabControl1.Name = "xtraTabControl1";
          this.xtraTabControl1.PaintStyleName = "PropertyView";
          this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
@@ -2192,39 +2387,39 @@
          this.NewCamq_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          this.NewCamq_Butn.Click += new System.EventHandler(this.NewCamq_Butn_Click);
          // 
-         // xtraTabControl2
+         // Trgt_Tc
          // 
-         this.xtraTabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.xtraTabControl2.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.xtraTabControl2.Appearance.Options.UseBackColor = true;
-         this.xtraTabControl2.AppearancePage.Header.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xtraTabControl2.AppearancePage.Header.Options.UseFont = true;
-         this.xtraTabControl2.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xtraTabControl2.AppearancePage.HeaderActive.Options.UseFont = true;
-         this.xtraTabControl2.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.xtraTabControl2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl2.Location = new System.Drawing.Point(436, 96);
-         this.xtraTabControl2.Name = "xtraTabControl2";
-         this.xtraTabControl2.PaintStyleName = "PropertyView";
-         this.xtraTabControl2.SelectedTabPage = this.xtraTabPage3;
-         this.xtraTabControl2.Size = new System.Drawing.Size(353, 333);
-         this.xtraTabControl2.TabIndex = 61;
-         this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage3,
-            this.xtraTabPage4,
-            this.xtraTabPage5});
-         this.xtraTabControl2.TabPageWidth = 100;
+         this.Trgt_Tc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Trgt_Tc.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.Trgt_Tc.Appearance.Options.UseBackColor = true;
+         this.Trgt_Tc.AppearancePage.Header.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Trgt_Tc.AppearancePage.Header.Options.UseFont = true;
+         this.Trgt_Tc.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Trgt_Tc.AppearancePage.HeaderActive.Options.UseFont = true;
+         this.Trgt_Tc.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.Trgt_Tc.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Trgt_Tc.Location = new System.Drawing.Point(470, 96);
+         this.Trgt_Tc.Name = "Trgt_Tc";
+         this.Trgt_Tc.PaintStyleName = "PropertyView";
+         this.Trgt_Tc.SelectedTabPage = this.Lead_Tp;
+         this.Trgt_Tc.Size = new System.Drawing.Size(353, 333);
+         this.Trgt_Tc.TabIndex = 61;
+         this.Trgt_Tc.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.Lead_Tp,
+            this.Company_Tp,
+            this.Service_Tp});
+         this.Trgt_Tc.TabPageWidth = 100;
          // 
-         // xtraTabPage3
+         // Lead_Tp
          // 
-         this.xtraTabPage3.Appearance.PageClient.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.xtraTabPage3.Appearance.PageClient.Options.UseBackColor = true;
-         this.xtraTabPage3.Controls.Add(this.gridControl4);
-         this.xtraTabPage3.Controls.Add(this.panel4);
-         this.xtraTabPage3.Name = "xtraTabPage3";
-         this.xtraTabPage3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage3.Size = new System.Drawing.Size(353, 312);
-         this.xtraTabPage3.Text = "سرنخ های تجاری";
+         this.Lead_Tp.Appearance.PageClient.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.Lead_Tp.Appearance.PageClient.Options.UseBackColor = true;
+         this.Lead_Tp.Controls.Add(this.gridControl4);
+         this.Lead_Tp.Controls.Add(this.panel4);
+         this.Lead_Tp.Name = "Lead_Tp";
+         this.Lead_Tp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.Lead_Tp.Size = new System.Drawing.Size(353, 312);
+         this.Lead_Tp.Text = "سرنخ های تجاری";
          // 
          // gridControl4
          // 
@@ -2355,24 +2550,42 @@
          // 
          // panel4
          // 
-         this.panel4.Controls.Add(this.c1Button18);
-         this.panel4.Controls.Add(this.c1Button19);
-         this.panel4.Controls.Add(this.c1Button20);
-         this.panel4.Controls.Add(this.c1Button21);
-         this.panel4.Controls.Add(this.c1Button22);
+         this.panel4.Controls.Add(this.SaveLead_Butn);
+         this.panel4.Controls.Add(this.HelpLead_Butn);
+         this.panel4.Controls.Add(this.ShowLead_Butn);
+         this.panel4.Controls.Add(this.DelLead_Butn);
+         this.panel4.Controls.Add(this.NewLead_Butn);
+         this.panel4.Controls.Add(this.AddLead_Butn);
          this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel4.Location = new System.Drawing.Point(0, 0);
          this.panel4.Name = "panel4";
          this.panel4.Size = new System.Drawing.Size(353, 31);
          this.panel4.TabIndex = 55;
          // 
-         // xtraTabPage4
+         // NewLead_Butn
          // 
-         this.xtraTabPage4.Controls.Add(this.gridControl6);
-         this.xtraTabPage4.Controls.Add(this.panel5);
-         this.xtraTabPage4.Name = "xtraTabPage4";
-         this.xtraTabPage4.Size = new System.Drawing.Size(353, 312);
-         this.xtraTabPage4.Text = "مشتریان";
+         this.NewLead_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.NewLead_Butn.FlatAppearance.BorderSize = 0;
+         this.NewLead_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.NewLead_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.NewLead_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.NewLead_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NewLead_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1634;
+         this.NewLead_Butn.Location = new System.Drawing.Point(3, 3);
+         this.NewLead_Butn.Name = "NewLead_Butn";
+         this.NewLead_Butn.Size = new System.Drawing.Size(25, 25);
+         this.NewLead_Butn.TabIndex = 62;
+         this.NewLead_Butn.UseVisualStyleBackColor = true;
+         this.NewLead_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.NewLead_Butn.Click += new System.EventHandler(this.NewCamp_Butn_Click);
+         // 
+         // Company_Tp
+         // 
+         this.Company_Tp.Controls.Add(this.gridControl6);
+         this.Company_Tp.Controls.Add(this.panel5);
+         this.Company_Tp.Name = "Company_Tp";
+         this.Company_Tp.Size = new System.Drawing.Size(353, 312);
+         this.Company_Tp.Text = "مشتریان";
          // 
          // gridControl6
          // 
@@ -2546,22 +2759,222 @@
          // 
          // panel5
          // 
-         this.panel5.Controls.Add(this.c1Button23);
-         this.panel5.Controls.Add(this.c1Button24);
-         this.panel5.Controls.Add(this.c1Button25);
-         this.panel5.Controls.Add(this.c1Button26);
-         this.panel5.Controls.Add(this.c1Button27);
+         this.panel5.Controls.Add(this.SaveComp_Butn);
+         this.panel5.Controls.Add(this.HelpComp_Butn);
+         this.panel5.Controls.Add(this.ShowComp_Butn);
+         this.panel5.Controls.Add(this.DelComp_Butn);
+         this.panel5.Controls.Add(this.NewComp_Butn);
+         this.panel5.Controls.Add(this.AddComp_Butn);
          this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel5.Location = new System.Drawing.Point(0, 0);
          this.panel5.Name = "panel5";
          this.panel5.Size = new System.Drawing.Size(353, 31);
          this.panel5.TabIndex = 56;
          // 
-         // xtraTabPage5
+         // NewComp_Butn
          // 
-         this.xtraTabPage5.Name = "xtraTabPage5";
-         this.xtraTabPage5.Size = new System.Drawing.Size(353, 312);
-         this.xtraTabPage5.Text = "اشخاص";
+         this.NewComp_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.NewComp_Butn.FlatAppearance.BorderSize = 0;
+         this.NewComp_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.NewComp_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.NewComp_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.NewComp_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NewComp_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1634;
+         this.NewComp_Butn.Location = new System.Drawing.Point(3, 3);
+         this.NewComp_Butn.Name = "NewComp_Butn";
+         this.NewComp_Butn.Size = new System.Drawing.Size(25, 25);
+         this.NewComp_Butn.TabIndex = 62;
+         this.NewComp_Butn.UseVisualStyleBackColor = true;
+         this.NewComp_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.NewComp_Butn.Click += new System.EventHandler(this.NewCamp_Butn_Click);
+         // 
+         // Service_Tp
+         // 
+         this.Service_Tp.Controls.Add(this.gridControl5);
+         this.Service_Tp.Controls.Add(this.panel6);
+         this.Service_Tp.Name = "Service_Tp";
+         this.Service_Tp.Size = new System.Drawing.Size(353, 312);
+         this.Service_Tp.Text = "اشخاص";
+         // 
+         // gridControl5
+         // 
+         this.gridControl5.DataSource = this.ServBs;
+         this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl5.Location = new System.Drawing.Point(0, 31);
+         this.gridControl5.LookAndFeel.SkinName = "Office 2013 Light Gray";
+         this.gridControl5.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl5.MainView = this.gridView8;
+         this.gridControl5.Name = "gridControl5";
+         this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit6,
+            this.repositoryItemSearchLookUpEdit2});
+         this.gridControl5.Size = new System.Drawing.Size(353, 281);
+         this.gridControl5.TabIndex = 61;
+         this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView8});
+         // 
+         // gridView8
+         // 
+         this.gridView8.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.gridView8.Appearance.FocusedRow.Options.UseBackColor = true;
+         this.gridView8.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F);
+         this.gridView8.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView8.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F);
+         this.gridView8.Appearance.Row.Options.UseFont = true;
+         this.gridView8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.gridView8.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colSERV_FILE_NO});
+         this.gridView8.GridControl = this.gridControl5;
+         this.gridView8.Name = "gridView8";
+         this.gridView8.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView8.OptionsSelection.MultiSelect = true;
+         this.gridView8.OptionsView.ColumnAutoWidth = false;
+         this.gridView8.OptionsView.ShowDetailButtons = false;
+         this.gridView8.OptionsView.ShowGroupPanel = false;
+         this.gridView8.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.gridView8.OptionsView.ShowIndicator = false;
+         this.gridView8.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         // 
+         // repositoryItemLookUpEdit6
+         // 
+         this.repositoryItemLookUpEdit6.AutoHeight = false;
+         this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit6.DataSource = this.DcmstBs;
+         this.repositoryItemLookUpEdit6.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit6.Name = "repositoryItemLookUpEdit6";
+         this.repositoryItemLookUpEdit6.NullText = "---";
+         this.repositoryItemLookUpEdit6.ValueMember = "VALU";
+         // 
+         // repositoryItemSearchLookUpEdit2
+         // 
+         this.repositoryItemSearchLookUpEdit2.AutoHeight = false;
+         this.repositoryItemSearchLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
+         this.repositoryItemSearchLookUpEdit2.DataSource = this.LstServBs;
+         this.repositoryItemSearchLookUpEdit2.DisplayMember = "NAME_DNRM";
+         this.repositoryItemSearchLookUpEdit2.Name = "repositoryItemSearchLookUpEdit2";
+         this.repositoryItemSearchLookUpEdit2.NullText = "---";
+         this.repositoryItemSearchLookUpEdit2.PopupFormMinSize = new System.Drawing.Size(500, 0);
+         this.repositoryItemSearchLookUpEdit2.ValueMember = "FILE_NO";
+         this.repositoryItemSearchLookUpEdit2.View = this.gridView10;
+         // 
+         // gridView10
+         // 
+         this.gridView10.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F);
+         this.gridView10.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView10.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView10.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView10.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F);
+         this.gridView10.Appearance.Row.Options.UseFont = true;
+         this.gridView10.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView10.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView10.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colREGN_PRVN_CNTY_CODE,
+            this.colREGN_PRVN_CODE,
+            this.colREGN_CODE,
+            this.colFILE_NO,
+            this.colTARF_CODE_DNRM,
+            this.colMOST_DEBT_CLNG_DNRM,
+            this.colDEBT_DNRM,
+            this.colSRPB_RWNO_DNRM,
+            this.colCONF_STAT,
+            this.colCONF_DATE,
+            this.colSERV_STAT,
+            this.colRQST_RQID,
+            this.colNAME_DNRM,
+            this.colFRST_NAME_DNRM,
+            this.colLAST_NAME_DNRM,
+            this.colFATH_NAME_DNRM,
+            this.colPOST_ADRS_DNRM,
+            this.colSEX_TYPE_DNRM,
+            this.colBRTH_DATE_DNRM,
+            this.colCELL_PHON_DNRM,
+            this.colTELL_PHON_DNRM,
+            this.colSRPB_TYPE_DNRM,
+            this.colTEST_DATE_DNRM,
+            this.colTRFD_CODE_DNRM,
+            this.colBTRF_CODE_DNRM,
+            this.colCOMP_CODE_DNRM,
+            this.colONOF_TAG_DNRM,
+            this.colSERV_FILE_NO1,
+            this.colIMAG_RCDC_RCID_DNRM,
+            this.colIMAG_RWNO_DNRM,
+            this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM,
+            this.colSUNT_BUNT_DEPT_CODE_DNRM,
+            this.colSUNT_BUNT_CODE_DNRM,
+            this.colSUNT_CODE_DNRM,
+            this.colISCP_ISCA_ISCG_CODE_DNRM,
+            this.colISCP_ISCA_CODE_DNRM,
+            this.colISCP_CODE_DNRM,
+            this.colCORD_X_DNRM,
+            this.colCORD_Y_DNRM,
+            this.colMRID_TYPE_DNRM,
+            this.colRLGN_TYPE_DNRM,
+            this.colETHN_CITY_DNRM,
+            this.colCUST_TYPE_DNRM,
+            this.colSTIF_TYPE_DNRM,
+            this.colJOB_TITL_DNRM,
+            this.colLAST_RQST_RQID_DNRM,
+            this.colSCOR_LEVL_DNRM,
+            this.colSERV_STAG_CODE,
+            this.colEMAL_ADRS_DNRM,
+            this.colFACE_BOOK_URL_DNRM,
+            this.colLINK_IN_URL_DNRM,
+            this.colTWTR_URL_DNRM,
+            this.colNATL_CODE_DNRM,
+            this.colSERV_NO_DNRM,
+            this.colCRET_BY,
+            this.colCRET_DATE1,
+            this.colMDFY_BY,
+            this.colMDFY_DATE,
+            this.colBase_Tariff,
+            this.colIsic_Product,
+            this.colRegion,
+            this.colService1,
+            this.colSub_Unit,
+            this.colBase_Tariff_Detail,
+            this.colRequest,
+            this.colRequest1,
+            this.colCompany,
+            this.gridColumn9});
+         this.gridView10.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+         this.gridView10.Name = "gridView10";
+         this.gridView10.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView10.OptionsView.ShowGroupPanel = false;
+         this.gridView10.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.gridView10.OptionsView.ShowIndicator = false;
+         this.gridView10.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         // 
+         // panel6
+         // 
+         this.panel6.Controls.Add(this.SaveServ_Butn);
+         this.panel6.Controls.Add(this.HelpServ_Butn);
+         this.panel6.Controls.Add(this.ShowServ_Butn);
+         this.panel6.Controls.Add(this.DelServ_Butn);
+         this.panel6.Controls.Add(this.NewServ_Butn);
+         this.panel6.Controls.Add(this.AddServ_Butn);
+         this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel6.Location = new System.Drawing.Point(0, 0);
+         this.panel6.Name = "panel6";
+         this.panel6.Size = new System.Drawing.Size(353, 31);
+         this.panel6.TabIndex = 57;
+         // 
+         // NewServ_Butn
+         // 
+         this.NewServ_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.NewServ_Butn.FlatAppearance.BorderSize = 0;
+         this.NewServ_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.NewServ_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.NewServ_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.NewServ_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NewServ_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1634;
+         this.NewServ_Butn.Location = new System.Drawing.Point(3, 3);
+         this.NewServ_Butn.Name = "NewServ_Butn";
+         this.NewServ_Butn.Size = new System.Drawing.Size(25, 25);
+         this.NewServ_Butn.TabIndex = 62;
+         this.NewServ_Butn.UseVisualStyleBackColor = true;
+         this.NewServ_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
          // xtraTabControl4
          // 
@@ -2574,7 +2987,7 @@
          this.xtraTabControl4.AppearancePage.HeaderActive.Options.UseFont = true;
          this.xtraTabControl4.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.xtraTabControl4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.xtraTabControl4.Location = new System.Drawing.Point(25, 468);
+         this.xtraTabControl4.Location = new System.Drawing.Point(56, 459);
          this.xtraTabControl4.Name = "xtraTabControl4";
          this.xtraTabControl4.PaintStyleName = "PropertyView";
          this.xtraTabControl4.SelectedTabPage = this.xtraTabPage7;
@@ -2592,6 +3005,520 @@
          this.xtraTabPage7.Size = new System.Drawing.Size(1023, 222);
          this.xtraTabPage7.Text = "یادداشت";
          // 
+         // ServBs
+         // 
+         this.ServBs.DataMember = "Members";
+         this.ServBs.DataSource = this.MkltBs;
+         // 
+         // LstServBs
+         // 
+         this.LstServBs.DataSource = typeof(System.CRM.Data.Service);
+         // 
+         // CompBs
+         // 
+         this.CompBs.DataMember = "Members";
+         this.CompBs.DataSource = this.MkltBs;
+         // 
+         // LstCompBs
+         // 
+         this.LstCompBs.DataSource = typeof(System.CRM.Data.Company);
+         // 
+         // LeadBs
+         // 
+         this.LeadBs.DataMember = "Members";
+         this.LeadBs.DataSource = this.MkltBs;
+         // 
+         // LstLeadBs
+         // 
+         this.LstLeadBs.DataMember = "Members";
+         this.LstLeadBs.DataSource = typeof(System.CRM.Data.Lead);
+         // 
+         // colSERV_FILE_NO
+         // 
+         this.colSERV_FILE_NO.Caption = "نام شخص";
+         this.colSERV_FILE_NO.ColumnEdit = this.repositoryItemSearchLookUpEdit2;
+         this.colSERV_FILE_NO.FieldName = "SERV_FILE_NO";
+         this.colSERV_FILE_NO.Name = "colSERV_FILE_NO";
+         this.colSERV_FILE_NO.Visible = true;
+         this.colSERV_FILE_NO.VisibleIndex = 0;
+         // 
+         // colREGN_PRVN_CNTY_CODE
+         // 
+         this.colREGN_PRVN_CNTY_CODE.FieldName = "REGN_PRVN_CNTY_CODE";
+         this.colREGN_PRVN_CNTY_CODE.Name = "colREGN_PRVN_CNTY_CODE";
+         this.colREGN_PRVN_CNTY_CODE.Visible = true;
+         this.colREGN_PRVN_CNTY_CODE.VisibleIndex = 0;
+         // 
+         // colREGN_PRVN_CODE
+         // 
+         this.colREGN_PRVN_CODE.FieldName = "REGN_PRVN_CODE";
+         this.colREGN_PRVN_CODE.Name = "colREGN_PRVN_CODE";
+         this.colREGN_PRVN_CODE.Visible = true;
+         this.colREGN_PRVN_CODE.VisibleIndex = 1;
+         // 
+         // colREGN_CODE
+         // 
+         this.colREGN_CODE.FieldName = "REGN_CODE";
+         this.colREGN_CODE.Name = "colREGN_CODE";
+         this.colREGN_CODE.Visible = true;
+         this.colREGN_CODE.VisibleIndex = 2;
+         // 
+         // colFILE_NO
+         // 
+         this.colFILE_NO.FieldName = "FILE_NO";
+         this.colFILE_NO.Name = "colFILE_NO";
+         this.colFILE_NO.Visible = true;
+         this.colFILE_NO.VisibleIndex = 3;
+         // 
+         // colTARF_CODE_DNRM
+         // 
+         this.colTARF_CODE_DNRM.FieldName = "TARF_CODE_DNRM";
+         this.colTARF_CODE_DNRM.Name = "colTARF_CODE_DNRM";
+         this.colTARF_CODE_DNRM.Visible = true;
+         this.colTARF_CODE_DNRM.VisibleIndex = 4;
+         // 
+         // colMOST_DEBT_CLNG_DNRM
+         // 
+         this.colMOST_DEBT_CLNG_DNRM.FieldName = "MOST_DEBT_CLNG_DNRM";
+         this.colMOST_DEBT_CLNG_DNRM.Name = "colMOST_DEBT_CLNG_DNRM";
+         this.colMOST_DEBT_CLNG_DNRM.Visible = true;
+         this.colMOST_DEBT_CLNG_DNRM.VisibleIndex = 5;
+         // 
+         // colDEBT_DNRM
+         // 
+         this.colDEBT_DNRM.FieldName = "DEBT_DNRM";
+         this.colDEBT_DNRM.Name = "colDEBT_DNRM";
+         this.colDEBT_DNRM.Visible = true;
+         this.colDEBT_DNRM.VisibleIndex = 6;
+         // 
+         // colSRPB_RWNO_DNRM
+         // 
+         this.colSRPB_RWNO_DNRM.FieldName = "SRPB_RWNO_DNRM";
+         this.colSRPB_RWNO_DNRM.Name = "colSRPB_RWNO_DNRM";
+         this.colSRPB_RWNO_DNRM.Visible = true;
+         this.colSRPB_RWNO_DNRM.VisibleIndex = 7;
+         // 
+         // colCONF_STAT
+         // 
+         this.colCONF_STAT.FieldName = "CONF_STAT";
+         this.colCONF_STAT.Name = "colCONF_STAT";
+         this.colCONF_STAT.Visible = true;
+         this.colCONF_STAT.VisibleIndex = 8;
+         // 
+         // colCONF_DATE
+         // 
+         this.colCONF_DATE.FieldName = "CONF_DATE";
+         this.colCONF_DATE.Name = "colCONF_DATE";
+         this.colCONF_DATE.Visible = true;
+         this.colCONF_DATE.VisibleIndex = 9;
+         // 
+         // colSERV_STAT
+         // 
+         this.colSERV_STAT.FieldName = "SERV_STAT";
+         this.colSERV_STAT.Name = "colSERV_STAT";
+         this.colSERV_STAT.Visible = true;
+         this.colSERV_STAT.VisibleIndex = 10;
+         // 
+         // colRQST_RQID
+         // 
+         this.colRQST_RQID.FieldName = "RQST_RQID";
+         this.colRQST_RQID.Name = "colRQST_RQID";
+         this.colRQST_RQID.Visible = true;
+         this.colRQST_RQID.VisibleIndex = 11;
+         // 
+         // colNAME_DNRM
+         // 
+         this.colNAME_DNRM.FieldName = "NAME_DNRM";
+         this.colNAME_DNRM.Name = "colNAME_DNRM";
+         this.colNAME_DNRM.Visible = true;
+         this.colNAME_DNRM.VisibleIndex = 12;
+         // 
+         // colFRST_NAME_DNRM
+         // 
+         this.colFRST_NAME_DNRM.FieldName = "FRST_NAME_DNRM";
+         this.colFRST_NAME_DNRM.Name = "colFRST_NAME_DNRM";
+         this.colFRST_NAME_DNRM.Visible = true;
+         this.colFRST_NAME_DNRM.VisibleIndex = 13;
+         // 
+         // colLAST_NAME_DNRM
+         // 
+         this.colLAST_NAME_DNRM.FieldName = "LAST_NAME_DNRM";
+         this.colLAST_NAME_DNRM.Name = "colLAST_NAME_DNRM";
+         this.colLAST_NAME_DNRM.Visible = true;
+         this.colLAST_NAME_DNRM.VisibleIndex = 14;
+         // 
+         // colFATH_NAME_DNRM
+         // 
+         this.colFATH_NAME_DNRM.FieldName = "FATH_NAME_DNRM";
+         this.colFATH_NAME_DNRM.Name = "colFATH_NAME_DNRM";
+         this.colFATH_NAME_DNRM.Visible = true;
+         this.colFATH_NAME_DNRM.VisibleIndex = 15;
+         // 
+         // colPOST_ADRS_DNRM
+         // 
+         this.colPOST_ADRS_DNRM.FieldName = "POST_ADRS_DNRM";
+         this.colPOST_ADRS_DNRM.Name = "colPOST_ADRS_DNRM";
+         this.colPOST_ADRS_DNRM.Visible = true;
+         this.colPOST_ADRS_DNRM.VisibleIndex = 16;
+         // 
+         // colSEX_TYPE_DNRM
+         // 
+         this.colSEX_TYPE_DNRM.FieldName = "SEX_TYPE_DNRM";
+         this.colSEX_TYPE_DNRM.Name = "colSEX_TYPE_DNRM";
+         this.colSEX_TYPE_DNRM.Visible = true;
+         this.colSEX_TYPE_DNRM.VisibleIndex = 17;
+         // 
+         // colBRTH_DATE_DNRM
+         // 
+         this.colBRTH_DATE_DNRM.FieldName = "BRTH_DATE_DNRM";
+         this.colBRTH_DATE_DNRM.Name = "colBRTH_DATE_DNRM";
+         this.colBRTH_DATE_DNRM.Visible = true;
+         this.colBRTH_DATE_DNRM.VisibleIndex = 18;
+         // 
+         // colCELL_PHON_DNRM
+         // 
+         this.colCELL_PHON_DNRM.FieldName = "CELL_PHON_DNRM";
+         this.colCELL_PHON_DNRM.Name = "colCELL_PHON_DNRM";
+         this.colCELL_PHON_DNRM.Visible = true;
+         this.colCELL_PHON_DNRM.VisibleIndex = 19;
+         // 
+         // colTELL_PHON_DNRM
+         // 
+         this.colTELL_PHON_DNRM.FieldName = "TELL_PHON_DNRM";
+         this.colTELL_PHON_DNRM.Name = "colTELL_PHON_DNRM";
+         this.colTELL_PHON_DNRM.Visible = true;
+         this.colTELL_PHON_DNRM.VisibleIndex = 20;
+         // 
+         // colSRPB_TYPE_DNRM
+         // 
+         this.colSRPB_TYPE_DNRM.FieldName = "SRPB_TYPE_DNRM";
+         this.colSRPB_TYPE_DNRM.Name = "colSRPB_TYPE_DNRM";
+         this.colSRPB_TYPE_DNRM.Visible = true;
+         this.colSRPB_TYPE_DNRM.VisibleIndex = 21;
+         // 
+         // colTEST_DATE_DNRM
+         // 
+         this.colTEST_DATE_DNRM.FieldName = "TEST_DATE_DNRM";
+         this.colTEST_DATE_DNRM.Name = "colTEST_DATE_DNRM";
+         this.colTEST_DATE_DNRM.Visible = true;
+         this.colTEST_DATE_DNRM.VisibleIndex = 22;
+         // 
+         // colTRFD_CODE_DNRM
+         // 
+         this.colTRFD_CODE_DNRM.FieldName = "TRFD_CODE_DNRM";
+         this.colTRFD_CODE_DNRM.Name = "colTRFD_CODE_DNRM";
+         this.colTRFD_CODE_DNRM.Visible = true;
+         this.colTRFD_CODE_DNRM.VisibleIndex = 23;
+         // 
+         // colBTRF_CODE_DNRM
+         // 
+         this.colBTRF_CODE_DNRM.FieldName = "BTRF_CODE_DNRM";
+         this.colBTRF_CODE_DNRM.Name = "colBTRF_CODE_DNRM";
+         this.colBTRF_CODE_DNRM.Visible = true;
+         this.colBTRF_CODE_DNRM.VisibleIndex = 24;
+         // 
+         // colCOMP_CODE_DNRM
+         // 
+         this.colCOMP_CODE_DNRM.FieldName = "COMP_CODE_DNRM";
+         this.colCOMP_CODE_DNRM.Name = "colCOMP_CODE_DNRM";
+         this.colCOMP_CODE_DNRM.Visible = true;
+         this.colCOMP_CODE_DNRM.VisibleIndex = 25;
+         // 
+         // colONOF_TAG_DNRM
+         // 
+         this.colONOF_TAG_DNRM.FieldName = "ONOF_TAG_DNRM";
+         this.colONOF_TAG_DNRM.Name = "colONOF_TAG_DNRM";
+         this.colONOF_TAG_DNRM.Visible = true;
+         this.colONOF_TAG_DNRM.VisibleIndex = 26;
+         // 
+         // colSERV_FILE_NO1
+         // 
+         this.colSERV_FILE_NO1.FieldName = "SERV_FILE_NO";
+         this.colSERV_FILE_NO1.Name = "colSERV_FILE_NO1";
+         this.colSERV_FILE_NO1.Visible = true;
+         this.colSERV_FILE_NO1.VisibleIndex = 27;
+         // 
+         // colIMAG_RCDC_RCID_DNRM
+         // 
+         this.colIMAG_RCDC_RCID_DNRM.FieldName = "IMAG_RCDC_RCID_DNRM";
+         this.colIMAG_RCDC_RCID_DNRM.Name = "colIMAG_RCDC_RCID_DNRM";
+         this.colIMAG_RCDC_RCID_DNRM.Visible = true;
+         this.colIMAG_RCDC_RCID_DNRM.VisibleIndex = 28;
+         // 
+         // colIMAG_RWNO_DNRM
+         // 
+         this.colIMAG_RWNO_DNRM.FieldName = "IMAG_RWNO_DNRM";
+         this.colIMAG_RWNO_DNRM.Name = "colIMAG_RWNO_DNRM";
+         this.colIMAG_RWNO_DNRM.Visible = true;
+         this.colIMAG_RWNO_DNRM.VisibleIndex = 29;
+         // 
+         // colSUNT_BUNT_DEPT_ORGN_CODE_DNRM
+         // 
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_ORGN_CODE_DNRM";
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_ORGN_CODE_DNRM";
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.Visible = true;
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.VisibleIndex = 30;
+         // 
+         // colSUNT_BUNT_DEPT_CODE_DNRM
+         // 
+         this.colSUNT_BUNT_DEPT_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_CODE_DNRM";
+         this.colSUNT_BUNT_DEPT_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_CODE_DNRM";
+         this.colSUNT_BUNT_DEPT_CODE_DNRM.Visible = true;
+         this.colSUNT_BUNT_DEPT_CODE_DNRM.VisibleIndex = 31;
+         // 
+         // colSUNT_BUNT_CODE_DNRM
+         // 
+         this.colSUNT_BUNT_CODE_DNRM.FieldName = "SUNT_BUNT_CODE_DNRM";
+         this.colSUNT_BUNT_CODE_DNRM.Name = "colSUNT_BUNT_CODE_DNRM";
+         this.colSUNT_BUNT_CODE_DNRM.Visible = true;
+         this.colSUNT_BUNT_CODE_DNRM.VisibleIndex = 32;
+         // 
+         // colSUNT_CODE_DNRM
+         // 
+         this.colSUNT_CODE_DNRM.FieldName = "SUNT_CODE_DNRM";
+         this.colSUNT_CODE_DNRM.Name = "colSUNT_CODE_DNRM";
+         this.colSUNT_CODE_DNRM.Visible = true;
+         this.colSUNT_CODE_DNRM.VisibleIndex = 33;
+         // 
+         // colISCP_ISCA_ISCG_CODE_DNRM
+         // 
+         this.colISCP_ISCA_ISCG_CODE_DNRM.FieldName = "ISCP_ISCA_ISCG_CODE_DNRM";
+         this.colISCP_ISCA_ISCG_CODE_DNRM.Name = "colISCP_ISCA_ISCG_CODE_DNRM";
+         this.colISCP_ISCA_ISCG_CODE_DNRM.Visible = true;
+         this.colISCP_ISCA_ISCG_CODE_DNRM.VisibleIndex = 34;
+         // 
+         // colISCP_ISCA_CODE_DNRM
+         // 
+         this.colISCP_ISCA_CODE_DNRM.FieldName = "ISCP_ISCA_CODE_DNRM";
+         this.colISCP_ISCA_CODE_DNRM.Name = "colISCP_ISCA_CODE_DNRM";
+         this.colISCP_ISCA_CODE_DNRM.Visible = true;
+         this.colISCP_ISCA_CODE_DNRM.VisibleIndex = 35;
+         // 
+         // colISCP_CODE_DNRM
+         // 
+         this.colISCP_CODE_DNRM.FieldName = "ISCP_CODE_DNRM";
+         this.colISCP_CODE_DNRM.Name = "colISCP_CODE_DNRM";
+         this.colISCP_CODE_DNRM.Visible = true;
+         this.colISCP_CODE_DNRM.VisibleIndex = 36;
+         // 
+         // colCORD_X_DNRM
+         // 
+         this.colCORD_X_DNRM.FieldName = "CORD_X_DNRM";
+         this.colCORD_X_DNRM.Name = "colCORD_X_DNRM";
+         this.colCORD_X_DNRM.Visible = true;
+         this.colCORD_X_DNRM.VisibleIndex = 37;
+         // 
+         // colCORD_Y_DNRM
+         // 
+         this.colCORD_Y_DNRM.FieldName = "CORD_Y_DNRM";
+         this.colCORD_Y_DNRM.Name = "colCORD_Y_DNRM";
+         this.colCORD_Y_DNRM.Visible = true;
+         this.colCORD_Y_DNRM.VisibleIndex = 38;
+         // 
+         // colMRID_TYPE_DNRM
+         // 
+         this.colMRID_TYPE_DNRM.FieldName = "MRID_TYPE_DNRM";
+         this.colMRID_TYPE_DNRM.Name = "colMRID_TYPE_DNRM";
+         this.colMRID_TYPE_DNRM.Visible = true;
+         this.colMRID_TYPE_DNRM.VisibleIndex = 39;
+         // 
+         // colRLGN_TYPE_DNRM
+         // 
+         this.colRLGN_TYPE_DNRM.FieldName = "RLGN_TYPE_DNRM";
+         this.colRLGN_TYPE_DNRM.Name = "colRLGN_TYPE_DNRM";
+         this.colRLGN_TYPE_DNRM.Visible = true;
+         this.colRLGN_TYPE_DNRM.VisibleIndex = 40;
+         // 
+         // colETHN_CITY_DNRM
+         // 
+         this.colETHN_CITY_DNRM.FieldName = "ETHN_CITY_DNRM";
+         this.colETHN_CITY_DNRM.Name = "colETHN_CITY_DNRM";
+         this.colETHN_CITY_DNRM.Visible = true;
+         this.colETHN_CITY_DNRM.VisibleIndex = 41;
+         // 
+         // colCUST_TYPE_DNRM
+         // 
+         this.colCUST_TYPE_DNRM.FieldName = "CUST_TYPE_DNRM";
+         this.colCUST_TYPE_DNRM.Name = "colCUST_TYPE_DNRM";
+         this.colCUST_TYPE_DNRM.Visible = true;
+         this.colCUST_TYPE_DNRM.VisibleIndex = 42;
+         // 
+         // colSTIF_TYPE_DNRM
+         // 
+         this.colSTIF_TYPE_DNRM.FieldName = "STIF_TYPE_DNRM";
+         this.colSTIF_TYPE_DNRM.Name = "colSTIF_TYPE_DNRM";
+         this.colSTIF_TYPE_DNRM.Visible = true;
+         this.colSTIF_TYPE_DNRM.VisibleIndex = 43;
+         // 
+         // colJOB_TITL_DNRM
+         // 
+         this.colJOB_TITL_DNRM.FieldName = "JOB_TITL_DNRM";
+         this.colJOB_TITL_DNRM.Name = "colJOB_TITL_DNRM";
+         this.colJOB_TITL_DNRM.Visible = true;
+         this.colJOB_TITL_DNRM.VisibleIndex = 44;
+         // 
+         // colLAST_RQST_RQID_DNRM
+         // 
+         this.colLAST_RQST_RQID_DNRM.FieldName = "LAST_RQST_RQID_DNRM";
+         this.colLAST_RQST_RQID_DNRM.Name = "colLAST_RQST_RQID_DNRM";
+         this.colLAST_RQST_RQID_DNRM.Visible = true;
+         this.colLAST_RQST_RQID_DNRM.VisibleIndex = 45;
+         // 
+         // colSCOR_LEVL_DNRM
+         // 
+         this.colSCOR_LEVL_DNRM.FieldName = "SCOR_LEVL_DNRM";
+         this.colSCOR_LEVL_DNRM.Name = "colSCOR_LEVL_DNRM";
+         this.colSCOR_LEVL_DNRM.Visible = true;
+         this.colSCOR_LEVL_DNRM.VisibleIndex = 46;
+         // 
+         // colSERV_STAG_CODE
+         // 
+         this.colSERV_STAG_CODE.FieldName = "SERV_STAG_CODE";
+         this.colSERV_STAG_CODE.Name = "colSERV_STAG_CODE";
+         this.colSERV_STAG_CODE.Visible = true;
+         this.colSERV_STAG_CODE.VisibleIndex = 47;
+         // 
+         // colEMAL_ADRS_DNRM
+         // 
+         this.colEMAL_ADRS_DNRM.FieldName = "EMAL_ADRS_DNRM";
+         this.colEMAL_ADRS_DNRM.Name = "colEMAL_ADRS_DNRM";
+         this.colEMAL_ADRS_DNRM.Visible = true;
+         this.colEMAL_ADRS_DNRM.VisibleIndex = 48;
+         // 
+         // colFACE_BOOK_URL_DNRM
+         // 
+         this.colFACE_BOOK_URL_DNRM.FieldName = "FACE_BOOK_URL_DNRM";
+         this.colFACE_BOOK_URL_DNRM.Name = "colFACE_BOOK_URL_DNRM";
+         this.colFACE_BOOK_URL_DNRM.Visible = true;
+         this.colFACE_BOOK_URL_DNRM.VisibleIndex = 49;
+         // 
+         // colLINK_IN_URL_DNRM
+         // 
+         this.colLINK_IN_URL_DNRM.FieldName = "LINK_IN_URL_DNRM";
+         this.colLINK_IN_URL_DNRM.Name = "colLINK_IN_URL_DNRM";
+         this.colLINK_IN_URL_DNRM.Visible = true;
+         this.colLINK_IN_URL_DNRM.VisibleIndex = 50;
+         // 
+         // colTWTR_URL_DNRM
+         // 
+         this.colTWTR_URL_DNRM.FieldName = "TWTR_URL_DNRM";
+         this.colTWTR_URL_DNRM.Name = "colTWTR_URL_DNRM";
+         this.colTWTR_URL_DNRM.Visible = true;
+         this.colTWTR_URL_DNRM.VisibleIndex = 51;
+         // 
+         // colNATL_CODE_DNRM
+         // 
+         this.colNATL_CODE_DNRM.FieldName = "NATL_CODE_DNRM";
+         this.colNATL_CODE_DNRM.Name = "colNATL_CODE_DNRM";
+         this.colNATL_CODE_DNRM.Visible = true;
+         this.colNATL_CODE_DNRM.VisibleIndex = 52;
+         // 
+         // colSERV_NO_DNRM
+         // 
+         this.colSERV_NO_DNRM.FieldName = "SERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Visible = true;
+         this.colSERV_NO_DNRM.VisibleIndex = 53;
+         // 
+         // colCRET_BY
+         // 
+         this.colCRET_BY.FieldName = "CRET_BY";
+         this.colCRET_BY.Name = "colCRET_BY";
+         this.colCRET_BY.Visible = true;
+         this.colCRET_BY.VisibleIndex = 54;
+         // 
+         // colCRET_DATE1
+         // 
+         this.colCRET_DATE1.FieldName = "CRET_DATE";
+         this.colCRET_DATE1.Name = "colCRET_DATE1";
+         this.colCRET_DATE1.Visible = true;
+         this.colCRET_DATE1.VisibleIndex = 55;
+         // 
+         // colMDFY_BY
+         // 
+         this.colMDFY_BY.FieldName = "MDFY_BY";
+         this.colMDFY_BY.Name = "colMDFY_BY";
+         this.colMDFY_BY.Visible = true;
+         this.colMDFY_BY.VisibleIndex = 56;
+         // 
+         // colMDFY_DATE
+         // 
+         this.colMDFY_DATE.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE.Name = "colMDFY_DATE";
+         this.colMDFY_DATE.Visible = true;
+         this.colMDFY_DATE.VisibleIndex = 57;
+         // 
+         // colBase_Tariff
+         // 
+         this.colBase_Tariff.FieldName = "Base_Tariff";
+         this.colBase_Tariff.Name = "colBase_Tariff";
+         this.colBase_Tariff.Visible = true;
+         this.colBase_Tariff.VisibleIndex = 58;
+         // 
+         // colIsic_Product
+         // 
+         this.colIsic_Product.FieldName = "Isic_Product";
+         this.colIsic_Product.Name = "colIsic_Product";
+         this.colIsic_Product.Visible = true;
+         this.colIsic_Product.VisibleIndex = 59;
+         // 
+         // colRegion
+         // 
+         this.colRegion.FieldName = "Region";
+         this.colRegion.Name = "colRegion";
+         this.colRegion.Visible = true;
+         this.colRegion.VisibleIndex = 60;
+         // 
+         // colService1
+         // 
+         this.colService1.FieldName = "Service1";
+         this.colService1.Name = "colService1";
+         this.colService1.Visible = true;
+         this.colService1.VisibleIndex = 61;
+         // 
+         // colSub_Unit
+         // 
+         this.colSub_Unit.FieldName = "Sub_Unit";
+         this.colSub_Unit.Name = "colSub_Unit";
+         this.colSub_Unit.Visible = true;
+         this.colSub_Unit.VisibleIndex = 62;
+         // 
+         // colBase_Tariff_Detail
+         // 
+         this.colBase_Tariff_Detail.FieldName = "Base_Tariff_Detail";
+         this.colBase_Tariff_Detail.Name = "colBase_Tariff_Detail";
+         this.colBase_Tariff_Detail.Visible = true;
+         this.colBase_Tariff_Detail.VisibleIndex = 63;
+         // 
+         // colRequest
+         // 
+         this.colRequest.FieldName = "Request";
+         this.colRequest.Name = "colRequest";
+         this.colRequest.Visible = true;
+         this.colRequest.VisibleIndex = 64;
+         // 
+         // colRequest1
+         // 
+         this.colRequest1.FieldName = "Request1";
+         this.colRequest1.Name = "colRequest1";
+         this.colRequest1.Visible = true;
+         this.colRequest1.VisibleIndex = 65;
+         // 
+         // colCompany
+         // 
+         this.colCompany.FieldName = "Company";
+         this.colCompany.Name = "colCompany";
+         this.colCompany.Visible = true;
+         this.colCompany.VisibleIndex = 66;
+         // 
+         // gridColumn9
+         // 
+         this.gridColumn9.FieldName = "Job_Personnel.USER_DESC_DNRM";
+         this.gridColumn9.Name = "gridColumn9";
+         this.gridColumn9.OptionsColumn.ReadOnly = true;
+         this.gridColumn9.Visible = true;
+         this.gridColumn9.VisibleIndex = 67;
+         // 
          // INF_MKLT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2599,7 +3526,7 @@
          this.AutoScroll = true;
          this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
          this.Controls.Add(this.xtraTabControl4);
-         this.Controls.Add(this.xtraTabControl2);
+         this.Controls.Add(this.Trgt_Tc);
          this.Controls.Add(this.labelControl9);
          this.Controls.Add(this.xtraTabControl1);
          this.Controls.Add(this.labelControl10);
@@ -2632,7 +3559,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "INF_MKLT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1143, 679);
+         this.Size = new System.Drawing.Size(1174, 679);
          ((System.ComponentModel.ISupportInitialize)(this.MkltBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbTcid_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TrcbBs)).EndInit();
@@ -2675,21 +3602,26 @@
          ((System.ComponentModel.ISupportInitialize)(this.SaveNote_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DelNote_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AddNote_Butn)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button18)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button19)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button24)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button26)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveLead_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpLead_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowLead_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelLead_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddLead_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveComp_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpComp_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowComp_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelComp_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddComp_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SaveCamq_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.HelpCamq_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ShowCamq_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DelCamq_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AddCamq_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveServ_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HelpServ_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowServ_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelServ_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddServ_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NoteBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Note_Gv)).EndInit();
@@ -2711,25 +3643,41 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.NewCamq_Butn)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
-         this.xtraTabControl2.ResumeLayout(false);
-         this.xtraTabPage3.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.Trgt_Tc)).EndInit();
+         this.Trgt_Tc.ResumeLayout(false);
+         this.Lead_Tp.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
          this.panel4.ResumeLayout(false);
-         this.xtraTabPage4.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.NewLead_Butn)).EndInit();
+         this.Company_Tp.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView12)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit4)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView13)).EndInit();
          this.panel5.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.NewComp_Butn)).EndInit();
+         this.Service_Tp.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView8)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView10)).EndInit();
+         this.panel6.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.NewServ_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
          this.xtraTabControl4.ResumeLayout(false);
          this.xtraTabPage7.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.ServBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstServBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CompBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstCompBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LstLeadBs)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2852,8 +3800,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
       private Windows.Forms.BindingSource DcntpBs;
-      private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
-      private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+      private DevExpress.XtraTab.XtraTabControl Trgt_Tc;
+      private DevExpress.XtraTab.XtraTabPage Lead_Tp;
       private DevExpress.XtraGrid.GridControl gridControl4;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -2864,12 +3812,12 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
       private Windows.Forms.Panel panel4;
-      private C1.Win.C1Input.C1Button c1Button18;
-      private C1.Win.C1Input.C1Button c1Button19;
-      private C1.Win.C1Input.C1Button c1Button20;
-      private C1.Win.C1Input.C1Button c1Button21;
-      private C1.Win.C1Input.C1Button c1Button22;
-      private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+      private C1.Win.C1Input.C1Button SaveLead_Butn;
+      private C1.Win.C1Input.C1Button HelpLead_Butn;
+      private C1.Win.C1Input.C1Button ShowLead_Butn;
+      private C1.Win.C1Input.C1Button DelLead_Butn;
+      private C1.Win.C1Input.C1Button AddLead_Butn;
+      private DevExpress.XtraTab.XtraTabPage Company_Tp;
       private DevExpress.XtraGrid.GridControl gridControl6;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView12;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
@@ -2885,12 +3833,12 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
       private Windows.Forms.Panel panel5;
-      private C1.Win.C1Input.C1Button c1Button23;
-      private C1.Win.C1Input.C1Button c1Button24;
-      private C1.Win.C1Input.C1Button c1Button25;
-      private C1.Win.C1Input.C1Button c1Button26;
-      private C1.Win.C1Input.C1Button c1Button27;
-      private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+      private C1.Win.C1Input.C1Button SaveComp_Butn;
+      private C1.Win.C1Input.C1Button HelpComp_Butn;
+      private C1.Win.C1Input.C1Button ShowComp_Butn;
+      private C1.Win.C1Input.C1Button DelComp_Butn;
+      private C1.Win.C1Input.C1Button AddComp_Butn;
+      private DevExpress.XtraTab.XtraTabPage Service_Tp;
       private DevExpress.XtraTab.XtraTabControl xtraTabControl4;
       private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
       private C1.Win.C1Input.C1Button NewCamp_Butn;
@@ -2902,6 +3850,95 @@
       private C1.Win.C1Input.C1Button NewCamq_Butn;
       private C1.Win.C1Input.C1Button AddCamq_Butn;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
+      private C1.Win.C1Input.C1Button NewLead_Butn;
+      private C1.Win.C1Input.C1Button NewComp_Butn;
+      private DevExpress.XtraGrid.GridControl gridControl5;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView8;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit6;
+      private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit2;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView10;
+      private Windows.Forms.Panel panel6;
+      private C1.Win.C1Input.C1Button SaveServ_Butn;
+      private C1.Win.C1Input.C1Button HelpServ_Butn;
+      private C1.Win.C1Input.C1Button ShowServ_Butn;
+      private C1.Win.C1Input.C1Button DelServ_Butn;
+      private C1.Win.C1Input.C1Button NewServ_Butn;
+      private C1.Win.C1Input.C1Button AddServ_Butn;
+      private Windows.Forms.BindingSource ServBs;
+      private Windows.Forms.BindingSource LstServBs;
+      private Windows.Forms.BindingSource CompBs;
+      private Windows.Forms.BindingSource LstCompBs;
+      private Windows.Forms.BindingSource LeadBs;
+      private Windows.Forms.BindingSource LstLeadBs;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_FILE_NO;
+      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO;
+      private DevExpress.XtraGrid.Columns.GridColumn colTARF_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colMOST_DEBT_CLNG_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colDEBT_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSRPB_RWNO_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCONF_STAT;
+      private DevExpress.XtraGrid.Columns.GridColumn colCONF_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_STAT;
+      private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID;
+      private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colFRST_NAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colLAST_NAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colFATH_NAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colBRTH_DATE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSRPB_TYPE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colTEST_DATE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colTRFD_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colBTRF_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCOMP_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colONOF_TAG_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_FILE_NO1;
+      private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RCDC_RCID_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RWNO_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_ORGN_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colISCP_ISCA_ISCG_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colISCP_ISCA_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colISCP_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCORD_X_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCORD_Y_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colMRID_TYPE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colRLGN_TYPE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colETHN_CITY_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCUST_TYPE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSTIF_TYPE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colJOB_TITL_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colLAST_RQST_RQID_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSCOR_LEVL_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_STAG_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colFACE_BOOK_URL_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colLINK_IN_URL_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colTWTR_URL_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colNATL_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE1;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn colBase_Tariff;
+      private DevExpress.XtraGrid.Columns.GridColumn colIsic_Product;
+      private DevExpress.XtraGrid.Columns.GridColumn colRegion;
+      private DevExpress.XtraGrid.Columns.GridColumn colService1;
+      private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit;
+      private DevExpress.XtraGrid.Columns.GridColumn colBase_Tariff_Detail;
+      private DevExpress.XtraGrid.Columns.GridColumn colRequest;
+      private DevExpress.XtraGrid.Columns.GridColumn colRequest1;
+      private DevExpress.XtraGrid.Columns.GridColumn colCompany;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
 
 
    }

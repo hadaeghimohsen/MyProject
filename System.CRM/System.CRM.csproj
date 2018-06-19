@@ -2686,11 +2686,13 @@
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personel_Dashboard.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personnel.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personnel_Relation.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Lead.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Like.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Log_Call.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Main_State.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Marketing_List.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Marketing_List_Campaign.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Member.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Mention.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Message.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Message_Broadcast.datasource" />

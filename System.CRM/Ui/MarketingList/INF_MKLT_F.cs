@@ -95,7 +95,29 @@ namespace System.CRM.Ui.MarketingList
 
       private void CmptBs_CurrentChanged(object sender, EventArgs e)
       {
-         
+         try
+         {
+            var mklt = MkltBs.Current as Data.Marketing_List;
+            if (mklt == null) return;
+
+            Trgt_Tc.TabPages.Clear();
+            switch (mklt.TRGT)
+            {
+               case "001":
+                  Trgt_Tc.TabPages.Add(Lead_Tp);
+                  break;
+               case "002":
+                  Trgt_Tc.TabPages.Add(Service_Tp);
+                  break;
+               case "003":
+                  Trgt_Tc.TabPages.Add(Company_Tp);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         { MessageBox.Show(exc.Message); }
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)

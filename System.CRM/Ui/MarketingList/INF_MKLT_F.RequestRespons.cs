@@ -243,6 +243,9 @@ namespace System.CRM.Ui.MarketingList
                   DcntpBs.DataSource = iCRM.D_CNTPs;
 
                   LstCampBs.DataSource = iCRM.Campaigns;
+                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
+                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+                  LstLeadBs.DataSource = iCRM.Leads;
                })
             );
          }
@@ -258,6 +261,9 @@ namespace System.CRM.Ui.MarketingList
             DcntpBs.DataSource = iCRM.D_CNTPs;
 
             LstCampBs.DataSource = iCRM.Campaigns;
+            LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
+            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+            LstLeadBs.DataSource = iCRM.Leads;
          }
          job.Status = StatusType.Successful;
       }

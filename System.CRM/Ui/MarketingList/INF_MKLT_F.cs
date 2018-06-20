@@ -105,12 +105,15 @@ namespace System.CRM.Ui.MarketingList
             {
                case "001":
                   Trgt_Tc.TabPages.Add(Lead_Tp);
+                  LeadBs.DataSource = iCRM.Members.Where(m => m.MKLT_MLID == mkltcode && m.Lead != null);
                   break;
                case "002":
                   Trgt_Tc.TabPages.Add(Service_Tp);
+                  ServBs.DataSource = iCRM.Members.Where(m => m.MKLT_MLID == mkltcode && m.SERV_FILE_NO != null);
                   break;
                case "003":
                   Trgt_Tc.TabPages.Add(Company_Tp);
+                  CompBs.DataSource = iCRM.Members.Where(m => m.MKLT_MLID == mkltcode && m.COMP_CODE != null);
                   break;
                default:
                   break;
@@ -413,6 +416,60 @@ namespace System.CRM.Ui.MarketingList
       }
 
       private void HelpCamq_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Service
+      private void NewServ_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void AddServ_Butn_Click(object sender, EventArgs e)
+      {
+         if (mkltcode == null) return;
+         if (ServBs.List.OfType<Data.Member>().Any(m => m.MBID == 0)) return;
+
+         ServBs.AddNew();
+         var serv = ServBs.Current as Data.Member;
+         serv.MKLT_MLID = mkltcode;
+
+         Serv_Gv.SelectRow(Serv_Gv.RowCount - 1);
+
+         iCRM.Members.InsertOnSubmit(serv);
+      }
+
+      private void DelServ_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaveServ_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowServ_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpServ_Butn_Click(object sender, EventArgs e)
       {
 
       }

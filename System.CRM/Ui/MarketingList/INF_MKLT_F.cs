@@ -443,7 +443,34 @@ namespace System.CRM.Ui.MarketingList
 
       private void DelServ_Butn_Click(object sender, EventArgs e)
       {
+         try
+         {
+            if (mkltcode == null) return;
 
+            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+
+            var rows = Serv_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Member)Serv_Gv.GetRow(r);
+               iCRM.Members.DeleteOnSubmit(row);
+            }
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
 
       private void SaveServ_Butn_Click(object sender, EventArgs e)
@@ -470,6 +497,87 @@ namespace System.CRM.Ui.MarketingList
       }
 
       private void HelpServ_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Company
+      private void NewComp_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void AddComp_Butn_Click(object sender, EventArgs e)
+      {
+         if (mkltcode == null) return;
+         if (CompBs.List.OfType<Data.Member>().Any(m => m.MBID == 0)) return;
+
+         CompBs.AddNew();
+         var comp = CompBs.Current as Data.Member;
+         comp.MKLT_MLID = mkltcode;
+
+         Comp_Gv.SelectRow(Comp_Gv.RowCount - 1);
+
+         iCRM.Members.InsertOnSubmit(comp);
+      }
+
+      private void DelComp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (mkltcode == null) return;
+
+            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+
+            var rows = Comp_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Member)Comp_Gv.GetRow(r);
+               iCRM.Members.DeleteOnSubmit(row);
+            }
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveComp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {}
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+
+      }
+
+      private void ShowComp_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpComp_Butn_Click(object sender, EventArgs e)
       {
 
       }

@@ -191,8 +191,15 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DsstgBs.DataSource = iCRM.D_SSTGs;
-         DslonBs.DataSource = iCRM.D_SLONs;         
+         if (InvokeRequired)
+         {
+            Invoke(new Action(() => { DsstgBs.DataSource = iCRM.D_SSTGs; }));            
+         }
+         else
+         {
+            DsstgBs.DataSource = iCRM.D_SSTGs;
+         }
+         
          job.Status = StatusType.Successful;
       }      
 

@@ -125,97 +125,12 @@ namespace System.CRM.Ui.Leads
       #region Note
       private void AddNote_Butn_Click(object sender, EventArgs e)
       {
-         /*NoteBs.AddNew();*/
-         var serv = ServBs.Current as Data.Service;
-         if (serv == null) return;
 
-         var rqstproj = RqstProjBs.Current as Data.Request;
-         if (rqstproj == null) return;
-
-         Job _InteractWithCRM =
-           new Job(SendType.External, "Localhost",
-              new List<Job>
-               {                  
-                  new Job(SendType.Self, 75 /* Execute Opt_Note_F */),
-                  new Job(SendType.SelfToUserInterface, "OPT_NOTE_F", 10 /* Execute ACTN_CALF_P */)
-                  {
-                     Input = 
-                     new XElement("Service", 
-                        new XAttribute("fileno", serv.FILE_NO), 
-                        new XAttribute("ntid", "0"),
-                        new XAttribute("projrqstrqid", rqstproj.RQID),
-                        new XAttribute("formcaller", GetType().Name)
-                     )
-                  },
-               });
-         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void SaveNote_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
-         if (serv == null) return;
-         var note = NoteBs.Current as Data.Note;
-         if (note == null) return;
 
-         Job _InteractWithCRM =
-           new Job(SendType.External, "Localhost",
-              new List<Job>
-               {                  
-                  new Job(SendType.Self, 75 /* Execute Opt_Note_F */),
-                  new Job(SendType.SelfToUserInterface, "OPT_NOTE_F", 10 /* Execute ACTN_CALF_P */)
-                  {
-                     Input = 
-                        new XElement("Service", 
-                           new XAttribute("fileno", serv.FILE_NO), 
-                           new XAttribute("ntid", note.NTID), 
-                           new XAttribute("rqrorqstrqid", note.RQRO_RQST_RQID),
-                           new XAttribute("formcaller", GetType().Name)
-                        )
-                  },
-               });
-         _DefaultGateway.Gateway(_InteractWithCRM);
-         //try
-         //{
-         //   NoteBs.EndEdit();
-         //   var note = NoteBs.Current as Data.Note;
-         //   if (note == null) return;
-         //   if (note.NOTE_CMNT == null || note.NOTE_CMNT == "") { NoteComment_Txt.Focus(); return; }
-
-         //   iCRM.OPR_NSAV_P(
-         //      new XElement("Note",                  
-         //         new XAttribute("servfileno", note.SERV_FILE_NO),
-         //         new XAttribute("rqrorqstrqid", note.RQRO_RQST_RQID ?? 0),
-         //         new XAttribute("rqrorwno", note.RQRO_RWNO ?? 0),
-         //         new XAttribute("ntid", note.NTID),
-         //         new XElement("Comment",                     
-         //            note.NOTE_CMNT
-         //         )
-         //      )
-         //   );
-
-         //   // 1396/04/30 * بروز رسانی فرم اصلی برای ذکر واقع شدن
-         //   _DefaultGateway.Gateway(
-         //      new Job(SendType.External, "Localhost",
-         //         new List<Job>
-         //         {                     
-         //            new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 42 /* Execute SetMention */){Executive = ExecutiveType.Asynchronous}
-         //         }
-         //      )
-         //   );
-         //   requery = true;
-         //}
-         //catch (Exception exc)
-         //{
-
-         //}
-         //finally
-         //{
-         //   if(requery)
-         //   {
-         //      Execute_Query();
-         //   }
-         //}
       }
 
       private void DeleteNote_Butn_Click(object sender, EventArgs e)

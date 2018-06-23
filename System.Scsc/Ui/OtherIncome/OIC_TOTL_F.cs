@@ -1216,7 +1216,9 @@ namespace System.Scsc.Ui.OtherIncome
             var pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (pydt == null) return;
 
+            requery = true;
             CBMT_CODE_GridLookUpEdit.EditValue = pydt.CBMT_CODE_DNRM;
+            requery = false;
          }
          catch (Exception exc)
          {
@@ -1228,14 +1230,38 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
+            if (requery) { requery = false; return; }
             var pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (pydt == null) return;
-
-            pydt.CBMT_CODE_DNRM = (long)e.NewValue;
+            
+            //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
+            iScsc.UPD_SEXP_P(
+               new XElement("Request",
+                  new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                  new XElement("Payment",
+                     new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                     new XElement("Payment_Detail",
+                        new XAttribute("code", pydt.CODE),
+                        new XAttribute("expncode", pydt.EXPN_CODE),
+                        new XAttribute("expnpric", pydt.EXPN_PRIC),
+                        new XAttribute("pydtdesc", pydt.PYDT_DESC),
+                        new XAttribute("qnty", pydt.QNTY ?? 1),
+                        new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                        new XAttribute("cbmtcodednrm", e.NewValue ?? 0)
+                     )
+                  )
+               )
+            );
+            requery = true;
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
 

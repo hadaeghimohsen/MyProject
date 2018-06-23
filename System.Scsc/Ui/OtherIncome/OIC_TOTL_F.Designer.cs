@@ -569,10 +569,10 @@
          // 
          // CbmtCode_Clm
          // 
-         this.CbmtCode_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CbmtCode_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.CbmtCode_Clm.AutoSize = true;
          this.CbmtCode_Clm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.CbmtCode_Clm.Location = new System.Drawing.Point(609, 349);
+         this.CbmtCode_Clm.Location = new System.Drawing.Point(609, 250);
          this.CbmtCode_Clm.Name = "CbmtCode_Clm";
          this.CbmtCode_Clm.Size = new System.Drawing.Size(84, 13);
          this.CbmtCode_Clm.TabIndex = 43;
@@ -580,9 +580,9 @@
          // 
          // PydtDesc_Clm
          // 
-         this.PydtDesc_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydtDesc_Clm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.PydtDesc_Clm.AutoSize = true;
-         this.PydtDesc_Clm.Location = new System.Drawing.Point(609, 377);
+         this.PydtDesc_Clm.Location = new System.Drawing.Point(609, 278);
          this.PydtDesc_Clm.Name = "PydtDesc_Clm";
          this.PydtDesc_Clm.Size = new System.Drawing.Size(54, 13);
          this.PydtDesc_Clm.TabIndex = 55;
@@ -642,7 +642,7 @@
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
          this.Gb_Expense.Location = new System.Drawing.Point(8, 229);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(716, 401);
+         this.Gb_Expense.Size = new System.Drawing.Size(716, 302);
          this.Gb_Expense.TabIndex = 68;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
@@ -715,9 +715,10 @@
          // 
          // PydtDesc_TextEdit
          // 
-         this.PydtDesc_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydtDesc_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.PydtDesc_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtsBs1, "PYDT_DESC", true));
-         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(64, 373);
+         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(24, 274);
          this.PydtDesc_TextEdit.Name = "PydtDesc_TextEdit";
          this.PydtDesc_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydtDesc_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -725,7 +726,7 @@
          this.PydtDesc_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.PydtDesc_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.PydtDesc_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PydtDesc_TextEdit.Size = new System.Drawing.Size(539, 22);
+         this.PydtDesc_TextEdit.Size = new System.Drawing.Size(579, 22);
          this.PydtDesc_TextEdit.TabIndex = 45;
          // 
          // PydtsBs1
@@ -746,8 +747,8 @@
          // 
          // Btn_Cbmt1
          // 
-         this.Btn_Cbmt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_Cbmt1.Location = new System.Drawing.Point(264, 344);
+         this.Btn_Cbmt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_Cbmt1.Location = new System.Drawing.Point(264, 245);
          this.Btn_Cbmt1.Name = "Btn_Cbmt1";
          this.Btn_Cbmt1.Size = new System.Drawing.Size(27, 23);
          this.Btn_Cbmt1.TabIndex = 44;
@@ -756,8 +757,8 @@
          // 
          // CBMT_CODE_GridLookUpEdit
          // 
-         this.CBMT_CODE_GridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CBMT_CODE_GridLookUpEdit.Location = new System.Drawing.Point(297, 345);
+         this.CBMT_CODE_GridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.CBMT_CODE_GridLookUpEdit.Location = new System.Drawing.Point(297, 246);
          this.CBMT_CODE_GridLookUpEdit.Name = "CBMT_CODE_GridLookUpEdit";
          this.CBMT_CODE_GridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CBMT_CODE_GridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -809,11 +810,12 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Method", "Method", 46, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Regulation", "Regulation", 61, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Category_Belt", "Category_Belt", 79, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
-         this.repositoryItemLookUpEdit1.DisplayMember = "EXPN_DESC";
+         this.repositoryItemLookUpEdit1.DataSource = this.DDytpBs;
+         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
          this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
          this.repositoryItemLookUpEdit1.NullText = "";
          this.repositoryItemLookUpEdit1.PopupFormMinSize = new System.Drawing.Size(400, 0);
-         this.repositoryItemLookUpEdit1.ValueMember = "CODE";
+         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
          // 
          // cBMT_CODEGridLookUpEditView
          // 
@@ -964,16 +966,12 @@
          this.colTIME_DESC.FieldName = "TIME_DESC";
          this.colTIME_DESC.Name = "colTIME_DESC";
          this.colTIME_DESC.UnboundType = DevExpress.Data.UnboundColumnType.String;
-         this.colTIME_DESC.Visible = true;
-         this.colTIME_DESC.VisibleIndex = 6;
          // 
          // gridColumn17
          // 
          this.gridColumn17.Caption = "عنوان کلاس";
          this.gridColumn17.FieldName = "CBMT_DESC";
          this.gridColumn17.Name = "gridColumn17";
-         this.gridColumn17.Visible = true;
-         this.gridColumn17.VisibleIndex = 7;
          // 
          // RemoveExpn_Butn
          // 
@@ -1128,7 +1126,7 @@
             this.repositoryItemSearchLookUpEdit1,
             this.Lov_YSNO,
             this.repositoryItemSearchLookUpEdit2});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(681, 206);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(681, 106);
          this.payment_DetailsGridControl.TabIndex = 1;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Pydt_Gv});
@@ -1176,7 +1174,7 @@
          this.Pydt_Gv.Name = "Pydt_Gv";
          this.Pydt_Gv.OptionsBehavior.AutoExpandAllGroups = true;
          this.Pydt_Gv.OptionsDetail.EnableMasterViewMode = false;
-         this.Pydt_Gv.OptionsView.EnableAppearanceEvenRow = true;
+         this.Pydt_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.Pydt_Gv.OptionsView.ShowFooter = true;
          this.Pydt_Gv.OptionsView.ShowGroupPanel = false;
          this.Pydt_Gv.OptionsView.ShowIndicator = false;
@@ -1203,9 +1201,11 @@
          this.ExpnCode_Clm.FieldName = "EXPN_CODE";
          this.ExpnCode_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.ExpnCode_Clm.Name = "ExpnCode_Clm";
+         this.ExpnCode_Clm.OptionsColumn.AllowEdit = false;
+         this.ExpnCode_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnCode_Clm.Visible = true;
          this.ExpnCode_Clm.VisibleIndex = 2;
-         this.ExpnCode_Clm.Width = 426;
+         this.ExpnCode_Clm.Width = 532;
          // 
          // LOV_EXPN
          // 
@@ -1260,11 +1260,12 @@
          this.ExpnPric_Clm.FieldName = "EXPN_PRIC";
          this.ExpnPric_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.ExpnPric_Clm.Name = "ExpnPric_Clm";
+         this.ExpnPric_Clm.OptionsColumn.FixedWidth = true;
          this.ExpnPric_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EXPN_PRIC", "{0:N0}")});
          this.ExpnPric_Clm.Visible = true;
          this.ExpnPric_Clm.VisibleIndex = 1;
-         this.ExpnPric_Clm.Width = 148;
+         this.ExpnPric_Clm.Width = 89;
          // 
          // colEXPN_EXTR_PRCT
          // 
@@ -1281,9 +1282,12 @@
          this.Qnty_Clm.Caption = "تعداد";
          this.Qnty_Clm.FieldName = "QNTY";
          this.Qnty_Clm.Name = "Qnty_Clm";
+         this.Qnty_Clm.OptionsColumn.FixedWidth = true;
+         this.Qnty_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
          this.Qnty_Clm.Visible = true;
          this.Qnty_Clm.VisibleIndex = 0;
-         this.Qnty_Clm.Width = 60;
+         this.Qnty_Clm.Width = 54;
          // 
          // colDOCM_NUMB
          // 
@@ -2156,7 +2160,7 @@
          this.gridView1.OptionsBehavior.Editable = false;
          this.gridView1.OptionsBehavior.ReadOnly = true;
          this.gridView1.OptionsDetail.EnableMasterViewMode = false;
-         this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.gridView1.OptionsView.ShowFooter = true;
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
@@ -2334,7 +2338,8 @@
          // 
          // FreeAdm_Pn
          // 
-         this.FreeAdm_Pn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FreeAdm_Pn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.FreeAdm_Pn.Controls.Add(this.RqstDesc_Lb);
          this.FreeAdm_Pn.Controls.Add(this.ServNo_Lb);
          this.FreeAdm_Pn.Controls.Add(this.SERV_NO_TextEdit);
@@ -2514,7 +2519,8 @@
          // 
          // RqstDesc_Txt
          // 
-         this.RqstDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqstDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.RqstDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "RQST_DESC", true));
          this.RqstDesc_Txt.Location = new System.Drawing.Point(12, 6);
          this.RqstDesc_Txt.Name = "RqstDesc_Txt";

@@ -501,9 +501,8 @@ namespace System.Scsc.Ui.Common
          try
          {
             var figh = iScsc.Fighters.Where(f => f.FILE_NO == fileno).FirstOrDefault();
-            figh.MDFY_DATE = DateTime.Now;
 
-            iScsc.SubmitChanges();
+            iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Debt_Dnrm = 0 WHERE FILE_NO = {0}", figh.FILE_NO));
             requery = true;
          }
          catch (Exception exc)

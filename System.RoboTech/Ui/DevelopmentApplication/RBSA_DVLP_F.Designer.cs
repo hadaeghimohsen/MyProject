@@ -493,13 +493,13 @@
          this.Tsb_SubmitChangeSada = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator32 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripButton62 = new System.Windows.Forms.ToolStripButton();
+         this.Tsb_ReadyToSendAdv = new System.Windows.Forms.ToolStripButton();
          this.groupBox10 = new System.Windows.Forms.GroupBox();
          this.fILE_IDTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.pAKT_TYPELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DpktpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DelmtBs = new System.Windows.Forms.BindingSource(this.components);
          this.tEXT_MESGMemoEdit = new DevExpress.XtraEditors.MemoEdit();
          this.Btn_Back = new C1.Win.C1Input.C1Button();
-         this.Tsb_ReadyToSendAdv = new System.Windows.Forms.ToolStripButton();
          pAKT_TYPELabel = new System.Windows.Forms.Label();
          tEXT_MESGLabel = new System.Windows.Forms.Label();
          fILE_IDLabel = new System.Windows.Forms.Label();
@@ -651,7 +651,7 @@
          this.groupBox10.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.fILE_IDTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pAKT_TYPELookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DpktpBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelmtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tEXT_MESGMemoEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
          this.SuspendLayout();
@@ -5068,6 +5068,15 @@
          this.toolStripButton62.Size = new System.Drawing.Size(23, 22);
          this.toolStripButton62.Text = "toolStripButton22";
          // 
+         // Tsb_ReadyToSendAdv
+         // 
+         this.Tsb_ReadyToSendAdv.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.Tsb_ReadyToSendAdv.Image = global::System.RoboTech.Properties.Resources.IMAGE_1161;
+         this.Tsb_ReadyToSendAdv.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.Tsb_ReadyToSendAdv.Name = "Tsb_ReadyToSendAdv";
+         this.Tsb_ReadyToSendAdv.Size = new System.Drawing.Size(23, 22);
+         this.Tsb_ReadyToSendAdv.Click += new System.EventHandler(this.Tsb_ReadyToSendAdv_Click);
+         // 
          // groupBox10
          // 
          this.groupBox10.Controls.Add(this.fILE_IDTextEdit);
@@ -5115,7 +5124,7 @@
          this.pAKT_TYPELookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 53, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع ارسالی", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.pAKT_TYPELookUpEdit.Properties.DataSource = this.DpktpBs;
+         this.pAKT_TYPELookUpEdit.Properties.DataSource = this.DelmtBs;
          this.pAKT_TYPELookUpEdit.Properties.DisplayMember = "DOMN_DESC";
          this.pAKT_TYPELookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.pAKT_TYPELookUpEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -5124,9 +5133,9 @@
          this.pAKT_TYPELookUpEdit.Size = new System.Drawing.Size(487, 22);
          this.pAKT_TYPELookUpEdit.TabIndex = 1;
          // 
-         // DpktpBs
+         // DelmtBs
          // 
-         this.DpktpBs.DataSource = typeof(System.RoboTech.Data.D_PKTP);
+         this.DelmtBs.DataSource = typeof(System.RoboTech.Data.D_ELMT);
          // 
          // tEXT_MESGMemoEdit
          // 
@@ -5155,15 +5164,6 @@
          this.Btn_Back.Text = "بازگشت";
          this.Btn_Back.UseVisualStyleBackColor = true;
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
-         // 
-         // Tsb_ReadyToSendAdv
-         // 
-         this.Tsb_ReadyToSendAdv.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.Tsb_ReadyToSendAdv.Image = global::System.RoboTech.Properties.Resources.IMAGE_1161;
-         this.Tsb_ReadyToSendAdv.ImageTransparentColor = System.Drawing.Color.Magenta;
-         this.Tsb_ReadyToSendAdv.Name = "Tsb_ReadyToSendAdv";
-         this.Tsb_ReadyToSendAdv.Size = new System.Drawing.Size(23, 22);
-         this.Tsb_ReadyToSendAdv.Click += new System.EventHandler(this.Tsb_ReadyToSendAdv_Click);
          // 
          // RBSA_DVLP_F
          // 
@@ -5332,7 +5332,7 @@
          this.groupBox10.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.fILE_IDTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pAKT_TYPELookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DpktpBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DelmtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.tEXT_MESGMemoEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).EndInit();
          this.ResumeLayout(false);
@@ -5767,7 +5767,7 @@
       private Windows.Forms.ToolStripButton toolStripButton69;
       private Windows.Forms.ToolStripSeparator toolStripSeparator36;
       private Windows.Forms.ToolStripButton toolStripButton70;
-      private Windows.Forms.BindingSource DpktpBs;
+      private Windows.Forms.BindingSource DelmtBs;
       private Windows.Forms.ToolStripButton Tsb_ReadyToSendAdv;
    }
 }

@@ -243,6 +243,11 @@ namespace System.RoboTech.Controller
                         );
                   textmsg = "";
                }
+
+               await Bot.SendTextMessageAsync(
+                  chat.Message.Chat.Id,
+                  string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
+               );
             }
             #endregion
 
@@ -675,6 +680,11 @@ namespace System.RoboTech.Controller
                   if (chat.Message.Location != null)
                   {
                      elmntype = "005";                     
+                  }
+                  if(chat.Message.Audio != null)
+                  {
+                     elmntype = "006";
+                     mimetype = chat.Message.Audio.MimeType;
                   }
                   try                  
                   {
@@ -2667,52 +2677,6 @@ namespace System.RoboTech.Controller
                         {
                            try
                            {
-                              Bot.SendAudioAsync((long)s.CHAT_ID, file,"*", 0, send.TEXT_MESG, "#");
-                              var srsa = new Data.Service_Robot_Send_Advertising()
-                              {
-                                 Service_Robot = s,
-                                 SDAD_ID = send.ID,
-                                 SEND_STAT = "004"
-                              };
-                              iRobotTech.Service_Robot_Send_Advertisings.InsertOnSubmit(srsa);
-                              iRobotTech.SubmitChanges();
-
-                              if (ConsoleOutLog_MemTxt.InvokeRequired)
-                                 ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
-                              else
-                                 ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString());
-
-                           }
-                           catch
-                           {
-                              var srsa = new Data.Service_Robot_Send_Advertising()
-                              {
-                                 Service_Robot = s,
-                                 SDAD_ID = send.ID,
-                                 SEND_STAT = "003"
-                              };
-                              iRobotTech.Service_Robot_Send_Advertisings.InsertOnSubmit(srsa);
-                              iRobotTech.SubmitChanges();
-
-                              if (ConsoleOutLog_MemTxt.InvokeRequired)
-                                 ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Failed\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
-                              else
-                                 ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Failed\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString());
-                           }
-                        });
-                  }
-                  catch { }
-                  break;
-               case "005":
-                  try
-                  {
-                     iRobotTech.Service_Robots
-                        .Where(sr => sr.Robot.TKON_CODE == robotToken && sr.STAT == "002")
-                        .ToList()
-                        .ForEach(s =>
-                        {
-                           try
-                           {
                               Bot.SendDocumentAsync((long)s.CHAT_ID, file, send.TEXT_MESG);
                               var srsa = new Data.Service_Robot_Send_Advertising()
                               {
@@ -2749,6 +2713,53 @@ namespace System.RoboTech.Controller
                   }
                   catch { }
                   break;
+               case "006":
+                  try
+                  {
+                     iRobotTech.Service_Robots
+                        .Where(sr => sr.Robot.TKON_CODE == robotToken && sr.STAT == "002")
+                        .ToList()
+                        .ForEach(s =>
+                        {
+                           try
+                           {
+                              Bot.SendAudioAsync((long)s.CHAT_ID, file,"*", 0, send.TEXT_MESG, "#");
+                              var srsa = new Data.Service_Robot_Send_Advertising()
+                              {
+                                 Service_Robot = s,
+                                 SDAD_ID = send.ID,
+                                 SEND_STAT = "004"
+                              };
+                              iRobotTech.Service_Robot_Send_Advertisings.InsertOnSubmit(srsa);
+                              iRobotTech.SubmitChanges();
+
+                              if (ConsoleOutLog_MemTxt.InvokeRequired)
+                                 ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
+                              else
+                                 ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString());
+
+                           }
+                           catch
+                           {
+                              var srsa = new Data.Service_Robot_Send_Advertising()
+                              {
+                                 Service_Robot = s,
+                                 SDAD_ID = send.ID,
+                                 SEND_STAT = "003"
+                              };
+                              iRobotTech.Service_Robot_Send_Advertisings.InsertOnSubmit(srsa);
+                              iRobotTech.SubmitChanges();
+
+                              if (ConsoleOutLog_MemTxt.InvokeRequired)
+                                 ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Failed\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
+                              else
+                                 ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Failed\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString());
+                           }
+                        });
+                  }
+                  catch { }
+                  break;
+               
                default:
                   break;
             }

@@ -251,6 +251,19 @@ namespace System.RoboTech.Controller
             }
             #endregion
 
+            #region "Check Menu on Request Contact OR Request Location"
+            if(chat.UssdCode != null)
+               switch (message.Type)
+               {
+                  case MessageType.ContactMessage:
+                     message.Text = iRobotTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == robot.RBID && m.Menu_Ussd1.USSD_CODE == chat.UssdCode && m.CMND_TYPE == "015").MENU_TEXT;
+                     break;
+                  case MessageType.LocationMessage:
+                     message.Text = iRobotTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == robot.RBID && m.Menu_Ussd1.USSD_CODE == chat.UssdCode && m.CMND_TYPE == "016").MENU_TEXT;
+                     break;                  
+               }
+            #endregion
+
             #region "Found Menu"
             iRobotTech.Proccess_Message_P(
                new XElement("Robot",
@@ -1951,6 +1964,25 @@ namespace System.RoboTech.Controller
                      }
                   }
                   #endregion
+               }
+               else if(menucmndtype.CMND_TYPE == "015")
+               {
+                  var xdata = RobotHandle.GetData(
+                    new XElement("Robot",
+                       new XAttribute("token", Token),
+                       new XElement("Message",
+                          new XAttribute("ussd", chat.UssdCode ?? ""),
+                          new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
+                          new XAttribute("chatid", chat.Message.Chat.Id),
+                          new XAttribute("elmntype", "008"),
+                          new XElement("Text", chat.Message.Text),
+                          new XElement("Contact",
+                             new XAttribute("phonnumb", chat.Message.Contact.PhoneNumber)
+                          )
+                       )
+                    ), connectionString);
+
+                  await FireEventResultOpration(chat, keyBoardMarkup, xdata);
                }
                else if (menucmndtype.CMND_TYPE == "017")
                {

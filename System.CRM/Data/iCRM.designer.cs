@@ -1932,6 +1932,14 @@ namespace System.CRM.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<D_PRTF> D_PRTFs
+		{
+			get
+			{
+				return this.GetTable<D_PRTF>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Lead> Leads
 		{
 			get
@@ -59886,6 +59894,8 @@ namespace System.CRM.Data
 		
 		private EntitySet<Campaign_Activity> _Campaign_Activities;
 		
+		private EntitySet<Lead> _Leads;
+		
 		private EntityRef<Job_Personnel> _Job_Personnel;
 		
 		private EntityRef<Transaction_Currency_Base> _Transaction_Currency_Base;
@@ -59947,6 +59957,7 @@ namespace System.CRM.Data
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
 			this._Marketing_List_Campaigns = new EntitySet<Marketing_List_Campaign>(new Action<Marketing_List_Campaign>(this.attach_Marketing_List_Campaigns), new Action<Marketing_List_Campaign>(this.detach_Marketing_List_Campaigns));
 			this._Campaign_Activities = new EntitySet<Campaign_Activity>(new Action<Campaign_Activity>(this.attach_Campaign_Activities), new Action<Campaign_Activity>(this.detach_Campaign_Activities));
+			this._Leads = new EntitySet<Lead>(new Action<Lead>(this.attach_Leads), new Action<Lead>(this.detach_Leads));
 			this._Job_Personnel = default(EntityRef<Job_Personnel>);
 			this._Transaction_Currency_Base = default(EntityRef<Transaction_Currency_Base>);
 			OnCreated();
@@ -60459,6 +60470,19 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Campaign_Lead", Storage="_Leads", ThisKey="CMID", OtherKey="CAMP_CMID")]
+		public EntitySet<Lead> Leads
+		{
+			get
+			{
+				return this._Leads;
+			}
+			set
+			{
+				this._Leads.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Job_Personnel_Campaign", Storage="_Job_Personnel", ThisKey="OWNR_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Job_Personnel Job_Personnel
 		{
@@ -60578,6 +60602,18 @@ namespace System.CRM.Data
 		}
 		
 		private void detach_Campaign_Activities(Campaign_Activity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Campaign = null;
+		}
+		
+		private void attach_Leads(Lead entity)
+		{
+			this.SendPropertyChanging();
+			entity.Campaign = this;
+		}
+		
+		private void detach_Leads(Lead entity)
 		{
 			this.SendPropertyChanging();
 			entity.Campaign = null;
@@ -63781,6 +63817,51 @@ namespace System.CRM.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$PRTF")]
+	public partial class D_PRTF
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_PRTF()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lead")]
 	public partial class Lead : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -63792,6 +63873,8 @@ namespace System.CRM.Data
 		private System.Nullable<short> _RQRO_RWNO;
 		
 		private System.Nullable<long> _OWNR_CODE;
+		
+		private System.Nullable<long> _CAMP_CMID;
 		
 		private long _LDID;
 		
@@ -63847,6 +63930,8 @@ namespace System.CRM.Data
 		
 		private string _RTNG;
 		
+		private string _SEND_CAMP_INFO;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -63858,6 +63943,8 @@ namespace System.CRM.Data
 		private EntitySet<Note> _Notes;
 		
 		private EntitySet<Member> _Members;
+		
+		private EntityRef<Campaign> _Campaign;
 		
 		private EntityRef<Job_Personnel> _Job_Personnel;
 		
@@ -63873,6 +63960,8 @@ namespace System.CRM.Data
     partial void OnRQRO_RWNOChanged();
     partial void OnOWNR_CODEChanging(System.Nullable<long> value);
     partial void OnOWNR_CODEChanged();
+    partial void OnCAMP_CMIDChanging(System.Nullable<long> value);
+    partial void OnCAMP_CMIDChanged();
     partial void OnLDIDChanging(long value);
     partial void OnLDIDChanged();
     partial void OnTOPCChanging(string value);
@@ -63927,6 +64016,8 @@ namespace System.CRM.Data
     partial void OnSORCChanged();
     partial void OnRTNGChanging(string value);
     partial void OnRTNGChanged();
+    partial void OnSEND_CAMP_INFOChanging(string value);
+    partial void OnSEND_CAMP_INFOChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -63941,6 +64032,7 @@ namespace System.CRM.Data
 		{
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
 			this._Members = new EntitySet<Member>(new Action<Member>(this.attach_Members), new Action<Member>(this.detach_Members));
+			this._Campaign = default(EntityRef<Campaign>);
 			this._Job_Personnel = default(EntityRef<Job_Personnel>);
 			this._Request_Row = default(EntityRef<Request_Row>);
 			OnCreated();
@@ -64014,6 +64106,30 @@ namespace System.CRM.Data
 					this._OWNR_CODE = value;
 					this.SendPropertyChanged("OWNR_CODE");
 					this.OnOWNR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_CMID", DbType="BigInt")]
+		public System.Nullable<long> CAMP_CMID
+		{
+			get
+			{
+				return this._CAMP_CMID;
+			}
+			set
+			{
+				if ((this._CAMP_CMID != value))
+				{
+					if (this._Campaign.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCAMP_CMIDChanging(value);
+					this.SendPropertyChanging();
+					this._CAMP_CMID = value;
+					this.SendPropertyChanged("CAMP_CMID");
+					this.OnCAMP_CMIDChanged();
 				}
 			}
 		}
@@ -64558,6 +64674,26 @@ namespace System.CRM.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_CAMP_INFO", DbType="VarChar(3)")]
+		public string SEND_CAMP_INFO
+		{
+			get
+			{
+				return this._SEND_CAMP_INFO;
+			}
+			set
+			{
+				if ((this._SEND_CAMP_INFO != value))
+				{
+					this.OnSEND_CAMP_INFOChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_CAMP_INFO = value;
+					this.SendPropertyChanged("SEND_CAMP_INFO");
+					this.OnSEND_CAMP_INFOChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
@@ -64661,6 +64797,40 @@ namespace System.CRM.Data
 			set
 			{
 				this._Members.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Campaign_Lead", Storage="_Campaign", ThisKey="CAMP_CMID", OtherKey="CMID", IsForeignKey=true)]
+		public Campaign Campaign
+		{
+			get
+			{
+				return this._Campaign.Entity;
+			}
+			set
+			{
+				Campaign previousValue = this._Campaign.Entity;
+				if (((previousValue != value) 
+							|| (this._Campaign.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Campaign.Entity = null;
+						previousValue.Leads.Remove(this);
+					}
+					this._Campaign.Entity = value;
+					if ((value != null))
+					{
+						value.Leads.Add(this);
+						this._CAMP_CMID = value.CMID;
+					}
+					else
+					{
+						this._CAMP_CMID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Campaign");
+				}
 			}
 		}
 		

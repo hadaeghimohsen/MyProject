@@ -2640,12 +2640,14 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_PLTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PMTM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PRIO.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_PRTF.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PSTG.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PYD.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RCMT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RGTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_RLTP.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_RQST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SDRC.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SDST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SDTP.datasource" />

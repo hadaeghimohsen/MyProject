@@ -244,10 +244,10 @@ namespace System.RoboTech.Controller
                   textmsg = "";
                }
 
-               await Bot.SendTextMessageAsync(
-                  chat.Message.Chat.Id,
-                  string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
-               );
+               //await Bot.SendTextMessageAsync(
+               //   chat.Message.Chat.Id,
+               //   string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
+               //);
             }
             #endregion
 

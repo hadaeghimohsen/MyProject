@@ -195,20 +195,43 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
+         if (InvokeRequired)
          {
-            switch (xinput.Attribute("type").Value)
-            {
-               case "refresh":
-                  Execute_Query();
-                  job.Status = StatusType.Successful;
-                  return;
-            }
+            Invoke(
+               new Action(() =>
+               {
+                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+
+                  DtrgtBs.DataSource = iCRM.D_TRGTs;
+                  DstdyBs.DataSource = iCRM.D_STDies;
+                  DysnoBs.DataSource = iCRM.D_YSNOs;
+                  DcmstBs.DataSource = iCRM.D_CMSTs;
+                  DcntpBs.DataSource = iCRM.D_CNTPs;
+
+                  LstCampBs.DataSource = iCRM.Campaigns;
+                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
+                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+                  LstLeadBs.DataSource = iCRM.Leads;
+               })
+            );
          }
-         DsrtpBs.DataSource = iCRM.D_SRTPs;
-         DsdrcBs.DataSource = iCRM.D_SDRCs;
-         DsdstBs.DataSource = iCRM.D_SDSTs;
+         else
+         {
+            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+
+            DtrgtBs.DataSource = iCRM.D_TRGTs;
+            DstdyBs.DataSource = iCRM.D_STDies;
+            DysnoBs.DataSource = iCRM.D_YSNOs;
+            DcmstBs.DataSource = iCRM.D_CMSTs;
+            DcntpBs.DataSource = iCRM.D_CNTPs;
+
+            LstCampBs.DataSource = iCRM.Campaigns;
+            LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
+            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+            LstLeadBs.DataSource = iCRM.Leads;
+         }
          
          job.Status = StatusType.Successful;
       }
@@ -234,7 +257,7 @@ namespace System.CRM.Ui.Leads
          var xinput = job.Input as XElement;
          if (xinput != null)
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (xinput.Attribute("outputtype").Value == "servcord")
             {
                var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);

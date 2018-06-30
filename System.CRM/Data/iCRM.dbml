@@ -3448,6 +3448,7 @@
       <Association Name="Campaign_Note" Member="Notes" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Note" />
       <Association Name="Campaign_Marketing_List_Campaign" Member="Marketing_List_Campaigns" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Marketing_List_Campaign" />
       <Association Name="Campaign_Campaign_Activity" Member="Campaign_Activities" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Campaign_Activity" />
+      <Association Name="Campaign_Lead" Member="Leads" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Lead" />
       <Association Name="Job_Personnel_Campaign" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Transaction_Currency_Base_Campaign" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
     </Type>
@@ -3790,11 +3791,18 @@
       <Argument Parameter="mbid" Member="MBID" />
     </DeleteFunction>
   </Table>
+  <Table Name="dbo.D$PRTF" Member="D_PRTFs">
+    <Type Name="D_PRTF">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Lead" Member="Leads">
     <Type Name="Lead">
       <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CAMP_CMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="LDID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TOPC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="PRCH_TIME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
@@ -3822,12 +3830,14 @@
       <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="SORC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="RTNG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_CAMP_INFO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Lead_Note" Member="Notes" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Note" />
       <Association Name="Lead_Member" Member="Members" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Member" />
+      <Association Name="Campaign_Lead" Member="Campaign" ThisKey="CAMP_CMID" OtherKey="CMID" Type="Campaign" IsForeignKey="true" />
       <Association Name="Job_Personnel_Lead" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Request_Row_Lead" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
     </Type>

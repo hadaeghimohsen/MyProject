@@ -37,7 +37,7 @@ namespace System.CRM.Ui.Leads
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno );
+         LstServBs.DataSource = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno );
 
          MsttBs.DataSource = iCRM.Main_States;
          requery = false;
@@ -45,7 +45,7 @@ namespace System.CRM.Ui.Leads
 
       private void ServBs_CurrentChanged(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
 
          if (serv == null) return;
 
@@ -164,7 +164,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             var rqstproj = RqstProjBs.Current as Data.Request;
@@ -195,7 +195,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             Job _InteractWithCRM =
@@ -247,7 +247,7 @@ namespace System.CRM.Ui.Leads
 
       private void DeleteRecycleService_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          try
          {            
             if (Convert.ToInt32(serv.ONOF_TAG_DNRM) >= 101)
@@ -305,7 +305,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             Job _InteractWithCRM =
@@ -331,7 +331,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             var rqstproj = RqstProjBs.Current as Data.Request;
@@ -361,7 +361,7 @@ namespace System.CRM.Ui.Leads
 
       private void EditService_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
@@ -384,7 +384,7 @@ namespace System.CRM.Ui.Leads
             {
                case 0:
                   #region Add Task
-                  var serv = ServBs.Current as Data.Service;
+                  var serv = LstServBs.Current as Data.Service;
                   if (serv == null) return;
 
                   Job _InteractWithCRM =
@@ -408,7 +408,7 @@ namespace System.CRM.Ui.Leads
                   break;
                case 1:
                   #region Add Appointment
-                  serv = ServBs.Current as Data.Service;
+                  serv = LstServBs.Current as Data.Service;
                   if (serv == null) return;
 
                   _InteractWithCRM =
@@ -432,7 +432,7 @@ namespace System.CRM.Ui.Leads
                   break;
                case 2:
                   #region Edit Log Call
-                  serv = ServBs.Current as Data.Service;
+                  serv = LstServBs.Current as Data.Service;
                   if (serv == null) return;
 
                   _InteractWithCRM =
@@ -485,7 +485,7 @@ namespace System.CRM.Ui.Leads
             var logc = LogcBs.Current as Data.Log_Call;
             if (logc == null) return;
 
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             var _InteractWithCRM =
@@ -521,7 +521,7 @@ namespace System.CRM.Ui.Leads
             {
                case 0:
                   #region Add Task
-                  var serv = ServBs.Current as Data.Service;
+                  var serv = LstServBs.Current as Data.Service;
                   if (serv == null) return;
 
                   Job _InteractWithCRM =
@@ -545,7 +545,7 @@ namespace System.CRM.Ui.Leads
                   break;
                case 1:
                   #region Add Appointment
-                  serv = ServBs.Current as Data.Service;
+                  serv = LstServBs.Current as Data.Service;
                   if (serv == null) return;
 
                   _InteractWithCRM =
@@ -569,7 +569,7 @@ namespace System.CRM.Ui.Leads
                   break;
                case 2:
                   #region Edit Email
-                  serv = ServBs.Current as Data.Service;
+                  serv = LstServBs.Current as Data.Service;
                   if (serv == null) return;
 
                   _InteractWithCRM =
@@ -622,7 +622,7 @@ namespace System.CRM.Ui.Leads
             var emal = EmalBs.Current as Data.Email;
             if (emal == null) return;
 
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             var _InteractWithCRM =
@@ -653,7 +653,7 @@ namespace System.CRM.Ui.Leads
       #region Task
       private void AddTask_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          var rqstproj = RqstProjBs.Current as Data.Request;
@@ -681,7 +681,7 @@ namespace System.CRM.Ui.Leads
 
       private void EditTask_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
          var task = TaskBs.Current as Data.Task;
          if (task == null) return;
@@ -715,7 +715,7 @@ namespace System.CRM.Ui.Leads
       #region Appointment
       private void AddAppointment_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          var rqstproj = RqstProjBs.Current as Data.Request;
@@ -742,7 +742,7 @@ namespace System.CRM.Ui.Leads
 
       private void EditAppointment_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
          var apon = AponBs.Current as Data.Appointment;
          if (apon == null) return;
@@ -776,7 +776,7 @@ namespace System.CRM.Ui.Leads
       #region Send File
       private void AddSendFile_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          var rqstproj = RqstProjBs.Current as Data.Request;
@@ -803,7 +803,7 @@ namespace System.CRM.Ui.Leads
 
       private void EditSendFile_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
          var sndf = FileBs.Current as Data.Send_File;
          if (sndf == null) return;
@@ -837,7 +837,7 @@ namespace System.CRM.Ui.Leads
       #region Message
       private void AddMesg_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          var rqstproj = RqstProjBs.Current as Data.Request;
@@ -865,7 +865,7 @@ namespace System.CRM.Ui.Leads
 
       private void EditMesg_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
          var mesg = MesgBs.Current as Data.Message;
          if (mesg == null) return;
@@ -1176,7 +1176,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
 
             if (serv.RQST_RQID != null && MessageBox.Show(this, "آیا با انصراف درخواست موافق هستین?", "انصراف درخواست", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
@@ -1205,7 +1205,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             Job _InteractWithCRM =
@@ -1398,7 +1398,7 @@ namespace System.CRM.Ui.Leads
 
       private void ServCont_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          _DefaultGateway.Gateway(
@@ -1463,7 +1463,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             Job _InteractWithCRM =
@@ -1480,7 +1480,7 @@ namespace System.CRM.Ui.Leads
 
       private void Gis_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          //if (serv.CORD_X_DNRM == 0.0 && serv.CORD_Y_DNRM == 0.0) return;
@@ -1505,7 +1505,7 @@ namespace System.CRM.Ui.Leads
 
       private void RelationShip_Butn_Click(object sender, EventArgs e)
       {
-         var serv = ServBs.Current as Data.Service;
+         var serv = LstServBs.Current as Data.Service;
          if (serv == null) return;
 
          _DefaultGateway.Gateway(
@@ -1568,7 +1568,7 @@ namespace System.CRM.Ui.Leads
       {
          try
          {
-            var serv = ServBs.Current as Data.Service;
+            var serv = LstServBs.Current as Data.Service;
             if (serv == null) return;
 
             Job _InteractWithCRM =

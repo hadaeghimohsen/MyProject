@@ -1783,5 +1783,90 @@ namespace System.Scsc.Ui.BaseDefinition
          Club_Lov.EditValue = null;
          DuplicateClass_Pn.Visible = !DuplicateClass_Pn.Visible;
       }
+
+      private void CochBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            switch (coch.ACTV_TAG_DNRM)
+            {
+               case "101":
+                  DelUnDelCoch_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1609;
+                  break;
+               case "001":
+                  DelUnDelCoch_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1608;
+                  break;
+            }
+         }
+         catch (Exception exc){}
+      }
+
+      private void DelUnDelCoch_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            switch (coch.ACTV_TAG_DNRM)
+            {
+               case "101":
+                  if (MessageBox.Show(this, "آیا با حذف مربی موافق هستید؟", "عملیات حذف موقت مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_ends_f"},
+                           new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 02 /* Execute Set */),
+                           new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 07 /* Execute Load_Data */),                        
+                           new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", coch.FILE_NO), new XAttribute("auto", "true"))},
+                           //new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 07 /* Execute Load_Data */){Input = new XElement("LoadData", new XAttribute("requery", "1"))},
+                        })
+                  );
+                  break;
+               case "001":
+                  if (MessageBox.Show(this, "آیا با بازیابی مربی موافق هستید؟", "عملیات بازیابی مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+
+                  // 1396/09/04 * بازیابی کد انگشتی یا کارتی مشتری
+                  //var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == coch.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
+                  //if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت مربی {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                  //   fighhist.FNGR_PRNT = "";
+               
+                  //if(fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به مربی اختصاص دهید", "الحاق انگشتی یا کارت جدید به مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                  //{
+                  //getfngrprnt:
+                  //   fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
+                  //if (fighhist.FNGR_PRNT == "")
+                  //   goto getfngrprnt;
+                  //}
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_dsen_f"},
+                           new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 02 /* Execute Set */),
+                           new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 07 /* Execute Load_Data */),                        
+                           new Job(SendType.SelfToUserInterface, "ADM_DSEN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", coch.FILE_NO), new XAttribute("auto", "true"), new XAttribute("fngrprnt", ""))},
+                           //new Job(SendType.SelfToUserInterface, "LSI_FDLF_F", 07 /* Execute Load_Data */){Input = new XElement("LoadData", new XAttribute("requery", "1"))},
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc){}
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+
+      }
    }
 }

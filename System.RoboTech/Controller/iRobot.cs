@@ -3176,19 +3176,20 @@ namespace System.RoboTech.Controller
                var xelement = query.Element("Message").Value;
                #region Info
                // Info
-               await Bot.SendTextMessageAsync(
-                    chat.Message.Chat.Id,
-                    xelement ?? "...",
-                    ParseMode.Default,
-                    false,
-                    false,
-                    chat.Message.MessageId,
-                    new ReplyKeyboardMarkup()
-                    {
-                       Keyboard = keyBoardMarkup,
-                       ResizeKeyboard = true,
-                       Selective = true
-                    });
+               await MessagePaging(chat, xelement, keyBoardMarkup);
+               //await Bot.SendTextMessageAsync(
+               //     chat.Message.Chat.Id,
+               //     xelement ?? "...",
+               //     ParseMode.Default,
+               //     false,
+               //     false,
+               //     chat.Message.MessageId,
+               //     new ReplyKeyboardMarkup()
+               //     {
+               //        Keyboard = keyBoardMarkup,
+               //        ResizeKeyboard = true,
+               //        Selective = true
+               //     });
                #endregion
             }
          }

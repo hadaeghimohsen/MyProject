@@ -188,6 +188,7 @@
          this.colDOWN_LOAD_FILE_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DownLoad_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.memoEdit14 = new DevExpress.XtraEditors.MemoEdit();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox6 = new System.Windows.Forms.GroupBox();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
@@ -854,6 +855,7 @@
          this.vUserBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new C1.Win.C1Input.C1Button();
          this.FilePath_Fbd = new System.Windows.Forms.FolderBrowserDialog();
+         this.colDFLT_ACES = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DactvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
@@ -896,6 +898,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DownLoad_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.memoEdit14.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
          this.splitContainerControl5.SuspendLayout();
          this.groupBox6.SuspendLayout();
@@ -1853,11 +1856,12 @@
          this.splitContainerControl2.Location = new System.Drawing.Point(3, 43);
          this.splitContainerControl2.Name = "splitContainerControl2";
          this.splitContainerControl2.Panel1.Controls.Add(this.gridControl1);
+         this.splitContainerControl2.Panel1.Controls.Add(this.memoEdit14);
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
          this.splitContainerControl2.Size = new System.Drawing.Size(1159, 432);
-         this.splitContainerControl2.SplitterPosition = 160;
+         this.splitContainerControl2.SplitterPosition = 180;
          this.splitContainerControl2.TabIndex = 2;
          this.splitContainerControl2.Text = "splitContainerControl2";
          // 
@@ -1875,7 +1879,7 @@
             this.Buld_Lov,
             this.persianRepositoryItemDateEdit6,
             this.DownLoad_Lov});
-         this.gridControl1.Size = new System.Drawing.Size(1159, 160);
+         this.gridControl1.Size = new System.Drawing.Size(1159, 110);
          this.gridControl1.TabIndex = 1;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -2089,6 +2093,20 @@
          this.gridColumn38.VisibleIndex = 1;
          this.gridColumn38.Width = 449;
          // 
+         // memoEdit14
+         // 
+         this.memoEdit14.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RoboBs, "INVT_FRND", true));
+         this.memoEdit14.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.memoEdit14.Location = new System.Drawing.Point(0, 110);
+         this.memoEdit14.Name = "memoEdit14";
+         this.memoEdit14.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.memoEdit14.Properties.Appearance.Options.UseFont = true;
+         this.memoEdit14.Properties.NullText = "متن دعوت دوستان تلگرامی";
+         this.memoEdit14.Properties.NullValuePrompt = "متن دعوت دوستان تلگرامی";
+         this.memoEdit14.Properties.NullValuePromptShowForEmptyValue = true;
+         this.memoEdit14.Size = new System.Drawing.Size(1159, 70);
+         this.memoEdit14.TabIndex = 2;
+         // 
          // splitContainerControl5
          // 
          this.splitContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2098,8 +2116,8 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl4);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(1159, 267);
-         this.splitContainerControl5.SplitterPosition = 685;
+         this.splitContainerControl5.Size = new System.Drawing.Size(1159, 247);
+         this.splitContainerControl5.SplitterPosition = 550;
          this.splitContainerControl5.TabIndex = 3;
          this.splitContainerControl5.Text = "splitContainerControl5";
          // 
@@ -2110,7 +2128,7 @@
          this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox6.Location = new System.Drawing.Point(0, 0);
          this.groupBox6.Name = "groupBox6";
-         this.groupBox6.Size = new System.Drawing.Size(685, 267);
+         this.groupBox6.Size = new System.Drawing.Size(550, 247);
          this.groupBox6.TabIndex = 2;
          this.groupBox6.TabStop = false;
          this.groupBox6.Text = "سمت های پرسنل";
@@ -2128,7 +2146,7 @@
             this.Actv_Lov6,
             this.persianRepositoryItemDateEdit5,
             this.repositoryItemSearchLookUpEdit2});
-         this.gridControl5.Size = new System.Drawing.Size(679, 221);
+         this.gridControl5.Size = new System.Drawing.Size(544, 201);
          this.gridControl5.TabIndex = 3;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -2422,7 +2440,7 @@
          this.PrjbBn.MovePreviousItem = this.toolStripButton25;
          this.PrjbBn.Name = "PrjbBn";
          this.PrjbBn.PositionItem = this.toolStripTextBox5;
-         this.PrjbBn.Size = new System.Drawing.Size(679, 25);
+         this.PrjbBn.Size = new System.Drawing.Size(544, 25);
          this.PrjbBn.TabIndex = 2;
          // 
          // toolStripButton23
@@ -2530,7 +2548,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.groupBox5);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(469, 267);
+         this.splitContainerControl4.Size = new System.Drawing.Size(604, 247);
          this.splitContainerControl4.SplitterPosition = 107;
          this.splitContainerControl4.TabIndex = 2;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -2542,7 +2560,7 @@
          this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox4.Location = new System.Drawing.Point(0, 0);
          this.groupBox4.Name = "groupBox4";
-         this.groupBox4.Size = new System.Drawing.Size(469, 107);
+         this.groupBox4.Size = new System.Drawing.Size(604, 107);
          this.groupBox4.TabIndex = 0;
          this.groupBox4.TabStop = false;
          this.groupBox4.Text = "شغل ها";
@@ -2560,7 +2578,7 @@
             this.Actv_Lov4,
             this.persianRepositoryItemDateEdit2,
             this.Job_Lov});
-         this.gridControl3.Size = new System.Drawing.Size(463, 61);
+         this.gridControl3.Size = new System.Drawing.Size(598, 61);
          this.gridControl3.TabIndex = 3;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2712,7 +2730,7 @@
          this.JobBn.MovePreviousItem = this.toolStripButton13;
          this.JobBn.Name = "JobBn";
          this.JobBn.PositionItem = this.toolStripTextBox3;
-         this.JobBn.Size = new System.Drawing.Size(463, 25);
+         this.JobBn.Size = new System.Drawing.Size(598, 25);
          this.JobBn.TabIndex = 2;
          this.JobBn.Text = "bindingNavigator1";
          // 
@@ -2818,7 +2836,7 @@
          this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox5.Location = new System.Drawing.Point(0, 0);
          this.groupBox5.Name = "groupBox5";
-         this.groupBox5.Size = new System.Drawing.Size(469, 155);
+         this.groupBox5.Size = new System.Drawing.Size(604, 135);
          this.groupBox5.TabIndex = 1;
          this.groupBox5.TabStop = false;
          this.groupBox5.Text = "پرسنل های ربات";
@@ -2836,7 +2854,7 @@
             this.Actv_Lov5,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemSearchLookUpEdit1});
-         this.gridControl4.Size = new System.Drawing.Size(463, 109);
+         this.gridControl4.Size = new System.Drawing.Size(598, 89);
          this.gridControl4.TabIndex = 3;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -2866,7 +2884,8 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.colDFLT_ACES});
          styleFormatCondition13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition13.Appearance.Options.UseBackColor = true;
          styleFormatCondition13.ApplyToRow = true;
@@ -2898,7 +2917,7 @@
          this.colSERV_FILE_NO.FieldName = "SERV_FILE_NO";
          this.colSERV_FILE_NO.Name = "colSERV_FILE_NO";
          this.colSERV_FILE_NO.Visible = true;
-         this.colSERV_FILE_NO.VisibleIndex = 6;
+         this.colSERV_FILE_NO.VisibleIndex = 5;
          // 
          // repositoryItemSearchLookUpEdit1
          // 
@@ -3024,7 +3043,7 @@
          this.colSTAT2.FieldName = "STAT";
          this.colSTAT2.Name = "colSTAT2";
          this.colSTAT2.Visible = true;
-         this.colSTAT2.VisibleIndex = 4;
+         this.colSTAT2.VisibleIndex = 3;
          // 
          // Actv_Lov5
          // 
@@ -3046,7 +3065,7 @@
          this.colCHAT_ID.FieldName = "CHAT_ID";
          this.colCHAT_ID.Name = "colCHAT_ID";
          this.colCHAT_ID.Visible = true;
-         this.colCHAT_ID.VisibleIndex = 5;
+         this.colCHAT_ID.VisibleIndex = 4;
          // 
          // colService
          // 
@@ -3066,7 +3085,7 @@
          this.gridColumn1.OptionsColumn.AllowEdit = false;
          this.gridColumn1.OptionsColumn.ReadOnly = true;
          this.gridColumn1.Visible = true;
-         this.gridColumn1.VisibleIndex = 3;
+         this.gridColumn1.VisibleIndex = 1;
          // 
          // gridColumn2
          // 
@@ -3077,7 +3096,7 @@
          this.gridColumn2.OptionsColumn.AllowEdit = false;
          this.gridColumn2.OptionsColumn.ReadOnly = true;
          this.gridColumn2.Visible = true;
-         this.gridColumn2.VisibleIndex = 2;
+         this.gridColumn2.VisibleIndex = 0;
          // 
          // persianRepositoryItemDateEdit3
          // 
@@ -3097,8 +3116,6 @@
          this.gridColumn3.Name = "gridColumn3";
          this.gridColumn3.OptionsColumn.AllowEdit = false;
          this.gridColumn3.OptionsColumn.ReadOnly = true;
-         this.gridColumn3.Visible = true;
-         this.gridColumn3.VisibleIndex = 1;
          // 
          // gridColumn4
          // 
@@ -3108,8 +3125,6 @@
          this.gridColumn4.Name = "gridColumn4";
          this.gridColumn4.OptionsColumn.AllowEdit = false;
          this.gridColumn4.OptionsColumn.ReadOnly = true;
-         this.gridColumn4.Visible = true;
-         this.gridColumn4.VisibleIndex = 0;
          // 
          // PrbtBn
          // 
@@ -3139,7 +3154,7 @@
          this.PrbtBn.MovePreviousItem = this.toolStripButton18;
          this.PrbtBn.Name = "PrbtBn";
          this.PrbtBn.PositionItem = this.toolStripTextBox4;
-         this.PrbtBn.Size = new System.Drawing.Size(463, 25);
+         this.PrbtBn.Size = new System.Drawing.Size(598, 25);
          this.PrbtBn.TabIndex = 2;
          this.PrbtBn.Text = "bindingNavigator1";
          // 
@@ -8571,6 +8586,15 @@
          // 
          this.FilePath_Fbd.SelectedPath = "\\\\localhost";
          // 
+         // colDFLT_ACES
+         // 
+         this.colDFLT_ACES.Caption = "دسترسی پیش فرض";
+         this.colDFLT_ACES.ColumnEdit = this.Actv_Lov5;
+         this.colDFLT_ACES.FieldName = "DFLT_ACES";
+         this.colDFLT_ACES.Name = "colDFLT_ACES";
+         this.colDFLT_ACES.Visible = true;
+         this.colDFLT_ACES.VisibleIndex = 2;
+         // 
          // ORGN_DVLP_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -8625,6 +8649,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DownLoad_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.memoEdit14.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
          this.splitContainerControl5.ResumeLayout(false);
          this.groupBox6.ResumeLayout(false);
@@ -9601,6 +9626,8 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit DownLoad_Lov;
       private Windows.Forms.FolderBrowserDialog FilePath_Fbd;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+      private DevExpress.XtraEditors.MemoEdit memoEdit14;
+      private DevExpress.XtraGrid.Columns.GridColumn colDFLT_ACES;
 
    }
 }

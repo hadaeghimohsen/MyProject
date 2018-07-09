@@ -59,6 +59,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          GhitBs.DataSource = iRoboTech.Group_Header_Items;
          DamtpBs.DataSource = iRoboTech.D_AMTPs;
          DodstBs.DataSource = iRoboTech.D_ODSTs;
+         DysnoBs.DataSource = iRoboTech.D_YSNOs;
          requery = false;
       }
 

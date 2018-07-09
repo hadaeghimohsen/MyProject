@@ -749,119 +749,7 @@ namespace System.RoboTech.Controller
                      }
                      catch { }
 
-                     // بررسی اینکه آیا درخواستی برای پرسنلی ثبت شده یا خیر
-                     var prjos = iRobotTech.Personal_Robot_Job_Orders.Where(po => po.ORDR_STAT == "001");
-
-                     foreach (var prjo in prjos)
-                     {
-                        prjo.ORDR_STAT = "002";
-                        iRobotTech.Set_Personal_Robot_Job_Order(
-                           new XElement("PJBO",
-                              new XAttribute("prjbcode", prjo.PRJB_CODE),
-                              new XAttribute("ordrcode", prjo.ORDR_CODE),
-                              new XAttribute("ordrstat", "002")
-                           )
-                        );
-
-                        var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE);
-
-                        foreach (var ordt in ordts)
-                        {
-                           switch (ordt.Order.ORDR_TYPE)
-                           {
-                              case "001": // پیشنهادات                              
-                              case "002": // نظرسنجی
-                              case "003": // شکایات
-                              case "004": // سفارشات
-                              case "005": // Like
-                              case "006": // پرسش
-                              case "007": // پاسخ
-                              case "008": // تجربیات
-                              case "009": // Upload
-                              case "010": // معرفی
-                              case "011": // اخطار
-                                 #region پیام های ارسالی
-                                 switch (ordt.ELMN_TYPE)
-                                 {
-                                    case "001":
-                                       await Bot.SendTextMessageAsync(
-                                          (int)prjo.PRBT_CHAT_ID,
-                                          iRobotTech.CRET_PMSG_U(new XElement("Message",
-                                             new XAttribute("prjbcode", prjo.PRJB_CODE),
-                                             new XAttribute("ordrcode", prjo.ORDR_CODE),
-                                             new XAttribute("ordtrwno", ordt.RWNO)
-                                          )),
-                                          replyMarkup:
-                                          new ReplyKeyboardMarkup()
-                                          {
-                                             Keyboard = keyBoardMarkup,
-                                             ResizeKeyboard = true,
-                                             Selective = true
-                                          });
-                                       break;
-                                    case "002":
-                                       await Bot.SendPhotoAsync(
-                                          (int)prjo.PRBT_CHAT_ID,
-                                          new FileToSend(ordt.ORDR_DESC),
-                                          caption: ordt.ORDR_CMNT ?? "",                                          
-                                          replyMarkup:
-                                          new ReplyKeyboardMarkup()
-                                          {
-                                             Keyboard = keyBoardMarkup,
-                                             ResizeKeyboard = true,
-                                             Selective = true
-                                          });
-                                       break;
-                                    case "003":
-                                       await Bot.SendVideoAsync(
-                                          (int)prjo.PRBT_CHAT_ID,
-                                          new FileToSend(ordt.ORDR_DESC),
-                                          replyMarkup:
-                                          new ReplyKeyboardMarkup()
-                                          {
-                                             Keyboard = keyBoardMarkup,
-                                             ResizeKeyboard = true,
-                                             Selective = true
-                                          });
-                                       break;
-                                    case "004":
-                                       await Bot.SendDocumentAsync(
-                                          (int)prjo.PRBT_CHAT_ID,
-                                          new FileToSend(ordt.ORDR_DESC),
-                                          replyMarkup:
-                                          new ReplyKeyboardMarkup()
-                                          {
-                                             Keyboard = keyBoardMarkup,
-                                             ResizeKeyboard = true,
-                                             Selective = true
-                                          });
-                                       break;
-                                    case "005":
-                                       float cordx = Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture);
-                                       float cordy = Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture);
-
-                                       await Bot.SendLocationAsync(
-                                          (long)prjo.PRBT_CHAT_ID,
-                                          Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture),
-                                          Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture),
-                                          replyMarkup:
-                                          new ReplyKeyboardMarkup()
-                                          {
-                                             Keyboard = keyBoardMarkup,
-                                             ResizeKeyboard = true,
-                                             Selective = true
-                                          });
-
-                                       break;
-                                    default:
-                                       break;
-                                 }
-                                 #endregion
-                                 break;
-                           }
-                        }
-                     }
-                     iRobotTech.SubmitChanges();
+                     await Send_Order(iRobotTech, keyBoardMarkup);
                   }
                   catch
                   {
@@ -1454,6 +1342,8 @@ namespace System.RoboTech.Controller
                    * 008 - Fire Event
                    */
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "009")
@@ -1667,6 +1557,8 @@ namespace System.RoboTech.Controller
                    * 008 - Fire Event
                    */
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
                   #region Execute Fire Event
 
                   #endregion
@@ -1983,6 +1875,8 @@ namespace System.RoboTech.Controller
                     ), connectionString);
 
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
                }
                else if (menucmndtype.CMND_TYPE == "017")
                {
@@ -3031,7 +2925,123 @@ namespace System.RoboTech.Controller
 
          iRobotTech.SubmitChanges();
       }
+      private async Task Send_Order(Data.iRoboTechDataContext iRobotTech, KeyboardButton[][] keyBoardMarkup)
+      {
+         // بررسی اینکه آیا درخواستی برای پرسنلی ثبت شده یا خیر
+         var prjos = iRobotTech.Personal_Robot_Job_Orders.Where(po => po.ORDR_STAT == "001");
 
+         foreach (var prjo in prjos)
+         {
+            prjo.ORDR_STAT = "002";
+            iRobotTech.Set_Personal_Robot_Job_Order(
+               new XElement("PJBO",
+                  new XAttribute("prjbcode", prjo.PRJB_CODE),
+                  new XAttribute("ordrcode", prjo.ORDR_CODE),
+                  new XAttribute("ordrstat", "002")
+               )
+            );
+
+            var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE);
+
+            foreach (var ordt in ordts)
+            {
+               switch (ordt.Order.ORDR_TYPE)
+               {
+                  case "001": // پیشنهادات                              
+                  case "002": // نظرسنجی
+                  case "003": // شکایات
+                  case "004": // سفارشات
+                  case "005": // Like
+                  case "006": // پرسش
+                  case "007": // پاسخ
+                  case "008": // تجربیات
+                  case "009": // Upload
+                  case "010": // معرفی
+                  case "011": // اخطار
+                  case "012": // اعلام ها
+                     #region پیام های ارسالی
+                     switch (ordt.ELMN_TYPE)
+                     {
+                        case "001":
+                           await Bot.SendTextMessageAsync(
+                              (int)prjo.PRBT_CHAT_ID,
+                              iRobotTech.CRET_PMSG_U(new XElement("Message",
+                                 new XAttribute("prjbcode", prjo.PRJB_CODE),
+                                 new XAttribute("ordrcode", prjo.ORDR_CODE),
+                                 new XAttribute("ordtrwno", ordt.RWNO)
+                              )),
+                              replyMarkup:
+                              new ReplyKeyboardMarkup()
+                              {
+                                 Keyboard = keyBoardMarkup,
+                                 ResizeKeyboard = true,
+                                 Selective = true
+                              });
+                           break;
+                        case "002":
+                           await Bot.SendPhotoAsync(
+                              (int)prjo.PRBT_CHAT_ID,
+                              new FileToSend(ordt.ORDR_DESC),
+                              caption: ordt.ORDR_CMNT ?? "",
+                              replyMarkup:
+                              new ReplyKeyboardMarkup()
+                              {
+                                 Keyboard = keyBoardMarkup,
+                                 ResizeKeyboard = true,
+                                 Selective = true
+                              });
+                           break;
+                        case "003":
+                           await Bot.SendVideoAsync(
+                              (int)prjo.PRBT_CHAT_ID,
+                              new FileToSend(ordt.ORDR_DESC),
+                              replyMarkup:
+                              new ReplyKeyboardMarkup()
+                              {
+                                 Keyboard = keyBoardMarkup,
+                                 ResizeKeyboard = true,
+                                 Selective = true
+                              });
+                           break;
+                        case "004":
+                           await Bot.SendDocumentAsync(
+                              (int)prjo.PRBT_CHAT_ID,
+                              new FileToSend(ordt.ORDR_DESC),
+                              replyMarkup:
+                              new ReplyKeyboardMarkup()
+                              {
+                                 Keyboard = keyBoardMarkup,
+                                 ResizeKeyboard = true,
+                                 Selective = true
+                              });
+                           break;
+                        case "005":
+                           float cordx = Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture);
+                           float cordy = Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture);
+
+                           await Bot.SendLocationAsync(
+                              (long)prjo.PRBT_CHAT_ID,
+                              Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture),
+                              Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture),
+                              replyMarkup:
+                              new ReplyKeyboardMarkup()
+                              {
+                                 Keyboard = keyBoardMarkup,
+                                 ResizeKeyboard = true,
+                                 Selective = true
+                              });
+
+                           break;
+                        default:
+                           break;
+                     }
+                     #endregion
+                     break;
+               }
+            }
+         }
+         iRobotTech.SubmitChanges();
+      }
       public KeyboardButton[][] CreateArray(List<XElement> list, int rows, int cols)
       {
          int index = 0;

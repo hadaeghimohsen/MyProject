@@ -283,6 +283,7 @@
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDFLT_ACES = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PrbtBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
@@ -521,7 +522,7 @@
          this.colREC_STAT.FieldName = "REC_STAT";
          this.colREC_STAT.Name = "colREC_STAT";
          this.colREC_STAT.Visible = true;
-         this.colREC_STAT.VisibleIndex = 4;
+         this.colREC_STAT.VisibleIndex = 2;
          // 
          // Actv_Lov3
          // 
@@ -1281,7 +1282,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.groupBox3);
          this.splitContainerControl3.Panel2.Text = "Panel2";
          this.splitContainerControl3.Size = new System.Drawing.Size(1159, 409);
-         this.splitContainerControl3.SplitterPosition = 774;
+         this.splitContainerControl3.SplitterPosition = 863;
          this.splitContainerControl3.TabIndex = 3;
          this.splitContainerControl3.Text = "splitContainerControl3";
          // 
@@ -1294,7 +1295,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl4);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(774, 409);
+         this.splitContainerControl5.Size = new System.Drawing.Size(863, 409);
          this.splitContainerControl5.SplitterPosition = 324;
          this.splitContainerControl5.TabIndex = 3;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2175,7 +2176,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.groupBox5);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(445, 409);
+         this.splitContainerControl4.Size = new System.Drawing.Size(534, 409);
          this.splitContainerControl4.SplitterPosition = 169;
          this.splitContainerControl4.TabIndex = 2;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -2187,7 +2188,7 @@
          this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox4.Location = new System.Drawing.Point(0, 0);
          this.groupBox4.Name = "groupBox4";
-         this.groupBox4.Size = new System.Drawing.Size(445, 169);
+         this.groupBox4.Size = new System.Drawing.Size(534, 169);
          this.groupBox4.TabIndex = 0;
          this.groupBox4.TabStop = false;
          this.groupBox4.Text = "شغل ها";
@@ -2205,7 +2206,7 @@
             this.Actv_Lov4,
             this.persianRepositoryItemDateEdit2,
             this.Job_Lov});
-         this.gridControl3.Size = new System.Drawing.Size(439, 123);
+         this.gridControl3.Size = new System.Drawing.Size(528, 123);
          this.gridControl3.TabIndex = 3;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2358,7 +2359,7 @@
          this.JobBn.MovePreviousItem = this.toolStripButton13;
          this.JobBn.Name = "JobBn";
          this.JobBn.PositionItem = this.toolStripTextBox3;
-         this.JobBn.Size = new System.Drawing.Size(439, 25);
+         this.JobBn.Size = new System.Drawing.Size(528, 25);
          this.JobBn.TabIndex = 2;
          this.JobBn.Text = "bindingNavigator1";
          // 
@@ -2464,7 +2465,7 @@
          this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox5.Location = new System.Drawing.Point(0, 0);
          this.groupBox5.Name = "groupBox5";
-         this.groupBox5.Size = new System.Drawing.Size(445, 235);
+         this.groupBox5.Size = new System.Drawing.Size(534, 235);
          this.groupBox5.TabIndex = 1;
          this.groupBox5.TabStop = false;
          this.groupBox5.Text = "پرسنل های ربات";
@@ -2482,7 +2483,7 @@
             this.Actv_Lov5,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemSearchLookUpEdit1});
-         this.gridControl4.Size = new System.Drawing.Size(439, 189);
+         this.gridControl4.Size = new System.Drawing.Size(528, 189);
          this.gridControl4.TabIndex = 3;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -2511,7 +2512,8 @@
             this.gridColumn18,
             this.gridColumn19,
             this.gridColumn20,
-            this.gridColumn21});
+            this.gridColumn21,
+            this.colDFLT_ACES});
          styleFormatCondition17.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition17.Appearance.Options.UseBackColor = true;
          styleFormatCondition17.ApplyToRow = true;
@@ -2543,7 +2545,7 @@
          this.colSERV_FILE_NO.FieldName = "SERV_FILE_NO";
          this.colSERV_FILE_NO.Name = "colSERV_FILE_NO";
          this.colSERV_FILE_NO.Visible = true;
-         this.colSERV_FILE_NO.VisibleIndex = 6;
+         this.colSERV_FILE_NO.VisibleIndex = 7;
          // 
          // repositoryItemSearchLookUpEdit1
          // 
@@ -2665,7 +2667,7 @@
          this.colSTAT2.FieldName = "STAT";
          this.colSTAT2.Name = "colSTAT2";
          this.colSTAT2.Visible = true;
-         this.colSTAT2.VisibleIndex = 4;
+         this.colSTAT2.VisibleIndex = 5;
          // 
          // Actv_Lov5
          // 
@@ -2687,7 +2689,7 @@
          this.colCHAT_ID.FieldName = "CHAT_ID";
          this.colCHAT_ID.Name = "colCHAT_ID";
          this.colCHAT_ID.Visible = true;
-         this.colCHAT_ID.VisibleIndex = 5;
+         this.colCHAT_ID.VisibleIndex = 6;
          // 
          // colService
          // 
@@ -2750,7 +2752,7 @@
          this.gridColumn18.FieldName = "NAME";
          this.gridColumn18.Name = "gridColumn18";
          this.gridColumn18.Visible = true;
-         this.gridColumn18.VisibleIndex = 3;
+         this.gridColumn18.VisibleIndex = 4;
          // 
          // gridColumn19
          // 
@@ -2758,7 +2760,7 @@
          this.gridColumn19.FieldName = "CELL_PHON";
          this.gridColumn19.Name = "gridColumn19";
          this.gridColumn19.Visible = true;
-         this.gridColumn19.VisibleIndex = 2;
+         this.gridColumn19.VisibleIndex = 3;
          // 
          // gridColumn20
          // 
@@ -2766,7 +2768,7 @@
          this.gridColumn20.FieldName = "TELL_PHON";
          this.gridColumn20.Name = "gridColumn20";
          this.gridColumn20.Visible = true;
-         this.gridColumn20.VisibleIndex = 1;
+         this.gridColumn20.VisibleIndex = 2;
          // 
          // gridColumn21
          // 
@@ -2774,7 +2776,16 @@
          this.gridColumn21.FieldName = "USER_NAME";
          this.gridColumn21.Name = "gridColumn21";
          this.gridColumn21.Visible = true;
-         this.gridColumn21.VisibleIndex = 0;
+         this.gridColumn21.VisibleIndex = 1;
+         // 
+         // colDFLT_ACES
+         // 
+         this.colDFLT_ACES.Caption = "دسترسی پیش فرض";
+         this.colDFLT_ACES.ColumnEdit = this.Actv_Lov5;
+         this.colDFLT_ACES.FieldName = "DFLT_ACES";
+         this.colDFLT_ACES.Name = "colDFLT_ACES";
+         this.colDFLT_ACES.Visible = true;
+         this.colDFLT_ACES.VisibleIndex = 0;
          // 
          // PrbtBn
          // 
@@ -2804,7 +2815,7 @@
          this.PrbtBn.MovePreviousItem = this.toolStripButton18;
          this.PrbtBn.Name = "PrbtBn";
          this.PrbtBn.PositionItem = this.toolStripTextBox4;
-         this.PrbtBn.Size = new System.Drawing.Size(439, 25);
+         this.PrbtBn.Size = new System.Drawing.Size(528, 25);
          this.PrbtBn.TabIndex = 2;
          this.PrbtBn.Text = "bindingNavigator1";
          // 
@@ -2910,7 +2921,7 @@
          this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox3.Location = new System.Drawing.Point(0, 0);
          this.groupBox3.Name = "groupBox3";
-         this.groupBox3.Size = new System.Drawing.Size(380, 409);
+         this.groupBox3.Size = new System.Drawing.Size(291, 409);
          this.groupBox3.TabIndex = 0;
          this.groupBox3.TabStop = false;
          this.groupBox3.Text = "کاربران سازمان";
@@ -2928,7 +2939,7 @@
             this.Actv_Lov3,
             this.User_Lov,
             this.persianRepositoryItemDateEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(374, 363);
+         this.gridControl2.Size = new System.Drawing.Size(285, 363);
          this.gridControl2.TabIndex = 2;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2999,7 +3010,7 @@
          this.colSYS_USER.FieldName = "SYS_USER";
          this.colSYS_USER.Name = "colSYS_USER";
          this.colSYS_USER.Visible = true;
-         this.colSYS_USER.VisibleIndex = 5;
+         this.colSYS_USER.VisibleIndex = 3;
          // 
          // User_Lov
          // 
@@ -3034,7 +3045,7 @@
          this.colCRET_BY.OptionsColumn.AllowEdit = false;
          this.colCRET_BY.OptionsColumn.ReadOnly = true;
          this.colCRET_BY.Visible = true;
-         this.colCRET_BY.VisibleIndex = 3;
+         this.colCRET_BY.VisibleIndex = 1;
          // 
          // colCRET_DATE
          // 
@@ -3045,7 +3056,7 @@
          this.colCRET_DATE.OptionsColumn.AllowEdit = false;
          this.colCRET_DATE.OptionsColumn.ReadOnly = true;
          this.colCRET_DATE.Visible = true;
-         this.colCRET_DATE.VisibleIndex = 2;
+         this.colCRET_DATE.VisibleIndex = 0;
          // 
          // persianRepositoryItemDateEdit1
          // 
@@ -3065,8 +3076,6 @@
          this.colMDFY_BY.Name = "colMDFY_BY";
          this.colMDFY_BY.OptionsColumn.AllowEdit = false;
          this.colMDFY_BY.OptionsColumn.ReadOnly = true;
-         this.colMDFY_BY.Visible = true;
-         this.colMDFY_BY.VisibleIndex = 1;
          // 
          // colMDFY_DATE
          // 
@@ -3076,8 +3085,6 @@
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          this.colMDFY_DATE.OptionsColumn.AllowEdit = false;
          this.colMDFY_DATE.OptionsColumn.ReadOnly = true;
-         this.colMDFY_DATE.Visible = true;
-         this.colMDFY_DATE.VisibleIndex = 0;
          // 
          // colOrgan1
          // 
@@ -3112,7 +3119,7 @@
          this.UserOrgnBn.MovePreviousItem = this.toolStripButton8;
          this.UserOrgnBn.Name = "UserOrgnBn";
          this.UserOrgnBn.PositionItem = this.toolStripTextBox2;
-         this.UserOrgnBn.Size = new System.Drawing.Size(374, 25);
+         this.UserOrgnBn.Size = new System.Drawing.Size(285, 25);
          this.UserOrgnBn.TabIndex = 1;
          this.UserOrgnBn.Text = "bindingNavigator1";
          // 
@@ -3752,5 +3759,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+      private DevExpress.XtraGrid.Columns.GridColumn colDFLT_ACES;
    }
 }

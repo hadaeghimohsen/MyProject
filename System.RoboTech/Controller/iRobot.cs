@@ -244,10 +244,10 @@ namespace System.RoboTech.Controller
                   textmsg = "";
                }
 
-               //await Bot.SendTextMessageAsync(
-               //   chat.Message.Chat.Id,
-               //   string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
-               //);
+               await Bot.SendTextMessageAsync(
+                  chat.Message.Chat.Id,
+                  string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
+               );
             }
             #endregion
 
@@ -3186,19 +3186,20 @@ namespace System.RoboTech.Controller
                var xelement = query.Element("Message").Value;
                #region Info
                // Info
-               await Bot.SendTextMessageAsync(
-                    chat.Message.Chat.Id,
-                    xelement ?? "...",
-                    ParseMode.Default,
-                    false,
-                    false,
-                    chat.Message.MessageId,
-                    new ReplyKeyboardMarkup()
-                    {
-                       Keyboard = keyBoardMarkup,
-                       ResizeKeyboard = true,
-                       Selective = true
-                    });
+               await MessagePaging(chat, xelement, keyBoardMarkup);
+               //await Bot.SendTextMessageAsync(
+               //     chat.Message.Chat.Id,
+               //     xelement ?? "...",
+               //     ParseMode.Default,
+               //     false,
+               //     false,
+               //     chat.Message.MessageId,
+               //     new ReplyKeyboardMarkup()
+               //     {
+               //        Keyboard = keyBoardMarkup,
+               //        ResizeKeyboard = true,
+               //        Selective = true
+               //     });
                #endregion
             }
          }

@@ -208,6 +208,7 @@ namespace System.CRM.Ui.Leads
                   DysnoBs.DataSource = iCRM.D_YSNOs;
                   //DcmstBs.DataSource = iCRM.D_CMSTs;
                   DcntpBs.DataSource = iCRM.D_CNTPs;
+                  DprtfBs.DataSource = iCRM.D_PRTFs;
 
                   LstCampBs.DataSource = iCRM.Campaigns;
                   LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");

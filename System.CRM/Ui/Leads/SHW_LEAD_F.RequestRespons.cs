@@ -48,12 +48,6 @@ namespace System.CRM.Ui.Leads
             case 10:
                Actn_CalF_P(job);
                break;
-            case 11:
-               GetNewRecord(job);
-               break;
-            case 100:
-               SetFilterOnQuery(job);
-               break;
             default:
                break;
          }
@@ -236,101 +230,6 @@ namespace System.CRM.Ui.Leads
          {
             Execute_Query();
          }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// Code 11
-      /// </summary>
-      /// <param name="job"></param>
-      private void GetNewRecord(Job job)
-      {
-         var serv = ServBs.Current as Data.VF_ServicesResult;
-         if (serv == null) return;
-
-         var xinput = job.Input as XElement;
-         var newserv = ServBs.Current as Data.VF_ServicesResult;
-
-         if(xinput != null)
-         {
-            switch (xinput.Attribute("moveposition").Value)
-            {
-               case "next":
-                  ServBs.MoveNext();
-                  newserv = ServBs.Current as Data.VF_ServicesResult;
-
-                  if (serv == newserv) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_LEAD_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Service", new XAttribute("fileno", newserv.FILE_NO))},
-                       })
-                  );
-                  break;
-               case "previous":
-                  ServBs.MovePrevious();
-                  newserv = ServBs.Current as Data.VF_ServicesResult;
-
-                  if (serv == newserv) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_LEAD_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Service", new XAttribute("fileno", newserv.FILE_NO))},
-                       })
-                  );
-                  break;
-               default:
-                  break;
-            }
-         }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetFilterOnQuery(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if(xinput != null)
-         {
-            var count = 0;
-            Lb_FilterCount.Visible = true;
-            if (xinput.Element("Tags") != null)
-               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
-            if (xinput.Element("Regions") != null)
-               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
-            if (xinput.Element("Extra_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
-            if(xinput.Element("Contact_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-
-            if (count != 0)
-            {
-               Lb_FilterCount.Visible = true;
-               Lb_FilterCount.Text = count.ToString();
-               Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1598;
-               Filter_Butn.Tag = xinput;
-            }
-            else
-            {
-               Lb_FilterCount.Visible = false;
-               Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
-               Filter_Butn.Tag = null;
-            }
-         }
-         else
-         {
-            Lb_FilterCount.Visible = false;
-            Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
-            Filter_Butn.Tag = null;
-         }
-         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

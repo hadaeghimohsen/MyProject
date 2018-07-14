@@ -65,9 +65,9 @@
          this.colOWNR_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOPC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
-         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colFRST_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLAST_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,9 +77,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Comp_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          this.SuspendLayout();
          // 
@@ -166,6 +166,7 @@
          this.New_Butn.Name = "New_Butn";
          this.New_Butn.SmallImage = global::System.CRM.Properties.Resources.IMAGE_1198;
          this.New_Butn.ToolTip = "جدید";
+         this.New_Butn.Click += new System.EventHandler(this.New_Butn_Click);
          // 
          // Edit_Butn
          // 
@@ -375,6 +376,17 @@
          this.colSTAT.VisibleIndex = 3;
          this.colSTAT.Width = 92;
          // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.DataSource = this.DsstgBs;
+         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.NullText = "---";
+         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
+         // 
          // colCRET_DATE
          // 
          this.colCRET_DATE.Caption = "تاریخ ایجاد";
@@ -396,17 +408,6 @@
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.persianRepositoryItemDateEdit1.Name = "persianRepositoryItemDateEdit1";
-         // 
-         // repositoryItemLookUpEdit1
-         // 
-         this.repositoryItemLookUpEdit1.AutoHeight = false;
-         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit1.DataSource = this.DsstgBs;
-         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-         this.repositoryItemLookUpEdit1.NullText = "---";
-         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
          // 
          // colFRST_NAME
          // 
@@ -465,9 +466,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Comp_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();

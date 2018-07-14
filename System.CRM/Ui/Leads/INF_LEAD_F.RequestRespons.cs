@@ -132,7 +132,7 @@ namespace System.CRM.Ui.Leads
             });
          _DefaultGateway.Gateway(_Paint);
 
-         splitContainerControl2.Width = panel6.Width;
+         splitContainerControl2.Width = Pn_CmpServ.Width;
 
          Enabled = true;
          job.Status = StatusType.Successful;
@@ -203,16 +203,16 @@ namespace System.CRM.Ui.Leads
                   TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
                   JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
-                  DtrgtBs.DataSource = iCRM.D_TRGTs;
-                  DstdyBs.DataSource = iCRM.D_STDies;
+                  //DtrgtBs.DataSource = iCRM.D_TRGTs;
+                  //DstdyBs.DataSource = iCRM.D_STDies;
                   DysnoBs.DataSource = iCRM.D_YSNOs;
-                  DcmstBs.DataSource = iCRM.D_CMSTs;
+                  //DcmstBs.DataSource = iCRM.D_CMSTs;
                   DcntpBs.DataSource = iCRM.D_CNTPs;
 
                   LstCampBs.DataSource = iCRM.Campaigns;
                   LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
                   LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-                  LstLeadBs.DataSource = iCRM.Leads;
+                  //LstLeadBs.DataSource = iCRM.Leads;
                })
             );
          }
@@ -221,16 +221,16 @@ namespace System.CRM.Ui.Leads
             TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
             JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
 
-            DtrgtBs.DataSource = iCRM.D_TRGTs;
-            DstdyBs.DataSource = iCRM.D_STDies;
+            //DtrgtBs.DataSource = iCRM.D_TRGTs;
+            //DstdyBs.DataSource = iCRM.D_STDies;
             DysnoBs.DataSource = iCRM.D_YSNOs;
-            DcmstBs.DataSource = iCRM.D_CMSTs;
+            //DcmstBs.DataSource = iCRM.D_CMSTs;
             DcntpBs.DataSource = iCRM.D_CNTPs;
 
             LstCampBs.DataSource = iCRM.Campaigns;
             LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
             LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-            LstLeadBs.DataSource = iCRM.Leads;
+            //LstLeadBs.DataSource = iCRM.Leads;
          }
          
          job.Status = StatusType.Successful;
@@ -243,8 +243,19 @@ namespace System.CRM.Ui.Leads
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-         Execute_Query();
+         switch (xinput.Attribute("type").Value)
+         {
+            case "newlead":
+               Pn_CmpServ.Visible = false;
+               break;
+            case "servicelead":
+               Pn_CmpServ.Visible = true;
+               break;
+            default:
+               break;
+         }
+         //fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+         //Execute_Query();
          job.Status = StatusType.Successful;
       }
 
@@ -303,13 +314,6 @@ namespace System.CRM.Ui.Leads
       private void SetMentioned(Job job)
       {
          var xinput = job.Input as XElement;
-         
-         switch(xinput.Attribute("section").Value)
-         {
-            case "note":
-               NoteComment_Txt.Text = NoteComment_Txt.Text.Insert(NoteComment_Txt.SelectionStart, xinput.Attribute("user_mentioned").Value);
-               break;
-         }
       }
    }
 }

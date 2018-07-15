@@ -209,6 +209,12 @@ namespace System.CRM.Ui.Leads
                   //DcmstBs.DataSource = iCRM.D_CMSTs;
                   DcntpBs.DataSource = iCRM.D_CNTPs;
                   DprtfBs.DataSource = iCRM.D_PRTFs;
+                  DprprBs.DataSource = iCRM.D_PRPRs;
+                  DsistBs.DataSource = iCRM.D_SISTs;
+                  DcttpBs.DataSource = iCRM.D_CTTPs;
+                  DsstgBs.DataSource = iCRM.D_SSTGs;
+                  DrqstBs.DataSource = iCRM.D_RQSTs;
+                  CntyBs.DataSource = iCRM.Countries;
 
                   LstCampBs.DataSource = iCRM.Campaigns;
                   LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
@@ -227,6 +233,14 @@ namespace System.CRM.Ui.Leads
             DysnoBs.DataSource = iCRM.D_YSNOs;
             //DcmstBs.DataSource = iCRM.D_CMSTs;
             DcntpBs.DataSource = iCRM.D_CNTPs;
+            DprtfBs.DataSource = iCRM.D_PRTFs;
+            DprprBs.DataSource = iCRM.D_PRPRs;
+            DsistBs.DataSource = iCRM.D_SISTs;
+            DcttpBs.DataSource = iCRM.D_CTTPs;
+            DsstgBs.DataSource = iCRM.D_SSTGs;
+            DrqstBs.DataSource = iCRM.D_RQSTs;
+            CntyBs.DataSource = iCRM.Countries;
+            IsicGropBs.DataSource = iCRM.Isic_Groups;
 
             LstCampBs.DataSource = iCRM.Campaigns;
             LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");

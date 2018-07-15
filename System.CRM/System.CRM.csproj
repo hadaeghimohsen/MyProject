@@ -2640,6 +2640,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_PLTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PMTM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PRIO.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_PRPR.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PRTF.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PSTG.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_PYD.datasource" />

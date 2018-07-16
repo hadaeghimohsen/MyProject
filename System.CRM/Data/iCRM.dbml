@@ -1320,18 +1320,6 @@
       <Association Name="Email_Email_To_Email" Member="Email" ThisKey="EMAL_EMID" OtherKey="EMID" Type="Email" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.V#Users" Member="V_Users">
-    <Type Name="V_User">
-      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.D$ATYP" Member="D_ATYPs">
     <Type Name="D_ATYP">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -3846,6 +3834,28 @@
     <Type Name="D_PRPR">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V#Users" Member="V_Users">
+    <Type Name="V_User">
+      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="VOIP_NUMB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR_PROF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR_ACNT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DFLT_USER_HELP_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">

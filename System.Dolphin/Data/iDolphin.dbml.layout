@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 26.25, 52" name="iDolphin">
+  <DataContextMoniker Name="/iDolphinDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a807db5e-fb73-4957-9808-5a7249d10375" absoluteBounds="0.75, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iDolphinDataContext/App_Domain" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a51b3c26-fbc8-4ff9-9586-19a5639596cb" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bebc3021-d4bf-4091-be49-7d7133996461" absoluteBounds="12.5, 13.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/iDolphinDataContext/Sub_Unit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e77ce08-89f3-41e1-912b-a41a8ebc5b33" absoluteBounds="12.515, 14.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" absoluteBounds="9.75, 17.875, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/iDolphinDataContext/Base_Tariff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9cb78dd9-b08d-446c-992c-ddf33cb7c5ca" absoluteBounds="9.765, 18.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91493247-4af8-4f17-8500-ec512513fdf3" absoluteBounds="12.5, 17, 2, 4.8477197265625023">
+      <DataClassMoniker Name="/iDolphinDataContext/Base_Tariff_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ec43660-241d-4b96-a5a3-963776315e15" absoluteBounds="12.515, 17.46, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2119d3c6-d353-4d33-a4ae-5c954fb7694f" absoluteBounds="9.75, 13.75, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/iDolphinDataContext/Base_Unit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a068766b-e7d0-4172-8dd1-8afc3d5a1a04" absoluteBounds="9.765, 14.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="730d8d91-6163-471b-9f32-165e031e75f9" absoluteBounds="6.5, 22.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/iDolphinDataContext/Cash" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0845902-955a-4a5b-96ea-7936955894ed" absoluteBounds="6.515, 23.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="116eb1ba-27d4-4da2-99a1-e7e04c135352" absoluteBounds="3.75, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iDolphinDataContext/Computer_Action" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55d14bb4-6746-4fcd-95e8-51dfa51cc323" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="623d7dd6-115e-454a-a465-36e5f39987ca" absoluteBounds="1.75, 49.75, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/iDolphinDataContext/Country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b899eed-4689-4d37-bb35-ceeb232efcc9" absoluteBounds="1.7650000000000001, 50.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aecc2de8-5999-497a-8b78-2d4579c53f8d" absoluteBounds="7, 13.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iDolphinDataContext/Department" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e791dc15-dd28-42d0-ade8-5365f47f945b" absoluteBounds="7.015, 14.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fed5ae4f-0381-4797-a144-30508859aef3" absoluteBounds="6.5, 45.75, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/iDolphinDataContext/Document_Spec" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68dd729a-865d-4816-a52b-98b5526ec846" absoluteBounds="6.515, 46.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="07ea5416-7863-42f1-9dba-3f57086735b5" absoluteBounds="12, 45.625, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/iDolphinDataContext/Expense" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b47d206d-0ad8-48fd-be96-627dfa5c98d5" absoluteBounds="12.015, 46.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61f41629-f2bf-478a-a93b-4a277895781d" absoluteBounds="12, 41.25, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/iDolphinDataContext/Expense_Cash" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c22187d-aabb-4158-a24b-0e9389c54bd3" absoluteBounds="12.015, 41.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbfc29c7-2f5b-4a52-9cfd-45c928f293b8" absoluteBounds="3.5, 33.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/iDolphinDataContext/Expense_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71c82389-c2e8-4887-9e11-d8d0892a59a5" absoluteBounds="3.515, 33.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" absoluteBounds="6.25, 41.5, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/iDolphinDataContext/Expense_Type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="69e45c6f-01eb-46bb-9aaf-868f803792be" absoluteBounds="6.265, 41.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1da3eae8-0c86-4d49-a52c-ae1939f2a96f" absoluteBounds="0.75, 2.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/iDolphinDataContext/Holiday" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec8943dd-8c91-4cd8-87d7-26c72791b651" absoluteBounds="0.765, 3.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ba12590-759f-442f-a057-0159029fd2c1" absoluteBounds="17.75, 38.875, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/iDolphinDataContext/Image_Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77fcf397-58e9-45c2-840a-7194da5e7ed3" absoluteBounds="17.765, 39.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96612626-5d49-4931-85ff-2fefe58d86f2" absoluteBounds="1, 24.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iDolphinDataContext/Main_State" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9bb123c-f742-4b07-8bb6-4ab6c1452a84" absoluteBounds="1.0150000000000001, 24.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25e5a401-204d-4221-a8f0-0e3d9f3d6360" absoluteBounds="3.75, 3.375, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/iDolphinDataContext/Message_Broadcast" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eeb841fb-e222-411a-a326-2118185860f1" absoluteBounds="3.765, 3.835, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8c2b5a6f-192b-4641-afeb-f0ad2cf0ecf3" absoluteBounds="6.75, 0.75, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/iDolphinDataContext/Modual_Report" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d4e85cc-1997-474f-aebd-f6b5fd08eef3" absoluteBounds="6.765, 1.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cfba5fc2-88cd-4acd-b247-d095078686b8" absoluteBounds="3.75, 27.375, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/iDolphinDataContext/Month_Base" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f35c2eb-a906-435c-9100-ba408361b244" absoluteBounds="3.765, 27.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa8a49bc-2d87-4782-912f-919439288bca" absoluteBounds="4.25, 14, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/iDolphinDataContext/Organ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d436639-ab47-441d-a9af-372d8e1b1e79" absoluteBounds="4.265, 14.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22db441b-aa97-402d-9a29-f6a8da3501f8" absoluteBounds="15, 42.875, 2, 3.6939111328125023">
+      <DataClassMoniker Name="/iDolphinDataContext/Organ_Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37539236-f44e-4920-84e3-47de906f88e6" absoluteBounds="15.015, 43.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" absoluteBounds="9.25, 23.5, 2, 6.3861311848958309">
+      <DataClassMoniker Name="/iDolphinDataContext/Payment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56d8f732-9d78-47b6-8be0-b165ce754c35" absoluteBounds="9.265, 23.96, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c9d039d-4f3b-4126-91ac-0a400894e970" absoluteBounds="18, 29.125, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/iDolphinDataContext/Payment_Check" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29ef6f0e-130a-427e-82fa-38ed880e2496" absoluteBounds="18.015, 29.585, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" absoluteBounds="24, 26.125, 2, 7.1553369140625023">
+      <DataClassMoniker Name="/iDolphinDataContext/Payment_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="07b6b6b2-19d1-4648-a085-d924371df616" absoluteBounds="24.015, 26.585, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="148b73fc-ff1f-4653-a689-36b82c7e9f0d" absoluteBounds="24, 35, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/iDolphinDataContext/Payment_Discount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88455571-4af3-4643-96f7-fe44a98c7f0b" absoluteBounds="24.015, 35.46, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8f70708-c867-4079-8c28-0ac3db3b1f70" absoluteBounds="21, 28.75, 2, 4.6554182942708344">
+      <DataClassMoniker Name="/iDolphinDataContext/Payment_Method" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5c34247-3266-485e-bc63-9122388873f4" absoluteBounds="21.015, 29.21, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01e10aa2-6f2b-4601-aee9-9037e4a98004" absoluteBounds="1, 45.625, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/iDolphinDataContext/Province" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e8d9e72-a185-4747-a9c4-02e1f47e8a56" absoluteBounds="1.0150000000000001, 46.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ece5c9f5-abf0-44cd-862f-cb2c3618fa1b" absoluteBounds="6.25, 37.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/iDolphinDataContext/Reason_Request" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b0f0497-47dc-41eb-a2eb-f9477a141b57" absoluteBounds="6.265, 37.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35f43a5a-c9e4-41da-8710-7f4321a01751" absoluteBounds="3.5, 37.625, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/iDolphinDataContext/Reason_Spec" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7481e86-e4d9-41d7-b574-11c2c9ec9a4f" absoluteBounds="3.515, 38.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc8d1c4e-bcaf-48f3-8923-93abf1a101a2" absoluteBounds="15, 38.375, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/iDolphinDataContext/Receive_Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cce835e5-782a-4b47-9025-63d4a0ad5359" absoluteBounds="15.015, 38.835, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" absoluteBounds="3.75, 45.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/iDolphinDataContext/Region" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9389dc77-1605-4cf5-86e2-e76322a83c82" absoluteBounds="3.765, 45.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" absoluteBounds="6.5, 17.75, 2, 4.0785139973958309">
+      <DataClassMoniker Name="/iDolphinDataContext/Regulation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98fcb405-693f-4373-a4c0-e95862fde7a6" absoluteBounds="6.515, 18.21, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1904e567-b413-4235-bf9c-f5e32446f35a" absoluteBounds="6.5, 29.625, 2, 6.193829752604163">
+      <DataClassMoniker Name="/iDolphinDataContext/Request" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7fdd078-252e-49d4-80a9-642325d7024f" absoluteBounds="6.515, 30.085, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2d58c18-68be-4623-b8f8-2cbc1e480018" absoluteBounds="9.25, 42.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/iDolphinDataContext/Request_Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cffb3543-a914-4069-8bee-3583671f3df2" absoluteBounds="9.265, 42.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21bda1d5-e8e8-4204-bcda-e1f366a6e062" absoluteBounds="9.25, 37.75, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/iDolphinDataContext/Request_Letter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e023125-653e-4a4c-ae24-fe5af7e14520" absoluteBounds="9.265, 38.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2dd961b7-7cc6-450c-bfe3-f5fe1d32c432" absoluteBounds="9.25, 31.625, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/iDolphinDataContext/Request_Regulation_History" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ad7c348-c6c1-4bf9-bdbd-f918fe44edcf" absoluteBounds="9.265, 32.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6af8780e-1ff4-4d60-a746-35c44c4c07ed" absoluteBounds="3.5, 41.25, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/iDolphinDataContext/Request_Requester" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c7abc2f-ba60-4001-b667-ad78fd5a76e6" absoluteBounds="3.515, 41.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="77dfaf08-c403-47ce-a133-f30265599f7d" absoluteBounds="12.25, 35.25, 2, 3.3093082682291595">
+      <DataClassMoniker Name="/iDolphinDataContext/Request_Row" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e876b989-4445-424f-9b30-decbe1bf9c81" absoluteBounds="12.265, 35.71, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f48bfba9-6999-4324-b50d-b4da97860e0a" absoluteBounds="0.75, 37.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/iDolphinDataContext/Request_Type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ba3eba0-fb7c-45f1-bf1f-1507cf932dbe" absoluteBounds="0.765, 37.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="669aadc2-673c-45cc-b4ca-69505587d85c" absoluteBounds="3.75, 29.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iDolphinDataContext/Requester_Type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f11865bc-19cd-409b-b4b1-f6a51e12abe9" absoluteBounds="3.765, 29.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" absoluteBounds="15.25, 28, 2, 9.4629541015625023">
+      <DataClassMoniker Name="/iDolphinDataContext/Service" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d2618b4-c4a3-466e-893e-e8bf35fabcf2" absoluteBounds="15.265, 28.46, 1.9700000000000002, 8.9029541015625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="276746b0-59ab-4336-9c8d-0598a302d137" absoluteBounds="21, 34.5, 2, 9.65525553385416">
+      <DataClassMoniker Name="/iDolphinDataContext/Service_Public" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e432633d-d1cd-49b3-8c5d-1d57aa8daefa" absoluteBounds="21.015, 34.96, 1.9700000000000002, 9.0952555338541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2831e885-7049-4bae-91d1-2de849e49284" absoluteBounds="18, 34.125, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/iDolphinDataContext/Step_History_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5dc4c2b-1d3d-48bb-a8e4-b9c7342ff44a" absoluteBounds="18.015, 34.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b58e4c5-ebc0-40ac-944d-a136e9896c48" absoluteBounds="12.25, 31.375, 2, 2.732403971354163">
+      <DataClassMoniker Name="/iDolphinDataContext/Step_History_Summery" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78af9579-0aac-4050-ac2f-2cc222ae543d" absoluteBounds="12.265, 31.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="83f1e71d-599d-4c57-affc-017601cd7dae" absoluteBounds="3.75, 24.25, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/iDolphinDataContext/Sub_State" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7b8be7d-e05e-49ab-a0fb-e027e9b5381a" absoluteBounds="3.765, 24.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.4592307692308 : 20.9920068359375); (10.4592307692308 : 21.2420068359375); (11.0546153846154 : 21.2420068359375); (11.0546153846154 : 20.9920068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff/Base_Tariff_Base_Tariff" />
+      <nodes>
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 19.4335034179688); (12.0416666666667 : 19.4335034179688 : JumpStart); (12.2083333333333 : 19.4335034179688 : JumpEnd); (12.5 : 19.4335034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff/Base_Tariff_Base_Tariff_Detail" />
+      <nodes>
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+        <classShapeMoniker Id="91493247-4af8-4f17-8500-ec512513fdf3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 14.9239005533854); (12.5 : 14.9239005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Unit/Base_Unit_Sub_Unit" />
+      <nodes>
+        <classShapeMoniker Id="2119d3c6-d353-4d33-a4ae-5c954fb7694f" />
+        <classShapeMoniker Id="bebc3021-d4bf-4091-be49-7d7133996461" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9 : 14.9527498372396); (9.75 : 14.9527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Department/Department_Base_Unit" />
+      <nodes>
+        <classShapeMoniker Id="aecc2de8-5999-497a-8b78-2d4579c53f8d" />
+        <classShapeMoniker Id="2119d3c6-d353-4d33-a4ae-5c954fb7694f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.40625 : 21.8477197265625); (14.40625 : 47.7604077148438); (14 : 47.7604077148438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff_Detail/Base_Tariff_Detail_Expense" />
+      <nodes>
+        <classShapeMoniker Id="91493247-4af8-4f17-8500-ec512513fdf3" />
+        <classShapeMoniker Id="07ea5416-7863-42f1-9dba-3f57086735b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.53125 : 20.9920068359375); (11.53125 : 47.7604077148438); (12 : 47.7604077148438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff/Base_Tariff_Expense" />
+      <nodes>
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+        <classShapeMoniker Id="07ea5416-7863-42f1-9dba-3f57086735b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 23.03125); (8.79166666666667 : 23.03125 : JumpStart); (9.05208333333333 : 23.03125 : JumpEnd); (9.38541666666667 : 23.03125 : JumpStart); (9.55208333333333 : 23.03125 : JumpEnd); (11.4479166666667 : 23.03125 : JumpStart); (11.7552108333333 : 23.03125 : JumpEnd); (11.9166666666667 : 23.03125 : JumpStart); (12.0833333333333 : 23.03125 : JumpEnd); (12.09375 : 23.03125); (12.09375 : 41.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Cash/Cash_Expense_Cash" />
+      <nodes>
+        <classShapeMoniker Id="730d8d91-6163-471b-9f32-165e031e75f9" />
+        <classShapeMoniker Id="61f41629-f2bf-478a-a93b-4a277895781d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.34375 : 44.0401025390625); (6.34375 : 48.8357568359375); (12 : 48.8357568359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Expense_Type/Expense_Type_Expense" />
+      <nodes>
+        <classShapeMoniker Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" />
+        <classShapeMoniker Id="07ea5416-7863-42f1-9dba-3f57086735b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 41.90625); (8.79166666666667 : 41.90625 : JumpStart); (8.95833333333333 : 41.90625 : JumpEnd); (10.1666666666667 : 41.90625 : JumpStart); (10.3333333333333 : 41.90625 : JumpEnd); (11.4479166666667 : 41.90625 : JumpStart); (11.6145833333333 : 41.90625 : JumpEnd); (12 : 41.90625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Expense_Type/Expense_Type_Expense_Cash" />
+      <nodes>
+        <classShapeMoniker Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" />
+        <classShapeMoniker Id="61f41629-f2bf-478a-a93b-4a277895781d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 36.1058645098157); (5.64419943490112 : 36.2500639447168 : JumpStart); (5.87142556509888 : 36.4772900749146 : JumpEnd); (5.875 : 36.4808645098157); (5.875 : 42.7700512695313); (6.25 : 42.7700512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Expense_Item/Expense_Item_Expense_Type" />
+      <nodes>
+        <classShapeMoniker Id="bbfc29c7-2f5b-4a52-9cfd-45c928f293b8" />
+        <classShapeMoniker Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.95923076923077 : 41.5); (6.95923076923077 : 41.25); (7.55461538461539 : 41.25); (7.55461538461539 : 41.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Expense_Type/Expense_Type_Expense_Type" />
+      <nodes>
+        <classShapeMoniker Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" />
+        <classShapeMoniker Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.25 : 14.9815991210937); (7 : 14.9815991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Organ/Organ_Department" />
+      <nodes>
+        <classShapeMoniker Id="aa8a49bc-2d87-4782-912f-919439288bca" />
+        <classShapeMoniker Id="aecc2de8-5999-497a-8b78-2d4579c53f8d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.40625 : 45.75); (8.40625 : 45.3662019856771); (8.79166666666667 : 45.3662019856771 : JumpStart); (8.95833333333333 : 45.3662019856771 : JumpEnd); (11.4479166666667 : 45.3662019856771 : JumpStart); (11.6145833333333 : 45.3662019856771 : JumpEnd); (12.9166666666667 : 45.3662019856771 : JumpStart); (13.0833333333333 : 45.3662019856771 : JumpEnd); (14.3229166666667 : 45.3662019856771 : JumpStart); (14.4895833333333 : 45.3662019856771 : JumpEnd); (15 : 45.3662019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Document_Spec/Document_Spec_Organ_Document" />
+      <nodes>
+        <classShapeMoniker Id="fed5ae4f-0381-4797-a144-30508859aef3" />
+        <classShapeMoniker Id="22db441b-aa97-402d-9a29-f6a8da3501f8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 14.9912019856771); (14.75 : 14.9912019856771); (14.75 : 42.5); (16 : 42.5); (16 : 42.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Sub_Unit/Sub_Unit_Organ_Document" />
+      <nodes>
+        <classShapeMoniker Id="bebc3021-d4bf-4091-be49-7d7133996461" />
+        <classShapeMoniker Id="22db441b-aa97-402d-9a29-f6a8da3501f8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 24.7171541341146); (8.79166666666667 : 24.7171541341146 : JumpStart); (8.95833333333333 : 24.7171541341146 : JumpEnd); (9.25 : 24.7171541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Cash/Cash_Payment" />
+      <nodes>
+        <classShapeMoniker Id="730d8d91-6163-471b-9f32-165e031e75f9" />
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 25.71875); (11.4479166666667 : 25.71875 : JumpStart); (11.7552108333333 : 25.71875 : JumpEnd); (11.9166666666667 : 25.71875 : JumpStart); (12.0833333333333 : 25.71875 : JumpEnd); (14.2916641666667 : 25.71875 : JumpStart); (14.5208358333333 : 25.71875 : JumpEnd); (14.5416666666667 : 25.71875 : JumpStart); (14.8333333333333 : 25.71875 : JumpEnd); (15.4900295512821 : 25.71875 : JumpStart); (15.6566962179487 : 25.71875 : JumpEnd); (19 : 25.71875); (19 : 29.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Payment/Payment_Payment_Check" />
+      <nodes>
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+        <classShapeMoniker Id="0c9d039d-4f3b-4126-91ac-0a400894e970" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.4375025 : 21.8477197265625); (14.4375025 : 27.03125); (14.5416666666667 : 27.03125 : JumpStart); (14.7083333333333 : 27.03125 : JumpEnd); (15.4900295512821 : 27.03125 : JumpStart); (15.6566962179487 : 27.03125 : JumpEnd); (20.6666666666667 : 27.03125 : JumpStart); (20.9583333333333 : 27.03125 : JumpEnd); (23.4166666666667 : 27.03125 : JumpStart); (23.5833333333333 : 27.03125 : JumpEnd); (24 : 27.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff_Detail/Base_Tariff_Detail_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="91493247-4af8-4f17-8500-ec512513fdf3" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 20.9289289128606); (12.0660744349011 : 21.2450033477617 : JumpStart); (12.1839255650989 : 21.3628544779595 : JumpEnd); (12.3125 : 21.4914289128606); (12.3125 : 25.5); (14.2916641666667 : 25.5 : JumpStart); (14.4583308333333 : 25.5 : JumpEnd); (14.5416666666667 : 25.5 : JumpStart); (14.7083333333333 : 25.5 : JumpEnd); (15.4900295512821 : 25.5 : JumpStart); (15.6566962179487 : 25.5 : JumpEnd); (20.6666666666667 : 25.5 : JumpStart); (20.9583333333333 : 25.5 : JumpEnd); (23.375 : 25.5); (23.4410744349011 : 25.5660744349011 : JumpStart); (23.5589255650989 : 25.6839255650989 : JumpEnd); (24 : 26.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff/Base_Tariff_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 23.2656275); (8.79166666666667 : 23.2656275 : JumpStart); (9.05208333333333 : 23.2656275 : JumpEnd); (9.38541666666667 : 23.2656275 : JumpStart); (9.55208333333333 : 23.2656275 : JumpEnd); (11.4479166666667 : 23.2656275 : JumpStart); (11.7552108333333 : 23.2656275 : JumpEnd); (11.9166666666667 : 23.2656275 : JumpStart); (12.0833333333333 : 23.2656275 : JumpEnd); (12.2291666666667 : 23.2656275 : JumpStart); (12.3958333333333 : 23.2656275 : JumpEnd); (14.2916641666667 : 23.2656275 : JumpStart); (14.5208358333333 : 23.2656275 : JumpEnd); (14.5416666666667 : 23.2656275 : JumpStart); (14.7083333333333 : 23.2656275 : JumpEnd); (15.4900295512821 : 23.2656275 : JumpStart); (15.6566962179487 : 23.2656275 : JumpEnd); (20.6666666666667 : 23.2656275 : JumpStart); (20.9583333333333 : 23.2656275 : JumpEnd); (25.0312525 : 23.2656275); (25.0312525 : 26.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Cash/Cash_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="730d8d91-6163-471b-9f32-165e031e75f9" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 48.8593635722656); (23.75 : 48.8593635722656); (23.75 : 33.6553369140625); (25 : 33.6553369140625); (25 : 33.2803369140625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Expense/Expense_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="07ea5416-7863-42f1-9dba-3f57086735b5" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 27.546875); (11.4479166666667 : 27.546875 : JumpStart); (11.6145833333333 : 27.546875 : JumpEnd); (14.2916641666667 : 27.546875 : JumpStart); (14.4583308333333 : 27.546875 : JumpEnd); (14.5416666666667 : 27.546875 : JumpStart); (14.7083333333333 : 27.546875 : JumpEnd); (20.7916666666667 : 27.546875 : JumpStart); (20.9583333333333 : 27.546875 : JumpEnd); (24 : 27.546875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Payment/Payment_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 47.1646569238281); (25 : 47.1646569238281); (25 : 38.5016097005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Expense/Expense_Payment_Discount" />
+      <nodes>
+        <classShapeMoniker Id="07ea5416-7863-42f1-9dba-3f57086735b5" />
+        <classShapeMoniker Id="148b73fc-ff1f-4653-a689-36b82c7e9f0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 24.5000005); (11.4479166666667 : 24.5000005 : JumpStart); (11.6145833333333 : 24.5000005 : JumpEnd); (14.2916641666667 : 24.5000005 : JumpStart); (14.4583308333333 : 24.5000005 : JumpEnd); (14.5416666666667 : 24.5000005 : JumpStart); (14.7083333333333 : 24.5000005 : JumpEnd); (20.7916666666667 : 24.5000005 : JumpStart); (20.9583333333333 : 24.5000005 : JumpEnd); (23.5 : 24.5000005); (23.5 : 33.5303369140625); (24.5000005 : 33.5303369140625); (24.5000005 : 35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Payment/Payment_Payment_Discount" />
+      <nodes>
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+        <classShapeMoniker Id="148b73fc-ff1f-4653-a689-36b82c7e9f0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 26.4062525); (11.4479166666667 : 26.4062525 : JumpStart); (11.7552108333333 : 26.4062525 : JumpEnd); (11.9166666666667 : 26.4062525 : JumpStart); (12.0833333333333 : 26.4062525 : JumpEnd); (14.2916641666667 : 26.4062525 : JumpStart); (14.5208358333333 : 26.4062525 : JumpEnd); (14.5416666666667 : 26.4062525 : JumpStart); (14.7083333333333 : 26.4062525 : JumpEnd); (15.4900295512821 : 26.4062525 : JumpStart); (15.6566962179487 : 26.4062525 : JumpEnd); (20.6666666666667 : 26.4062525 : JumpStart); (20.9583333333333 : 26.4062525 : JumpEnd); (22 : 26.4062525); (22 : 28.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Payment/Payment_Payment_Method" />
+      <nodes>
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+        <classShapeMoniker Id="f8f70708-c867-4079-8c28-0ac3db3b1f70" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.375 : 49.75); (2.375 : 47.7804996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Country/Country_Province" />
+      <nodes>
+        <classShapeMoniker Id="623d7dd6-115e-454a-a465-36e5f39987ca" />
+        <classShapeMoniker Id="01e10aa2-6f2b-4601-aee9-9037e4a98004" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 38.7027498372396); (5.57291666666667 : 38.7027498372396 : JumpStart); (5.95833333333333 : 38.7027498372396 : JumpEnd); (6.25 : 38.7027498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Reason_Spec/Reason_Spec_Reason_Request" />
+      <nodes>
+        <classShapeMoniker Id="35f43a5a-c9e4-41da-8710-7f4321a01751" />
+        <classShapeMoniker Id="ece5c9f5-abf0-44cd-862f-cb2c3618fa1b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17 : 40.1450512695313); (17.75 : 40.1450512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Receive_Document/Receive_Document_Image_Document" />
+      <nodes>
+        <classShapeMoniker Id="bc8d1c4e-bcaf-48f3-8923-93abf1a101a2" />
+        <classShapeMoniker Id="3ba12590-759f-442f-a057-0159029fd2c1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 46.7412019856771); (6 : 46.7412019856771); (6 : 45.5); (8.79166666666667 : 45.5 : JumpStart); (8.95833333333333 : 45.5 : JumpEnd); (11.4479166666667 : 45.5 : JumpStart); (11.6145833333333 : 45.5 : JumpEnd); (13 : 45.5); (13 : 44.3670068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Region/Region_Expense_Cash" />
+      <nodes>
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+        <classShapeMoniker Id="61f41629-f2bf-478a-a93b-4a277895781d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 46.7027498372396); (3.75 : 46.7027498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Province/Province_Region" />
+      <nodes>
+        <classShapeMoniker Id="01e10aa2-6f2b-4601-aee9-9037e4a98004" />
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.45923076923077 : 48.1074039713542); (4.45923076923077 : 48.3574039713542); (5.05461538461539 : 48.3574039713542); (5.05461538461539 : 48.1074039713542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Region/Region_Region" />
+      <nodes>
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.44 : 21.8285139973958); (8.875 : 22.2635139973958); (8.875 : 46.6614518574219); (11.4479166666667 : 46.6614518574219 : JumpStart); (11.6145833333333 : 46.6614518574219 : JumpEnd); (12 : 46.6614518574219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Regulation/Regulation_Expense" />
+      <nodes>
+        <classShapeMoniker Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" />
+        <classShapeMoniker Id="07ea5416-7863-42f1-9dba-3f57086735b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 21.8100514589343); (11.4479166666667 : 21.8100514589343 : JumpStart); (11.7552108333333 : 21.8100514589343 : JumpEnd); (12 : 21.8100514589343); (12 : 41.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Regulation/Regulation_Expense_Cash" />
+      <nodes>
+        <classShapeMoniker Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" />
+        <classShapeMoniker Id="61f41629-f2bf-478a-a93b-4a277895781d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 21.7715899204728); (8.93192407692308 : 22.2035139973958); (11.4479166666667 : 22.2035139973958 : JumpStart); (11.6145833333333 : 22.2035139973958 : JumpEnd); (14.2916641666667 : 22.2035139973958 : JumpStart); (14.4583308333333 : 22.2035139973958 : JumpEnd); (14.625 : 22.2035139973958); (14.625 : 42.5); (15 : 42.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Regulation/Regulation_Organ_Document" />
+      <nodes>
+        <classShapeMoniker Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" />
+        <classShapeMoniker Id="22db441b-aa97-402d-9a29-f6a8da3501f8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 21.4786228012821); (9.46875 : 21.4786228012821); (9.46875 : 23.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Regulation/Regulation_Payment" />
+      <nodes>
+        <classShapeMoniker Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" />
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 29.6865374615385); (8.56607443490112 : 29.6204630266374 : JumpStart); (8.68392556509888 : 29.5026118964396 : JumpEnd); (8.81607443490112 : 29.3704630266374 : JumpStart); (8.93392556509888 : 29.2526118964396 : JumpEnd); (9.0625 : 29.1240374615385); (9.0625 : 30.0736311848958); (9.25 : 29.8861311848958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Payment" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="e5aa6cad-3e8c-42e2-8be9-4f20dfa4bf77" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 27.9719962565104); (7.5 : 27.9719962565104); (7.5 : 29.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Month_Base/Month_Base_Request" />
+      <nodes>
+        <classShapeMoniker Id="cfba5fc2-88cd-4acd-b247-d095078686b8" />
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 45.375); (4.75 : 44.4247054036458); (5.8125 : 44.4247054036458); (5.8125 : 33.7362552959736); (6.5 : 33.7362552959736)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Region/Region_Request" />
+      <nodes>
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.20923076923077 : 35.8188297526042); (7.20923076923077 : 36.0688297526042); (7.80461538461539 : 36.0688297526042); (7.80461538461539 : 35.8188297526042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Request" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 44.7684554036458); (11.4479166666667 : 44.7684554036458 : JumpStart); (11.6145833333333 : 44.7684554036458 : JumpEnd); (12.9166666666667 : 44.7684554036458 : JumpStart); (13.0833333333333 : 44.7684554036458 : JumpEnd); (14.3229166666667 : 44.7684554036458 : JumpStart); (14.4895833333333 : 44.7684554036458 : JumpEnd); (14.6041666666667 : 44.7684554036458 : JumpStart); (14.8958333333333 : 44.7684554036458 : JumpEnd); (15 : 44.7684554036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Document/Request_Document_Organ_Document" />
+      <nodes>
+        <classShapeMoniker Id="e2d58c18-68be-4623-b8f8-2cbc1e480018" />
+        <classShapeMoniker Id="22db441b-aa97-402d-9a29-f6a8da3501f8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.25 : 42.375); (10.25 : 41.1170068359375); (11.375 : 41.1170068359375); (11.375 : 39.9046541341146); (11.4479166666667 : 39.9046541341146 : JumpStart); (11.6145833333333 : 39.9046541341146 : JumpEnd); (14.5416666666667 : 39.9046541341146 : JumpStart); (14.7083333333333 : 39.9046541341146 : JumpEnd); (14.7291666666667 : 39.9046541341146 : JumpStart); (14.8958333333333 : 39.9046541341146 : JumpEnd); (15 : 39.9046541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Document/Request_Document_Receive_Document" />
+      <nodes>
+        <classShapeMoniker Id="e2d58c18-68be-4623-b8f8-2cbc1e480018" />
+        <classShapeMoniker Id="bc8d1c4e-bcaf-48f3-8923-93abf1a101a2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.4375025 : 45.75); (8.4375025 : 44.6050032552083); (8.79166666666667 : 44.6050032552083 : JumpStart); (8.95833333333333 : 44.6050032552083 : JumpEnd); (9.25 : 44.6050032552083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Document_Spec/Document_Spec_Request_Document" />
+      <nodes>
+        <classShapeMoniker Id="fed5ae4f-0381-4797-a144-30508859aef3" />
+        <classShapeMoniker Id="e2d58c18-68be-4623-b8f8-2cbc1e480018" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.40625 : 35.8188297526042); (8.40625 : 40.5184554036458); (8.79166666666667 : 40.5184554036458 : JumpStart); (8.95833333333333 : 40.5184554036458 : JumpEnd); (9.25 : 40.5184554036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Request_Letter" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="21bda1d5-e8e8-4204-bcda-e1f366a6e062" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 21.8177437666266); (8.96875 : 22.2864937666266); (8.96875 : 32.7989005533854); (9.25 : 32.7989005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Regulation/Regulation_Request_Regulation_History" />
+      <nodes>
+        <classShapeMoniker Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" />
+        <classShapeMoniker Id="2dd961b7-7cc6-450c-bfe3-f5fe1d32c432" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 32.1494502766927); (8.79166666666667 : 32.1494502766927 : JumpStart); (8.95833333333333 : 32.1494502766927 : JumpEnd); (9.25 : 32.1494502766927)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Request_Regulation_History" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="2dd961b7-7cc6-450c-bfe3-f5fe1d32c432" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 42.0725256347656); (5.57291666666667 : 42.0725256347656 : JumpStart); (5.95833333333333 : 42.0725256347656 : JumpEnd); (6.25 : 42.0725256347656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Requester/Request_Requester_Expense_Type" />
+      <nodes>
+        <classShapeMoniker Id="6af8780e-1ff4-4d60-a746-35c44c4c07ed" />
+        <classShapeMoniker Id="ebe3d8f3-5140-4f5f-82a3-f83ffc5b18ca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 44.1386539713542); (5.57291666666667 : 44.1386539713542 : JumpStart); (5.89583333333333 : 44.1386539713542 : JumpEnd); (8.79166666666667 : 44.1386539713542 : JumpStart); (8.95833333333333 : 44.1386539713542 : JumpEnd); (9.25 : 44.1386539713542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Requester/Request_Requester_Request_Document" />
+      <nodes>
+        <classShapeMoniker Id="6af8780e-1ff4-4d60-a746-35c44c4c07ed" />
+        <classShapeMoniker Id="e2d58c18-68be-4623-b8f8-2cbc1e480018" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.438748 : 21.8285139973958); (7.438748 : 22.375); (6 : 22.375); (6 : 43.4231001204427); (5.89583333333333 : 43.4231001204427 : JumpStart); (5.57291666666667 : 43.4231001204427 : JumpEnd); (5.5 : 43.4231001204427)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Regulation/Regulation_Request_Requester" />
+      <nodes>
+        <classShapeMoniker Id="3b59915b-70d0-4c79-8e85-71b01a38af1e" />
+        <classShapeMoniker Id="6af8780e-1ff4-4d60-a746-35c44c4c07ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 36.8124995); (14.3229166666667 : 36.8124995 : JumpStart); (14.4895833333333 : 36.8124995 : JumpEnd); (14.5416666666667 : 36.8124995 : JumpStart); (14.7083333333333 : 36.8124995 : JumpEnd); (15 : 36.8124995); (15 : 37.7129541015625); (15.0416666666667 : 37.7129541015625 : JumpStart); (15.2083333333333 : 37.7129541015625 : JumpEnd); (16.1666666666667 : 37.7129541015625 : JumpStart); (16.3333333333333 : 37.7129541015625 : JumpEnd); (17.4166666666667 : 37.7129541015625 : JumpStart); (17.5833333333333 : 37.7129541015625 : JumpEnd); (17.75 : 37.7129541015625); (17.75 : 33.875); (18.4166671666667 : 33.875 : JumpStart); (18.5833338333333 : 33.875 : JumpEnd); (19 : 33.875); (19 : 33.0112125651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Payment_Check" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="0c9d039d-4f3b-4126-91ac-0a400894e970" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 35.99999775); (15.125 : 35.99999775); (15.125 : 37.9629541015625); (17.5 : 37.9629541015625); (17.5 : 34); (20.7916666666667 : 34 : JumpStart); (20.9583333333333 : 34 : JumpEnd); (25.531252 : 34); (25.531252 : 33.2803369140625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 37.2939793007813); (14.3229166666667 : 37.2939793007813 : JumpStart); (14.4895833333333 : 37.2939793007813 : JumpEnd); (14.5416666666667 : 37.2939793007813 : JumpStart); (14.7083333333333 : 37.2939793007813 : JumpEnd); (14.875 : 37.2939793007813); (14.875 : 37.8379541015625); (15.0416666666667 : 37.8379541015625 : JumpStart); (15.2083333333333 : 37.8379541015625 : JumpEnd); (16.1666666666667 : 37.8379541015625 : JumpStart); (16.3333333333333 : 37.8379541015625 : JumpEnd); (17.4166666666667 : 37.8379541015625 : JumpStart); (17.5833333333333 : 37.8379541015625 : JumpEnd); (17.875 : 37.8379541015625); (17.875 : 33.9375); (18.4166671666667 : 33.9375 : JumpStart); (18.5833338333333 : 33.9375 : JumpEnd); (20.6666666666667 : 33.9375 : JumpStart); (20.9583333333333 : 33.9375 : JumpEnd); (23.6666666666667 : 33.9375 : JumpStart); (23.8333333333333 : 33.9375 : JumpEnd); (24.4166671666667 : 33.9375 : JumpStart); (24.5833338333333 : 33.9375 : JumpEnd); (25.04687875 : 33.9375); (25.04687875 : 35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Payment_Discount" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="148b73fc-ff1f-4653-a689-36b82c7e9f0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 35.593746875); (14.3229166666667 : 35.593746875 : JumpStart); (14.4895833333333 : 35.593746875 : JumpEnd); (14.5416666666667 : 35.593746875 : JumpStart); (14.8333333333333 : 35.593746875 : JumpEnd); (14.8541666666667 : 35.593746875 : JumpStart); (15.0208333333333 : 35.593746875 : JumpEnd); (15.0625 : 35.593746875); (15.0625 : 37.5879541015625); (16.1666666666667 : 37.5879541015625 : JumpStart); (16.3333333333333 : 37.5879541015625 : JumpEnd); (17.2916666666667 : 37.5879541015625 : JumpStart); (17.5833333333333 : 37.5879541015625 : JumpEnd); (17.625 : 37.5879541015625); (17.625 : 33.75); (17.7291666666667 : 33.75 : JumpStart); (17.8958333333333 : 33.75 : JumpEnd); (18.4166671666667 : 33.75 : JumpStart); (18.5833338333333 : 33.75 : JumpEnd); (18.9166666666667 : 33.75 : JumpStart); (19.0833333333333 : 33.75 : JumpEnd); (20.5416666666667 : 33.75 : JumpStart); (20.9583333333333 : 33.75 : JumpEnd); (22 : 33.75); (22 : 33.4054182942708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Payment_Method" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="f8f70708-c867-4079-8c28-0ac3db3b1f70" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.25 : 37.53125); (11.6145833333333 : 37.53125 : JumpStart); (11.4479166666667 : 37.53125 : JumpEnd); (8.25 : 37.53125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Reason_Request" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="ece5c9f5-abf0-44cd-862f-cb2c3618fa1b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 37.9004541015625); (14.3229166666667 : 37.9004541015625 : JumpStart); (14.4895833333333 : 37.9004541015625 : JumpEnd); (14.5416666666667 : 37.9004541015625 : JumpStart); (14.7083333333333 : 37.9004541015625 : JumpEnd); (15.03125 : 37.9004541015625); (15.03125 : 38.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Receive_Document" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="bc8d1c4e-bcaf-48f3-8923-93abf1a101a2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 45.375); (5.65625 : 36.7412019856771); (5.72916666666667 : 36.7412019856771 : JumpStart); (5.95833333333333 : 36.7412019856771 : JumpEnd); (8.79166666666667 : 36.7412019856771 : JumpStart); (8.95833333333333 : 36.7412019856771 : JumpEnd); (11.4479166666667 : 36.7412019856771 : JumpStart); (11.6145833333333 : 36.7412019856771 : JumpEnd); (12.25 : 36.7412019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Region/Region_Request_Row" />
+      <nodes>
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 35.5344148763021); (8.79166666666667 : 35.5344148763021 : JumpStart); (8.95833333333333 : 35.5344148763021 : JumpEnd); (11.4479166666667 : 35.5344148763021 : JumpStart); (11.6145833333333 : 35.5344148763021 : JumpEnd); (11.9166666666667 : 35.5344148763021 : JumpStart); (12.0833333333333 : 35.5344148763021 : JumpEnd); (12.25 : 35.5344148763021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Request_Row" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 37.375); (1.75 : 34.7412019856771); (3.5 : 34.7412019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Type/Request_Type_Expense_Item" />
+      <nodes>
+        <classShapeMoniker Id="f48bfba9-6999-4324-b50d-b4da97860e0a" />
+        <classShapeMoniker Id="bbfc29c7-2f5b-4a52-9cfd-45c928f293b8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 38.7027498372396); (3.5 : 38.7027498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Type/Request_Type_Reason_Spec" />
+      <nodes>
+        <classShapeMoniker Id="f48bfba9-6999-4324-b50d-b4da97860e0a" />
+        <classShapeMoniker Id="35f43a5a-c9e4-41da-8710-7f4321a01751" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 37.375); (2.2812525 : 32.1262047753906); (5.61979166666667 : 32.1262047753906 : JumpStart); (5.78645833333333 : 32.1262047753906 : JumpEnd); (6.5 : 32.1262047753906)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Type/Request_Type_Request" />
+      <nodes>
+        <classShapeMoniker Id="f48bfba9-6999-4324-b50d-b4da97860e0a" />
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 40.1074039713542); (1.75 : 42.7123527018229); (3.5 : 42.7123527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Type/Request_Type_Request_Requester" />
+      <nodes>
+        <classShapeMoniker Id="f48bfba9-6999-4324-b50d-b4da97860e0a" />
+        <classShapeMoniker Id="6af8780e-1ff4-4d60-a746-35c44c4c07ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 37.375); (1.2187475 : 36.4243004785156); (1.66666666666667 : 36.4243004785156 : JumpStart); (1.83333333333333 : 36.4243004785156 : JumpEnd); (2.19791916666667 : 36.4243004785156 : JumpStart); (2.36458583333333 : 36.4243004785156 : JumpEnd); (3.04166666666667 : 36.4243004785156 : JumpStart); (3.20833333333333 : 36.4243004785156 : JumpEnd); (5.61979166666667 : 36.4243004785156 : JumpStart); (5.89583333333333 : 36.4243004785156 : JumpEnd); (5.91666666666667 : 36.4243004785156 : JumpStart); (6.08333333333333 : 36.4243004785156 : JumpEnd); (8.32291666666667 : 36.4243004785156 : JumpStart); (8.48958333333333 : 36.4243004785156 : JumpEnd); (8.79166666666667 : 36.4243004785156 : JumpStart); (8.95833333333333 : 36.4243004785156 : JumpEnd); (11.4479166666667 : 36.4243004785156 : JumpStart); (11.6145833333333 : 36.4243004785156 : JumpEnd); (11.9166666666667 : 36.4243004785156 : JumpStart); (12.1770833333333 : 36.4243004785156 : JumpEnd); (12.25 : 36.4243004785156)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Type/Request_Type_Request_Row" />
+      <nodes>
+        <classShapeMoniker Id="f48bfba9-6999-4324-b50d-b4da97860e0a" />
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 31.5304996744792); (4.625 : 33.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Requester_Type/Requester_Type_Expense_Item" />
+      <nodes>
+        <classShapeMoniker Id="669aadc2-673c-45cc-b4ca-69505587d85c" />
+        <classShapeMoniker Id="bbfc29c7-2f5b-4a52-9cfd-45c928f293b8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 30.5777498372396); (5.91666666666667 : 30.5777498372396 : JumpStart); (6.20833333333333 : 30.5777498372396 : JumpEnd); (6.5 : 30.5777498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Requester_Type/Requester_Type_Request" />
+      <nodes>
+        <classShapeMoniker Id="669aadc2-673c-45cc-b4ca-69505587d85c" />
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 31.5304996744792); (3.625 : 31.6554996744792); (3.125 : 31.6554996744792); (3.125 : 40.875); (3.5 : 41.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Requester_Type/Requester_Type_Request_Requester" />
+      <nodes>
+        <classShapeMoniker Id="669aadc2-673c-45cc-b4ca-69505587d85c" />
+        <classShapeMoniker Id="6af8780e-1ff4-4d60-a746-35c44c4c07ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.703125 : 31.5304996744792); (5.703125 : 37.0581034928385); (11.4479166666667 : 37.0581034928385 : JumpStart); (11.6145833333333 : 37.0581034928385 : JumpEnd); (12.25 : 37.0581034928385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Requester_Type/Requester_Type_Request_Row" />
+      <nodes>
+        <classShapeMoniker Id="669aadc2-673c-45cc-b4ca-69505587d85c" />
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 28.34375); (20.7916666666667 : 28.34375 : JumpStart); (20.9583333333333 : 28.34375 : JumpEnd); (23.4166666666667 : 28.34375 : JumpStart); (23.5833333333333 : 28.34375 : JumpEnd); (24 : 28.34375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Service/Service_Payment_Detail" />
+      <nodes>
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+        <classShapeMoniker Id="77eb81f1-7ed3-4113-9db4-bc386dbd0c8f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 31.0781275); (17.875 : 31.0781275); (17.875 : 33.5929182942708); (18.4166671666667 : 33.5929182942708 : JumpStart); (18.5833338333333 : 33.5929182942708 : JumpEnd); (20.7916666666667 : 33.5929182942708 : JumpStart); (20.9583333333333 : 33.5929182942708 : JumpEnd); (25.4479186666667 : 33.5929182942708 : JumpStart); (25.6145853333333 : 33.5929182942708 : JumpEnd); (25.7656255 : 33.5929182942708); (25.7656255 : 35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Service/Service_Payment_Discount" />
+      <nodes>
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+        <classShapeMoniker Id="148b73fc-ff1f-4653-a689-36b82c7e9f0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 33.2395654296875); (17.7916666666667 : 33.2395654296875 : JumpStart); (17.9583333333333 : 33.2395654296875 : JumpEnd); (18.9166666666667 : 33.2395654296875 : JumpStart); (19.0833333333333 : 33.2395654296875 : JumpEnd); (20.5416666666667 : 33.2395654296875 : JumpStart); (20.9583333333333 : 33.2395654296875 : JumpEnd); (21 : 33.2395654296875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Service/Service_Payment_Method" />
+      <nodes>
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+        <classShapeMoniker Id="f8f70708-c867-4079-8c28-0ac3db3b1f70" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.25 : 36.406248625); (15.2083333333333 : 36.406248625 : JumpStart); (15.0416666666667 : 36.406248625 : JumpEnd); (15.0208333333333 : 36.406248625 : JumpStart); (14.8541666666667 : 36.406248625 : JumpEnd); (14.7083333333333 : 36.406248625 : JumpStart); (14.5416666666667 : 36.406248625 : JumpEnd); (14.25 : 36.406248625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Service/Service_Request_Row" />
+      <nodes>
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.3749975 : 21.8477197265625); (14.3749975 : 29.65625); (15.25 : 29.65625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff_Detail/Base_Tariff_Detail_Service" />
+      <nodes>
+        <classShapeMoniker Id="91493247-4af8-4f17-8500-ec512513fdf3" />
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.6718775 : 20.9920068359375); (11.6718775 : 30.6305655924479); (14.5416666666667 : 30.6305655924479 : JumpStart); (14.7083333333333 : 30.6305655924479 : JumpEnd); (15.25 : 30.6305655924479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff/Base_Tariff_Service" />
+      <nodes>
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 47.4555549785156); (6.125 : 47.4555549785156); (6.125 : 45.4375); (8.35416916666667 : 45.4375 : JumpStart); (8.52083583333333 : 45.4375 : JumpEnd); (8.79166666666667 : 45.4375 : JumpStart); (8.95833333333333 : 45.4375 : JumpEnd); (11.4479166666667 : 45.4375 : JumpStart); (11.6145833333333 : 45.4375 : JumpEnd); (14.8125 : 45.4375); (14.8125 : 38.0879541015625); (16.25 : 38.0879541015625); (16.25 : 37.4629541015625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Region/Region_Service" />
+      <nodes>
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 34.6787019856771); (11.4479166666667 : 34.6787019856771 : JumpStart); (11.6145833333333 : 34.6787019856771 : JumpEnd); (15.25 : 34.6787019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Service" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.9592307692308 : 28); (15.9592307692308 : 27.75); (16.5546153846154 : 27.75); (16.5546153846154 : 28)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Service/Service_Service" />
+      <nodes>
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 15.7055554785156); (15.5733628846154 : 15.7055554785156); (15.5733628846154 : 28)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Sub_Unit/Sub_Unit_Service" />
+      <nodes>
+        <classShapeMoniker Id="bebc3021-d4bf-4091-be49-7d7133996461" />
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 21.846180265024); (14.8765394615385 : 22.2227197265625); (15.4900295512821 : 22.2227197265625 : JumpStart); (15.6566962179487 : 22.2227197265625 : JumpEnd); (20.625 : 22.2227197265625); (20.625 : 34.1573076923077); (21 : 34.5323076923077)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff_Detail/Base_Tariff_Detail_Service_Public" />
+      <nodes>
+        <classShapeMoniker Id="91493247-4af8-4f17-8500-ec512513fdf3" />
+        <classShapeMoniker Id="276746b0-59ab-4336-9c8d-0598a302d137" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 18.6229997089844); (12.125 : 18.6229997089844); (12.125 : 21.9727197265625); (14.2916641666667 : 21.9727197265625 : JumpStart); (14.4583308333333 : 21.9727197265625 : JumpEnd); (15.4900295512821 : 21.9727197265625 : JumpStart); (15.6566962179487 : 21.9727197265625 : JumpEnd); (20.75 : 21.9727197265625); (20.75 : 34.125); (20.7916666666667 : 34.125 : JumpStart); (20.9583333333333 : 34.125 : JumpEnd); (22.031252 : 34.125); (22.031252 : 34.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Base_Tariff/Base_Tariff_Service_Public" />
+      <nodes>
+        <classShapeMoniker Id="4f4796ff-b91e-4866-b413-ed7eae464e0c" />
+        <classShapeMoniker Id="276746b0-59ab-4336-9c8d-0598a302d137" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 46.0893484928385); (5.875 : 46.0893484928385); (5.875 : 45.375); (8.35416916666667 : 45.375 : JumpStart); (8.52083583333333 : 45.375 : JumpEnd); (8.79166666666667 : 45.375 : JumpStart); (8.95833333333333 : 45.375 : JumpEnd); (11.4479166666667 : 45.375 : JumpStart); (11.6145833333333 : 45.375 : JumpEnd); (12.9166666666667 : 45.375 : JumpStart); (13.0833333333333 : 45.375 : JumpEnd); (14.6875 : 45.375); (14.6875 : 42.625); (14.7291666666667 : 42.625 : JumpStart); (14.8958333333333 : 42.625 : JumpEnd); (20.75 : 42.625); (20.75 : 44.4052555338542); (22 : 44.4052555338542); (22 : 44.1552555338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Region/Region_Service_Public" />
+      <nodes>
+        <classShapeMoniker Id="0838ac38-72da-4dbb-8c5c-494748af2c8b" />
+        <classShapeMoniker Id="276746b0-59ab-4336-9c8d-0598a302d137" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 38.2627270507813); (14.3229166666667 : 38.2627270507813 : JumpStart); (14.4895833333333 : 38.2627270507813 : JumpEnd); (14.5416666666667 : 38.2627270507813 : JumpStart); (14.7083333333333 : 38.2627270507813 : JumpEnd); (14.7291666666667 : 38.2627270507813 : JumpStart); (14.8958333333333 : 38.2627270507813 : JumpEnd); (14.9479166666667 : 38.2627270507813 : JumpStart); (15.1145833333333 : 38.2627270507813 : JumpEnd); (21 : 38.2627270507813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request_Row/Request_Row_Service_Public" />
+      <nodes>
+        <classShapeMoniker Id="77dfaf08-c403-47ce-a133-f30265599f7d" />
+        <classShapeMoniker Id="276746b0-59ab-4336-9c8d-0598a302d137" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 37.38373046875); (17.2916666666667 : 37.38373046875 : JumpStart); (17.5833333333333 : 37.38373046875 : JumpEnd); (17.7291666666667 : 37.38373046875 : JumpStart); (17.8958333333333 : 37.38373046875 : JumpEnd); (21 : 37.38373046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Service/Service_Service_Public" />
+      <nodes>
+        <classShapeMoniker Id="b2d881c4-778e-48dd-a9aa-04b2feeca0ed" />
+        <classShapeMoniker Id="276746b0-59ab-4336-9c8d-0598a302d137" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 16.3558645098157); (14.8765394615385 : 16.7324039713542); (20.875 : 16.7324039713542); (20.875 : 34.3411548461538); (21.0338451538462 : 34.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Sub_Unit/Sub_Unit_Service_Public" />
+      <nodes>
+        <classShapeMoniker Id="bebc3021-d4bf-4091-be49-7d7133996461" />
+        <classShapeMoniker Id="276746b0-59ab-4336-9c8d-0598a302d137" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.25 : 34.1074039713542); (13.25 : 35); (14.5416666666667 : 35 : JumpStart); (14.7083333333333 : 35 : JumpEnd); (14.9375 : 35); (14.9375 : 37.7754541015625); (15.0416666666667 : 37.7754541015625 : JumpStart); (15.2083333333333 : 37.7754541015625 : JumpEnd); (17.375 : 37.7754541015625); (17.375 : 35.6835034179688); (17.4166666666667 : 35.6835034179688 : JumpStart); (17.5833333333333 : 35.6835034179688 : JumpEnd); (17.7291666666667 : 35.6835034179688 : JumpStart); (17.8958333333333 : 35.6835034179688 : JumpEnd); (18 : 35.6835034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Step_History_Summery/Step_History_Summery_Step_History_Detail" />
+      <nodes>
+        <classShapeMoniker Id="2b58e4c5-ebc0-40ac-944d-a136e9896c48" />
+        <classShapeMoniker Id="2831e885-7049-4bae-91d1-2de849e49284" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 25.4527498372396); (3.5 : 25.4527498372396); (3.5 : 26.8478011067708); (5.91820612820507 : 26.8478011067708 : JumpStart); (6.08487279487173 : 26.8478011067708 : JumpEnd); (8.54166666666667 : 26.8478011067708 : JumpStart); (8.70833333333333 : 26.8478011067708 : JumpEnd); (8.75 : 26.8478011067708); (8.75 : 30.1361311848958); (8.79166666666667 : 30.1361311848958 : JumpStart); (9.05208333333333 : 30.1361311848958 : JumpEnd); (11.4479166666667 : 30.1361311848958 : JumpStart); (11.7552108333333 : 30.1361311848958 : JumpEnd); (11.9166666666667 : 30.1361311848958 : JumpStart); (12.0833333333333 : 30.1361311848958 : JumpEnd); (13.25 : 30.1361311848958); (13.25 : 31.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Main_State/Main_State_Step_History_Summery" />
+      <nodes>
+        <classShapeMoniker Id="96612626-5d49-4931-85ff-2fefe58d86f2" />
+        <classShapeMoniker Id="2b58e4c5-ebc0-40ac-944d-a136e9896c48" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 31.46875); (8.79166666666667 : 31.46875 : JumpStart); (9.05208333333333 : 31.46875 : JumpEnd); (11.4479166666667 : 31.46875 : JumpStart); (11.6145833333333 : 31.46875 : JumpEnd); (11.9166666666667 : 31.46875 : JumpStart); (12.0833333333333 : 31.46875 : JumpEnd); (12.25 : 31.46875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Request/Request_Step_History_Summery" />
+      <nodes>
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+        <classShapeMoniker Id="2b58e4c5-ebc0-40ac-944d-a136e9896c48" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 26.5962616452324); (6.125 : 26.9712616452324); (6.125 : 34.0037692639974); (6.5 : 34.0037692639974)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Sub_State/Sub_State_Request" />
+      <nodes>
+        <classShapeMoniker Id="83f1e71d-599d-4c57-affc-017601cd7dae" />
+        <classShapeMoniker Id="1904e567-b413-4235-bf9c-f5e32446f35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 25.3918788226162); (6.25 : 25.3918788226162); (6.25 : 26.1843082682292); (8.625 : 26.1843082682292); (8.625 : 30.1361311848958); (8.79166666666667 : 30.1361311848958 : JumpStart); (8.95833333333333 : 30.1361311848958 : JumpEnd); (11.4479166666667 : 30.1361311848958 : JumpStart); (11.6145833333333 : 30.1361311848958 : JumpEnd); (14.5416666666667 : 30.1361311848958 : JumpStart); (14.7083333333333 : 30.1361311848958 : JumpEnd); (15.1875 : 30.1361311848958); (15.1875 : 37.6504541015625); (17.4166666666667 : 37.6504541015625 : JumpStart); (17.5833333333333 : 37.6504541015625 : JumpEnd); (17.8125 : 37.6504541015625); (17.8125 : 33.375); (18.5000005 : 33.375); (18.5000005 : 34.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Sub_State/Sub_State_Step_History_Detail" />
+      <nodes>
+        <classShapeMoniker Id="83f1e71d-599d-4c57-affc-017601cd7dae" />
+        <classShapeMoniker Id="2831e885-7049-4bae-91d1-2de849e49284" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 24.8513749186198); (3.75 : 24.8513749186198)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iDolphinDataContext/Main_State/Main_State_Sub_State" />
+      <nodes>
+        <classShapeMoniker Id="96612626-5d49-4931-85ff-2fefe58d86f2" />
+        <classShapeMoniker Id="83f1e71d-599d-4c57-affc-017601cd7dae" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

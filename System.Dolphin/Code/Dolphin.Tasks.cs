@@ -18,8 +18,8 @@ namespace System.Dolphin.Code
          string value = job.Input.ToString().ToLower();
          if(value == "frst_page_f")
          {
-            //if (_Frst_Page_F == null)
-               //_Frst_Page_F = new Ui.MasterPage.FRST_PAGE_F { _DefaultGateway = this };
+            if (_Frst_Page_F == null)
+               _Frst_Page_F = new Ui.MasterPage.FRST_PAGE_F { _DefaultGateway = this };
          }
          job.Status = StatusType.Successful;
       }

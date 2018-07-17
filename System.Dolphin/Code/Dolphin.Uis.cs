@@ -10,5 +10,7 @@ namespace System.Dolphin.Code
    partial class Dolphin
    {
       public ISendRequest _Wall { get; set; }
+
+      internal Ui.MasterPage.FRST_PAGE_F _Frst_Page_F { get; set; }
    }
 }

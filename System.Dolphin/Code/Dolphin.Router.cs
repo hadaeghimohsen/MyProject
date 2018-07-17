@@ -33,6 +33,9 @@ namespace System.Dolphin.Code
             case 01:
                GetUi(job);
                break;
+            case 02:
+               Frst_Page_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -45,6 +48,9 @@ namespace System.Dolphin.Code
          {
             case "Wall":
                _Wall.SendRequest(job);
+               break;
+            case "FRST_PAGE_F":
+               _Frst_Page_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

@@ -491,7 +491,6 @@
          this.rb_stngdfin.Name = "rb_stngdfin";
          this.rb_stngdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_stngdfin.ToolTip = "تنظیمات نرم افزار";
-         this.rb_stngdfin.Click += new System.EventHandler(this.rb_stngdfin_Click);
          // 
          // rb_regndfin
          // 
@@ -499,7 +498,6 @@
          this.rb_regndfin.Name = "rb_regndfin";
          this.rb_regndfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_regndfin.ToolTip = "تقسیمات جغرافیایی / شرکت ها";
-         this.rb_regndfin.Click += new System.EventHandler(this.rb_regndfin_Click);
          // 
          // rb_epitdfin
          // 
@@ -507,7 +505,6 @@
          this.rb_epitdfin.Name = "rb_epitdfin";
          this.rb_epitdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_epitdfin.ToolTip = "آیتم های درآمد / هزینه";
-         this.rb_epitdfin.Click += new System.EventHandler(this.rb_epitdfin_Click);
          // 
          // rb_btrfdifn
          // 
@@ -515,7 +512,6 @@
          this.rb_btrfdifn.Name = "rb_btrfdifn";
          this.rb_btrfdifn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_btrfdifn.ToolTip = "تعریف سرگروه، زیر گروه";
-         this.rb_btrfdifn.Click += new System.EventHandler(this.rb_btrfdifn_Click);
          // 
          // rb_cashdfin
          // 
@@ -523,7 +519,6 @@
          this.rb_cashdfin.Name = "rb_cashdfin";
          this.rb_cashdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_cashdfin.ToolTip = "تعریف حساب";
-         this.rb_cashdfin.Click += new System.EventHandler(this.rb_cashdfin_Click);
          // 
          // rb_regldfin
          // 
@@ -531,7 +526,6 @@
          this.rb_regldfin.Name = "rb_regldfin";
          this.rb_regldfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_regldfin.ToolTip = "آیین نامه";
-         this.rb_regldfin.Click += new System.EventHandler(this.rb_regldfin_Click);
          // 
          // rb_orgndfin
          // 
@@ -539,7 +533,6 @@
          this.rb_orgndfin.Name = "rb_orgndfin";
          this.rb_orgndfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_orgndfin.ToolTip = "قرارداد سازمانی";
-         this.rb_orgndfin.Click += new System.EventHandler(this.rb_orgndfin_Click);
          // 
          // rb_jobpdfin
          // 
@@ -547,7 +540,6 @@
          this.rb_jobpdfin.Name = "rb_jobpdfin";
          this.rb_jobpdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_jobpdfin.ToolTip = "تعریف پرسنل";
-         this.rb_jobpdfin.Click += new System.EventHandler(this.rb_jobpdfin_Click);
          // 
          // rb_isicdfin
          // 
@@ -555,7 +547,6 @@
          this.rb_isicdfin.Name = "rb_isicdfin";
          this.rb_isicdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_isicdfin.ToolTip = "گروه ،فعالیت و محصولات";
-         this.rb_isicdfin.Click += new System.EventHandler(this.rb_isicdfin_Click);
          // 
          // rb_tmpldfin
          // 
@@ -563,7 +554,6 @@
          this.rb_tmpldfin.Name = "rb_tmpldfin";
          this.rb_tmpldfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_tmpldfin.ToolTip = "قالب های آماده";
-         this.rb_tmpldfin.Click += new System.EventHandler(this.rb_tmpldfin_Click);
          // 
          // rb_cmphdfin
          // 
@@ -573,7 +563,6 @@
          this.rb_cmphdfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_cmphdfin.ToolTip = "شرکت ها و شعبه ها";
          this.rb_cmphdfin.Visible = false;
-         this.rb_cmphdfin.Click += new System.EventHandler(this.rb_cmphdfin_Click);
          // 
          // Comp_Rtab
          // 
@@ -581,7 +570,6 @@
          this.Comp_Rtab.Name = "Comp_Rtab";
          this.Comp_Rtab.Text = "شرکتها";
          this.Comp_Rtab.Visible = false;
-         this.Comp_Rtab.Select += new System.EventHandler(this.Comp_Rtab_Select);
          // 
          // ribbonGroup8
          // 
@@ -598,7 +586,6 @@
          this.rb_AddAccountButn.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_AddAccountButn.SmallImage")));
          this.rb_AddAccountButn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_AddAccountButn.ToolTip = "اضافه کردن";
-         this.rb_AddAccountButn.Click += new System.EventHandler(this.rb_AddAccountButn_Click);
          // 
          // rb_listcomp
          // 
@@ -607,7 +594,6 @@
          this.rb_listcomp.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_listcomp.SmallImage")));
          this.rb_listcomp.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_listcomp.ToolTip = "شرکت های فعال";
-         this.rb_listcomp.Click += new System.EventHandler(this.rb_listcomp_Click);
          // 
          // rb_deltlistcomp
          // 
@@ -616,7 +602,6 @@
          this.rb_deltlistcomp.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_deltlistcomp.SmallImage")));
          this.rb_deltlistcomp.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_deltlistcomp.ToolTip = "شرکت های غیرفعال";
-         this.rb_deltlistcomp.Click += new System.EventHandler(this.rb_deltlistcomp_Click);
          // 
          // Serv_Rtab
          // 
@@ -625,7 +610,6 @@
          this.Serv_Rtab.Name = "Serv_Rtab";
          this.Serv_Rtab.Text = "مشتریان احتمالی";
          this.Serv_Rtab.Visible = false;
-         this.Serv_Rtab.Select += new System.EventHandler(this.Serv_Rtab_Select);
          // 
          // ribbonGroup3
          // 
@@ -642,28 +626,24 @@
          this.rb_adslat.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_adslat.LargeImage")));
          this.rb_adslat.Name = "rb_adslat";
          this.rb_adslat.Text = "مشتری";
-         this.rb_adslat.Click += new System.EventHandler(this.rb_adms_Click);
          // 
          // rb_actlogs
          // 
          this.rb_actlogs.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_actlogs.LargeImage")));
          this.rb_actlogs.Name = "rb_actlogs";
          this.rb_actlogs.Text = "تماس تلفنی";
-         this.rb_actlogs.Click += new System.EventHandler(this.rb_actlogs_Click);
          // 
          // rb_actsndf
          // 
          this.rb_actsndf.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_actsndf.LargeImage")));
          this.rb_actsndf.Name = "rb_actsndf";
          this.rb_actsndf.Text = "ارسال فایل";
-         this.rb_actsndf.Click += new System.EventHandler(this.rb_actsndf_Click);
          // 
          // rb_acttrat
          // 
          this.rb_acttrat.LargeImage = ((System.Drawing.Image)(resources.GetObject("rb_acttrat.LargeImage")));
          this.rb_acttrat.Name = "rb_acttrat";
          this.rb_acttrat.Text = "جلسه حضوری";
-         this.rb_acttrat.Click += new System.EventHandler(this.rb_acttrat_Click);
          // 
          // ribbonGroup6
          // 
@@ -680,7 +660,6 @@
          this.rb_AddleadsButn.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_AddleadsButn.SmallImage")));
          this.rb_AddleadsButn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_AddleadsButn.ToolTip = "اضافه کردن";
-         this.rb_AddleadsButn.Click += new System.EventHandler(this.rb_AddleadsButn_Click);
          // 
          // rb_showleads
          // 
@@ -689,7 +668,6 @@
          this.rb_showleads.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_showleads.SmallImage")));
          this.rb_showleads.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_showleads.ToolTip = "مشتریان فعال";
-         this.rb_showleads.Click += new System.EventHandler(this.rb_showleads_Click);
          // 
          // rb_showdeleteleads
          // 
@@ -698,7 +676,6 @@
          this.rb_showdeleteleads.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_showdeleteleads.SmallImage")));
          this.rb_showdeleteleads.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_showdeleteleads.ToolTip = "مشتریان غیرفعال";
-         this.rb_showdeleteleads.Click += new System.EventHandler(this.rb_showdeleteleads_Click);
          // 
          // Cont_Rtab
          // 
@@ -706,7 +683,6 @@
          this.Cont_Rtab.Name = "Cont_Rtab";
          this.Cont_Rtab.Text = "اشخاص";
          this.Cont_Rtab.Visible = false;
-         this.Cont_Rtab.Select += new System.EventHandler(this.Cont_Rtab_Select);
          // 
          // ribbonGroup5
          // 
@@ -724,7 +700,6 @@
          this.rb_AddContactButn.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_AddContactButn.SmallImage")));
          this.rb_AddContactButn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_AddContactButn.ToolTip = "اضافه کردن";
-         this.rb_AddContactButn.Click += new System.EventHandler(this.rb_AddContactButn_Click);
          // 
          // rb_lstc
          // 
@@ -732,7 +707,6 @@
          this.rb_lstc.Name = "rb_lstc";
          this.rb_lstc.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_lstc.ToolTip = "اشخاص فعال";
-         this.rb_lstc.Click += new System.EventHandler(this.rb_showcontact_Click);
          // 
          // rb_admc
          // 
@@ -740,7 +714,6 @@
          this.rb_admc.Name = "rb_admc";
          this.rb_admc.Text = "تغییر مشخصات عمومی";
          this.rb_admc.Visible = false;
-         this.rb_admc.Click += new System.EventHandler(this.rb_admc_Click);
          // 
          // rb_showdeletecontact
          // 
@@ -749,7 +722,6 @@
          this.rb_showdeletecontact.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_showdeletecontact.SmallImage")));
          this.rb_showdeletecontact.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_showdeletecontact.ToolTip = "اشخاص غیرفعال";
-         this.rb_showdeletecontact.Click += new System.EventHandler(this.rb_showdeletecontact_Click);
          // 
          // ribbonTab3
          // 
@@ -775,7 +747,6 @@
          this.rb_taskflow.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_taskflow.SmallImage")));
          this.rb_taskflow.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_taskflow.ToolTip = "تاریخچه عملکرد من";
-         this.rb_taskflow.Click += new System.EventHandler(this.rb_taskflow_Click);
          // 
          // ribbonGroup9
          // 
@@ -791,7 +762,6 @@
          this.rb_chngpblc.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_chngpblc.SmallImage")));
          this.rb_chngpblc.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_chngpblc.ToolTip = "تغییر مشخصات عمومی مشتریان";
-         this.rb_chngpblc.Click += new System.EventHandler(this.rb_admc_Click);
          // 
          // ribbonGroup13
          // 
@@ -820,7 +790,6 @@
          this.rb_listdeals.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_listdeals.SmallImage")));
          this.rb_listdeals.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_listdeals.ToolTip = "لیست معاملات";
-         this.rb_listdeals.Click += new System.EventHandler(this.rb_listdeals_Click);
          // 
          // ribbonGroup10
          // 
@@ -835,7 +804,6 @@
          this.rb_taskappointment.SmallImage = ((System.Drawing.Image)(resources.GetObject("rb_taskappointment.SmallImage")));
          this.rb_taskappointment.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_taskappointment.ToolTip = "قرار ملاقات و وظایف من";
-         this.rb_taskappointment.Click += new System.EventHandler(this.rb_taskappointment_Click);
          // 
          // ribbonTab1
          // 
@@ -858,7 +826,6 @@
          this.rb_crgldfin.Name = "rb_crgldfin";
          this.rb_crgldfin.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageBeforeText;
          this.rb_crgldfin.ToolTip = "نرخ جاری";
-         this.rb_crgldfin.Click += new System.EventHandler(this.rb_crgldfin_Click);
          // 
          // ribbonButton7
          // 

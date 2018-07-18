@@ -16,7 +16,8 @@ namespace System.CRM.Ui.Leads
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private long fileno;
+      private long fileno, compcode;
+      private XElement xinput;
 
       public void SendRequest(Job job)
       {
@@ -257,12 +258,13 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         var xinput = job.Input as XElement;
+         xinput = job.Input as XElement;
          switch (xinput.Attribute("type").Value)
          {
             case "newlead":
                Pn_CmpServ.Visible = false;
                break;
+            case "companylead":
             case "servicelead":
                Pn_CmpServ.Visible = true;
                break;

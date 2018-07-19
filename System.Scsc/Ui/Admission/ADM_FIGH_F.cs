@@ -233,14 +233,14 @@ namespace System.Scsc.Ui.Admission
                                     new XAttribute("fileno", Rqst == null ? 0 : Rqst.Fighters.FirstOrDefault() == null ? 0 : Rqst.Fighters.FirstOrDefault().FILE_NO),
                                     new XElement("Frst_Name", FRST_NAME_TextEdit.Text),
                                     new XElement("Last_Name", LAST_NAME_TextEdit.Text),
-                                    new XElement("Fath_Name", ""),
+                                    new XElement("Fath_Name", FATH_NAME_TextEdit.Text),
                                     new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
                                     new XElement("Natl_Code", NATL_CODE_TextEdit.Text),
                                     new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                                     new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
                                     new XElement("Tell_Phon", TELL_PHON_TextEdit.Text),
                                     new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue),
-                                    new XElement("Post_Adrs", ""),
+                                    new XElement("Post_Adrs", POST_ADRS_TextEdit.Text),
                                     new XElement("Emal_Adrs", ""),
                                     new XElement("Insr_Numb", ""),
                                     new XElement("Insr_Date", ""),
@@ -441,18 +441,18 @@ namespace System.Scsc.Ui.Admission
       private void MaxF_Butn001_Click(object sender, EventArgs e)
       {
          try
-         {            
-            //if (tb_master.SelectedTab == tp_001)
-            {
-               FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
-            }
+         {
+            FNGR_PRNT_TextEdit.EditValue = 
+                iScsc.Fighters
+                .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                .Select(f => f.FNGR_PRNT_DNRM)
+                .ToList()
+                .Where(f => f.All(char.IsDigit))
+                .Max(f => Convert.ToInt64(f)) + 1;
          }
          catch
          {
-            //if (tb_master.SelectedTab == tp_001)
-            {
-               FNGR_PRNT_TextEdit.EditValue = 1;
-            }
+             FNGR_PRNT_TextEdit.EditValue = 1;
          }
       }
 

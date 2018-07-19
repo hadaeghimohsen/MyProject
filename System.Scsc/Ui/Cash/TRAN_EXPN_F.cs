@@ -252,6 +252,12 @@ namespace System.Scsc.Ui.Cash
                   ex.Expense_Type.Request_Requester.RQTP_CODE == rqst.RQTP_CODE &&
                   ex.Expense_Type.Request_Requester.RQTT_CODE == rqst.RQTT_CODE &&
                   ex.EXPN_STAT == "002");
+
+            if(AutoChngPric_Cb.Checked && ExpnBs.List.Count == 1)
+            {
+               pydt.EXPN_PRIC = ExpnBs.List.OfType<Data.Expense>().First().PRIC;
+               pydt.EXPN_EXTR_PRCT = ExpnBs.List.OfType<Data.Expense>().First().EXTR_PRCT;
+            }
          }
          catch (Exception ){}
       }

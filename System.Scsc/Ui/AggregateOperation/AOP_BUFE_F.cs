@@ -618,7 +618,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             AodtBs1.EndEdit();
 
-            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB);
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC);
             requery = true;
 
             if (aodt.END_TIME != null)

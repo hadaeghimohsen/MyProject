@@ -35,7 +35,13 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            FngrPrint_Text.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
+            FngrPrint_Text.EditValue =
+                iScsc.Fighters
+                .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                .Select(f => f.FNGR_PRNT_DNRM)
+                .ToList()
+                .Where(f => f.All(char.IsDigit))
+                .Max(f => Convert.ToInt64(f)) + 1;
          }
          catch
          {

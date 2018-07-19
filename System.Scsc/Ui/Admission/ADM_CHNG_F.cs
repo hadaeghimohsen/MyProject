@@ -475,25 +475,25 @@ namespace System.Scsc.Ui.Admission
       private void MaxF_Butn001_Click(object sender, EventArgs e)
       {
          try
-         {
-            
-            {
-               var rqst = RqstBs1.Current as Data.Request;
+         {            
+            var rqst = RqstBs1.Current as Data.Request;
 
-               if (rqst == null) return;
+            if (rqst == null) return;
 
-               if (rqst.Request_Rows.First().Fighter_Publics.FirstOrDefault(fp => fp.RECT_CODE == "001").FNGR_PRNT != ""
-                && MessageBox.Show(this, "آیا می خواهید کد انگشتی مشتری تغییر دهید؟", "تغییر کد انگشتی مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes
-               ) return;
-               FNGR_PRNT_TextEdit.EditValue = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM.Length > 0).Max(f => Convert.ToInt64(f.FNGR_PRNT_DNRM)) + 1;
-            }
+            if (rqst.Request_Rows.First().Fighter_Publics.FirstOrDefault(fp => fp.RECT_CODE == "001").FNGR_PRNT != ""
+            && MessageBox.Show(this, "آیا می خواهید کد انگشتی مشتری تغییر دهید؟", "تغییر کد انگشتی مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes
+            ) return;
+            FNGR_PRNT_TextEdit.EditValue =
+                iScsc.Fighters
+                .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                .Select(f => f.FNGR_PRNT_DNRM)
+                .ToList()
+                .Where(f => f.All(char.IsDigit))
+                .Max(f => Convert.ToInt64(f)) + 1;
          }
          catch
          {
-            
-            {
-               FNGR_PRNT_TextEdit.EditValue = 1;
-            }
+            FNGR_PRNT_TextEdit.EditValue = 1;
          }
       }
 

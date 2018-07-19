@@ -245,7 +245,10 @@ namespace System.Scsc.Ui.Admission
                                        Input = 
                                           new XElement("Payment",
                                              new XAttribute("pydtcode", pydt.FirstOrDefault().CODE),
-                                             new XAttribute("fileno", fileno)
+                                             new XAttribute("fileno", fileno),
+                                             new XAttribute("formcaller", GetType().Name),
+                                             new XAttribute("cbmtcode", CBMT_CODE_GridLookUpEdit.EditValue),
+                                             new XAttribute("ctgycode", CtgyCode_LookupEdit001.EditValue)
                                           )
                                     }
                                  }

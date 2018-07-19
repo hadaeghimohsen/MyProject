@@ -373,6 +373,19 @@ namespace System.Scsc.Ui.Cash
          {
             pydtcode = Convert.ToInt64(xinput.Attribute("pydtcode").Value);
             fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+            AutoChngPric_Cb.Checked = false;
+
+            if(xinput.Attribute("formcaller") != null)
+            {
+               switch(xinput.Attribute("formcaller").Value)
+               {
+                  case "MBSP_CHNG_F":
+                     AutoChngPric_Cb.Checked = true;
+                     Cbmt_Lov.EditValue = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+                     Ctgy_Lov.EditValue = Convert.ToInt64(xinput.Attribute("ctgycode").Value);                     
+                     break;
+               }
+            }
          }
          Execute_Query(true);
          job.Status = StatusType.Successful;

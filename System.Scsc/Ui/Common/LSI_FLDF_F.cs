@@ -496,5 +496,33 @@ namespace System.Scsc.Ui.Common
             
          }
       }
+
+      private void Mbsp_Rwno_Text_DoubleClick(object sender, EventArgs e)
+      {
+          try
+          {
+              var mbsp = MbspBs.Current as Data.Member_Ship;
+              if (mbsp == null) return;
+
+              _DefaultGateway.Gateway(
+                 new Job(SendType.External, "localhost",
+                    new List<Job>
+                  {
+                     new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                     new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Fighter",
+                              new XAttribute("fileno", mbsp.FIGH_FILE_NO),
+                              new XAttribute("mbsprwno", mbsp.RWNO),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+                 )
+              );
+          }
+          catch { }
+      }
    }
 }

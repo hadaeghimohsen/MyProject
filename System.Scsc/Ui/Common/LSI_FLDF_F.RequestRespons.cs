@@ -349,11 +349,6 @@ namespace System.Scsc.Ui.Common
                      //FighBnDefaultPrint.Text = control.LABL_TEXT; // ToolTip
                      //FighBnDefaultPrint.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "btn_back":
-                     Btn_Back.Text = control.LABL_TEXT;
-                     //Btn_Back.Text = control.LABL_TEXT; // ToolTip
-                     //Btn_Back.Text = control.LABL_TEXT; // Place Holder
-                     break;
                }
             }
          }

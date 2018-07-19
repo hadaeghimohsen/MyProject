@@ -411,7 +411,7 @@
          this.RqttCode_Lb.AutoSize = true;
          this.RqttCode_Lb.Location = new System.Drawing.Point(649, 19);
          this.RqttCode_Lb.Name = "RqttCode_Lb";
-         this.RqttCode_Lb.Size = new System.Drawing.Size(75, 13);
+         this.RqttCode_Lb.Size = new System.Drawing.Size(79, 14);
          this.RqttCode_Lb.TabIndex = 17;
          this.RqttCode_Lb.Text = "نوع مشتری *:";
          // 
@@ -421,7 +421,7 @@
          this.FileNos_Lb.AutoSize = true;
          this.FileNos_Lb.Location = new System.Drawing.Point(649, 45);
          this.FileNos_Lb.Name = "FileNos_Lb";
-         this.FileNos_Lb.Size = new System.Drawing.Size(73, 13);
+         this.FileNos_Lb.Size = new System.Drawing.Size(78, 14);
          this.FileNos_Lb.TabIndex = 17;
          this.FileNos_Lb.Text = "نام مشتری *:";
          // 
@@ -431,7 +431,7 @@
          this.StrtDate_Lb.AutoSize = true;
          this.StrtDate_Lb.Location = new System.Drawing.Point(580, 7);
          this.StrtDate_Lb.Name = "StrtDate_Lb";
-         this.StrtDate_Lb.Size = new System.Drawing.Size(72, 13);
+         this.StrtDate_Lb.Size = new System.Drawing.Size(77, 14);
          this.StrtDate_Lb.TabIndex = 18;
          this.StrtDate_Lb.Text = "تاریخ شروع *:";
          // 
@@ -441,7 +441,7 @@
          this.EndDate_Lb.AutoSize = true;
          this.EndDate_Lb.Location = new System.Drawing.Point(580, 33);
          this.EndDate_Lb.Name = "EndDate_Lb";
-         this.EndDate_Lb.Size = new System.Drawing.Size(67, 13);
+         this.EndDate_Lb.Size = new System.Drawing.Size(72, 14);
          this.EndDate_Lb.TabIndex = 19;
          this.EndDate_Lb.Text = "تاریخ اتمام *:";
          // 
@@ -501,7 +501,7 @@
          this.MontOfer_Lb.AutoSize = true;
          this.MontOfer_Lb.Location = new System.Drawing.Point(234, 37);
          this.MontOfer_Lb.Name = "MontOfer_Lb";
-         this.MontOfer_Lb.Size = new System.Drawing.Size(111, 13);
+         this.MontOfer_Lb.Size = new System.Drawing.Size(122, 14);
          this.MontOfer_Lb.TabIndex = 24;
          this.MontOfer_Lb.Text = "تعداد ماه های تخفیف :";
          // 
@@ -511,7 +511,7 @@
          this.DayCont_Lb.AutoSize = true;
          this.DayCont_Lb.Location = new System.Drawing.Point(234, 10);
          this.DayCont_Lb.Name = "DayCont_Lb";
-         this.DayCont_Lb.Size = new System.Drawing.Size(53, 13);
+         this.DayCont_Lb.Size = new System.Drawing.Size(57, 14);
          this.DayCont_Lb.TabIndex = 25;
          this.DayCont_Lb.Text = "تعداد روز :";
          // 
@@ -521,7 +521,7 @@
          this.MontCont_Lb.AutoSize = true;
          this.MontCont_Lb.Location = new System.Drawing.Point(342, 10);
          this.MontCont_Lb.Name = "MontCont_Lb";
-         this.MontCont_Lb.Size = new System.Drawing.Size(54, 13);
+         this.MontCont_Lb.Size = new System.Drawing.Size(60, 14);
          this.MontCont_Lb.TabIndex = 31;
          this.MontCont_Lb.Text = "تعداد ماه :";
          // 
@@ -531,7 +531,7 @@
          this.NumAttn_Lb.AutoSize = true;
          this.NumAttn_Lb.Location = new System.Drawing.Point(53, 37);
          this.NumAttn_Lb.Name = "NumAttn_Lb";
-         this.NumAttn_Lb.Size = new System.Drawing.Size(91, 13);
+         this.NumAttn_Lb.Size = new System.Drawing.Size(102, 14);
          this.NumAttn_Lb.TabIndex = 37;
          this.NumAttn_Lb.Text = "تعداد کل جلسات :";
          // 
@@ -541,7 +541,7 @@
          this.CtgyCode_Lb.AutoSize = true;
          this.CtgyCode_Lb.Location = new System.Drawing.Point(580, 91);
          this.CtgyCode_Lb.Name = "CtgyCode_Lb";
-         this.CtgyCode_Lb.Size = new System.Drawing.Size(39, 13);
+         this.CtgyCode_Lb.Size = new System.Drawing.Size(42, 14);
          this.CtgyCode_Lb.TabIndex = 41;
          this.CtgyCode_Lb.Text = "رسته :";
          // 
@@ -551,7 +551,7 @@
          this.MtodCode_Lb.AutoSize = true;
          this.MtodCode_Lb.Location = new System.Drawing.Point(580, 63);
          this.MtodCode_Lb.Name = "MtodCode_Lb";
-         this.MtodCode_Lb.Size = new System.Drawing.Size(40, 13);
+         this.MtodCode_Lb.Size = new System.Drawing.Size(43, 14);
          this.MtodCode_Lb.TabIndex = 42;
          this.MtodCode_Lb.Text = "سبک :";
          // 
@@ -561,7 +561,7 @@
          this.CbmtCode_Lb.AutoSize = true;
          this.CbmtCode_Lb.Location = new System.Drawing.Point(286, 63);
          this.CbmtCode_Lb.Name = "CbmtCode_Lb";
-         this.CbmtCode_Lb.Size = new System.Drawing.Size(84, 13);
+         this.CbmtCode_Lb.Size = new System.Drawing.Size(93, 14);
          this.CbmtCode_Lb.TabIndex = 44;
          this.CbmtCode_Lb.Text = "برنامه کلاسی *:";
          // 
@@ -1866,6 +1866,7 @@
          this.Info_Gb.Controls.Add(this.RqttCode_Lb);
          this.Info_Gb.Controls.Add(this.RQTT_CODE_LookUpEdit3);
          this.Info_Gb.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
+         this.Info_Gb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Info_Gb.Location = new System.Drawing.Point(404, 50);
          this.Info_Gb.Name = "Info_Gb";
          this.Info_Gb.Size = new System.Drawing.Size(754, 187);
@@ -1959,7 +1960,7 @@
          // Cbmt003_Butn
          // 
          this.Cbmt003_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cbmt003_Butn.Location = new System.Drawing.Point(147, 59);
+         this.Cbmt003_Butn.Location = new System.Drawing.Point(8, 59);
          this.Cbmt003_Butn.Name = "Cbmt003_Butn";
          this.Cbmt003_Butn.Size = new System.Drawing.Size(27, 22);
          this.Cbmt003_Butn.TabIndex = 64;
@@ -2069,7 +2070,7 @@
          this.StrtDate_DateTime003.Location = new System.Drawing.Point(474, 4);
          this.StrtDate_DateTime003.Name = "StrtDate_DateTime003";
          this.StrtDate_DateTime003.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.StrtDate_DateTime003.Size = new System.Drawing.Size(100, 22);
+         this.StrtDate_DateTime003.Size = new System.Drawing.Size(100, 23);
          this.StrtDate_DateTime003.TabIndex = 2;
          this.StrtDate_DateTime003.UsePersianFormat = true;
          // 
@@ -2082,7 +2083,7 @@
          this.EndDate_DateTime003.Location = new System.Drawing.Point(474, 32);
          this.EndDate_DateTime003.Name = "EndDate_DateTime003";
          this.EndDate_DateTime003.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.EndDate_DateTime003.Size = new System.Drawing.Size(100, 22);
+         this.EndDate_DateTime003.Size = new System.Drawing.Size(100, 23);
          this.EndDate_DateTime003.TabIndex = 3;
          this.EndDate_DateTime003.UsePersianFormat = true;
          // 
@@ -2090,7 +2091,7 @@
          // 
          this.CBMT_CODE_GridLookUpEdit003.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CBMT_CODE_GridLookUpEdit003.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs3, "CBMT_CODE_DNRM", true));
-         this.CBMT_CODE_GridLookUpEdit003.Location = new System.Drawing.Point(180, 60);
+         this.CBMT_CODE_GridLookUpEdit003.Location = new System.Drawing.Point(41, 60);
          this.CBMT_CODE_GridLookUpEdit003.Name = "CBMT_CODE_GridLookUpEdit003";
          this.CBMT_CODE_GridLookUpEdit003.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CBMT_CODE_GridLookUpEdit003.Properties.Appearance.Options.UseFont = true;
@@ -2101,7 +2102,7 @@
          this.CBMT_CODE_GridLookUpEdit003.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.CBMT_CODE_GridLookUpEdit003.Properties.DataSource = this.CbmtBs1;
-         this.CBMT_CODE_GridLookUpEdit003.Properties.DisplayMember = "STRT_TIME";
+         this.CBMT_CODE_GridLookUpEdit003.Properties.DisplayMember = "Fighter.NAME_DNRM";
          this.CBMT_CODE_GridLookUpEdit003.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CBMT_CODE_GridLookUpEdit003.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CBMT_CODE_GridLookUpEdit003.Properties.NullText = "";
@@ -2110,7 +2111,7 @@
             this.repositoryItemLookUpEdit4});
          this.CBMT_CODE_GridLookUpEdit003.Properties.ValueMember = "CODE";
          this.CBMT_CODE_GridLookUpEdit003.Properties.View = this.CbmtCode_GridView003;
-         this.CBMT_CODE_GridLookUpEdit003.Size = new System.Drawing.Size(100, 22);
+         this.CBMT_CODE_GridLookUpEdit003.Size = new System.Drawing.Size(239, 22);
          this.CBMT_CODE_GridLookUpEdit003.TabIndex = 43;
          // 
          // FighBs3

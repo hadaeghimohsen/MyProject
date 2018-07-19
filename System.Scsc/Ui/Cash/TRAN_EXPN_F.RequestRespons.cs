@@ -73,9 +73,8 @@ namespace System.Scsc.Ui.Cash
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == Keys.Enter)
-         {
-            //if (!(Btn_Search.Focused))
-            //   SendKeys.Send("{TAB}");
+         {            
+            SendKeys.Send("{TAB}");
          }
          job.Status = StatusType.Successful;
       }

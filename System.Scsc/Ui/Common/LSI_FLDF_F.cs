@@ -246,7 +246,7 @@ namespace System.Scsc.Ui.Common
                PBLC.ActiveFilterString = "TYPE != '003' And DEBT_DNRM > 0";
                break;
             case "DebtDown_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And DEBT_DNRM < 0";
+               PBLC.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
                break;
          }
       }

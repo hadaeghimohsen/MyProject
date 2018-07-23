@@ -487,7 +487,7 @@ namespace System.Scsc.Ui.PaymentMethod
                   e.EXPN_STAT == "002" &&
                   e.ADD_QUTS == "002"
             );
-         DRcmtBs1.DataSource = iScsc.D_RCMTs.Where(d => d.VALU == "001" || d.VALU == "003" || d.VALU == "005");
+         DRcmtBs1.DataSource = iScsc.D_RCMTs.Where(d => d.VALU == "001" || d.VALU == "003" || d.VALU == "005" || d.VALU == "008");
          DPydsBs2.DataSource = iScsc.D_PYDS;
          DActvBs2.DataSource = iScsc.D_ACTVs;
          DCktpBs4.DataSource = iScsc.D_CKTPs;

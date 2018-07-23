@@ -567,22 +567,13 @@ namespace System.Scsc.Ui.Admission
          #region Rqsw block
          try
          {
-            //RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004" || rqtt.CODE == "005" || rqtt.CODE == "006");
             RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
-            //RqttBs2.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "002" || rqtt.CODE == "003");
-
-            //DDegrBs2.DataSource = iScsc.D_DEGRs;
-            //MtodBs2.DataSource = iScsc.Methods;
+            DPydsBs1.DataSource = iScsc.D_PYDS;
+            DAtypBs1.DataSource = iScsc.D_ATYPs;
             DSxtpBs1.DataSource = iScsc.D_SXTPs;
-            //DCyclBs1.DataSource = iScsc.D_CYCLs;
-
             DDytpBs1.DataSource = iScsc.D_DYTPs;
-            //DEducBs1.DataSource = iScsc.D_EDUCs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
-            //DstpBs1.DataSource = iScsc.Diseases_Types;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
-            //DCetpBs2.DataSource = iScsc.D_CETPs;
-            //DBlodBs1.DataSource = iScsc.D_BLODs;
             
             isFirstLoaded = true;
          }

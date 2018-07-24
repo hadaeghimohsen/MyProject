@@ -492,6 +492,8 @@ namespace System.Scsc.Ui.Admission
 
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
+            DAtypBs1.DataSource = iScsc.D_ATYPs;
+            DPydsBs1.DataSource = iScsc.D_PYDS;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
 
             isFirstLoaded = true;

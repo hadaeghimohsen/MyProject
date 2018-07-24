@@ -313,6 +313,9 @@
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DAtypBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUM_RCPT_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSUM_PYDS_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.PydsAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.PydsDesc_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -404,9 +407,6 @@
          this.label1 = new System.Windows.Forms.Label();
          this.POST_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.label2 = new System.Windows.Forms.Label();
-         this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUM_RCPT_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSUM_PYDS_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          label14 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
@@ -2658,6 +2658,38 @@
          // 
          this.DAtypBs1.DataSource = typeof(System.Scsc.Data.D_ATYP);
          // 
+         // colREMN_AMNT
+         // 
+         this.colREMN_AMNT.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.colREMN_AMNT.AppearanceCell.Options.UseBackColor = true;
+         this.colREMN_AMNT.Caption = "مبلغ باقیمانده";
+         this.colREMN_AMNT.DisplayFormat.FormatString = "{0:n0}";
+         this.colREMN_AMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colREMN_AMNT.FieldName = "colREMN_AMNT";
+         this.colREMN_AMNT.GroupFormat.FormatString = "{0:n0}";
+         this.colREMN_AMNT.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colREMN_AMNT.Name = "colREMN_AMNT";
+         this.colREMN_AMNT.OptionsColumn.AllowEdit = false;
+         this.colREMN_AMNT.OptionsColumn.ReadOnly = true;
+         this.colREMN_AMNT.UnboundExpression = "([SUM_EXPN_PRIC] + [SUM_EXPN_EXTR_PRCT]) - ([SUM_RCPT_EXPN_PRIC]  + [SUM_PYMT_DSC" +
+    "N_DNRM])";
+         this.colREMN_AMNT.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+         this.colREMN_AMNT.Visible = true;
+         this.colREMN_AMNT.VisibleIndex = 0;
+         this.colREMN_AMNT.Width = 87;
+         // 
+         // colSUM_RCPT_AMNT
+         // 
+         this.colSUM_RCPT_AMNT.Caption = "کل مبلغ دریافتی";
+         this.colSUM_RCPT_AMNT.FieldName = "SUM_RCPT_EXPN_PRIC";
+         this.colSUM_RCPT_AMNT.Name = "colSUM_RCPT_AMNT";
+         // 
+         // colSUM_PYDS_AMNT
+         // 
+         this.colSUM_PYDS_AMNT.Caption = "کل مبلغ تخفیف";
+         this.colSUM_PYDS_AMNT.FieldName = "SUM_PYMT_DSCN_DNRM";
+         this.colSUM_PYDS_AMNT.Name = "colSUM_PYDS_AMNT";
+         // 
          // PymtAmnt_Txt
          // 
          this.PymtAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3940,38 +3972,6 @@
          this.label2.TabIndex = 66;
          this.label2.Text = "آدرس پستی :";
          this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-         // 
-         // colREMN_AMNT
-         // 
-         this.colREMN_AMNT.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.colREMN_AMNT.AppearanceCell.Options.UseBackColor = true;
-         this.colREMN_AMNT.Caption = "مبلغ باقیمانده";
-         this.colREMN_AMNT.DisplayFormat.FormatString = "{0:n0}";
-         this.colREMN_AMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colREMN_AMNT.FieldName = "colREMN_AMNT";
-         this.colREMN_AMNT.GroupFormat.FormatString = "{0:n0}";
-         this.colREMN_AMNT.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colREMN_AMNT.Name = "colREMN_AMNT";
-         this.colREMN_AMNT.OptionsColumn.AllowEdit = false;
-         this.colREMN_AMNT.OptionsColumn.ReadOnly = true;
-         this.colREMN_AMNT.UnboundExpression = "([SUM_EXPN_PRIC] + [SUM_EXPN_EXTR_PRCT]) - ([SUM_RCPT_EXPN_PRIC]  + [SUM_PYMT_DSC" +
-    "N_DNRM])";
-         this.colREMN_AMNT.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-         this.colREMN_AMNT.Visible = true;
-         this.colREMN_AMNT.VisibleIndex = 0;
-         this.colREMN_AMNT.Width = 87;
-         // 
-         // colSUM_RCPT_AMNT
-         // 
-         this.colSUM_RCPT_AMNT.Caption = "کل مبلغ دریافتی";
-         this.colSUM_RCPT_AMNT.FieldName = "SUM_RCPT_EXPN_PRIC";
-         this.colSUM_RCPT_AMNT.Name = "colSUM_RCPT_AMNT";
-         // 
-         // colSUM_PYDS_AMNT
-         // 
-         this.colSUM_PYDS_AMNT.Caption = "کل مبلغ تخفیف";
-         this.colSUM_PYDS_AMNT.FieldName = "SUM_PYMT_DSCN_DNRM";
-         this.colSUM_PYDS_AMNT.Name = "colSUM_PYDS_AMNT";
          // 
          // ADM_FIGH_F
          // 

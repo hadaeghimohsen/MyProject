@@ -253,7 +253,7 @@ namespace System.Scsc.Ui.MasterPage
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_GateAttn.ReadLine();
             enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
-            
+
             if (barCodeSetting.CLER_ZERO == "002")
                enrollNumber = enrollNumber.TrimStart('0');
             //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)

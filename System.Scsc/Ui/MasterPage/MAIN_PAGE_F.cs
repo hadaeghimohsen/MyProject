@@ -11,6 +11,7 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.Net.NetworkInformation;
 using System.Net;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -198,6 +199,19 @@ namespace System.Scsc.Ui.MasterPage
             var enrollNumber = Sp_Barcode.ReadLine();
             enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
 
+            // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
+            if (enrollNumber.Like("%?%"))
+            {
+               FngrPrnt_Txt.BackColor = SystemColors.Info;
+               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";               
+               return;
+            }
+            else
+            {
+               FngrPrnt_Txt.BackColor = Color.White;
+               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی و کد انگشتی";
+            }
+
             if (barCodeSetting.CLER_ZERO == "002")
                enrollNumber = enrollNumber.TrimStart('0');
             //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
@@ -253,6 +267,19 @@ namespace System.Scsc.Ui.MasterPage
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_GateAttn.ReadLine();
             enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
+
+            // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
+            if (enrollNumber.Like("%?%"))
+            {
+               FngrPrnt_Txt.BackColor = SystemColors.Info;
+               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";
+               return;
+            }
+            else
+            {
+               FngrPrnt_Txt.BackColor = Color.White;
+               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی یا کد انگشتی";
+            }
 
             if (barCodeSetting.CLER_ZERO == "002")
                enrollNumber = enrollNumber.TrimStart('0');

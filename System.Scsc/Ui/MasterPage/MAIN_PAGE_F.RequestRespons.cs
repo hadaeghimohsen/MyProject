@@ -506,7 +506,7 @@ namespace System.Scsc.Ui.MasterPage
          try { spc_desktop.Panel1.BackgroundImage = Image.FromFile(@".\Media\SubSys\Scsc\Desktop\Wallpaper\Wallpaper.jpg"); }
          catch { }
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-         DaeatBs.DataSource = iScsc.D_AEATs;
+         DaeatBs.DataSource = iScsc.D_AEATs.Where(d => d.VALU != "002");
          job.Status = StatusType.Successful;
       }
 

@@ -1566,7 +1566,7 @@
          // AttnType_Lov
          // 
          this.AttnType_Lov.Dock = System.Windows.Forms.DockStyle.Left;
-         this.AttnType_Lov.Location = new System.Drawing.Point(368, 5);
+         this.AttnType_Lov.Location = new System.Drawing.Point(417, 5);
          this.AttnType_Lov.MenuManager = this.ribbonControl1;
          this.AttnType_Lov.Name = "AttnType_Lov";
          this.AttnType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1643,23 +1643,25 @@
          this.CardNumb_Text.Properties.NullValuePrompt = "کد انگشتی یا کارت";
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CardNumb_Text.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CardNumb_Text_Properties_ButtonClick);
-         this.CardNumb_Text.Size = new System.Drawing.Size(188, 24);
+         this.CardNumb_Text.Size = new System.Drawing.Size(237, 24);
          this.CardNumb_Text.TabIndex = 11;
          this.CardNumb_Text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CardNumb_Text_KeyDown);
          // 
          // FngrPrnt_Txt
          // 
          this.FngrPrnt_Txt.Dock = System.Windows.Forms.DockStyle.Left;
+         this.FngrPrnt_Txt.EditValue = "";
          this.FngrPrnt_Txt.Location = new System.Drawing.Point(61, 5);
          this.FngrPrnt_Txt.MenuManager = this.ribbonControl1;
          this.FngrPrnt_Txt.Name = "FngrPrnt_Txt";
+         this.FngrPrnt_Txt.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
          this.FngrPrnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FngrPrnt_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.FngrPrnt_Txt.Properties.Appearance.Options.UseFont = true;
          this.FngrPrnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.FngrPrnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FngrPrnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FngrPrnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FngrPrnt_Txt.Properties.NullValuePrompt = "کد انگشتی یا کارت ملی";
          this.FngrPrnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.FngrPrnt_Txt.Size = new System.Drawing.Size(119, 22);
          this.FngrPrnt_Txt.TabIndex = 10;

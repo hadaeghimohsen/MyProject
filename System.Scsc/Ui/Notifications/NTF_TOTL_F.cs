@@ -29,7 +29,7 @@ namespace System.Scsc.Ui.Notifications
 
       private void Execute_Query()
       {
-         if (tb_master.SelectedPage == tp_002)
+         if (tb_master.SelectedTab == tp_002)
          {
             Pb_FileNo2.PickChecked = true;
             if (formStatus == "RunInForeground")
@@ -43,58 +43,58 @@ namespace System.Scsc.Ui.Notifications
       private void Btn_Search_Click(object sender, EventArgs e)
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         #region Tab1
-         if (tb_master.SelectedPage == tp_001)
-         {
-            if(Pb_ExpDate1.PickChecked)
-               FighBs1.DataSource = 
-                  iScsc.Fighters
-                  .Where(f => 
-                     f.CONF_STAT == "002" && 
-                     (f.FGPB_TYPE_DNRM != "002" && 
-                      f.FGPB_TYPE_DNRM != "003" &&
-                      f.FGPB_TYPE_DNRM != "007" &&
-                      !f.NAME_DNRM.Contains("مشتری, جلسه ای")) && 
-                     Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && 
-                     Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && 
-                     (
-                        (Dt_ExpDate1.Value ?? DateTime.Now ).Date > f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => m.END_DATE.Value).SingleOrDefault().Date
-                     )
-                  );
-            else if(Pb_ExpDay1.PickChecked)
-               FighBs1.DataSource =
-               iScsc.Fighters
-               .Where(f =>
-                  f.CONF_STAT == "002" &&
-                  (f.FGPB_TYPE_DNRM != "002" &&
-                   f.FGPB_TYPE_DNRM != "003" &&
-                   f.FGPB_TYPE_DNRM != "007" &&
-                   !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
-                  Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-                  Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
-                  (
-                     DateTime.Now.AddDays((double)Nud_ExpDay1.Value).Date > f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => m.END_DATE.Value).SingleOrDefault().Date
-                  )
-               );
-            else if(Pb_ExpSession1.PickChecked)
-               FighBs1.DataSource =
-                  iScsc.Fighters
-                  .Where(f =>
-                     f.CONF_STAT == "002" &&
-                     (f.FGPB_TYPE_DNRM != "002" &&
-                      f.FGPB_TYPE_DNRM != "003" &&
-                      f.FGPB_TYPE_DNRM != "007" &&
-                      !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
-                     Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-                     Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
-                     (
-                        Nud_ExpSession1.Value >= f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => (m.NUMB_OF_ATTN_MONT - m.SUM_ATTN_MONT_DNRM)).FirstOrDefault()
-                     )
-                  );
-         }
-         #endregion
+         //#region Tab1
+         //if (tb_master.SelectedTab == tp_001)
+         //{
+         //   if(Pb_ExpDate1.PickChecked)
+         //      FighBs1.DataSource = 
+         //         iScsc.Fighters
+         //         .Where(f => 
+         //            f.CONF_STAT == "002" && 
+         //            (f.FGPB_TYPE_DNRM != "002" && 
+         //             f.FGPB_TYPE_DNRM != "003" &&
+         //             f.FGPB_TYPE_DNRM != "007" &&
+         //             !f.NAME_DNRM.Contains("مشتری, جلسه ای")) && 
+         //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && 
+         //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && 
+         //            (
+         //               (Dt_ExpDate1.Value ?? DateTime.Now ).Date > f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => m.END_DATE.Value).SingleOrDefault().Date
+         //            )
+         //         );
+         //   else if(Pb_ExpDay1.PickChecked)
+         //      FighBs1.DataSource =
+         //      iScsc.Fighters
+         //      .Where(f =>
+         //         f.CONF_STAT == "002" &&
+         //         (f.FGPB_TYPE_DNRM != "002" &&
+         //          f.FGPB_TYPE_DNRM != "003" &&
+         //          f.FGPB_TYPE_DNRM != "007" &&
+         //          !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
+         //         Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
+         //         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
+         //         (
+         //            DateTime.Now.AddDays((double)Nud_ExpDay1.Value).Date > f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => m.END_DATE.Value).SingleOrDefault().Date
+         //         )
+         //      );
+         //   else if(Pb_ExpSession1.PickChecked)
+         //      FighBs1.DataSource =
+         //         iScsc.Fighters
+         //         .Where(f =>
+         //            f.CONF_STAT == "002" &&
+         //            (f.FGPB_TYPE_DNRM != "002" &&
+         //             f.FGPB_TYPE_DNRM != "003" &&
+         //             f.FGPB_TYPE_DNRM != "007" &&
+         //             !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
+         //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
+         //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
+         //            (
+         //               Nud_ExpSession1.Value >= f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => (m.NUMB_OF_ATTN_MONT - m.SUM_ATTN_MONT_DNRM)).FirstOrDefault()
+         //            )
+         //         );
+         //}
+         //#endregion
          #region Tab2
-         else if (tb_master.SelectedPage == tp_002)
+         if (tb_master.SelectedTab == tp_002)
          {
             if (Nud_FileNo2.Text == "") Nud_FileNo2.Text = "0";
             if (tc_sub.SelectedTab == tp_002001 || tc_sub.SelectedTab == tp_002003)
@@ -159,39 +159,39 @@ namespace System.Scsc.Ui.Notifications
             if (Nud_FileNo2.Text == "0") Nud_FileNo2.Text = "";
          }
          #endregion
-         #region Tab3
-         else if (tb_master.SelectedPage == tp_003)
-         {
-            if (Pb_ExpDate3.PickChecked)
-               FighBs3.DataSource =
-                  iScsc.Fighters
-                  .Where(f =>
-                     f.CONF_STAT == "002" &&
-                     f.FGPB_TYPE_DNRM != "007" &&
-                     !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
-                     Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-                     Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
-                     (
-                        (Dt_ExpDate2.Value ?? DateTime.Now).Date >= f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "002" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "002").Select(m => m.END_DATE.Value).SingleOrDefault().Date
-                     )
-                  );
-            else if (Pb_ExpDay3.PickChecked)
-               FighBs3.DataSource =
-               iScsc.Fighters
-               .Where(f =>
-                  f.CONF_STAT == "002" &&
-                  f.FGPB_TYPE_DNRM != "007" &&
-                  !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
-                  Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-                  Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
-                  (
-                     DateTime.Now.AddDays((double)Nud_ExpDay2.Value).Date >= f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "002" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "002").Select(m => m.END_DATE.Value).SingleOrDefault().Date
-                  )
-               );
-         }
-         #endregion
+         //#region Tab3
+         //else if (tb_master.SelectedPage == tp_003)
+         //{
+         //   if (Pb_ExpDate3.PickChecked)
+         //      FighBs3.DataSource =
+         //         iScsc.Fighters
+         //         .Where(f =>
+         //            f.CONF_STAT == "002" &&
+         //            f.FGPB_TYPE_DNRM != "007" &&
+         //            !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
+         //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
+         //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
+         //            (
+         //               (Dt_ExpDate2.Value ?? DateTime.Now).Date >= f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "002" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "002").Select(m => m.END_DATE.Value).SingleOrDefault().Date
+         //            )
+         //         );
+         //   else if (Pb_ExpDay3.PickChecked)
+         //      FighBs3.DataSource =
+         //      iScsc.Fighters
+         //      .Where(f =>
+         //         f.CONF_STAT == "002" &&
+         //         f.FGPB_TYPE_DNRM != "007" &&
+         //         !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
+         //         Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
+         //         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
+         //         (
+         //            DateTime.Now.AddDays((double)Nud_ExpDay2.Value).Date >= f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "002" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "002").Select(m => m.END_DATE.Value).SingleOrDefault().Date
+         //         )
+         //      );
+         //}
+         //#endregion
          #region Tab4
-         else if (tb_master.SelectedPage == tp_004)
+         else if (tb_master.SelectedTab == tp_004)
          {
             if (Pb_ExpDate4.PickChecked)
                FighBs4.DataSource =
@@ -235,55 +235,55 @@ namespace System.Scsc.Ui.Notifications
                );
          }
          #endregion
-         #region Tab5
-         else if(tb_master.SelectedPage == tp_005)
-         {
-            if (Pb_ExpDate5.PickChecked)
-               FighBs5.DataSource =
-                  iScsc.Fighters
-                  .Where(f =>
-                     f.CONF_STAT == "002" &&
-                     (f.FGPB_TYPE_DNRM == "008" &&
-                      /*f.FGPB_TYPE_DNRM != "003" &&
-                      f.FGPB_TYPE_DNRM != "007" &&*/
-                      !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
-                     Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-                     Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
-                     (
-                        (Dt_ExpDate5.Value ?? DateTime.Now).Date > f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => m.END_DATE.Value).SingleOrDefault().Date
-                     )
-                  );
-            else if (Pb_ExpDay5.PickChecked)
-               FighBs5.DataSource =
-               iScsc.Fighters
-               .Where(f =>
-                  f.CONF_STAT == "002" &&
-                  (f.FGPB_TYPE_DNRM == "008" &&
-                   /*f.FGPB_TYPE_DNRM != "003" &&
-                   f.FGPB_TYPE_DNRM != "007" &&*/
-                   !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
-                  Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-                  Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
-                  (
-                     DateTime.Now.AddDays((double)Nud_ExpDay5.Value).Date > 
-                     f.Member_Ships
-                     .Where(
-                        m => m.RWNO == 
-                             f.Member_Ships
-                             .Where(
-                                mm => mm.TYPE == "001" 
-                                   && mm.RECT_CODE == "004")
-                             .Max(mm => mm.RWNO) && 
-                             m.RECT_CODE == "004" && 
-                             m.TYPE == "001")
-                             .Select(m => m.END_DATE.Value)
-                             .SingleOrDefault().Date
-                  )
-               );
-         }
-         #endregion
+         //#region Tab5
+         //else if(tb_master.SelectedPage == tp_005)
+         //{
+         //   if (Pb_ExpDate5.PickChecked)
+         //      FighBs5.DataSource =
+         //         iScsc.Fighters
+         //         .Where(f =>
+         //            f.CONF_STAT == "002" &&
+         //            (f.FGPB_TYPE_DNRM == "008" &&
+         //             /*f.FGPB_TYPE_DNRM != "003" &&
+         //             f.FGPB_TYPE_DNRM != "007" &&*/
+         //             !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
+         //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
+         //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
+         //            (
+         //               (Dt_ExpDate5.Value ?? DateTime.Now).Date > f.Member_Ships.Where(m => m.RWNO == f.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").Select(m => m.END_DATE.Value).SingleOrDefault().Date
+         //            )
+         //         );
+         //   else if (Pb_ExpDay5.PickChecked)
+         //      FighBs5.DataSource =
+         //      iScsc.Fighters
+         //      .Where(f =>
+         //         f.CONF_STAT == "002" &&
+         //         (f.FGPB_TYPE_DNRM == "008" &&
+         //          /*f.FGPB_TYPE_DNRM != "003" &&
+         //          f.FGPB_TYPE_DNRM != "007" &&*/
+         //          !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
+         //         Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
+         //         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
+         //         (
+         //            DateTime.Now.AddDays((double)Nud_ExpDay5.Value).Date > 
+         //            f.Member_Ships
+         //            .Where(
+         //               m => m.RWNO == 
+         //                    f.Member_Ships
+         //                    .Where(
+         //                       mm => mm.TYPE == "001" 
+         //                          && mm.RECT_CODE == "004")
+         //                    .Max(mm => mm.RWNO) && 
+         //                    m.RECT_CODE == "004" && 
+         //                    m.TYPE == "001")
+         //                    .Select(m => m.END_DATE.Value)
+         //                    .SingleOrDefault().Date
+         //         )
+         //      );
+         //}
+         //#endregion
          #region Tab6
-         else if(tb_master.SelectedPage == tp_006)
+         else if(tb_master.SelectedTab == tp_006)
          {
             PmtcBs6.DataSource = 
                iScsc.Payment_Checks
@@ -292,17 +292,17 @@ namespace System.Scsc.Ui.Notifications
                );
          }
          #endregion
-         #region Tab7
-         else if (tb_master.SelectedPage == tp_007)
-         {
-            MbsnBs7.DataSource =
-               iScsc.Member_Ships
-               .Where(m =>
-                  m.RECT_CODE == "004" && 
-                  m.TYPE == "006"
-               );
-         }
-         #endregion
+         //#region Tab7
+         //else if (tb_master.SelectedPage == tp_007)
+         //{
+         //   MbsnBs7.DataSource =
+         //      iScsc.Member_Ships
+         //      .Where(m =>
+         //         m.RECT_CODE == "004" && 
+         //         m.TYPE == "006"
+         //      );
+         //}
+         //#endregion
       }
 
       private void FighBs1_CurrentChanged(object sender, EventArgs e)
@@ -310,7 +310,7 @@ namespace System.Scsc.Ui.Notifications
          if (FighBs1.Current == null) return;
 
          var figh = FighBs1.Current as Data.Fighter;
-         figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").ToList().ForEach(m => { Dt_ExpDate1R.Value = m.END_DATE; Nud_ExpDay1R.Value = (decimal)(m.END_DATE.Value - DateTime.Now).Days + 1; Nud_ExpSession1R.Value = (decimal)(m.NUMB_OF_ATTN_MONT - m.SUM_ATTN_MONT_DNRM); });
+         //figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").ToList().ForEach(m => { Dt_ExpDate1R.Value = m.END_DATE; Nud_ExpDay1R.Value = (decimal)(m.END_DATE.Value - DateTime.Now).Days + 1; Nud_ExpSession1R.Value = (decimal)(m.NUMB_OF_ATTN_MONT - m.SUM_ATTN_MONT_DNRM); });
       }
 
       private void AttnBs2_CurrentChanged(object sender, EventArgs e)
@@ -330,7 +330,7 @@ namespace System.Scsc.Ui.Notifications
          if (FighBs3.Current == null) return;
 
          var figh = FighBs3.Current as Data.Fighter;
-         figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "002" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "002").ToList().ForEach(m => { Dt_ExpDate3R.Value = m.END_DATE; Nud_ExpDay3R.Value = (decimal)(m.END_DATE.Value - DateTime.Now).Days + 1; });
+         //figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "002" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "002").ToList().ForEach(m => { Dt_ExpDate3R.Value = m.END_DATE; Nud_ExpDay3R.Value = (decimal)(m.END_DATE.Value - DateTime.Now).Days + 1; });
       }
 
       private void FighBs4_CurrentChanged(object sender, EventArgs e)
@@ -346,7 +346,7 @@ namespace System.Scsc.Ui.Notifications
          if (FighBs5.Current == null) return;
 
          var figh = FighBs5.Current as Data.Fighter;
-         figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").ToList().ForEach(m => { Dt_ExpDate5R.Value = m.END_DATE; Nud_ExpDay5R.Value = (decimal)(m.Sessions.FirstOrDefault().TOTL_SESN - (m.Sessions.FirstOrDefault().SUM_MEET_HELD_DNRM.HasValue ? m.Sessions.FirstOrDefault().SUM_MEET_HELD_DNRM : 0)); });
+         //figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").ToList().ForEach(m => { Dt_ExpDate5R.Value = m.END_DATE; Nud_ExpDay5R.Value = (decimal)(m.Sessions.FirstOrDefault().TOTL_SESN - (m.Sessions.FirstOrDefault().SUM_MEET_HELD_DNRM.HasValue ? m.Sessions.FirstOrDefault().SUM_MEET_HELD_DNRM : 0)); });
       }
 
 
@@ -359,29 +359,29 @@ namespace System.Scsc.Ui.Notifications
 
       private void Btn_PrintDefault_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedPage == tp_001)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedPage == tp_002)
-         { }
-         else if (tb_master.SelectedPage == tp_003)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if(tb_master.SelectedPage == tp_004)         
+         //if (tb_master.SelectedPage == tp_001)
+         //{
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedPage == tp_002)
+         //{ }
+         //else if (tb_master.SelectedPage == tp_003)
+         //{
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         if(tb_master.SelectedTab == tp_004)         
          {
             Job _InteractWithScsc = null;
             if (Pb_ValidInsrDate4.PickChecked)
@@ -420,29 +420,29 @@ namespace System.Scsc.Ui.Notifications
 
       private void Btn_Print_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedPage == tp_001)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedPage == tp_002)
-         {}
-         else if (tb_master.SelectedPage == tp_003)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedPage == tp_004)
+         //if (tb_master.SelectedPage == tp_001)
+         //{
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedPage == tp_002)
+         //{}
+         //else if (tb_master.SelectedPage == tp_003)
+         //{
+         //   Job _InteractWithScsc =
+         //     new Job(SendType.External, "Localhost",
+         //        new List<Job>
+         //         {
+         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         if (tb_master.SelectedTab == tp_004)
          {
             Job _InteractWithScsc = null;
             if (Pb_ValidInsrDate4.PickChecked)
@@ -480,40 +480,40 @@ namespace System.Scsc.Ui.Notifications
 
       private void Btn_PrintSetting_Click(object sender, EventArgs e)
       {
-         if (tb_master.SelectedPage == tp_001)
-         {
-            Job _InteractWithScsc =
-                 new Job(SendType.External, "Localhost",
-                    new List<Job>
-                  {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedPage == tp_002)
-         {
-            Job _InteractWithScsc =
-                    new Job(SendType.External, "Localhost",
-                       new List<Job>
-                  {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedPage == tp_003)
-         {
-            Job _InteractWithScsc =
-                    new Job(SendType.External, "Localhost",
-                       new List<Job>
-                  {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
-         else if (tb_master.SelectedPage == tp_004)
+         //if (tb_master.SelectedPage == tp_001)
+         //{
+         //   Job _InteractWithScsc =
+         //        new Job(SendType.External, "Localhost",
+         //           new List<Job>
+         //         {
+         //            new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+         //            new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedPage == tp_002)
+         //{
+         //   Job _InteractWithScsc =
+         //           new Job(SendType.External, "Localhost",
+         //              new List<Job>
+         //         {
+         //            new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+         //            new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         //else if (tb_master.SelectedPage == tp_003)
+         //{
+         //   Job _InteractWithScsc =
+         //           new Job(SendType.External, "Localhost",
+         //              new List<Job>
+         //         {
+         //            new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+         //            new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"))}
+         //         });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
+         if (tb_master.SelectedTab == tp_004)
          {
             Job _InteractWithScsc =
                     new Job(SendType.External, "Localhost",
@@ -1343,38 +1343,6 @@ namespace System.Scsc.Ui.Notifications
       {
          Nud_FileNo2.Focus();
          Nud_FileNo2.SelectAll();
-      }
-
-      private void Snmt_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      {
-         try
-         {
-            var mbsm = MbsnBs7.Current as Data.Member_Ship;
-
-            switch (e.Button.Index)
-            {
-               case 0:
-                  mbsm.SESN_MEET_TYPE = "003";
-                  break;
-               case 1:
-                  mbsm.SESN_MEET_TYPE = "002";
-                  break;
-               case 2:
-                  mbsm.SESN_MEET_TYPE = "001";
-                  break;
-               case 3:
-                  mbsm.SESN_MEET_TYPE = "000";
-                  break;
-               default:
-                  break;
-            }
-
-            iScsc.SubmitChanges();
-         }
-         catch (Exception)
-         {
-            
-         }
       }
    }
 }

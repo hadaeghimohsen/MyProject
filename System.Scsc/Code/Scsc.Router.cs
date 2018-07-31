@@ -806,7 +806,7 @@ namespace System.Scsc.Code
                _Orgn_Totl_F.SendRequest(job);
                break;
             case "RQST_TRAC_F":
-               _Rqst_Trac_F.SendRequest(job);
+               //_Rqst_Trac_F.SendRequest(job);
                break;
             case "WHO_ARYU_F":
                _Who_Aryu_F.SendRequest(job);

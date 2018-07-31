@@ -70,7 +70,6 @@ namespace System.Scsc.Ui.Notifications
          }
          else if (keyData == Keys.Enter)
          {
-            if (!(Btn_Search.Focused))
                SendKeys.Send("{TAB}");
          }
          job.Status = StatusType.Successful;
@@ -176,19 +175,13 @@ namespace System.Scsc.Ui.Notifications
 
          if (InvokeRequired)
             Invoke(new Action(() => {
-               Dt_CrntDate1R.Value = DateTime.Now;
                Dt_CrntDate2R.Value = DateTime.Now;
-               Dt_CrntDate3R.Value = DateTime.Now;
                Dt_CrntDate4R.Value = DateTime.Now;
-               Dt_CrntDate5R.Value = DateTime.Now;
             }));
          else
          {
-            Dt_CrntDate1R.Value = DateTime.Now;
             Dt_CrntDate2R.Value = DateTime.Now;
-            Dt_CrntDate3R.Value = DateTime.Now;
             Dt_CrntDate4R.Value = DateTime.Now;
-            Dt_CrntDate5R.Value = DateTime.Now;
          }
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          DFgtpBs1.DataSource = iScsc.D_FGTPs;
@@ -215,25 +208,9 @@ namespace System.Scsc.Ui.Notifications
          var input = job.Input as XElement;
          switch (input.Attribute("type").Value)
          {
-            case "endfigh":
-               //tb_master.Pages.Add(tp_001);
-               tb_master.SelectedPage = tp_001;
-               if (input.Attribute("expday") != null && input.Attribute("expday").Value != null)
-               {
-                  Pb_ExpDay1.PickChecked = true;
-                  Nud_ExpDay1.Value = Convert.ToDecimal(input.Attribute("expday").Value);
-                  Btn_Search_Click(null, null);
-
-                  // اگر کسی در لیست پایان اعتبار نبود ار فرم خارج میشویم
-                  if(FighBs1.List.Count == 0)
-                  {
-                     Btn_Back_Click(null, null);
-                  }
-               }
-               break;
             case "attn":
                //tb_master.Pages.Add(tp_002);
-               tb_master.SelectedPage = tp_002;
+               tb_master.SelectedTab = tp_002;
                if (input.Attribute("mbsprwno") != null)
                   mbsprwno = Convert.ToInt16(input.Attribute("mbsprwno").Value);
                else
@@ -263,23 +240,12 @@ namespace System.Scsc.Ui.Notifications
                   Btn_Attn_Click(null, null);
                }
                break;
-            case "endmtod":
-               //tb_master.Pages.Add(tp_003);
-               tb_master.SelectedPage = tp_003;
-               break;
             case "endinsr":
                //tb_master.Pages.Add(tp_004);
-               tb_master.SelectedPage = tp_004;
-               break;
-            case "endsesn":
-               //tb_master.Pages.Add(tp_005);
-               tb_master.SelectedPage = tp_005;
+               tb_master.SelectedTab = tp_004;
                break;
             case "reportcheck":
-               tb_master.SelectedPage = tp_006;
-               break;
-            case "sesnmeet":
-               tb_master.SelectedPage = tp_007;
+               tb_master.SelectedTab = tp_006;
                break;
          }
          Execute_Query();

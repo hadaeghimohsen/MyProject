@@ -28,11 +28,12 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          this.tb_master = new Telerik.WinControls.UI.RadPageView();
          this.tp_001 = new Telerik.WinControls.UI.RadPageViewPage();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.vF_Access_ReportGridControl = new DevExpress.XtraGrid.GridControl();
-         this.VFAcrpBs1 = new System.Windows.Forms.BindingSource();
+         this.VFAcrpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colROLE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colROLE_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,7 +44,7 @@
          this.colUNIT_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.vF_Access_ProfilerGridControl = new DevExpress.XtraGrid.GridControl();
-         this.VFAcpfBs1 = new System.Windows.Forms.BindingSource();
+         this.VFAcpfBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colUSER_NAME1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colROLE_ID1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -259,7 +260,7 @@
          this.tb_master.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.tb_master.Location = new System.Drawing.Point(20, 21);
          this.tb_master.Name = "tb_master";
-         this.tb_master.SelectedPage = this.tp_005;
+         this.tb_master.SelectedPage = this.tp_006;
          this.tb_master.Size = new System.Drawing.Size(785, 532);
          this.tb_master.TabIndex = 0;
          this.tb_master.Text = "آمار درآمد";
@@ -887,7 +888,7 @@
          // 
          this.tp_004.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
          this.tp_004.Controls.Add(this.splitContainer4);
-         this.tp_004.ItemSize = new System.Drawing.SizeF(131F, 25F);
+         this.tp_004.ItemSize = new System.Drawing.SizeF(133F, 25F);
          this.tp_004.Location = new System.Drawing.Point(5, 29);
          this.tp_004.Name = "tp_004";
          this.tp_004.Size = new System.Drawing.Size(775, 498);
@@ -1491,7 +1492,7 @@
          // tp_007
          // 
          this.tp_007.Controls.Add(this.splitContainer7);
-         this.tp_007.ItemSize = new System.Drawing.SizeF(116F, 25F);
+         this.tp_007.ItemSize = new System.Drawing.SizeF(118F, 25F);
          this.tp_007.Location = new System.Drawing.Point(5, 29);
          this.tp_007.Name = "tp_007";
          this.tp_007.Size = new System.Drawing.Size(775, 498);

@@ -523,8 +523,8 @@ namespace System.Scsc.Code
          }
          else if (value == "rqst_trac_f")
          {
-            if (_Rqst_Trac_F == null)
-               _Rqst_Trac_F = new Ui.ReportManager.RQST_TRAC_F { _DefaultGateway = this };
+            //if (_Rqst_Trac_F == null)
+            //   _Rqst_Trac_F = new Ui.ReportManager.RQST_TRAC_F { _DefaultGateway = this };
          }
          else if (value == "who_aryu_f")
          {

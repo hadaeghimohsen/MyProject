@@ -114,7 +114,7 @@ namespace System.Scsc.Code
       internal Ui.Admission.NEW_FNGR_F _New_Fngr_F { get; set; }
       internal Ui.FingerPrint.FNGR_RSVD_F _Fngr_Rsvd_F { get; set; }
       internal Ui.Organ.ORGN_TOTL_F _Orgn_Totl_F { get; set; }
-      internal Ui.ReportManager.RQST_TRAC_F _Rqst_Trac_F { get; set; }
+      //internal Ui.ReportManager.RQST_TRAC_F _Rqst_Trac_F { get; set; }
       internal Ui.Notifications.WHO_ARYU_F _Who_Aryu_F { get; set; }
       //internal Ui.Financial.RFD_TOTL_F _Rfd_Totl_F { get; set; }
       //internal Ui.ChangeRials.GLR_TOTL_F _Glr_Totl_F { get; set; }

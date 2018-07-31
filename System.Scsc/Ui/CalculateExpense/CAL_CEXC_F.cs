@@ -158,7 +158,6 @@ namespace System.Scsc.Ui.CalculateExpense
             }
             else if (tb_master.SelectedTab == tp_002)
             {
-               bt_oconfexpn.Focus();
                var mosx = MOSX_Bs2.Current as Data.Misc_Expense;
                if (mosx.CLUB_CODE == null)
                {

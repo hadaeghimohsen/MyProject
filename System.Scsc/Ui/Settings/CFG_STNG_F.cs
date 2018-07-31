@@ -330,7 +330,7 @@ namespace System.Scsc.Ui.Settings
       private void Btn_OK_Click(object sender, EventArgs e)
       {
          Btn_APPLY_Click(sender, e);
-         Btn_Back_Click(sender, e);
+         //Btn_Back_Click(sender, e);
       }
 
       string BackupType = "NORMAL";

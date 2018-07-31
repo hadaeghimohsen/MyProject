@@ -130,7 +130,6 @@
          this.RqstBnAResn1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
-         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).BeginInit();
@@ -281,7 +280,7 @@
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.Orange;
          this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label4.Location = new System.Drawing.Point(476, 464);
+         this.label4.Location = new System.Drawing.Point(459, 464);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(20, 20);
          this.label4.TabIndex = 14;
@@ -291,7 +290,7 @@
          this.ReglAcnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglAcnt_Lb.AutoSize = true;
          this.ReglAcnt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglAcnt_Lb.Location = new System.Drawing.Point(366, 446);
+         this.ReglAcnt_Lb.Location = new System.Drawing.Point(349, 446);
          this.ReglAcnt_Lb.Name = "ReglAcnt_Lb";
          this.ReglAcnt_Lb.Size = new System.Drawing.Size(104, 13);
          this.ReglAcnt_Lb.TabIndex = 12;
@@ -302,7 +301,7 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.BackColor = System.Drawing.Color.Lime;
          this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label2.Location = new System.Drawing.Point(476, 441);
+         this.label2.Location = new System.Drawing.Point(459, 441);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(20, 20);
          this.label2.TabIndex = 15;
@@ -312,7 +311,7 @@
          this.ReglPymt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglPymt_Lb.AutoSize = true;
          this.ReglPymt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglPymt_Lb.Location = new System.Drawing.Point(373, 468);
+         this.ReglPymt_Lb.Location = new System.Drawing.Point(356, 468);
          this.ReglPymt_Lb.Name = "ReglPymt_Lb";
          this.ReglPymt_Lb.Size = new System.Drawing.Size(97, 13);
          this.ReglPymt_Lb.TabIndex = 13;
@@ -339,7 +338,7 @@
             this.LV_REGLSTAT,
             this.HL_INVSREGL,
             this.repositoryItemLookUpEdit1});
-         this.regulationGridControl.Size = new System.Drawing.Size(1203, 216);
+         this.regulationGridControl.Size = new System.Drawing.Size(1186, 216);
          this.regulationGridControl.TabIndex = 9;
          this.regulationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_REGL});
@@ -760,7 +759,7 @@
          this.PNL_REGL.Controls.Add(this.Spn_Year);
          this.PNL_REGL.Controls.Add(this.Dat_LettDate);
          this.PNL_REGL.Controls.Add(this.Lov_ReglType);
-         this.PNL_REGL.Location = new System.Drawing.Point(502, 331);
+         this.PNL_REGL.Location = new System.Drawing.Point(485, 331);
          this.PNL_REGL.Name = "PNL_REGL";
          this.PNL_REGL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.PNL_REGL.Size = new System.Drawing.Size(704, 156);
@@ -1013,7 +1012,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1209, 59);
+         this.panel1.Size = new System.Drawing.Size(1192, 59);
          this.panel1.TabIndex = 19;
          // 
          // TitlForm_Lb
@@ -1024,7 +1023,7 @@
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(795, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(778, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
          this.TitlForm_Lb.Size = new System.Drawing.Size(353, 59);
          this.TitlForm_Lb.TabIndex = 1;
@@ -1037,13 +1036,14 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1148, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1131, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
          this.Back_Butn.Size = new System.Drawing.Size(61, 59);
          this.Back_Butn.TabIndex = 0;
          this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // RqstBn1
          // 
@@ -1069,8 +1069,7 @@
             this.RqstBnASav1,
             this.RqstBnAResn1,
             this.RqstBnADoc1,
-            this.RqstBnRegl01,
-            this.RqstBnExit1});
+            this.RqstBnRegl01});
          this.RqstBn1.Location = new System.Drawing.Point(0, 59);
          this.RqstBn1.MoveFirstItem = this.toolStripButton1;
          this.RqstBn1.MoveLastItem = this.toolStripButton4;
@@ -1079,7 +1078,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.toolStripTextBox1;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1209, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1192, 47);
          this.RqstBn1.TabIndex = 27;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -1274,18 +1273,6 @@
          this.RqstBnRegl01.Text = "toolStripButton1";
          this.RqstBnRegl01.Visible = false;
          // 
-         // RqstBnExit1
-         // 
-         this.RqstBnExit1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.RqstBnExit1.Image = global::System.Scsc.Properties.Resources.IMAGE_1058;
-         this.RqstBnExit1.ImageTransparentColor = System.Drawing.Color.Magenta;
-         this.RqstBnExit1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-         this.RqstBnExit1.Name = "RqstBnExit1";
-         this.RqstBnExit1.Size = new System.Drawing.Size(44, 44);
-         this.RqstBnExit1.Text = "toolStripButton3";
-         this.RqstBnExit1.ToolTipText = "خروج";
-         this.RqstBnExit1.Click += new System.EventHandler(this.Btn_Back_Click);
-         // 
          // MSTR_REGL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1304,7 +1291,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "MSTR_REGL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1209, 495);
+         this.Size = new System.Drawing.Size(1192, 495);
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).EndInit();
@@ -1435,7 +1422,6 @@
       private Windows.Forms.ToolStripButton RqstBnAResn1;
       private Windows.Forms.ToolStripButton RqstBnADoc1;
       private Windows.Forms.ToolStripButton RqstBnRegl01;
-      private Windows.Forms.ToolStripButton RqstBnExit1;
       private Windows.Forms.Label DutyPrct_Lb;
       private Windows.Forms.Label TaxPrct_Lb;
       private Windows.Forms.Label Type_Lb;

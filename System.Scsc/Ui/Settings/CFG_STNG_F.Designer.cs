@@ -439,7 +439,6 @@
          this.Btn_DeleteBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.Btn_DeleteBackup.TextColor = System.Drawing.Color.Black;
          this.Btn_DeleteBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_DeleteBackup.Visible = false;
          this.Btn_DeleteBackup.Click += new System.EventHandler(this.Btn_DeleteBackup_Click);
          // 
          // Btn_QueryBackupFile

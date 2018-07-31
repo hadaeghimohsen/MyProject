@@ -405,6 +405,8 @@ namespace System.Scsc.Ui.OtherIncome
          RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          DCyclBs1.DataSource = iScsc.D_CYCLs;
+         DAtypBs1.DataSource = iScsc.D_ATYPs;
+         DRcmtBs1.DataSource = iScsc.D_RCMTs;
          //RQTT_CODE_LookUpEdit.EditValue = "001";
          DYsnoBs1.DataSource = iScsc.D_YSNOs;
          DDytpBs.DataSource = iScsc.D_DYTPs;

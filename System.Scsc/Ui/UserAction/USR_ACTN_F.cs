@@ -52,9 +52,9 @@ namespace System.Scsc.Ui.UserAction
                );
 
             //var v_RqstsToday = iScsc.Requests.Where(r => rqtps.Contains(r.RQTP_CODE) && r.RQTT_CODE == "001" && r.RQST_STAT == "002" && r.SAVE_DATE.Value.Date == AttnDate_Date.Value.Value.Date);
-            Lbl_NewMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "001" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) ).Count().ToString();
-            Lbl_RetryMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "009" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM)).Count().ToString();
-            Lbl_Shopping.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "016" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM)).Count().ToString();
+            Lbl_NewMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "001" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101  ).Count().ToString();
+            Lbl_RetryMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "009" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101).Count().ToString();
+            Lbl_Shopping.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "016" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101).Count().ToString();
             AttnBs1.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date && Fga_Uclb_U.Contains(a.CLUB_CODE));
             Lbl_AllGetKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null).Count().ToString();
             Lbl_AllLockKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null).Count().ToString();

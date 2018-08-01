@@ -1612,7 +1612,7 @@
          this.UserProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.UserProFile_Rb.ImageVisiable = true;
+         this.UserProFile_Rb.ImageVisiable = false;
          this.UserProFile_Rb.Location = new System.Drawing.Point(1118, 19);
          this.UserProFile_Rb.Name = "UserProFile_Rb";
          this.UserProFile_Rb.NormalBorderColor = System.Drawing.Color.Black;
@@ -5389,6 +5389,7 @@
          this.CochFileNo1_Clm.Caption = "مربی";
          this.CochFileNo1_Clm.FieldName = "Fighter.NAME_DNRM";
          this.CochFileNo1_Clm.Name = "CochFileNo1_Clm";
+         this.CochFileNo1_Clm.OptionsColumn.AllowEdit = false;
          this.CochFileNo1_Clm.OptionsColumn.ReadOnly = true;
          this.CochFileNo1_Clm.Visible = true;
          this.CochFileNo1_Clm.VisibleIndex = 8;
@@ -5399,6 +5400,7 @@
          this.MtodCode1_Lb.Caption = "سبک";
          this.MtodCode1_Lb.FieldName = "Method.MTOD_DESC";
          this.MtodCode1_Lb.Name = "MtodCode1_Lb";
+         this.MtodCode1_Lb.OptionsColumn.AllowEdit = false;
          this.MtodCode1_Lb.OptionsColumn.ReadOnly = true;
          this.MtodCode1_Lb.Visible = true;
          this.MtodCode1_Lb.VisibleIndex = 7;
@@ -5409,6 +5411,7 @@
          this.CtgyCode1_Lb.Caption = "رسته";
          this.CtgyCode1_Lb.FieldName = "Category_Belt.CTGY_DESC";
          this.CtgyCode1_Lb.Name = "CtgyCode1_Lb";
+         this.CtgyCode1_Lb.OptionsColumn.AllowEdit = false;
          this.CtgyCode1_Lb.OptionsColumn.ReadOnly = true;
          this.CtgyCode1_Lb.Visible = true;
          this.CtgyCode1_Lb.VisibleIndex = 6;

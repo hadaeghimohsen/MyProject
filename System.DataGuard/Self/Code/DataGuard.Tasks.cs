@@ -411,5 +411,16 @@ namespace System.DataGuard.Self.Code
             job.Status = StatusType.Successful;
          }
       }
+
+      /// <summary>
+      /// Code 11
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4GetServer(Job job)
+      {
+         job.Output = iProject.GET_SRVR_U(job.Input as XElement);
+         job.Status = StatusType.Successful;         
+      }
+
    }
 }

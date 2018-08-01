@@ -65,6 +65,9 @@ namespace System.DataGuard.Self.Code
             case 10:
                DoWork4TryLogin(job);
                break;
+            case 11:
+               DoWork4GetServer(job);
+               break;
             default:
                break;
          }

@@ -153,6 +153,9 @@ namespace MyProject.Commons.Code
             case 34:
                DoWork4PaymentPos(job);
                break;
+            case 35:
+               DoWork4GetServer(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

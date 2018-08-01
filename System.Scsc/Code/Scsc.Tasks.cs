@@ -458,8 +458,8 @@ namespace System.Scsc.Code
          }
          else if (value == "rpt_list_f")
          {
-            if (_Rpt_List_F == null)
-               _Rpt_List_F = new Ui.ReportManager.RPT_LIST_F { _DefaultGateway = this };
+            //if (_Rpt_List_F == null)
+            //   _Rpt_List_F = new Ui.ReportManager.RPT_LIST_F { _DefaultGateway = this };
          }
          else if (value == "cal_cexc_p")
          {

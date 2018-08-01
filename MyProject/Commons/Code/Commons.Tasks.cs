@@ -1021,5 +1021,23 @@ namespace MyProject.Commons.Code
          }
       }
 
+      /// <summary>
+      /// Code 35
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4GetServer(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.Add(
+               new Job(SendType.External, "Program", "DataGuard", 11 /* Execute DoWork4GetServer */, SendType.Self) { WhereIsInputData = WhereIsInputDataType.StepBack}
+            );
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
    }
 }

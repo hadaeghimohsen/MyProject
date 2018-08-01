@@ -943,6 +943,12 @@ namespace System.DataGuard.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_SRVR_U", IsComposable=true)]
+		public string GET_SRVR_U([global::System.Data.Linq.Mapping.ParameterAttribute(Name="P_RqstXml", DbType="Xml")] System.Xml.Linq.XElement p_RqstXml)
+		{
+			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_RqstXml).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Gateway")]

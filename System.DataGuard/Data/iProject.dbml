@@ -1125,4 +1125,8 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GET_SRVR_U" Method="GET_SRVR_U" IsComposable="true">
+    <Parameter Name="P_RqstXml" Parameter="p_RqstXml" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.String" />
+  </Function>
 </Database>

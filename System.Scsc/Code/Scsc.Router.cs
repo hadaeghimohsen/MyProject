@@ -767,7 +767,7 @@ namespace System.Scsc.Code
                _Ntf_Totl_F.SendRequest(job);
                break;
             case "RPT_LIST_F":
-               _Rpt_List_F.SendRequest(job);
+               //_Rpt_List_F.SendRequest(job);
                break;
             case "CAL_CEXC_P":
                _Cal_Cexc_P.SendRequest(job);

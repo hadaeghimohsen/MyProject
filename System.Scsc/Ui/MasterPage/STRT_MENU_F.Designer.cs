@@ -139,7 +139,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.c1TileControl1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(759, 752);
+         this.splitContainerControl1.Size = new System.Drawing.Size(0, 752);
          this.splitContainerControl1.SplitterPosition = 225;
          this.splitContainerControl1.TabIndex = 0;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -182,7 +182,7 @@
          this.c1TileControl2.Orientation = C1.Win.C1Tile.LayoutOrientation.Vertical;
          this.c1TileControl2.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
          this.c1TileControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.c1TileControl2.Size = new System.Drawing.Size(225, 752);
+         this.c1TileControl2.Size = new System.Drawing.Size(0, 0);
          this.c1TileControl2.SurfacePadding = new System.Windows.Forms.Padding(5, 8, 5, 5);
          this.c1TileControl2.TabIndex = 3;
          this.c1TileControl2.Templates.Add(this.template1);
@@ -469,7 +469,7 @@
          this.c1TileControl1.Orientation = C1.Win.C1Tile.LayoutOrientation.Vertical;
          this.c1TileControl1.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
          this.c1TileControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.c1TileControl1.Size = new System.Drawing.Size(529, 752);
+         this.c1TileControl1.Size = new System.Drawing.Size(0, 0);
          this.c1TileControl1.SurfacePadding = new System.Windows.Forms.Padding(5, 8, 5, 5);
          this.c1TileControl1.TabIndex = 2;
          this.c1TileControl1.Templates.Add(this.subgroupTemplate);
@@ -784,7 +784,7 @@
          this.Controls.Add(this.StartFixMenu_Butn);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "STRT_MENU_F";
-         this.Size = new System.Drawing.Size(814, 752);
+         this.Size = new System.Drawing.Size(55, 752);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
          this.ResumeLayout(false);

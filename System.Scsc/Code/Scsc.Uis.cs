@@ -101,7 +101,7 @@ namespace System.Scsc.Code
       internal Ui.PaymentMethod.PAY_MTOD_F _Pay_Mtod_F { get; set; }
       internal Ui.ReceiptAnnouncement.MNG_RCAN_F _Mng_Rcan_F { get; set; }
       internal Ui.Notifications.NTF_TOTL_F _Ntf_Totl_F { get; set; }
-      internal Ui.ReportManager.RPT_LIST_F _Rpt_List_F { get; set; }
+      //internal Ui.ReportManager.RPT_LIST_F _Rpt_List_F { get; set; }
       internal Ui.CalculateExpense.CAL_CEXC_P _Cal_Cexc_P { get; set; }
       //internal Ui.ReportManager.ACN_LIST_F _Acn_List_F { get; set; }
       internal Ui.OtherIncome.OIC_TOTL_F _Oic_Totl_F { get; set; }

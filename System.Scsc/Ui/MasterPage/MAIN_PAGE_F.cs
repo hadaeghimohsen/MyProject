@@ -464,57 +464,57 @@ namespace System.Scsc.Ui.MasterPage
       #region ExpnExtr
       private void Start_ExpnExtr()
       {
-         var expnExtrSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
-         try
-         {
-            if (expnExtrSetting == null) return;
+         //var expnExtrSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+         //try
+         //{
+         //   if (expnExtrSetting == null) return;
 
-            if (expnExtrSetting.EXPN_EXTR_STAT == "001") { ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196; return; }
+         //   if (expnExtrSetting.EXPN_EXTR_STAT == "001") { SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196; return; }
 
-            Sp_ExpnExtr.PortName = expnExtrSetting.EXPN_COMM_PORT_NAME;
-            Sp_ExpnExtr.BaudRate = (int)expnExtrSetting.EXPN_BAND_RATE;
-            ExpnExtr_Butn.Tag = expnExtrSetting;
-            Sp_ExpnExtr.Open();
+         //   Sp_ExpnExtr.PortName = expnExtrSetting.EXPN_COMM_PORT_NAME;
+         //   Sp_ExpnExtr.BaudRate = (int)expnExtrSetting.EXPN_BAND_RATE;
+         //   SrvrPing_Butn.Tag = expnExtrSetting;
+         //   Sp_ExpnExtr.Open();
 
-            if (Sp_ExpnExtr.IsOpen)
-            {
-               ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
-            }
-            else
-            {
-               ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-            }
-         }
-         catch
-         {
-            ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-         }
-         finally
-         {
-            ExpnExtr_Butn.SuperTip =
-               SuperToolTipAttnButn(
-                  new XElement("System",
-                     new XAttribute("device", "ExpnExtr"),
-                     new XAttribute("stat", expnExtrSetting.EXPN_EXTR_STAT == "002" ? true : false)
-                  )
-               );
-         }
+         //   if (Sp_ExpnExtr.IsOpen)
+         //   {
+         //      SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
+         //   }
+         //   else
+         //   {
+         //      SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         //   }
+         //}
+         //catch
+         //{
+         //   SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         //}
+         //finally
+         //{
+         //   SrvrPing_Butn.SuperTip =
+         //      SuperToolTipAttnButn(
+         //         new XElement("System",
+         //            new XAttribute("device", "ExpnExtr"),
+         //            new XAttribute("stat", expnExtrSetting.EXPN_EXTR_STAT == "002" ? true : false)
+         //         )
+         //      );
+         //}
       }
 
       private void Stop_ExpnExtr()
       {
-         try
-         {
-            if (Sp_ExpnExtr.IsOpen)
-            {
-               Sp_ExpnExtr.Close();
-               ExpnExtr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-            }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
+         //try
+         //{
+         //   if (Sp_ExpnExtr.IsOpen)
+         //   {
+         //      Sp_ExpnExtr.Close();
+         //      SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         //   }
+         //}
+         //catch (Exception ex)
+         //{
+         //   MessageBox.Show(ex.Message);
+         //}
       }
       #endregion
 
@@ -568,7 +568,6 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
       #endregion
-
 
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
@@ -810,6 +809,9 @@ namespace System.Scsc.Ui.MasterPage
                if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                   return;
             
+            // 1397/05/10 * تست اینکه آیا سرور برقرار هست یا خیر
+            if (SrvrPing_Butn.Appearance.BackColor != Color.LightGreen) return;
+
             oldenrollnumber = EnrollNumber;
 
             bool recycleService = false;
@@ -2586,6 +2588,42 @@ namespace System.Scsc.Ui.MasterPage
       private void Tm_ShowTime_Tick(object sender, EventArgs e)
       {
          AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm:ss");
+
+         try
+         {
+            // 1397/05/10 * بررسی اینکه آیا ارتباط با سرور بر قرار میباشد یا خیر
+            if (SrvrPing_Butn.Tag == null)
+            {
+               var GetServer =
+                  new Job(SendType.External, "Localhost", "Commons", 35 /* Execute DoWork4GetServer */, SendType.Self) { 
+                     Input = new XElement("Request",
+                                 new XAttribute("Rqtp_Code", "SRVRADRS"),
+                                 new XElement("Database", "iScsc")
+                             ) 
+                  };
+               _DefaultGateway.Gateway(
+                  GetServer
+               );
+               SrvrPing_Butn.Tag = GetServer.Output.ToString();
+            }
+
+            Ping ping = new Ping();
+            var pingstatus = ping.Send(SrvrPing_Butn.Tag.ToString(), 500);
+
+            if (pingstatus.Status == IPStatus.Success)
+            {
+               //SrvrPing_Butn.Image = Properties.Resources.IMAGE_1423;
+               SrvrPing_Butn.Appearance.BackColor = Color.LightGreen;
+               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} \n\rNetwork connected.", SrvrPing_Butn.Tag);
+            }
+            else
+            {
+               //SrvrPing_Butn.Image = Properties.Resources.IMAGE_1418;
+               SrvrPing_Butn.Appearance.BackColor = Color.Pink;
+               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} \n\rNetwork disconnected.", SrvrPing_Butn.Tag);
+            }
+         }
+         catch { }
       }
 
       private void AdjustDateTime_Butn_Click(object sender, EventArgs e)

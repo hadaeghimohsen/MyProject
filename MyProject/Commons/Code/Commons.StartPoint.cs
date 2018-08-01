@@ -30,5 +30,6 @@ namespace MyProject.Commons.Code
       }
 
       private XElement _HostInfo;
+      private XElement _ServerInfo;
    }
 }

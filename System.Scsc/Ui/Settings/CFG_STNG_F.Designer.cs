@@ -214,7 +214,7 @@
          // 
          this.Dflt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Dflt_Lb.AutoSize = true;
-         this.Dflt_Lb.Location = new System.Drawing.Point(592, 498);
+         this.Dflt_Lb.Location = new System.Drawing.Point(592, 168);
          this.Dflt_Lb.Name = "Dflt_Lb";
          this.Dflt_Lb.Size = new System.Drawing.Size(103, 13);
          this.Dflt_Lb.TabIndex = 26;
@@ -224,7 +224,7 @@
          // 
          this.Stat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Stat_Lb.AutoSize = true;
-         this.Stat_Lb.Location = new System.Drawing.Point(879, 498);
+         this.Stat_Lb.Location = new System.Drawing.Point(879, 168);
          this.Stat_Lb.Name = "Stat_Lb";
          this.Stat_Lb.Size = new System.Drawing.Size(70, 13);
          this.Stat_Lb.TabIndex = 24;
@@ -234,7 +234,7 @@
          // 
          this.ShowPrvw_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ShowPrvw_Lb.AutoSize = true;
-         this.ShowPrvw_Lb.Location = new System.Drawing.Point(592, 339);
+         this.ShowPrvw_Lb.Location = new System.Drawing.Point(592, 9);
          this.ShowPrvw_Lb.Name = "ShowPrvw_Lb";
          this.ShowPrvw_Lb.Size = new System.Drawing.Size(131, 13);
          this.ShowPrvw_Lb.TabIndex = 22;
@@ -244,7 +244,7 @@
          // 
          this.RprtDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RprtDesc_Lb.AutoSize = true;
-         this.RprtDesc_Lb.Location = new System.Drawing.Point(879, 472);
+         this.RprtDesc_Lb.Location = new System.Drawing.Point(879, 142);
          this.RprtDesc_Lb.Name = "RprtDesc_Lb";
          this.RprtDesc_Lb.Size = new System.Drawing.Size(98, 13);
          this.RprtDesc_Lb.TabIndex = 20;
@@ -254,7 +254,7 @@
          // 
          this.RprtPath_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RprtPath_Lb.AutoSize = true;
-         this.RprtPath_Lb.Location = new System.Drawing.Point(879, 447);
+         this.RprtPath_Lb.Location = new System.Drawing.Point(879, 117);
          this.RprtPath_Lb.Name = "RprtPath_Lb";
          this.RprtPath_Lb.Size = new System.Drawing.Size(91, 13);
          this.RprtPath_Lb.TabIndex = 18;
@@ -264,7 +264,7 @@
          // 
          this.MudlDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MudlDesc_Lb.AutoSize = true;
-         this.MudlDesc_Lb.Location = new System.Drawing.Point(879, 365);
+         this.MudlDesc_Lb.Location = new System.Drawing.Point(879, 35);
          this.MudlDesc_Lb.Name = "MudlDesc_Lb";
          this.MudlDesc_Lb.Size = new System.Drawing.Size(80, 13);
          this.MudlDesc_Lb.TabIndex = 16;
@@ -274,7 +274,7 @@
          // 
          this.MudlName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MudlName_Lb.AutoSize = true;
-         this.MudlName_Lb.Location = new System.Drawing.Point(879, 339);
+         this.MudlName_Lb.Location = new System.Drawing.Point(879, 9);
          this.MudlName_Lb.Name = "MudlName_Lb";
          this.MudlName_Lb.Size = new System.Drawing.Size(47, 13);
          this.MudlName_Lb.TabIndex = 14;
@@ -284,7 +284,7 @@
          // 
          this.SectDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SectDesc_Lb.AutoSize = true;
-         this.SectDesc_Lb.Location = new System.Drawing.Point(879, 419);
+         this.SectDesc_Lb.Location = new System.Drawing.Point(879, 89);
          this.SectDesc_Lb.Name = "SectDesc_Lb";
          this.SectDesc_Lb.Size = new System.Drawing.Size(91, 13);
          this.SectDesc_Lb.TabIndex = 29;
@@ -294,7 +294,7 @@
          // 
          this.SectName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SectName_Lb.AutoSize = true;
-         this.SectName_Lb.Location = new System.Drawing.Point(879, 393);
+         this.SectName_Lb.Location = new System.Drawing.Point(879, 63);
          this.SectName_Lb.Name = "SectName_Lb";
          this.SectName_Lb.Size = new System.Drawing.Size(75, 13);
          this.SectName_Lb.TabIndex = 27;
@@ -304,7 +304,7 @@
          // 
          this.AfterPrntPay_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AfterPrntPay_Lb.AutoSize = true;
-         this.AfterPrntPay_Lb.Location = new System.Drawing.Point(592, 391);
+         this.AfterPrntPay_Lb.Location = new System.Drawing.Point(592, 61);
          this.AfterPrntPay_Lb.Name = "AfterPrntPay_Lb";
          this.AfterPrntPay_Lb.Size = new System.Drawing.Size(150, 13);
          this.AfterPrntPay_Lb.TabIndex = 22;
@@ -821,7 +821,7 @@
          // 
          this.sECT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sECT_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "SECT_DESC", true));
-         this.sECT_DESCTextEdit.Location = new System.Drawing.Point(486, 416);
+         this.sECT_DESCTextEdit.Location = new System.Drawing.Point(486, 86);
          this.sECT_DESCTextEdit.Name = "sECT_DESCTextEdit";
          this.sECT_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.sECT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -840,7 +840,7 @@
          // 
          this.modual_ReportGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.modual_ReportGridControl.DataSource = this.MdrpBs1;
-         this.modual_ReportGridControl.Location = new System.Drawing.Point(486, 6);
+         this.modual_ReportGridControl.Location = new System.Drawing.Point(486, 223);
          this.modual_ReportGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.modual_ReportGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.modual_ReportGridControl.MainView = this.gridView11;
@@ -848,7 +848,7 @@
          this.modual_ReportGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit5,
             this.repositoryItemLookUpEdit6});
-         this.modual_ReportGridControl.Size = new System.Drawing.Size(495, 294);
+         this.modual_ReportGridControl.Size = new System.Drawing.Size(495, 370);
          this.modual_ReportGridControl.TabIndex = 0;
          this.modual_ReportGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -1044,7 +1044,7 @@
          this.MDUL_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MDUL_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "MDUL_NAME", true));
          this.MDUL_NAME_TextEdit.EditValue = "";
-         this.MDUL_NAME_TextEdit.Location = new System.Drawing.Point(792, 336);
+         this.MDUL_NAME_TextEdit.Location = new System.Drawing.Point(792, 6);
          this.MDUL_NAME_TextEdit.Name = "MDUL_NAME_TextEdit";
          this.MDUL_NAME_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.MDUL_NAME_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -1060,7 +1060,7 @@
          // 
          this.SECT_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SECT_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "SECT_NAME", true));
-         this.SECT_NAME_TextEdit.Location = new System.Drawing.Point(792, 390);
+         this.SECT_NAME_TextEdit.Location = new System.Drawing.Point(792, 60);
          this.SECT_NAME_TextEdit.Name = "SECT_NAME_TextEdit";
          this.SECT_NAME_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SECT_NAME_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -1077,7 +1077,7 @@
          this.MdrpBn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MdrpBn1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.MdrpBn1.DataSource = this.MdrpBs1;
-         this.MdrpBn1.Location = new System.Drawing.Point(486, 306);
+         this.MdrpBn1.Location = new System.Drawing.Point(486, 193);
          this.MdrpBn1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.MdrpBn1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.MdrpBn1.Name = "MdrpBn1";
@@ -1091,7 +1091,7 @@
          this.mDUL_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.mDUL_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "MDUL_DESC", true));
          this.mDUL_DESCTextEdit.EditValue = "";
-         this.mDUL_DESCTextEdit.Location = new System.Drawing.Point(486, 362);
+         this.mDUL_DESCTextEdit.Location = new System.Drawing.Point(486, 32);
          this.mDUL_DESCTextEdit.Name = "mDUL_DESCTextEdit";
          this.mDUL_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.mDUL_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -1115,7 +1115,7 @@
          this.mb_ReportBrowser.ImageIndex = -1;
          this.mb_ReportBrowser.ImageList = null;
          this.mb_ReportBrowser.InToBold = false;
-         this.mb_ReportBrowser.Location = new System.Drawing.Point(486, 444);
+         this.mb_ReportBrowser.Location = new System.Drawing.Point(486, 114);
          this.mb_ReportBrowser.Name = "mb_ReportBrowser";
          this.mb_ReportBrowser.Size = new System.Drawing.Size(23, 22);
          this.mb_ReportBrowser.TabIndex = 8;
@@ -1129,7 +1129,7 @@
          this.RPRT_PATHTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RPRT_PATHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "RPRT_PATH", true));
          this.RPRT_PATHTextEdit.EditValue = "C:\\";
-         this.RPRT_PATHTextEdit.Location = new System.Drawing.Point(515, 444);
+         this.RPRT_PATHTextEdit.Location = new System.Drawing.Point(515, 114);
          this.RPRT_PATHTextEdit.Name = "RPRT_PATHTextEdit";
          this.RPRT_PATHTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RPRT_PATHTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -1145,7 +1145,7 @@
          // 
          this.dFLTLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dFLTLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "DFLT", true));
-         this.dFLTLookUpEdit.Location = new System.Drawing.Point(486, 495);
+         this.dFLTLookUpEdit.Location = new System.Drawing.Point(486, 165);
          this.dFLTLookUpEdit.Name = "dFLTLookUpEdit";
          this.dFLTLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.dFLTLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1172,7 +1172,7 @@
          this.rPRT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rPRT_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "RPRT_DESC", true));
          this.rPRT_DESCTextEdit.EditValue = "";
-         this.rPRT_DESCTextEdit.Location = new System.Drawing.Point(486, 469);
+         this.rPRT_DESCTextEdit.Location = new System.Drawing.Point(486, 139);
          this.rPRT_DESCTextEdit.Name = "rPRT_DESCTextEdit";
          this.rPRT_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rPRT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -1187,7 +1187,7 @@
          // 
          this.sTATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sTATLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "STAT", true));
-         this.sTATLookUpEdit.Location = new System.Drawing.Point(773, 495);
+         this.sTATLookUpEdit.Location = new System.Drawing.Point(773, 165);
          this.sTATLookUpEdit.Name = "sTATLookUpEdit";
          this.sTATLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.sTATLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1213,7 +1213,7 @@
          // 
          this.sHOW_PRVWLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sHOW_PRVWLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "SHOW_PRVW", true));
-         this.sHOW_PRVWLookUpEdit.Location = new System.Drawing.Point(486, 336);
+         this.sHOW_PRVWLookUpEdit.Location = new System.Drawing.Point(486, 6);
          this.sHOW_PRVWLookUpEdit.Name = "sHOW_PRVWLookUpEdit";
          this.sHOW_PRVWLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.sHOW_PRVWLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1239,7 +1239,7 @@
          // 
          this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "PRNT_AFTR_PAY", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(486, 388);
+         this.lookUpEdit1.Location = new System.Drawing.Point(486, 58);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;

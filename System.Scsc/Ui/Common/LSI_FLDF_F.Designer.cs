@@ -248,6 +248,10 @@
          this.GlobCodeDnrm_Txt = new DevExpress.XtraEditors.TextEdit();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+         this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+         this.label2 = new System.Windows.Forms.Label();
+         this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+         this.label1 = new System.Windows.Forms.Label();
          this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
@@ -298,6 +302,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.GlobCodeDnrm_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
          this.SuspendLayout();
          // 
@@ -448,7 +454,7 @@
          // 
          this.NatlCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NatlCode1_Lb.AutoSize = true;
-         this.NatlCode1_Lb.Location = new System.Drawing.Point(354, 67);
+         this.NatlCode1_Lb.Location = new System.Drawing.Point(161, 67);
          this.NatlCode1_Lb.Name = "NatlCode1_Lb";
          this.NatlCode1_Lb.Size = new System.Drawing.Size(49, 13);
          this.NatlCode1_Lb.TabIndex = 19;
@@ -1350,9 +1356,9 @@
          this.FighBnSettingPrint.ImageIndex = -1;
          this.FighBnSettingPrint.ImageList = null;
          this.FighBnSettingPrint.InToBold = false;
-         this.FighBnSettingPrint.Location = new System.Drawing.Point(63, 59);
+         this.FighBnSettingPrint.Location = new System.Drawing.Point(191, 34);
          this.FighBnSettingPrint.Name = "FighBnSettingPrint";
-         this.FighBnSettingPrint.Size = new System.Drawing.Size(57, 23);
+         this.FighBnSettingPrint.Size = new System.Drawing.Size(51, 23);
          this.FighBnSettingPrint.TabIndex = 3;
          this.FighBnSettingPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.FighBnSettingPrint.TextColor = System.Drawing.Color.Black;
@@ -1373,9 +1379,9 @@
          this.FighBnDefaultPrint.ImageIndex = -1;
          this.FighBnDefaultPrint.ImageList = null;
          this.FighBnDefaultPrint.InToBold = false;
-         this.FighBnDefaultPrint.Location = new System.Drawing.Point(126, 59);
+         this.FighBnDefaultPrint.Location = new System.Drawing.Point(248, 5);
          this.FighBnDefaultPrint.Name = "FighBnDefaultPrint";
-         this.FighBnDefaultPrint.Size = new System.Drawing.Size(48, 23);
+         this.FighBnDefaultPrint.Size = new System.Drawing.Size(48, 25);
          this.FighBnDefaultPrint.TabIndex = 4;
          this.FighBnDefaultPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.FighBnDefaultPrint.TextColor = System.Drawing.Color.Black;
@@ -1502,7 +1508,7 @@
          this.TrnsFngrPrnt_Butn.ImageIndex = -1;
          this.TrnsFngrPrnt_Butn.ImageList = null;
          this.TrnsFngrPrnt_Butn.InToBold = false;
-         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(7, 59);
+         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(191, 5);
          this.TrnsFngrPrnt_Butn.Name = "TrnsFngrPrnt_Butn";
          this.TrnsFngrPrnt_Butn.Size = new System.Drawing.Size(51, 25);
          this.TrnsFngrPrnt_Butn.TabIndex = 3;
@@ -1520,8 +1526,11 @@
          this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.Search_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.FighBnSettingPrint);
          this.splitContainerControl1.Panel1.Controls.Add(this.DebtUp_Lbl);
+         this.splitContainerControl1.Panel1.Controls.Add(this.FighBnDefaultPrint);
          this.splitContainerControl1.Panel1.Controls.Add(this.DebtDown_Lbl);
+         this.splitContainerControl1.Panel1.Controls.Add(this.TrnsFngrPrnt_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.YellowGreen_Lbl);
          this.splitContainerControl1.Panel1.Controls.Add(this.Gray_Lbl);
          this.splitContainerControl1.Panel1.Controls.Add(this.Back_Butn);
@@ -1605,7 +1614,7 @@
          this.BothSex_Rb.AutoSize = true;
          this.BothSex_Rb.Checked = true;
          this.BothSex_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BothSex_Rb.Location = new System.Drawing.Point(319, 5);
+         this.BothSex_Rb.Location = new System.Drawing.Point(365, 5);
          this.BothSex_Rb.Name = "BothSex_Rb";
          this.BothSex_Rb.Size = new System.Drawing.Size(91, 18);
          this.BothSex_Rb.TabIndex = 10;
@@ -1618,7 +1627,7 @@
          this.Women_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Women_Rb.AutoSize = true;
          this.Women_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Women_Rb.Location = new System.Drawing.Point(421, 33);
+         this.Women_Rb.Location = new System.Drawing.Point(467, 33);
          this.Women_Rb.Name = "Women_Rb";
          this.Women_Rb.Size = new System.Drawing.Size(37, 18);
          this.Women_Rb.TabIndex = 9;
@@ -1630,7 +1639,7 @@
          this.Men_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Men_Rb.AutoSize = true;
          this.Men_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Men_Rb.Location = new System.Drawing.Point(416, 5);
+         this.Men_Rb.Location = new System.Drawing.Point(462, 5);
          this.Men_Rb.Name = "Men_Rb";
          this.Men_Rb.Size = new System.Drawing.Size(42, 18);
          this.Men_Rb.TabIndex = 8;
@@ -1653,7 +1662,7 @@
          this.TellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Lb.AutoSize = true;
          this.TellPhon_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TellPhon_Lb.Location = new System.Drawing.Point(559, 35);
+         this.TellPhon_Lb.Location = new System.Drawing.Point(606, 35);
          this.TellPhon_Lb.Name = "TellPhon_Lb";
          this.TellPhon_Lb.Size = new System.Drawing.Size(62, 14);
          this.TellPhon_Lb.TabIndex = 11;
@@ -1664,7 +1673,7 @@
          this.ServNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ServNo_Lb.AutoSize = true;
          this.ServNo_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServNo_Lb.Location = new System.Drawing.Point(730, 35);
+         this.ServNo_Lb.Location = new System.Drawing.Point(777, 35);
          this.ServNo_Lb.Name = "ServNo_Lb";
          this.ServNo_Lb.Size = new System.Drawing.Size(70, 14);
          this.ServNo_Lb.TabIndex = 12;
@@ -1675,7 +1684,7 @@
          this.FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FngrPrnt_Lb.AutoSize = true;
          this.FngrPrnt_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FngrPrnt_Lb.Location = new System.Drawing.Point(903, 35);
+         this.FngrPrnt_Lb.Location = new System.Drawing.Point(950, 35);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
          this.FngrPrnt_Lb.Size = new System.Drawing.Size(73, 14);
          this.FngrPrnt_Lb.TabIndex = 12;
@@ -1686,7 +1695,7 @@
          this.CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Lb.AutoSize = true;
          this.CellPhon_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CellPhon_Lb.Location = new System.Drawing.Point(559, 7);
+         this.CellPhon_Lb.Location = new System.Drawing.Point(606, 7);
          this.CellPhon_Lb.Name = "CellPhon_Lb";
          this.CellPhon_Lb.Size = new System.Drawing.Size(70, 14);
          this.CellPhon_Lb.TabIndex = 13;
@@ -1697,7 +1706,7 @@
          this.GlobCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GlobCode_Lb.AutoSize = true;
          this.GlobCode_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GlobCode_Lb.Location = new System.Drawing.Point(730, 7);
+         this.GlobCode_Lb.Location = new System.Drawing.Point(777, 7);
          this.GlobCode_Lb.Name = "GlobCode_Lb";
          this.GlobCode_Lb.Size = new System.Drawing.Size(72, 14);
          this.GlobCode_Lb.TabIndex = 14;
@@ -1708,7 +1717,7 @@
          this.NatlCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NatlCode_Lb.AutoSize = true;
          this.NatlCode_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.NatlCode_Lb.Location = new System.Drawing.Point(903, 7);
+         this.NatlCode_Lb.Location = new System.Drawing.Point(950, 7);
          this.NatlCode_Lb.Name = "NatlCode_Lb";
          this.NatlCode_Lb.Size = new System.Drawing.Size(54, 14);
          this.NatlCode_Lb.TabIndex = 14;
@@ -1729,16 +1738,16 @@
          // 
          this.LastName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LastName_Txt.Location = new System.Drawing.Point(981, 32);
+         this.LastName_Txt.Location = new System.Drawing.Point(1030, 32);
          this.LastName_Txt.Name = "LastName_Txt";
-         this.LastName_Txt.Size = new System.Drawing.Size(144, 22);
+         this.LastName_Txt.Size = new System.Drawing.Size(95, 22);
          this.LastName_Txt.TabIndex = 1;
          // 
          // TellPhon_Txt
          // 
          this.TellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TellPhon_Txt.Location = new System.Drawing.Point(464, 32);
+         this.TellPhon_Txt.Location = new System.Drawing.Point(511, 32);
          this.TellPhon_Txt.Name = "TellPhon_Txt";
          this.TellPhon_Txt.Size = new System.Drawing.Size(89, 22);
          this.TellPhon_Txt.TabIndex = 7;
@@ -1747,7 +1756,7 @@
          // 
          this.ServNo_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ServNo_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ServNo_Txt.Location = new System.Drawing.Point(635, 32);
+         this.ServNo_Txt.Location = new System.Drawing.Point(682, 32);
          this.ServNo_Txt.Name = "ServNo_Txt";
          this.ServNo_Txt.Size = new System.Drawing.Size(89, 22);
          this.ServNo_Txt.TabIndex = 5;
@@ -1756,7 +1765,7 @@
          // 
          this.FngrPrnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FngrPrnt_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FngrPrnt_Txt.Location = new System.Drawing.Point(808, 32);
+         this.FngrPrnt_Txt.Location = new System.Drawing.Point(855, 32);
          this.FngrPrnt_Txt.Name = "FngrPrnt_Txt";
          this.FngrPrnt_Txt.Size = new System.Drawing.Size(89, 22);
          this.FngrPrnt_Txt.TabIndex = 3;
@@ -1765,7 +1774,7 @@
          // 
          this.CellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CellPhon_Txt.Location = new System.Drawing.Point(464, 4);
+         this.CellPhon_Txt.Location = new System.Drawing.Point(511, 4);
          this.CellPhon_Txt.Name = "CellPhon_Txt";
          this.CellPhon_Txt.Size = new System.Drawing.Size(89, 22);
          this.CellPhon_Txt.TabIndex = 6;
@@ -1774,7 +1783,7 @@
          // 
          this.GlobCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GlobCode_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GlobCode_Txt.Location = new System.Drawing.Point(635, 4);
+         this.GlobCode_Txt.Location = new System.Drawing.Point(682, 4);
          this.GlobCode_Txt.Name = "GlobCode_Txt";
          this.GlobCode_Txt.Size = new System.Drawing.Size(89, 22);
          this.GlobCode_Txt.TabIndex = 4;
@@ -1783,7 +1792,7 @@
          // 
          this.NatlCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NatlCode_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.NatlCode_Txt.Location = new System.Drawing.Point(808, 4);
+         this.NatlCode_Txt.Location = new System.Drawing.Point(855, 4);
          this.NatlCode_Txt.Name = "NatlCode_Txt";
          this.NatlCode_Txt.Size = new System.Drawing.Size(89, 22);
          this.NatlCode_Txt.TabIndex = 2;
@@ -1792,9 +1801,9 @@
          // 
          this.FrstName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FrstName_Txt.Location = new System.Drawing.Point(981, 4);
+         this.FrstName_Txt.Location = new System.Drawing.Point(1030, 4);
          this.FrstName_Txt.Name = "FrstName_Txt";
-         this.FrstName_Txt.Size = new System.Drawing.Size(144, 22);
+         this.FrstName_Txt.Size = new System.Drawing.Size(95, 22);
          this.FrstName_Txt.TabIndex = 0;
          // 
          // splitContainerControl2
@@ -1831,7 +1840,7 @@
          // 
          this.Mbsp_gc.DataSource = this.MbspBs;
          this.Mbsp_gc.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Mbsp_gc.Location = new System.Drawing.Point(3, 183);
+         this.Mbsp_gc.Location = new System.Drawing.Point(3, 208);
          this.Mbsp_gc.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.Mbsp_gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Mbsp_gc.MainView = this.Mbsp_gv;
@@ -1840,7 +1849,7 @@
             this.repositoryItemLookUpEdit1,
             this.AttnMbsp_Butn,
             this.persianRepositoryItemDateEdit3});
-         this.Mbsp_gc.Size = new System.Drawing.Size(530, 282);
+         this.Mbsp_gc.Size = new System.Drawing.Size(530, 257);
          this.Mbsp_gc.TabIndex = 10;
          this.Mbsp_gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Mbsp_gv});
@@ -1922,7 +1931,7 @@
          // 
          // CochFileNo_Clm
          // 
-         this.CochFileNo_Clm.Caption = "نام مربی";
+         this.CochFileNo_Clm.Caption = "سرپرست";
          this.CochFileNo_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
          this.CochFileNo_Clm.FieldName = "Fighter_Public.COCH_FILE_NO";
          this.CochFileNo_Clm.Name = "CochFileNo_Clm";
@@ -1954,7 +1963,7 @@
          // 
          // MtodCode_Clm
          // 
-         this.MtodCode_Clm.Caption = "ورزش";
+         this.MtodCode_Clm.Caption = "گروه";
          this.MtodCode_Clm.FieldName = "Fighter_Public.Method.MTOD_DESC";
          this.MtodCode_Clm.Name = "MtodCode_Clm";
          this.MtodCode_Clm.OptionsColumn.AllowEdit = false;
@@ -1965,7 +1974,7 @@
          // 
          // CtgyCode_Clm
          // 
-         this.CtgyCode_Clm.Caption = "رسته";
+         this.CtgyCode_Clm.Caption = "زیر گروه";
          this.CtgyCode_Clm.FieldName = "Fighter_Public.Category_Belt.CTGY_DESC";
          this.CtgyCode_Clm.Name = "CtgyCode_Clm";
          this.CtgyCode_Clm.OptionsColumn.AllowEdit = false;
@@ -2091,7 +2100,7 @@
          this.panel1.Controls.Add(this.PydsAmnt_Lb);
          this.panel1.Controls.Add(this.TotlAmnt_Lb);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel1.Location = new System.Drawing.Point(3, 111);
+         this.panel1.Location = new System.Drawing.Point(3, 136);
          this.panel1.Name = "panel1";
          this.panel1.Size = new System.Drawing.Size(530, 72);
          this.panel1.TabIndex = 11;
@@ -2230,9 +2239,6 @@
          // 
          this.panel2.BackColor = System.Drawing.Color.Transparent;
          this.panel2.Controls.Add(this.labelControl1);
-         this.panel2.Controls.Add(this.FighBnSettingPrint);
-         this.panel2.Controls.Add(this.FighBnDefaultPrint);
-         this.panel2.Controls.Add(this.TrnsFngrPrnt_Butn);
          this.panel2.Controls.Add(this.UserProFile_Rb);
          this.panel2.Controls.Add(this.textEdit3);
          this.panel2.Controls.Add(this.SuntCode1_Lb);
@@ -2242,12 +2248,16 @@
          this.panel2.Controls.Add(this.NatlCode1_Lb);
          this.panel2.Controls.Add(this.textEdit5);
          this.panel2.Controls.Add(this.TellPhon1_Lb);
+         this.panel2.Controls.Add(this.textEdit6);
+         this.panel2.Controls.Add(this.label2);
+         this.panel2.Controls.Add(this.textEdit2);
+         this.panel2.Controls.Add(this.label1);
          this.panel2.Controls.Add(this.textEdit4);
          this.panel2.Controls.Add(this.CellPhon1_Lb);
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(3, 17);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(530, 94);
+         this.panel2.Size = new System.Drawing.Size(530, 119);
          this.panel2.TabIndex = 12;
          // 
          // labelControl1
@@ -2259,7 +2269,7 @@
          this.labelControl1.LineVisible = true;
          this.labelControl1.Location = new System.Drawing.Point(427, 5);
          this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(10, 84);
+         this.labelControl1.Size = new System.Drawing.Size(10, 109);
          this.labelControl1.TabIndex = 68;
          // 
          // UserProFile_Rb
@@ -2310,7 +2320,7 @@
          this.GlobCodeDnrm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GlobCodeDnrm_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterResultBindingSource, "GLOB_CODE", true));
          this.GlobCodeDnrm_Txt.EditValue = "";
-         this.GlobCodeDnrm_Txt.Location = new System.Drawing.Point(63, 34);
+         this.GlobCodeDnrm_Txt.Location = new System.Drawing.Point(55, 34);
          this.GlobCodeDnrm_Txt.Name = "GlobCodeDnrm_Txt";
          this.GlobCodeDnrm_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.GlobCodeDnrm_Txt.Properties.Appearance.Options.UseFont = true;
@@ -2320,7 +2330,7 @@
          this.GlobCodeDnrm_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
          this.GlobCodeDnrm_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.GlobCodeDnrm_Txt.Properties.ReadOnly = true;
-         this.GlobCodeDnrm_Txt.Size = new System.Drawing.Size(92, 22);
+         this.GlobCodeDnrm_Txt.Size = new System.Drawing.Size(100, 22);
          this.GlobCodeDnrm_Txt.TabIndex = 35;
          this.GlobCodeDnrm_Txt.DoubleClick += new System.EventHandler(this.GlobCodeDnrm_Txt_DoubleClick);
          // 
@@ -2329,7 +2339,7 @@
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterResultBindingSource, "NATL_CODE", true));
          this.textEdit1.EditValue = "";
-         this.textEdit1.Location = new System.Drawing.Point(248, 62);
+         this.textEdit1.Location = new System.Drawing.Point(55, 62);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit1.Properties.Appearance.Options.UseFont = true;
@@ -2359,6 +2369,62 @@
          this.textEdit5.Properties.ReadOnly = true;
          this.textEdit5.Size = new System.Drawing.Size(100, 22);
          this.textEdit5.TabIndex = 35;
+         // 
+         // textEdit6
+         // 
+         this.textEdit6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit6.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterResultBindingSource, "MOM_CELL_PHON_DNRM", true));
+         this.textEdit6.EditValue = "";
+         this.textEdit6.Location = new System.Drawing.Point(248, 90);
+         this.textEdit6.Name = "textEdit6";
+         this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit6.Properties.Appearance.Options.UseFont = true;
+         this.textEdit6.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit6.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit6.Properties.Mask.EditMask = "n0";
+         this.textEdit6.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit6.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit6.Properties.ReadOnly = true;
+         this.textEdit6.Size = new System.Drawing.Size(100, 22);
+         this.textEdit6.TabIndex = 35;
+         // 
+         // label2
+         // 
+         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(354, 95);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(65, 13);
+         this.label2.TabIndex = 19;
+         this.label2.Text = "شماره مادر :";
+         // 
+         // textEdit2
+         // 
+         this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Last_Info_FighterResultBindingSource, "DAD_CELL_PHON_DNRM", true));
+         this.textEdit2.EditValue = "";
+         this.textEdit2.Location = new System.Drawing.Point(248, 62);
+         this.textEdit2.Name = "textEdit2";
+         this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit2.Properties.Appearance.Options.UseFont = true;
+         this.textEdit2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit2.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit2.Properties.Mask.EditMask = "n0";
+         this.textEdit2.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit2.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit2.Properties.ReadOnly = true;
+         this.textEdit2.Size = new System.Drawing.Size(100, 22);
+         this.textEdit2.TabIndex = 35;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(354, 67);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(60, 13);
+         this.label1.TabIndex = 19;
+         this.label1.Text = "شماره پدر :";
          // 
          // textEdit4
          // 
@@ -2438,6 +2504,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.GlobCodeDnrm_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
          this.ResumeLayout(false);
 
@@ -2600,5 +2668,9 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton2;
       private DevExpress.XtraEditors.SimpleButton Search_Butn;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
+      private DevExpress.XtraEditors.TextEdit textEdit6;
+      private Windows.Forms.Label label2;
+      private DevExpress.XtraEditors.TextEdit textEdit2;
+      private Windows.Forms.Label label1;
    }
 }

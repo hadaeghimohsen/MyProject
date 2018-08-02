@@ -614,7 +614,7 @@
          this.Gb_Expense3.Controls.Add(this.PymtDate_DateTime001);
          this.Gb_Expense3.Location = new System.Drawing.Point(84, 50);
          this.Gb_Expense3.Name = "Gb_Expense3";
-         this.Gb_Expense3.Size = new System.Drawing.Size(474, 646);
+         this.Gb_Expense3.Size = new System.Drawing.Size(474, 558);
          this.Gb_Expense3.TabIndex = 2;
          this.Gb_Expense3.TabStop = false;
          this.Gb_Expense3.Text = "اعلام هزینه";
@@ -624,7 +624,7 @@
          // 
          this.PydsType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PydsType_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-         this.PydsType_Butn.Location = new System.Drawing.Point(407, 461);
+         this.PydsType_Butn.Location = new System.Drawing.Point(407, 430);
          this.PydsType_Butn.Name = "PydsType_Butn";
          this.PydsType_Butn.Size = new System.Drawing.Size(55, 22);
          this.PydsType_Butn.TabIndex = 24;
@@ -650,7 +650,7 @@
          // 
          this.PydsAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PydsAmnt_Txt.EditValue = "0";
-         this.PydsAmnt_Txt.Location = new System.Drawing.Point(309, 461);
+         this.PydsAmnt_Txt.Location = new System.Drawing.Point(309, 430);
          this.PydsAmnt_Txt.Name = "PydsAmnt_Txt";
          this.PydsAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydsAmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -698,7 +698,7 @@
          // PydsDesc_Txt
          // 
          this.PydsDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PydsDesc_Txt.Location = new System.Drawing.Point(70, 461);
+         this.PydsDesc_Txt.Location = new System.Drawing.Point(70, 430);
          this.PydsDesc_Txt.Name = "PydsDesc_Txt";
          this.PydsDesc_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydsDesc_Txt.Properties.Appearance.Options.UseFont = true;
@@ -749,7 +749,7 @@
          this.DeltPyds_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DeltPyds_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.DeltPyds_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1418;
-         this.DeltPyds_Butn.Location = new System.Drawing.Point(12, 458);
+         this.DeltPyds_Butn.Location = new System.Drawing.Point(12, 427);
          this.DeltPyds_Butn.Name = "DeltPyds_Butn";
          this.DeltPyds_Butn.Size = new System.Drawing.Size(25, 25);
          this.DeltPyds_Butn.TabIndex = 29;
@@ -768,7 +768,7 @@
          this.tbn_POSPayment3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.tbn_POSPayment3.Image = global::System.Scsc.Properties.Resources.IMAGE_1089;
          this.tbn_POSPayment3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.tbn_POSPayment3.Location = new System.Drawing.Point(250, 201);
+         this.tbn_POSPayment3.Location = new System.Drawing.Point(289, 201);
          this.tbn_POSPayment3.LookAndFeel.SkinName = "Office 2010 Blue";
          this.tbn_POSPayment3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.tbn_POSPayment3.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1046,7 +1046,7 @@
          this.SavePyds_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SavePyds_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.SavePyds_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
-         this.SavePyds_Butn.Location = new System.Drawing.Point(39, 458);
+         this.SavePyds_Butn.Location = new System.Drawing.Point(39, 427);
          this.SavePyds_Butn.Name = "SavePyds_Butn";
          this.SavePyds_Butn.Size = new System.Drawing.Size(25, 25);
          this.SavePyds_Butn.TabIndex = 28;
@@ -1080,7 +1080,7 @@
          // 
          this.PydsType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PydsType_Lov.EditValue = "002";
-         this.PydsType_Lov.Location = new System.Drawing.Point(191, 461);
+         this.PydsType_Lov.Location = new System.Drawing.Point(191, 430);
          this.PydsType_Lov.Name = "PydsType_Lov";
          this.PydsType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydsType_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1124,7 +1124,7 @@
          this.bn_CashPayment3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.bn_CashPayment3.Image = global::System.Scsc.Properties.Resources.IMAGE_1082;
          this.bn_CashPayment3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.bn_CashPayment3.Location = new System.Drawing.Point(409, 203);
+         this.bn_CashPayment3.Location = new System.Drawing.Point(409, 201);
          this.bn_CashPayment3.LookAndFeel.SkinName = "Office 2010 Blue";
          this.bn_CashPayment3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.bn_CashPayment3.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1162,7 +1162,7 @@
          this.Btn_InDebt003.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Btn_InDebt003.Image = global::System.Scsc.Properties.Resources.IMAGE_1157;
          this.Btn_InDebt003.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Btn_InDebt003.Location = new System.Drawing.Point(330, 201);
+         this.Btn_InDebt003.Location = new System.Drawing.Point(348, 201);
          this.Btn_InDebt003.LookAndFeel.SkinName = "Office 2010 Blue";
          this.Btn_InDebt003.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_InDebt003.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1337,7 +1337,7 @@
          this.Dscn_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Dscn_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Dscn_Lb.LineVisible = true;
-         this.Dscn_Lb.Location = new System.Drawing.Point(12, 437);
+         this.Dscn_Lb.Location = new System.Drawing.Point(12, 406);
          this.Dscn_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Dscn_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Dscn_Lb.Name = "Dscn_Lb";
@@ -1349,14 +1349,14 @@
          // 
          this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl4.DataSource = this.PydsBs3;
-         this.gridControl4.Location = new System.Drawing.Point(12, 489);
+         this.gridControl4.Location = new System.Drawing.Point(12, 458);
          this.gridControl4.LookAndFeel.SkinName = "VS2010";
          this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl4.MainView = this.gridView6;
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(450, 145);
+         this.gridControl4.Size = new System.Drawing.Size(450, 91);
          this.gridControl4.TabIndex = 15;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -1634,7 +1634,7 @@
          this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit2});
-         this.gridControl5.Size = new System.Drawing.Size(450, 121);
+         this.gridControl5.Size = new System.Drawing.Size(450, 90);
          this.gridControl5.TabIndex = 19;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView8});
@@ -2081,6 +2081,7 @@
          this.SaveAttn_PkBt.Size = new System.Drawing.Size(104, 23);
          this.SaveAttn_PkBt.TabIndex = 69;
          this.SaveAttn_PkBt.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SaveAttn_PkBt.Visible = false;
          // 
          // Cbmt003_Butn
          // 

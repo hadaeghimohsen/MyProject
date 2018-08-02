@@ -232,7 +232,6 @@
          this.Btn_InDebt001 = new DevExpress.XtraEditors.SimpleButton();
          this.tbn_CashPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
-         this.bn_PaymentMethods1 = new System.MaxUi.NewMaxBtn();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
          this.PmmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -407,6 +406,8 @@
          this.label1 = new System.Windows.Forms.Label();
          this.POST_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.label2 = new System.Windows.Forms.Label();
+         this.bn_PaymentMethods1 = new System.MaxUi.NewMaxBtn();
+         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          label14 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
@@ -1623,18 +1624,19 @@
          // 
          this.Gb_Expense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Gb_Expense.BackColor = System.Drawing.Color.PaleGoldenrod;
+         this.Gb_Expense.Controls.Add(this.bn_PaymentMethods1);
          this.Gb_Expense.Controls.Add(this.RcmtType_Butn);
          this.Gb_Expense.Controls.Add(this.PydsType_Butn);
          this.Gb_Expense.Controls.Add(this.UsePos_Cb);
          this.Gb_Expense.Controls.Add(this.PosStng_Butn);
          this.Gb_Expense.Controls.Add(this.Pos_Lov);
+         this.Gb_Expense.Controls.Add(this.labelControl1);
          this.Gb_Expense.Controls.Add(this.Pymt_Lb);
          this.Gb_Expense.Controls.Add(this.TotlAmnt_Lb);
          this.Gb_Expense.Controls.Add(this.DtilAmnt_Lb);
          this.Gb_Expense.Controls.Add(this.Btn_InDebt001);
          this.Gb_Expense.Controls.Add(this.tbn_CashPayment1);
          this.Gb_Expense.Controls.Add(this.tbn_POSPayment1);
-         this.Gb_Expense.Controls.Add(this.bn_PaymentMethods1);
          this.Gb_Expense.Controls.Add(this.gridControl2);
          this.Gb_Expense.Controls.Add(this.gridControl1);
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
@@ -1648,9 +1650,9 @@
          this.Gb_Expense.Controls.Add(this.SavePyds_Butn);
          this.Gb_Expense.Controls.Add(this.PydsType_Lov);
          this.Gb_Expense.Controls.Add(this.PymtDate_DateTime001);
-         this.Gb_Expense.Location = new System.Drawing.Point(36, 50);
+         this.Gb_Expense.Location = new System.Drawing.Point(100, 50);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(554, 571);
+         this.Gb_Expense.Size = new System.Drawing.Size(490, 571);
          this.Gb_Expense.TabIndex = 28;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
@@ -1658,8 +1660,9 @@
          // 
          // RcmtType_Butn
          // 
+         this.RcmtType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RcmtType_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-         this.RcmtType_Butn.Location = new System.Drawing.Point(223, 328);
+         this.RcmtType_Butn.Location = new System.Drawing.Point(429, 282);
          this.RcmtType_Butn.Name = "RcmtType_Butn";
          this.RcmtType_Butn.Size = new System.Drawing.Size(55, 22);
          this.RcmtType_Butn.TabIndex = 17;
@@ -1669,8 +1672,9 @@
          // 
          // PydsType_Butn
          // 
+         this.PydsType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PydsType_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-         this.PydsType_Butn.Location = new System.Drawing.Point(493, 328);
+         this.PydsType_Butn.Location = new System.Drawing.Point(429, 432);
          this.PydsType_Butn.Name = "PydsType_Butn";
          this.PydsType_Butn.Size = new System.Drawing.Size(55, 22);
          this.PydsType_Butn.TabIndex = 11;
@@ -1684,7 +1688,7 @@
          this.UsePos_Cb.AutoSize = true;
          this.UsePos_Cb.Checked = true;
          this.UsePos_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.UsePos_Cb.Location = new System.Drawing.Point(95, 104);
+         this.UsePos_Cb.Location = new System.Drawing.Point(223, 205);
          this.UsePos_Cb.Name = "UsePos_Cb";
          this.UsePos_Cb.Size = new System.Drawing.Size(15, 14);
          this.UsePos_Cb.TabIndex = 6;
@@ -1698,7 +1702,7 @@
          this.PosStng_Butn.Appearance.Options.UseBackColor = true;
          this.PosStng_Butn.Image = ((System.Drawing.Image)(resources.GetObject("PosStng_Butn.Image")));
          this.PosStng_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PosStng_Butn.Location = new System.Drawing.Point(116, 99);
+         this.PosStng_Butn.Location = new System.Drawing.Point(244, 200);
          this.PosStng_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PosStng_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PosStng_Butn.Name = "PosStng_Butn";
@@ -1709,7 +1713,7 @@
          // Pos_Lov
          // 
          this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pos_Lov.Location = new System.Drawing.Point(12, 125);
+         this.Pos_Lov.Location = new System.Drawing.Point(140, 226);
          this.Pos_Lov.Name = "Pos_Lov";
          this.Pos_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pos_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1750,13 +1754,13 @@
          this.Pymt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pymt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Pymt_Lb.LineVisible = true;
-         this.Pymt_Lb.Location = new System.Drawing.Point(12, 305);
+         this.Pymt_Lb.Location = new System.Drawing.Point(12, 256);
          this.Pymt_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Pymt_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Pymt_Lb.Name = "Pymt_Lb";
-         this.Pymt_Lb.Size = new System.Drawing.Size(536, 17);
+         this.Pymt_Lb.Size = new System.Drawing.Size(472, 17);
          this.Pymt_Lb.TabIndex = 8;
-         this.Pymt_Lb.Text = "مبلغ های تحفیف داده شده و پرداختی";
+         this.Pymt_Lb.Text = "مبلغ های پرداختی";
          // 
          // TotlAmnt_Lb
          // 
@@ -1768,7 +1772,7 @@
          this.TotlAmnt_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.TotlAmnt_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TotlAmnt_Lb.Name = "TotlAmnt_Lb";
-         this.TotlAmnt_Lb.Size = new System.Drawing.Size(536, 17);
+         this.TotlAmnt_Lb.Size = new System.Drawing.Size(472, 17);
          this.TotlAmnt_Lb.TabIndex = 8;
          this.TotlAmnt_Lb.Text = "کل مبلغ های هزینه";
          // 
@@ -1778,11 +1782,11 @@
          this.DtilAmnt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DtilAmnt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.DtilAmnt_Lb.LineVisible = true;
-         this.DtilAmnt_Lb.Location = new System.Drawing.Point(12, 155);
+         this.DtilAmnt_Lb.Location = new System.Drawing.Point(12, 110);
          this.DtilAmnt_Lb.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.DtilAmnt_Lb.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DtilAmnt_Lb.Name = "DtilAmnt_Lb";
-         this.DtilAmnt_Lb.Size = new System.Drawing.Size(536, 17);
+         this.DtilAmnt_Lb.Size = new System.Drawing.Size(472, 17);
          this.DtilAmnt_Lb.TabIndex = 8;
          this.DtilAmnt_Lb.Text = "مبلغ های هزینه";
          // 
@@ -1798,7 +1802,7 @@
          this.Btn_InDebt001.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Btn_InDebt001.Image = global::System.Scsc.Properties.Resources.IMAGE_1157;
          this.Btn_InDebt001.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Btn_InDebt001.Location = new System.Drawing.Point(140, 99);
+         this.Btn_InDebt001.Location = new System.Drawing.Point(371, 200);
          this.Btn_InDebt001.LookAndFeel.SkinName = "Office 2010 Blue";
          this.Btn_InDebt001.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_InDebt001.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1837,7 +1841,7 @@
          this.tbn_CashPayment1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.tbn_CashPayment1.Image = global::System.Scsc.Properties.Resources.IMAGE_1082;
          this.tbn_CashPayment1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.tbn_CashPayment1.Location = new System.Drawing.Point(140, 43);
+         this.tbn_CashPayment1.Location = new System.Drawing.Point(431, 200);
          this.tbn_CashPayment1.LookAndFeel.SkinName = "Office 2010 Blue";
          this.tbn_CashPayment1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.tbn_CashPayment1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1875,7 +1879,7 @@
          this.tbn_POSPayment1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.tbn_POSPayment1.Image = global::System.Scsc.Properties.Resources.IMAGE_1089;
          this.tbn_POSPayment1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.tbn_POSPayment1.Location = new System.Drawing.Point(81, 44);
+         this.tbn_POSPayment1.Location = new System.Drawing.Point(312, 200);
          this.tbn_POSPayment1.LookAndFeel.SkinName = "Office 2010 Blue";
          this.tbn_POSPayment1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.tbn_POSPayment1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1902,35 +1906,11 @@
          this.tbn_POSPayment1.Tag = "1";
          this.tbn_POSPayment1.Click += new System.EventHandler(this.tbn_POSPayment1_Click);
          // 
-         // bn_PaymentMethods1
-         // 
-         this.bn_PaymentMethods1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.bn_PaymentMethods1.BackColor = System.Drawing.Color.BurlyWood;
-         this.bn_PaymentMethods1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bn_PaymentMethods1.Caption = "دریافت مرکب";
-         this.bn_PaymentMethods1.Disabled = false;
-         this.bn_PaymentMethods1.EnterColor = System.Drawing.Color.Transparent;
-         this.bn_PaymentMethods1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.bn_PaymentMethods1.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bn_PaymentMethods1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.bn_PaymentMethods1.ImageIndex = 2;
-         this.bn_PaymentMethods1.ImageList = this.im_images;
-         this.bn_PaymentMethods1.InToBold = false;
-         this.bn_PaymentMethods1.Location = new System.Drawing.Point(12, 45);
-         this.bn_PaymentMethods1.Name = "bn_PaymentMethods1";
-         this.bn_PaymentMethods1.Size = new System.Drawing.Size(63, 74);
-         this.bn_PaymentMethods1.TabIndex = 4;
-         this.bn_PaymentMethods1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-         this.bn_PaymentMethods1.TextColor = System.Drawing.Color.Black;
-         this.bn_PaymentMethods1.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.bn_PaymentMethods1.Click += new System.EventHandler(this.bn_PaymentMethods1_Click);
-         // 
          // gridControl2
          // 
-         this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl2.DataSource = this.PmmtBs1;
-         this.gridControl2.Location = new System.Drawing.Point(12, 389);
+         this.gridControl2.Location = new System.Drawing.Point(12, 312);
          this.gridControl2.LookAndFeel.SkinName = "DevExpress Design";
          this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl2.MainView = this.gridView5;
@@ -1938,7 +1918,7 @@
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(266, 176);
+         this.gridControl2.Size = new System.Drawing.Size(472, 91);
          this.gridControl2.TabIndex = 10;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -2150,17 +2130,16 @@
          // 
          // gridControl1
          // 
-         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl1.DataSource = this.PydsBs1;
-         this.gridControl1.Location = new System.Drawing.Point(284, 389);
+         this.gridControl1.Location = new System.Drawing.Point(12, 462);
          this.gridControl1.LookAndFeel.SkinName = "VS2010";
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView4;
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl1.Size = new System.Drawing.Size(264, 176);
+         this.gridControl1.Size = new System.Drawing.Size(472, 91);
          this.gridControl1.TabIndex = 9;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2231,7 +2210,7 @@
          this.RwnoPdsc_Clm.Name = "RwnoPdsc_Clm";
          this.RwnoPdsc_Clm.Visible = true;
          this.RwnoPdsc_Clm.VisibleIndex = 2;
-         this.RwnoPdsc_Clm.Width = 32;
+         this.RwnoPdsc_Clm.Width = 55;
          // 
          // colEXPN_CODE1
          // 
@@ -2251,7 +2230,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AMNT", "{0:n0}")});
          this.AmntPdsc_Clm.Visible = true;
          this.AmntPdsc_Clm.VisibleIndex = 1;
-         this.AmntPdsc_Clm.Width = 110;
+         this.AmntPdsc_Clm.Width = 154;
          // 
          // colAMNT_TYPE
          // 
@@ -2270,7 +2249,7 @@
          this.PydsDesc_Clm.Name = "PydsDesc_Clm";
          this.PydsDesc_Clm.Visible = true;
          this.PydsDesc_Clm.VisibleIndex = 0;
-         this.PydsDesc_Clm.Width = 136;
+         this.PydsDesc_Clm.Width = 261;
          // 
          // colCRET_BY7
          // 
@@ -2326,14 +2305,14 @@
          // 
          this.payment_DetailsGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.payment_DetailsGridControl.DataSource = this.PydtsBs1;
-         this.payment_DetailsGridControl.Location = new System.Drawing.Point(12, 178);
+         this.payment_DetailsGridControl.Location = new System.Drawing.Point(12, 133);
          this.payment_DetailsGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.payment_DetailsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.payment_DetailsGridControl.MainView = this.gridView2;
          this.payment_DetailsGridControl.Name = "payment_DetailsGridControl";
          this.payment_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_RCTP});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(536, 121);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(472, 61);
          this.payment_DetailsGridControl.TabIndex = 8;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -2553,14 +2532,14 @@
          // 
          this.paymentsGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.paymentsGridControl.DataSource = this.PymtsBs1;
-         this.paymentsGridControl.Location = new System.Drawing.Point(199, 43);
+         this.paymentsGridControl.Location = new System.Drawing.Point(12, 43);
          this.paymentsGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.paymentsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.paymentsGridControl.MainView = this.gridView1;
          this.paymentsGridControl.Name = "paymentsGridControl";
          this.paymentsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit4});
-         this.paymentsGridControl.Size = new System.Drawing.Size(349, 106);
+         this.paymentsGridControl.Size = new System.Drawing.Size(472, 61);
          this.paymentsGridControl.TabIndex = 0;
          this.paymentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2694,7 +2673,7 @@
          // 
          this.PymtAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PymtAmnt_Txt.EditValue = "";
-         this.PymtAmnt_Txt.Location = new System.Drawing.Point(174, 356);
+         this.PymtAmnt_Txt.Location = new System.Drawing.Point(212, 282);
          this.PymtAmnt_Txt.Name = "PymtAmnt_Txt";
          this.PymtAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PymtAmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -2716,7 +2695,7 @@
          // 
          this.PydsAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PydsAmnt_Txt.EditValue = "0";
-         this.PydsAmnt_Txt.Location = new System.Drawing.Point(433, 328);
+         this.PydsAmnt_Txt.Location = new System.Drawing.Point(345, 432);
          this.PydsAmnt_Txt.Name = "PydsAmnt_Txt";
          this.PydsAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydsAmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -2732,13 +2711,13 @@
          this.PydsAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.PydsAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
          this.PydsAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PydsAmnt_Txt.Size = new System.Drawing.Size(54, 22);
+         this.PydsAmnt_Txt.Size = new System.Drawing.Size(78, 22);
          this.PydsAmnt_Txt.TabIndex = 12;
          // 
          // PydsDesc_Txt
          // 
          this.PydsDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PydsDesc_Txt.Location = new System.Drawing.Point(346, 356);
+         this.PydsDesc_Txt.Location = new System.Drawing.Point(70, 432);
          this.PydsDesc_Txt.Name = "PydsDesc_Txt";
          this.PydsDesc_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydsDesc_Txt.Properties.Appearance.Options.UseFont = true;
@@ -2749,7 +2728,7 @@
          this.PydsDesc_Txt.Properties.NullText = "شرح تخفیف";
          this.PydsDesc_Txt.Properties.NullValuePrompt = "شرح تخفیف";
          this.PydsDesc_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PydsDesc_Txt.Size = new System.Drawing.Size(202, 22);
+         this.PydsDesc_Txt.Size = new System.Drawing.Size(144, 22);
          this.PydsDesc_Txt.TabIndex = 14;
          // 
          // DeltPymt_Butn
@@ -2757,7 +2736,7 @@
          this.DeltPymt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DeltPymt_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.DeltPymt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1418;
-         this.DeltPymt_Butn.Location = new System.Drawing.Point(116, 355);
+         this.DeltPymt_Butn.Location = new System.Drawing.Point(154, 281);
          this.DeltPymt_Butn.Name = "DeltPymt_Butn";
          this.DeltPymt_Butn.Size = new System.Drawing.Size(25, 25);
          this.DeltPymt_Butn.TabIndex = 21;
@@ -2769,7 +2748,7 @@
          this.DeltPyds_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DeltPyds_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.DeltPyds_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1418;
-         this.DeltPyds_Butn.Location = new System.Drawing.Point(284, 354);
+         this.DeltPyds_Butn.Location = new System.Drawing.Point(12, 431);
          this.DeltPyds_Butn.Name = "DeltPyds_Butn";
          this.DeltPyds_Butn.Size = new System.Drawing.Size(25, 25);
          this.DeltPyds_Butn.TabIndex = 16;
@@ -2781,7 +2760,7 @@
          this.SavePymt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SavePymt_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.SavePymt_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
-         this.SavePymt_Butn.Location = new System.Drawing.Point(143, 355);
+         this.SavePymt_Butn.Location = new System.Drawing.Point(181, 281);
          this.SavePymt_Butn.Name = "SavePymt_Butn";
          this.SavePymt_Butn.Size = new System.Drawing.Size(25, 25);
          this.SavePymt_Butn.TabIndex = 20;
@@ -2793,7 +2772,7 @@
          this.SavePyds_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SavePyds_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.SavePyds_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
-         this.SavePyds_Butn.Location = new System.Drawing.Point(311, 354);
+         this.SavePyds_Butn.Location = new System.Drawing.Point(39, 431);
          this.SavePyds_Butn.Name = "SavePyds_Butn";
          this.SavePyds_Butn.Size = new System.Drawing.Size(25, 25);
          this.SavePyds_Butn.TabIndex = 15;
@@ -2805,7 +2784,7 @@
          // 
          this.PydsType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PydsType_Lov.EditValue = "002";
-         this.PydsType_Lov.Location = new System.Drawing.Point(284, 328);
+         this.PydsType_Lov.Location = new System.Drawing.Point(220, 432);
          this.PydsType_Lov.Name = "PydsType_Lov";
          this.PydsType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydsType_Lov.Properties.Appearance.Options.UseFont = true;
@@ -2830,7 +2809,7 @@
          this.PydsType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PydsType_Lov.Properties.NullText = "";
          this.PydsType_Lov.Properties.ValueMember = "VALU";
-         this.PydsType_Lov.Size = new System.Drawing.Size(143, 22);
+         this.PydsType_Lov.Size = new System.Drawing.Size(119, 22);
          this.PydsType_Lov.TabIndex = 13;
          // 
          // DPydsBs1
@@ -2842,7 +2821,7 @@
          this.PymtDate_DateTime001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PymtDate_DateTime001.CustomFormat = "dd/MM/yyyy";
          this.PymtDate_DateTime001.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.PymtDate_DateTime001.Location = new System.Drawing.Point(116, 328);
+         this.PymtDate_DateTime001.Location = new System.Drawing.Point(322, 282);
          this.PymtDate_DateTime001.Name = "PymtDate_DateTime001";
          this.PymtDate_DateTime001.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.PymtDate_DateTime001.Size = new System.Drawing.Size(100, 23);
@@ -3973,6 +3952,43 @@
          this.label2.Text = "آدرس پستی :";
          this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
+         // bn_PaymentMethods3
+         // 
+         this.bn_PaymentMethods1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.bn_PaymentMethods1.BackColor = System.Drawing.Color.BurlyWood;
+         this.bn_PaymentMethods1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bn_PaymentMethods1.Caption = "دریافت مرکب";
+         this.bn_PaymentMethods1.Disabled = false;
+         this.bn_PaymentMethods1.EnterColor = System.Drawing.Color.Transparent;
+         this.bn_PaymentMethods1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bn_PaymentMethods1.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.bn_PaymentMethods1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.bn_PaymentMethods1.ImageIndex = 2;
+         this.bn_PaymentMethods1.ImageList = this.im_images;
+         this.bn_PaymentMethods1.InToBold = false;
+         this.bn_PaymentMethods1.Location = new System.Drawing.Point(12, 200);
+         this.bn_PaymentMethods1.Name = "bn_PaymentMethods3";
+         this.bn_PaymentMethods1.Size = new System.Drawing.Size(122, 50);
+         this.bn_PaymentMethods1.TabIndex = 22;
+         this.bn_PaymentMethods1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.bn_PaymentMethods1.TextColor = System.Drawing.Color.Black;
+         this.bn_PaymentMethods1.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.bn_PaymentMethods1.Click += new System.EventHandler(this.bn_PaymentMethods1_Click);
+         // 
+         // labelControl1
+         // 
+         this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl1.LineVisible = true;
+         this.labelControl1.Location = new System.Drawing.Point(12, 409);
+         this.labelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.labelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl1.Name = "labelControl1";
+         this.labelControl1.Size = new System.Drawing.Size(472, 17);
+         this.labelControl1.TabIndex = 8;
+         this.labelControl1.Text = "مبلغ های تحفیف داده شده";
+         // 
          // ADM_FIGH_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -4359,7 +4375,6 @@
       private DevExpress.XtraEditors.SimpleButton Btn_InDebt001;
       private DevExpress.XtraEditors.SimpleButton tbn_CashPayment1;
       private DevExpress.XtraEditors.SimpleButton tbn_POSPayment1;
-      private MaxUi.NewMaxBtn bn_PaymentMethods1;
       private DevExpress.XtraGrid.GridControl gridControl2;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE2;
@@ -4493,5 +4508,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colREMN_AMNT;
       private DevExpress.XtraGrid.Columns.GridColumn colSUM_RCPT_AMNT;
       private DevExpress.XtraGrid.Columns.GridColumn colSUM_PYDS_AMNT;
+      private MaxUi.NewMaxBtn bn_PaymentMethods1;
+      private DevExpress.XtraEditors.LabelControl labelControl1;
    }
 }

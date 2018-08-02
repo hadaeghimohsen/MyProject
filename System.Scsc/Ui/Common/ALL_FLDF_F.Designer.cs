@@ -586,6 +586,22 @@
          this.panel2 = new System.Windows.Forms.Panel();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.label2 = new System.Windows.Forms.Label();
+         this.label3 = new System.Windows.Forms.Label();
+         this.textBox30 = new System.Windows.Forms.TextBox();
+         this.textBox32 = new System.Windows.Forms.TextBox();
+         this.label4 = new System.Windows.Forms.Label();
+         this.label5 = new System.Windows.Forms.Label();
+         this.textBox34 = new System.Windows.Forms.TextBox();
+         this.textBox43 = new System.Windows.Forms.TextBox();
+         this.textBox44 = new System.Windows.Forms.TextBox();
+         this.textBox45 = new System.Windows.Forms.TextBox();
+         this.textBox46 = new System.Windows.Forms.TextBox();
+         this.textBox47 = new System.Windows.Forms.TextBox();
+         this.label6 = new System.Windows.Forms.Label();
+         this.label7 = new System.Windows.Forms.Label();
+         this.label8 = new System.Windows.Forms.Label();
+         this.label9 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -856,7 +872,7 @@
          // 
          this.CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Lb.AutoSize = true;
-         this.CellPhon_Lb.Location = new System.Drawing.Point(163, 28);
+         this.CellPhon_Lb.Location = new System.Drawing.Point(145, 28);
          this.CellPhon_Lb.Name = "CellPhon_Lb";
          this.CellPhon_Lb.Size = new System.Drawing.Size(107, 14);
          this.CellPhon_Lb.TabIndex = 8;
@@ -866,7 +882,7 @@
          // 
          this.TellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Lb.AutoSize = true;
-         this.TellPhon_Lb.Location = new System.Drawing.Point(163, 54);
+         this.TellPhon_Lb.Location = new System.Drawing.Point(145, 54);
          this.TellPhon_Lb.Name = "TellPhon_Lb";
          this.TellPhon_Lb.Size = new System.Drawing.Size(99, 14);
          this.TellPhon_Lb.TabIndex = 10;
@@ -1016,9 +1032,9 @@
          this.CtgyCode_Lb.AutoSize = true;
          this.CtgyCode_Lb.Location = new System.Drawing.Point(111, 64);
          this.CtgyCode_Lb.Name = "CtgyCode_Lb";
-         this.CtgyCode_Lb.Size = new System.Drawing.Size(42, 14);
+         this.CtgyCode_Lb.Size = new System.Drawing.Size(53, 14);
          this.CtgyCode_Lb.TabIndex = 13;
-         this.CtgyCode_Lb.Text = "رسته :";
+         this.CtgyCode_Lb.Text = "زیر گروه :";
          // 
          // MtodCode_Lb
          // 
@@ -1026,9 +1042,9 @@
          this.MtodCode_Lb.AutoSize = true;
          this.MtodCode_Lb.Location = new System.Drawing.Point(368, 67);
          this.MtodCode_Lb.Name = "MtodCode_Lb";
-         this.MtodCode_Lb.Size = new System.Drawing.Size(43, 14);
+         this.MtodCode_Lb.Size = new System.Drawing.Size(37, 14);
          this.MtodCode_Lb.TabIndex = 2;
-         this.MtodCode_Lb.Text = "سبک :";
+         this.MtodCode_Lb.Text = "گروه :";
          // 
          // PostAdrs_Lb
          // 
@@ -1422,7 +1438,7 @@
          // 
          this.BrthPlac_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.BrthPlac_Lb.AutoSize = true;
-         this.BrthPlac_Lb.Location = new System.Drawing.Point(239, 40);
+         this.BrthPlac_Lb.Location = new System.Drawing.Point(192, 40);
          this.BrthPlac_Lb.Name = "BrthPlac_Lb";
          this.BrthPlac_Lb.Size = new System.Drawing.Size(61, 14);
          this.BrthPlac_Lb.TabIndex = 2;
@@ -1432,7 +1448,7 @@
          // 
          this.IssuPlac_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IssuPlac_Lb.AutoSize = true;
-         this.IssuPlac_Lb.Location = new System.Drawing.Point(239, 66);
+         this.IssuPlac_Lb.Location = new System.Drawing.Point(192, 66);
          this.IssuPlac_Lb.Name = "IssuPlac_Lb";
          this.IssuPlac_Lb.Size = new System.Drawing.Size(68, 14);
          this.IssuPlac_Lb.TabIndex = 2;
@@ -1442,7 +1458,7 @@
          // 
          this.FathName1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FathName1_Lb.AutoSize = true;
-         this.FathName1_Lb.Location = new System.Drawing.Point(240, 92);
+         this.FathName1_Lb.Location = new System.Drawing.Point(193, 92);
          this.FathName1_Lb.Name = "FathName1_Lb";
          this.FathName1_Lb.Size = new System.Drawing.Size(60, 14);
          this.FathName1_Lb.TabIndex = 2;
@@ -1492,7 +1508,7 @@
          // 
          this.ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ChatId_Lb.AutoSize = true;
-         this.ChatId_Lb.Location = new System.Drawing.Point(239, 120);
+         this.ChatId_Lb.Location = new System.Drawing.Point(192, 120);
          this.ChatId_Lb.Name = "ChatId_Lb";
          this.ChatId_Lb.Size = new System.Drawing.Size(60, 14);
          this.ChatId_Lb.TabIndex = 8;
@@ -2305,7 +2321,7 @@
          // 
          // CyclCochFileNo_Clm
          // 
-         this.CyclCochFileNo_Clm.Caption = "نام مربی";
+         this.CyclCochFileNo_Clm.Caption = "سرپرست";
          this.CyclCochFileNo_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
          this.CyclCochFileNo_Clm.FieldName = "Fighter_Public.COCH_FILE_NO";
          this.CyclCochFileNo_Clm.Name = "CyclCochFileNo_Clm";
@@ -2337,7 +2353,7 @@
          // 
          // CyclMtodCode_Clm
          // 
-         this.CyclMtodCode_Clm.Caption = "ورزش";
+         this.CyclMtodCode_Clm.Caption = "گروه";
          this.CyclMtodCode_Clm.FieldName = "Fighter_Public.Method.MTOD_DESC";
          this.CyclMtodCode_Clm.Name = "CyclMtodCode_Clm";
          this.CyclMtodCode_Clm.OptionsColumn.AllowEdit = false;
@@ -2348,7 +2364,7 @@
          // 
          // CyclCtgyCode_Clm
          // 
-         this.CyclCtgyCode_Clm.Caption = "رسته";
+         this.CyclCtgyCode_Clm.Caption = "زیرگروه";
          this.CyclCtgyCode_Clm.FieldName = "Fighter_Public.Category_Belt.CTGY_DESC";
          this.CyclCtgyCode_Clm.Name = "CyclCtgyCode_Clm";
          this.CyclCtgyCode_Clm.OptionsColumn.AllowEdit = false;
@@ -2621,13 +2637,21 @@
          // Grop5_Gb
          // 
          this.Grop5_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Grop5_Gb.Controls.Add(this.textBox43);
+         this.Grop5_Gb.Controls.Add(this.textBox34);
+         this.Grop5_Gb.Controls.Add(this.textBox32);
+         this.Grop5_Gb.Controls.Add(this.textBox30);
+         this.Grop5_Gb.Controls.Add(this.label5);
          this.Grop5_Gb.Controls.Add(this.cELL_PHON_DNRMTextBox);
+         this.Grop5_Gb.Controls.Add(this.label3);
+         this.Grop5_Gb.Controls.Add(this.label4);
          this.Grop5_Gb.Controls.Add(this.tELL_PHON_DNRMTextBox);
+         this.Grop5_Gb.Controls.Add(this.label2);
          this.Grop5_Gb.Controls.Add(this.CellPhon_Lb);
          this.Grop5_Gb.Controls.Add(this.TellPhon_Lb);
          this.Grop5_Gb.Location = new System.Drawing.Point(288, 330);
          this.Grop5_Gb.Name = "Grop5_Gb";
-         this.Grop5_Gb.Size = new System.Drawing.Size(287, 87);
+         this.Grop5_Gb.Size = new System.Drawing.Size(287, 194);
          this.Grop5_Gb.TabIndex = 12;
          this.Grop5_Gb.TabStop = false;
          this.Grop5_Gb.Text = "اطلاعات دسترسی به مشتری :";
@@ -2636,7 +2660,7 @@
          // 
          this.cELL_PHON_DNRMTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cELL_PHON_DNRMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "CELL_PHON_DNRM", true));
-         this.cELL_PHON_DNRMTextBox.Location = new System.Drawing.Point(57, 25);
+         this.cELL_PHON_DNRMTextBox.Location = new System.Drawing.Point(39, 25);
          this.cELL_PHON_DNRMTextBox.Name = "cELL_PHON_DNRMTextBox";
          this.cELL_PHON_DNRMTextBox.ReadOnly = true;
          this.cELL_PHON_DNRMTextBox.Size = new System.Drawing.Size(100, 22);
@@ -2646,7 +2670,7 @@
          // 
          this.tELL_PHON_DNRMTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.tELL_PHON_DNRMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "TELL_PHON_DNRM", true));
-         this.tELL_PHON_DNRMTextBox.Location = new System.Drawing.Point(57, 51);
+         this.tELL_PHON_DNRMTextBox.Location = new System.Drawing.Point(39, 51);
          this.tELL_PHON_DNRMTextBox.Name = "tELL_PHON_DNRMTextBox";
          this.tELL_PHON_DNRMTextBox.ReadOnly = true;
          this.tELL_PHON_DNRMTextBox.Size = new System.Drawing.Size(100, 22);
@@ -3695,6 +3719,14 @@
          // Grop10_Gb
          // 
          this.Grop10_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Grop10_Gb.Controls.Add(this.textBox44);
+         this.Grop10_Gb.Controls.Add(this.textBox45);
+         this.Grop10_Gb.Controls.Add(this.textBox46);
+         this.Grop10_Gb.Controls.Add(this.textBox47);
+         this.Grop10_Gb.Controls.Add(this.label6);
+         this.Grop10_Gb.Controls.Add(this.label7);
+         this.Grop10_Gb.Controls.Add(this.label8);
+         this.Grop10_Gb.Controls.Add(this.label9);
          this.Grop10_Gb.Controls.Add(this.label1);
          this.Grop10_Gb.Controls.Add(this.FathName1_Lb);
          this.Grop10_Gb.Controls.Add(this.IssuPlac_Lb);
@@ -3730,7 +3762,7 @@
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
-         this.label1.Location = new System.Drawing.Point(305, 119);
+         this.label1.Location = new System.Drawing.Point(258, 119);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(23, 19);
          this.label1.TabIndex = 79;
@@ -3765,28 +3797,28 @@
          // textBox41
          // 
          this.textBox41.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "FATH_WORK", true));
-         this.textBox41.Location = new System.Drawing.Point(39, 89);
+         this.textBox41.Location = new System.Drawing.Point(6, 89);
          this.textBox41.Name = "textBox41";
          this.textBox41.ReadOnly = true;
-         this.textBox41.Size = new System.Drawing.Size(194, 22);
+         this.textBox41.Size = new System.Drawing.Size(180, 22);
          this.textBox41.TabIndex = 23;
          // 
          // textBox40
          // 
          this.textBox40.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "ISSU_PLAC", true));
-         this.textBox40.Location = new System.Drawing.Point(39, 63);
+         this.textBox40.Location = new System.Drawing.Point(6, 63);
          this.textBox40.Name = "textBox40";
          this.textBox40.ReadOnly = true;
-         this.textBox40.Size = new System.Drawing.Size(194, 22);
+         this.textBox40.Size = new System.Drawing.Size(180, 22);
          this.textBox40.TabIndex = 23;
          // 
          // textBox37
          // 
          this.textBox37.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "BRTH_PLAC", true));
-         this.textBox37.Location = new System.Drawing.Point(39, 37);
+         this.textBox37.Location = new System.Drawing.Point(6, 37);
          this.textBox37.Name = "textBox37";
          this.textBox37.ReadOnly = true;
-         this.textBox37.Size = new System.Drawing.Size(194, 22);
+         this.textBox37.Size = new System.Drawing.Size(180, 22);
          this.textBox37.TabIndex = 23;
          // 
          // textEdit2
@@ -3868,7 +3900,7 @@
          // 
          this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "CHAT_ID_DNRM", true));
-         this.textBox9.Location = new System.Drawing.Point(133, 117);
+         this.textBox9.Location = new System.Drawing.Point(86, 117);
          this.textBox9.Name = "textBox9";
          this.textBox9.ReadOnly = true;
          this.textBox9.Size = new System.Drawing.Size(100, 22);
@@ -5386,7 +5418,7 @@
          // 
          // CochFileNo1_Clm
          // 
-         this.CochFileNo1_Clm.Caption = "مربی";
+         this.CochFileNo1_Clm.Caption = "سرپرست";
          this.CochFileNo1_Clm.FieldName = "Fighter.NAME_DNRM";
          this.CochFileNo1_Clm.Name = "CochFileNo1_Clm";
          this.CochFileNo1_Clm.OptionsColumn.AllowEdit = false;
@@ -5397,7 +5429,7 @@
          // 
          // MtodCode1_Lb
          // 
-         this.MtodCode1_Lb.Caption = "سبک";
+         this.MtodCode1_Lb.Caption = "گروه";
          this.MtodCode1_Lb.FieldName = "Method.MTOD_DESC";
          this.MtodCode1_Lb.Name = "MtodCode1_Lb";
          this.MtodCode1_Lb.OptionsColumn.AllowEdit = false;
@@ -5408,7 +5440,7 @@
          // 
          // CtgyCode1_Lb
          // 
-         this.CtgyCode1_Lb.Caption = "رسته";
+         this.CtgyCode1_Lb.Caption = "زیر گروه";
          this.CtgyCode1_Lb.FieldName = "Category_Belt.CTGY_DESC";
          this.CtgyCode1_Lb.Name = "CtgyCode1_Lb";
          this.CtgyCode1_Lb.OptionsColumn.AllowEdit = false;
@@ -6284,7 +6316,7 @@
          // 
          // CochFileNo2_Clm
          // 
-         this.CochFileNo2_Clm.Caption = "مربی";
+         this.CochFileNo2_Clm.Caption = "سرپرست";
          this.CochFileNo2_Clm.FieldName = "Fighter.NAME_DNRM";
          this.CochFileNo2_Clm.Name = "CochFileNo2_Clm";
          this.CochFileNo2_Clm.OptionsColumn.AllowEdit = false;
@@ -6346,6 +6378,166 @@
          this.Back_Butn.TabIndex = 0;
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
+         // 
+         // label2
+         // 
+         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(145, 108);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(117, 14);
+         this.label2.TabIndex = 10;
+         this.label2.Text = "شماره تلفن ثابت پدر :";
+         // 
+         // label3
+         // 
+         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label3.AutoSize = true;
+         this.label3.Location = new System.Drawing.Point(145, 82);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(125, 14);
+         this.label3.TabIndex = 8;
+         this.label3.Text = "شماره تلفن همراه پدر :";
+         // 
+         // textBox30
+         // 
+         this.textBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox30.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox30.Location = new System.Drawing.Point(39, 105);
+         this.textBox30.Name = "textBox30";
+         this.textBox30.ReadOnly = true;
+         this.textBox30.Size = new System.Drawing.Size(100, 22);
+         this.textBox30.TabIndex = 11;
+         // 
+         // textBox32
+         // 
+         this.textBox32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox32.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_CELL_PHON_DNRM", true));
+         this.textBox32.Location = new System.Drawing.Point(39, 79);
+         this.textBox32.Name = "textBox32";
+         this.textBox32.ReadOnly = true;
+         this.textBox32.Size = new System.Drawing.Size(100, 22);
+         this.textBox32.TabIndex = 9;
+         // 
+         // label4
+         // 
+         this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label4.AutoSize = true;
+         this.label4.Location = new System.Drawing.Point(145, 162);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(123, 14);
+         this.label4.TabIndex = 10;
+         this.label4.Text = "شماره تلفن ثابت مادر :";
+         // 
+         // label5
+         // 
+         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label5.AutoSize = true;
+         this.label5.Location = new System.Drawing.Point(145, 136);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(131, 14);
+         this.label5.TabIndex = 8;
+         this.label5.Text = "شماره تلفن همراه مادر :";
+         // 
+         // textBox34
+         // 
+         this.textBox34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox34.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox34.Location = new System.Drawing.Point(39, 159);
+         this.textBox34.Name = "textBox34";
+         this.textBox34.ReadOnly = true;
+         this.textBox34.Size = new System.Drawing.Size(100, 22);
+         this.textBox34.TabIndex = 11;
+         // 
+         // textBox43
+         // 
+         this.textBox43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox43.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "MOM_CELL_PHON_DNRM", true));
+         this.textBox43.Location = new System.Drawing.Point(39, 133);
+         this.textBox43.Name = "textBox43";
+         this.textBox43.ReadOnly = true;
+         this.textBox43.Size = new System.Drawing.Size(100, 22);
+         this.textBox43.TabIndex = 9;
+         // 
+         // textBox44
+         // 
+         this.textBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox44.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_CELL_PHON_DNRM", true));
+         this.textBox44.Location = new System.Drawing.Point(86, 199);
+         this.textBox44.Name = "textBox44";
+         this.textBox44.ReadOnly = true;
+         this.textBox44.Size = new System.Drawing.Size(100, 22);
+         this.textBox44.TabIndex = 82;
+         // 
+         // textBox45
+         // 
+         this.textBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox45.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_TELL_PHON_DNRM", true));
+         this.textBox45.Location = new System.Drawing.Point(86, 227);
+         this.textBox45.Name = "textBox45";
+         this.textBox45.ReadOnly = true;
+         this.textBox45.Size = new System.Drawing.Size(100, 22);
+         this.textBox45.TabIndex = 86;
+         // 
+         // textBox46
+         // 
+         this.textBox46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox46.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_CELL_PHON_DNRM", true));
+         this.textBox46.Location = new System.Drawing.Point(86, 145);
+         this.textBox46.Name = "textBox46";
+         this.textBox46.ReadOnly = true;
+         this.textBox46.Size = new System.Drawing.Size(100, 22);
+         this.textBox46.TabIndex = 83;
+         // 
+         // textBox47
+         // 
+         this.textBox47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox47.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox47.Location = new System.Drawing.Point(86, 171);
+         this.textBox47.Name = "textBox47";
+         this.textBox47.ReadOnly = true;
+         this.textBox47.Size = new System.Drawing.Size(100, 22);
+         this.textBox47.TabIndex = 87;
+         // 
+         // label6
+         // 
+         this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label6.AutoSize = true;
+         this.label6.Location = new System.Drawing.Point(192, 202);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(131, 14);
+         this.label6.TabIndex = 80;
+         this.label6.Text = "شماره تلفن همراه مادر :";
+         // 
+         // label7
+         // 
+         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label7.AutoSize = true;
+         this.label7.Location = new System.Drawing.Point(192, 148);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(125, 14);
+         this.label7.TabIndex = 81;
+         this.label7.Text = "شماره تلفن همراه پدر :";
+         // 
+         // label8
+         // 
+         this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label8.AutoSize = true;
+         this.label8.Location = new System.Drawing.Point(192, 230);
+         this.label8.Name = "label8";
+         this.label8.Size = new System.Drawing.Size(123, 14);
+         this.label8.TabIndex = 84;
+         this.label8.Text = "شماره تلفن ثابت مادر :";
+         // 
+         // label9
+         // 
+         this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label9.AutoSize = true;
+         this.label9.Location = new System.Drawing.Point(192, 174);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(117, 14);
+         this.label9.TabIndex = 85;
+         this.label9.Text = "شماره تلفن ثابت پدر :";
          // 
          // ALL_FLDF_F
          // 
@@ -6955,5 +7147,21 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton2;
       private DevExpress.XtraGrid.Columns.GridColumn colVALD_TYPE;
       private DevExpress.XtraGrid.Columns.GridColumn colREMN_DAY;
+      private Windows.Forms.TextBox textBox43;
+      private Windows.Forms.TextBox textBox34;
+      private Windows.Forms.TextBox textBox32;
+      private Windows.Forms.TextBox textBox30;
+      private Windows.Forms.Label label5;
+      private Windows.Forms.Label label3;
+      private Windows.Forms.Label label4;
+      private Windows.Forms.Label label2;
+      private Windows.Forms.TextBox textBox44;
+      private Windows.Forms.TextBox textBox45;
+      private Windows.Forms.TextBox textBox46;
+      private Windows.Forms.TextBox textBox47;
+      private Windows.Forms.Label label6;
+      private Windows.Forms.Label label7;
+      private Windows.Forms.Label label8;
+      private Windows.Forms.Label label9;
    }
 }

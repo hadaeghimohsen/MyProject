@@ -1037,9 +1037,9 @@ namespace System.Scsc.Ui.Common
             // 1395/11/26 * اگر مشترک غیرفعال باشد باید از لیست مربوط به مشترکین غیرفعال استفاده کرد
             var crntinfo = iScsc.Fighters.First(f => f.FILE_NO == fileno);
             if (Convert.ToInt32(crntinfo.ACTV_TAG_DNRM) <= 100)
-               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(fileno, null, null, null, null, null, null, null, null, null);
+               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(fileno, null, null, null, null, null, null, null, null, null, null, null, null, null);
             else
-               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Fighter(fileno, null, null, null, null, null, null, null, null, null);
+               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Fighter(fileno, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
             if (crntinfo.SEX_TYPE_DNRM == "001")
             {

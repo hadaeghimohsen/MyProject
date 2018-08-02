@@ -139,7 +139,14 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Intr_File_No", ""),
                               new XElement("Dpst_Acnt_Slry_Bank", DpstAcntSlryBank_Text2.EditValue ?? ""),
                               new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? ""),
-                              new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? "")
+                              new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? ""),
+                              new XElement("Dad_Cell_Phon", DadCellPhon_Txt.EditValue ?? ""),
+                              new XElement("Dad_Tell_Phon", DadTellPhon_Txt.EditValue ?? ""),
+                              new XElement("Dad_Chat_Id", DadChatId_Txt.EditValue ?? ""),
+                              new XElement("Mom_Cell_Phon", MomCellPhon_Txt.EditValue ?? ""),
+                              new XElement("Mom_Tell_Phon", MomTellPhon_Txt.EditValue ?? ""),
+                              new XElement("Mom_Chat_Id", MomChatId_Txt.EditValue ?? "")
+
                            )
                         )
                      )

@@ -43,6 +43,7 @@ namespace System.Scsc.Ui.MessageBroadcast
          MsgbBs6.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "006");
          MsgbBs7.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "007");
          MsgbBs8.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "008");
+         MsgbBs9.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "009");
          requery = false;
       }
 
@@ -66,6 +67,18 @@ namespace System.Scsc.Ui.MessageBroadcast
                break;
             case "Msgb_Text005":
                Msg_Count_Char005_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text006":
+               Msg_Count_Char006_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text007":
+               Msg_Count_Char007_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text008":
+               Msg_Count_Char009_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text009":
+               Msg_Count_Char009_Txt.Text = obj.Text.Length.ToString();
                break;
             default:
                break;
@@ -330,6 +343,7 @@ namespace System.Scsc.Ui.MessageBroadcast
             MsgbBs6.EndEdit();
             MsgbBs7.EndEdit();
             MsgbBs8.EndEdit();
+            MsgbBs9.EndEdit();
 
             iScsc.SubmitChanges();
             requery = true;

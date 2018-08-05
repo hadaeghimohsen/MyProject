@@ -3222,7 +3222,7 @@
          this.RqstBnDelete3.RightToLeftAutoMirrorImage = true;
          this.RqstBnDelete3.Size = new System.Drawing.Size(44, 44);
          this.RqstBnDelete3.Text = "Delete";
-         this.RqstBnDelete3.ToolTipText = "انصراف ثبت نام";
+         this.RqstBnDelete3.ToolTipText = "انصراف درخواست";
          this.RqstBnDelete3.Click += new System.EventHandler(this.Btn_RqstDelete3_Click);
          // 
          // RqstBnARqt3
@@ -3233,7 +3233,7 @@
          this.RqstBnARqt3.Name = "RqstBnARqt3";
          this.RqstBnARqt3.Size = new System.Drawing.Size(44, 44);
          this.RqstBnARqt3.Text = "Save Data";
-         this.RqstBnARqt3.ToolTipText = "ثبت مجدد اطلاعات";
+         this.RqstBnARqt3.ToolTipText = "ثبت موقت اطلاعات";
          this.RqstBnARqt3.Click += new System.EventHandler(this.Btn_RqstRqt3_Click);
          // 
          // toolStripSplitButton1

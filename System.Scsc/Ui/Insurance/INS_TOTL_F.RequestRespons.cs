@@ -409,6 +409,8 @@ namespace System.Scsc.Ui.Insurance
          #region Rqsw block
          RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
          DRcmtBs1.DataSource = iScsc.D_RCMTs;
+         DAtypBs1.DataSource = iScsc.D_ATYPs;
+         DPydsBs1.DataSource = iScsc.D_PYDS;
          //Execute_Query();
          
          DSxtpBs1.DataSource = iScsc.D_SXTPs;

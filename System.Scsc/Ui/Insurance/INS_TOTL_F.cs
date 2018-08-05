@@ -359,7 +359,7 @@ namespace System.Scsc.Ui.Insurance
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات پرداخت به صورت نقدی و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -408,7 +408,7 @@ namespace System.Scsc.Ui.Insurance
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات پرداخت توسط کارتخوان و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -547,5 +547,252 @@ namespace System.Scsc.Ui.Insurance
          );
       }
 
+      private void PydsType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
+            PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
+            if (PydsType_Lov.EditValue != null || PydsType_Lov.EditValue.ToString() != "") PydsType_Lov.EditValue = "002";
+
+            if (PydsType_Butn.Tag.ToString() == "0")
+            {
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
+               PydsAmnt_Txt.Properties.MaxLength = 3;
+            }
+            else
+            {
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
+               PydsAmnt_Txt.Properties.MaxLength = 0;
+            }
+         }
+         catch { }
+      }
+
+      private void RcmtType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
+            RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
+         }
+         catch { }
+      }
+
+      private void SavePyds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null) return;
+
+            int? amnt = null;
+            switch (PydsType_Butn.Tag.ToString())
+            {
+               case "0":
+                  if (!(Convert.ToInt32(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt32(PydsAmnt_Txt.EditValue) <= 100))
+                  {
+                     PydsAmnt_Txt.EditValue = null;
+                     PydsAmnt_Txt.Focus();
+                  }
+
+                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt32(PydsAmnt_Txt.EditValue)) / 100;
+                  break;
+               case "1":
+                  amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
+                  if (amnt == 0) return;
+                  break;
+            }
+
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text);
+
+            PydsAmnt_Txt.EditValue = null;
+            PydsDesc_Txt.EditValue = null;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DeltPyds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pyds = PydsBs1.Current as Data.Payment_Discount;
+            if (pyds == null) return;
+
+            iScsc.DEL_PYDS_P(pyds.PYMT_CASH_CODE, pyds.PYMT_RQST_RQID, pyds.RQRO_RWNO, pyds.RWNO);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SavePymt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            PymtDate_DateTime001.CommitChanges();
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null) return;
+
+            if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
+
+            switch (RcmtType_Butn.Tag.ToString())
+            {
+               case "0":
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "InsertUpdate"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID),
+                              new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
+                              new XAttribute("rcptmtod", "001"),
+                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                           )
+                        )
+                     )
+                  );
+                  break;
+               case "1":
+                  if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
+
+                  if (UsePos_Cb.Checked)
+                  {
+                     var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+                     long psid;
+                     if (Pos_Lov.EditValue == null)
+                     {
+                        var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                        if (posdflts.Count() == 1)
+                           Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                        else
+                        {
+                           Pos_Lov.Focus();
+                           return;
+                        }
+                     }
+                     else
+                     {
+                        psid = (long)Pos_Lov.EditValue;
+                     }
+
+                     if (regl.AMNT_TYPE == "002")
+                        PymtAmnt_Txt.EditValue = (long)PymtAmnt_Txt.EditValue * 10;
+
+                     // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+                     UsePos_Cb.Checked = false;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.External, "Commons",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 34 /* Execute PosPayment */)
+                                    {
+                                       Input = 
+                                          new XElement("PosRequest",
+                                             new XAttribute("psid", psid),
+                                             new XAttribute("subsys", 5),
+                                             new XAttribute("rqid", pymt.RQST_RQID),
+                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("router", GetType().Name),
+                                             new XAttribute("callback", 20),
+                                             new XAttribute("amnt", (long)PymtAmnt_Txt.EditValue )
+                                          )
+                                    }
+                                 }
+                              )
+                           }
+                        )
+                     );
+
+                     UsePos_Cb.Checked = true;
+                  }
+                  else
+                  {
+                     iScsc.PAY_MSAV_P(
+                        new XElement("Payment",
+                           new XAttribute("actntype", "InsertUpdate"),
+                           new XElement("Insert",
+                              new XElement("Payment_Method",
+                                 new XAttribute("cashcode", pymt.CASH_CODE),
+                                 new XAttribute("rqstrqid", pymt.RQST_RQID),
+                                 new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
+                                 new XAttribute("rcptmtod", "003"),
+                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                              )
+                           )
+                        )
+                     );
+                  }
+                  break;
+               default:
+                  break;
+            }
+
+            PymtAmnt_Txt.EditValue = null;
+            PymtDate_DateTime001.Value = DateTime.Now;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DeltPymt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pmmt = PmmtBs1.Current as Data.Payment_Method;
+            if (pmmt == null) return;
+
+            iScsc.PAY_MSAV_P(
+               new XElement("Payment",
+                  new XAttribute("actntype", "Delete"),
+                  new XAttribute("cashcode", pmmt.PYMT_CASH_CODE),
+                  new XAttribute("rqstrqid", pmmt.PYMT_RQST_RQID),
+                  new XAttribute("rwno", pmmt.RWNO)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

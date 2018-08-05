@@ -98,7 +98,7 @@
          this.AcesUserClubTitl_Lb.Name = "AcesUserClubTitl_Lb";
          this.AcesUserClubTitl_Lb.Size = new System.Drawing.Size(434, 59);
          this.AcesUserClubTitl_Lb.TabIndex = 1;
-         this.AcesUserClubTitl_Lb.Text = "دسترسی کاربران به شیفت باشگاه";
+         this.AcesUserClubTitl_Lb.Text = "دسترسی کاربران به بخش";
          // 
          // Back_Butn
          // 
@@ -132,7 +132,7 @@
          this.GrantUserToClub_Butn.Name = "GrantUserToClub_Butn";
          this.GrantUserToClub_Butn.Size = new System.Drawing.Size(268, 36);
          this.GrantUserToClub_Butn.TabIndex = 6;
-         this.GrantUserToClub_Butn.Text = "دسترسی کاربر به شیفت باشگاه";
+         this.GrantUserToClub_Butn.Text = "دسترسی کاربر به بخش";
          this.GrantUserToClub_Butn.ToolTip = "بازگشت";
          this.GrantUserToClub_Butn.Click += new System.EventHandler(this.GrantUserToClub_Butn_Click);
          // 
@@ -147,12 +147,12 @@
          this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc1_Lb.Location = new System.Drawing.Point(43, 65);
+         this.Desc1_Lb.Location = new System.Drawing.Point(48, 65);
          this.Desc1_Lb.Name = "Desc1_Lb";
-         this.Desc1_Lb.Size = new System.Drawing.Size(538, 46);
+         this.Desc1_Lb.Size = new System.Drawing.Size(518, 46);
          this.Desc1_Lb.TabIndex = 18;
-         this.Desc1_Lb.Text = "برای حفاظت از اطلاعات اعضا باشگاه می توانید مشخص کنید که چه کاربرهایی می توانند ب" +
-    "ه این اطلاعات دسترسی داشته باشند";
+         this.Desc1_Lb.Text = "برای حفاظت از اطلاعات اعضا بخش می توانید مشخص کنید که چه کاربرهایی می توانند به ا" +
+    "ین اطلاعات دسترسی داشته باشند";
          // 
          // UserBs
          // 
@@ -341,7 +341,7 @@
          this.RevokeUserFromClub_Butn.Name = "RevokeUserFromClub_Butn";
          this.RevokeUserFromClub_Butn.Size = new System.Drawing.Size(269, 36);
          this.RevokeUserFromClub_Butn.TabIndex = 7;
-         this.RevokeUserFromClub_Butn.Text = "گرفتن دسترسی کاربر از شیفت باشگاه";
+         this.RevokeUserFromClub_Butn.Text = "گرفتن دسترسی کاربر از بخش";
          this.RevokeUserFromClub_Butn.ToolTip = "بازگشت";
          this.RevokeUserFromClub_Butn.Click += new System.EventHandler(this.RevokeUserFromClub_Butn_Click);
          // 

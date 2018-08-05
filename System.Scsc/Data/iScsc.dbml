@@ -628,11 +628,11 @@
   <Table Name="dbo.Document_Spec" Member="Document_Specs">
     <Type Name="Document_Spec">
       <Column Name="DSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DCMT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DCMT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Document_Spec_Request_Document" Member="Request_Documents" ThisKey="DSID" OtherKey="DCMT_DSID" Type="Request_Document" />
     </Type>
     <InsertFunction FunctionId="FunctionId26">
@@ -769,16 +769,16 @@
   </Table>
   <Table Name="dbo.Request_Document" Member="Request_Documents">
     <Type Name="Request_Document">
-      <Column Name="DCMT_DSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQRQ_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DCMT_DSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQRQ_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="RDID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NEED_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ORIG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FRST_NEED" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NEED_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORIG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FRST_NEED" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Request_Document_Receive_Document" Member="Receive_Documents" ThisKey="RDID" OtherKey="RQDC_RDID" Type="Receive_Document" />
       <Association Name="Document_Spec_Request_Document" Member="Document_Spec" ThisKey="DCMT_DSID" OtherKey="DSID" Type="Document_Spec" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Request_Requester_Request_Document" Member="Request_Requester" ThisKey="RQRQ_CODE" OtherKey="CODE" Type="Request_Requester" IsForeignKey="true" DeleteRule="SET NULL" />

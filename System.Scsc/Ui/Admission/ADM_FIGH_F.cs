@@ -420,7 +420,7 @@ namespace System.Scsc.Ui.Admission
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات پرداخت به صورت نقدی و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -469,7 +469,7 @@ namespace System.Scsc.Ui.Admission
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات پرداخت توسط کارتخوان و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -885,7 +885,6 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-
       private void CBMT_CODE_GridLookUpEdit_Popup(object sender, EventArgs e)
       {
          try
@@ -1180,6 +1179,8 @@ namespace System.Scsc.Ui.Admission
                   );
                   break;
                case "1":
+                  if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
+
                   if (UsePos_Cb.Checked)
                   {
                      var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");

@@ -220,12 +220,14 @@
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.Gb_Expense = new System.Windows.Forms.GroupBox();
+         this.bn_PaymentMethods1 = new System.MaxUi.NewMaxBtn();
          this.RcmtType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PydsType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Pymt_Lb = new DevExpress.XtraEditors.LabelControl();
          this.TotlAmnt_Lb = new DevExpress.XtraEditors.LabelControl();
          this.DtilAmnt_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -406,8 +408,6 @@
          this.label1 = new System.Windows.Forms.Label();
          this.POST_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.label2 = new System.Windows.Forms.Label();
-         this.bn_PaymentMethods1 = new System.MaxUi.NewMaxBtn();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          label14 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
@@ -525,9 +525,9 @@
          this.CbmtCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.CbmtCode_Lb.Location = new System.Drawing.Point(908, 244);
          this.CbmtCode_Lb.Name = "CbmtCode_Lb";
-         this.CbmtCode_Lb.Size = new System.Drawing.Size(93, 14);
+         this.CbmtCode_Lb.Size = new System.Drawing.Size(76, 14);
          this.CbmtCode_Lb.TabIndex = 19;
-         this.CbmtCode_Lb.Text = "برنامه کلاسی *:";
+         this.CbmtCode_Lb.Text = "برنامه گروه *:";
          // 
          // CtgyCode_Lb
          // 
@@ -536,9 +536,9 @@
          this.CtgyCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.CtgyCode_Lb.Location = new System.Drawing.Point(908, 273);
          this.CtgyCode_Lb.Name = "CtgyCode_Lb";
-         this.CtgyCode_Lb.Size = new System.Drawing.Size(49, 14);
+         this.CtgyCode_Lb.Size = new System.Drawing.Size(53, 14);
          this.CtgyCode_Lb.TabIndex = 1;
-         this.CtgyCode_Lb.Text = "رسته *:";
+         this.CtgyCode_Lb.Text = "زیر گروه :";
          // 
          // NumbAttnMon_Lb
          // 
@@ -1658,6 +1658,29 @@
          this.Gb_Expense.Text = "اعلام هزینه";
          this.Gb_Expense.Visible = false;
          // 
+         // bn_PaymentMethods1
+         // 
+         this.bn_PaymentMethods1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.bn_PaymentMethods1.BackColor = System.Drawing.Color.BurlyWood;
+         this.bn_PaymentMethods1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bn_PaymentMethods1.Caption = "دریافت مرکب";
+         this.bn_PaymentMethods1.Disabled = false;
+         this.bn_PaymentMethods1.EnterColor = System.Drawing.Color.Transparent;
+         this.bn_PaymentMethods1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bn_PaymentMethods1.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.bn_PaymentMethods1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.bn_PaymentMethods1.ImageIndex = 2;
+         this.bn_PaymentMethods1.ImageList = this.im_images;
+         this.bn_PaymentMethods1.InToBold = false;
+         this.bn_PaymentMethods1.Location = new System.Drawing.Point(12, 200);
+         this.bn_PaymentMethods1.Name = "bn_PaymentMethods1";
+         this.bn_PaymentMethods1.Size = new System.Drawing.Size(122, 50);
+         this.bn_PaymentMethods1.TabIndex = 22;
+         this.bn_PaymentMethods1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.bn_PaymentMethods1.TextColor = System.Drawing.Color.Black;
+         this.bn_PaymentMethods1.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.bn_PaymentMethods1.Click += new System.EventHandler(this.bn_PaymentMethods1_Click);
+         // 
          // RcmtType_Butn
          // 
          this.RcmtType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1747,6 +1770,20 @@
          // VPosBs1
          // 
          this.VPosBs1.DataSource = typeof(System.Scsc.Data.V_Pos_Device);
+         // 
+         // labelControl1
+         // 
+         this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl1.LineVisible = true;
+         this.labelControl1.Location = new System.Drawing.Point(12, 409);
+         this.labelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.labelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl1.Name = "labelControl1";
+         this.labelControl1.Size = new System.Drawing.Size(472, 17);
+         this.labelControl1.TabIndex = 8;
+         this.labelControl1.Text = "مبلغ های تحفیف داده شده";
          // 
          // Pymt_Lb
          // 
@@ -3731,7 +3768,7 @@
          this.RqstBnDelete1.RightToLeftAutoMirrorImage = true;
          this.RqstBnDelete1.Size = new System.Drawing.Size(44, 44);
          this.RqstBnDelete1.Text = "Delete";
-         this.RqstBnDelete1.ToolTipText = "انصراف ثبت نام";
+         this.RqstBnDelete1.ToolTipText = "انصراف درخواست";
          this.RqstBnDelete1.Click += new System.EventHandler(this.Btn_RqstDelete1_Click);
          // 
          // RqstBnARqt1
@@ -3742,7 +3779,7 @@
          this.RqstBnARqt1.Name = "RqstBnARqt1";
          this.RqstBnARqt1.Size = new System.Drawing.Size(44, 44);
          this.RqstBnARqt1.Text = "Save Data";
-         this.RqstBnARqt1.ToolTipText = "ثبت مجدد اطلاعات";
+         this.RqstBnARqt1.ToolTipText = "ثبت موقت اطلاعات";
          this.RqstBnARqt1.Click += new System.EventHandler(this.Btn_RqstRqt1_Click);
          // 
          // RqstMBnDefaultPrint1
@@ -3868,7 +3905,7 @@
          this.MbspDesc_Lb.Name = "MbspDesc_Lb";
          this.MbspDesc_Lb.Size = new System.Drawing.Size(435, 17);
          this.MbspDesc_Lb.TabIndex = 8;
-         this.MbspDesc_Lb.Text = "اطلاعات دوره ورزشی";
+         this.MbspDesc_Lb.Text = "اطلاعات دوره";
          // 
          // Other_Desc
          // 
@@ -3951,43 +3988,6 @@
          this.label2.TabIndex = 66;
          this.label2.Text = "آدرس پستی :";
          this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-         // 
-         // bn_PaymentMethods3
-         // 
-         this.bn_PaymentMethods1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.bn_PaymentMethods1.BackColor = System.Drawing.Color.BurlyWood;
-         this.bn_PaymentMethods1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bn_PaymentMethods1.Caption = "دریافت مرکب";
-         this.bn_PaymentMethods1.Disabled = false;
-         this.bn_PaymentMethods1.EnterColor = System.Drawing.Color.Transparent;
-         this.bn_PaymentMethods1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.bn_PaymentMethods1.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bn_PaymentMethods1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.bn_PaymentMethods1.ImageIndex = 2;
-         this.bn_PaymentMethods1.ImageList = this.im_images;
-         this.bn_PaymentMethods1.InToBold = false;
-         this.bn_PaymentMethods1.Location = new System.Drawing.Point(12, 200);
-         this.bn_PaymentMethods1.Name = "bn_PaymentMethods3";
-         this.bn_PaymentMethods1.Size = new System.Drawing.Size(122, 50);
-         this.bn_PaymentMethods1.TabIndex = 22;
-         this.bn_PaymentMethods1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bn_PaymentMethods1.TextColor = System.Drawing.Color.Black;
-         this.bn_PaymentMethods1.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.bn_PaymentMethods1.Click += new System.EventHandler(this.bn_PaymentMethods1_Click);
-         // 
-         // labelControl1
-         // 
-         this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.LineVisible = true;
-         this.labelControl1.Location = new System.Drawing.Point(12, 409);
-         this.labelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.labelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(472, 17);
-         this.labelControl1.TabIndex = 8;
-         this.labelControl1.Text = "مبلغ های تحفیف داده شده";
          // 
          // ADM_FIGH_F
          // 

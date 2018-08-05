@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.Common
       private long fileno;
       private bool isFirstLoaded = false;
       private string RegnLang = "054";
+      private XElement HostNameInfo;
 
       public void SendRequest(Job job)
       {
@@ -129,6 +130,10 @@ namespace System.Scsc.Ui.Common
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
 
          #region Set Localization
          var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
@@ -1121,6 +1126,11 @@ namespace System.Scsc.Ui.Common
             DRcmtBs.DataSource = iScsc.D_RCMTs;
             DAtypBs.DataSource = iScsc.D_ATYPs;
             SuntBs1.DataSource = iScsc.Sub_Units;
+            DPydsBs1.DataSource = iScsc.D_PYDS;
+            VPosBs1.DataSource = iScsc.V_Pos_Devices;
+            if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+               Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+
 
             /*vF_TestBs.DataSource = iScsc.VF_Test(fileno);
             vF_CampititionBs.DataSource = iScsc.VF_Campitition(fileno);

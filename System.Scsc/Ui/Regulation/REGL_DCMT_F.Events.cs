@@ -72,6 +72,7 @@ namespace System.Scsc.Ui.Regulation
             }
 
             iScsc.SubmitChanges();*/
+            Rqdc_Gv.PostEditor();
             SubmitRqrq_Click(null, null);
             /*iScsc.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, iScsc.Request_Documents);
             request_DocumentsBindingSource.DataSource = regulationBindingSource;*/
@@ -130,7 +131,7 @@ namespace System.Scsc.Ui.Regulation
       {
          Pnl_Rqdc.Visible = true;
          RqdcBsAddNewItem.Enabled = false;
-         bindingNavigatorDeleteItem.Enabled = false;
+         DelRqdc_Butn.Enabled = false;
          SubmitRqdc.Enabled = false;
       }
 
@@ -162,7 +163,7 @@ namespace System.Scsc.Ui.Regulation
       {
          Pnl_Rqdc.Visible = false;
          RqdcBsAddNewItem.Enabled = true;
-         bindingNavigatorDeleteItem.Enabled = true;
+         DelRqdc_Butn.Enabled = true;
          SubmitRqdc.Enabled = true;
 
          iScsc.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, iScsc.Request_Documents);

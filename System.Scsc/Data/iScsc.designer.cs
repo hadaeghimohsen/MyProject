@@ -12878,7 +12878,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DCMT_DESC", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DCMT_DESC", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string DCMT_DESC
 		{
 			get
@@ -12898,7 +12898,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -12918,7 +12918,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -12938,7 +12938,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -12958,7 +12958,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -15014,7 +15014,7 @@ namespace System.Scsc.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DCMT_DSID", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DCMT_DSID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> DCMT_DSID
 		{
 			get
@@ -15038,7 +15038,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRQ_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRQ_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> RQRQ_CODE
 		{
 			get
@@ -15082,7 +15082,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEED_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEED_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string NEED_TYPE
 		{
 			get
@@ -15102,7 +15102,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORIG_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORIG_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ORIG_TYPE
 		{
 			get
@@ -15122,7 +15122,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NEED", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NEED", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string FRST_NEED
 		{
 			get
@@ -15142,7 +15142,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -15162,7 +15162,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -15182,7 +15182,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -15202,7 +15202,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get

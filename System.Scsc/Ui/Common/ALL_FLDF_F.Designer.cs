@@ -120,22 +120,24 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.TotlDebtAmnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -280,15 +282,23 @@
          this.colREMN_DAY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.panel1 = new System.Windows.Forms.Panel();
-         this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.PymtAmnt1_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DscnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ExpnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
          this.MbspInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.MbspValdType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Grop5_Gb = new System.Windows.Forms.GroupBox();
+         this.textBox43 = new System.Windows.Forms.TextBox();
+         this.textBox34 = new System.Windows.Forms.TextBox();
+         this.textBox32 = new System.Windows.Forms.TextBox();
+         this.textBox30 = new System.Windows.Forms.TextBox();
+         this.label5 = new System.Windows.Forms.Label();
          this.cELL_PHON_DNRMTextBox = new System.Windows.Forms.TextBox();
+         this.label3 = new System.Windows.Forms.Label();
+         this.label4 = new System.Windows.Forms.Label();
          this.tELL_PHON_DNRMTextBox = new System.Windows.Forms.TextBox();
+         this.label2 = new System.Windows.Forms.Label();
          this.Grop1_Gb = new System.Windows.Forms.GroupBox();
          this.label14 = new System.Windows.Forms.Label();
          this.textBox29 = new System.Windows.Forms.TextBox();
@@ -348,6 +358,14 @@
          this.textBox17 = new System.Windows.Forms.TextBox();
          this.textBox18 = new System.Windows.Forms.TextBox();
          this.Grop10_Gb = new System.Windows.Forms.GroupBox();
+         this.textBox44 = new System.Windows.Forms.TextBox();
+         this.textBox45 = new System.Windows.Forms.TextBox();
+         this.textBox46 = new System.Windows.Forms.TextBox();
+         this.textBox47 = new System.Windows.Forms.TextBox();
+         this.label6 = new System.Windows.Forms.Label();
+         this.label7 = new System.Windows.Forms.Label();
+         this.label8 = new System.Windows.Forms.Label();
+         this.label9 = new System.Windows.Forms.Label();
          this.label1 = new System.Windows.Forms.Label();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.textBox41 = new System.Windows.Forms.TextBox();
@@ -428,6 +446,12 @@
          this.textBox6 = new System.Windows.Forms.TextBox();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.UsePos_Cb = new System.Windows.Forms.CheckBox();
+         this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RcmtType_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
          this.PmmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView12 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -456,6 +480,16 @@
          this.colPayment2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PymtList_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.DeltPymt_Butn = new System.Windows.Forms.Button();
+         this.PymtDate_DateTime001 = new Atf.UI.DateTimeSelector();
+         this.SavePymt_Butn = new System.Windows.Forms.Button();
+         this.PydsDesc_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.DeltPyds_Butn = new System.Windows.Forms.Button();
+         this.SavePyds_Butn = new System.Windows.Forms.Button();
+         this.PydsType_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PydsAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.PydsType_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.DPydsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.PydsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView13 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -586,22 +620,6 @@
          this.panel2 = new System.Windows.Forms.Panel();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.label2 = new System.Windows.Forms.Label();
-         this.label3 = new System.Windows.Forms.Label();
-         this.textBox30 = new System.Windows.Forms.TextBox();
-         this.textBox32 = new System.Windows.Forms.TextBox();
-         this.label4 = new System.Windows.Forms.Label();
-         this.label5 = new System.Windows.Forms.Label();
-         this.textBox34 = new System.Windows.Forms.TextBox();
-         this.textBox43 = new System.Windows.Forms.TextBox();
-         this.textBox44 = new System.Windows.Forms.TextBox();
-         this.textBox45 = new System.Windows.Forms.TextBox();
-         this.textBox46 = new System.Windows.Forms.TextBox();
-         this.textBox47 = new System.Windows.Forms.TextBox();
-         this.label6 = new System.Windows.Forms.Label();
-         this.label7 = new System.Windows.Forms.Label();
-         this.label8 = new System.Windows.Forms.Label();
-         this.label9 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -628,7 +646,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
          this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt1_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).BeginInit();
          this.Grop5_Gb.SuspendLayout();
@@ -681,6 +699,9 @@
          this.splitContainerControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
          this.splitContainerControl3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PmmtBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView12)).BeginInit();
@@ -688,6 +709,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PydsDesc_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PydsAmnt_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PydsType_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView13)).BeginInit();
@@ -2492,7 +2517,7 @@
          // 
          // panel1
          // 
-         this.panel1.Controls.Add(this.PymtAmnt_Txt);
+         this.panel1.Controls.Add(this.PymtAmnt1_Txt);
          this.panel1.Controls.Add(this.DscnAmnt_Txt);
          this.panel1.Controls.Add(this.CyclPaymentAmnt);
          this.panel1.Controls.Add(this.ExpnAmnt_Txt);
@@ -2507,22 +2532,22 @@
          this.panel1.Size = new System.Drawing.Size(631, 72);
          this.panel1.TabIndex = 11;
          // 
-         // PymtAmnt_Txt
+         // PymtAmnt1_Txt
          // 
-         this.PymtAmnt_Txt.EditValue = "0";
-         this.PymtAmnt_Txt.Location = new System.Drawing.Point(13, 9);
-         this.PymtAmnt_Txt.Name = "PymtAmnt_Txt";
-         this.PymtAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.PymtAmnt_Txt.Properties.Appearance.Options.UseFont = true;
-         this.PymtAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.PymtAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.PymtAmnt_Txt.Properties.Mask.EditMask = "n0";
-         this.PymtAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.PymtAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.PymtAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PymtAmnt_Txt.Properties.ReadOnly = true;
-         this.PymtAmnt_Txt.Size = new System.Drawing.Size(100, 22);
-         this.PymtAmnt_Txt.TabIndex = 35;
+         this.PymtAmnt1_Txt.EditValue = "0";
+         this.PymtAmnt1_Txt.Location = new System.Drawing.Point(13, 9);
+         this.PymtAmnt1_Txt.Name = "PymtAmnt1_Txt";
+         this.PymtAmnt1_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PymtAmnt1_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PymtAmnt1_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PymtAmnt1_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PymtAmnt1_Txt.Properties.Mask.EditMask = "n0";
+         this.PymtAmnt1_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.PymtAmnt1_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.PymtAmnt1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.PymtAmnt1_Txt.Properties.ReadOnly = true;
+         this.PymtAmnt1_Txt.Size = new System.Drawing.Size(100, 22);
+         this.PymtAmnt1_Txt.TabIndex = 35;
          // 
          // DscnAmnt_Txt
          // 
@@ -2656,6 +2681,56 @@
          this.Grop5_Gb.TabStop = false;
          this.Grop5_Gb.Text = "اطلاعات دسترسی به مشتری :";
          // 
+         // textBox43
+         // 
+         this.textBox43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox43.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "MOM_CELL_PHON_DNRM", true));
+         this.textBox43.Location = new System.Drawing.Point(39, 133);
+         this.textBox43.Name = "textBox43";
+         this.textBox43.ReadOnly = true;
+         this.textBox43.Size = new System.Drawing.Size(100, 22);
+         this.textBox43.TabIndex = 9;
+         // 
+         // textBox34
+         // 
+         this.textBox34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox34.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox34.Location = new System.Drawing.Point(39, 159);
+         this.textBox34.Name = "textBox34";
+         this.textBox34.ReadOnly = true;
+         this.textBox34.Size = new System.Drawing.Size(100, 22);
+         this.textBox34.TabIndex = 11;
+         // 
+         // textBox32
+         // 
+         this.textBox32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox32.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_CELL_PHON_DNRM", true));
+         this.textBox32.Location = new System.Drawing.Point(39, 79);
+         this.textBox32.Name = "textBox32";
+         this.textBox32.ReadOnly = true;
+         this.textBox32.Size = new System.Drawing.Size(100, 22);
+         this.textBox32.TabIndex = 9;
+         // 
+         // textBox30
+         // 
+         this.textBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox30.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox30.Location = new System.Drawing.Point(39, 105);
+         this.textBox30.Name = "textBox30";
+         this.textBox30.ReadOnly = true;
+         this.textBox30.Size = new System.Drawing.Size(100, 22);
+         this.textBox30.TabIndex = 11;
+         // 
+         // label5
+         // 
+         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label5.AutoSize = true;
+         this.label5.Location = new System.Drawing.Point(145, 136);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(131, 14);
+         this.label5.TabIndex = 8;
+         this.label5.Text = "شماره تلفن همراه مادر :";
+         // 
          // cELL_PHON_DNRMTextBox
          // 
          this.cELL_PHON_DNRMTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2666,6 +2741,26 @@
          this.cELL_PHON_DNRMTextBox.Size = new System.Drawing.Size(100, 22);
          this.cELL_PHON_DNRMTextBox.TabIndex = 9;
          // 
+         // label3
+         // 
+         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label3.AutoSize = true;
+         this.label3.Location = new System.Drawing.Point(145, 82);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(125, 14);
+         this.label3.TabIndex = 8;
+         this.label3.Text = "شماره تلفن همراه پدر :";
+         // 
+         // label4
+         // 
+         this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label4.AutoSize = true;
+         this.label4.Location = new System.Drawing.Point(145, 162);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(123, 14);
+         this.label4.TabIndex = 10;
+         this.label4.Text = "شماره تلفن ثابت مادر :";
+         // 
          // tELL_PHON_DNRMTextBox
          // 
          this.tELL_PHON_DNRMTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2675,6 +2770,16 @@
          this.tELL_PHON_DNRMTextBox.ReadOnly = true;
          this.tELL_PHON_DNRMTextBox.Size = new System.Drawing.Size(100, 22);
          this.tELL_PHON_DNRMTextBox.TabIndex = 11;
+         // 
+         // label2
+         // 
+         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(145, 108);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(117, 14);
+         this.label2.TabIndex = 10;
+         this.label2.Text = "شماره تلفن ثابت پدر :";
          // 
          // Grop1_Gb
          // 
@@ -3758,6 +3863,86 @@
          this.Grop10_Gb.TabStop = false;
          this.Grop10_Gb.Text = "اطلاعات دسترسی به مشتری :";
          // 
+         // textBox44
+         // 
+         this.textBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox44.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_CELL_PHON_DNRM", true));
+         this.textBox44.Location = new System.Drawing.Point(86, 199);
+         this.textBox44.Name = "textBox44";
+         this.textBox44.ReadOnly = true;
+         this.textBox44.Size = new System.Drawing.Size(100, 22);
+         this.textBox44.TabIndex = 82;
+         // 
+         // textBox45
+         // 
+         this.textBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox45.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_TELL_PHON_DNRM", true));
+         this.textBox45.Location = new System.Drawing.Point(86, 227);
+         this.textBox45.Name = "textBox45";
+         this.textBox45.ReadOnly = true;
+         this.textBox45.Size = new System.Drawing.Size(100, 22);
+         this.textBox45.TabIndex = 86;
+         // 
+         // textBox46
+         // 
+         this.textBox46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox46.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_CELL_PHON_DNRM", true));
+         this.textBox46.Location = new System.Drawing.Point(86, 145);
+         this.textBox46.Name = "textBox46";
+         this.textBox46.ReadOnly = true;
+         this.textBox46.Size = new System.Drawing.Size(100, 22);
+         this.textBox46.TabIndex = 83;
+         // 
+         // textBox47
+         // 
+         this.textBox47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textBox47.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox47.Location = new System.Drawing.Point(86, 171);
+         this.textBox47.Name = "textBox47";
+         this.textBox47.ReadOnly = true;
+         this.textBox47.Size = new System.Drawing.Size(100, 22);
+         this.textBox47.TabIndex = 87;
+         // 
+         // label6
+         // 
+         this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label6.AutoSize = true;
+         this.label6.Location = new System.Drawing.Point(192, 202);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(131, 14);
+         this.label6.TabIndex = 80;
+         this.label6.Text = "شماره تلفن همراه مادر :";
+         // 
+         // label7
+         // 
+         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label7.AutoSize = true;
+         this.label7.Location = new System.Drawing.Point(192, 148);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(125, 14);
+         this.label7.TabIndex = 81;
+         this.label7.Text = "شماره تلفن همراه پدر :";
+         // 
+         // label8
+         // 
+         this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label8.AutoSize = true;
+         this.label8.Location = new System.Drawing.Point(192, 230);
+         this.label8.Name = "label8";
+         this.label8.Size = new System.Drawing.Size(123, 14);
+         this.label8.TabIndex = 84;
+         this.label8.Text = "شماره تلفن ثابت مادر :";
+         // 
+         // label9
+         // 
+         this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label9.AutoSize = true;
+         this.label9.Location = new System.Drawing.Point(192, 174);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(117, 14);
+         this.label9.TabIndex = 85;
+         this.label9.Text = "شماره تلفن ثابت پدر :";
+         // 
          // label1
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -4716,9 +4901,23 @@
          this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
          this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl3.Name = "splitContainerControl3";
+         this.splitContainerControl3.Panel1.Controls.Add(this.UsePos_Cb);
+         this.splitContainerControl3.Panel1.Controls.Add(this.PosStng_Butn);
+         this.splitContainerControl3.Panel1.Controls.Add(this.Pos_Lov);
+         this.splitContainerControl3.Panel1.Controls.Add(this.RcmtType_Butn);
+         this.splitContainerControl3.Panel1.Controls.Add(this.PymtAmnt_Txt);
          this.splitContainerControl3.Panel1.Controls.Add(this.gridControl3);
          this.splitContainerControl3.Panel1.Controls.Add(this.PymtList_Lb);
+         this.splitContainerControl3.Panel1.Controls.Add(this.DeltPymt_Butn);
+         this.splitContainerControl3.Panel1.Controls.Add(this.PymtDate_DateTime001);
+         this.splitContainerControl3.Panel1.Controls.Add(this.SavePymt_Butn);
          this.splitContainerControl3.Panel1.Text = "Panel1";
+         this.splitContainerControl3.Panel2.Controls.Add(this.PydsDesc_Txt);
+         this.splitContainerControl3.Panel2.Controls.Add(this.DeltPyds_Butn);
+         this.splitContainerControl3.Panel2.Controls.Add(this.SavePyds_Butn);
+         this.splitContainerControl3.Panel2.Controls.Add(this.PydsType_Butn);
+         this.splitContainerControl3.Panel2.Controls.Add(this.PydsAmnt_Txt);
+         this.splitContainerControl3.Panel2.Controls.Add(this.PydsType_Lov);
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl3.Panel2.Controls.Add(this.PydsList_Lb);
          this.splitContainerControl3.Panel2.Text = "Panel2";
@@ -4727,11 +4926,112 @@
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
          // 
+         // UsePos_Cb
+         // 
+         this.UsePos_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UsePos_Cb.AutoSize = true;
+         this.UsePos_Cb.Checked = true;
+         this.UsePos_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.UsePos_Cb.Location = new System.Drawing.Point(44, 53);
+         this.UsePos_Cb.Name = "UsePos_Cb";
+         this.UsePos_Cb.Size = new System.Drawing.Size(15, 14);
+         this.UsePos_Cb.TabIndex = 29;
+         this.UsePos_Cb.UseVisualStyleBackColor = true;
+         // 
+         // PosStng_Butn
+         // 
+         this.PosStng_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PosStng_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.PosStng_Butn.Appearance.Options.UseBackColor = true;
+         this.PosStng_Butn.Image = ((System.Drawing.Image)(resources.GetObject("PosStng_Butn.Image")));
+         this.PosStng_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.PosStng_Butn.Location = new System.Drawing.Point(65, 48);
+         this.PosStng_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PosStng_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PosStng_Butn.Name = "PosStng_Butn";
+         this.PosStng_Butn.Size = new System.Drawing.Size(18, 21);
+         this.PosStng_Butn.TabIndex = 28;
+         this.PosStng_Butn.Click += new System.EventHandler(this.PosStng_Butn_Click);
+         // 
+         // Pos_Lov
+         // 
+         this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Pos_Lov.Location = new System.Drawing.Point(8, 23);
+         this.Pos_Lov.Name = "Pos_Lov";
+         this.Pos_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pos_Lov.Properties.Appearance.Options.UseFont = true;
+         this.Pos_Lov.Properties.Appearance.Options.UseTextOptions = true;
+         this.Pos_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Pos_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pos_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
+         this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+         this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_TYPE", "BANK_TYPE", 77, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BNKB_CODE", "کد شعبه", 77, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BNKA_ACNT_NUMB", "شماره حساب", 117, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SHBA_CODE", "شماره شبا", 78, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POS_DESC", "عنوان پایانه فروش", 69, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("POS_DFLT", "POS_DFLT", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
+         this.Pos_Lov.Properties.DataSource = this.VPosBs1;
+         this.Pos_Lov.Properties.DisplayMember = "POS_DESC";
+         this.Pos_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Pos_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Pos_Lov.Properties.NullText = "";
+         this.Pos_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(600, 0);
+         this.Pos_Lov.Properties.ValueMember = "PSID";
+         this.Pos_Lov.Size = new System.Drawing.Size(79, 22);
+         this.Pos_Lov.TabIndex = 27;
+         // 
+         // VPosBs1
+         // 
+         this.VPosBs1.DataSource = typeof(System.Scsc.Data.V_Pos_Device);
+         // 
+         // RcmtType_Butn
+         // 
+         this.RcmtType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RcmtType_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+         this.RcmtType_Butn.Location = new System.Drawing.Point(223, 23);
+         this.RcmtType_Butn.Name = "RcmtType_Butn";
+         this.RcmtType_Butn.Size = new System.Drawing.Size(55, 22);
+         this.RcmtType_Butn.TabIndex = 22;
+         this.RcmtType_Butn.Tag = "0";
+         this.RcmtType_Butn.Text = "نقدی";
+         this.RcmtType_Butn.Click += new System.EventHandler(this.RcmtType_Butn_Click);
+         // 
+         // PymtAmnt_Txt
+         // 
+         this.PymtAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PymtAmnt_Txt.EditValue = "";
+         this.PymtAmnt_Txt.Location = new System.Drawing.Point(120, 51);
+         this.PymtAmnt_Txt.Name = "PymtAmnt_Txt";
+         this.PymtAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PymtAmnt_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PymtAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PymtAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PymtAmnt_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
+         this.PymtAmnt_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.PymtAmnt_Txt.Properties.EditFormat.FormatString = "{0:n0}";
+         this.PymtAmnt_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.PymtAmnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.PymtAmnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PymtAmnt_Txt.Properties.Mask.EditMask = "n0";
+         this.PymtAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.PymtAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.PymtAmnt_Txt.Size = new System.Drawing.Size(158, 22);
+         this.PymtAmnt_Txt.TabIndex = 23;
+         // 
          // gridControl3
          // 
+         this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl3.DataSource = this.PmmtBs1;
-         this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl3.Location = new System.Drawing.Point(0, 17);
+         this.gridControl3.Location = new System.Drawing.Point(0, 79);
          this.gridControl3.LookAndFeel.SkinName = "DevExpress Design";
          this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl3.MainView = this.gridView12;
@@ -4739,7 +5039,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl3.Size = new System.Drawing.Size(282, 296);
+         this.gridControl3.Size = new System.Drawing.Size(282, 234);
          this.gridControl3.TabIndex = 11;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});
@@ -4851,7 +5151,7 @@
          this.repositoryItemLookUpEdit3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.repositoryItemLookUpEdit3.AutoHeight = false;
          this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
          this.repositoryItemLookUpEdit3.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -4965,18 +5265,169 @@
          this.PymtList_Lb.TabIndex = 12;
          this.PymtList_Lb.Text = "مبلغ های پرداختی";
          // 
+         // DeltPymt_Butn
+         // 
+         this.DeltPymt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DeltPymt_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.DeltPymt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1418;
+         this.DeltPymt_Butn.Location = new System.Drawing.Point(89, 22);
+         this.DeltPymt_Butn.Name = "DeltPymt_Butn";
+         this.DeltPymt_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DeltPymt_Butn.TabIndex = 26;
+         this.DeltPymt_Butn.UseVisualStyleBackColor = true;
+         this.DeltPymt_Butn.Click += new System.EventHandler(this.DeltPymt_Butn_Click);
+         // 
+         // PymtDate_DateTime001
+         // 
+         this.PymtDate_DateTime001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PymtDate_DateTime001.CustomFormat = "dd/MM/yyyy";
+         this.PymtDate_DateTime001.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.PymtDate_DateTime001.Location = new System.Drawing.Point(120, 23);
+         this.PymtDate_DateTime001.Name = "PymtDate_DateTime001";
+         this.PymtDate_DateTime001.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.PymtDate_DateTime001.Size = new System.Drawing.Size(100, 23);
+         this.PymtDate_DateTime001.TabIndex = 24;
+         this.PymtDate_DateTime001.UsePersianFormat = true;
+         // 
+         // SavePymt_Butn
+         // 
+         this.SavePymt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SavePymt_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.SavePymt_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
+         this.SavePymt_Butn.Location = new System.Drawing.Point(89, 48);
+         this.SavePymt_Butn.Name = "SavePymt_Butn";
+         this.SavePymt_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SavePymt_Butn.TabIndex = 25;
+         this.SavePymt_Butn.UseVisualStyleBackColor = true;
+         this.SavePymt_Butn.Click += new System.EventHandler(this.SavePymt_Butn_Click);
+         // 
+         // PydsDesc_Txt
+         // 
+         this.PydsDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsDesc_Txt.Location = new System.Drawing.Point(64, 51);
+         this.PydsDesc_Txt.Name = "PydsDesc_Txt";
+         this.PydsDesc_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PydsDesc_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PydsDesc_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PydsDesc_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PydsDesc_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.PydsDesc_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PydsDesc_Txt.Properties.NullText = "شرح تخفیف";
+         this.PydsDesc_Txt.Properties.NullValuePrompt = "شرح تخفیف";
+         this.PydsDesc_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.PydsDesc_Txt.Size = new System.Drawing.Size(187, 22);
+         this.PydsDesc_Txt.TabIndex = 18;
+         // 
+         // DeltPyds_Butn
+         // 
+         this.DeltPyds_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DeltPyds_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.DeltPyds_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1418;
+         this.DeltPyds_Butn.Location = new System.Drawing.Point(6, 50);
+         this.DeltPyds_Butn.Name = "DeltPyds_Butn";
+         this.DeltPyds_Butn.Size = new System.Drawing.Size(25, 25);
+         this.DeltPyds_Butn.TabIndex = 20;
+         this.DeltPyds_Butn.UseVisualStyleBackColor = true;
+         this.DeltPyds_Butn.Click += new System.EventHandler(this.DeltPyds_Butn_Click);
+         // 
+         // SavePyds_Butn
+         // 
+         this.SavePyds_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SavePyds_Butn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.SavePyds_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
+         this.SavePyds_Butn.Location = new System.Drawing.Point(33, 50);
+         this.SavePyds_Butn.Name = "SavePyds_Butn";
+         this.SavePyds_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SavePyds_Butn.TabIndex = 19;
+         this.SavePyds_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.SavePyds_Butn.UseVisualStyleBackColor = true;
+         this.SavePyds_Butn.Click += new System.EventHandler(this.SavePyds_Butn_Click);
+         // 
+         // PydsType_Butn
+         // 
+         this.PydsType_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsType_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+         this.PydsType_Butn.Location = new System.Drawing.Point(196, 23);
+         this.PydsType_Butn.Name = "PydsType_Butn";
+         this.PydsType_Butn.Size = new System.Drawing.Size(55, 22);
+         this.PydsType_Butn.TabIndex = 15;
+         this.PydsType_Butn.Tag = "0";
+         this.PydsType_Butn.Text = "درصدی";
+         this.PydsType_Butn.Click += new System.EventHandler(this.PydsType_Butn_Click);
+         // 
+         // PydsAmnt_Txt
+         // 
+         this.PydsAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsAmnt_Txt.EditValue = "0";
+         this.PydsAmnt_Txt.Location = new System.Drawing.Point(112, 23);
+         this.PydsAmnt_Txt.Name = "PydsAmnt_Txt";
+         this.PydsAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PydsAmnt_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PydsAmnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PydsAmnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PydsAmnt_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
+         this.PydsAmnt_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.PydsAmnt_Txt.Properties.EditFormat.FormatString = "{0:n0}";
+         this.PydsAmnt_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.PydsAmnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.PydsAmnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PydsAmnt_Txt.Properties.Mask.EditMask = "n0";
+         this.PydsAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.PydsAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.PydsAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.PydsAmnt_Txt.Size = new System.Drawing.Size(78, 22);
+         this.PydsAmnt_Txt.TabIndex = 16;
+         // 
+         // PydsType_Lov
+         // 
+         this.PydsType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PydsType_Lov.EditValue = "002";
+         this.PydsType_Lov.Location = new System.Drawing.Point(6, 23);
+         this.PydsType_Lov.Name = "PydsType_Lov";
+         this.PydsType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PydsType_Lov.Properties.Appearance.Options.UseFont = true;
+         this.PydsType_Lov.Properties.Appearance.Options.UseTextOptions = true;
+         this.PydsType_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.PydsType_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PydsType_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
+         this.PydsType_Lov.Properties.AppearanceDropDown.Options.UseTextOptions = true;
+         this.PydsType_Lov.Properties.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.PydsType_Lov.Properties.AppearanceDropDownHeader.Options.UseTextOptions = true;
+         this.PydsType_Lov.Properties.AppearanceDropDownHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.PydsType_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PydsType_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PydsType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+         this.PydsType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 53, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع تخفیف", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.PydsType_Lov.Properties.DataSource = this.DPydsBs1;
+         this.PydsType_Lov.Properties.DisplayMember = "DOMN_DESC";
+         this.PydsType_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.PydsType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PydsType_Lov.Properties.NullText = "";
+         this.PydsType_Lov.Properties.ValueMember = "VALU";
+         this.PydsType_Lov.Size = new System.Drawing.Size(100, 22);
+         this.PydsType_Lov.TabIndex = 17;
+         // 
+         // DPydsBs1
+         // 
+         this.DPydsBs1.DataSource = typeof(System.Scsc.Data.D_PYDS);
+         // 
          // gridControl4
          // 
+         this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl4.DataSource = this.PydsBs1;
-         this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl4.Location = new System.Drawing.Point(0, 17);
+         this.gridControl4.Location = new System.Drawing.Point(0, 79);
          this.gridControl4.LookAndFeel.SkinName = "VS2010";
          this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl4.MainView = this.gridView13;
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(254, 296);
+         this.gridControl4.Size = new System.Drawing.Size(254, 234);
          this.gridControl4.TabIndex = 13;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView13});
@@ -5132,7 +5583,7 @@
          this.repositoryItemLookUpEdit2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.repositoryItemLookUpEdit2.AutoHeight = false;
          this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
          this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -5325,7 +5776,7 @@
          this.LOV_RCTP.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.LOV_RCTP.AutoHeight = false;
          this.LOV_RCTP.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
          this.LOV_RCTP.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -5409,9 +5860,9 @@
          // 
          this.Pydt_Butn.AutoHeight = false;
          this.Pydt_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Pydt_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Pydt_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Pydt_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "تعویض کردن هزینه و کلاس", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Pydt_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Pydt_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Pydt_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "تعویض کردن هزینه و کلاس", null, null, true)});
          this.Pydt_Butn.Name = "Pydt_Butn";
          this.Pydt_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Pydt_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Pydt_Butn_ButtonClick);
@@ -5957,7 +6408,7 @@
          // 
          this.HL_InvsRqst.AutoHeight = false;
          this.HL_InvsRqst.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "...", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "...", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
          this.HL_InvsRqst.Name = "HL_InvsRqst";
          this.HL_InvsRqst.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.HL_InvsRqst_ButtonClick);
          // 
@@ -6306,10 +6757,10 @@
          // 
          this.ActnAttn_Butn.AutoHeight = false;
          this.ActnAttn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "مشاهده اطلاعات عمومی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "ثبت خروج", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "ابطال رکورد", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "نمایش حضوری", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "مشاهده اطلاعات عمومی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "ثبت خروج", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "ابطال رکورد", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "نمایش حضوری", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnAttn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "", null, null, true)});
          this.ActnAttn_Butn.Name = "ActnAttn_Butn";
          this.ActnAttn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.ActnAttn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActnAttn_Butn_ButtonClick);
@@ -6379,166 +6830,6 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // label2
-         // 
-         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label2.AutoSize = true;
-         this.label2.Location = new System.Drawing.Point(145, 108);
-         this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(117, 14);
-         this.label2.TabIndex = 10;
-         this.label2.Text = "شماره تلفن ثابت پدر :";
-         // 
-         // label3
-         // 
-         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label3.AutoSize = true;
-         this.label3.Location = new System.Drawing.Point(145, 82);
-         this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(125, 14);
-         this.label3.TabIndex = 8;
-         this.label3.Text = "شماره تلفن همراه پدر :";
-         // 
-         // textBox30
-         // 
-         this.textBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox30.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_TELL_PHON_DNRM", true));
-         this.textBox30.Location = new System.Drawing.Point(39, 105);
-         this.textBox30.Name = "textBox30";
-         this.textBox30.ReadOnly = true;
-         this.textBox30.Size = new System.Drawing.Size(100, 22);
-         this.textBox30.TabIndex = 11;
-         // 
-         // textBox32
-         // 
-         this.textBox32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox32.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_CELL_PHON_DNRM", true));
-         this.textBox32.Location = new System.Drawing.Point(39, 79);
-         this.textBox32.Name = "textBox32";
-         this.textBox32.ReadOnly = true;
-         this.textBox32.Size = new System.Drawing.Size(100, 22);
-         this.textBox32.TabIndex = 9;
-         // 
-         // label4
-         // 
-         this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label4.AutoSize = true;
-         this.label4.Location = new System.Drawing.Point(145, 162);
-         this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(123, 14);
-         this.label4.TabIndex = 10;
-         this.label4.Text = "شماره تلفن ثابت مادر :";
-         // 
-         // label5
-         // 
-         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label5.AutoSize = true;
-         this.label5.Location = new System.Drawing.Point(145, 136);
-         this.label5.Name = "label5";
-         this.label5.Size = new System.Drawing.Size(131, 14);
-         this.label5.TabIndex = 8;
-         this.label5.Text = "شماره تلفن همراه مادر :";
-         // 
-         // textBox34
-         // 
-         this.textBox34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox34.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "DAD_TELL_PHON_DNRM", true));
-         this.textBox34.Location = new System.Drawing.Point(39, 159);
-         this.textBox34.Name = "textBox34";
-         this.textBox34.ReadOnly = true;
-         this.textBox34.Size = new System.Drawing.Size(100, 22);
-         this.textBox34.TabIndex = 11;
-         // 
-         // textBox43
-         // 
-         this.textBox43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox43.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "MOM_CELL_PHON_DNRM", true));
-         this.textBox43.Location = new System.Drawing.Point(39, 133);
-         this.textBox43.Name = "textBox43";
-         this.textBox43.ReadOnly = true;
-         this.textBox43.Size = new System.Drawing.Size(100, 22);
-         this.textBox43.TabIndex = 9;
-         // 
-         // textBox44
-         // 
-         this.textBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox44.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_CELL_PHON_DNRM", true));
-         this.textBox44.Location = new System.Drawing.Point(86, 199);
-         this.textBox44.Name = "textBox44";
-         this.textBox44.ReadOnly = true;
-         this.textBox44.Size = new System.Drawing.Size(100, 22);
-         this.textBox44.TabIndex = 82;
-         // 
-         // textBox45
-         // 
-         this.textBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox45.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_TELL_PHON_DNRM", true));
-         this.textBox45.Location = new System.Drawing.Point(86, 227);
-         this.textBox45.Name = "textBox45";
-         this.textBox45.ReadOnly = true;
-         this.textBox45.Size = new System.Drawing.Size(100, 22);
-         this.textBox45.TabIndex = 86;
-         // 
-         // textBox46
-         // 
-         this.textBox46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox46.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_CELL_PHON_DNRM", true));
-         this.textBox46.Location = new System.Drawing.Point(86, 145);
-         this.textBox46.Name = "textBox46";
-         this.textBox46.ReadOnly = true;
-         this.textBox46.Size = new System.Drawing.Size(100, 22);
-         this.textBox46.TabIndex = 83;
-         // 
-         // textBox47
-         // 
-         this.textBox47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox47.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_TELL_PHON_DNRM", true));
-         this.textBox47.Location = new System.Drawing.Point(86, 171);
-         this.textBox47.Name = "textBox47";
-         this.textBox47.ReadOnly = true;
-         this.textBox47.Size = new System.Drawing.Size(100, 22);
-         this.textBox47.TabIndex = 87;
-         // 
-         // label6
-         // 
-         this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label6.AutoSize = true;
-         this.label6.Location = new System.Drawing.Point(192, 202);
-         this.label6.Name = "label6";
-         this.label6.Size = new System.Drawing.Size(131, 14);
-         this.label6.TabIndex = 80;
-         this.label6.Text = "شماره تلفن همراه مادر :";
-         // 
-         // label7
-         // 
-         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label7.AutoSize = true;
-         this.label7.Location = new System.Drawing.Point(192, 148);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(125, 14);
-         this.label7.TabIndex = 81;
-         this.label7.Text = "شماره تلفن همراه پدر :";
-         // 
-         // label8
-         // 
-         this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label8.AutoSize = true;
-         this.label8.Location = new System.Drawing.Point(192, 230);
-         this.label8.Name = "label8";
-         this.label8.Size = new System.Drawing.Size(123, 14);
-         this.label8.TabIndex = 84;
-         this.label8.Text = "شماره تلفن ثابت مادر :";
-         // 
-         // label9
-         // 
-         this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label9.AutoSize = true;
-         this.label9.Location = new System.Drawing.Point(192, 174);
-         this.label9.Name = "label9";
-         this.label9.Size = new System.Drawing.Size(117, 14);
-         this.label9.TabIndex = 85;
-         this.label9.Text = "شماره تلفن ثابت پدر :";
-         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6581,7 +6872,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
          this.panel1.ResumeLayout(false);
          this.panel1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt1_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).EndInit();
          this.Grop5_Gb.ResumeLayout(false);
@@ -6647,6 +6938,9 @@
          this.splitContainerControl2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
          this.splitContainerControl3.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PmmtBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView12)).EndInit();
@@ -6654,6 +6948,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PydsDesc_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PydsAmnt_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PydsType_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView13)).EndInit();
@@ -7043,7 +7341,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn CyclAttnRemn_Clm;
       private MaxUi.RoundedButton UserProFile_Rb;
       private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.TextEdit PymtAmnt_Txt;
+      private DevExpress.XtraEditors.TextEdit PymtAmnt1_Txt;
       private DevExpress.XtraEditors.TextEdit DscnAmnt_Txt;
       private DevExpress.XtraEditors.TextEdit ExpnAmnt_Txt;
       private DevExpress.XtraEditors.SimpleButton MbspValdType_Butn;
@@ -7163,5 +7461,21 @@
       private Windows.Forms.Label label7;
       private Windows.Forms.Label label8;
       private Windows.Forms.Label label9;
+      private DevExpress.XtraEditors.SimpleButton RcmtType_Butn;
+      private DevExpress.XtraEditors.TextEdit PymtAmnt_Txt;
+      private Windows.Forms.Button DeltPymt_Butn;
+      private Atf.UI.DateTimeSelector PymtDate_DateTime001;
+      private Windows.Forms.Button SavePymt_Butn;
+      private DevExpress.XtraEditors.SimpleButton PydsType_Butn;
+      private DevExpress.XtraEditors.TextEdit PydsAmnt_Txt;
+      private DevExpress.XtraEditors.LookUpEdit PydsType_Lov;
+      private DevExpress.XtraEditors.TextEdit PydsDesc_Txt;
+      private Windows.Forms.Button DeltPyds_Butn;
+      private Windows.Forms.Button SavePyds_Butn;
+      private DevExpress.XtraEditors.LookUpEdit Pos_Lov;
+      private Windows.Forms.BindingSource VPosBs1;
+      private Windows.Forms.BindingSource DPydsBs1;
+      private Windows.Forms.CheckBox UsePos_Cb;
+      private DevExpress.XtraEditors.SimpleButton PosStng_Butn;
    }
 }

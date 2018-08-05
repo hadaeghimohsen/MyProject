@@ -138,6 +138,8 @@ namespace System.Scsc.Ui.Regulation
          RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
          GV_RQRQ.TopRowIndex = CrntRqrq;
          RqrqBs.Position = CrntRqrq;
+         RqrqBs.MoveNext();
+         RqrqBs.MovePrevious();
          EXTPBS.Position = CrntExtp;
          ExpnBs.Position = CrntExpn;
          EXCSBS.Position = CrntExcs;
@@ -451,6 +453,28 @@ namespace System.Scsc.Ui.Regulation
             iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, null, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND);
          }
          catch { }
+      }
+
+      private void DelRqdc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqdc = RqdcBs2.Current as Data.Request_Document;
+            if (rqdc == null) return;
+
+            iScsc.DEL_RQDC_P(rqdc.RDID);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+               Execute_Query();
+         }
       }
 
    }

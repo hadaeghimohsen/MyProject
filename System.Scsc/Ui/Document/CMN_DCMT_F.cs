@@ -372,5 +372,15 @@ namespace System.Scsc.Ui.Document
             }
          }
       }
+
+      private void receive_DocumentBindingSource_CurrentChanged(object sender, EventArgs e)
+      {
+         TC_Dcmt_SelectedIndexChanged(null, null);
+      }
+
+      private void CB_ImageSize1_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         CB_ImageSize.SelectedIndex = CB_ImageSize1.SelectedIndex;
+      }
    }
 }

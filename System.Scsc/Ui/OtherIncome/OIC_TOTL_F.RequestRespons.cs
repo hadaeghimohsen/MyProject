@@ -401,7 +401,7 @@ namespace System.Scsc.Ui.OtherIncome
          UserProFile_Rb.ImageVisiable = true;
          #region Rqsw block
          //FighsBs1.DataSource = iScsc.VF_Fighters(new XElement("Fighter")).Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006"));
-         FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
+         //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
          RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          DCyclBs1.DataSource = iScsc.D_CYCLs;
@@ -412,6 +412,7 @@ namespace System.Scsc.Ui.OtherIncome
          DDytpBs.DataSource = iScsc.D_DYTPs;
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
+         DPydsBs1.DataSource = iScsc.D_PYDS;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

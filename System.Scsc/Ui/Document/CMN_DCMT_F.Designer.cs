@@ -129,6 +129,22 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.CB_ImageSize1 = new System.Windows.Forms.ComboBox();
+         this.button1 = new System.Windows.Forms.Button();
+         this.label1 = new System.Windows.Forms.Label();
          this.TC_Dcmt.SuspendLayout();
          this.tp_001.SuspendLayout();
          this.Dcmt_Gb.SuspendLayout();
@@ -166,6 +182,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.pb_source)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          this.SuspendLayout();
          // 
          // StrtDate_Lb
@@ -406,6 +427,7 @@
          // receive_DocumentBindingSource
          // 
          this.receive_DocumentBindingSource.DataSource = typeof(System.Scsc.Data.Receive_Document);
+         this.receive_DocumentBindingSource.CurrentChanged += new System.EventHandler(this.receive_DocumentBindingSource_CurrentChanged);
          // 
          // dPRSTBindingSource
          // 
@@ -777,6 +799,10 @@
          // 
          // Image_Gb
          // 
+         this.Image_Gb.Controls.Add(this.CB_ImageSize1);
+         this.Image_Gb.Controls.Add(this.button1);
+         this.Image_Gb.Controls.Add(this.label1);
+         this.Image_Gb.Controls.Add(this.gridControl1);
          this.Image_Gb.Controls.Add(this.Btn_SetProfileImage);
          this.Image_Gb.Controls.Add(this.Bt_RemvImage);
          this.Image_Gb.Controls.Add(this.UD_Interpolation);
@@ -929,12 +955,12 @@
          this.PE_ImageShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.PE_ImageShow.Location = new System.Drawing.Point(15, 125);
+         this.PE_ImageShow.Location = new System.Drawing.Point(15, 239);
          this.PE_ImageShow.Name = "PE_ImageShow";
          this.PE_ImageShow.Properties.AllowScrollViaMouseDrag = false;
          this.PE_ImageShow.Properties.LookAndFeel.SkinName = "Office 2010 Blue";
          this.PE_ImageShow.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PE_ImageShow.Size = new System.Drawing.Size(830, 583);
+         this.PE_ImageShow.Size = new System.Drawing.Size(830, 469);
          this.PE_ImageShow.TabIndex = 0;
          // 
          // tp_003
@@ -1419,6 +1445,212 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.mb_back_Click);
          // 
+         // gridControl1
+         // 
+         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl1.DataSource = this.receive_DocumentBindingSource;
+         this.gridControl1.Location = new System.Drawing.Point(15, 125);
+         this.gridControl1.LookAndFeel.SkinName = "DevExpress Design";
+         this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl1.MainView = this.gridView2;
+         this.gridControl1.Name = "gridControl1";
+         this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit1,
+            this.repositoryItemLookUpEdit2,
+            this.repositoryItemLookUpEdit3});
+         this.gridControl1.Size = new System.Drawing.Size(830, 108);
+         this.gridControl1.TabIndex = 12;
+         this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+         // 
+         // gridView2
+         // 
+         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView2.Appearance.Row.Options.UseFont = true;
+         this.gridView2.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8});
+         this.gridView2.GridControl = this.gridControl1;
+         this.gridView2.Name = "gridView2";
+         this.gridView2.OptionsBehavior.Editable = false;
+         this.gridView2.OptionsBehavior.ReadOnly = true;
+         this.gridView2.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView2.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView2.OptionsView.ShowGroupPanel = false;
+         this.gridView2.OptionsView.ShowIndicator = false;
+         // 
+         // gridColumn1
+         // 
+         this.gridColumn1.Caption = "کد نوع تقاضا";
+         this.gridColumn1.FieldName = "Request_Document.Request_Requester.RQTP_CODE";
+         this.gridColumn1.MaxWidth = 70;
+         this.gridColumn1.Name = "gridColumn1";
+         this.gridColumn1.Visible = true;
+         this.gridColumn1.VisibleIndex = 7;
+         this.gridColumn1.Width = 63;
+         // 
+         // gridColumn2
+         // 
+         this.gridColumn2.Caption = "شرح تقاضا";
+         this.gridColumn2.FieldName = "Request_Document.Request_Requester.Request_Type.RQTP_DESC";
+         this.gridColumn2.MaxWidth = 120;
+         this.gridColumn2.Name = "gridColumn2";
+         this.gridColumn2.Visible = true;
+         this.gridColumn2.VisibleIndex = 6;
+         this.gridColumn2.Width = 86;
+         // 
+         // gridColumn3
+         // 
+         this.gridColumn3.Caption = "کد نوع متقاضی";
+         this.gridColumn3.FieldName = "Request_Document.Request_Requester.RQTT_CODE";
+         this.gridColumn3.MaxWidth = 90;
+         this.gridColumn3.Name = "gridColumn3";
+         this.gridColumn3.Visible = true;
+         this.gridColumn3.VisibleIndex = 5;
+         this.gridColumn3.Width = 90;
+         // 
+         // gridColumn4
+         // 
+         this.gridColumn4.Caption = "شرح متقاضی";
+         this.gridColumn4.FieldName = "Request_Document.Request_Requester.Requester_Type.RQTT_DESC";
+         this.gridColumn4.MaxWidth = 120;
+         this.gridColumn4.Name = "gridColumn4";
+         this.gridColumn4.Visible = true;
+         this.gridColumn4.VisibleIndex = 4;
+         this.gridColumn4.Width = 93;
+         // 
+         // gridColumn5
+         // 
+         this.gridColumn5.Caption = "شرح مدرک";
+         this.gridColumn5.FieldName = "Request_Document.Document_Spec.DCMT_DESC";
+         this.gridColumn5.Name = "gridColumn5";
+         this.gridColumn5.Visible = true;
+         this.gridColumn5.VisibleIndex = 3;
+         // 
+         // gridColumn6
+         // 
+         this.gridColumn6.Caption = "نوع نياز";
+         this.gridColumn6.ColumnEdit = this.repositoryItemLookUpEdit1;
+         this.gridColumn6.FieldName = "Request_Document.NEED_TYPE";
+         this.gridColumn6.MaxWidth = 70;
+         this.gridColumn6.Name = "gridColumn6";
+         this.gridColumn6.Visible = true;
+         this.gridColumn6.VisibleIndex = 2;
+         this.gridColumn6.Width = 70;
+         // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع نیاز", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit1.DataSource = this.dDCNDBindingSource;
+         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
+         // 
+         // gridColumn7
+         // 
+         this.gridColumn7.Caption = "اصل / کپی";
+         this.gridColumn7.ColumnEdit = this.repositoryItemLookUpEdit2;
+         this.gridColumn7.FieldName = "Request_Document.ORIG_TYPE";
+         this.gridColumn7.MaxWidth = 70;
+         this.gridColumn7.Name = "gridColumn7";
+         this.gridColumn7.Visible = true;
+         this.gridColumn7.VisibleIndex = 1;
+         this.gridColumn7.Width = 70;
+         // 
+         // repositoryItemLookUpEdit2
+         // 
+         this.repositoryItemLookUpEdit2.AutoHeight = false;
+         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "اصل / کپی", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit2.DataSource = this.dDCTPBindingSource;
+         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
+         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
+         // 
+         // gridColumn8
+         // 
+         this.gridColumn8.Caption = "نیاز در ابتدا";
+         this.gridColumn8.ColumnEdit = this.repositoryItemLookUpEdit3;
+         this.gridColumn8.FieldName = "Request_Document.FRST_NEED";
+         this.gridColumn8.MaxWidth = 70;
+         this.gridColumn8.Name = "gridColumn8";
+         this.gridColumn8.Visible = true;
+         this.gridColumn8.VisibleIndex = 0;
+         this.gridColumn8.Width = 70;
+         // 
+         // repositoryItemLookUpEdit3
+         // 
+         this.repositoryItemLookUpEdit3.AutoHeight = false;
+         this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit3.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نیاز در ابتدا", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit3.DataSource = this.dYSNOBindingSource;
+         this.repositoryItemLookUpEdit3.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
+         this.repositoryItemLookUpEdit3.ValueMember = "VALU";
+         // 
+         // CB_ImageSize1
+         // 
+         this.CB_ImageSize1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CB_ImageSize1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.CB_ImageSize1.FormattingEnabled = true;
+         this.CB_ImageSize1.Items.AddRange(new object[] {
+            "عکس 3*4",
+            "کارت ملی",
+            "کاغذ A5",
+            "کاغذ A4 ایستاده",
+            "کاغذ A4 نشسته",
+            "اندازه واقعی خود عکس"});
+         this.CB_ImageSize1.Location = new System.Drawing.Point(284, 65);
+         this.CB_ImageSize1.Name = "CB_ImageSize1";
+         this.CB_ImageSize1.Size = new System.Drawing.Size(121, 22);
+         this.CB_ImageSize1.TabIndex = 16;
+         this.CB_ImageSize1.SelectedIndexChanged += new System.EventHandler(this.CB_ImageSize1_SelectedIndexChanged);
+         // 
+         // button1
+         // 
+         this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.button1.Location = new System.Drawing.Point(175, 64);
+         this.button1.Name = "button1";
+         this.button1.Size = new System.Drawing.Size(109, 23);
+         this.button1.TabIndex = 15;
+         this.button1.Text = "انتخاب فایل مدرک";
+         this.button1.UseVisualStyleBackColor = true;
+         this.button1.Click += new System.EventHandler(this.Bt_SelectFile_Click);
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(409, 68);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(98, 14);
+         this.label1.TabIndex = 14;
+         this.label1.Text = "ابعاد تصویر مدرک :";
+         // 
          // CMN_DCMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1471,6 +1703,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1571,5 +1808,21 @@
       private Windows.Forms.Label ImageQulity_Lb;
       private Windows.Forms.Label Dimsn_Lb;
       private Windows.Forms.Label SelectCamera_Lb;
+      private DevExpress.XtraGrid.GridControl gridControl1;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
+      private Windows.Forms.ComboBox CB_ImageSize1;
+      private Windows.Forms.Button button1;
+      private Windows.Forms.Label label1;
    }
 }

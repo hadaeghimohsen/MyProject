@@ -1057,6 +1057,31 @@ namespace System.Scsc.Ui.Common
                NameDnrm_Lb.Image = System.Scsc.Properties.Resources.IMAGE_1621;
             }
 
+            // 1397/05/14 * بررسی اینکه مشترک قفل می باشد
+            if(crntinfo.FIGH_STAT == "002")
+            {
+               Rqid_Txt.BackColor = RqtpDesc_Txt.BackColor = FighStat_Txt.BackColor = SystemColors.Control;
+               RqtpDesc_Txt.Text = "";
+            }
+            else
+            {
+               Rqid_Txt.BackColor = RqtpDesc_Txt.BackColor = FighStat_Txt.BackColor = Color.YellowGreen;
+               RqtpDesc_Txt.Text = iScsc.Request_Types.First(rt => rt.CODE == rt.Requests.First(r => r.RQID == crntinfo.RQST_RQID).RQTP_CODE).RQTP_DESC; ;
+            }
+
+            vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno);
+            var imag =
+               iScsc.Image_Documents
+               .Where(id =>
+                  vF_Request_DocumentBs.List.OfType<Data.VF_Request_DocumentResult>()
+                  .Select(rd => rd.RQID)
+                  .Contains(id.Receive_Document.Request_Row.RQST_RQID)
+               );
+            TotlDcmt_Txt.Text = imag.Count().ToString();
+            SaveDcmt_Txt.Text = imag.Where(id => id.IMAG.Length > 100).Count().ToString();
+            NullDcmt_Txt.Text = (Convert.ToInt32(TotlDcmt_Txt.Text) - Convert.ToInt32(SaveDcmt_Txt.Text)).ToString();
+               
+
             //vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
             //////vF_SavePaymentsBs.DataSource = iScsc.VF_Payments(null, null, fileno, null, null, null, null).OrderByDescending(p => p.ISSU_DATE);
             

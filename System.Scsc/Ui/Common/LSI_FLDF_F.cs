@@ -248,6 +248,10 @@ namespace System.Scsc.Ui.Common
             case "DebtDown_Lbl":
                PBLC.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
                break;
+            case "NullProfile_Lbl":
+               break;
+            case "NullDcmt_Lbl":
+               break;
          }
       }
 

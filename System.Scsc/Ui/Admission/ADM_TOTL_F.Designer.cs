@@ -2159,6 +2159,7 @@
          this.IncDecMont_Butn.Size = new System.Drawing.Size(58, 24);
          this.IncDecMont_Butn.TabIndex = 63;
          this.IncDecMont_Butn.ToolTip = "افزایش تعداد ماه و کاهش ماه";
+         this.IncDecMont_Butn.Visible = false;
          this.IncDecMont_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.IncDecMont_Butn_ButtonClick);
          // 
          // AutoAttn_Btn
@@ -2184,6 +2185,7 @@
          this.CrntDate_Butn.Size = new System.Drawing.Size(26, 23);
          this.CrntDate_Butn.TabIndex = 62;
          this.CrntDate_Butn.ToolTip = "تاریخ امروز";
+         this.CrntDate_Butn.Visible = false;
          this.CrntDate_Butn.Click += new System.EventHandler(this.CrntDate_Butn_Click);
          // 
          // CopyDate_Butn
@@ -2196,6 +2198,7 @@
          this.CopyDate_Butn.Name = "CopyDate_Butn";
          this.CopyDate_Butn.Size = new System.Drawing.Size(26, 23);
          this.CopyDate_Butn.TabIndex = 61;
+         this.CopyDate_Butn.Visible = false;
          this.CopyDate_Butn.Click += new System.EventHandler(this.CopyDate_Butn_Click);
          // 
          // CBMT_CODE_GridLookUpEdit003

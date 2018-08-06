@@ -258,10 +258,10 @@
          this.MbcoDays_Txt = new System.Windows.Forms.TextBox();
          this.Grop4_Gb = new System.Windows.Forms.GroupBox();
          this.CnclRqst_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.fIGH_STATTextBox = new System.Windows.Forms.TextBox();
+         this.FighStat_Txt = new System.Windows.Forms.TextBox();
          this.vF_Last_Info_FighterBs = new System.Windows.Forms.BindingSource(this.components);
-         this.textBox5 = new System.Windows.Forms.TextBox();
-         this.rQST_RQIDTextBox = new System.Windows.Forms.TextBox();
+         this.RqtpDesc_Txt = new System.Windows.Forms.TextBox();
+         this.Rqid_Txt = new System.Windows.Forms.TextBox();
          this.Grop2_Gb = new System.Windows.Forms.GroupBox();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
          this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
@@ -620,6 +620,13 @@
          this.panel2 = new System.Windows.Forms.Panel();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.TotlDcmt_Txt = new System.Windows.Forms.TextBox();
+         this.label10 = new System.Windows.Forms.Label();
+         this.label11 = new System.Windows.Forms.Label();
+         this.SaveDcmt_Txt = new System.Windows.Forms.TextBox();
+         this.label12 = new System.Windows.Forms.Label();
+         this.NullDcmt_Txt = new System.Windows.Forms.TextBox();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -747,6 +754,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).BeginInit();
          this.panel2.SuspendLayout();
+         this.groupBox1.SuspendLayout();
          this.SuspendLayout();
          // 
          // colVALD_TYPE
@@ -1624,6 +1632,7 @@
          this.tp_001.BackColor = System.Drawing.SystemColors.Control;
          this.tp_001.Controls.Add(this.UserProFile_Rb);
          this.tp_001.Controls.Add(this.Btn_Pblc);
+         this.tp_001.Controls.Add(this.groupBox1);
          this.tp_001.Controls.Add(this.Grop6_Gb);
          this.tp_001.Controls.Add(this.Grop7_Gb);
          this.tp_001.Controls.Add(this.Btn_Mbsp);
@@ -1788,7 +1797,7 @@
          this.Grop7_Gb.Controls.Add(this.FighBnSettingPrint);
          this.Grop7_Gb.Controls.Add(this.FighBnPrint);
          this.Grop7_Gb.Controls.Add(this.FighBnDefaultPrint);
-         this.Grop7_Gb.Location = new System.Drawing.Point(90, 303);
+         this.Grop7_Gb.Location = new System.Drawing.Point(90, 423);
          this.Grop7_Gb.Name = "Grop7_Gb";
          this.Grop7_Gb.Size = new System.Drawing.Size(192, 114);
          this.Grop7_Gb.TabIndex = 19;
@@ -2172,11 +2181,11 @@
          this.Grop4_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Grop4_Gb.Controls.Add(this.CnclRqst_Butn);
          this.Grop4_Gb.Controls.Add(this.FighStat_Lb);
-         this.Grop4_Gb.Controls.Add(this.fIGH_STATTextBox);
+         this.Grop4_Gb.Controls.Add(this.FighStat_Txt);
          this.Grop4_Gb.Controls.Add(this.RqtpCode_Lb);
          this.Grop4_Gb.Controls.Add(this.Rqid_Lb);
-         this.Grop4_Gb.Controls.Add(this.textBox5);
-         this.Grop4_Gb.Controls.Add(this.rQST_RQIDTextBox);
+         this.Grop4_Gb.Controls.Add(this.RqtpDesc_Txt);
+         this.Grop4_Gb.Controls.Add(this.Rqid_Txt);
          this.Grop4_Gb.Location = new System.Drawing.Point(288, 210);
          this.Grop4_Gb.Name = "Grop4_Gb";
          this.Grop4_Gb.Size = new System.Drawing.Size(287, 114);
@@ -2207,36 +2216,36 @@
          this.CnclRqst_Butn.TabIndex = 34;
          this.CnclRqst_Butn.Click += new System.EventHandler(this.CnclRqst_Butn_Click);
          // 
-         // fIGH_STATTextBox
+         // FighStat_Txt
          // 
-         this.fIGH_STATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "FIGH_STAT", true));
-         this.fIGH_STATTextBox.Location = new System.Drawing.Point(68, 83);
-         this.fIGH_STATTextBox.Name = "fIGH_STATTextBox";
-         this.fIGH_STATTextBox.ReadOnly = true;
-         this.fIGH_STATTextBox.Size = new System.Drawing.Size(100, 22);
-         this.fIGH_STATTextBox.TabIndex = 3;
+         this.FighStat_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "FIGH_STAT", true));
+         this.FighStat_Txt.Location = new System.Drawing.Point(68, 83);
+         this.FighStat_Txt.Name = "FighStat_Txt";
+         this.FighStat_Txt.ReadOnly = true;
+         this.FighStat_Txt.Size = new System.Drawing.Size(100, 22);
+         this.FighStat_Txt.TabIndex = 3;
          // 
          // vF_Last_Info_FighterBs
          // 
          this.vF_Last_Info_FighterBs.DataSource = typeof(System.Scsc.Data.VF_Last_Info_FighterResult);
          // 
-         // textBox5
+         // RqtpDesc_Txt
          // 
-         this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "RQTP_DESC", true));
-         this.textBox5.Location = new System.Drawing.Point(10, 55);
-         this.textBox5.Name = "textBox5";
-         this.textBox5.ReadOnly = true;
-         this.textBox5.Size = new System.Drawing.Size(158, 22);
-         this.textBox5.TabIndex = 1;
+         this.RqtpDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "RQTP_DESC", true));
+         this.RqtpDesc_Txt.Location = new System.Drawing.Point(10, 55);
+         this.RqtpDesc_Txt.Name = "RqtpDesc_Txt";
+         this.RqtpDesc_Txt.ReadOnly = true;
+         this.RqtpDesc_Txt.Size = new System.Drawing.Size(158, 22);
+         this.RqtpDesc_Txt.TabIndex = 1;
          // 
-         // rQST_RQIDTextBox
+         // Rqid_Txt
          // 
-         this.rQST_RQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "RQST_RQID", true));
-         this.rQST_RQIDTextBox.Location = new System.Drawing.Point(41, 26);
-         this.rQST_RQIDTextBox.Name = "rQST_RQIDTextBox";
-         this.rQST_RQIDTextBox.ReadOnly = true;
-         this.rQST_RQIDTextBox.Size = new System.Drawing.Size(127, 22);
-         this.rQST_RQIDTextBox.TabIndex = 1;
+         this.Rqid_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Last_Info_FighterBs, "RQST_RQID", true));
+         this.Rqid_Txt.Location = new System.Drawing.Point(41, 26);
+         this.Rqid_Txt.Name = "Rqid_Txt";
+         this.Rqid_Txt.ReadOnly = true;
+         this.Rqid_Txt.Size = new System.Drawing.Size(127, 22);
+         this.Rqid_Txt.TabIndex = 1;
          // 
          // Grop2_Gb
          // 
@@ -6830,6 +6839,73 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // groupBox1
+         // 
+         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.Controls.Add(this.NullDcmt_Txt);
+         this.groupBox1.Controls.Add(this.label12);
+         this.groupBox1.Controls.Add(this.SaveDcmt_Txt);
+         this.groupBox1.Controls.Add(this.label11);
+         this.groupBox1.Controls.Add(this.TotlDcmt_Txt);
+         this.groupBox1.Controls.Add(this.label10);
+         this.groupBox1.Location = new System.Drawing.Point(90, 303);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(192, 114);
+         this.groupBox1.TabIndex = 19;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "وضعیت مدارک";
+         // 
+         // TotlDcmt_Txt
+         // 
+         this.TotlDcmt_Txt.Location = new System.Drawing.Point(14, 24);
+         this.TotlDcmt_Txt.Name = "TotlDcmt_Txt";
+         this.TotlDcmt_Txt.ReadOnly = true;
+         this.TotlDcmt_Txt.Size = new System.Drawing.Size(63, 22);
+         this.TotlDcmt_Txt.TabIndex = 1;
+         // 
+         // label10
+         // 
+         this.label10.AutoSize = true;
+         this.label10.Location = new System.Drawing.Point(83, 27);
+         this.label10.Name = "label10";
+         this.label10.Size = new System.Drawing.Size(65, 14);
+         this.label10.TabIndex = 0;
+         this.label10.Text = "کل مدارک :";
+         // 
+         // label11
+         // 
+         this.label11.AutoSize = true;
+         this.label11.Location = new System.Drawing.Point(83, 55);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(97, 14);
+         this.label11.TabIndex = 0;
+         this.label11.Text = "تحویل داده شده :";
+         // 
+         // SaveDcmt_Txt
+         // 
+         this.SaveDcmt_Txt.Location = new System.Drawing.Point(14, 52);
+         this.SaveDcmt_Txt.Name = "SaveDcmt_Txt";
+         this.SaveDcmt_Txt.ReadOnly = true;
+         this.SaveDcmt_Txt.Size = new System.Drawing.Size(63, 22);
+         this.SaveDcmt_Txt.TabIndex = 1;
+         // 
+         // label12
+         // 
+         this.label12.AutoSize = true;
+         this.label12.Location = new System.Drawing.Point(83, 83);
+         this.label12.Name = "label12";
+         this.label12.Size = new System.Drawing.Size(101, 14);
+         this.label12.TabIndex = 0;
+         this.label12.Text = "تحویل داده نشده :";
+         // 
+         // NullDcmt_Txt
+         // 
+         this.NullDcmt_Txt.Location = new System.Drawing.Point(14, 80);
+         this.NullDcmt_Txt.Name = "NullDcmt_Txt";
+         this.NullDcmt_Txt.ReadOnly = true;
+         this.NullDcmt_Txt.Size = new System.Drawing.Size(63, 22);
+         this.NullDcmt_Txt.TabIndex = 1;
+         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6987,6 +7063,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).EndInit();
          this.panel2.ResumeLayout(false);
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
          this.ResumeLayout(false);
 
       }
@@ -7006,8 +7084,8 @@
       private Windows.Forms.TextBox nAME_DNRMTextBox;
       private Windows.Forms.GroupBox Grop2_Gb;
       private Windows.Forms.GroupBox Grop4_Gb;
-      private Windows.Forms.TextBox fIGH_STATTextBox;
-      private Windows.Forms.TextBox rQST_RQIDTextBox;
+      private Windows.Forms.TextBox FighStat_Txt;
+      private Windows.Forms.TextBox Rqid_Txt;
       private Windows.Forms.TextBox iNSR_NUMB_DNRMTextBox;
       private Windows.Forms.GroupBox Gorp3_Gb;
       private Windows.Forms.BindingNavigator FighterBn;
@@ -7097,7 +7175,7 @@
       private DevExpress.XtraEditors.TextEdit bLOD_GROPTextEdit1;
       private MaxUi.NewMaxBtn FighBnSettingPrint;
       private MaxUi.NewMaxBtn FighBnPrint;
-      private Windows.Forms.TextBox textBox5;
+      private Windows.Forms.TextBox RqtpDesc_Txt;
       private Windows.Forms.TextBox textBox3;
       private DevExpress.XtraGrid.Columns.GridColumn colInsvRqst;
       private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit HL_InvsRqst;
@@ -7477,5 +7555,12 @@
       private Windows.Forms.BindingSource DPydsBs1;
       private Windows.Forms.CheckBox UsePos_Cb;
       private DevExpress.XtraEditors.SimpleButton PosStng_Butn;
+      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.TextBox NullDcmt_Txt;
+      private Windows.Forms.Label label12;
+      private Windows.Forms.TextBox SaveDcmt_Txt;
+      private Windows.Forms.Label label11;
+      private Windows.Forms.TextBox TotlDcmt_Txt;
+      private Windows.Forms.Label label10;
    }
 }

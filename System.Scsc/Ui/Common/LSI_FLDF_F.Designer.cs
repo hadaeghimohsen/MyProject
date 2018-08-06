@@ -85,15 +85,19 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
          this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -253,6 +257,8 @@
          this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
          this.label1 = new System.Windows.Forms.Label();
          this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+         this.NullProfile_Lbl = new DevExpress.XtraEditors.LabelControl();
+         this.NullDcmt_Lbl = new DevExpress.XtraEditors.LabelControl();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -1356,7 +1362,7 @@
          this.FighBnSettingPrint.ImageIndex = -1;
          this.FighBnSettingPrint.ImageList = null;
          this.FighBnSettingPrint.InToBold = false;
-         this.FighBnSettingPrint.Location = new System.Drawing.Point(191, 34);
+         this.FighBnSettingPrint.Location = new System.Drawing.Point(251, 34);
          this.FighBnSettingPrint.Name = "FighBnSettingPrint";
          this.FighBnSettingPrint.Size = new System.Drawing.Size(51, 23);
          this.FighBnSettingPrint.TabIndex = 3;
@@ -1379,7 +1385,7 @@
          this.FighBnDefaultPrint.ImageIndex = -1;
          this.FighBnDefaultPrint.ImageList = null;
          this.FighBnDefaultPrint.InToBold = false;
-         this.FighBnDefaultPrint.Location = new System.Drawing.Point(248, 5);
+         this.FighBnDefaultPrint.Location = new System.Drawing.Point(308, 5);
          this.FighBnDefaultPrint.Name = "FighBnDefaultPrint";
          this.FighBnDefaultPrint.Size = new System.Drawing.Size(48, 25);
          this.FighBnDefaultPrint.TabIndex = 4;
@@ -1508,7 +1514,7 @@
          this.TrnsFngrPrnt_Butn.ImageIndex = -1;
          this.TrnsFngrPrnt_Butn.ImageList = null;
          this.TrnsFngrPrnt_Butn.InToBold = false;
-         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(191, 5);
+         this.TrnsFngrPrnt_Butn.Location = new System.Drawing.Point(251, 5);
          this.TrnsFngrPrnt_Butn.Name = "TrnsFngrPrnt_Butn";
          this.TrnsFngrPrnt_Butn.Size = new System.Drawing.Size(51, 25);
          this.TrnsFngrPrnt_Butn.TabIndex = 3;
@@ -1527,8 +1533,10 @@
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.Search_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.FighBnSettingPrint);
+         this.splitContainerControl1.Panel1.Controls.Add(this.NullDcmt_Lbl);
          this.splitContainerControl1.Panel1.Controls.Add(this.DebtUp_Lbl);
          this.splitContainerControl1.Panel1.Controls.Add(this.FighBnDefaultPrint);
+         this.splitContainerControl1.Panel1.Controls.Add(this.NullProfile_Lbl);
          this.splitContainerControl1.Panel1.Controls.Add(this.DebtDown_Lbl);
          this.splitContainerControl1.Panel1.Controls.Add(this.TrnsFngrPrnt_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.YellowGreen_Lbl);
@@ -2117,16 +2125,16 @@
          this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton2.Name = "simpleButton2";
          this.simpleButton2.Size = new System.Drawing.Size(99, 29);
-         toolTipTitleItem17.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem17.Appearance.Options.UseImage = true;
-         toolTipTitleItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem17.Image")));
-         toolTipTitleItem17.Text = "اصلاح اطلاعات دوره";
+         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem19.Appearance.Options.UseImage = true;
+         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
+         toolTipTitleItem19.Text = "اصلاح اطلاعات دوره";
          toolTipItem5.LeftIndent = 6;
          toolTipItem5.Text = "اگر تاریخ شروع و پایان و تعداد جلسات دوره به درستی وارد نشده می توانید از این گزی" +
     "نه استفاده کنید";
-         superToolTip13.Items.Add(toolTipTitleItem17);
-         superToolTip13.Items.Add(toolTipItem5);
-         this.simpleButton2.SuperTip = superToolTip13;
+         superToolTip15.Items.Add(toolTipTitleItem19);
+         superToolTip15.Items.Add(toolTipItem5);
+         this.simpleButton2.SuperTip = superToolTip15;
          this.simpleButton2.TabIndex = 39;
          this.simpleButton2.Text = "اصلاح دوره";
          this.simpleButton2.Click += new System.EventHandler(this.Mbsp_Rwno_Text_DoubleClick);
@@ -2143,15 +2151,15 @@
          this.MbspInfo_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.MbspInfo_Butn.Name = "MbspInfo_Butn";
          this.MbspInfo_Butn.Size = new System.Drawing.Size(99, 29);
-         toolTipTitleItem18.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem18.Appearance.Options.UseImage = true;
-         toolTipTitleItem18.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem18.Image")));
-         toolTipTitleItem18.Text = "اطلاعات دوره ثبت نام";
+         toolTipTitleItem20.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem20.Appearance.Options.UseImage = true;
+         toolTipTitleItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem20.Image")));
+         toolTipTitleItem20.Text = "اطلاعات دوره ثبت نام";
          toolTipItem6.LeftIndent = 6;
          toolTipItem6.Text = "شما می توانید اطلاعات دوره ثبت نامی را به صورت کامل مشاهده کنید";
-         superToolTip14.Items.Add(toolTipTitleItem18);
-         superToolTip14.Items.Add(toolTipItem6);
-         this.MbspInfo_Butn.SuperTip = superToolTip14;
+         superToolTip16.Items.Add(toolTipTitleItem20);
+         superToolTip16.Items.Add(toolTipItem6);
+         this.MbspInfo_Butn.SuperTip = superToolTip16;
          this.MbspInfo_Butn.TabIndex = 36;
          this.MbspInfo_Butn.Text = "اطلاعات دوره";
          this.MbspInfo_Butn.Click += new System.EventHandler(this.MbspInfo_Butn_Click);
@@ -2168,15 +2176,15 @@
          this.MbspValdType_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.MbspValdType_Butn.Name = "MbspValdType_Butn";
          this.MbspValdType_Butn.Size = new System.Drawing.Size(99, 29);
-         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem19.Appearance.Options.UseImage = true;
-         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
-         toolTipTitleItem19.Text = "وضعیت دوره";
+         toolTipTitleItem21.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem21.Appearance.Options.UseImage = true;
+         toolTipTitleItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem21.Image")));
+         toolTipTitleItem21.Text = "وضعیت دوره";
          toolTipItem7.LeftIndent = 6;
          toolTipItem7.Text = "برای فعال و غیرفعال کردن دوره اعضا می توانید از این گزینه استفاده کنید";
-         superToolTip15.Items.Add(toolTipTitleItem19);
-         superToolTip15.Items.Add(toolTipItem7);
-         this.MbspValdType_Butn.SuperTip = superToolTip15;
+         superToolTip17.Items.Add(toolTipTitleItem21);
+         superToolTip17.Items.Add(toolTipItem7);
+         this.MbspValdType_Butn.SuperTip = superToolTip17;
          this.MbspValdType_Butn.TabIndex = 37;
          this.MbspValdType_Butn.Text = "وضعیت دوره";
          this.MbspValdType_Butn.Click += new System.EventHandler(this.MbspValdType_Butn_Click);
@@ -2444,6 +2452,38 @@
          this.textEdit4.Size = new System.Drawing.Size(100, 22);
          this.textEdit4.TabIndex = 35;
          // 
+         // NullProfile_Lbl
+         // 
+         this.NullProfile_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.NullProfile_Lbl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+         this.NullProfile_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.NullProfile_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.NullProfile_Lbl.Location = new System.Drawing.Point(191, 3);
+         this.NullProfile_Lbl.Name = "NullProfile_Lbl";
+         this.NullProfile_Lbl.Size = new System.Drawing.Size(25, 25);
+         toolTipTitleItem18.Text = "لیست اعضای بدون عکس پروفایل";
+         superToolTip14.Items.Add(toolTipTitleItem18);
+         this.NullProfile_Lbl.SuperTip = superToolTip14;
+         this.NullProfile_Lbl.TabIndex = 5;
+         this.NullProfile_Lbl.Visible = false;
+         this.NullProfile_Lbl.Click += new System.EventHandler(this.Lbls_Click);
+         // 
+         // NullDcmt_Lbl
+         // 
+         this.NullDcmt_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.NullDcmt_Lbl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.NullDcmt_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.NullDcmt_Lbl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.NullDcmt_Lbl.Location = new System.Drawing.Point(191, 33);
+         this.NullDcmt_Lbl.Name = "NullDcmt_Lbl";
+         this.NullDcmt_Lbl.Size = new System.Drawing.Size(25, 25);
+         toolTipTitleItem17.Text = "لیست مشترکین با مدارک ناقص";
+         superToolTip13.Items.Add(toolTipTitleItem17);
+         this.NullDcmt_Lbl.SuperTip = superToolTip13;
+         this.NullDcmt_Lbl.TabIndex = 5;
+         this.NullDcmt_Lbl.Visible = false;
+         this.NullDcmt_Lbl.Click += new System.EventHandler(this.Lbls_Click);
+         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2672,5 +2712,7 @@
       private Windows.Forms.Label label2;
       private DevExpress.XtraEditors.TextEdit textEdit2;
       private Windows.Forms.Label label1;
+      private DevExpress.XtraEditors.LabelControl NullDcmt_Lbl;
+      private DevExpress.XtraEditors.LabelControl NullProfile_Lbl;
    }
 }

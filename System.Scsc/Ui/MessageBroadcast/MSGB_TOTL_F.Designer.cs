@@ -393,6 +393,7 @@
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.lookUpEdit14 = new DevExpress.XtraEditors.LookUpEdit();
          this.tp_006 = new System.Windows.Forms.TabPage();
+         this.label1 = new System.Windows.Forms.Label();
          this.lookUpEdit41 = new DevExpress.XtraEditors.LookUpEdit();
          this.MsgbBs6 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit21 = new DevExpress.XtraEditors.LookUpEdit();
@@ -407,6 +408,7 @@
          this.AdmText_Lb = new System.Windows.Forms.Label();
          this.richTextBox1 = new System.Windows.Forms.RichTextBox();
          this.tp_007 = new System.Windows.Forms.TabPage();
+         this.label2 = new System.Windows.Forms.Label();
          this.lookUpEdit42 = new DevExpress.XtraEditors.LookUpEdit();
          this.MsgbBs7 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit26 = new DevExpress.XtraEditors.LookUpEdit();
@@ -421,6 +423,7 @@
          this.MbspText_Lb = new System.Windows.Forms.Label();
          this.richTextBox2 = new System.Windows.Forms.RichTextBox();
          this.tp_008 = new System.Windows.Forms.TabPage();
+         this.label4 = new System.Windows.Forms.Label();
          this.lookUpEdit43 = new DevExpress.XtraEditors.LookUpEdit();
          this.MsgbBs8 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit31 = new DevExpress.XtraEditors.LookUpEdit();
@@ -434,22 +437,19 @@
          this.AttnTextCont_Lb = new System.Windows.Forms.Label();
          this.AttnText_Lb = new System.Windows.Forms.Label();
          this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-         this.ofd_selector = new System.Windows.Forms.OpenFileDialog();
-         this.panel1 = new System.Windows.Forms.Panel();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tp_009 = new System.Windows.Forms.TabPage();
-         this.label1 = new System.Windows.Forms.Label();
-         this.label2 = new System.Windows.Forms.Label();
-         this.label4 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
          this.label6 = new System.Windows.Forms.Label();
          this.lookUpEdit44 = new DevExpress.XtraEditors.LookUpEdit();
+         this.MsgbBs9 = new System.Windows.Forms.BindingSource(this.components);
          this.label7 = new System.Windows.Forms.Label();
          this.lookUpEdit45 = new DevExpress.XtraEditors.LookUpEdit();
          this.newMaxBtn2 = new System.MaxUi.NewMaxBtn();
+         this.label17 = new System.Windows.Forms.Label();
+         this.label16 = new System.Windows.Forms.Label();
          this.label8 = new System.Windows.Forms.Label();
+         this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
+         this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
          this.label10 = new System.Windows.Forms.Label();
          this.lookUpEdit46 = new DevExpress.XtraEditors.LookUpEdit();
@@ -463,11 +463,11 @@
          this.label14 = new System.Windows.Forms.Label();
          this.label15 = new System.Windows.Forms.Label();
          this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-         this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
-         this.label16 = new System.Windows.Forms.Label();
-         this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-         this.label17 = new System.Windows.Forms.Label();
-         this.MsgbBs9 = new System.Windows.Forms.BindingSource(this.components);
+         this.ofd_selector = new System.Windows.Forms.OpenFileDialog();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cLUB_CODELookUpEdit.Properties)).BeginInit();
@@ -594,18 +594,18 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit33.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit34.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit35.Properties)).BeginInit();
-         this.panel1.SuspendLayout();
          this.tp_009.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit44.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MsgbBs9)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit45.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit46.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit47.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit48.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit49.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MsgbBs9)).BeginInit();
+         this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
          // BrthDateSmsStat_Lb
@@ -4964,6 +4964,16 @@
          this.tp_006.TabIndex = 5;
          this.tp_006.Text = "پیامک ثبت نام";
          // 
+         // label1
+         // 
+         this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.label1.ImageKey = "IMAGE_1110.png";
+         this.label1.ImageList = this.imageList1;
+         this.label1.Location = new System.Drawing.Point(749, 105);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(37, 34);
+         this.label1.TabIndex = 61;
+         // 
          // lookUpEdit41
          // 
          this.lookUpEdit41.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -5299,6 +5309,16 @@
          this.tp_007.Size = new System.Drawing.Size(936, 522);
          this.tp_007.TabIndex = 6;
          this.tp_007.Text = "پیامک تمدید";
+         // 
+         // label2
+         // 
+         this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.label2.ImageKey = "IMAGE_1110.png";
+         this.label2.ImageList = this.imageList1;
+         this.label2.Location = new System.Drawing.Point(749, 105);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(37, 34);
+         this.label2.TabIndex = 69;
          // 
          // lookUpEdit42
          // 
@@ -5636,6 +5656,16 @@
          this.tp_008.TabIndex = 7;
          this.tp_008.Text = "پیامک حضور و غیاب";
          // 
+         // label4
+         // 
+         this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.label4.ImageKey = "IMAGE_1110.png";
+         this.label4.ImageList = this.imageList1;
+         this.label4.Location = new System.Drawing.Point(775, 117);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(37, 34);
+         this.label4.TabIndex = 78;
+         // 
          // lookUpEdit43
          // 
          this.lookUpEdit43.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -5941,64 +5971,6 @@
          this.richTextBox3.Text = "";
          this.richTextBox3.TextChanged += new System.EventHandler(this.Msgb_Text00X_TextChanged);
          // 
-         // panel1
-         // 
-         this.panel1.Controls.Add(this.simpleButton1);
-         this.panel1.Controls.Add(this.TitlForm_Lb);
-         this.panel1.Controls.Add(this.Back_Butn);
-         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel1.Location = new System.Drawing.Point(0, 0);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(944, 59);
-         this.panel1.TabIndex = 12;
-         // 
-         // simpleButton1
-         // 
-         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton1.Appearance.Options.UseBackColor = true;
-         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton1.Location = new System.Drawing.Point(0, 0);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
-         this.simpleButton1.TabIndex = 2;
-         this.simpleButton1.ToolTip = "بازگشت";
-         this.simpleButton1.Click += new System.EventHandler(this.Btn_Save_Click);
-         // 
-         // TitlForm_Lb
-         // 
-         this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
-         this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
-         this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(614, 0);
-         this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(269, 59);
-         this.TitlForm_Lb.TabIndex = 1;
-         this.TitlForm_Lb.Text = "سیستم های اطلاع رسانی جمعی";
-         // 
-         // Back_Butn
-         // 
-         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.Back_Butn.Appearance.Options.UseBackColor = true;
-         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.Back_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back_Butn.Image")));
-         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(883, 0);
-         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
-         this.Back_Butn.TabIndex = 0;
-         this.Back_Butn.ToolTip = "بازگشت";
-         this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
-         // 
          // tp_009
          // 
          this.tp_009.BackColor = System.Drawing.SystemColors.Control;
@@ -6032,36 +6004,6 @@
          this.tp_009.Size = new System.Drawing.Size(936, 522);
          this.tp_009.TabIndex = 8;
          this.tp_009.Text = "پیامک هشدار تمدید مجدد";
-         // 
-         // label1
-         // 
-         this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.label1.ImageKey = "IMAGE_1110.png";
-         this.label1.ImageList = this.imageList1;
-         this.label1.Location = new System.Drawing.Point(749, 105);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(37, 34);
-         this.label1.TabIndex = 61;
-         // 
-         // label2
-         // 
-         this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.label2.ImageKey = "IMAGE_1110.png";
-         this.label2.ImageList = this.imageList1;
-         this.label2.Location = new System.Drawing.Point(749, 105);
-         this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(37, 34);
-         this.label2.TabIndex = 69;
-         // 
-         // label4
-         // 
-         this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.label4.ImageKey = "IMAGE_1110.png";
-         this.label4.ImageList = this.imageList1;
-         this.label4.Location = new System.Drawing.Point(775, 117);
-         this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(37, 34);
-         this.label4.TabIndex = 78;
          // 
          // label5
          // 
@@ -6116,6 +6058,10 @@
          this.lookUpEdit44.Properties.ValueMember = "VALU";
          this.lookUpEdit44.Size = new System.Drawing.Size(157, 22);
          this.lookUpEdit44.TabIndex = 97;
+         // 
+         // MsgbBs9
+         // 
+         this.MsgbBs9.DataSource = typeof(System.Scsc.Data.Message_Broadcast);
          // 
          // label7
          // 
@@ -6197,6 +6143,26 @@
          this.newMaxBtn2.TextColor = System.Drawing.Color.Black;
          this.newMaxBtn2.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          // 
+         // label17
+         // 
+         this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.label17.AutoSize = true;
+         this.label17.Location = new System.Drawing.Point(201, 231);
+         this.label17.Name = "label17";
+         this.label17.Size = new System.Drawing.Size(140, 14);
+         this.label17.TabIndex = 91;
+         this.label17.Text = "حداقل تعداد روز باقیمانده :";
+         // 
+         // label16
+         // 
+         this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.label16.AutoSize = true;
+         this.label16.Location = new System.Drawing.Point(631, 232);
+         this.label16.Name = "label16";
+         this.label16.Size = new System.Drawing.Size(166, 14);
+         this.label16.TabIndex = 91;
+         this.label16.Text = "حداقل تعداد جلسات باقیمانده :";
+         // 
          // label8
          // 
          this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -6206,6 +6172,40 @@
          this.label8.Size = new System.Drawing.Size(68, 14);
          this.label8.TabIndex = 91;
          this.label8.Text = "نام باشگاه :";
+         // 
+         // textEdit10
+         // 
+         this.textEdit10.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.textEdit10.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "MIN_NUMB_DAY_RMND", true));
+         this.textEdit10.Location = new System.Drawing.Point(123, 228);
+         this.textEdit10.Name = "textEdit10";
+         this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit10.Properties.Appearance.Options.UseFont = true;
+         this.textEdit10.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit10.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit10.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit10.Properties.AppearanceFocused.Options.UseFont = true;
+         this.textEdit10.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit10.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit10.Size = new System.Drawing.Size(72, 22);
+         this.textEdit10.TabIndex = 93;
+         // 
+         // textEdit9
+         // 
+         this.textEdit9.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.textEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "MIN_NUMB_ATTN_RMND", true));
+         this.textEdit9.Location = new System.Drawing.Point(553, 229);
+         this.textEdit9.Name = "textEdit9";
+         this.textEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit9.Properties.Appearance.Options.UseFont = true;
+         this.textEdit9.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit9.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit9.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit9.Properties.AppearanceFocused.Options.UseFont = true;
+         this.textEdit9.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit9.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit9.Size = new System.Drawing.Size(72, 22);
+         this.textEdit9.TabIndex = 93;
          // 
          // textEdit8
          // 
@@ -6444,63 +6444,63 @@
          this.richTextBox4.Text = "";
          this.richTextBox4.TextChanged += new System.EventHandler(this.Msgb_Text00X_TextChanged);
          // 
-         // textEdit9
+         // panel1
          // 
-         this.textEdit9.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.textEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "MIN_NUMB_ATTN_RMND", true));
-         this.textEdit9.Location = new System.Drawing.Point(553, 229);
-         this.textEdit9.Name = "textEdit9";
-         this.textEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit9.Properties.Appearance.Options.UseFont = true;
-         this.textEdit9.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit9.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit9.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit9.Properties.AppearanceFocused.Options.UseFont = true;
-         this.textEdit9.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.textEdit9.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit9.Size = new System.Drawing.Size(72, 22);
-         this.textEdit9.TabIndex = 93;
+         this.panel1.Controls.Add(this.simpleButton1);
+         this.panel1.Controls.Add(this.TitlForm_Lb);
+         this.panel1.Controls.Add(this.Back_Butn);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel1.Location = new System.Drawing.Point(0, 0);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(944, 59);
+         this.panel1.TabIndex = 12;
          // 
-         // label16
+         // simpleButton1
          // 
-         this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.label16.AutoSize = true;
-         this.label16.Location = new System.Drawing.Point(631, 232);
-         this.label16.Name = "label16";
-         this.label16.Size = new System.Drawing.Size(166, 14);
-         this.label16.TabIndex = 91;
-         this.label16.Text = "حداقل تعداد جلسات باقیمانده :";
+         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
+         this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton1.Location = new System.Drawing.Point(0, 0);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton1.TabIndex = 2;
+         this.simpleButton1.ToolTip = "بازگشت";
+         this.simpleButton1.Click += new System.EventHandler(this.Btn_Save_Click);
          // 
-         // textEdit10
+         // TitlForm_Lb
          // 
-         this.textEdit10.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.textEdit10.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "MIN_NUMB_DAY_RMND", true));
-         this.textEdit10.Location = new System.Drawing.Point(123, 228);
-         this.textEdit10.Name = "textEdit10";
-         this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit10.Properties.Appearance.Options.UseFont = true;
-         this.textEdit10.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit10.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit10.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit10.Properties.AppearanceFocused.Options.UseFont = true;
-         this.textEdit10.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.textEdit10.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit10.Size = new System.Drawing.Size(72, 22);
-         this.textEdit10.TabIndex = 93;
+         this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlForm_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
+         this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.TitlForm_Lb.Location = new System.Drawing.Point(614, 0);
+         this.TitlForm_Lb.Name = "TitlForm_Lb";
+         this.TitlForm_Lb.Size = new System.Drawing.Size(269, 59);
+         this.TitlForm_Lb.TabIndex = 1;
+         this.TitlForm_Lb.Text = "سیستم های اطلاع رسانی جمعی";
          // 
-         // label17
+         // Back_Butn
          // 
-         this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.label17.AutoSize = true;
-         this.label17.Location = new System.Drawing.Point(201, 231);
-         this.label17.Name = "label17";
-         this.label17.Size = new System.Drawing.Size(140, 14);
-         this.label17.TabIndex = 91;
-         this.label17.Text = "حداقل تعداد روز باقیمانده :";
-         // 
-         // MsgbBs9
-         // 
-         this.MsgbBs9.DataSource = typeof(System.Scsc.Data.Message_Broadcast);
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back_Butn.Image")));
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(883, 0);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // MSGB_TOTL_F
          // 
@@ -6656,19 +6656,19 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit33.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit34.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit35.Properties)).EndInit();
-         this.panel1.ResumeLayout(false);
          this.tp_009.ResumeLayout(false);
          this.tp_009.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit44.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MsgbBs9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit45.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit46.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit47.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit48.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit49.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MsgbBs9)).EndInit();
+         this.panel1.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

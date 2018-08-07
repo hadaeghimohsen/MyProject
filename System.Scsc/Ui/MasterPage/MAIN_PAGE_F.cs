@@ -197,19 +197,22 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_Barcode.ReadLine();
-            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
+            if (enrollNumber.IndexOf('\r') != -1)
+               enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
+            else
+               enrollNumber = enrollNumber.ToUpper();
 
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))
             {
-               FngrPrnt_Txt.BackColor = SystemColors.Info;
-               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";               
+               //FngrPrnt_Txt.BackColor = SystemColors.Info;
+               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";               
                return;
             }
             else
-            {
-               FngrPrnt_Txt.BackColor = Color.White;
-               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی و کد انگشتی";
+            {               
+               //FngrPrnt_Txt.BackColor = Color.White;
+               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی و کد انگشتی";
             }
 
             if (barCodeSetting.CLER_ZERO == "002")
@@ -256,7 +259,7 @@ namespace System.Scsc.Ui.MasterPage
             else 
                axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
          }
-         catch (Exception exc) { MessageBox.Show(exc.InnerException.Message); }
+         catch (Exception exc) { MessageBox.Show("لطفا دوباره امتحان کنید"); }
       }
 
       private void Sp_GateAttn_DataReceived(object sender, IO.Ports.SerialDataReceivedEventArgs e)

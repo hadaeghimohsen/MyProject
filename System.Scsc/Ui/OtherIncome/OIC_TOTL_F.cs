@@ -255,6 +255,11 @@ namespace System.Scsc.Ui.OtherIncome
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  RqstBnExit1_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
             }
          }
@@ -298,6 +303,11 @@ namespace System.Scsc.Ui.OtherIncome
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  RqstBnExit1_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
             }
          }

@@ -259,7 +259,7 @@ namespace System.Scsc.Ui.MasterPage
             else 
                axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
          }
-         catch (Exception exc) { MessageBox.Show("لطفا دوباره امتحان کنید"); }
+         catch { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Purple; }
       }
 
       private void Sp_GateAttn_DataReceived(object sender, IO.Ports.SerialDataReceivedEventArgs e)
@@ -269,19 +269,22 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_GateAttn.ReadLine();
-            enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
+            if (enrollNumber.IndexOf('\r') != -1)
+               enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
+            else
+               enrollNumber = enrollNumber.ToUpper();
 
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))
             {
-               FngrPrnt_Txt.BackColor = SystemColors.Info;
-               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";
+               //FngrPrnt_Txt.BackColor = SystemColors.Info;
+               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";
                return;
             }
             else
             {
-               FngrPrnt_Txt.BackColor = Color.White;
-               FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی یا کد انگشتی";
+               //FngrPrnt_Txt.BackColor = Color.White;
+               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی یا کد انگشتی";
             }
 
             if (barCodeSetting.CLER_ZERO == "002")
@@ -328,7 +331,7 @@ namespace System.Scsc.Ui.MasterPage
             else
                axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
          }
-         catch (Exception exc) { MessageBox.Show(exc.InnerException.Message); }
+         catch { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Purple; }
       }
       #endregion
 
@@ -403,12 +406,14 @@ namespace System.Scsc.Ui.MasterPage
             if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
             Sp_GateAttn.Write("in");
 
+            GateAttn_Butn.Image = Properties.Resources.IMAGE_1641;
             //MessageBox.Show("Gate is Open");
          }catch(Exception ){}
          finally
          {
             try
             {
+               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
                System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
                opengatesound.Play();
             }
@@ -428,12 +433,15 @@ namespace System.Scsc.Ui.MasterPage
             if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
             Sp_GateAttn.Write("out");
             //MessageBox.Show("Gate is Close");
+
+            GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
          }
          catch (Exception ) { }
          finally
          {
             try
             {
+               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
                System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
                closegatesound.Play();
             }
@@ -449,6 +457,7 @@ namespace System.Scsc.Ui.MasterPage
             // Error This Gate                        
             Sp_GateAttn.Write("error");
 
+            GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception) { }
@@ -456,6 +465,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             try
             {
+               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
                System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
                errorgatesound.Play();
             }

@@ -84,21 +84,25 @@ namespace System.Scsc.Ui.Insurance
                Gb_Expense.Visible = true;
                //Btn_RqstDelete1.Visible = true;
                //Btn_RqstSav1.Visible = false;
+               RqstBnASav1.Enabled = false;
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
+               RqstBnASav1.Enabled = true;
             }
             else if (Rqst.RQID == 0)
             {
                Gb_Expense.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
+               RqstBnASav1.Enabled = false;
             }
          }
          catch
          {
             Gb_Expense.Visible = false;
+            RqstBnASav1.Enabled = false;
             //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
          }
       }
@@ -111,6 +115,7 @@ namespace System.Scsc.Ui.Insurance
             
             var Rqst = RqstBs1.Current as Data.Request;
             var Figh = FighBs1.Current as Scsc.Data.Fighter;
+            iNSR_DATEPersianDateEdit.CommitChanges();
 
             if (Rqst == null || Rqst.RQID >= 0)
             {
@@ -187,7 +192,11 @@ namespace System.Scsc.Ui.Insurance
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  RqstBnExit1_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
             }
          }
@@ -226,10 +235,14 @@ namespace System.Scsc.Ui.Insurance
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  RqstBnExit1_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
-               var iFighs = iScsc.VF_InsuranceFighter(DateTime.Now, 0).Select(f => f.FILE_NO);
-               FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && iFighs.Contains(f.FILE_NO) && Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)).OrderBy(f => f.FGPB_TYPE_DNRM);
+               //var iFighs = iScsc.VF_InsuranceFighter(DateTime.Now, 0).Select(f => f.FILE_NO);
+               //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && iFighs.Contains(f.FILE_NO) && Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)).OrderBy(f => f.FGPB_TYPE_DNRM);
             }            
          }
       }

@@ -209,7 +209,11 @@ namespace System.Scsc.Ui.Admission
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  Btn_RqstExit_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
             }
          }
@@ -264,9 +268,14 @@ namespace System.Scsc.Ui.Admission
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  Btn_RqstExit_Click(null, null);
+               else
+                  Create_Record();
+
                requery = false;
-               FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002").OrderBy(f => f.FGPB_TYPE_DNRM);
+               //FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002").OrderBy(f => f.FGPB_TYPE_DNRM);                              
             }            
          }
       }

@@ -19,6 +19,7 @@ namespace System.Scsc.Ui.Insurance
       private List<long?> Fga_Uclb_U;
       private XElement HostNameInfo;
       private string RegnLang = "054";
+      private string formCaller = "";
 
       public void SendRequest(Job job)
       {
@@ -100,6 +101,17 @@ namespace System.Scsc.Ui.Insurance
          }
          else if (keyData == Keys.Escape)
          {
+            switch (formCaller)
+            {
+               case "ALL_FLDF_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                  );
+                  break;
+               default:
+                  break;
+            }
+            formCaller = "";
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -450,6 +462,12 @@ namespace System.Scsc.Ui.Insurance
 
                   RqstBnARqt1_Click(null, null);
                }
+
+               // 1397/05/16
+               if ((job.Input as XElement).Attribute("formcaller") != null)
+                  formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+               else
+                  formCaller = "";
             }
             else
                Execute_Query();

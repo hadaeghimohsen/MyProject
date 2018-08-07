@@ -143,7 +143,11 @@ namespace System.Scsc.Ui.Admission
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  Btn_RqstExit1_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
             }
          }
@@ -263,7 +267,11 @@ namespace System.Scsc.Ui.Admission
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  Btn_RqstExit1_Click(null, null);
+               else
+                  Create_Record();
                requery = false;
             }
          }

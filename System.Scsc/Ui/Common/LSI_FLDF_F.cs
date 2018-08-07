@@ -252,6 +252,12 @@ namespace System.Scsc.Ui.Common
                break;
             case "NullDcmt_Lbl":
                break;
+            case "YesInsr_Lbl":
+               PBLC.ActiveFilterString = string.Format("TYPE != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
+               break;
+            case "NoInsr_Lbl":
+               PBLC.ActiveFilterString = string.Format("TYPE != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
+               break;
          }
       }
 

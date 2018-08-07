@@ -315,7 +315,7 @@ namespace System.Scsc.Ui.Common
                new List<Job>
                {
                   new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
-                  new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewinscard"), new XAttribute("fileno", figh.FILE_NO))}
+                  new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewinscard"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("formcaller", GetType().Name))}
                })
          );
       }

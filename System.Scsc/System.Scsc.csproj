@@ -955,6 +955,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_CNGT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CONF.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CSTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CXTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CYCL.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DCKI.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DCMT.datasource" />

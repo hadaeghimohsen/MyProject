@@ -717,7 +717,7 @@
          this.bbi_oincbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_oincbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_oincbutn.Glyph")));
          this.bbi_oincbutn.Id = 38;
-         this.bbi_oincbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_oincbutn.LargeGlyph")));
+         this.bbi_oincbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.bbi_oincbutn.Name = "bbi_oincbutn";
          toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
          toolTipTitleItem4.Appearance.Options.UseImage = true;
@@ -736,7 +736,7 @@
          this.bbi_oexpbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_oexpbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_oexpbutn.Glyph")));
          this.bbi_oexpbutn.Id = 39;
-         this.bbi_oexpbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_oexpbutn.LargeGlyph")));
+         this.bbi_oexpbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1105;
          this.bbi_oexpbutn.Name = "bbi_oexpbutn";
          this.bbi_oexpbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_oexpbutn_ItemClick);
          // 
@@ -1171,7 +1171,7 @@
          // 
          // bbi_basdifnbutn
          // 
-         this.bbi_basdifnbutn.Caption = "اطاعات پایه باشگاه";
+         this.bbi_basdifnbutn.Caption = "اطاعات پایه";
          this.bbi_basdifnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_basdifnbutn.Id = 92;
          this.bbi_basdifnbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1150;

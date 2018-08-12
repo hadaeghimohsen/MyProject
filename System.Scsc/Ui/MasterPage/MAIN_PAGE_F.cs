@@ -2588,14 +2588,21 @@ namespace System.Scsc.Ui.MasterPage
 
       private void AttendanceSystemAlert_Butn_Click(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 141 /* Execute WHO_ARYU_F */),
-                  new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )
-               })
-         );
+         if (ModifierKeys.HasFlag(Keys.Control))
+         {
+            Tm_FingerPrintWorker.Enabled = true;
+         }
+         else
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 141 /* Execute WHO_ARYU_F */),
+                     new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )
+                  })
+            );
+         }
       }
 
       private void Tm_ShowTime_Tick(object sender, EventArgs e)

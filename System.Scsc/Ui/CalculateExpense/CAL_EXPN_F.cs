@@ -52,9 +52,9 @@ namespace System.Scsc.Ui.CalculateExpense
                if (Amnt_Txt.EditValue == null || Amnt_Txt.EditValue.ToString() == "") Amnt_Txt.EditValue = 0;
 
                if (cexc.CODE == 0)
-                  iScsc.INS_CEXC_P((long?)CochFileNo_Lov.EditValue, null, null, (string)Degr_Lov.EditValue, (long?)ExtpCode_Lov.EditValue, (long?)Mtod_Lov.EditValue, (long?)Ctgy_Lov.EditValue, (string)CalcType_Lov.EditValue, Convert.ToInt64(Amnt_Txt.EditValue), Convert.ToDouble(PrctValu_Txt.EditValue), "002");
+                  iScsc.INS_CEXC_P((long?)CochFileNo_Lov.EditValue, null, null, (string)Degr_Lov.EditValue, (long?)ExtpCode_Lov.EditValue, (long?)Mtod_Lov.EditValue, (long?)Ctgy_Lov.EditValue, (string)CalcType_Lov.EditValue, Convert.ToDouble(PrctValu_Txt.EditValue), "002", null, "001", "002");
                else
-                  iScsc.UPD_CEXC_P(cexc.CODE, (long?)CochFileNo_Lov.EditValue, null, null, (string)Degr_Lov.EditValue, (long?)ExtpCode_Lov.EditValue, (long?)Mtod_Lov.EditValue, (long?)Ctgy_Lov.EditValue, (string)CalcType_Lov.EditValue, Convert.ToInt64(Amnt_Txt.EditValue), Convert.ToDouble(PrctValu_Txt.EditValue), cexc.STAT);
+                  iScsc.UPD_CEXC_P(cexc.CODE, (long?)CochFileNo_Lov.EditValue, null, null, (string)Degr_Lov.EditValue, (long?)ExtpCode_Lov.EditValue, (long?)Mtod_Lov.EditValue, (long?)Ctgy_Lov.EditValue, (string)CalcType_Lov.EditValue, Convert.ToDouble(PrctValu_Txt.EditValue), cexc.STAT, null, "001", "002");
             }
             requery = true;
          }
@@ -102,7 +102,6 @@ namespace System.Scsc.Ui.CalculateExpense
             CalcType_Lov.EditValue = cexc.CALC_TYPE;
             Mtod_Lov.EditValue = cexc.MTOD_CODE;
             Ctgy_Lov.EditValue = cexc.CTGY_CODE;
-            Amnt_Txt.EditValue = cexc.AMNT;
             PrctValu_Txt.EditValue = cexc.PRCT_VALU;
             Stat_Pkbt.PickChecked = cexc.STAT == "002" ? true : false;
          }

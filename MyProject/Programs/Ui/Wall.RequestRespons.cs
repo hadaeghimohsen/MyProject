@@ -180,7 +180,8 @@ namespace MyProject.Programs.Ui
                   if (_ActiveUI.Count() != 1)
                   {
                      ActiveUi activeUi = _ActiveUI.Peek();
-                     activeUi.Ui.Enabled = false;
+                     // 1397/05/20 * User Control not change enabled
+                     //activeUi.Ui.Enabled = false;
                   }
                }), obj);
             else
@@ -189,7 +190,8 @@ namespace MyProject.Programs.Ui
                if (_ActiveUI.Count() != 1)
                {
                   ActiveUi activeUi = _ActiveUI.Peek();
-                  activeUi.Ui.Enabled = false;
+                  // 1397/05/20 * User Control not change enabled
+                  //activeUi.Ui.Enabled = false;
                }
             }
 
@@ -205,7 +207,8 @@ namespace MyProject.Programs.Ui
                   if (_ActiveUI.Count() != 1)
                   {
                      ActiveUi activeUi = _ActiveUI.Peek();
-                     activeUi.Ui.Enabled = false;
+                     // 1397/05/20 * User Control not change enabled
+                     //activeUi.Ui.Enabled = false;
                   }
                }), obj);
             else
@@ -214,7 +217,8 @@ namespace MyProject.Programs.Ui
                if (_ActiveUI.Count() != 1)
                {
                   ActiveUi activeUi = _ActiveUI.Peek();
-                  activeUi.Ui.Enabled = false;
+                  // 1397/05/20 * User Control not change enabled
+                  //activeUi.Ui.Enabled = false;
                }
             }
          }
@@ -493,7 +497,8 @@ namespace MyProject.Programs.Ui
             if (!InvokeRequired)
             {
                ActiveUi activeUi = _ActiveUI.Peek();
-               activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
+               // 1397/05/20 * User Control not change enabled
+               //activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
                if (activeUi.Ui.Enabled) activeUi.Ui.Focus();
             }
             else
@@ -501,7 +506,8 @@ namespace MyProject.Programs.Ui
                Invoke(new Action(() =>
                {
                   ActiveUi activeUi = _ActiveUI.Peek();
-                  activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
+                  // 1397/05/20 * User Control not change enabled
+                  //activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
                   if (activeUi.Ui.Enabled) activeUi.Ui.Focus();
                }));
             }

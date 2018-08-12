@@ -1561,7 +1561,7 @@ namespace System.Scsc.Ui.Common
                      }
 
                      if (regl.AMNT_TYPE == "002")
-                        PymtAmnt_Txt.EditValue = (long)PymtAmnt_Txt.EditValue * 10;
+                        PymtAmnt_Txt.EditValue = Convert.ToInt64( PymtAmnt_Txt.EditValue) * 10;
 
                      // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                      UsePos_Cb.Checked = false;
@@ -1583,7 +1583,7 @@ namespace System.Scsc.Ui.Common
                                              new XAttribute("rqtpcode", ""),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
-                                             new XAttribute("amnt", (long)PymtAmnt_Txt.EditValue )
+                                             new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue) )
                                           )
                                     }
                                  }

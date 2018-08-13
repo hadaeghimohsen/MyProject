@@ -333,5 +333,10 @@ namespace System.Scsc.Ui.CalculateExpense
 
          }
       }
+
+      private void Clear_Butn_Click(object sender, EventArgs e)
+      {
+         Coch_Lov.EditValue = null;
+      }
    }
 }

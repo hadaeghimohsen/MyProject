@@ -193,6 +193,7 @@ namespace System.Scsc.Ui.CalculateExpense
          Execute_Query();
          EPIT_Bs2.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "002");
          FIGH_BindingSource.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003" || f.FGPB_TYPE_DNRM == "004");
+         Pde_FromDate.Value = Pde_ToDate.Value = DateTime.Now;
          job.Status = StatusType.Successful;
       }
 

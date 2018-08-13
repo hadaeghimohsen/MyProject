@@ -186,7 +186,11 @@ namespace System.Scsc.Ui.CalculateExpense
          ActvBs.DataSource = iScsc.D_ACTVs;
          CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003");
          DcetpBs.DataSource = iScsc.D_CETPs;
-         ExtpBs.DataSource = iScsc.Expense_Types.Where(ex => ex.Request_Requester.Regulation.REGL_STAT == "002" && ex.Request_Requester.Regulation.TYPE == "001");
+         DysnoBs.DataSource = iScsc.D_YSNOs;
+         DcxtpBs.DataSource = iScsc.D_CXTPs;
+         RqtpBs.DataSource = iScsc.Request_Types;
+         //ExtpBs.DataSource = iScsc.Expense_Types.Where(ex => ex.Request_Requester.Regulation.REGL_STAT == "002" && ex.Request_Requester.Regulation.TYPE == "001");
+         MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
          Execute_Query();
          job.Status = StatusType.Successful;
       }

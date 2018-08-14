@@ -606,8 +606,10 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting == null) return;
 
+                           // اگر حضور غیاب با دستگاه انگشتی نباشد
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
+                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
                            if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
                            {
                               Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";

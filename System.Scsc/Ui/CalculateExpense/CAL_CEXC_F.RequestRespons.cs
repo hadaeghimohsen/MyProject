@@ -192,8 +192,10 @@ namespace System.Scsc.Ui.CalculateExpense
          ClubBs2.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
          Execute_Query();
          EPIT_Bs2.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "002");
-         FIGH_BindingSource.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003" || f.FGPB_TYPE_DNRM == "004");
+         FighBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003" || f.FGPB_TYPE_DNRM == "004");
          Pde_FromDate.Value = Pde_ToDate.Value = DateTime.Now;
+         DCetpBs.DataSource = iScsc.D_CETPs;
+         DCxtpBs.DataSource = iScsc.D_CXTPs;
          job.Status = StatusType.Successful;
       }
 

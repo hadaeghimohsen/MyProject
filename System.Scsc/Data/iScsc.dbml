@@ -1612,6 +1612,7 @@
       <Association Name="Request_Row_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Gain_Loss_Rial1" Member="Gain_Loss_Rials1" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Fighter_Public" Member="Fighter_Publics" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Fighter_Public" />
+      <Association Name="Request_Row_Payment_Expense" Member="Payment_Expenses" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Expense" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
@@ -2764,6 +2765,7 @@
       <Association Name="Member_Ship_Session_Meeting" Member="Session_Meetings" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Session_Meeting" />
       <Association Name="Member_Ship_Session" Member="Sessions" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Session" />
       <Association Name="Member_Ship_Attendance" Member="Attendances" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" Type="Attendance" />
+      <Association Name="Member_Ship_Payment_Expense" Member="Payment_Expenses" ThisKey="FIGH_FILE_NO,RECT_CODE,RWNO" OtherKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" Type="Payment_Expense" />
       <Association Name="Request_Row_Member_Ship" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Fighter_Public_Member_Ship" Member="Fighter_Public" ThisKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM" OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE" Type="Fighter_Public" IsForeignKey="true" />
       <Association Name="Fighter_Member_Ship" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
@@ -3545,6 +3547,14 @@
       <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CALC_EXPN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CALC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PYMT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MBSP_FIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MBSP_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MBSP_RECT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -3552,9 +3562,11 @@
       <Association Name="Club_Payment_Expense" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Category_Belt_Payment_Expense" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Fighter_Payment_Expense" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Member_Ship_Payment_Expense" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Misc_Expense_Payment_Expense" Member="Misc_Expense" ThisKey="MSEX_CODE" OtherKey="CODE" Type="Misc_Expense" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Method_Payment_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Payment_Detail_Payment_Expense" Member="Payment_Detail" ThisKey="PYDT_CODE" OtherKey="CODE" Type="Payment_Detail" IsForeignKey="true" />
+      <Association Name="Request_Row_Payment_Expense" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Request_Type_Payment_Expense" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
     </Type>
   </Table>

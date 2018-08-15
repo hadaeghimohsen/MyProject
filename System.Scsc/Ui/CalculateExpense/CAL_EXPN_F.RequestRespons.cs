@@ -192,6 +192,7 @@ namespace System.Scsc.Ui.CalculateExpense
          //ExtpBs.DataSource = iScsc.Expense_Types.Where(ex => ex.Request_Requester.Regulation.REGL_STAT == "002" && ex.Request_Requester.Regulation.TYPE == "001");
          MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
          Execute_Query();
+
          job.Status = StatusType.Successful;
       }
 

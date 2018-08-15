@@ -41,7 +41,6 @@
          System.Windows.Forms.Label label17;
          System.Windows.Forms.Label label8;
          System.Windows.Forms.Label label18;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.Windows.Forms.Label label1;
          System.Windows.Forms.Label label2;
          System.Windows.Forms.Label label3;
@@ -53,6 +52,7 @@
          System.Windows.Forms.Label label20;
          System.Windows.Forms.Label label21;
          System.Windows.Forms.Label label22;
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -418,38 +418,6 @@
          label18.TabIndex = 0;
          label18.Text = "مبلع دوره / تعداد جلسات :";
          // 
-         // colSTAT
-         // 
-         this.colSTAT.Caption = "وضعیت";
-         this.colSTAT.ColumnEdit = this.STAT_LOV;
-         this.colSTAT.FieldName = "STAT";
-         this.colSTAT.Name = "colSTAT";
-         this.colSTAT.Visible = true;
-         this.colSTAT.VisibleIndex = 6;
-         this.colSTAT.Width = 79;
-         // 
-         // STAT_LOV
-         // 
-         this.STAT_LOV.Appearance.Options.UseTextOptions = true;
-         this.STAT_LOV.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.STAT_LOV.AppearanceDropDown.Options.UseTextOptions = true;
-         this.STAT_LOV.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.STAT_LOV.AutoHeight = false;
-         this.STAT_LOV.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.STAT_LOV.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.STAT_LOV.DataSource = this.ActvBs;
-         this.STAT_LOV.DisplayMember = "DOMN_DESC";
-         this.STAT_LOV.Name = "STAT_LOV";
-         this.STAT_LOV.NullText = "";
-         this.STAT_LOV.ValueMember = "VALU";
-         // 
-         // ActvBs
-         // 
-         this.ActvBs.DataSource = typeof(System.Scsc.Data.D_ACTV);
-         // 
          // label1
          // 
          label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -560,6 +528,38 @@
          label22.TabIndex = 24;
          label22.Text = "درجه :";
          // 
+         // colSTAT
+         // 
+         this.colSTAT.Caption = "وضعیت";
+         this.colSTAT.ColumnEdit = this.STAT_LOV;
+         this.colSTAT.FieldName = "STAT";
+         this.colSTAT.Name = "colSTAT";
+         this.colSTAT.Visible = true;
+         this.colSTAT.VisibleIndex = 4;
+         this.colSTAT.Width = 79;
+         // 
+         // STAT_LOV
+         // 
+         this.STAT_LOV.Appearance.Options.UseTextOptions = true;
+         this.STAT_LOV.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.STAT_LOV.AppearanceDropDown.Options.UseTextOptions = true;
+         this.STAT_LOV.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.STAT_LOV.AutoHeight = false;
+         this.STAT_LOV.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.STAT_LOV.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.STAT_LOV.DataSource = this.ActvBs;
+         this.STAT_LOV.DisplayMember = "DOMN_DESC";
+         this.STAT_LOV.Name = "STAT_LOV";
+         this.STAT_LOV.NullText = "";
+         this.STAT_LOV.ValueMember = "VALU";
+         // 
+         // ActvBs
+         // 
+         this.ActvBs.DataSource = typeof(System.Scsc.Data.D_ACTV);
+         // 
          // gridColumn7
          // 
          this.gridColumn7.Caption = "وضعیت";
@@ -567,7 +567,7 @@
          this.gridColumn7.FieldName = "STAT";
          this.gridColumn7.Name = "gridColumn7";
          this.gridColumn7.Visible = true;
-         this.gridColumn7.VisibleIndex = 6;
+         this.gridColumn7.VisibleIndex = 4;
          this.gridColumn7.Width = 79;
          // 
          // repositoryItemLookUpEdit4
@@ -644,6 +644,8 @@
          // 
          // Bcex_Gv
          // 
+         this.Bcex_Gv.Appearance.GroupRow.Options.UseTextOptions = true;
+         this.Bcex_Gv.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Bcex_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Bcex_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Bcex_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
@@ -682,7 +684,10 @@
             styleFormatCondition1,
             styleFormatCondition2});
          this.Bcex_Gv.GridControl = this.base_Calculate_ExpenseGridControl;
+         this.Bcex_Gv.GroupCount = 1;
+         this.Bcex_Gv.GroupFormat = "{1} {2}";
          this.Bcex_Gv.Name = "Bcex_Gv";
+         this.Bcex_Gv.OptionsBehavior.AutoExpandAllGroups = true;
          this.Bcex_Gv.OptionsBehavior.Editable = false;
          this.Bcex_Gv.OptionsBehavior.ReadOnly = true;
          this.Bcex_Gv.OptionsDetail.EnableMasterViewMode = false;
@@ -690,7 +695,10 @@
          this.Bcex_Gv.OptionsView.ShowGroupPanel = false;
          this.Bcex_Gv.OptionsView.ShowIndicator = false;
          this.Bcex_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCOCH_DEG, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMTOD_CODE1, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCOCH_DEG, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCTGY_CODE1, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRQTP_CODE, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
          // colCOCH_DEG
          // 
@@ -699,7 +707,7 @@
          this.colCOCH_DEG.FieldName = "COCH_DEG";
          this.colCOCH_DEG.Name = "colCOCH_DEG";
          this.colCOCH_DEG.Visible = true;
-         this.colCOCH_DEG.VisibleIndex = 10;
+         this.colCOCH_DEG.VisibleIndex = 7;
          this.colCOCH_DEG.Width = 71;
          // 
          // DEG_LOV
@@ -739,7 +747,7 @@
          this.colCTGY_CODE1.FieldName = "Category_Belt.CTGY_DESC";
          this.colCTGY_CODE1.Name = "colCTGY_CODE1";
          this.colCTGY_CODE1.Visible = true;
-         this.colCTGY_CODE1.VisibleIndex = 1;
+         this.colCTGY_CODE1.VisibleIndex = 9;
          this.colCTGY_CODE1.Width = 76;
          // 
          // colCALC_EXPN_TYPE
@@ -749,7 +757,7 @@
          this.colCALC_EXPN_TYPE.FieldName = "CALC_EXPN_TYPE";
          this.colCALC_EXPN_TYPE.Name = "colCALC_EXPN_TYPE";
          this.colCALC_EXPN_TYPE.Visible = true;
-         this.colCALC_EXPN_TYPE.VisibleIndex = 3;
+         this.colCALC_EXPN_TYPE.VisibleIndex = 1;
          this.colCALC_EXPN_TYPE.Width = 105;
          // 
          // CXTP_LOV
@@ -776,7 +784,7 @@
          this.colCALC_TYPE1.FieldName = "CALC_TYPE";
          this.colCALC_TYPE1.Name = "colCALC_TYPE1";
          this.colCALC_TYPE1.Visible = true;
-         this.colCALC_TYPE1.VisibleIndex = 5;
+         this.colCALC_TYPE1.VisibleIndex = 3;
          this.colCALC_TYPE1.Width = 79;
          // 
          // CETP1_LOV
@@ -803,7 +811,7 @@
          this.colPRCT_VALU.FieldName = "PRCT_VALU";
          this.colPRCT_VALU.Name = "colPRCT_VALU";
          this.colPRCT_VALU.Visible = true;
-         this.colPRCT_VALU.VisibleIndex = 4;
+         this.colPRCT_VALU.VisibleIndex = 2;
          this.colPRCT_VALU.Width = 76;
          // 
          // colEPIT_CODE
@@ -813,7 +821,7 @@
          this.colEPIT_CODE.FieldName = "EPIT_CODE";
          this.colEPIT_CODE.Name = "colEPIT_CODE";
          this.colEPIT_CODE.Visible = true;
-         this.colEPIT_CODE.VisibleIndex = 7;
+         this.colEPIT_CODE.VisibleIndex = 5;
          this.colEPIT_CODE.Width = 79;
          // 
          // EPIT_LOV
@@ -850,7 +858,7 @@
          this.colRQTP_CODE.FieldName = "RQTP_CODE";
          this.colRQTP_CODE.Name = "colRQTP_CODE";
          this.colRQTP_CODE.Visible = true;
-         this.colRQTP_CODE.VisibleIndex = 9;
+         this.colRQTP_CODE.VisibleIndex = 8;
          this.colRQTP_CODE.Width = 103;
          // 
          // RQTP_LOV
@@ -877,7 +885,7 @@
          this.colRQTT_CODE.FieldName = "RQTT_CODE";
          this.colRQTT_CODE.Name = "colRQTT_CODE";
          this.colRQTT_CODE.Visible = true;
-         this.colRQTT_CODE.VisibleIndex = 8;
+         this.colRQTT_CODE.VisibleIndex = 6;
          this.colRQTT_CODE.Width = 79;
          // 
          // RQTT_LOV
@@ -1446,6 +1454,8 @@
          // 
          // Cexc_Gv
          // 
+         this.Cexc_Gv.Appearance.GroupRow.Options.UseTextOptions = true;
+         this.Cexc_Gv.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cexc_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Cexc_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Cexc_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
@@ -1485,7 +1495,10 @@
             styleFormatCondition3,
             styleFormatCondition4});
          this.Cexc_Gv.GridControl = this.gridControl1;
+         this.Cexc_Gv.GroupCount = 1;
+         this.Cexc_Gv.GroupFormat = "{1} {2}";
          this.Cexc_Gv.Name = "Cexc_Gv";
+         this.Cexc_Gv.OptionsBehavior.AutoExpandAllGroups = true;
          this.Cexc_Gv.OptionsBehavior.Editable = false;
          this.Cexc_Gv.OptionsBehavior.ReadOnly = true;
          this.Cexc_Gv.OptionsDetail.EnableMasterViewMode = false;
@@ -1493,7 +1506,11 @@
          this.Cexc_Gv.OptionsView.ShowGroupPanel = false;
          this.Cexc_Gv.OptionsView.ShowIndicator = false;
          this.Cexc_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn1, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn1, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn3, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn12, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn9, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
          // gridColumn1
          // 
@@ -1502,7 +1519,7 @@
          this.gridColumn1.FieldName = "COCH_DEG";
          this.gridColumn1.Name = "gridColumn1";
          this.gridColumn1.Visible = true;
-         this.gridColumn1.VisibleIndex = 10;
+         this.gridColumn1.VisibleIndex = 7;
          this.gridColumn1.Width = 71;
          // 
          // repositoryItemLookUpEdit1
@@ -1538,7 +1555,7 @@
          this.gridColumn3.FieldName = "Category_Belt.CTGY_DESC";
          this.gridColumn3.Name = "gridColumn3";
          this.gridColumn3.Visible = true;
-         this.gridColumn3.VisibleIndex = 1;
+         this.gridColumn3.VisibleIndex = 10;
          this.gridColumn3.Width = 76;
          // 
          // gridColumn4
@@ -1548,7 +1565,7 @@
          this.gridColumn4.FieldName = "CALC_EXPN_TYPE";
          this.gridColumn4.Name = "gridColumn4";
          this.gridColumn4.Visible = true;
-         this.gridColumn4.VisibleIndex = 3;
+         this.gridColumn4.VisibleIndex = 1;
          this.gridColumn4.Width = 105;
          // 
          // repositoryItemLookUpEdit2
@@ -1571,7 +1588,7 @@
          this.gridColumn5.FieldName = "CALC_TYPE";
          this.gridColumn5.Name = "gridColumn5";
          this.gridColumn5.Visible = true;
-         this.gridColumn5.VisibleIndex = 5;
+         this.gridColumn5.VisibleIndex = 3;
          this.gridColumn5.Width = 79;
          // 
          // repositoryItemLookUpEdit3
@@ -1594,7 +1611,7 @@
          this.gridColumn6.FieldName = "PRCT_VALU";
          this.gridColumn6.Name = "gridColumn6";
          this.gridColumn6.Visible = true;
-         this.gridColumn6.VisibleIndex = 4;
+         this.gridColumn6.VisibleIndex = 2;
          this.gridColumn6.Width = 76;
          // 
          // gridColumn8
@@ -1604,7 +1621,7 @@
          this.gridColumn8.FieldName = "EPIT_CODE";
          this.gridColumn8.Name = "gridColumn8";
          this.gridColumn8.Visible = true;
-         this.gridColumn8.VisibleIndex = 7;
+         this.gridColumn8.VisibleIndex = 5;
          this.gridColumn8.Width = 79;
          // 
          // repositoryItemLookUpEdit5
@@ -1637,7 +1654,7 @@
          this.gridColumn9.FieldName = "RQTP_CODE";
          this.gridColumn9.Name = "gridColumn9";
          this.gridColumn9.Visible = true;
-         this.gridColumn9.VisibleIndex = 9;
+         this.gridColumn9.VisibleIndex = 8;
          this.gridColumn9.Width = 103;
          // 
          // repositoryItemLookUpEdit6
@@ -1660,7 +1677,7 @@
          this.gridColumn10.FieldName = "RQTT_CODE";
          this.gridColumn10.Name = "gridColumn10";
          this.gridColumn10.Visible = true;
-         this.gridColumn10.VisibleIndex = 8;
+         this.gridColumn10.VisibleIndex = 6;
          this.gridColumn10.Width = 79;
          // 
          // repositoryItemLookUpEdit7
@@ -1716,7 +1733,7 @@
          this.gridColumn12.FieldName = "COCH_FILE_NO";
          this.gridColumn12.Name = "gridColumn12";
          this.gridColumn12.Visible = true;
-         this.gridColumn12.VisibleIndex = 11;
+         this.gridColumn12.VisibleIndex = 9;
          // 
          // Coch_Lov
          // 

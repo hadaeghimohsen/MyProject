@@ -297,6 +297,63 @@ namespace System.Scsc.Ui.CalculateExpense
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void DuplBcex_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var bcex = BcexBs.Current as Data.Base_Calculate_Expense;
+            if (bcex == null) return;
+
+            if (BcexBs.List.OfType<Data.Base_Calculate_Expense>().Any(b => b.CODE == 0)) return;
+
+            BcexBs.AddNew();
+            var crnt = BcexBs.Current as Data.Base_Calculate_Expense;
+
+            crnt.COCH_DEG = bcex.COCH_DEG;
+            crnt.RQTP_CODE = bcex.RQTP_CODE;
+            crnt.RQTT_CODE = bcex.RQTT_CODE;
+            crnt.EPIT_CODE = bcex.EPIT_CODE;
+            crnt.CALC_TYPE = bcex.CALC_TYPE;
+            crnt.PRCT_VALU = bcex.PRCT_VALU;
+            crnt.PYMT_STAT = bcex.PYMT_STAT;
+            crnt.MTOD_CODE = bcex.MTOD_CODE;
+            crnt.CTGY_CODE = bcex.CTGY_CODE;
+            crnt.CALC_EXPN_TYPE = bcex.CALC_EXPN_TYPE;
+
+            iScsc.Base_Calculate_Expenses.InsertOnSubmit(crnt);
+         }
+         catch {}
+      }
+
+      private void DuplCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (cexc == null) return;
+
+            if (CexcBs.List.OfType<Data.Calculate_Expense_Coach>().Any(c => c.CODE == 0)) return;
+
+            CexcBs.AddNew();
+            var crnt = CexcBs.Current as Data.Calculate_Expense_Coach;
+
+            crnt.COCH_FILE_NO = cexc.COCH_FILE_NO;
+            crnt.COCH_DEG = cexc.COCH_DEG;
+            crnt.RQTP_CODE = cexc.RQTP_CODE;
+            crnt.RQTT_CODE = cexc.RQTT_CODE;
+            crnt.EPIT_CODE = cexc.EPIT_CODE;
+            crnt.CALC_TYPE = cexc.CALC_TYPE;
+            crnt.PRCT_VALU = cexc.PRCT_VALU;
+            crnt.PYMT_STAT = cexc.PYMT_STAT;
+            crnt.MTOD_CODE = cexc.MTOD_CODE;
+            crnt.CTGY_CODE = cexc.CTGY_CODE;
+            crnt.CALC_EXPN_TYPE = cexc.CALC_EXPN_TYPE;
+
+            iScsc.Calculate_Expense_Coaches.InsertOnSubmit(crnt);
+         }
+         catch { }
       }      
    }
 }

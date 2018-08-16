@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.CalculateExpense
 {
@@ -196,6 +197,10 @@ namespace System.Scsc.Ui.CalculateExpense
          Pde_FromDate.Value = Pde_ToDate.Value = DateTime.Now;
          DCetpBs.DataSource = iScsc.D_CETPs;
          DCxtpBs.DataSource = iScsc.D_CXTPs;
+         MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+         DegrBs.DataSource = iScsc.D_DEGRs;
+         EpitBs.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "001");
+         RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");
          job.Status = StatusType.Successful;
       }
 

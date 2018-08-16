@@ -3536,7 +3536,7 @@
       <Column Name="VALD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="EXPN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PRCT_VALU" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PRCT_VALU" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DECR_PRCT_VALU" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DECR_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="RCPT_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />

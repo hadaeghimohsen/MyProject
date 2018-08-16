@@ -665,6 +665,8 @@
          this.RqstBnPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.gridColumn81 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tc_master.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -1119,7 +1121,9 @@
             this.TotlPric_Clm,
             this.IssuTime2_Clm,
             this.SexType2_Clm,
-            this.colPydt});
+            this.colPydt,
+            this.gridColumn81,
+            this.gridColumn82});
          this.gridView3.GridControl = this.gridControl1;
          this.gridView3.Name = "gridView3";
          this.gridView3.OptionsFind.AlwaysVisible = true;
@@ -1146,7 +1150,7 @@
          this.RqtpCode2_Clm.OptionsColumn.AllowEdit = false;
          this.RqtpCode2_Clm.OptionsColumn.ReadOnly = true;
          this.RqtpCode2_Clm.Visible = true;
-         this.RqtpCode2_Clm.VisibleIndex = 12;
+         this.RqtpCode2_Clm.VisibleIndex = 14;
          this.RqtpCode2_Clm.Width = 78;
          // 
          // FileNo2_Clm
@@ -2692,7 +2696,7 @@
          this.RqtpCode1_Clm.OptionsColumn.AllowEdit = false;
          this.RqtpCode1_Clm.OptionsColumn.ReadOnly = true;
          this.RqtpCode1_Clm.Visible = true;
-         this.RqtpCode1_Clm.VisibleIndex = 8;
+         this.RqtpCode1_Clm.VisibleIndex = 13;
          this.RqtpCode1_Clm.Width = 111;
          // 
          // FileNo1_Clm
@@ -2703,7 +2707,7 @@
          this.FileNo1_Clm.OptionsColumn.AllowEdit = false;
          this.FileNo1_Clm.OptionsColumn.ReadOnly = true;
          this.FileNo1_Clm.Visible = true;
-         this.FileNo1_Clm.VisibleIndex = 7;
+         this.FileNo1_Clm.VisibleIndex = 12;
          this.FileNo1_Clm.Width = 106;
          // 
          // colRWNO
@@ -2727,7 +2731,7 @@
          this.Amnt1_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AMNT", "{0:n0}")});
          this.Amnt1_Clm.Visible = true;
-         this.Amnt1_Clm.VisibleIndex = 4;
+         this.Amnt1_Clm.VisibleIndex = 9;
          this.Amnt1_Clm.Width = 103;
          // 
          // RcptMtod_Clm
@@ -2739,7 +2743,7 @@
          this.RcptMtod_Clm.FieldName = "RCPT_MTOD";
          this.RcptMtod_Clm.Name = "RcptMtod_Clm";
          this.RcptMtod_Clm.Visible = true;
-         this.RcptMtod_Clm.VisibleIndex = 3;
+         this.RcptMtod_Clm.VisibleIndex = 8;
          this.RcptMtod_Clm.Width = 103;
          // 
          // Lov_RcptMtod
@@ -2758,18 +2762,33 @@
          // 
          // colTERM_NO
          // 
+         this.colTERM_NO.Caption = "شماره POS";
          this.colTERM_NO.FieldName = "TERM_NO";
          this.colTERM_NO.Name = "colTERM_NO";
+         this.colTERM_NO.OptionsColumn.AllowEdit = false;
+         this.colTERM_NO.OptionsColumn.ReadOnly = true;
+         this.colTERM_NO.Visible = true;
+         this.colTERM_NO.VisibleIndex = 7;
          // 
          // colTRAN_NO
          // 
+         this.colTRAN_NO.Caption = "شماره تراکنش";
          this.colTRAN_NO.FieldName = "TRAN_NO";
          this.colTRAN_NO.Name = "colTRAN_NO";
+         this.colTRAN_NO.OptionsColumn.AllowEdit = false;
+         this.colTRAN_NO.OptionsColumn.ReadOnly = true;
+         this.colTRAN_NO.Visible = true;
+         this.colTRAN_NO.VisibleIndex = 6;
          // 
          // colCARD_NO
          // 
+         this.colCARD_NO.Caption = "شماره کارت";
          this.colCARD_NO.FieldName = "CARD_NO";
          this.colCARD_NO.Name = "colCARD_NO";
+         this.colCARD_NO.OptionsColumn.AllowEdit = false;
+         this.colCARD_NO.OptionsColumn.ReadOnly = true;
+         this.colCARD_NO.Visible = true;
+         this.colCARD_NO.VisibleIndex = 5;
          // 
          // colBANK
          // 
@@ -2778,13 +2797,23 @@
          // 
          // colFLOW_NO
          // 
+         this.colFLOW_NO.Caption = "شماره پیگیری";
          this.colFLOW_NO.FieldName = "FLOW_NO";
          this.colFLOW_NO.Name = "colFLOW_NO";
+         this.colFLOW_NO.OptionsColumn.AllowEdit = false;
+         this.colFLOW_NO.OptionsColumn.ReadOnly = true;
+         this.colFLOW_NO.Visible = true;
+         this.colFLOW_NO.VisibleIndex = 3;
          // 
          // colREF_NO
          // 
+         this.colREF_NO.Caption = "شماره ارجاع";
          this.colREF_NO.FieldName = "REF_NO";
          this.colREF_NO.Name = "colREF_NO";
+         this.colREF_NO.OptionsColumn.AllowEdit = false;
+         this.colREF_NO.OptionsColumn.ReadOnly = true;
+         this.colREF_NO.Visible = true;
+         this.colREF_NO.VisibleIndex = 4;
          // 
          // ActnDate1_Clm
          // 
@@ -2863,7 +2892,7 @@
          this.SexType1_Clm.OptionsColumn.AllowEdit = false;
          this.SexType1_Clm.OptionsColumn.ReadOnly = true;
          this.SexType1_Clm.Visible = true;
-         this.SexType1_Clm.VisibleIndex = 5;
+         this.SexType1_Clm.VisibleIndex = 10;
          this.SexType1_Clm.Width = 116;
          // 
          // repositoryItemLookUpEdit2
@@ -2886,7 +2915,7 @@
          this.gridColumn77.Name = "gridColumn77";
          this.gridColumn77.OptionsColumn.FixedWidth = true;
          this.gridColumn77.Visible = true;
-         this.gridColumn77.VisibleIndex = 6;
+         this.gridColumn77.VisibleIndex = 11;
          this.gridColumn77.Width = 80;
          // 
          // Pmmt_Butn
@@ -6033,6 +6062,26 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
+         // gridColumn81
+         // 
+         this.gridColumn81.Caption = "گروه";
+         this.gridColumn81.FieldName = "Method.MTOD_DESC";
+         this.gridColumn81.Name = "gridColumn81";
+         this.gridColumn81.OptionsColumn.AllowEdit = false;
+         this.gridColumn81.OptionsColumn.ReadOnly = true;
+         this.gridColumn81.Visible = true;
+         this.gridColumn81.VisibleIndex = 13;
+         // 
+         // gridColumn82
+         // 
+         this.gridColumn82.Caption = "زیر گروه";
+         this.gridColumn82.FieldName = "Category_Belt.CTGY_DESC";
+         this.gridColumn82.Name = "gridColumn82";
+         this.gridColumn82.OptionsColumn.AllowEdit = false;
+         this.gridColumn82.OptionsColumn.ReadOnly = true;
+         this.gridColumn82.Visible = true;
+         this.gridColumn82.VisibleIndex = 12;
+         // 
          // RPT_PMMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -6761,5 +6810,7 @@
       private Windows.Forms.Label ToDate5_Lb;
       private Windows.Forms.Label FromDate5_Lb;
       private DevExpress.XtraGrid.Columns.GridColumn ExpnCode2_Lb;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn81;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn82;
    }
 }

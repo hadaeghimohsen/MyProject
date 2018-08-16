@@ -63976,7 +63976,7 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<long> _EXPN_PRIC;
 		
-		private System.Nullable<short> _PRCT_VALU;
+		private System.Nullable<double> _PRCT_VALU;
 		
 		private System.Nullable<double> _DECR_PRCT_VALU;
 		
@@ -64058,7 +64058,7 @@ namespace System.Scsc.Data
     partial void OnEXPN_AMNTChanged();
     partial void OnEXPN_PRICChanging(System.Nullable<long> value);
     partial void OnEXPN_PRICChanged();
-    partial void OnPRCT_VALUChanging(System.Nullable<short> value);
+    partial void OnPRCT_VALUChanging(System.Nullable<double> value);
     partial void OnPRCT_VALUChanged();
     partial void OnDECR_PRCT_VALUChanging(System.Nullable<double> value);
     partial void OnDECR_PRCT_VALUChanged();
@@ -64272,8 +64272,8 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRCT_VALU", DbType="SmallInt")]
-		public System.Nullable<short> PRCT_VALU
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRCT_VALU", DbType="Float")]
+		public System.Nullable<double> PRCT_VALU
 		{
 			get
 			{

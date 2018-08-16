@@ -71,7 +71,14 @@ namespace System.Scsc.Ui.CalculateExpense
                      new XAttribute("fromdate", Pde_FromDate.Value.Value.Date.ToString("yyyy-MM-dd")),
                      new XAttribute("todate", Pde_ToDate.Value.Value.Date.ToString("yyyy-MM-dd")),
                      new XAttribute("cochfileno", Coch_Lov.EditValue ?? ""),
-                     new XAttribute("decrprct", DecrPrct_Te.EditValue ?? "") 
+                     new XAttribute("decrprct", DecrPrct_Te.EditValue ?? ""),
+                     new XAttribute("mtodcode", Mtod_Lov.EditValue ?? ""),
+                     new XAttribute("ctgycode", Ctgy_Lov.EditValue ?? ""),
+                     new XAttribute("cochdegr", Degr_Lov.EditValue ?? ""),
+                     new XAttribute("epitcode", Epit_Lov.EditValue ?? ""),
+                     new XAttribute("cetpcode", Cetp1_Lov.EditValue ?? ""),
+                     new XAttribute("cxtpcode", Cxtp1_Lov.EditValue ?? ""),
+                     new XAttribute("rqtpcode", Rqtp_Lov.EditValue ?? "")
                   )
                )
             );
@@ -337,6 +344,22 @@ namespace System.Scsc.Ui.CalculateExpense
       private void Clear_Butn_Click(object sender, EventArgs e)
       {
          Coch_Lov.EditValue = null;
+         Mtod_Lov.EditValue = null;
+         Ctgy_Lov.EditValue = null;
+         Degr_Lov.EditValue = null;
+         Epit_Lov.EditValue = null;
+         Cxtp1_Lov.EditValue = null;
+         Cetp1_Lov.EditValue = null;
+         Rqtp_Lov.EditValue = null;
+      }
+
+      private void Mtod_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long)e.NewValue && c.CTGY_STAT == "002");
+         }
+         catch { }
       }
    }
 }

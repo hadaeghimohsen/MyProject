@@ -60,6 +60,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CAL_EXPN_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -68,7 +69,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CAL_EXPN_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -120,6 +120,7 @@
          this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
          this.PRCT_UPD = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.DuplBcex_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PymtStat_Tg = new DevExpress.XtraEditors.ToggleSwitch();
          this.Stat_Tg = new DevExpress.XtraEditors.ToggleSwitch();
          this.Ctgy1_Lov = new DevExpress.XtraEditors.LookUpEdit();
@@ -173,6 +174,7 @@
          this.CochBs = new System.Windows.Forms.BindingSource(this.components);
          this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.DuplCexc_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.lookUpEdit14 = new DevExpress.XtraEditors.LookUpEdit();
          this.PymtStat1_Tg = new DevExpress.XtraEditors.ToggleSwitch();
          this.Stat1_Tg = new DevExpress.XtraEditors.ToggleSwitch();
@@ -808,7 +810,11 @@
          // colPRCT_VALU
          // 
          this.colPRCT_VALU.Caption = "مقدار";
+         this.colPRCT_VALU.DisplayFormat.FormatString = "{0:n0}";
+         this.colPRCT_VALU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colPRCT_VALU.FieldName = "PRCT_VALU";
+         this.colPRCT_VALU.GroupFormat.FormatString = "{0:n0}";
+         this.colPRCT_VALU.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colPRCT_VALU.Name = "colPRCT_VALU";
          this.colPRCT_VALU.Visible = true;
          this.colPRCT_VALU.VisibleIndex = 2;
@@ -957,6 +963,7 @@
          // 
          // groupBox2
          // 
+         this.groupBox2.Controls.Add(this.DuplBcex_Butn);
          this.groupBox2.Controls.Add(this.PymtStat_Tg);
          this.groupBox2.Controls.Add(this.Stat_Tg);
          this.groupBox2.Controls.Add(label8);
@@ -986,6 +993,20 @@
          this.groupBox2.Size = new System.Drawing.Size(1157, 83);
          this.groupBox2.TabIndex = 4;
          this.groupBox2.TabStop = false;
+         // 
+         // DuplBcex_Butn
+         // 
+         this.DuplBcex_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DuplBcex_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DuplBcex_Butn.Image")));
+         this.DuplBcex_Butn.Location = new System.Drawing.Point(128, 46);
+         this.DuplBcex_Butn.LookAndFeel.SkinName = "Seven Classic";
+         this.DuplBcex_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.DuplBcex_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DuplBcex_Butn.Name = "DuplBcex_Butn";
+         this.DuplBcex_Butn.Size = new System.Drawing.Size(96, 23);
+         this.DuplBcex_Butn.TabIndex = 4;
+         this.DuplBcex_Butn.Text = "نمونه برداری";
+         this.DuplBcex_Butn.Click += new System.EventHandler(this.DuplBcex_Butn_Click);
          // 
          // PymtStat_Tg
          // 
@@ -1608,7 +1629,11 @@
          // gridColumn6
          // 
          this.gridColumn6.Caption = "مقدار";
+         this.gridColumn6.DisplayFormat.FormatString = "{0:n0}";
+         this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.gridColumn6.FieldName = "PRCT_VALU";
+         this.gridColumn6.GroupFormat.FormatString = "{0:n0}";
+         this.gridColumn6.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.gridColumn6.Name = "gridColumn6";
          this.gridColumn6.Visible = true;
          this.gridColumn6.VisibleIndex = 2;
@@ -1765,6 +1790,7 @@
          // 
          // groupBox1
          // 
+         this.groupBox1.Controls.Add(this.DuplCexc_Butn);
          this.groupBox1.Controls.Add(label22);
          this.groupBox1.Controls.Add(this.lookUpEdit14);
          this.groupBox1.Controls.Add(this.PymtStat1_Tg);
@@ -1796,6 +1822,20 @@
          this.groupBox1.Size = new System.Drawing.Size(1157, 83);
          this.groupBox1.TabIndex = 3;
          this.groupBox1.TabStop = false;
+         // 
+         // DuplCexc_Butn
+         // 
+         this.DuplCexc_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DuplCexc_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DuplCexc_Butn.Image")));
+         this.DuplCexc_Butn.Location = new System.Drawing.Point(53, 16);
+         this.DuplCexc_Butn.LookAndFeel.SkinName = "Seven Classic";
+         this.DuplCexc_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.DuplCexc_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DuplCexc_Butn.Name = "DuplCexc_Butn";
+         this.DuplCexc_Butn.Size = new System.Drawing.Size(25, 53);
+         this.DuplCexc_Butn.TabIndex = 26;
+         this.DuplCexc_Butn.ToolTip = "نمونه برداری";
+         this.DuplCexc_Butn.Click += new System.EventHandler(this.DuplCexc_Butn_Click);
          // 
          // lookUpEdit14
          // 
@@ -2563,5 +2603,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Coch_Lov;
       private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+      private DevExpress.XtraEditors.SimpleButton DuplBcex_Butn;
+      private DevExpress.XtraEditors.SimpleButton DuplCexc_Butn;
    }
 }

@@ -106,6 +106,9 @@ namespace System.Scsc.Ui.CalculateExpense
                   PymtStat1_Tg.IsOn = true;
                   break;
             }
+
+            if (cexc.CODE != 0)
+               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cexc.MTOD_CODE);
          }
          catch (Exception ){}
       }
@@ -156,6 +159,9 @@ namespace System.Scsc.Ui.CalculateExpense
                   PymtStat_Tg.IsOn = true;
                   break;
             }
+
+            if (bcex.CODE != 0)
+               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == bcex.MTOD_CODE);
          }
          catch{}
       }
@@ -225,6 +231,8 @@ namespace System.Scsc.Ui.CalculateExpense
 
             var crnt = BcexBs.Current as Data.Base_Calculate_Expense;
             iScsc.Base_Calculate_Expenses.InsertOnSubmit(crnt);
+            crnt.STAT = "002";
+            crnt.PYMT_STAT = "002";
          }
          catch{}
       }
@@ -261,6 +269,8 @@ namespace System.Scsc.Ui.CalculateExpense
 
             var crnt = CexcBs.Current as Data.Calculate_Expense_Coach;
             iScsc.Calculate_Expense_Coaches.InsertOnSubmit(crnt);
+            crnt.STAT = "002";
+            crnt.PYMT_STAT = "002";
          }
          catch { }
       }

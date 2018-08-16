@@ -202,6 +202,9 @@ namespace System.Scsc.Ui.MasterPage
             else
                enrollNumber = enrollNumber.ToUpper();
 
+            if (enrollNumber.IndexOf(' ') != -1)
+               enrollNumber = enrollNumber.Replace(" ", "");
+
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))
             {
@@ -273,6 +276,9 @@ namespace System.Scsc.Ui.MasterPage
                enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
             else
                enrollNumber = enrollNumber.ToUpper();
+
+            if (enrollNumber.IndexOf(' ') != -1)
+               enrollNumber = enrollNumber.Replace(" ", "");
 
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))

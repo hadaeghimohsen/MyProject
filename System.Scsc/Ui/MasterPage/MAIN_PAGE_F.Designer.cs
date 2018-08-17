@@ -179,6 +179,7 @@
          this.SystemAdmin_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.SystemAdmin_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
+         this.ChngAttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
@@ -355,7 +356,7 @@
             this.AgrActn_RPgc,
             this.Mngr_RPgc,
             this.SystemAdmin_RPgc});
-         this.ribbonControl1.Size = new System.Drawing.Size(1103, 142);
+         this.ribbonControl1.Size = new System.Drawing.Size(846, 142);
          // 
          // bbi_epitbutn
          // 
@@ -1500,6 +1501,7 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.spc_desktop.Panel2.Controls.Add(this.ChngAttnActn_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.TlgrmBot_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.BackGrnd_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.AttnType_Lov);
@@ -1516,9 +1518,28 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1103, 302);
+         this.spc_desktop.Size = new System.Drawing.Size(846, 302);
          this.spc_desktop.SplitterDistance = 261;
          this.spc_desktop.TabIndex = 3;
+         // 
+         // ChngAttnActn_Butn
+         // 
+         this.ChngAttnActn_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ChngAttnActn_Butn.Appearance.BorderColor = System.Drawing.Color.White;
+         this.ChngAttnActn_Butn.Appearance.Options.UseBackColor = true;
+         this.ChngAttnActn_Butn.Appearance.Options.UseBorderColor = true;
+         this.ChngAttnActn_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.ChngAttnActn_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.ChngAttnActn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1609;
+         this.ChngAttnActn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ChngAttnActn_Butn.Location = new System.Drawing.Point(420, 5);
+         this.ChngAttnActn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ChngAttnActn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ChngAttnActn_Butn.Name = "ChngAttnActn_Butn";
+         this.ChngAttnActn_Butn.Size = new System.Drawing.Size(30, 27);
+         this.ChngAttnActn_Butn.TabIndex = 19;
+         this.ChngAttnActn_Butn.ToolTip = "تغییر وضعیت خواندن اطلاعات ورودی";
+         this.ChngAttnActn_Butn.Click += new System.EventHandler(this.ChngAttnActn_Butn_Click);
          // 
          // TlgrmBot_Butn
          // 
@@ -1530,7 +1551,7 @@
          this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
          this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.TlgrmBot_Butn.Location = new System.Drawing.Point(787, 5);
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(530, 5);
          this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
@@ -1553,7 +1574,7 @@
          this.BackGrnd_Butn.ImageProfile = null;
          this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.BackGrnd_Butn.ImageVisiable = false;
-         this.BackGrnd_Butn.Location = new System.Drawing.Point(761, 8);
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(504, 8);
          this.BackGrnd_Butn.Name = "BackGrnd_Butn";
          this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.DimGray;
@@ -1566,7 +1587,7 @@
          // AttnType_Lov
          // 
          this.AttnType_Lov.Dock = System.Windows.Forms.DockStyle.Left;
-         this.AttnType_Lov.Location = new System.Drawing.Point(417, 5);
+         this.AttnType_Lov.Location = new System.Drawing.Point(345, 5);
          this.AttnType_Lov.MenuManager = this.ribbonControl1;
          this.AttnType_Lov.Name = "AttnType_Lov";
          this.AttnType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1580,7 +1601,7 @@
          this.AttnType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttnType_Lov.Properties.NullText = "";
          this.AttnType_Lov.Properties.ValueMember = "VALU";
-         this.AttnType_Lov.Size = new System.Drawing.Size(148, 22);
+         this.AttnType_Lov.Size = new System.Drawing.Size(75, 22);
          this.AttnType_Lov.TabIndex = 15;
          // 
          // DaeatBs
@@ -1599,7 +1620,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(817, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(560, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -1611,7 +1632,7 @@
          // CardNumb_Text
          // 
          this.CardNumb_Text.Dock = System.Windows.Forms.DockStyle.Left;
-         this.CardNumb_Text.Location = new System.Drawing.Point(180, 5);
+         this.CardNumb_Text.Location = new System.Drawing.Point(149, 5);
          this.CardNumb_Text.MenuManager = this.ribbonControl1;
          this.CardNumb_Text.Name = "CardNumb_Text";
          this.CardNumb_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1640,10 +1661,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "خرید فروشگاه", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.CardNumb_Text.Properties.NullValuePrompt = "کد انگشتی یا کارت";
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CardNumb_Text.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CardNumb_Text_Properties_ButtonClick);
-         this.CardNumb_Text.Size = new System.Drawing.Size(237, 24);
+         this.CardNumb_Text.Size = new System.Drawing.Size(196, 24);
          this.CardNumb_Text.TabIndex = 11;
          this.CardNumb_Text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CardNumb_Text_KeyDown);
          // 
@@ -1663,7 +1683,7 @@
          this.FngrPrnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FngrPrnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FngrPrnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.FngrPrnt_Txt.Size = new System.Drawing.Size(119, 22);
+         this.FngrPrnt_Txt.Size = new System.Drawing.Size(88, 22);
          this.FngrPrnt_Txt.TabIndex = 10;
          // 
          // ShowInfo_Butn
@@ -1712,7 +1732,7 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(903, 5);
+         this.More_Butn.Location = new System.Drawing.Point(646, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
@@ -1730,7 +1750,7 @@
          this.SrvrPing_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1408;
          this.SrvrPing_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SrvrPing_Butn.Location = new System.Drawing.Point(933, 5);
+         this.SrvrPing_Butn.Location = new System.Drawing.Point(676, 5);
          this.SrvrPing_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SrvrPing_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SrvrPing_Butn.Name = "SrvrPing_Butn";
@@ -1747,7 +1767,7 @@
          this.GateAttn_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
          this.GateAttn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GateAttn_Butn.Location = new System.Drawing.Point(963, 5);
+         this.GateAttn_Butn.Location = new System.Drawing.Point(706, 5);
          this.GateAttn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GateAttn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GateAttn_Butn.Name = "GateAttn_Butn";
@@ -1765,7 +1785,7 @@
          this.AttendanceSystemAlert_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
          this.AttendanceSystemAlert_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(993, 5);
+         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(736, 5);
          this.AttendanceSystemAlert_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
@@ -1801,7 +1821,7 @@
          this.ActionCenter_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ActionCenter_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ActionCenter_Butn.Image")));
          this.ActionCenter_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ActionCenter_Butn.Location = new System.Drawing.Point(1032, 5);
+         this.ActionCenter_Butn.Location = new System.Drawing.Point(775, 5);
          this.ActionCenter_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ActionCenter_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ActionCenter_Butn.Name = "ActionCenter_Butn";
@@ -1820,7 +1840,7 @@
          this.ShowDesktop_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ShowDesktop_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ShowDesktop_Butn.Image")));
          this.ShowDesktop_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1074, 5);
+         this.ShowDesktop_Butn.Location = new System.Drawing.Point(817, 5);
          this.ShowDesktop_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowDesktop_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowDesktop_Butn.Name = "ShowDesktop_Butn";
@@ -1869,7 +1889,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1103, 444);
+         this.Size = new System.Drawing.Size(846, 444);
          this.statusStrip1.ResumeLayout(false);
          this.statusStrip1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
@@ -2031,5 +2051,6 @@
       private DevExpress.XtraEditors.SimpleButton TlgrmBot_Butn;
       private DevExpress.XtraBars.Ribbon.RibbonPage AgrOption_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory SystemAdmin_RPgc;
+      private DevExpress.XtraEditors.SimpleButton ChngAttnActn_Butn;
    }
 }

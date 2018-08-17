@@ -409,17 +409,16 @@ namespace System.Scsc.Ui.MasterPage
             var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
             if (gateAttnStng == null) return;
 
-            if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
-            Sp_GateAttn.Write("in");
-
             GateAttn_Butn.Image = Properties.Resources.IMAGE_1641;
+            if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
+            Sp_GateAttn.Write("in");            
             //MessageBox.Show("Gate is Open");
          }catch(Exception ){}
          finally
          {
             try
             {
-               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
+               //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
                System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
                opengatesound.Play();
             }
@@ -436,18 +435,17 @@ namespace System.Scsc.Ui.MasterPage
             var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
             if (gateAttnStng == null) return;
 
+            GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
             if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
             Sp_GateAttn.Write("out");
-            //MessageBox.Show("Gate is Close");
-
-            GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
+            //MessageBox.Show("Gate is Close");            
          }
          catch (Exception ) { }
          finally
          {
             try
             {
-               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
+               //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
                System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
                closegatesound.Play();
             }
@@ -460,10 +458,11 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
+            GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
+
             // Error This Gate                        
             Sp_GateAttn.Write("error");
-
-            GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
+            
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception) { }
@@ -471,7 +470,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             try
             {
-               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
+               //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
                System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
                errorgatesound.Play();
             }
@@ -2716,6 +2715,30 @@ namespace System.Scsc.Ui.MasterPage
       private void TlgrmBot_Butn_Click(object sender, EventArgs e)
       {
          var result = Controls.Find("FngrPrnt_Txt", true);
+      }
+
+      private void ChngAttnActn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (AttnType_Lov.EditValue == null || AttnType_Lov.EditValue.ToString() == "") { AttnType_Lov.EditValue = "001"; }
+            switch (AttnType_Lov.EditValue.ToString())
+            {
+               case "001":
+                  ChngAttnActn_Butn.Image = Properties.Resources.IMAGE_1608;
+                  AttnType_Lov.EditValue = "003";
+                  break;
+               case "003":
+                  ChngAttnActn_Butn.Image = Properties.Resources.IMAGE_1609;
+                  AttnType_Lov.EditValue = "001";
+                  break;
+               default:
+                  break;
+            }
+
+            AttnType_Lov.Focus();
+         }
+         catch { }
       }
    }
 }

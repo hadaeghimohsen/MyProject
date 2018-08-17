@@ -229,6 +229,13 @@
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.Btn_Pblc = new DevExpress.XtraEditors.SimpleButton();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.NullDcmt_Txt = new System.Windows.Forms.TextBox();
+         this.label12 = new System.Windows.Forms.Label();
+         this.SaveDcmt_Txt = new System.Windows.Forms.TextBox();
+         this.label11 = new System.Windows.Forms.Label();
+         this.TotlDcmt_Txt = new System.Windows.Forms.TextBox();
+         this.label10 = new System.Windows.Forms.Label();
          this.Grop6_Gb = new System.Windows.Forms.GroupBox();
          this.PrintSetting_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -620,13 +627,6 @@
          this.panel2 = new System.Windows.Forms.Panel();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.TotlDcmt_Txt = new System.Windows.Forms.TextBox();
-         this.label10 = new System.Windows.Forms.Label();
-         this.label11 = new System.Windows.Forms.Label();
-         this.SaveDcmt_Txt = new System.Windows.Forms.TextBox();
-         this.label12 = new System.Windows.Forms.Label();
-         this.NullDcmt_Txt = new System.Windows.Forms.TextBox();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -634,6 +634,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.HL_INVSDCMT)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
+         this.groupBox1.SuspendLayout();
          this.Grop6_Gb.SuspendLayout();
          this.Grop7_Gb.SuspendLayout();
          this.Gorp3_Gb.SuspendLayout();
@@ -754,7 +755,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).BeginInit();
          this.panel2.SuspendLayout();
-         this.groupBox1.SuspendLayout();
          this.SuspendLayout();
          // 
          // colVALD_TYPE
@@ -1708,6 +1708,73 @@
          this.Btn_Pblc.TabIndex = 33;
          this.Btn_Pblc.Text = "اصلاح اطلاعات";
          this.Btn_Pblc.Click += new System.EventHandler(this.Btn_Pblc_Click);
+         // 
+         // groupBox1
+         // 
+         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.Controls.Add(this.NullDcmt_Txt);
+         this.groupBox1.Controls.Add(this.label12);
+         this.groupBox1.Controls.Add(this.SaveDcmt_Txt);
+         this.groupBox1.Controls.Add(this.label11);
+         this.groupBox1.Controls.Add(this.TotlDcmt_Txt);
+         this.groupBox1.Controls.Add(this.label10);
+         this.groupBox1.Location = new System.Drawing.Point(90, 303);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(192, 114);
+         this.groupBox1.TabIndex = 19;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "وضعیت مدارک";
+         // 
+         // NullDcmt_Txt
+         // 
+         this.NullDcmt_Txt.Location = new System.Drawing.Point(14, 80);
+         this.NullDcmt_Txt.Name = "NullDcmt_Txt";
+         this.NullDcmt_Txt.ReadOnly = true;
+         this.NullDcmt_Txt.Size = new System.Drawing.Size(63, 22);
+         this.NullDcmt_Txt.TabIndex = 1;
+         // 
+         // label12
+         // 
+         this.label12.AutoSize = true;
+         this.label12.Location = new System.Drawing.Point(83, 83);
+         this.label12.Name = "label12";
+         this.label12.Size = new System.Drawing.Size(101, 14);
+         this.label12.TabIndex = 0;
+         this.label12.Text = "تحویل داده نشده :";
+         // 
+         // SaveDcmt_Txt
+         // 
+         this.SaveDcmt_Txt.Location = new System.Drawing.Point(14, 52);
+         this.SaveDcmt_Txt.Name = "SaveDcmt_Txt";
+         this.SaveDcmt_Txt.ReadOnly = true;
+         this.SaveDcmt_Txt.Size = new System.Drawing.Size(63, 22);
+         this.SaveDcmt_Txt.TabIndex = 1;
+         // 
+         // label11
+         // 
+         this.label11.AutoSize = true;
+         this.label11.Location = new System.Drawing.Point(83, 55);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(97, 14);
+         this.label11.TabIndex = 0;
+         this.label11.Text = "تحویل داده شده :";
+         // 
+         // TotlDcmt_Txt
+         // 
+         this.TotlDcmt_Txt.Location = new System.Drawing.Point(14, 24);
+         this.TotlDcmt_Txt.Name = "TotlDcmt_Txt";
+         this.TotlDcmt_Txt.ReadOnly = true;
+         this.TotlDcmt_Txt.Size = new System.Drawing.Size(63, 22);
+         this.TotlDcmt_Txt.TabIndex = 1;
+         // 
+         // label10
+         // 
+         this.label10.AutoSize = true;
+         this.label10.Location = new System.Drawing.Point(83, 27);
+         this.label10.Name = "label10";
+         this.label10.Size = new System.Drawing.Size(65, 14);
+         this.label10.TabIndex = 0;
+         this.label10.Text = "کل مدارک :";
          // 
          // Grop6_Gb
          // 
@@ -3875,7 +3942,7 @@
          // textBox44
          // 
          this.textBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox44.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_CELL_PHON_DNRM", true));
+         this.textBox44.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_CELL_PHON", true));
          this.textBox44.Location = new System.Drawing.Point(86, 199);
          this.textBox44.Name = "textBox44";
          this.textBox44.ReadOnly = true;
@@ -3885,7 +3952,7 @@
          // textBox45
          // 
          this.textBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox45.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_TELL_PHON_DNRM", true));
+         this.textBox45.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "MOM_TELL_PHON", true));
          this.textBox45.Location = new System.Drawing.Point(86, 227);
          this.textBox45.Name = "textBox45";
          this.textBox45.ReadOnly = true;
@@ -3895,7 +3962,7 @@
          // textBox46
          // 
          this.textBox46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox46.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_CELL_PHON_DNRM", true));
+         this.textBox46.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_CELL_PHON", true));
          this.textBox46.Location = new System.Drawing.Point(86, 145);
          this.textBox46.Name = "textBox46";
          this.textBox46.ReadOnly = true;
@@ -3905,7 +3972,7 @@
          // textBox47
          // 
          this.textBox47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textBox47.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_TELL_PHON_DNRM", true));
+         this.textBox47.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_All_Info_FightersBs, "DAD_TELL_PHON", true));
          this.textBox47.Location = new System.Drawing.Point(86, 171);
          this.textBox47.Name = "textBox47";
          this.textBox47.ReadOnly = true;
@@ -6839,73 +6906,6 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // groupBox1
-         // 
-         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupBox1.Controls.Add(this.NullDcmt_Txt);
-         this.groupBox1.Controls.Add(this.label12);
-         this.groupBox1.Controls.Add(this.SaveDcmt_Txt);
-         this.groupBox1.Controls.Add(this.label11);
-         this.groupBox1.Controls.Add(this.TotlDcmt_Txt);
-         this.groupBox1.Controls.Add(this.label10);
-         this.groupBox1.Location = new System.Drawing.Point(90, 303);
-         this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(192, 114);
-         this.groupBox1.TabIndex = 19;
-         this.groupBox1.TabStop = false;
-         this.groupBox1.Text = "وضعیت مدارک";
-         // 
-         // TotlDcmt_Txt
-         // 
-         this.TotlDcmt_Txt.Location = new System.Drawing.Point(14, 24);
-         this.TotlDcmt_Txt.Name = "TotlDcmt_Txt";
-         this.TotlDcmt_Txt.ReadOnly = true;
-         this.TotlDcmt_Txt.Size = new System.Drawing.Size(63, 22);
-         this.TotlDcmt_Txt.TabIndex = 1;
-         // 
-         // label10
-         // 
-         this.label10.AutoSize = true;
-         this.label10.Location = new System.Drawing.Point(83, 27);
-         this.label10.Name = "label10";
-         this.label10.Size = new System.Drawing.Size(65, 14);
-         this.label10.TabIndex = 0;
-         this.label10.Text = "کل مدارک :";
-         // 
-         // label11
-         // 
-         this.label11.AutoSize = true;
-         this.label11.Location = new System.Drawing.Point(83, 55);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(97, 14);
-         this.label11.TabIndex = 0;
-         this.label11.Text = "تحویل داده شده :";
-         // 
-         // SaveDcmt_Txt
-         // 
-         this.SaveDcmt_Txt.Location = new System.Drawing.Point(14, 52);
-         this.SaveDcmt_Txt.Name = "SaveDcmt_Txt";
-         this.SaveDcmt_Txt.ReadOnly = true;
-         this.SaveDcmt_Txt.Size = new System.Drawing.Size(63, 22);
-         this.SaveDcmt_Txt.TabIndex = 1;
-         // 
-         // label12
-         // 
-         this.label12.AutoSize = true;
-         this.label12.Location = new System.Drawing.Point(83, 83);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(101, 14);
-         this.label12.TabIndex = 0;
-         this.label12.Text = "تحویل داده نشده :";
-         // 
-         // NullDcmt_Txt
-         // 
-         this.NullDcmt_Txt.Location = new System.Drawing.Point(14, 80);
-         this.NullDcmt_Txt.Name = "NullDcmt_Txt";
-         this.NullDcmt_Txt.ReadOnly = true;
-         this.NullDcmt_Txt.Size = new System.Drawing.Size(63, 22);
-         this.NullDcmt_Txt.TabIndex = 1;
-         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6925,6 +6925,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.HL_INVSDCMT)).EndInit();
          this.tb_master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
          this.Grop6_Gb.ResumeLayout(false);
          this.Grop7_Gb.ResumeLayout(false);
          this.Gorp3_Gb.ResumeLayout(false);
@@ -7063,8 +7065,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.ActnAttn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDebtBs)).EndInit();
          this.panel2.ResumeLayout(false);
-         this.groupBox1.ResumeLayout(false);
-         this.groupBox1.PerformLayout();
          this.ResumeLayout(false);
 
       }

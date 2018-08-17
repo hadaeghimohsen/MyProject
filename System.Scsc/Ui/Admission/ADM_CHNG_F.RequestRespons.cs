@@ -21,6 +21,8 @@ namespace System.Scsc.Ui.Admission
       private string CurrentUser;
       private string formCaller;
       private string RegnLang = "054";
+      private string followups = "";
+      private long rqstRqid = 0;
 
       public void SendRequest(Job job)
       {         
@@ -566,17 +568,29 @@ namespace System.Scsc.Ui.Admission
                FILE_NO_LookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("fileno").Value);
                if(xinput.Attribute("auto").Value == "true")
                {
+                  // 1397/05/26 * rqstrqid
+                  if ((job.Input as XElement).Attribute("rqstrqid") != null)
+                     rqstRqid = Convert.ToInt64((job.Input as XElement).Attribute("rqstrqid").Value);
+                  else
+                     rqstRqid = 0;
+
                   Btn_RqstBnRqt_Click(null, null);
 
                   var figh = iScsc.Fighters.First(f => f.FILE_NO == Convert.ToInt64(xinput.Attribute("fileno").Value));
 
                   RqstBs1.Position = RqstBs1.List.OfType<Data.Request>().ToList().FindIndex(r => r.RQID == figh.RQST_RQID);
 
-                  // 1396/11/04
+                  // 1396/11/04 * formcaller
                   if ((job.Input as XElement).Attribute("formcaller") != null)
                      formCaller = (job.Input as XElement).Attribute("formcaller").Value;
                   else
                      formCaller = "";
+
+                  // 1397/05/26 * followups
+                  if ((job.Input as XElement).Attribute("followups") != null)
+                     followups = (job.Input as XElement).Attribute("followups").Value;
+                  else
+                     followups = "";
                }
                break;
             case "setcard":

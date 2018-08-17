@@ -401,6 +401,9 @@
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+         this.InsrInfo_Ckbx = new System.Windows.Forms.CheckBox();
+         this.OthrExpnInfo_Ckbx = new System.Windows.Forms.CheckBox();
+         this.OthrPblc_Ckbx = new System.Windows.Forms.CheckBox();
          this.MbspDesc_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Other_Desc = new DevExpress.XtraEditors.LabelControl();
          this.Request_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -580,9 +583,9 @@
          this.CellPhon_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.CellPhon_Lb.Location = new System.Drawing.Point(909, 144);
          this.CellPhon_Lb.Name = "CellPhon_Lb";
-         this.CellPhon_Lb.Size = new System.Drawing.Size(77, 14);
+         this.CellPhon_Lb.Size = new System.Drawing.Size(70, 14);
          this.CellPhon_Lb.TabIndex = 66;
-         this.CellPhon_Lb.Text = "تلفن همراه *:";
+         this.CellPhon_Lb.Text = "تلفن همراه :";
          // 
          // TellPhon_Lb
          // 
@@ -620,6 +623,7 @@
          // 
          this.SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SexType_Lb.AutoSize = true;
+         this.SexType_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.SexType_Lb.Location = new System.Drawing.Point(706, 116);
          this.SexType_Lb.Name = "SexType_Lb";
          this.SexType_Lb.Size = new System.Drawing.Size(55, 14);
@@ -662,6 +666,7 @@
          // 
          this.NatlCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NatlCode_Lb.AutoSize = true;
+         this.NatlCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.NatlCode_Lb.Location = new System.Drawing.Point(705, 171);
          this.NatlCode_Lb.Name = "NatlCode_Lb";
          this.NatlCode_Lb.Size = new System.Drawing.Size(54, 14);
@@ -741,7 +746,7 @@
          // GlobCode_Lb
          // 
          this.GlobCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GlobCode_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1505;
+         this.GlobCode_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1554;
          this.GlobCode_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.GlobCode_Lb.Location = new System.Drawing.Point(910, 436);
          this.GlobCode_Lb.Name = "GlobCode_Lb";
@@ -3410,7 +3415,7 @@
          this.SaveAttn_PkBt.ImageIndexPickDown = 0;
          this.SaveAttn_PkBt.ImageIndexPickUp = 0;
          this.SaveAttn_PkBt.ImageList = null;
-         this.SaveAttn_PkBt.Location = new System.Drawing.Point(599, 193);
+         this.SaveAttn_PkBt.Location = new System.Drawing.Point(1003, 240);
          this.SaveAttn_PkBt.Name = "SaveAttn_PkBt";
          this.SaveAttn_PkBt.Next = null;
          this.SaveAttn_PkBt.PickChecked = false;
@@ -3420,7 +3425,7 @@
          this.SaveAttn_PkBt.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAttn_PkBt.PickUpText = "ثبت حضوری دستی ";
          this.SaveAttn_PkBt.PickUpTextColor = System.Drawing.Color.Empty;
-         this.SaveAttn_PkBt.Size = new System.Drawing.Size(166, 25);
+         this.SaveAttn_PkBt.Size = new System.Drawing.Size(28, 25);
          this.SaveAttn_PkBt.TabIndex = 68;
          this.SaveAttn_PkBt.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          this.SaveAttn_PkBt.Visible = false;
@@ -3893,6 +3898,50 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Btn_RqstExit1_Click);
          // 
+         // InsrInfo_Ckbx
+         // 
+         this.InsrInfo_Ckbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.InsrInfo_Ckbx.AutoSize = true;
+         this.InsrInfo_Ckbx.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.InsrInfo_Ckbx.ForeColor = System.Drawing.Color.DeepPink;
+         this.InsrInfo_Ckbx.Location = new System.Drawing.Point(663, 199);
+         this.InsrInfo_Ckbx.Name = "InsrInfo_Ckbx";
+         this.InsrInfo_Ckbx.Size = new System.Drawing.Size(47, 18);
+         this.InsrInfo_Ckbx.TabIndex = 8;
+         this.InsrInfo_Ckbx.Text = "بیمه";
+         this.toolTip1.SetToolTip(this.InsrInfo_Ckbx, "برای ثبت کارت بیمه می توانید دکمه را انتخاب کنید تا بعد از ثبت نام وارد فرم ثبت ب" +
+        "یمه شوید");
+         this.InsrInfo_Ckbx.UseVisualStyleBackColor = true;
+         // 
+         // OthrExpnInfo_Ckbx
+         // 
+         this.OthrExpnInfo_Ckbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OthrExpnInfo_Ckbx.AutoSize = true;
+         this.OthrExpnInfo_Ckbx.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.OthrExpnInfo_Ckbx.ForeColor = System.Drawing.Color.DeepPink;
+         this.OthrExpnInfo_Ckbx.Location = new System.Drawing.Point(600, 199);
+         this.OthrExpnInfo_Ckbx.Name = "OthrExpnInfo_Ckbx";
+         this.OthrExpnInfo_Ckbx.Size = new System.Drawing.Size(53, 18);
+         this.OthrExpnInfo_Ckbx.TabIndex = 8;
+         this.OthrExpnInfo_Ckbx.Text = "هزینه";
+         this.toolTip1.SetToolTip(this.OthrExpnInfo_Ckbx, "اگر در زمان ثبت نام هزینه های جانبی دیگری دارید که می خواهید از مشتری دریافت کنید" +
+        " می توانید این دگمه را انتخاب کنید(مثلا هزینه کارت عضویت)");
+         this.OthrExpnInfo_Ckbx.UseVisualStyleBackColor = true;
+         // 
+         // OthrPblc_Ckbx
+         // 
+         this.OthrPblc_Ckbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OthrPblc_Ckbx.AutoSize = true;
+         this.OthrPblc_Ckbx.ForeColor = System.Drawing.Color.DeepPink;
+         this.OthrPblc_Ckbx.Location = new System.Drawing.Point(598, 464);
+         this.OthrPblc_Ckbx.Name = "OthrPblc_Ckbx";
+         this.OthrPblc_Ckbx.Size = new System.Drawing.Size(107, 18);
+         this.OthrPblc_Ckbx.TabIndex = 8;
+         this.OthrPblc_Ckbx.Text = "اطلاعات تمکیلی";
+         this.toolTip1.SetToolTip(this.OthrPblc_Ckbx, "اگر برای بخش اطلاعات فردی مشتری میخواهید که گزینه های جدیدی اضافه کنید می توانید " +
+        "این گزینه رو فعال کنید.");
+         this.OthrPblc_Ckbx.UseVisualStyleBackColor = true;
+         // 
          // MbspDesc_Lb
          // 
          this.MbspDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3980,7 +4029,7 @@
          // label2
          // 
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label2.Image = global::System.Scsc.Properties.Resources.IMAGE_1409;
+         this.label2.Image = global::System.Scsc.Properties.Resources.IMAGE_1564;
          this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.label2.Location = new System.Drawing.Point(908, 491);
          this.label2.Name = "label2";
@@ -4022,6 +4071,9 @@
          this.Controls.Add(this.ServNo_Lb);
          this.Controls.Add(this.NumbAttnMon_Lb);
          this.Controls.Add(this.Glob_Code_TextEdit);
+         this.Controls.Add(this.OthrPblc_Ckbx);
+         this.Controls.Add(this.OthrExpnInfo_Ckbx);
+         this.Controls.Add(this.InsrInfo_Ckbx);
          this.Controls.Add(this.AutoTrans_Cb);
          this.Controls.Add(this.POST_ADRS_TextEdit);
          this.Controls.Add(this.FATH_NAME_TextEdit);
@@ -4510,5 +4562,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colSUM_PYDS_AMNT;
       private MaxUi.NewMaxBtn bn_PaymentMethods1;
       private DevExpress.XtraEditors.LabelControl labelControl1;
+      private Windows.Forms.CheckBox InsrInfo_Ckbx;
+      private Windows.Forms.CheckBox OthrExpnInfo_Ckbx;
+      private Windows.Forms.CheckBox OthrPblc_Ckbx;
    }
 }

@@ -713,7 +713,7 @@ namespace System.Scsc.Ui.BaseDefinition
          DCstpBs1.DataSource = iScsc.D_CSTPs;
          DDytpBs1.DataSource = iScsc.D_DYTPs;
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
-         RqtpBs1.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");;
+         RqtpBs1.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016" || rt.CODE == "012");
          RqttBs1.DataSource = iScsc.Requester_Types.Where(rt => rt.CODE == "001" || rt.CODE == "004");
          DCyclBs1.DataSource = iScsc.D_CYCLs;
          DWkdyBs1.DataSource = iScsc.D_WKDies;

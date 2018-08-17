@@ -96,6 +96,7 @@ namespace System.Scsc.Ui.Admission
                         new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
                         new XAttribute("rqtpcode", "002"),
                         new XAttribute("rqttcode", "004"),
+                        new XAttribute("rqstrqid", rqstRqid),
                         new XElement("Request_Row",
                            new XAttribute("fileno", FILE_NO_LookUpEdit.EditValue),
                            new XElement("Fighter_Public",
@@ -255,6 +256,44 @@ namespace System.Scsc.Ui.Admission
                   );
 
                CardNumb_Text.Text = "";
+
+               if (OthrExpnInfo_Ckbx.Checked && followups == "")
+               {
+                  followups += "OIC_TOTL_F;";
+                  rqstRqid = Rqst.RQID;
+               }
+
+               if (followups != "")
+               {
+                  switch (followups.Split(';').First())
+                  {                     
+                     case "OIC_TOTL_F":
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost",
+                                 new List<Job>
+                                 {                  
+                                    new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                                    new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                                    {
+                                       Input = 
+                                          new XElement("Request", 
+                                             new XAttribute("type", "01"), 
+                                             new XElement("Request_Row", 
+                                                new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)),
+                                             new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                             new XAttribute("rqstrqid", rqstRqid),
+                                             new XAttribute("formcaller", GetType().Name)
+                                          )
+                                    }
+                                 })
+                        );
+                        break;
+                     default:
+                        break;
+                  }
+                  followups = "";
+                  rqstRqid = 0;
+               }
             }
          }
          catch (Exception ex)
@@ -269,7 +308,7 @@ namespace System.Scsc.Ui.Admission
                Execute_Query();
                Set_Current_Record();
                // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
-               if (RqstBs1.List.Count == 0)
+               if (RqstBs1.List.Count == 0 && !OthrExpnInfo_Ckbx.Checked)
                   Btn_RqstExit_Click(null, null);
                else
                   Create_Record();

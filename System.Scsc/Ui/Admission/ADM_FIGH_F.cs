@@ -305,6 +305,74 @@ namespace System.Scsc.Ui.Admission
                   AutoAttn();
 
                CardNumb_Text.Text = "";
+
+               // 1397/05/26 * اگر درخواست گزینه های جانبی داشته باشد باید شماره پرونده ها رو به فرم های مربوطه ارسال کنیم
+               string followups = "";
+               if (InsrInfo_Ckbx.Checked)
+                  followups += "INS_TOTL_F;";
+               if (OthrPblc_Ckbx.Checked)
+                  followups += "ADM_CHNG_F;";
+               if (OthrExpnInfo_Ckbx.Checked)
+                  followups += "OIC_TOTL_F;";
+
+               if (InsrInfo_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Request", 
+                                    new XAttribute("type", "renewinscard"), 
+                                    new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO), 
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                    new XAttribute("rqstrqid", Rqst.RQID)
+                                 )
+                           }
+                        })
+                  );
+               else if (OthrPblc_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Request", 
+                                    new XAttribute("type", "changeinfo"), 
+                                    new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO), 
+                                    new XAttribute("auto", "true"), 
+                                    new XAttribute("formcaller", GetType().Name),
+                                    new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                    new XAttribute("rqstrqid", Rqst.RQID)
+                                 )
+                           }
+                        })
+                  );
+               else if (OthrExpnInfo_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                              new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Request", 
+                                       new XAttribute("type", "01"), 
+                                       new XElement("Request_Row", 
+                                          new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)),
+                                       new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                       new XAttribute("rqstrqid", Rqst.RQID)
+                                    )
+                              }
+                           })
+                  );
             }
          }
          catch (Exception ex)
@@ -340,10 +408,10 @@ namespace System.Scsc.Ui.Admission
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
-               {
-                  new Job(SendType.Self, 149 /* Execute Bas_Wkdy_F */),
-                  new Job(SendType.SelfToUserInterface,"BAS_WKDY_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("code", code), new XAttribute("showonly", "002"))}
-               }
+                  {
+                     new Job(SendType.Self, 149 /* Execute Bas_Wkdy_F */),
+                     new Job(SendType.SelfToUserInterface,"BAS_WKDY_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("code", code), new XAttribute("showonly", "002"))}
+                  }
                )
             );
          }

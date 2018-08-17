@@ -2603,8 +2603,14 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1507.png">
       <Link>Resources\IMAGE_1507.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1554.png">
+      <Link>Resources\IMAGE_1554.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1561.png">
       <Link>Resources\IMAGE_1561.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1564.png">
+      <Link>Resources\IMAGE_1564.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1607.png">
       <Link>Resources\IMAGE_1607.png</Link>

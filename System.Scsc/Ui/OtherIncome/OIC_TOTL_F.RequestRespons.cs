@@ -19,6 +19,10 @@ namespace System.Scsc.Ui.OtherIncome
       private List<long?> Fga_Uclb_U;
       private XElement HostNameInfo;
       private string RegnLang = "054";
+      private string followups = "";
+      private string formCaller = "";
+      private long rqstRqid = 0;
+      string fileno = "";
 
       public void SendRequest(Job job)
       {
@@ -100,6 +104,18 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.Escape)
          {
+            switch (formCaller)
+            {
+               case "ADM_CHNG_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
+                  );
+                  break;
+               default:
+                  break;
+            }
+            formCaller = "";
+
             job.Next =
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -437,9 +453,10 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         string fileno = "";
          if ((job.Input as XElement).Element("Request_Row") != null)
             fileno = (job.Input as XElement).Element("Request_Row").Attribute("fileno").Value;
+         else
+            fileno = "";
 
          switch ((job.Input as XElement).Attribute("type").Value)
          {
@@ -451,7 +468,26 @@ namespace System.Scsc.Ui.OtherIncome
                      RqstBs1.AddNew();
 
                   FILE_NO_LookUpEdit.EditValue = fileno;
+
+                  // 1397/05/26 * rqstrqid
+                  if ((job.Input as XElement).Attribute("rqstrqid") != null)
+                     rqstRqid = Convert.ToInt64((job.Input as XElement).Attribute("rqstrqid").Value);
+                  else
+                     rqstRqid = 0;
+
                   Btn_RqstBnARqt1_Click(null, null);
+
+                  // 1397/05/16
+                  if ((job.Input as XElement).Attribute("formcaller") != null)
+                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  else
+                     formCaller = "";
+
+                  // 1397/05/26 * followups
+                  if ((job.Input as XElement).Attribute("followups") != null)
+                     followups = (job.Input as XElement).Attribute("followups").Value;
+                  else
+                     followups = "";
                }
                break;            
             case "refresh":

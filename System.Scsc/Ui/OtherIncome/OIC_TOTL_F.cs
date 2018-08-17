@@ -191,6 +191,7 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
                      new XAttribute("rqtpcode", "016"),
                      new XAttribute("rqttcode", "001"),
+                     new XAttribute("rqstrqid", rqstRqid),
                      new XAttribute("mdulname", GetType().Name),
                      new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
                      new XAttribute("rqstdesc", RqstDesc_Txt.EditValue ?? ""),

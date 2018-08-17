@@ -20,6 +20,8 @@ namespace System.Scsc.Ui.Insurance
       private XElement HostNameInfo;
       private string RegnLang = "054";
       private string formCaller = "";
+      private string followups = "";
+      private long rqstRqid = 0;
 
       public void SendRequest(Job job)
       {
@@ -460,6 +462,12 @@ namespace System.Scsc.Ui.Insurance
                   FILE_NO_LookUpEdit.EditValue = Convert.ToInt64((job.Input as XElement).Attribute("fileno").Value);
                   RQTT_CODELookUpEdit.EditValue = "001";
 
+                  // 1397/05/26 * rqstrqid
+                  if ((job.Input as XElement).Attribute("rqstrqid") != null)
+                     rqstRqid = Convert.ToInt64((job.Input as XElement).Attribute("rqstrqid").Value);
+                  else
+                     rqstRqid = 0;
+
                   RqstBnARqt1_Click(null, null);
                }
 
@@ -468,6 +476,12 @@ namespace System.Scsc.Ui.Insurance
                   formCaller = (job.Input as XElement).Attribute("formcaller").Value;
                else
                   formCaller = "";
+
+               // 1397/05/26 * followups
+               if ((job.Input as XElement).Attribute("followups") != null)
+                  followups = (job.Input as XElement).Attribute("followups").Value;
+               else
+                  followups = "";
             }
             else
                Execute_Query();

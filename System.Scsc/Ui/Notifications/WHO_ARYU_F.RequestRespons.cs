@@ -74,6 +74,14 @@ namespace System.Scsc.Ui.Notifications
 
          if (keyData == Keys.Escape)
          {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
             switch (formcaller)
             {               
                case "ATTN_DAYN_F":
@@ -89,8 +97,9 @@ namespace System.Scsc.Ui.Notifications
                default:
                   break;
             }
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == Keys.Enter)
          {

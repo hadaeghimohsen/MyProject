@@ -108,7 +108,7 @@ namespace System.Scsc.Ui.CalculateExpense
             }
 
             if (cexc.CODE != 0)
-               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cexc.MTOD_CODE);
+               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cexc.MTOD_CODE && c.CTGY_STAT == "002");
          }
          catch (Exception ){}
       }
@@ -161,7 +161,7 @@ namespace System.Scsc.Ui.CalculateExpense
             }
 
             if (bcex.CODE != 0)
-               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == bcex.MTOD_CODE);
+               CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == bcex.MTOD_CODE && c.CTGY_STAT == "002");
          }
          catch{}
       }

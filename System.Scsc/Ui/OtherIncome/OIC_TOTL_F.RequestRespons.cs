@@ -104,6 +104,14 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.Escape)
          {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
             switch (formCaller)
             {
                case "ADM_CHNG_F":
@@ -116,8 +124,8 @@ namespace System.Scsc.Ui.OtherIncome
             }
             formCaller = "";
 
-            job.Next =
-               new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == (Keys.Control | Keys.S))
          {

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ATTN_DAYN_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -38,14 +39,14 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         this.CbmtCode_Lb = new System.Windows.Forms.Label();
-         this.FromDate_Lb = new System.Windows.Forms.Label();
-         this.ToDate_Lb = new System.Windows.Forms.Label();
          this.ExitTime_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.colDFLT_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.CbmtCode_Lb = new System.Windows.Forms.Label();
+         this.FromDate_Lb = new System.Windows.Forms.Label();
+         this.ToDate_Lb = new System.Windows.Forms.Label();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.AttnBs1 = new System.Windows.Forms.BindingSource();
+         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.attendanceGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,7 +57,7 @@
          this.colMBSP_RECT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CochFileNo_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CochBs = new System.Windows.Forms.BindingSource();
+         this.CochBs = new System.Windows.Forms.BindingSource(this.components);
          this.colATTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.EnterTime_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOTL_SESN = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,10 +75,10 @@
          this.Actn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.MtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.MtodBs = new System.Windows.Forms.BindingSource();
+         this.MtodBs = new System.Windows.Forms.BindingSource(this.components);
          this.CtgyCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CtgyBs = new System.Windows.Forms.BindingSource();
+         this.CtgyBs = new System.Windows.Forms.BindingSource(this.components);
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.AttnParm_Gb = new System.Windows.Forms.GroupBox();
          this.ClearCbmt_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -87,7 +88,7 @@
          this.ToAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.FromAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -107,14 +108,14 @@
          this.colTIME_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCBMT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PrintSetting_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.Print_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PrintDefault_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AtenDesc_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
          this.Reload_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).BeginInit();
@@ -135,6 +136,34 @@
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
          this.SuspendLayout();
+         // 
+         // ExitTime_Clm
+         // 
+         this.ExitTime_Clm.Caption = "ساعت خروج";
+         this.ExitTime_Clm.ColumnEdit = this.repositoryItemTimeEdit1;
+         this.ExitTime_Clm.FieldName = "EXIT_TIME";
+         this.ExitTime_Clm.Name = "ExitTime_Clm";
+         this.ExitTime_Clm.OptionsColumn.AllowEdit = false;
+         this.ExitTime_Clm.OptionsColumn.FixedWidth = true;
+         this.ExitTime_Clm.OptionsColumn.ReadOnly = true;
+         this.ExitTime_Clm.Visible = true;
+         this.ExitTime_Clm.VisibleIndex = 5;
+         // 
+         // repositoryItemTimeEdit1
+         // 
+         this.repositoryItemTimeEdit1.AutoHeight = false;
+         this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.repositoryItemTimeEdit1.Mask.EditMask = "HH:mm:ss";
+         this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+         this.repositoryItemTimeEdit1.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         // 
+         // colDFLT_STAT
+         // 
+         this.colDFLT_STAT.Caption = "کلاس پیش فرض";
+         this.colDFLT_STAT.FieldName = "DFLT_STAT";
+         this.colDFLT_STAT.Name = "colDFLT_STAT";
          // 
          // CbmtCode_Lb
          // 
@@ -171,34 +200,6 @@
          this.ToDate_Lb.Size = new System.Drawing.Size(48, 14);
          this.ToDate_Lb.TabIndex = 38;
          this.ToDate_Lb.Text = "تا تاریخ :";
-         // 
-         // ExitTime_Clm
-         // 
-         this.ExitTime_Clm.Caption = "ساعت خروج";
-         this.ExitTime_Clm.ColumnEdit = this.repositoryItemTimeEdit1;
-         this.ExitTime_Clm.FieldName = "EXIT_TIME";
-         this.ExitTime_Clm.Name = "ExitTime_Clm";
-         this.ExitTime_Clm.OptionsColumn.AllowEdit = false;
-         this.ExitTime_Clm.OptionsColumn.FixedWidth = true;
-         this.ExitTime_Clm.OptionsColumn.ReadOnly = true;
-         this.ExitTime_Clm.Visible = true;
-         this.ExitTime_Clm.VisibleIndex = 5;
-         // 
-         // repositoryItemTimeEdit1
-         // 
-         this.repositoryItemTimeEdit1.AutoHeight = false;
-         this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-         this.repositoryItemTimeEdit1.Mask.EditMask = "HH:mm:ss";
-         this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
-         this.repositoryItemTimeEdit1.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-         // 
-         // colDFLT_STAT
-         // 
-         this.colDFLT_STAT.Caption = "کلاس پیش فرض";
-         this.colDFLT_STAT.FieldName = "DFLT_STAT";
-         this.colDFLT_STAT.Name = "colDFLT_STAT";
          // 
          // Back_Butn
          // 
@@ -292,7 +293,10 @@
             styleFormatCondition2});
          this.gridView1.GridControl = this.attendanceGridControl;
          this.gridView1.Name = "gridView1";
+         this.gridView1.OptionsFind.AlwaysVisible = true;
+         this.gridView1.OptionsFind.FindDelay = 100;
          this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView1.OptionsView.ShowAutoFilterRow = true;
          this.gridView1.OptionsView.ShowDetailButtons = false;
          this.gridView1.OptionsView.ShowFooter = true;
          this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -308,7 +312,7 @@
          // 
          // FileNo_Clm
          // 
-         this.FileNo_Clm.Caption = "نام اعضا";
+         this.FileNo_Clm.Caption = "نام مشترک";
          this.FileNo_Clm.FieldName = "Fighter1.NAME_DNRM";
          this.FileNo_Clm.Name = "FileNo_Clm";
          this.FileNo_Clm.OptionsColumn.AllowEdit = false;
@@ -341,7 +345,7 @@
          // 
          // CochFileNo_Clm
          // 
-         this.CochFileNo_Clm.Caption = "مربی";
+         this.CochFileNo_Clm.Caption = "سرپرست";
          this.CochFileNo_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
          this.CochFileNo_Clm.FieldName = "COCH_FILE_NO";
          this.CochFileNo_Clm.Name = "CochFileNo_Clm";
@@ -467,7 +471,7 @@
          // 
          // MtodCode_Clm
          // 
-         this.MtodCode_Clm.Caption = "ورزش";
+         this.MtodCode_Clm.Caption = "گروه";
          this.MtodCode_Clm.ColumnEdit = this.repositoryItemLookUpEdit2;
          this.MtodCode_Clm.FieldName = "MTOD_CODE_DNRM";
          this.MtodCode_Clm.Name = "MtodCode_Clm";
@@ -492,7 +496,7 @@
          // 
          // CtgyCode_Clm
          // 
-         this.CtgyCode_Clm.Caption = "رسته ورزشی";
+         this.CtgyCode_Clm.Caption = "زیر گروه";
          this.CtgyCode_Clm.ColumnEdit = this.repositoryItemLookUpEdit3;
          this.CtgyCode_Clm.FieldName = "CTGY_CODE_DNRM";
          this.CtgyCode_Clm.Name = "CtgyCode_Clm";

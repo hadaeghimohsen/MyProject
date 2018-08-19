@@ -101,6 +101,14 @@ namespace System.Scsc.Ui.Admission
          }
          else if (keyData == Keys.Escape)
          {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
             switch (formCaller)
             {
                case "ALL_FLDF_F":
@@ -112,8 +120,8 @@ namespace System.Scsc.Ui.Admission
                   break;
             }
             formCaller = "";
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == (Keys.Control | Keys.S))
          {            

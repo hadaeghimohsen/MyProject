@@ -94,6 +94,14 @@ namespace System.Scsc.Ui.PaymentMethod
          }
          else if (keyData == Keys.Escape)
          {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
             if(CallerForm != null && CallerForm != "")
             {
                _DefaultGateway.Gateway(
@@ -108,8 +116,8 @@ namespace System.Scsc.Ui.PaymentMethod
                );
             }
 
-            job.Next =
-               new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == (Keys.Control | Keys.S))
          {

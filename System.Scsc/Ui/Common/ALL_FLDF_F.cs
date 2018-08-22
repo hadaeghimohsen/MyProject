@@ -1161,23 +1161,61 @@ namespace System.Scsc.Ui.Common
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
-                     new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
-                     new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
-                     {
-                        Input = 
-                           new XElement("Fighter",
-                              new XAttribute("fileno", fileno),
-                              new XAttribute("mbsprwno", mbsp.RWNO),
-                              new XAttribute("formcaller", GetType().Name)
-                           )
-                     }
-                  }
-               )
-            );
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>231</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),
+                     #region DoWork
+                        new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                        new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", fileno),
+                                 new XAttribute("mbsprwno", mbsp.RWNO),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     #endregion
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost",
+            //      new List<Job>
+            //      {
+            //         new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+            //         new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+            //         {
+            //            Input = 
+            //               new XElement("Fighter",
+            //                  new XAttribute("fileno", fileno),
+            //                  new XAttribute("mbsprwno", mbsp.RWNO),
+            //                  new XAttribute("formcaller", GetType().Name)
+            //               )
+            //         }
+            //      }
+            //   )
+            //);
          }
          catch { }
       }
@@ -1424,6 +1462,7 @@ namespace System.Scsc.Ui.Common
                PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
                PydsAmnt_Txt.Properties.MaxLength = 0;
             }
+            PydsAmnt_Txt.Focus();
          }
          catch { }
       }
@@ -1434,6 +1473,10 @@ namespace System.Scsc.Ui.Common
          {
             RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
             RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
+            PymtAmnt_Txt.Focus();
+            var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (pymt == null) return;
+            PymtAmnt_Txt.EditValue = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
          }
          catch { }
       }

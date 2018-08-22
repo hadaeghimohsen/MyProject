@@ -631,6 +631,7 @@ namespace System.Scsc.Ui.Insurance
                PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
                PydsAmnt_Txt.Properties.MaxLength = 0;
             }
+            PydsAmnt_Txt.Focus();
          }
          catch { }
       }
@@ -641,6 +642,10 @@ namespace System.Scsc.Ui.Insurance
          {
             RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
             RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
+            PymtAmnt_Txt.Focus();
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null) return;
+            PymtAmnt_Txt.EditValue = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
          }
          catch { }
       }

@@ -4510,7 +4510,7 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
          this.splitContainerControl1.Size = new System.Drawing.Size(1219, 590);
-         this.splitContainerControl1.SplitterPosition = 272;
+         this.splitContainerControl1.SplitterPosition = 148;
          this.splitContainerControl1.TabIndex = 15;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
@@ -4527,7 +4527,7 @@
             this.persianRepositoryItemDateEdit7,
             this.Pymt_Butn,
             this.AmntUnitType_Lov});
-         this.vF_PaymentsResultGridControl.Size = new System.Drawing.Size(1219, 239);
+         this.vF_PaymentsResultGridControl.Size = new System.Drawing.Size(1219, 115);
          this.vF_PaymentsResultGridControl.TabIndex = 0;
          this.vF_PaymentsResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SavePayment_Gv});
@@ -4851,7 +4851,7 @@
          this.GustInfo_Pn.Controls.Add(this.textBox31);
          this.GustInfo_Pn.Controls.Add(this.textBox6);
          this.GustInfo_Pn.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.GustInfo_Pn.Location = new System.Drawing.Point(0, 239);
+         this.GustInfo_Pn.Location = new System.Drawing.Point(0, 115);
          this.GustInfo_Pn.Name = "GustInfo_Pn";
          this.GustInfo_Pn.Size = new System.Drawing.Size(1219, 33);
          this.GustInfo_Pn.TabIndex = 1;
@@ -4967,7 +4967,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.PydtDesc_TextEdit);
          this.splitContainerControl2.Panel2.Controls.Add(this.PydtList_Lb);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1219, 313);
+         this.splitContainerControl2.Size = new System.Drawing.Size(1219, 437);
          this.splitContainerControl2.SplitterPosition = 541;
          this.splitContainerControl2.TabIndex = 0;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -4997,7 +4997,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl3.Panel2.Controls.Add(this.PydsList_Lb);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(541, 313);
+         this.splitContainerControl3.Size = new System.Drawing.Size(541, 437);
          this.splitContainerControl3.SplitterPosition = 282;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -5115,7 +5115,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl3.Size = new System.Drawing.Size(282, 234);
+         this.gridControl3.Size = new System.Drawing.Size(282, 358);
          this.gridControl3.TabIndex = 11;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});
@@ -5503,7 +5503,7 @@
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(254, 234);
+         this.gridControl4.Size = new System.Drawing.Size(254, 358);
          this.gridControl4.TabIndex = 13;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView13});
@@ -5694,7 +5694,7 @@
          this.payment_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.LOV_RCTP,
             this.Pydt_Butn});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(673, 274);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(673, 398);
          this.payment_DetailsGridControl.TabIndex = 9;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView11});
@@ -5980,7 +5980,7 @@
          // 
          this.PydtDesc_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtsBs1, "PYDT_DESC", true));
          this.PydtDesc_TextEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(0, 291);
+         this.PydtDesc_TextEdit.Location = new System.Drawing.Point(0, 415);
          this.PydtDesc_TextEdit.Name = "PydtDesc_TextEdit";
          this.PydtDesc_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PydtDesc_TextEdit.Properties.Appearance.Options.UseFont = true;

@@ -1719,8 +1719,35 @@ namespace System.Scsc.Ui.BaseDefinition
             var hldy = HldyBs.Current as Data.Holiday;
             if (hldy == null || hldy.CODE == 0) return;
 
-            iScsc.ExecuteCommand(string.Format("DELETE dbo.Holidays WHERE Code = {0}", hldy.CODE));
-            requery = true;
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>230</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                              {
+                                 iScsc.ExecuteCommand(string.Format("DELETE dbo.Holidays WHERE Code = {0}", hldy.CODE));
+                                 requery = true;
+                                 return;
+                              }
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 230 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),                  
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc)
          {

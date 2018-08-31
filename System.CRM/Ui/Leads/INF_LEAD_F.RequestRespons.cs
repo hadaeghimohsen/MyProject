@@ -210,7 +210,7 @@ namespace System.CRM.Ui.Leads
                   //DcmstBs.DataSource = iCRM.D_CMSTs;
                   DcntpBs.DataSource = iCRM.D_CNTPs;
                   DprtfBs.DataSource = iCRM.D_PRTFs;
-                  DprprBs.DataSource = iCRM.D_PRPRs;
+                  DprpcBs.DataSource = iCRM.D_PRPCs;
                   DsistBs.DataSource = iCRM.D_SISTs;
                   DcttpBs.DataSource = iCRM.D_CTTPs;
                   DsstgBs.DataSource = iCRM.D_SSTGs;
@@ -235,7 +235,7 @@ namespace System.CRM.Ui.Leads
             //DcmstBs.DataSource = iCRM.D_CMSTs;
             DcntpBs.DataSource = iCRM.D_CNTPs;
             DprtfBs.DataSource = iCRM.D_PRTFs;
-            DprprBs.DataSource = iCRM.D_PRPRs;
+            DprpcBs.DataSource = iCRM.D_PRPCs;
             DsistBs.DataSource = iCRM.D_SISTs;
             DcttpBs.DataSource = iCRM.D_CTTPs;
             DsstgBs.DataSource = iCRM.D_SSTGs;

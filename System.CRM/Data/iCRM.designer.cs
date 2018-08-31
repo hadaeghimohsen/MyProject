@@ -1940,19 +1940,19 @@ namespace System.CRM.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<D_PRPR> D_PRPRs
-		{
-			get
-			{
-				return this.GetTable<D_PRPR>();
-			}
-		}
-		
 		public System.Data.Linq.Table<V_User> V_Users
 		{
 			get
 			{
 				return this.GetTable<V_User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_PRPC> D_PRPCs
+		{
+			get
+			{
+				return this.GetTable<D_PRPC>();
 			}
 		}
 		
@@ -4100,6 +4100,13 @@ namespace System.CRM.Data
 		public int UPD_MEMB_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mbid", DbType="BigInt")] System.Nullable<long> mbid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mklt_Mlid", DbType="BigInt")] System.Nullable<long> mklt_Mlid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lead_Ldid", DbType="BigInt")] System.Nullable<long> lead_Ldid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Serv_File_No", DbType="BigInt")] System.Nullable<long> serv_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comp_Code", DbType="BigInt")] System.Nullable<long> comp_Code)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mbid, mklt_Mlid, lead_Ldid, serv_File_No, comp_Code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OPR_LEAD_P")]
+		public int OPR_LEAD_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -64804,51 +64811,6 @@ namespace System.CRM.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$PRPR")]
-	public partial class D_PRPR
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_PRPR()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Users")]
 	public partial class V_User
 	{
@@ -65177,6 +65139,51 @@ namespace System.CRM.Data
 				if ((this._REGN_CODE != value))
 				{
 					this._REGN_CODE = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$PRPC")]
+	public partial class D_PRPC
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_PRPC()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
 				}
 			}
 		}

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label yEARLabel;
          System.Windows.Forms.Label cYCL_YEARLabel;
          System.Windows.Forms.Label cODELabel;
@@ -62,7 +63,10 @@
          System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label8;
          System.Windows.Forms.Label label16;
+         System.Windows.Forms.Label label17;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MSTR_REGL_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -73,14 +77,11 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label label17;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          this.bs_master = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
          this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-         this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator();
+         this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.Reg07Bs1 = new System.Windows.Forms.BindingSource();
+         this.Reg07Bs1 = new System.Windows.Forms.BindingSource(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -93,10 +94,13 @@
          this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+         this.Expense_BindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.ActstBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.Code11_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.Reg11Bs1 = new System.Windows.Forms.BindingSource();
+         this.Reg11Bs1 = new System.Windows.Forms.BindingSource(this.components);
          this.aDM_REGION_EXPENSE_ACOUNTGridControl = new DevExpress.XtraGrid.GridControl();
-         this.ReacBs1 = new System.Windows.Forms.BindingSource();
+         this.ReacBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_CYCL_YEAR2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,7 +108,7 @@
          this.colEXTP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBNKA_BNKB_BANK_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.BankBs1 = new System.Windows.Forms.BindingSource();
+         this.BankBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colBNKA_BNKB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBNKA_ACNT_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLEVL_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,17 +124,16 @@
          this.Btn_SaveExpn = new System.Windows.Forms.Button();
          this.Totl_Expn_Txt = new System.Windows.Forms.TextBox();
          this.eXTR_PRCTTextBox = new System.Windows.Forms.TextBox();
-         this.Expense_BindingSource = new System.Windows.Forms.BindingSource();
          this.pRICTextBox = new System.Windows.Forms.TextBox();
          this.cODETextBox2 = new System.Windows.Forms.TextBox();
          this.eXPENSE_TYPEGridControl = new DevExpress.XtraGrid.GridControl();
-         this.ExtpBs1 = new System.Windows.Forms.BindingSource();
+         this.ExtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEPIT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.EpitBs1 = new System.Windows.Forms.BindingSource();
+         this.EpitBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colREF_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTRAN_STAT2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -149,7 +152,7 @@
          this.groupBox6 = new System.Windows.Forms.GroupBox();
          this.Txt_CustType = new System.Windows.Forms.TextBox();
          this.rEGULATION_ROWGridControl = new DevExpress.XtraGrid.GridControl();
-         this.Regulation_RowBindingSource = new System.Windows.Forms.BindingSource();
+         this.Regulation_RowBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_CYCL_YEAR1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -169,26 +172,26 @@
          this.colREQUEST_ROW = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNETW_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.nwtypBs1 = new System.Windows.Forms.BindingSource();
+         this.nwtypBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colPHAS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.PhasBs1 = new System.Windows.Forms.BindingSource();
+         this.PhasBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colFROM_AMPR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTO_AMPR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFROM_POWR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTO_POWR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox5 = new System.Windows.Forms.GroupBox();
          this.sAS_REQUEST_REQUESTERGridControl = new DevExpress.XtraGrid.GridControl();
-         this.Sas_Request_RequesterBindingSource = new System.Windows.Forms.BindingSource();
+         this.Sas_Request_RequesterBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_CYCL_YEAR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQTP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.RqtpBs1 = new System.Windows.Forms.BindingSource();
+         this.RqtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colRQTT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colPERM_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colARCH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTRAN_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -217,21 +220,21 @@
          this.cYCL_YEARTextBox1 = new System.Windows.Forms.TextBox();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.cODETextBox = new System.Windows.Forms.TextBox();
-         this.AReg07Bs1 = new System.Windows.Forms.BindingSource();
+         this.AReg07Bs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cYCL_YEARTextBox = new System.Windows.Forms.TextBox();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.Lov_YEAR1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.CyclBs1 = new System.Windows.Forms.BindingSource();
+         this.CyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
          this.aDM_REGION_EXPENSE_ACOUNTGridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.ReacBs2 = new System.Windows.Forms.BindingSource();
+         this.ReacBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_CYCL_YEAR3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXTP_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.ExtpBs2 = new System.Windows.Forms.BindingSource();
+         this.ExtpBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.colBNKA_BNKB_BANK_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBNKA_BNKB_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBNKA_ACNT_NUMB1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -246,7 +249,7 @@
          this.colREGION1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLONG_EXTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.dataNavigator1 = new DevExpress.XtraEditors.DataNavigator();
-         this.Reg11Bs2 = new System.Windows.Forms.BindingSource();
+         this.Reg11Bs2 = new System.Windows.Forms.BindingSource(this.components);
          this.groupBox7 = new System.Windows.Forms.GroupBox();
          this.persianDateEdit1 = new dxExample.PersianDateEdit();
          this.persianDateEdit2 = new dxExample.PersianDateEdit();
@@ -256,7 +259,6 @@
          this.groupBox8 = new System.Windows.Forms.GroupBox();
          this.textBox5 = new System.Windows.Forms.TextBox();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.ActstBs2 = new System.Windows.Forms.BindingSource();
          this.textBox6 = new System.Windows.Forms.TextBox();
          this.textBox7 = new System.Windows.Forms.TextBox();
          this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -264,12 +266,12 @@
          this.Tx7_CyclYear = new System.Windows.Forms.TextBox();
          this.groupBox9 = new System.Windows.Forms.GroupBox();
          this.textBox8 = new System.Windows.Forms.TextBox();
-         this.AReg11Bs2 = new System.Windows.Forms.BindingSource();
+         this.AReg11Bs2 = new System.Windows.Forms.BindingSource(this.components);
          this.textBox9 = new System.Windows.Forms.TextBox();
          this.groupBox10 = new System.Windows.Forms.GroupBox();
          this.Lov_YEAR2 = new DevExpress.XtraEditors.LookUpEdit();
          this.bANK_ACCOUNTGridControl = new DevExpress.XtraGrid.GridControl();
-         this.BnkaBs2 = new System.Windows.Forms.BindingSource();
+         this.BnkaBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBNKB_BANK_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBNKB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -287,7 +289,7 @@
          this.colBANK_BRANCH1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREQUEST_ROW1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.bANK_BRANCHGridControl = new DevExpress.XtraGrid.GridControl();
-         this.BnkbBs2 = new System.Windows.Forms.BindingSource();
+         this.BnkbBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBANK_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -302,7 +304,7 @@
          this.colBANK = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBANK_ACCOUNT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.bANKGridControl = new DevExpress.XtraGrid.GridControl();
-         this.BankBs2 = new System.Windows.Forms.BindingSource();
+         this.BankBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBANK_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -314,8 +316,7 @@
          this.backstageViewButtonItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
          this.bs_001 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
          this.bs_002 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-         this.PERMBindingSource = new System.Windows.Forms.BindingSource();
-         this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+         this.PERMBindingSource = new System.Windows.Forms.BindingSource(this.components);
          yEARLabel = new System.Windows.Forms.Label();
          cYCL_YEARLabel = new System.Windows.Forms.Label();
          cODELabel = new System.Windows.Forms.Label();
@@ -358,6 +359,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.Reg07Bs1)).BeginInit();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Expense_BindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ActstBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Code11_LookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Reg11Bs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.aDM_REGION_EXPENSE_ACOUNTGridControl)).BeginInit();
@@ -365,7 +369,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BankBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Expense_BindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_TYPEGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
@@ -417,7 +420,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianDateEdit3.Properties)).BeginInit();
          this.groupBox8.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ActstBs2)).BeginInit();
          this.groupBox11.SuspendLayout();
          this.groupBox9.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.AReg11Bs2)).BeginInit();
@@ -433,7 +435,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.BankBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PERMBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // yEARLabel
@@ -467,7 +468,7 @@
          // 
          cYCL_YEARLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cYCL_YEARLabel1.AutoSize = true;
-         cYCL_YEARLabel1.Location = new System.Drawing.Point(771, 26);
+         cYCL_YEARLabel1.Location = new System.Drawing.Point(871, 26);
          cYCL_YEARLabel1.Name = "cYCL_YEARLabel1";
          cYCL_YEARLabel1.Size = new System.Drawing.Size(28, 13);
          cYCL_YEARLabel1.TabIndex = 0;
@@ -477,7 +478,7 @@
          // 
          cODELabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cODELabel1.AutoSize = true;
-         cODELabel1.Location = new System.Drawing.Point(681, 26);
+         cODELabel1.Location = new System.Drawing.Point(781, 26);
          cODELabel1.Name = "cODELabel1";
          cODELabel1.Size = new System.Drawing.Size(21, 13);
          cODELabel1.TabIndex = 2;
@@ -487,7 +488,7 @@
          // 
          rEG_STATLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          rEG_STATLabel.AutoSize = true;
-         rEG_STATLabel.Location = new System.Drawing.Point(548, 26);
+         rEG_STATLabel.Location = new System.Drawing.Point(648, 26);
          rEG_STATLabel.Name = "rEG_STATLabel";
          rEG_STATLabel.Size = new System.Drawing.Size(83, 13);
          rEG_STATLabel.TabIndex = 4;
@@ -497,7 +498,7 @@
          // 
          cMNTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cMNTLabel.AutoSize = true;
-         cMNTLabel.Location = new System.Drawing.Point(417, 26);
+         cMNTLabel.Location = new System.Drawing.Point(517, 26);
          cMNTLabel.Name = "cMNTLabel";
          cMNTLabel.Size = new System.Drawing.Size(47, 13);
          cMNTLabel.TabIndex = 6;
@@ -507,7 +508,7 @@
          // 
          lETR_NOLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          lETR_NOLabel.AutoSize = true;
-         lETR_NOLabel.Location = new System.Drawing.Point(755, 21);
+         lETR_NOLabel.Location = new System.Drawing.Point(855, 21);
          lETR_NOLabel.Name = "lETR_NOLabel";
          lETR_NOLabel.Size = new System.Drawing.Size(58, 13);
          lETR_NOLabel.TabIndex = 0;
@@ -517,7 +518,7 @@
          // 
          lETR_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          lETR_DATELabel.AutoSize = true;
-         lETR_DATELabel.Location = new System.Drawing.Point(616, 21);
+         lETR_DATELabel.Location = new System.Drawing.Point(716, 21);
          lETR_DATELabel.Name = "lETR_DATELabel";
          lETR_DATELabel.Size = new System.Drawing.Size(49, 13);
          lETR_DATELabel.TabIndex = 2;
@@ -527,7 +528,7 @@
          // 
          lETR_OWNRLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          lETR_OWNRLabel.AutoSize = true;
-         lETR_OWNRLabel.Location = new System.Drawing.Point(396, 21);
+         lETR_OWNRLabel.Location = new System.Drawing.Point(496, 21);
          lETR_OWNRLabel.Name = "lETR_OWNRLabel";
          lETR_OWNRLabel.Size = new System.Drawing.Size(68, 13);
          lETR_OWNRLabel.TabIndex = 4;
@@ -537,7 +538,7 @@
          // 
          eND_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          eND_DATELabel.AutoSize = true;
-         eND_DATELabel.Location = new System.Drawing.Point(396, 47);
+         eND_DATELabel.Location = new System.Drawing.Point(496, 47);
          eND_DATELabel.Name = "eND_DATELabel";
          eND_DATELabel.Size = new System.Drawing.Size(50, 13);
          eND_DATELabel.TabIndex = 6;
@@ -547,7 +548,7 @@
          // 
          sTRT_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sTRT_DATELabel.AutoSize = true;
-         sTRT_DATELabel.Location = new System.Drawing.Point(616, 47);
+         sTRT_DATELabel.Location = new System.Drawing.Point(716, 47);
          sTRT_DATELabel.Name = "sTRT_DATELabel";
          sTRT_DATELabel.Size = new System.Drawing.Size(59, 13);
          sTRT_DATELabel.TabIndex = 8;
@@ -557,7 +558,7 @@
          // 
          cODELabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cODELabel2.AutoSize = true;
-         cODELabel2.Location = new System.Drawing.Point(756, 99);
+         cODELabel2.Location = new System.Drawing.Point(856, 99);
          cODELabel2.Name = "cODELabel2";
          cODELabel2.Size = new System.Drawing.Size(47, 13);
          cODELabel2.TabIndex = 1;
@@ -567,7 +568,7 @@
          // 
          pRICLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          pRICLabel.AutoSize = true;
-         pRICLabel.Location = new System.Drawing.Point(644, 99);
+         pRICLabel.Location = new System.Drawing.Point(744, 99);
          pRICLabel.Name = "pRICLabel";
          pRICLabel.Size = new System.Drawing.Size(27, 13);
          pRICLabel.TabIndex = 3;
@@ -577,7 +578,7 @@
          // 
          eXTR_PRCTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          eXTR_PRCTLabel.AutoSize = true;
-         eXTR_PRCTLabel.Location = new System.Drawing.Point(466, 99);
+         eXTR_PRCTLabel.Location = new System.Drawing.Point(566, 99);
          eXTR_PRCTLabel.Name = "eXTR_PRCTLabel";
          eXTR_PRCTLabel.Size = new System.Drawing.Size(62, 13);
          eXTR_PRCTLabel.TabIndex = 5;
@@ -587,7 +588,7 @@
          // 
          label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(396, 161);
+         label1.Location = new System.Drawing.Point(496, 161);
          label1.Name = "label1";
          label1.Size = new System.Drawing.Size(62, 13);
          label1.TabIndex = 4;
@@ -597,7 +598,7 @@
          // 
          tAX_PRCTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          tAX_PRCTLabel.AutoSize = true;
-         tAX_PRCTLabel.Location = new System.Drawing.Point(191, 26);
+         tAX_PRCTLabel.Location = new System.Drawing.Point(291, 26);
          tAX_PRCTLabel.Name = "tAX_PRCTLabel";
          tAX_PRCTLabel.Size = new System.Drawing.Size(35, 13);
          tAX_PRCTLabel.TabIndex = 8;
@@ -607,7 +608,7 @@
          // 
          dUTY_PRCTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          dUTY_PRCTLabel.AutoSize = true;
-         dUTY_PRCTLabel.Location = new System.Drawing.Point(91, 26);
+         dUTY_PRCTLabel.Location = new System.Drawing.Point(191, 26);
          dUTY_PRCTLabel.Name = "dUTY_PRCTLabel";
          dUTY_PRCTLabel.Size = new System.Drawing.Size(39, 13);
          dUTY_PRCTLabel.TabIndex = 10;
@@ -626,7 +627,7 @@
          // 
          label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(617, 47);
+         label2.Location = new System.Drawing.Point(717, 47);
          label2.Name = "label2";
          label2.Size = new System.Drawing.Size(59, 13);
          label2.TabIndex = 8;
@@ -636,7 +637,7 @@
          // 
          label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(397, 47);
+         label3.Location = new System.Drawing.Point(497, 47);
          label3.Name = "label3";
          label3.Size = new System.Drawing.Size(50, 13);
          label3.TabIndex = 6;
@@ -646,7 +647,7 @@
          // 
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(397, 21);
+         label4.Location = new System.Drawing.Point(497, 21);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(68, 13);
          label4.TabIndex = 4;
@@ -656,7 +657,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(617, 21);
+         label5.Location = new System.Drawing.Point(717, 21);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(49, 13);
          label5.TabIndex = 2;
@@ -666,7 +667,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(756, 21);
+         label6.Location = new System.Drawing.Point(856, 21);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(58, 13);
          label6.TabIndex = 0;
@@ -676,7 +677,7 @@
          // 
          label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label9.AutoSize = true;
-         label9.Location = new System.Drawing.Point(418, 26);
+         label9.Location = new System.Drawing.Point(518, 26);
          label9.Name = "label9";
          label9.Size = new System.Drawing.Size(47, 13);
          label9.TabIndex = 6;
@@ -686,7 +687,7 @@
          // 
          label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label10.AutoSize = true;
-         label10.Location = new System.Drawing.Point(549, 26);
+         label10.Location = new System.Drawing.Point(649, 26);
          label10.Name = "label10";
          label10.Size = new System.Drawing.Size(83, 13);
          label10.TabIndex = 4;
@@ -696,7 +697,7 @@
          // 
          label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label11.AutoSize = true;
-         label11.Location = new System.Drawing.Point(682, 26);
+         label11.Location = new System.Drawing.Point(782, 26);
          label11.Name = "label11";
          label11.Size = new System.Drawing.Size(21, 13);
          label11.TabIndex = 2;
@@ -706,7 +707,7 @@
          // 
          label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label12.AutoSize = true;
-         label12.Location = new System.Drawing.Point(772, 26);
+         label12.Location = new System.Drawing.Point(872, 26);
          label12.Name = "label12";
          label12.Size = new System.Drawing.Size(28, 13);
          label12.TabIndex = 0;
@@ -761,11 +762,21 @@
          // 
          label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label16.AutoSize = true;
-         label16.Location = new System.Drawing.Point(644, 126);
+         label16.Location = new System.Drawing.Point(744, 126);
          label16.Name = "label16";
          label16.Size = new System.Drawing.Size(49, 13);
          label16.TabIndex = 5;
          label16.Text = "کل هزینه";
+         // 
+         // label17
+         // 
+         label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label17.AutoSize = true;
+         label17.Location = new System.Drawing.Point(569, 126);
+         label17.Name = "label17";
+         label17.Size = new System.Drawing.Size(44, 13);
+         label17.TabIndex = 11;
+         label17.Text = "وضعیت ";
          // 
          // bs_master
          // 
@@ -780,7 +791,7 @@
          this.bs_master.Name = "bs_master";
          this.bs_master.SelectedTab = this.bs_001;
          this.bs_master.SelectedTabIndex = 1;
-         this.bs_master.Size = new System.Drawing.Size(1034, 784);
+         this.bs_master.Size = new System.Drawing.Size(1134, 784);
          this.bs_master.TabIndex = 0;
          this.bs_master.Text = "backstageViewControl1";
          // 
@@ -799,7 +810,7 @@
          this.backstageViewClientControl1.Controls.Add(this.groupBox1);
          this.backstageViewClientControl1.Location = new System.Drawing.Point(189, 0);
          this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-         this.backstageViewClientControl1.Size = new System.Drawing.Size(845, 784);
+         this.backstageViewClientControl1.Size = new System.Drawing.Size(945, 784);
          this.backstageViewClientControl1.TabIndex = 0;
          // 
          // bindingNavigator1
@@ -940,7 +951,7 @@
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(824, 377);
+         this.tabControl1.Size = new System.Drawing.Size(924, 377);
          this.tabControl1.TabIndex = 6;
          // 
          // tabPage1
@@ -966,9 +977,35 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 22);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(816, 351);
+         this.tabPage1.Size = new System.Drawing.Size(916, 351);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "انواع هزینه";
+         // 
+         // lookUpEdit2
+         // 
+         this.lookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.lookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Expense_BindingSource, "ACTV", true));
+         this.lookUpEdit2.Location = new System.Drawing.Point(460, 121);
+         this.lookUpEdit2.Name = "lookUpEdit2";
+         this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+         this.lookUpEdit2.Properties.DataSource = this.ActstBs2;
+         this.lookUpEdit2.Properties.DisplayMember = "RV_MEANING";
+         this.lookUpEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.lookUpEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.lookUpEdit2.Properties.NullText = "";
+         this.lookUpEdit2.Properties.ValueMember = "RV_LOW_VALUE";
+         this.lookUpEdit2.Size = new System.Drawing.Size(100, 22);
+         this.lookUpEdit2.TabIndex = 12;
+         // 
+         // Expense_BindingSource
+         // 
+         this.Expense_BindingSource.DataSource = typeof(System.Emis.Sas.Model.EXPENSE);
+         this.Expense_BindingSource.CurrentChanged += new System.EventHandler(this.Expense_BindingSource_CurrentChanged);
+         // 
+         // ActstBs2
+         // 
+         this.ActstBs2.DataSource = typeof(System.Emis.Sas.Model.CG_REF_CODES);
          // 
          // Code11_LookUpEdit
          // 
@@ -978,7 +1015,7 @@
          this.Code11_LookUpEdit.Properties.Appearance.Options.UseTextOptions = true;
          this.Code11_LookUpEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Code11_LookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Code11_LookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CYCL_YEAR", "سال", 80, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "کد", 38, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
@@ -1034,7 +1071,7 @@
          this.aDM_REGION_EXPENSE_ACOUNTGridControl.Name = "aDM_REGION_EXPENSE_ACOUNTGridControl";
          this.aDM_REGION_EXPENSE_ACOUNTGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.aDM_REGION_EXPENSE_ACOUNTGridControl.Size = new System.Drawing.Size(792, 189);
+         this.aDM_REGION_EXPENSE_ACOUNTGridControl.Size = new System.Drawing.Size(892, 189);
          this.aDM_REGION_EXPENSE_ACOUNTGridControl.TabIndex = 8;
          this.aDM_REGION_EXPENSE_ACOUNTGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1215,7 +1252,7 @@
          // Totl_Expn_Txt
          // 
          this.Totl_Expn_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Totl_Expn_Txt.Location = new System.Drawing.Point(538, 123);
+         this.Totl_Expn_Txt.Location = new System.Drawing.Point(638, 123);
          this.Totl_Expn_Txt.Name = "Totl_Expn_Txt";
          this.Totl_Expn_Txt.Size = new System.Drawing.Size(100, 21);
          this.Totl_Expn_Txt.TabIndex = 6;
@@ -1224,21 +1261,16 @@
          // 
          this.eXTR_PRCTTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.eXTR_PRCTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Expense_BindingSource, "EXTR_PRCT", true));
-         this.eXTR_PRCTTextBox.Location = new System.Drawing.Point(360, 96);
+         this.eXTR_PRCTTextBox.Location = new System.Drawing.Point(460, 96);
          this.eXTR_PRCTTextBox.Name = "eXTR_PRCTTextBox";
          this.eXTR_PRCTTextBox.Size = new System.Drawing.Size(100, 21);
          this.eXTR_PRCTTextBox.TabIndex = 6;
-         // 
-         // Expense_BindingSource
-         // 
-         this.Expense_BindingSource.DataSource = typeof(System.Emis.Sas.Model.EXPENSE);
-         this.Expense_BindingSource.CurrentChanged += new System.EventHandler(this.Expense_BindingSource_CurrentChanged);
          // 
          // pRICTextBox
          // 
          this.pRICTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.pRICTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Expense_BindingSource, "PRIC", true));
-         this.pRICTextBox.Location = new System.Drawing.Point(538, 96);
+         this.pRICTextBox.Location = new System.Drawing.Point(638, 96);
          this.pRICTextBox.Name = "pRICTextBox";
          this.pRICTextBox.Size = new System.Drawing.Size(100, 21);
          this.pRICTextBox.TabIndex = 4;
@@ -1247,7 +1279,7 @@
          // 
          this.cODETextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cODETextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Expense_BindingSource, "CODE", true));
-         this.cODETextBox2.Location = new System.Drawing.Point(677, 96);
+         this.cODETextBox2.Location = new System.Drawing.Point(777, 96);
          this.cODETextBox2.Name = "cODETextBox2";
          this.cODETextBox2.ReadOnly = true;
          this.cODETextBox2.Size = new System.Drawing.Size(73, 21);
@@ -1265,7 +1297,7 @@
          this.eXPENSE_TYPEGridControl.Name = "eXPENSE_TYPEGridControl";
          this.eXPENSE_TYPEGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3});
-         this.eXPENSE_TYPEGridControl.Size = new System.Drawing.Size(792, 84);
+         this.eXPENSE_TYPEGridControl.Size = new System.Drawing.Size(892, 84);
          this.eXPENSE_TYPEGridControl.TabIndex = 0;
          this.eXPENSE_TYPEGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1439,7 +1471,7 @@
          this.groupBox6.Controls.Add(label1);
          this.groupBox6.Location = new System.Drawing.Point(9, 213);
          this.groupBox6.Name = "groupBox6";
-         this.groupBox6.Size = new System.Drawing.Size(465, 185);
+         this.groupBox6.Size = new System.Drawing.Size(565, 185);
          this.groupBox6.TabIndex = 5;
          this.groupBox6.TabStop = false;
          this.groupBox6.Text = "ردیف آیین نامه";
@@ -1451,7 +1483,7 @@
          this.Txt_CustType.Location = new System.Drawing.Point(9, 158);
          this.Txt_CustType.Name = "Txt_CustType";
          this.Txt_CustType.ReadOnly = true;
-         this.Txt_CustType.Size = new System.Drawing.Size(381, 21);
+         this.Txt_CustType.Size = new System.Drawing.Size(481, 21);
          this.Txt_CustType.TabIndex = 1;
          // 
          // rEGULATION_ROWGridControl
@@ -1467,7 +1499,7 @@
          this.rEGULATION_ROWGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemLookUpEdit6});
-         this.rEGULATION_ROWGridControl.Size = new System.Drawing.Size(450, 131);
+         this.rEGULATION_ROWGridControl.Size = new System.Drawing.Size(550, 131);
          this.rEGULATION_ROWGridControl.TabIndex = 0;
          this.rEGULATION_ROWGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1699,7 +1731,7 @@
          this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox5.BackColor = System.Drawing.Color.Transparent;
          this.groupBox5.Controls.Add(this.sAS_REQUEST_REQUESTERGridControl);
-         this.groupBox5.Location = new System.Drawing.Point(479, 213);
+         this.groupBox5.Location = new System.Drawing.Point(579, 213);
          this.groupBox5.Name = "groupBox5";
          this.groupBox5.Size = new System.Drawing.Size(354, 185);
          this.groupBox5.TabIndex = 5;
@@ -1903,7 +1935,7 @@
          this.groupBox4.Controls.Add(this.lETR_NOTextBox);
          this.groupBox4.Location = new System.Drawing.Point(9, 132);
          this.groupBox4.Name = "groupBox4";
-         this.groupBox4.Size = new System.Drawing.Size(824, 75);
+         this.groupBox4.Size = new System.Drawing.Size(924, 75);
          this.groupBox4.TabIndex = 3;
          this.groupBox4.TabStop = false;
          this.groupBox4.Text = "نامه آیین نامه";
@@ -1913,12 +1945,12 @@
          this.sTRT_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sTRT_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg07Bs1, "STRT_DATE", true));
          this.sTRT_DATEPersianDateEdit.EditValue = null;
-         this.sTRT_DATEPersianDateEdit.Location = new System.Drawing.Point(470, 44);
+         this.sTRT_DATEPersianDateEdit.Location = new System.Drawing.Point(570, 44);
          this.sTRT_DATEPersianDateEdit.Name = "sTRT_DATEPersianDateEdit";
          this.sTRT_DATEPersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
          this.sTRT_DATEPersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.sTRT_DATEPersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.sTRT_DATEPersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.sTRT_DATEPersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1942,12 +1974,12 @@
          this.eND_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.eND_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg07Bs1, "END_DATE", true));
          this.eND_DATEPersianDateEdit.EditValue = null;
-         this.eND_DATEPersianDateEdit.Location = new System.Drawing.Point(250, 44);
+         this.eND_DATEPersianDateEdit.Location = new System.Drawing.Point(350, 44);
          this.eND_DATEPersianDateEdit.Name = "eND_DATEPersianDateEdit";
          this.eND_DATEPersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
          this.eND_DATEPersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.eND_DATEPersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.eND_DATEPersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.eND_DATEPersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1970,7 +2002,7 @@
          // 
          this.lETR_OWNRTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lETR_OWNRTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "LETR_OWNR", true));
-         this.lETR_OWNRTextBox.Location = new System.Drawing.Point(129, 18);
+         this.lETR_OWNRTextBox.Location = new System.Drawing.Point(229, 18);
          this.lETR_OWNRTextBox.Name = "lETR_OWNRTextBox";
          this.lETR_OWNRTextBox.Size = new System.Drawing.Size(261, 21);
          this.lETR_OWNRTextBox.TabIndex = 5;
@@ -1980,12 +2012,12 @@
          this.lETR_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lETR_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg07Bs1, "LETR_DATE", true));
          this.lETR_DATEPersianDateEdit.EditValue = null;
-         this.lETR_DATEPersianDateEdit.Location = new System.Drawing.Point(470, 18);
+         this.lETR_DATEPersianDateEdit.Location = new System.Drawing.Point(570, 18);
          this.lETR_DATEPersianDateEdit.Name = "lETR_DATEPersianDateEdit";
          this.lETR_DATEPersianDateEdit.Properties.Appearance.Options.UseTextOptions = true;
          this.lETR_DATEPersianDateEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.lETR_DATEPersianDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.lETR_DATEPersianDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.lETR_DATEPersianDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2008,7 +2040,7 @@
          // 
          this.lETR_NOTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lETR_NOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "LETR_NO", true));
-         this.lETR_NOTextBox.Location = new System.Drawing.Point(671, 18);
+         this.lETR_NOTextBox.Location = new System.Drawing.Point(771, 18);
          this.lETR_NOTextBox.Name = "lETR_NOTextBox";
          this.lETR_NOTextBox.Size = new System.Drawing.Size(78, 21);
          this.lETR_NOTextBox.TabIndex = 1;
@@ -2032,7 +2064,7 @@
          this.groupBox3.Controls.Add(this.cYCL_YEARTextBox1);
          this.groupBox3.Location = new System.Drawing.Point(9, 67);
          this.groupBox3.Name = "groupBox3";
-         this.groupBox3.Size = new System.Drawing.Size(824, 59);
+         this.groupBox3.Size = new System.Drawing.Size(924, 59);
          this.groupBox3.TabIndex = 2;
          this.groupBox3.TabStop = false;
          this.groupBox3.Text = "سرفصل آیین نامه";
@@ -2041,7 +2073,7 @@
          // 
          this.dUTY_PRCTTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dUTY_PRCTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "DUTY_PRCT", true));
-         this.dUTY_PRCTTextBox.Location = new System.Drawing.Point(36, 23);
+         this.dUTY_PRCTTextBox.Location = new System.Drawing.Point(136, 23);
          this.dUTY_PRCTTextBox.Name = "dUTY_PRCTTextBox";
          this.dUTY_PRCTTextBox.Size = new System.Drawing.Size(49, 21);
          this.dUTY_PRCTTextBox.TabIndex = 11;
@@ -2050,7 +2082,7 @@
          // 
          this.tAX_PRCTTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.tAX_PRCTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "TAX_PRCT", true));
-         this.tAX_PRCTTextBox.Location = new System.Drawing.Point(136, 23);
+         this.tAX_PRCTTextBox.Location = new System.Drawing.Point(236, 23);
          this.tAX_PRCTTextBox.Name = "tAX_PRCTTextBox";
          this.tAX_PRCTTextBox.Size = new System.Drawing.Size(49, 21);
          this.tAX_PRCTTextBox.TabIndex = 9;
@@ -2059,7 +2091,7 @@
          // 
          this.cMNTTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cMNTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "CMNT", true));
-         this.cMNTTextBox.Location = new System.Drawing.Point(232, 23);
+         this.cMNTTextBox.Location = new System.Drawing.Point(332, 23);
          this.cMNTTextBox.Name = "cMNTTextBox";
          this.cMNTTextBox.Size = new System.Drawing.Size(179, 21);
          this.cMNTTextBox.TabIndex = 7;
@@ -2068,10 +2100,10 @@
          // 
          this.rEG_STATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rEG_STATLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg07Bs1, "REG_STAT", true));
-         this.rEG_STATLookUpEdit.Location = new System.Drawing.Point(470, 23);
+         this.rEG_STATLookUpEdit.Location = new System.Drawing.Point(570, 23);
          this.rEG_STATLookUpEdit.Name = "rEG_STATLookUpEdit";
          this.rEG_STATLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.rEG_STATLookUpEdit.Properties.DataSource = this.ActstBs2;
          this.rEG_STATLookUpEdit.Properties.DisplayMember = "RV_MEANING";
          this.rEG_STATLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -2085,7 +2117,7 @@
          // 
          this.cODETextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cODETextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "CODE", true));
-         this.cODETextBox1.Location = new System.Drawing.Point(637, 23);
+         this.cODETextBox1.Location = new System.Drawing.Point(737, 23);
          this.cODETextBox1.Name = "cODETextBox1";
          this.cODETextBox1.Size = new System.Drawing.Size(38, 21);
          this.cODETextBox1.TabIndex = 3;
@@ -2094,7 +2126,7 @@
          // 
          this.cYCL_YEARTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cYCL_YEARTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg07Bs1, "CYCL_YEAR", true));
-         this.cYCL_YEARTextBox1.Location = new System.Drawing.Point(708, 23);
+         this.cYCL_YEARTextBox1.Location = new System.Drawing.Point(808, 23);
          this.cYCL_YEARTextBox1.Name = "cYCL_YEARTextBox1";
          this.cYCL_YEARTextBox1.Size = new System.Drawing.Size(57, 21);
          this.cYCL_YEARTextBox1.TabIndex = 1;
@@ -2107,7 +2139,7 @@
          this.groupBox2.Controls.Add(this.cODETextBox);
          this.groupBox2.Controls.Add(cYCL_YEARLabel);
          this.groupBox2.Controls.Add(this.cYCL_YEARTextBox);
-         this.groupBox2.Location = new System.Drawing.Point(462, 3);
+         this.groupBox2.Location = new System.Drawing.Point(562, 3);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(189, 58);
          this.groupBox2.TabIndex = 1;
@@ -2142,7 +2174,7 @@
          this.groupBox1.BackColor = System.Drawing.Color.Transparent;
          this.groupBox1.Controls.Add(yEARLabel);
          this.groupBox1.Controls.Add(this.Lov_YEAR1);
-         this.groupBox1.Location = new System.Drawing.Point(657, 3);
+         this.groupBox1.Location = new System.Drawing.Point(757, 3);
          this.groupBox1.Name = "groupBox1";
          this.groupBox1.Size = new System.Drawing.Size(176, 58);
          this.groupBox1.TabIndex = 0;
@@ -2157,7 +2189,7 @@
          this.Lov_YEAR1.Properties.Appearance.Options.UseTextOptions = true;
          this.Lov_YEAR1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Lov_YEAR1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.Lov_YEAR1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("YEAR", "سال", 49, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TRAN_STAT", "TRAN_STAT", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -2195,7 +2227,7 @@
          this.backstageViewClientControl2.Controls.Add(this.bANKGridControl);
          this.backstageViewClientControl2.Location = new System.Drawing.Point(189, 0);
          this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-         this.backstageViewClientControl2.Size = new System.Drawing.Size(845, 784);
+         this.backstageViewClientControl2.Size = new System.Drawing.Size(945, 784);
          this.backstageViewClientControl2.TabIndex = 1;
          // 
          // aDM_REGION_EXPENSE_ACOUNTGridControl1
@@ -2211,7 +2243,7 @@
          this.aDM_REGION_EXPENSE_ACOUNTGridControl1.Name = "aDM_REGION_EXPENSE_ACOUNTGridControl1";
          this.aDM_REGION_EXPENSE_ACOUNTGridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit7});
-         this.aDM_REGION_EXPENSE_ACOUNTGridControl1.Size = new System.Drawing.Size(825, 257);
+         this.aDM_REGION_EXPENSE_ACOUNTGridControl1.Size = new System.Drawing.Size(925, 257);
          this.aDM_REGION_EXPENSE_ACOUNTGridControl1.TabIndex = 8;
          this.aDM_REGION_EXPENSE_ACOUNTGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView8});
@@ -2402,7 +2434,7 @@
          this.groupBox7.Controls.Add(this.textBox2);
          this.groupBox7.Location = new System.Drawing.Point(14, 431);
          this.groupBox7.Name = "groupBox7";
-         this.groupBox7.Size = new System.Drawing.Size(825, 75);
+         this.groupBox7.Size = new System.Drawing.Size(925, 75);
          this.groupBox7.TabIndex = 7;
          this.groupBox7.TabStop = false;
          this.groupBox7.Text = "نامه آیین نامه";
@@ -2412,12 +2444,12 @@
          this.persianDateEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.persianDateEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg11Bs2, "STRT_DATE", true));
          this.persianDateEdit1.EditValue = null;
-         this.persianDateEdit1.Location = new System.Drawing.Point(471, 44);
+         this.persianDateEdit1.Location = new System.Drawing.Point(571, 44);
          this.persianDateEdit1.Name = "persianDateEdit1";
          this.persianDateEdit1.Properties.Appearance.Options.UseTextOptions = true;
          this.persianDateEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.persianDateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.persianDateEdit1.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.persianDateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2433,7 +2465,7 @@
          this.persianDateEdit1.Properties.ShowWeekNumbers = true;
          this.persianDateEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
          this.persianDateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-         this.persianDateEdit1.Size = new System.Drawing.Size(140, 20);
+         this.persianDateEdit1.Size = new System.Drawing.Size(140, 22);
          this.persianDateEdit1.TabIndex = 9;
          // 
          // persianDateEdit2
@@ -2441,12 +2473,12 @@
          this.persianDateEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.persianDateEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg11Bs2, "END_DATE", true));
          this.persianDateEdit2.EditValue = null;
-         this.persianDateEdit2.Location = new System.Drawing.Point(251, 44);
+         this.persianDateEdit2.Location = new System.Drawing.Point(351, 44);
          this.persianDateEdit2.Name = "persianDateEdit2";
          this.persianDateEdit2.Properties.Appearance.Options.UseTextOptions = true;
          this.persianDateEdit2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.persianDateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.persianDateEdit2.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.persianDateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2462,14 +2494,14 @@
          this.persianDateEdit2.Properties.ShowWeekNumbers = true;
          this.persianDateEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
          this.persianDateEdit2.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-         this.persianDateEdit2.Size = new System.Drawing.Size(140, 20);
+         this.persianDateEdit2.Size = new System.Drawing.Size(140, 22);
          this.persianDateEdit2.TabIndex = 7;
          // 
          // textBox1
          // 
          this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg11Bs2, "LETR_OWNR", true));
-         this.textBox1.Location = new System.Drawing.Point(130, 18);
+         this.textBox1.Location = new System.Drawing.Point(230, 18);
          this.textBox1.Name = "textBox1";
          this.textBox1.Size = new System.Drawing.Size(261, 21);
          this.textBox1.TabIndex = 5;
@@ -2479,12 +2511,12 @@
          this.persianDateEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.persianDateEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg11Bs2, "LETR_DATE", true));
          this.persianDateEdit3.EditValue = null;
-         this.persianDateEdit3.Location = new System.Drawing.Point(471, 18);
+         this.persianDateEdit3.Location = new System.Drawing.Point(571, 18);
          this.persianDateEdit3.Name = "persianDateEdit3";
          this.persianDateEdit3.Properties.Appearance.Options.UseTextOptions = true;
          this.persianDateEdit3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.persianDateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.persianDateEdit3.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.persianDateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2500,14 +2532,14 @@
          this.persianDateEdit3.Properties.ShowWeekNumbers = true;
          this.persianDateEdit3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
          this.persianDateEdit3.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-         this.persianDateEdit3.Size = new System.Drawing.Size(140, 20);
+         this.persianDateEdit3.Size = new System.Drawing.Size(140, 22);
          this.persianDateEdit3.TabIndex = 3;
          // 
          // textBox2
          // 
          this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg11Bs2, "LETR_NO", true));
-         this.textBox2.Location = new System.Drawing.Point(672, 18);
+         this.textBox2.Location = new System.Drawing.Point(772, 18);
          this.textBox2.Name = "textBox2";
          this.textBox2.Size = new System.Drawing.Size(78, 21);
          this.textBox2.TabIndex = 1;
@@ -2527,7 +2559,7 @@
          this.groupBox8.Controls.Add(this.textBox7);
          this.groupBox8.Location = new System.Drawing.Point(14, 366);
          this.groupBox8.Name = "groupBox8";
-         this.groupBox8.Size = new System.Drawing.Size(825, 59);
+         this.groupBox8.Size = new System.Drawing.Size(925, 59);
          this.groupBox8.TabIndex = 6;
          this.groupBox8.TabStop = false;
          this.groupBox8.Text = "سرفصل آیین نامه";
@@ -2536,7 +2568,7 @@
          // 
          this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg11Bs2, "CMNT", true));
-         this.textBox5.Location = new System.Drawing.Point(233, 23);
+         this.textBox5.Location = new System.Drawing.Point(333, 23);
          this.textBox5.Name = "textBox5";
          this.textBox5.Size = new System.Drawing.Size(179, 21);
          this.textBox5.TabIndex = 7;
@@ -2545,10 +2577,10 @@
          // 
          this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Reg11Bs2, "REG_STAT", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(471, 23);
+         this.lookUpEdit1.Location = new System.Drawing.Point(571, 23);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
          this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RV_DOMAIN", "RV_DOMAIN", 83, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RV_LOW_VALUE", "RV_LOW_VALUE", 89, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -2564,15 +2596,11 @@
          this.lookUpEdit1.Size = new System.Drawing.Size(72, 22);
          this.lookUpEdit1.TabIndex = 5;
          // 
-         // ActstBs2
-         // 
-         this.ActstBs2.DataSource = typeof(System.Emis.Sas.Model.CG_REF_CODES);
-         // 
          // textBox6
          // 
          this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg11Bs2, "CODE", true));
-         this.textBox6.Location = new System.Drawing.Point(638, 23);
+         this.textBox6.Location = new System.Drawing.Point(738, 23);
          this.textBox6.Name = "textBox6";
          this.textBox6.Size = new System.Drawing.Size(38, 21);
          this.textBox6.TabIndex = 3;
@@ -2581,7 +2609,7 @@
          // 
          this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.Reg11Bs2, "CYCL_YEAR", true));
-         this.textBox7.Location = new System.Drawing.Point(709, 23);
+         this.textBox7.Location = new System.Drawing.Point(809, 23);
          this.textBox7.Name = "textBox7";
          this.textBox7.Size = new System.Drawing.Size(57, 21);
          this.textBox7.TabIndex = 1;
@@ -2594,7 +2622,7 @@
          this.groupBox11.Controls.Add(this.Tx7_Code);
          this.groupBox11.Controls.Add(label8);
          this.groupBox11.Controls.Add(this.Tx7_CyclYear);
-         this.groupBox11.Location = new System.Drawing.Point(273, 302);
+         this.groupBox11.Location = new System.Drawing.Point(373, 302);
          this.groupBox11.Name = "groupBox11";
          this.groupBox11.Size = new System.Drawing.Size(189, 58);
          this.groupBox11.TabIndex = 5;
@@ -2627,7 +2655,7 @@
          this.groupBox9.Controls.Add(this.textBox8);
          this.groupBox9.Controls.Add(label14);
          this.groupBox9.Controls.Add(this.textBox9);
-         this.groupBox9.Location = new System.Drawing.Point(468, 302);
+         this.groupBox9.Location = new System.Drawing.Point(568, 302);
          this.groupBox9.Name = "groupBox9";
          this.groupBox9.Size = new System.Drawing.Size(189, 58);
          this.groupBox9.TabIndex = 5;
@@ -2662,7 +2690,7 @@
          this.groupBox10.BackColor = System.Drawing.Color.Transparent;
          this.groupBox10.Controls.Add(label15);
          this.groupBox10.Controls.Add(this.Lov_YEAR2);
-         this.groupBox10.Location = new System.Drawing.Point(663, 302);
+         this.groupBox10.Location = new System.Drawing.Point(763, 302);
          this.groupBox10.Name = "groupBox10";
          this.groupBox10.Size = new System.Drawing.Size(176, 58);
          this.groupBox10.TabIndex = 4;
@@ -2677,7 +2705,7 @@
          this.Lov_YEAR2.Properties.Appearance.Options.UseTextOptions = true;
          this.Lov_YEAR2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Lov_YEAR2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.Lov_YEAR2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("YEAR", "سال", 49, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TRAN_STAT", "TRAN_STAT", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -2704,7 +2732,7 @@
          this.bANK_ACCOUNTGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.bANK_ACCOUNTGridControl.MainView = this.gridView7;
          this.bANK_ACCOUNTGridControl.Name = "bANK_ACCOUNTGridControl";
-         this.bANK_ACCOUNTGridControl.Size = new System.Drawing.Size(825, 147);
+         this.bANK_ACCOUNTGridControl.Size = new System.Drawing.Size(925, 147);
          this.bANK_ACCOUNTGridControl.TabIndex = 2;
          this.bANK_ACCOUNTGridControl.UseEmbeddedNavigator = true;
          this.bANK_ACCOUNTGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -2842,7 +2870,7 @@
          this.bANK_BRANCHGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.bANK_BRANCHGridControl.MainView = this.gridView6;
          this.bANK_BRANCHGridControl.Name = "bANK_BRANCHGridControl";
-         this.bANK_BRANCHGridControl.Size = new System.Drawing.Size(437, 130);
+         this.bANK_BRANCHGridControl.Size = new System.Drawing.Size(537, 130);
          this.bANK_BRANCHGridControl.TabIndex = 1;
          this.bANK_BRANCHGridControl.UseEmbeddedNavigator = true;
          this.bANK_BRANCHGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -2956,7 +2984,7 @@
          // 
          this.bANKGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.bANKGridControl.DataSource = this.BankBs2;
-         this.bANKGridControl.Location = new System.Drawing.Point(459, 13);
+         this.bANKGridControl.Location = new System.Drawing.Point(559, 13);
          this.bANKGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.bANKGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.bANKGridControl.MainView = this.gridView5;
@@ -3064,33 +3092,6 @@
          // 
          this.PERMBindingSource.DataSource = typeof(System.Emis.Sas.Model.CG_REF_CODES);
          // 
-         // label17
-         // 
-         label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label17.AutoSize = true;
-         label17.Location = new System.Drawing.Point(469, 126);
-         label17.Name = "label17";
-         label17.Size = new System.Drawing.Size(44, 13);
-         label17.TabIndex = 11;
-         label17.Text = "وضعیت ";
-         // 
-         // lookUpEdit2
-         // 
-         this.lookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Expense_BindingSource, "ACTV", true));
-         this.lookUpEdit2.Location = new System.Drawing.Point(360, 121);
-         this.lookUpEdit2.Name = "lookUpEdit2";
-         this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.lookUpEdit2.Properties.DataSource = this.ActstBs2;
-         this.lookUpEdit2.Properties.DisplayMember = "RV_MEANING";
-         this.lookUpEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.lookUpEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.lookUpEdit2.Properties.NullText = "";
-         this.lookUpEdit2.Properties.ValueMember = "RV_LOW_VALUE";
-         this.lookUpEdit2.Size = new System.Drawing.Size(100, 22);
-         this.lookUpEdit2.TabIndex = 12;
-         // 
          // MSTR_REGL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3099,7 +3100,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "MSTR_REGL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1034, 784);
+         this.Size = new System.Drawing.Size(1134, 784);
          this.bs_master.ResumeLayout(false);
          this.backstageViewClientControl1.ResumeLayout(false);
          this.backstageViewClientControl1.PerformLayout();
@@ -3110,6 +3111,9 @@
          this.tabControl1.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.tabPage1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Expense_BindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ActstBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Code11_LookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Reg11Bs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.aDM_REGION_EXPENSE_ACOUNTGridControl)).EndInit();
@@ -3117,7 +3121,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BankBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Expense_BindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_TYPEGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExtpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
@@ -3176,7 +3179,6 @@
          this.groupBox8.ResumeLayout(false);
          this.groupBox8.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ActstBs2)).EndInit();
          this.groupBox11.ResumeLayout(false);
          this.groupBox11.PerformLayout();
          this.groupBox9.ResumeLayout(false);
@@ -3195,7 +3197,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.BankBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PERMBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }

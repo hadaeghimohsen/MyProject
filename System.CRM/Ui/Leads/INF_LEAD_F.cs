@@ -167,13 +167,14 @@ namespace System.CRM.Ui.Leads
                         )
                      ),
                      new XElement("Company",
-                        new XAttribute("code", CompCode_Txt.EditValue),
+                        new XAttribute("code", CompCode_Txt.Text),
                         new XElement("Name", Name_Txt.EditValue),
                         new XElement("Web_Site", WebSite_Txt.EditValue),
                         new XElement("Regn_Prvn_Cnty_Code", Cnty_Lov.EditValue),
                         new XElement("Regn_Prvn_Code", Prvn_Lov.EditValue),
                         new XElement("Regn_Code", Regn_Lov.EditValue),
                         new XElement("Post_Adrs", PostAdrs_Txt.EditValue),
+                        new XElement("Prim_Serv_File_No", FileNo_Txt.EditValue),
                         new XElement("Iscp_Isca_Iscg_Code", IsicGrop_Lov.EditValue),
                         new XElement("Iscp_Isca_Code", IsicActv_Lov.EditValue),
                         new XElement("Iscp_Code", IsicProd_Lov.EditValue),
@@ -243,6 +244,48 @@ namespace System.CRM.Ui.Leads
       {
          queryAllRequest = true;
          Execute_Query();
+      }
+
+      private void SrpbBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var srpb = SrpbBs.Current as Data.Service_Public;
+            if (srpb == null) return;
+
+            CompBs.DataSource = iCRM.Companies.Where(c => c.CODE == srpb.COMP_CODE);
+            PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE);
+            RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE && r.PRVN_CODE == srpb.REGN_PRVN_CODE);
+         }
+         catch { }
+      }
+
+      private void RqstCncl_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs.Current as Data.Request;
+            if (rqst == null || rqst.RQID == 0) return;
+
+            if (MessageBox.Show(this, "آیا با انصراف درخواست موافق هستید؟", "انصراف درخواست", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iCRM.CNCL_RQST_P(
+               new XElement("Request",
+                  new XAttribute("rqid", rqst.RQID)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
 
    }

@@ -28,10 +28,9 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_LEAD_F));
-         this.LeadBs = new System.Windows.Forms.BindingSource(this.components);
-         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
+         this.LeadBs = new System.Windows.Forms.BindingSource();
+         this.DsstgBs = new System.Windows.Forms.BindingSource();
          this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -60,8 +59,8 @@
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.Back_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
-         this.Acnt_Gc = new DevExpress.XtraGrid.GridControl();
-         this.Comp_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Lead_Gc = new DevExpress.XtraGrid.GridControl();
+         this.Lead_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colOWNR_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOPC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,8 +74,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Comp_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Lead_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
@@ -291,40 +290,40 @@
          this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
          this.ribbonTopToolBar1.Visible = false;
          // 
-         // Acnt_Gc
+         // Lead_Gc
          // 
-         this.Acnt_Gc.DataSource = this.LeadBs;
-         this.Acnt_Gc.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Acnt_Gc.Location = new System.Drawing.Point(0, 118);
-         this.Acnt_Gc.LookAndFeel.SkinName = "Office 2013";
-         this.Acnt_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Acnt_Gc.MainView = this.Comp_Gv;
-         this.Acnt_Gc.Name = "Acnt_Gc";
-         this.Acnt_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+         this.Lead_Gc.DataSource = this.LeadBs;
+         this.Lead_Gc.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Lead_Gc.Location = new System.Drawing.Point(0, 118);
+         this.Lead_Gc.LookAndFeel.SkinName = "Office 2013";
+         this.Lead_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Lead_Gc.MainView = this.Lead_Gv;
+         this.Lead_Gc.Name = "Lead_Gc";
+         this.Lead_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemLookUpEdit1,
             this.repositoryItemTimeEdit1});
-         this.Acnt_Gc.Size = new System.Drawing.Size(903, 336);
-         this.Acnt_Gc.TabIndex = 2;
-         this.Acnt_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.Comp_Gv});
+         this.Lead_Gc.Size = new System.Drawing.Size(903, 336);
+         this.Lead_Gc.TabIndex = 2;
+         this.Lead_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Lead_Gv});
          // 
-         // Comp_Gv
+         // Lead_Gv
          // 
-         this.Comp_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Comp_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Comp_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
-         this.Comp_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Comp_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Comp_Gv.Appearance.HeaderPanel.Options.UseFont = true;
-         this.Comp_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.Comp_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Comp_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Comp_Gv.Appearance.Row.Options.UseFont = true;
-         this.Comp_Gv.Appearance.Row.Options.UseTextOptions = true;
-         this.Comp_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Comp_Gv.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.Comp_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Lead_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.Lead_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Lead_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
+         this.Lead_Gv.Appearance.FocusedRow.Options.UseFont = true;
+         this.Lead_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Lead_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Lead_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Lead_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Lead_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Lead_Gv.Appearance.Row.Options.UseFont = true;
+         this.Lead_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Lead_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Lead_Gv.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.Lead_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colOWNR_CODE,
             this.colTOPC,
             this.colSTAT,
@@ -332,19 +331,20 @@
             this.colFRST_NAME,
             this.colLAST_NAME,
             this.colCRET_TIME});
-         this.Comp_Gv.GridControl = this.Acnt_Gc;
-         this.Comp_Gv.Name = "Comp_Gv";
-         this.Comp_Gv.OptionsBehavior.Editable = false;
-         this.Comp_Gv.OptionsBehavior.ReadOnly = true;
-         this.Comp_Gv.OptionsFind.AlwaysVisible = true;
-         this.Comp_Gv.OptionsFind.FindDelay = 100;
-         this.Comp_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Comp_Gv.OptionsSelection.MultiSelect = true;
-         this.Comp_Gv.OptionsView.ShowDetailButtons = false;
-         this.Comp_Gv.OptionsView.ShowGroupPanel = false;
-         this.Comp_Gv.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.Comp_Gv.OptionsView.ShowIndicator = false;
-         this.Comp_Gv.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.Lead_Gv.GridControl = this.Lead_Gc;
+         this.Lead_Gv.Name = "Lead_Gv";
+         this.Lead_Gv.OptionsBehavior.Editable = false;
+         this.Lead_Gv.OptionsBehavior.ReadOnly = true;
+         this.Lead_Gv.OptionsFind.AlwaysVisible = true;
+         this.Lead_Gv.OptionsFind.FindDelay = 100;
+         this.Lead_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Lead_Gv.OptionsSelection.MultiSelect = true;
+         this.Lead_Gv.OptionsView.ShowDetailButtons = false;
+         this.Lead_Gv.OptionsView.ShowGroupPanel = false;
+         this.Lead_Gv.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.Lead_Gv.OptionsView.ShowIndicator = false;
+         this.Lead_Gv.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.Lead_Gv.DoubleClick += new System.EventHandler(this.Lead_Gv_DoubleClick);
          // 
          // colOWNR_CODE
          // 
@@ -412,7 +412,7 @@
          // colFRST_NAME
          // 
          this.colFRST_NAME.Caption = "نام";
-         this.colFRST_NAME.FieldName = "Request_Row.Service_Publics.FRST_NAME";
+         this.colFRST_NAME.FieldName = "Service_Public.FRST_NAME";
          this.colFRST_NAME.Name = "colFRST_NAME";
          this.colFRST_NAME.OptionsColumn.FixedWidth = true;
          this.colFRST_NAME.Visible = true;
@@ -422,7 +422,7 @@
          // colLAST_NAME
          // 
          this.colLAST_NAME.Caption = "نام خانوادگی";
-         this.colLAST_NAME.FieldName = "Request_Row.Service_Publics.LAST_NAME";
+         this.colLAST_NAME.FieldName = "Service_Public.LAST_NAME";
          this.colLAST_NAME.Name = "colLAST_NAME";
          this.colLAST_NAME.OptionsColumn.FixedWidth = true;
          this.colLAST_NAME.Visible = true;
@@ -455,7 +455,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.Controls.Add(this.Acnt_Gc);
+         this.Controls.Add(this.Lead_Gc);
          this.Controls.Add(this.Menu_Rbn);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SHW_LEAD_F";
@@ -464,8 +464,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Comp_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Lead_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
@@ -508,8 +508,8 @@
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup2;
       private C1.Win.C1Ribbon.RibbonButton Back_Butn;
       private C1.Win.C1Ribbon.RibbonTopToolBar ribbonTopToolBar1;
-      private DevExpress.XtraGrid.GridControl Acnt_Gc;
-      private DevExpress.XtraGrid.Views.Grid.GridView Comp_Gv;
+      private DevExpress.XtraGrid.GridControl Lead_Gc;
+      private DevExpress.XtraGrid.Views.Grid.GridView Lead_Gv;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private DevExpress.XtraGrid.Columns.GridColumn colOWNR_CODE;

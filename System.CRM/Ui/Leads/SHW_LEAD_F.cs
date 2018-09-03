@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using DevExpress.XtraEditors.Controls;
 using System.CRM.ExceptionHandlings;
 using System.IO;
+using System.CRM.ExtCode;
 
 namespace System.CRM.Ui.Leads
 {
@@ -35,6 +36,12 @@ namespace System.CRM.Ui.Leads
 
       private void Execute_Query()
       {
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         LeadBs.DataSource =
+            iCRM.Leads.Where(
+               l => l.COMP_CODE == ( compcode != 0 ? compcode : l.COMP_CODE) 
+                 && l.Request_Row.Request.RQST_STAT != "003"
+               );
       }
 
       private void New_Butn_Click(object sender, EventArgs e)
@@ -54,6 +61,31 @@ namespace System.CRM.Ui.Leads
                 }
               });
          _DefaultGateway.Gateway(_InteractWithCRM);
+      }
+
+      private void Lead_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         try
+         {
+            var leads = LeadBs.Current as Data.Lead;
+            Job _InteractWithCRM =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                   new Job(SendType.Self, 24 /* Execute Inf_Lead_F */),
+                   new Job(SendType.SelfToUserInterface, "INF_LEAD_F", 10 /* Execute Actn_Calf_F */)
+                   {
+                      Input = 
+                        new XElement("Lead",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("type", "newleadupdate"),
+                           new XAttribute("rqid", leads.RQRO_RQST_RQID)
+                        )
+                   }
+                 });
+            _DefaultGateway.Gateway(_InteractWithCRM);
+         }
+         catch {}         
       }
    }
 }

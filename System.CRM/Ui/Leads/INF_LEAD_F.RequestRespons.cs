@@ -16,7 +16,7 @@ namespace System.CRM.Ui.Leads
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private long fileno, compcode;
+      private long fileno, compcode, rqid;
       private XElement xinput;
 
       public void SendRequest(Job job)
@@ -133,8 +133,6 @@ namespace System.CRM.Ui.Leads
             });
          _DefaultGateway.Gateway(_Paint);
 
-         splitContainerControl2.Width = Pn_CmpServ.Width;
-
          Enabled = true;
          job.Status = StatusType.Successful;
       }
@@ -218,8 +216,6 @@ namespace System.CRM.Ui.Leads
                   CntyBs.DataSource = iCRM.Countries;
 
                   LstCampBs.DataSource = iCRM.Campaigns;
-                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
                   //LstLeadBs.DataSource = iCRM.Leads;
                })
             );
@@ -244,8 +240,6 @@ namespace System.CRM.Ui.Leads
             IsicGropBs.DataSource = iCRM.Isic_Groups;
 
             LstCampBs.DataSource = iCRM.Campaigns;
-            LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
             //LstLeadBs.DataSource = iCRM.Leads;
          }
          
@@ -261,20 +255,24 @@ namespace System.CRM.Ui.Leads
          Execute_Query();
 
          xinput = job.Input as XElement;
+         if(xinput.Attribute("rqid") != null)
+            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
+         else
+            rqid = 0;
+
          switch (xinput.Attribute("type").Value)
          {
-            case "newlead":
-               Pn_CmpServ.Visible = false;
+            case "newleadupdate":
+               RqstBs.Position = RqstBs.IndexOf(RqstBs.List.OfType<Data.Request>().First(r => r.RQID == rqid));
                break;
             case "companylead":
-            case "servicelead":
-               Pn_CmpServ.Visible = true;
+            case "servicelead":               
                break;
             default:
+               if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
+                  RqstBs.AddNew();
                break;
-         }
-         if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
-            RqstBs.AddNew();
+         }         
 
          job.Status = StatusType.Successful;
       }
@@ -285,44 +283,44 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void CordinateGetSet(Job job)
       {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            var serv = LstServBs.Current as Data.Service;
-            if (xinput.Attribute("outputtype").Value == "servcord")
-            {
-               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
-               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+         //var xinput = job.Input as XElement;
+         //if (xinput != null)
+         //{
+         //   var serv = LstServBs.Current as Data.Service;
+         //   if (xinput.Attribute("outputtype").Value == "servcord")
+         //   {
+         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
                
-               if(cordx != serv.CORD_X_DNRM && cordy != serv.CORD_Y_DNRM)
-               {
-                  // Call Update Service_Public
-                  try
-                  {
-                     iCRM.CHNG_SRPB_P(
-                        new XElement("Service",
-                           new XAttribute("fileno", serv.FILE_NO),
-                           new XAttribute("actntype", "001"),
-                           new XAttribute("cordx", cordx),
-                           new XAttribute("cordy", cordy)
-                        )
-                     );
-                     requery = true;
-                  }
-                  catch (Exception exc)
-                  {
-                     MessageBox.Show(exc.Message);                     
-                  }
-                  finally
-                  {
-                     if(requery)
-                     {
-                        Execute_Query();
-                     }
-                  }
-               }
-            }            
-         }
+         //      if(cordx != serv.CORD_X_DNRM && cordy != serv.CORD_Y_DNRM)
+         //      {
+         //         // Call Update Service_Public
+         //         try
+         //         {
+         //            iCRM.CHNG_SRPB_P(
+         //               new XElement("Service",
+         //                  new XAttribute("fileno", serv.FILE_NO),
+         //                  new XAttribute("actntype", "001"),
+         //                  new XAttribute("cordx", cordx),
+         //                  new XAttribute("cordy", cordy)
+         //               )
+         //            );
+         //            requery = true;
+         //         }
+         //         catch (Exception exc)
+         //         {
+         //            MessageBox.Show(exc.Message);                     
+         //         }
+         //         finally
+         //         {
+         //            if(requery)
+         //            {
+         //               Execute_Query();
+         //            }
+         //         }
+         //      }
+         //   }            
+         //}
 
          job.Status = StatusType.Successful;
       }

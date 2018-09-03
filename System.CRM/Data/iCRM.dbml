@@ -2408,6 +2408,7 @@
       <Association Name="Service_Public_Email" Member="Emails" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Email" />
       <Association Name="Service_Public_Send_File" Member="Send_Files" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Send_File" />
       <Association Name="Service_Public_Note" Member="Notes" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Note" />
+      <Association Name="Service_Public_Lead" Member="Leads" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" Type="Lead" />
       <Association Name="Base_Tariff_Service_Public" Member="Base_Tariff" ThisKey="BTRF_CODE" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Expense_Service_Public" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Isic_Product_Service_Public" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
@@ -3210,6 +3211,7 @@
       <Association Name="Company_Note1" Member="Notes1" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Note" />
       <Association Name="Company_Outsource_Vendor" Member="Outsource_Vendors" ThisKey="CODE" OtherKey="COMP_CODE" Type="Outsource_Vendor" />
       <Association Name="Company_Member" Member="Members" ThisKey="CODE" OtherKey="COMP_CODE" Type="Member" />
+      <Association Name="Company_Lead" Member="Leads" ThisKey="CODE" OtherKey="COMP_CODE" Type="Lead" />
       <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Job_Personnel_Company" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
@@ -3785,12 +3787,44 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.V#Users" Member="V_Users">
+    <Type Name="V_User">
+      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="VOIP_NUMB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR_PROF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MAIL_SRVR_ACNT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DFLT_USER_HELP_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$PRPC" Member="D_PRPCs">
+    <Type Name="D_PRPC">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Lead" Member="Leads">
     <Type Name="Lead">
       <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CAMP_CMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRPB_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRPB_RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SRPB_RECT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="LDID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TOPC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="PRCH_TIME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
@@ -3826,36 +3860,10 @@
       <Association Name="Lead_Note" Member="Notes" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Note" />
       <Association Name="Lead_Member" Member="Members" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Member" />
       <Association Name="Campaign_Lead" Member="Campaign" ThisKey="CAMP_CMID" OtherKey="CMID" Type="Campaign" IsForeignKey="true" />
+      <Association Name="Company_Lead" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Job_Personnel_Lead" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Request_Row_Lead" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.V#Users" Member="V_Users">
-    <Type Name="V_User">
-      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="VOIP_NUMB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR_PROF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR_ACNT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="DFLT_USER_HELP_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$PRPC" Member="D_PRPCs">
-    <Type Name="D_PRPC">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Service_Public_Lead" Member="Service_Public" ThisKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">

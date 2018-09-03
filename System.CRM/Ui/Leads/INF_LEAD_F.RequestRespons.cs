@@ -258,6 +258,8 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         Execute_Query();
+
          xinput = job.Input as XElement;
          switch (xinput.Attribute("type").Value)
          {
@@ -271,8 +273,9 @@ namespace System.CRM.Ui.Leads
             default:
                break;
          }
-         //fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-         //Execute_Query();
+         if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
+            RqstBs.AddNew();
+
          job.Status = StatusType.Successful;
       }
 

@@ -131,6 +131,9 @@ namespace System.CRM.Ui.Leads
             if (rqst != null && rqst.RQID != 0)
                leadtype += "update";
 
+            var sp = SrpbBs.Current as Data.Service_Public;
+            var lead = LeadBs.Current as Data.Lead;
+
             #region New Lead & Update
             if (leadtype.In("newlead"))
             {
@@ -157,7 +160,7 @@ namespace System.CRM.Ui.Leads
                      new XAttribute("regncode", Regn_Lov.EditValue),
                      new XAttribute("leadtype", leadtype),
                      new XElement("Service",
-                        new XAttribute("fileno", FileNo_Txt.EditValue),
+                        new XAttribute("fileno", sp == null ? "" : sp.SERV_FILE_NO.ToString()),
                         new XElement("Service_Public",
                            new XElement("Frst_Name", FrstName_Txt.EditValue),
                            new XElement("Last_Name", LastName_Txt.EditValue),
@@ -167,14 +170,14 @@ namespace System.CRM.Ui.Leads
                         )
                      ),
                      new XElement("Company",
-                        new XAttribute("code", CompCode_Txt.Text),
+                        new XAttribute("code", sp == null ? 0 : sp.COMP_CODE),
                         new XElement("Name", Name_Txt.EditValue),
                         new XElement("Web_Site", WebSite_Txt.EditValue),
                         new XElement("Regn_Prvn_Cnty_Code", Cnty_Lov.EditValue),
                         new XElement("Regn_Prvn_Code", Prvn_Lov.EditValue),
                         new XElement("Regn_Code", Regn_Lov.EditValue),
                         new XElement("Post_Adrs", PostAdrs_Txt.EditValue),
-                        new XElement("Prim_Serv_File_No", FileNo_Txt.EditValue),
+                        new XElement("Prim_Serv_File_No", sp == null ? "" : sp.SERV_FILE_NO.ToString()),
                         new XElement("Iscp_Isca_Iscg_Code", IsicGrop_Lov.EditValue),
                         new XElement("Iscp_Isca_Code", IsicActv_Lov.EditValue),
                         new XElement("Iscp_Code", IsicProd_Lov.EditValue),
@@ -190,7 +193,7 @@ namespace System.CRM.Ui.Leads
                      ),
                      new XElement("Lead",
                         new XAttribute("ownrcode", Ownr_Lov.EditValue),
-                        new XElement("Ldid", LeadId_Txt.EditValue),
+                        new XElement("Ldid", lead == null ? "" : lead.LDID.ToString()),
                         new XElement("Camp_Cmid", Camp_Lov.EditValue),
                         new XElement("Topc", Topc_Txt.EditValue),
                         new XElement("Prch_Time", PrchTime_Txt.EditValue ?? "000"),
@@ -204,7 +207,8 @@ namespace System.CRM.Ui.Leads
                         new XElement("Emst_Clos_Date", EmstClosDate_Dt.Value.HasValue ? EmstClosDate_Dt.Value.Value.ToString("yyyy-MM-dd") : ""),
                         new XElement("Emst_Revn_Amnt", EmstRevnAmnt_Txt.EditValue),
                         new XElement("Prop_Solt", PropSolt_Txt.EditValue),
-                        new XElement("Send_Thnk_You", SendThnkYou_Lov.EditValue ?? "001")
+                        new XElement("Send_Thnk_You", SendThnkYou_Lov.EditValue ?? "001"),
+                        new XElement("Send_Camp_Info", SendCampInfo_Lov.EditValue ?? "001")
                      )
                   )
                );
@@ -251,11 +255,14 @@ namespace System.CRM.Ui.Leads
          try
          {
             var srpb = SrpbBs.Current as Data.Service_Public;
-            if (srpb == null) return;
+            if (srpb == null) { CompBs.List.Clear(); return; }
 
             CompBs.DataSource = iCRM.Companies.Where(c => c.CODE == srpb.COMP_CODE);
             PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE);
             RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE && r.PRVN_CODE == srpb.REGN_PRVN_CODE);
+            IsicGropBs.DataSource = iCRM.Isic_Groups.Where(g => g.CODE == srpb.ISCP_ISCA_ISCG_CODE);
+            IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE);
+            IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE && p.ISCA_CODE == srpb.ISCP_ISCA_CODE);
          }
          catch { }
       }
@@ -288,5 +295,77 @@ namespace System.CRM.Ui.Leads
          }
       }
 
+      #region Note
+      private void AddNote_Butn_Click(object sender, EventArgs e)
+      {
+         var lead = LeadBs.Current as Data.Lead;
+         if (lead == null) return;
+         if (NoteBs.List.OfType<Data.Note>().Any(n => n.NTID == 0)) return;
+
+         NoteBs.AddNew();
+         var note = NoteBs.Current as Data.Note;
+         note.LEAD_LDID = lead.LDID;
+         note.SERV_FILE_NO = lead.SRPB_SERV_FILE_NO;
+         note.COMP_CODE_DNRM = lead.COMP_CODE;
+
+         Note_Gv.SelectRow(Note_Gv.RowCount - 1);
+
+         iCRM.Notes.InsertOnSubmit(note);
+      }
+
+      private void DelNote_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var lead = LeadBs.Current as Data.Lead;
+            if (lead == null) return;
+
+            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+
+            var rows = Note_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Note)Note_Gv.GetRow(r);
+               iCRM.Notes.DeleteOnSubmit(row);
+            }
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveNote_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            NoteBs.EndEdit();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
    }
 }

@@ -2603,8 +2603,8 @@
     </EmbeddedResource>
     <None Include="Data\iCRM.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>iCRM.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>iCRM1.designer.cs</LastGenOutput>
     </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
@@ -2678,10 +2678,12 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_SHPM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SIST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SLON.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_SLTM.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SRST.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SRTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SSTG.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_STDY.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_STKH.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SXDC.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_SXTP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_TMTP1.datasource" />
@@ -2710,6 +2712,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personnel.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Job_Personnel_Relation.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Lead.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Lead_Competitor.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Like.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Log_Call.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Main_State.datasource" />
@@ -2746,6 +2749,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Request_Requester.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Request_Row.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Request_Type.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Sale_Team.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Send_File.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Join_Service_Type.datasource" />
@@ -2753,6 +2757,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.Service_Public.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Relation.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Service_Type.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.Stakeholder.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Step_History_Detail.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Step_History_Summery.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Sub_State.datasource" />

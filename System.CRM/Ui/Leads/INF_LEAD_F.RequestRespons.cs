@@ -213,6 +213,7 @@ namespace System.CRM.Ui.Leads
                   DcttpBs.DataSource = iCRM.D_CTTPs;
                   DsstgBs.DataSource = iCRM.D_SSTGs;
                   DrqstBs.DataSource = iCRM.D_RQSTs;
+                  DsltmBs.DataSource = iCRM.D_SLTMs;
                   CntyBs.DataSource = iCRM.Countries;
 
                   LstCampBs.DataSource = iCRM.Campaigns;
@@ -236,6 +237,7 @@ namespace System.CRM.Ui.Leads
             DcttpBs.DataSource = iCRM.D_CTTPs;
             DsstgBs.DataSource = iCRM.D_SSTGs;
             DrqstBs.DataSource = iCRM.D_RQSTs;
+            DsltmBs.DataSource = iCRM.D_SLTMs;
             CntyBs.DataSource = iCRM.Countries;
             IsicGropBs.DataSource = iCRM.Isic_Groups;
 

@@ -233,8 +233,23 @@ namespace System.CRM.Ui.Competitor
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-         DcptpBs.DataSource = iCRM.D_CPTPs;
+         if (InvokeRequired)
+         {
+            Invoke(
+               new Action(
+                  () =>
+                  {
+                     TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+                     DcptpBs.DataSource = iCRM.D_CPTPs;
+                  }
+               )
+            );
+         }
+         else
+         {
+            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+            DcptpBs.DataSource = iCRM.D_CPTPs;
+         }
          job.Status = StatusType.Successful;
       }
 

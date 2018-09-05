@@ -367,5 +367,256 @@ namespace System.CRM.Ui.Leads
          }
       }
       #endregion
+
+      #region Sale Team
+      private void AddSaleTeam_Butn_Click(object sender, EventArgs e)
+      {
+         var lead = LeadBs.Current as Data.Lead;
+         if (lead == null) return;
+         if (SltmBs.List.OfType<Data.Sale_Team>().Any(st => st.STID == 0)) return;
+
+         SltmBs.AddNew();
+         var sltm = SltmBs.Current as Data.Sale_Team;
+         sltm.LEAD_LDID = lead.LDID;
+
+         Sltm_Gv.SelectRow(Sltm_Gv.RowCount - 1);
+
+         iCRM.Sale_Teams.InsertOnSubmit(sltm);
+      }
+
+      private void DelSaleTeam_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var lead = LeadBs.Current as Data.Lead;
+            if (lead == null) return;
+
+            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+
+            var rows = Sltm_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Sale_Team)Sltm_Gv.GetRow(r);
+               iCRM.Sale_Teams.DeleteOnSubmit(row);
+            }
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveSaleTeam_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SltmBs.EndEdit();
+            Sltm_Gv.PostEditor();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowSaleTeam_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpSaleTeam_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Campatitor
+      private void AddCampatitor_Butn_Click(object sender, EventArgs e)
+      {
+         var lead = LeadBs.Current as Data.Lead;
+         if (lead == null) return;
+         if (LdcmBs.List.OfType<Data.Lead_Competitor>().Any(lc => lc.LCID == 0)) return;
+
+         LdcmBs.AddNew();
+         var ldcm = LdcmBs.Current as Data.Lead_Competitor;
+         ldcm.LEAD_LDID = lead.LDID;
+
+         Ldcm_Gv.SelectRow(Ldcm_Gv.RowCount - 1);
+
+         iCRM.Lead_Competitors.InsertOnSubmit(ldcm);
+      }
+
+      private void DelCampatitor_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var lead = LeadBs.Current as Data.Lead;
+            if (lead == null) return;
+
+            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+
+            var rows = Ldcm_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Lead_Competitor)Ldcm_Gv.GetRow(r);
+               iCRM.Lead_Competitors.DeleteOnSubmit(row);
+            }
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveCampatitor_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            LdcmBs.EndEdit();
+            Ldcm_Gv.PostEditor();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowCampatitor_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpCampatitor_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+
+      #region Stakeholder
+      private void NewStakeholder_Butn_Click(object sender, EventArgs e)
+      {
+         
+      }
+
+      private void AddStakeholder_Butn_Click(object sender, EventArgs e)
+      {
+         var lead = LeadBs.Current as Data.Lead;
+         if (lead == null) return;
+         if (StkhBs.List.OfType<Data.Stakeholder>().Any(sh => sh.SHID == 0)) return;
+
+         StkhBs.AddNew();
+         var stkh = StkhBs.Current as Data.Stakeholder;
+         stkh.LEAD_LDID = lead.LDID;
+
+         Stkh_Gv.SelectRow(Stkh_Gv.RowCount - 1);
+
+         iCRM.Stakeholders.InsertOnSubmit(stkh);
+      }
+
+      private void DelStakeholder_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var lead = LeadBs.Current as Data.Lead;
+            if (lead == null) return;
+
+            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+
+            var rows = Ldcm_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Stakeholder)Stkh_Gv.GetRow(r);
+               iCRM.Stakeholders.DeleteOnSubmit(row);
+            }
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveStakeholder_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            StkhBs.EndEdit();
+            Stkh_Gv.PostEditor();
+
+            iCRM.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            iCRM.SaveException(exc);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowStakeholder_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void HelpStakeholder_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
    }
 }

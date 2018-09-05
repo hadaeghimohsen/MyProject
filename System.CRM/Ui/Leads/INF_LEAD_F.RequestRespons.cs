@@ -214,7 +214,11 @@ namespace System.CRM.Ui.Leads
                   DsstgBs.DataSource = iCRM.D_SSTGs;
                   DrqstBs.DataSource = iCRM.D_RQSTs;
                   DsltmBs.DataSource = iCRM.D_SLTMs;
+                  DstkhBs.DataSource = iCRM.D_STKHs;
                   CntyBs.DataSource = iCRM.Countries;
+                  IsicGropBs.DataSource = iCRM.Isic_Groups;
+                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
 
                   LstCampBs.DataSource = iCRM.Campaigns;
                   //LstLeadBs.DataSource = iCRM.Leads;
@@ -238,8 +242,11 @@ namespace System.CRM.Ui.Leads
             DsstgBs.DataSource = iCRM.D_SSTGs;
             DrqstBs.DataSource = iCRM.D_RQSTs;
             DsltmBs.DataSource = iCRM.D_SLTMs;
+            DstkhBs.DataSource = iCRM.D_STKHs;
             CntyBs.DataSource = iCRM.Countries;
             IsicGropBs.DataSource = iCRM.Isic_Groups;
+            LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
 
             LstCampBs.DataSource = iCRM.Campaigns;
             //LstLeadBs.DataSource = iCRM.Leads;
@@ -266,6 +273,7 @@ namespace System.CRM.Ui.Leads
          {
             case "newleadupdate":
                RqstBs.Position = RqstBs.IndexOf(RqstBs.List.OfType<Data.Request>().First(r => r.RQID == rqid));
+               xinput.Attribute("type").Value = "newlead";
                break;
             case "companylead":
             case "servicelead":               

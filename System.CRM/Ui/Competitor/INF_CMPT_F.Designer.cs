@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -49,24 +48,24 @@
          this.labelControl71 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-         this.CmdfBs = new System.Windows.Forms.BindingSource(this.components);
-         this.CmptBs = new System.Windows.Forms.BindingSource(this.components);
-         this.DcptpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CmdfBs = new System.Windows.Forms.BindingSource();
+         this.CmptBs = new System.Windows.Forms.BindingSource();
+         this.DcptpBs = new System.Windows.Forms.BindingSource();
          this.RevnAmnt_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.EconCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.TrcbTcid_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TrcbBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TrcbBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCURN_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCURN_SYMB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXCH_RATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCURN_PREC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Regn_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.RegnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RegnBs = new System.Windows.Forms.BindingSource();
          this.Prvn_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.PrvnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs = new System.Windows.Forms.BindingSource();
          this.Cnty_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.CntyBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CntyBs = new System.Windows.Forms.BindingSource();
          this.PostAdrs_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.WebSite_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.Name_Txt = new DevExpress.XtraEditors.ButtonEdit();
@@ -91,7 +90,7 @@
          this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
          this.SubmitChange_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.CmptBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.CmptBn = new System.Windows.Forms.BindingNavigator();
          this.SubmitChangeClose_Butn = new System.Windows.Forms.ToolStripButton();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -106,7 +105,7 @@
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.c1Button23 = new C1.Win.C1Input.C1Button();
          this.c1Button24 = new C1.Win.C1Input.C1Button();
-         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
+         this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip();
          this.c1Button17 = new C1.Win.C1Input.C1Button();
          this.c1DockingTab4 = new C1.Win.C1Command.C1DockingTab();
          this.c1DockingTabPage5 = new C1.Win.C1Command.C1DockingTabPage();
@@ -280,7 +279,7 @@
          this.RevnAmnt_Txt.Properties.NullValuePrompt = "---";
          this.RevnAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.RevnAmnt_Txt.Size = new System.Drawing.Size(157, 28);
-         this.RevnAmnt_Txt.TabIndex = 48;
+         this.RevnAmnt_Txt.TabIndex = 9;
          this.RevnAmnt_Txt.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          // 
          // EconCode_Txt
@@ -308,7 +307,7 @@
          this.EconCode_Txt.Properties.NullValuePrompt = "---";
          this.EconCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.EconCode_Txt.Size = new System.Drawing.Size(140, 28);
-         this.EconCode_Txt.TabIndex = 48;
+         this.EconCode_Txt.TabIndex = 8;
          this.EconCode_Txt.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          // 
          // TrcbTcid_Lov
@@ -343,7 +342,7 @@
          this.TrcbTcid_Lov.Properties.ValueMember = "TCID";
          this.TrcbTcid_Lov.Properties.View = this.gridView1;
          this.TrcbTcid_Lov.Size = new System.Drawing.Size(228, 28);
-         this.TrcbTcid_Lov.TabIndex = 47;
+         this.TrcbTcid_Lov.TabIndex = 7;
          this.TrcbTcid_Lov.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          // 
          // TrcbBs
@@ -440,7 +439,7 @@
          this.Regn_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Regn_Lov.Properties.ValueMember = "CODE";
          this.Regn_Lov.Size = new System.Drawing.Size(105, 28);
-         this.Regn_Lov.TabIndex = 46;
+         this.Regn_Lov.TabIndex = 6;
          this.Regn_Lov.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          // 
          // RegnBs
@@ -490,7 +489,7 @@
          this.Prvn_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Prvn_Lov.Properties.ValueMember = "CODE";
          this.Prvn_Lov.Size = new System.Drawing.Size(117, 28);
-         this.Prvn_Lov.TabIndex = 45;
+         this.Prvn_Lov.TabIndex = 5;
          this.Prvn_Lov.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          this.Prvn_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Prvn_Lov_EditValueChanging);
          // 
@@ -539,7 +538,7 @@
          this.Cnty_Lov.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.Cnty_Lov.Properties.ValueMember = "CODE";
          this.Cnty_Lov.Size = new System.Drawing.Size(228, 28);
-         this.Cnty_Lov.TabIndex = 44;
+         this.Cnty_Lov.TabIndex = 4;
          this.Cnty_Lov.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          this.Cnty_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cnty_Lov_EditValueChanging);
          // 
@@ -570,7 +569,7 @@
          this.PostAdrs_Txt.Properties.NullValuePrompt = "---";
          this.PostAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.PostAdrs_Txt.Size = new System.Drawing.Size(398, 64);
-         this.PostAdrs_Txt.TabIndex = 43;
+         this.PostAdrs_Txt.TabIndex = 3;
          // 
          // WebSite_Txt
          // 
@@ -627,7 +626,7 @@
          this.Name_Txt.Properties.NullValuePrompt = "---";
          this.Name_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.Name_Txt.Size = new System.Drawing.Size(398, 28);
-         this.Name_Txt.TabIndex = 41;
+         this.Name_Txt.TabIndex = 1;
          this.Name_Txt.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          // 
          // labelControl3
@@ -977,7 +976,7 @@
          this.gridControl13.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
          this.gridControl13.Size = new System.Drawing.Size(321, 141);
-         this.gridControl13.TabIndex = 39;
+         this.gridControl13.TabIndex = 0;
          this.gridControl13.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Cmdf_Gv});
          // 
@@ -1008,7 +1007,7 @@
          this.EmalAdrs_Txt.Properties.NullValuePrompt = "---";
          this.EmalAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.EmalAdrs_Txt.Size = new System.Drawing.Size(398, 26);
-         this.EmalAdrs_Txt.TabIndex = 42;
+         this.EmalAdrs_Txt.TabIndex = 2;
          this.EmalAdrs_Txt.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ObjectBaseEdit_ButtonPressed);
          // 
          // labelControl5
@@ -1080,7 +1079,7 @@
          this.c1Button17.Location = new System.Drawing.Point(65, 3);
          this.c1Button17.Name = "c1Button17";
          this.c1Button17.Size = new System.Drawing.Size(25, 25);
-         this.c1Button17.TabIndex = 62;
+         this.c1Button17.TabIndex = 0;
          this.c1SuperTooltip1.SetToolTip(this.c1Button17, resources.GetString("c1Button17.ToolTip"));
          this.c1Button17.UseVisualStyleBackColor = true;
          this.c1Button17.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
@@ -1088,6 +1087,7 @@
          // c1DockingTab4
          // 
          this.c1DockingTab4.AlignTabs = System.Drawing.StringAlignment.Far;
+         this.c1DockingTab4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.c1DockingTab4.BorderStyle = System.Windows.Forms.BorderStyle.None;
          this.c1DockingTab4.Controls.Add(this.c1DockingTabPage5);
          this.c1DockingTab4.Location = new System.Drawing.Point(177, 148);

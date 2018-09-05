@@ -257,7 +257,6 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Letter_Finance_Document" Member="Finance_Documents" ThisKey="RLID" OtherKey="RQLT_RLID" Type="Finance_Document" />
       <Association Name="Request_Request_Letter" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
@@ -288,7 +287,6 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Sub_Unit_Organ_Document" Member="Organ_Documents" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" Type="Organ_Document" />
-      <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Sub_Unit_Service" Member="Services" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" OtherKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" Type="Service" />
       <Association Name="Sub_Unit_Service_Public" Member="Service_Publics" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" Type="Service_Public" />
       <Association Name="Base_Unit_Sub_Unit" Member="Base_Unit" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE" OtherKey="DEPT_ORGN_CODE,DEPT_CODE,CODE" Type="Base_Unit" IsForeignKey="true" />
@@ -425,34 +423,6 @@
       <Association Name="Receive_Document_Image_Document" Member="Receive_Document" ThisKey="RCDC_RCID" OtherKey="RCID" Type="Receive_Document" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Gain_Loss_Rial" Member="Gain_Loss_Rials">
-    <Type Name="Gain_Loss_Rial">
-      <Column Name="GLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RWNO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CHNG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DEBT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="AMNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AGRE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PAID_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CHNG_RESN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PRVS_DEBT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRNT_DEBT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RESN_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="RQRO_RQST_RQID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQRO_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Row_Gain_Loss_Rial" Member="Request_Row" ThisKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Request_Row_Gain_Loss_Rial1" Member="Request_Row1" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Service_Gain_Loss_Rial" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Receive_Document" Member="Receive_Documents">
     <Type Name="Receive_Document">
       <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
@@ -472,33 +442,6 @@
       <Association Name="Receive_Document_Image_Document" Member="Image_Documents" ThisKey="RCID" OtherKey="RCDC_RCID" Type="Image_Document" />
       <Association Name="Request_Document_Receive_Document" Member="Request_Document" ThisKey="RQDC_RDID" OtherKey="RDID" Type="Request_Document" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Request_Row_Receive_Document" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="SET NULL" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Finance_Document" Member="Finance_Documents">
-    <Type Name="Finance_Document">
-      <Column Name="FDID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="RQLT_RLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PYMT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="GET_PYMT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="REGL_YEAR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="REGL_CODE_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DCMT_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="DCMT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DCMT_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DCMT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="DCMT_PRIC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Letter_Finance_Document" Member="Request_Letter" ThisKey="RQLT_RLID" OtherKey="RLID" Type="Request_Letter" IsForeignKey="true" />
-      <Association Name="Regulation_Finance_Document" Member="Regulation" ThisKey="REGL_YEAR_DNRM,REGL_CODE_DNRM" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" />
-      <Association Name="Request_Row_Finance_Document" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Expense_Type" Member="Expense_Types">
@@ -533,7 +476,6 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Expense_Item_Expense_Type" Member="Expense_Types" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Expense_Type" />
-      <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Requester_Type_Expense_Item" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Expense_Item" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
     </Type>
@@ -779,33 +721,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Service_Service_Relation" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Service_Service_Relation1" Member="Service1" ThisKey="SRLT_SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Basic_Calculate_Discount" Member="Basic_Calculate_Discounts">
-    <Type Name="Basic_Calculate_Discount">
-      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUNT_CODE" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EPIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="AMNT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PRCT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DSCT_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DSCT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" />
-      <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
-      <Association Name="Regulation_Basic_Calculate_Discount" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.D$ACTG" Member="D_ACTGs">
@@ -1342,10 +1257,8 @@
       <Association Name="Regulation_Request_Requester" Member="Request_Requesters" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Request_Requester" />
       <Association Name="Regulation_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Request_Regulation_History" />
       <Association Name="Regulation_Organ_Document" Member="Organ_Documents" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Organ_Document" />
-      <Association Name="Regulation_Finance_Document" Member="Finance_Documents" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR_DNRM,REGL_CODE_DNRM" Type="Finance_Document" />
       <Association Name="Regulation_Expense_Cash" Member="Expense_Cashes" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Expense_Cash" />
       <Association Name="Regulation_Expense" Member="Expenses" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Expense" />
-      <Association Name="Regulation_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Basic_Calculate_Discount" />
     </Type>
     <InsertFunction FunctionId="FunctionId24">
       <Argument Parameter="year" Member="YEAR" />
@@ -1582,10 +1495,7 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Request_Row_Reason_Request" Member="Reason_Requests" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Reason_Request" />
-      <Association Name="Request_Row_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" Type="Gain_Loss_Rial" />
-      <Association Name="Request_Row_Gain_Loss_Rial1" Member="Gain_Loss_Rials1" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Receive_Document" Member="Receive_Documents" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Receive_Document" />
-      <Association Name="Request_Row_Finance_Document" Member="Finance_Documents" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Finance_Document" />
       <Association Name="Request_Row_Payment_Discount" Member="Payment_Discounts" ThisKey="RQST_RQID,RWNO" OtherKey="PYMT_RQST_RQID,RQRO_RWNO" Type="Payment_Discount" />
       <Association Name="Request_Row_Payment_Detail" Member="Payment_Details" ThisKey="RQST_RQID,RWNO" OtherKey="PYMT_RQST_RQID,RQRO_RWNO" Type="Payment_Detail" />
       <Association Name="Request_Row_Payment_Method" Member="Payment_Methods" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Method" />
@@ -2284,7 +2194,6 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Service_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Gain_Loss_Rial" />
       <Association Name="Service_Service_Relation" Member="Service_Relations" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Service_Relation" />
       <Association Name="Service_Service_Relation1" Member="Service_Relations1" ThisKey="FILE_NO" OtherKey="SRLT_SERV_FILE_NO" Type="Service_Relation" />
       <Association Name="Service_Email_To_Email" Member="Email_To_Emails" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Email_To_Email" />

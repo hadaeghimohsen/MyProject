@@ -329,6 +329,12 @@ namespace System.CRM.Code
             case 101:
                Inf_Cama_F(job);
                break;
+            case 102:
+               Rsl_Lead_F(job);
+               break;
+            case 103:
+               Shw_Oprt_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -635,6 +641,12 @@ namespace System.CRM.Code
                break;
             case "INF_CAMA_F":
                _Inf_Cama_F.SendRequest(job);
+               break;
+            case "RSL_LEAD_F":
+               _Rsl_Lead_F.SendRequest(job);
+               break;
+            case "SHW_OPRT_F":
+               _Shw_Oprt_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

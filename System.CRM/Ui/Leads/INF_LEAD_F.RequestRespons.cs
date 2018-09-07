@@ -261,13 +261,18 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         Execute_Query();
-
          xinput = job.Input as XElement;
          if(xinput.Attribute("rqid") != null)
             rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
          else
             rqid = 0;
+
+         if (xinput.Attribute("formtype") != null)
+            formType = xinput.Attribute("formtype").Value;
+         else
+            formType = "normal";
+
+         Execute_Query();
 
          switch (xinput.Attribute("type").Value)
          {
@@ -277,6 +282,8 @@ namespace System.CRM.Ui.Leads
                break;
             case "companylead":
             case "servicelead":               
+               break;
+            case "refresh":
                break;
             default:
                if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))

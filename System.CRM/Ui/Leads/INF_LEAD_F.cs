@@ -30,6 +30,7 @@ namespace System.CRM.Ui.Leads
       private bool requery = false;
       private bool queryAllRequest = false;
       private int rqstindex;
+      private string formType = "normal";
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -46,26 +47,107 @@ namespace System.CRM.Ui.Leads
 
             rqstindex = RqstBs.Position;
 
-            var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "014" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "004" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            if (formType == "normal") // in process
+            {
+               var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "014" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs.DataSource =
-               iCRM.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               )
-               .OrderByDescending(
-                  rqst =>
-                     rqst.RQST_DATE
-               );
+               RqstBs.DataSource =
+                  iCRM.Requests
+                  .Where(
+                     rqst =>
+                        Rqids.Contains(rqst.RQID)
+                  )
+                  .OrderByDescending(
+                     rqst =>
+                        rqst.RQST_DATE
+                  );
+            }
+            else if(formType == "showhistory") // ended
+            {
+               var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "014" &&
+                        //rqst.RQST_STAT == "001" &&
+                        rqst.RQID == rqid &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
+               RqstBs.DataSource =
+                  iCRM.Requests
+                  .Where(
+                     rqst =>
+                        Rqids.Contains(rqst.RQID)
+                  )
+                  .OrderByDescending(
+                     rqst =>
+                        rqst.RQST_DATE
+                  );
+            }
             RqstBs.Position = rqstindex;
             requery = false;
+         }
+         catch { }
+      }
+
+      private void RqstBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            SubmitChange_Butn.Enabled = SubmitChangeClose_Butn.Enabled = RqstCncl_Butn.Enabled = Approve_Butn.Enabled = Disapprove_Butn.Enabled = RqstAdd_Butn.Enabled = true;
+
+            var rqst = RqstBs.Current as Data.Request;
+            if (rqst == null || rqst.RQID == 0) 
+            {
+               Approve_Butn.Image = Properties.Resources.IMAGE_1635;
+               Approve_Butn.ToolTipText = "تایید صلاحیت";
+               Disapprove_Butn.Image = Properties.Resources.IMAGE_1636;
+               Disapprove_Butn.ToolTipText = "عدم تایید صلاحیت";
+               return; 
+            }
+
+            if(rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 1)
+            {
+               Approve_Butn.Image = Properties.Resources.IMAGE_1635;
+               Approve_Butn.ToolTipText = "تایید صلاحیت";
+               Disapprove_Butn.Image = Properties.Resources.IMAGE_1636;
+               Disapprove_Butn.ToolTipText = "عدم تایید صلاحیت";
+            }
+            else
+            {
+               Approve_Butn.Image = Properties.Resources.IMAGE_1643;
+               Approve_Butn.ToolTipText = "بستن به عنوان برنده";
+               Disapprove_Butn.Image = Properties.Resources.IMAGE_1644;
+               Disapprove_Butn.ToolTipText = "بستن به عنوان از دست رفته";
+            }
+            
+            if(rqst.SSTT_MSTT_CODE == 99 && rqst.SSTT_CODE == 99)
+            {
+               SubmitChange_Butn.Enabled = SubmitChangeClose_Butn.Enabled = RqstCncl_Butn.Enabled = Approve_Butn.Enabled = Disapprove_Butn.Enabled = RqstAdd_Butn.Enabled = false;
+            }
+
+            RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = ColorTranslator.FromHtml(rqst.COLR);
+         }
+         catch { }
+      }
+
+      private void SrpbBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var srpb = SrpbBs.Current as Data.Service_Public;
+            if (srpb == null) { CompBs.List.Clear(); return; }
+
+            CompBs.DataSource = iCRM.Companies.Where(c => c.CODE == srpb.COMP_CODE);
+            PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE);
+            RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE && r.PRVN_CODE == srpb.REGN_PRVN_CODE);
+            IsicGropBs.DataSource = iCRM.Isic_Groups.Where(g => g.CODE == srpb.ISCP_ISCA_ISCG_CODE);
+            IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE);
+            IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE && p.ISCA_CODE == srpb.ISCP_ISCA_CODE);            
          }
          catch { }
       }
@@ -123,7 +205,7 @@ namespace System.CRM.Ui.Leads
       private void SubmitChange_Butn_Click(object sender, EventArgs e)
       {
          try
-         {
+         {            
             EmstClosDate_Dt.CommitChanges();
             var leadtype = xinput.Attribute("type").Value;
 
@@ -206,9 +288,11 @@ namespace System.CRM.Ui.Leads
                         new XElement("Crnt_Situ", CrntSitu_Txt.EditValue),
                         new XElement("Emst_Clos_Date", EmstClosDate_Dt.Value.HasValue ? EmstClosDate_Dt.Value.Value.ToString("yyyy-MM-dd") : ""),
                         new XElement("Emst_Revn_Amnt", EmstRevnAmnt_Txt.EditValue),
+                        new XElement("Expn_Cost_Amnt", ExpnCostAmnt_Txt.EditValue),
                         new XElement("Prop_Solt", PropSolt_Txt.EditValue),
                         new XElement("Send_Thnk_You", SendThnkYou_Lov.EditValue ?? "001"),
-                        new XElement("Send_Camp_Info", SendCampInfo_Lov.EditValue ?? "001")
+                        new XElement("Send_Camp_Info", SendCampInfo_Lov.EditValue ?? "001"),
+                        new XElement("Psbl_Numb", PsblNumb_Txt.EditValue ?? "0")
                      )
                   )
                );
@@ -248,24 +332,7 @@ namespace System.CRM.Ui.Leads
       {
          queryAllRequest = true;
          Execute_Query();
-      }
-
-      private void SrpbBs_CurrentChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            var srpb = SrpbBs.Current as Data.Service_Public;
-            if (srpb == null) { CompBs.List.Clear(); return; }
-
-            CompBs.DataSource = iCRM.Companies.Where(c => c.CODE == srpb.COMP_CODE);
-            PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE);
-            RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CNTY_CODE == srpb.REGN_PRVN_CNTY_CODE && r.PRVN_CODE == srpb.REGN_PRVN_CODE);
-            IsicGropBs.DataSource = iCRM.Isic_Groups.Where(g => g.CODE == srpb.ISCP_ISCA_ISCG_CODE);
-            IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE);
-            IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE && p.ISCA_CODE == srpb.ISCP_ISCA_CODE);
-         }
-         catch { }
-      }
+      }      
 
       private void RqstCncl_Butn_Click(object sender, EventArgs e)
       {
@@ -283,6 +350,151 @@ namespace System.CRM.Ui.Leads
             );
 
             requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Approve_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs.Current as Data.Request;
+            if (rqst == null) return;
+
+            var lead = LeadBs.Current as Data.Lead;
+            if (lead == null) return;
+
+            string conftype = "", colr = "";
+
+            // ثبت موقت باشد
+            if (rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 1)
+            {
+               conftype = "002";
+               colr = ColorTranslator.ToHtml(Color.YellowGreen);
+               //rqst.SSTT_CODE = 3;
+               //rqst.COLR = ColorTranslator.ToHtml(Color.YellowGreen);
+
+               iCRM.CONF_LEAD_P(
+                  new XElement("Lead",
+                     new XAttribute("rqid", rqst.RQID),
+                     new XAttribute("colr", colr),
+                     new XAttribute("conftype", conftype)
+                  )
+               );
+
+               requery = true;
+            }
+            // عدم تایید صلاحیت
+            //else if ((rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 4) && MessageBox.Show(this, "سرنخ تجاری شما قبلا در وضعیت عدم تایید صلاحیت قرار گرفته است.\n\rآیا مایل به تایید صلاحیت آن هستید؟", "تایید صلاحیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading) == DialogResult.Yes)
+            //{
+            //   conftype = "002";
+            //   //rqst.SSTT_CODE = 3;
+            //   //rqst.COLR = ColorTranslator.ToHtml(Color.YellowGreen);
+            //}
+            // موفق به فروش
+            else if (rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 3)
+            {
+               conftype = "003";
+               colr = ColorTranslator.ToHtml(Color.Lime);
+               // تبدیل شدن به فروش نهایی و ثبت اطلاعات مشتری و شرکت در سیستم
+
+               Job _InteractWithCRM =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {                  
+                      new Job(SendType.Self, 102 /* Execute Rsl_Lead_F */),
+                      new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 10 /* Execute Actn_Calf_F */)
+                      {
+                         Input = 
+                           new XElement("Lead",
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("conftype", conftype),
+                              new XAttribute("colr", colr),
+                              new XAttribute("ldid", lead.LDID)
+                           )
+                      }
+                    });
+               _DefaultGateway.Gateway(_InteractWithCRM);
+            }            
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Disapprove_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs.Current as Data.Request;
+            if (rqst == null) return;
+
+            var lead = LeadBs.Current as Data.Lead;
+            if (lead == null) return;
+
+            string conftype = "", colr = "";
+
+            // ثبت موقت باشد
+            if (rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 1)
+            {
+               conftype = "001";
+               colr = ColorTranslator.ToHtml(Color.Red);
+               //rqst.SSTT_CODE = 4;
+               //rqst.COLR = ColorTranslator.ToHtml(Color.Red);
+
+               iCRM.CONF_LEAD_P(
+                  new XElement("Lead",
+                     new XAttribute("rqid", rqst.RQID),
+                     new XAttribute("colr", colr),
+                     new XAttribute("conftype", conftype)
+                  )
+               );
+
+               requery = true;
+            }
+            // عدم تایید صلاحیت
+            //else if ((rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 3) && MessageBox.Show(this, "سرنخ تجاری شما قبلا در وضعیت تایید صلاحیت قرار گرفته است.\n\rآیا مایل به عدم تایید صلاحیت آن هستید؟", "عدم تایید صلاحیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading) == DialogResult.Yes)
+            //{
+            //   //rqst.SSTT_CODE = 4;
+            //   //rqst.COLR = ColorTranslator.ToHtml(Color.Red);
+            //}
+            // شکست در فروش محصول
+            else if (rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 3)
+            {
+               conftype = "004";
+               colr = ColorTranslator.ToHtml(Color.LightGray);
+
+               Job _InteractWithCRM =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {                  
+                      new Job(SendType.Self, 102 /* Execute Rsl_Lead_F */),
+                      new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 10 /* Execute Actn_Calf_F */)
+                      {
+                         Input = 
+                           new XElement("Lead",
+                              new XAttribute("formcaller", GetType().Name),
+                              new XAttribute("conftype", conftype),
+                              new XAttribute("colr", colr),
+                              new XAttribute("ldid", lead.LDID)
+                           )
+                      }
+                    });
+               _DefaultGateway.Gateway(_InteractWithCRM);
+            }            
          }
          catch (Exception exc)
          {

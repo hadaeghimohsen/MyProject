@@ -851,7 +851,21 @@ namespace System.CRM.Ui.MasterPage
 
       private void SaleShowOptn_Butn_Click(object sender, EventArgs e)
       {
-
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 103 /* Execute Shw_Oprt_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Lead", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void SaleShowCmpt_Butn_Click(object sender, EventArgs e)

@@ -765,30 +765,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.D$ATSM" Member="D_ATSMs">
-    <Type Name="D_ATSM">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$ATTN" Member="D_ATTNs">
-    <Type Name="D_ATTN">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$ATTP" Member="D_ATTPs">
-    <Type Name="D_ATTP">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.D$BCDT" Member="D_BCDTs">
-    <Type Name="D_BCDT">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.D$BLOD" Member="D_BLODs">
     <Type Name="D_BLOD">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -1513,8 +1489,8 @@
       <Association Name="Request_Row_Email" Member="Emails" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Email" />
       <Association Name="Request_Row_Send_File" Member="Send_Files" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Send_File" />
       <Association Name="Request_Row_Service_Project" Member="Service_Projects" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Service_Project" />
-      <Association Name="Request_Row_Lead" Member="Leads" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Lead" />
       <Association Name="Request_Row_Note" Member="Notes" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Note" />
+      <Association Name="Request_Row_Lead" Member="Leads" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Lead" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
@@ -2311,8 +2287,8 @@
       <Association Name="Service_Public_Message" Member="Messages" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Message" />
       <Association Name="Service_Public_Email" Member="Emails" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Email" />
       <Association Name="Service_Public_Send_File" Member="Send_Files" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Send_File" />
-      <Association Name="Service_Public_Lead" Member="Leads" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" Type="Lead" />
       <Association Name="Service_Public_Note" Member="Notes" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" Type="Note" />
+      <Association Name="Service_Public_Lead" Member="Leads" ThisKey="SERV_FILE_NO,RWNO,RECT_CODE" OtherKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" Type="Lead" />
       <Association Name="Base_Tariff_Service_Public" Member="Base_Tariff" ThisKey="BTRF_CODE" OtherKey="CODE" Type="Base_Tariff" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Expense_Service_Public" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Isic_Product_Service_Public" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" />
@@ -2719,42 +2695,42 @@
   </Table>
   <Table Name="dbo.Request" Member="Requests">
     <Type Name="Request">
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="PROJ_INQR_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PROJ_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="PROJ_INQR_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROJ_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="JOBP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="LAST_JOBP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SRVC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SORC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="COLR" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="JOBP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="JOBP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_JOBP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRVC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SORC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COLR" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
       <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
       <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
@@ -2822,6 +2798,7 @@
       <Association Name="Transaction_Currency_Base_Marketing_List" Member="Marketing_Lists" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Marketing_List" />
       <Association Name="Transaction_Currency_Base_Campaign" Member="Campaigns" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Campaign" />
       <Association Name="Transaction_Currency_Base_Campaign_Activity" Member="Campaign_Activities" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Campaign_Activity" />
+      <Association Name="Transaction_Currency_Base_Lead" Member="Leads" ThisKey="TCID" OtherKey="TRCB_TCID" Type="Lead" />
     </Type>
   </Table>
   <Table Name="dbo.D$SFDB" Member="D_SFDBs">
@@ -2924,8 +2901,8 @@
       <Association Name="Job_Personnel_Campaign" Member="Campaigns" ThisKey="CODE" OtherKey="OWNR_CODE" Type="Campaign" />
       <Association Name="Job_Personnel_Campaign_Quick" Member="Campaign_Quicks" ThisKey="CODE" OtherKey="OWNR_CODE" Type="Campaign_Quick" />
       <Association Name="Job_Personnel_Campaign_Activity" Member="Campaign_Activities" ThisKey="CODE" OtherKey="OWNR_CODE" Type="Campaign_Activity" />
-      <Association Name="Job_Personnel_Lead" Member="Leads" ThisKey="CODE" OtherKey="OWNR_CODE" Type="Lead" />
       <Association Name="Job_Personnel_Sale_Team" Member="Sale_Teams" ThisKey="CODE" OtherKey="JOBP_CODE" Type="Sale_Team" />
+      <Association Name="Job_Personnel_Lead" Member="Leads" ThisKey="CODE" OtherKey="OWNR_CODE" Type="Lead" />
       <Association Name="App_Base_Define_Job_Personnel" Member="App_Base_Define" ThisKey="INIT_FORM_LOAD" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="App_Base_Define_Job_Personnel1" Member="App_Base_Define1" ThisKey="INIT_SECT_LOAD" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Transaction_Currency_Base_Job_Personnel" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
@@ -3114,10 +3091,10 @@
       <Association Name="Company_Company" Member="Companies" ThisKey="CODE" OtherKey="COMP_CODE" Type="Company" />
       <Association Name="Company_Outsource_Vendor" Member="Outsource_Vendors" ThisKey="CODE" OtherKey="COMP_CODE" Type="Outsource_Vendor" />
       <Association Name="Company_Member" Member="Members" ThisKey="CODE" OtherKey="COMP_CODE" Type="Member" />
-      <Association Name="Company_Lead" Member="Leads" ThisKey="CODE" OtherKey="COMP_CODE" Type="Lead" />
       <Association Name="Company_Note" Member="Notes" ThisKey="CODE" OtherKey="CMPT_CODE" Type="Note" />
       <Association Name="Company_Note1" Member="Notes1" ThisKey="CODE" OtherKey="COMP_CODE_DNRM" Type="Note" />
       <Association Name="Company_Lead_Competitor" Member="Lead_Competitors" ThisKey="CODE" OtherKey="COMP_CODE" Type="Lead_Competitor" />
+      <Association Name="Company_Lead" Member="Leads" ThisKey="CODE" OtherKey="COMP_CODE" Type="Lead" />
       <Association Name="Company_Company" Member="Company1" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Isic_Product_Company" Member="Isic_Product" ThisKey="ISCP_ISCA_ISCG_CODE,ISCP_ISCA_CODE,ISCP_CODE" OtherKey="ISCA_ISCG_CODE,ISCA_CODE,CODE" Type="Isic_Product" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Job_Personnel_Company" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
@@ -3343,8 +3320,8 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Campaign_Marketing_List_Campaign" Member="Marketing_List_Campaigns" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Marketing_List_Campaign" />
       <Association Name="Campaign_Campaign_Activity" Member="Campaign_Activities" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Campaign_Activity" />
-      <Association Name="Campaign_Lead" Member="Leads" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Lead" />
       <Association Name="Campaign_Note" Member="Notes" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Note" />
+      <Association Name="Campaign_Lead" Member="Leads" ThisKey="CMID" OtherKey="CAMP_CMID" Type="Lead" />
       <Association Name="Job_Personnel_Campaign" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
       <Association Name="Transaction_Currency_Base_Campaign" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
     </Type>
@@ -3655,60 +3632,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Lead" Member="Leads">
-    <Type Name="Lead">
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CAMP_CMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SRPB_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SRPB_RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SRPB_RECT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="LDID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TOPC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="PRCH_TIME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BDGT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PRCH_PROC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IDCM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CAPT_SMRY" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="CRNT_SITU" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="CUST_NEED" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="PROP_SOLT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="IDTY_STAK_HLDR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IDTY_CMPT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IDTY_SALE_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DEVL_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CMPL_INTR_REVW" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PRES_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CMPL_FINL_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PRES_FINL_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SEND_THNK_YOU" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILE_DBRF" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMST_CLOS_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EMST_REVN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SORC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="RTNG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_CAMP_INFO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Lead_Member" Member="Members" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Member" />
-      <Association Name="Lead_Note" Member="Notes" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Note" />
-      <Association Name="Lead_Stakeholder" Member="Stakeholders" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Stakeholder" />
-      <Association Name="Lead_Sale_Team" Member="Sale_Teams" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Sale_Team" />
-      <Association Name="Lead_Lead_Competitor" Member="Lead_Competitors" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Lead_Competitor" />
-      <Association Name="Campaign_Lead" Member="Campaign" ThisKey="CAMP_CMID" OtherKey="CMID" Type="Campaign" IsForeignKey="true" />
-      <Association Name="Company_Lead" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Lead" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
-      <Association Name="Request_Row_Lead" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Service_Public_Lead" Member="Service_Public" ThisKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Note" Member="Notes">
     <Type Name="Note">
       <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
@@ -3734,11 +3657,11 @@
       <Association Name="Campaign_Quick_Note" Member="Campaign_Quick" ThisKey="CAMQ_QCID" OtherKey="QCID" Type="Campaign_Quick" IsForeignKey="true" />
       <Association Name="Company_Note" Member="Company" ThisKey="CMPT_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
       <Association Name="Company_Note1" Member="Company1" ThisKey="COMP_CODE_DNRM" OtherKey="CODE" Type="Company" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Lead_Note" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
       <Association Name="Marketing_List_Note" Member="Marketing_List" ThisKey="MKLT_MLID" OtherKey="MLID" Type="Marketing_List" IsForeignKey="true" />
       <Association Name="Request_Row_Note" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Note" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Public_Note" Member="Service_Public" ThisKey="SERV_FILE_NO,SRPB_RWNO_DNRM,SRPB_RECT_CODE_DNRM" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
+      <Association Name="Lead_Note" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId109">
       <Argument Parameter="ntid" Member="NTID" />
@@ -3788,8 +3711,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Lead_Stakeholder" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
       <Association Name="Service_Stakeholder" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+      <Association Name="Lead_Stakeholder" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Sale_Team" Member="Sale_Teams">
@@ -3806,19 +3729,6 @@
       <Association Name="Lead_Sale_Team" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Lead_Competitor" Member="Lead_Competitors">
-    <Type Name="Lead_Competitor">
-      <Column Name="LEAD_LDID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LCID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Company_Lead_Competitor" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
-      <Association Name="Lead_Lead_Competitor" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.D$STKH" Member="D_STKHs">
     <Type Name="D_STKH">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -3829,6 +3739,86 @@
     <Type Name="D_SLTM">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$CELV" Member="D_CELVs">
+    <Type Name="D_CELV">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lead_Competitor" Member="Lead_Competitors">
+    <Type Name="Lead_Competitor">
+      <Column Name="LEAD_LDID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LCID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EFCT_LEVL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RSLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Company_Lead_Competitor" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Lead_Lead_Competitor" Member="Lead" ThisKey="LEAD_LDID" OtherKey="LDID" Type="Lead" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lead" Member="Leads">
+    <Type Name="Lead">
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CAMP_CMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRPB_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRPB_RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SRPB_RECT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TOPC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PRCH_TIME" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BDGT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PRCH_PROC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IDCM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CAPT_SMRY" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CRNT_SITU" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CUST_NEED" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PROP_SOLT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IDTY_STAK_HLDR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IDTY_CMPT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IDTY_SALE_TEAM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DEVL_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CMPL_INTR_REVW" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PRES_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CMPL_FINL_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PRES_FINL_PROP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SEND_THNK_YOU" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILE_DBRF" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EMST_CLOS_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EMST_REVN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EXPN_COST_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SORC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RTNG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_CAMP_INFO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PSBL_NUMB" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TRCB_TCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Lead_Member" Member="Members" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Member" />
+      <Association Name="Lead_Note" Member="Notes" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Note" />
+      <Association Name="Lead_Stakeholder" Member="Stakeholders" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Stakeholder" />
+      <Association Name="Lead_Sale_Team" Member="Sale_Teams" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Sale_Team" />
+      <Association Name="Lead_Lead_Competitor" Member="Lead_Competitors" ThisKey="LDID" OtherKey="LEAD_LDID" Type="Lead_Competitor" />
+      <Association Name="Campaign_Lead" Member="Campaign" ThisKey="CAMP_CMID" OtherKey="CMID" Type="Campaign" IsForeignKey="true" />
+      <Association Name="Company_Lead" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Lead" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Request_Row_Lead" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
+      <Association Name="Service_Public_Lead" Member="Service_Public" ThisKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
+      <Association Name="Transaction_Currency_Base_Lead" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
@@ -5619,6 +5609,10 @@
     <Parameter Name="Note_Date" Parameter="note_Date" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Note_Subj" Parameter="note_Subj" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Note_Cmnt" Parameter="note_Cmnt" Type="System.String" DbType="NVarChar(1000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CONF_LEAD_P" Method="CONF_LEAD_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace System.CRM.Ui.Leads
 {
-   partial class SHW_LEAD_F : ISendRequest
+   partial class SHW_OPRT_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;

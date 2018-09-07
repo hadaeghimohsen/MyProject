@@ -506,6 +506,16 @@ namespace System.CRM.Code
             if (_Inf_Cama_F == null)
                _Inf_Cama_F = new Ui.CampaignActivity.INF_CAMA_F { _DefaultGateway = this };
          }
+         else if (value == "rsl_lead_f")
+         {
+            if (_Rsl_Lead_F == null)
+               _Rsl_Lead_F = new Ui.Leads.RSL_LEAD_F { _DefaultGateway = this };
+         }
+         else if (value == "shw_oprt_f")
+         {
+            if (_Shw_Oprt_F == null)
+               _Shw_Oprt_F = new Ui.Leads.SHW_OPRT_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -2960,6 +2970,56 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "INF_CAMA_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 102
+      /// </summary>
+      /// <param name="job"></param>
+      private void Rsl_Lead_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "rsl_lead_f"},
+                  new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 103
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Oprt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_oprt_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

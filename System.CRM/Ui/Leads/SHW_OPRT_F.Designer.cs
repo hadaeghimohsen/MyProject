@@ -1,6 +1,6 @@
 ﻿namespace System.CRM.Ui.Leads
 {
-   partial class SHW_LEAD_F
+   partial class SHW_OPRT_F
    {
       /// <summary> 
       /// Required designer variable.
@@ -28,9 +28,10 @@
       /// </summary>
       private void InitializeComponent()
       {
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_LEAD_F));
-         this.LeadBs = new System.Windows.Forms.BindingSource();
-         this.DsstgBs = new System.Windows.Forms.BindingSource();
+         this.components = new System.ComponentModel.Container();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_OPRT_F));
+         this.OprtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -57,25 +58,27 @@
          this.ShowMap_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.GridFind_Tgbt = new C1.Win.C1Ribbon.RibbonToggleButton();
          this.ribbonMenu1 = new C1.Win.C1Ribbon.RibbonMenu();
-         this.Lead1_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead2_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead3_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead4_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead5_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead6_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead7_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead8_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead9_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead10_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead11_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead12_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead13_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Lead14_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt1_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt2_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt3_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt4_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt5_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt6_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt7_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt8_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt9_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt10_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt11_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt12_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt13_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt14_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt15_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Oprt16_Btn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.Back_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Lead_Gc = new DevExpress.XtraGrid.GridControl();
-         this.Lead_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Opportunities_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colOWNR_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTOPC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,20 +90,23 @@
          this.colCRET_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.colPSBL_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
-         ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).BeginInit();
+         this.colEMST_CLOS_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colEMST_REVN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colAGRE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         ((System.ComponentModel.ISupportInitialize)(this.OprtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Lead_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Opportunities_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          this.SuspendLayout();
          // 
-         // LeadBs
+         // OprtBs
          // 
-         this.LeadBs.DataSource = typeof(System.CRM.Data.Lead);
+         this.OprtBs.DataSource = typeof(System.CRM.Data.Lead);
          // 
          // DsstgBs
          // 
@@ -155,7 +161,7 @@
          this.ribbonTab1.Groups.Add(this.ribbonGroup1);
          this.ribbonTab1.Groups.Add(this.ribbonGroup2);
          this.ribbonTab1.Name = "ribbonTab1";
-         this.ribbonTab1.Text = "سرنخ های تجاری";
+         this.ribbonTab1.Text = "فرصت های تجاری";
          // 
          // ribbonGroup11
          // 
@@ -306,122 +312,140 @@
          // 
          // ribbonMenu1
          // 
-         this.ribbonMenu1.Items.Add(this.Lead1_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead2_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead3_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead4_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead5_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead6_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead7_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead8_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead9_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead10_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead11_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead12_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead13_Btn);
-         this.ribbonMenu1.Items.Add(this.Lead14_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt1_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt2_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt3_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt4_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt5_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt6_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt7_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt8_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt9_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt10_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt11_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt12_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt13_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt14_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt15_Btn);
+         this.ribbonMenu1.Items.Add(this.Oprt16_Btn);
          this.ribbonMenu1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonMenu1.LargeImage")));
          this.ribbonMenu1.Name = "ribbonMenu1";
          this.ribbonMenu1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonMenu1.SmallImage")));
          this.ribbonMenu1.Text = "نمایش";
          // 
-         // Lead1_Btn
+         // Oprt1_Btn
          // 
-         this.Lead1_Btn.Name = "Lead1_Btn";
-         this.Lead1_Btn.Tag = "1";
-         this.Lead1_Btn.Text = "Lead Being Followed";
-         this.Lead1_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt1_Btn.Name = "Oprt1_Btn";
+         this.Oprt1_Btn.Tag = "1";
+         this.Oprt1_Btn.Text = "Opportunities Being Followed";
+         this.Oprt1_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead2_Btn
+         // Oprt2_Btn
          // 
-         this.Lead2_Btn.Name = "Lead2_Btn";
-         this.Lead2_Btn.Tag = "2";
-         this.Lead2_Btn.Text = "Lead I Follow";
-         this.Lead2_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt2_Btn.Name = "Oprt2_Btn";
+         this.Oprt2_Btn.Tag = "2";
+         this.Oprt2_Btn.Text = "Opportunities I Follow";
+         this.Oprt2_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead3_Btn
+         // Oprt3_Btn
          // 
-         this.Lead3_Btn.Name = "Lead3_Btn";
-         this.Lead3_Btn.Tag = "3";
-         this.Lead3_Btn.Text = "ارتباطات من";
-         this.Lead3_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt3_Btn.Name = "Oprt3_Btn";
+         this.Oprt3_Btn.Tag = "3";
+         this.Oprt3_Btn.Text = "ارتباطات من";
+         this.Oprt3_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead4_Btn
+         // Oprt4_Btn
          // 
-         this.Lead4_Btn.Name = "Lead4_Btn";
-         this.Lead4_Btn.Tag = "4";
-         this.Lead4_Btn.Text = "سرنخ هایی که هیچ گونه فعالیت تبلیغی انجام  نشده است";
-         this.Lead4_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt4_Btn.Name = "Oprt4_Btn";
+         this.Oprt4_Btn.Tag = "4";
+         this.Oprt4_Btn.Text = "فرصت های تجاری اخیر";
+         this.Oprt4_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead5_Btn
+         // Oprt5_Btn
          // 
-         this.Lead5_Btn.Name = "Lead5_Btn";
-         this.Lead5_Btn.Tag = "5";
-         this.Lead5_Btn.Text = "سرنخ های تجاری باز";
-         this.Lead5_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt5_Btn.Name = "Oprt5_Btn";
+         this.Oprt5_Btn.Tag = "5";
+         this.Oprt5_Btn.Text = "فرصت های تجاری از دست رفته";
+         this.Oprt5_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead6_Btn
+         // Oprt6_Btn
          // 
-         this.Lead6_Btn.Name = "Lead6_Btn";
-         this.Lead6_Btn.Tag = "6";
-         this.Lead6_Btn.Text = "سرنخ های تجاری باز شده طی هفته گذشته";
-         this.Lead6_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt6_Btn.Name = "Oprt6_Btn";
+         this.Oprt6_Btn.Tag = "6";
+         this.Oprt6_Btn.Text = "فرصت های تجاری باز";
+         this.Oprt6_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead7_Btn
+         // Oprt7_Btn
          // 
-         this.Lead7_Btn.Name = "Lead7_Btn";
-         this.Lead7_Btn.Tag = "7";
-         this.Lead7_Btn.Text = "سرنخ های تجاری باز شده طی همین هفته";
-         this.Lead7_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt7_Btn.Name = "Oprt7_Btn";
+         this.Oprt7_Btn.Tag = "7";
+         this.Oprt7_Btn.Text = "فرصت های تجاری باز من";
+         this.Oprt7_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead8_Btn
+         // Oprt8_Btn
          // 
-         this.Lead8_Btn.Name = "Lead8_Btn";
-         this.Lead8_Btn.Tag = "8";
-         this.Lead8_Btn.Text = "سرنخ های تجاری باز من";
-         this.Lead8_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt8_Btn.Name = "Oprt8_Btn";
+         this.Oprt8_Btn.Tag = "8";
+         this.Oprt8_Btn.Text = "فرصت های تجاری برنده شده";
+         this.Oprt8_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead9_Btn
+         // Oprt9_Btn
          // 
-         this.Lead9_Btn.Name = "Lead9_Btn";
-         this.Lead9_Btn.Tag = "9";
-         this.Lead9_Btn.Text = "سرنخ های تجاری بسته";
-         this.Lead9_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt9_Btn.Name = "Oprt9_Btn";
+         this.Oprt9_Btn.Tag = "9";
+         this.Oprt9_Btn.Text = "فرصت های تجاری بسته شده";
+         this.Oprt9_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead10_Btn
+         // Oprt10_Btn
          // 
-         this.Lead10_Btn.Name = "Lead10_Btn";
-         this.Lead10_Btn.Tag = "10";
-         this.Lead10_Btn.Text = "سرنخ های تجاری تبلیغات";
-         this.Lead10_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt10_Btn.Name = "Oprt10_Btn";
+         this.Oprt10_Btn.Tag = "10";
+         this.Oprt10_Btn.Text = "فرصت های تجاری بسته شده در سال مالی جاری";
+         this.Oprt10_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead11_Btn
+         // Oprt11_Btn
          // 
-         this.Lead11_Btn.Name = "Lead11_Btn";
-         this.Lead11_Btn.Tag = "11";
-         this.Lead11_Btn.Text = "سرنخ های تجاری پروژه های موفق";
-         this.Lead11_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt11_Btn.Name = "Oprt11_Btn";
+         this.Oprt11_Btn.Tag = "11";
+         this.Oprt11_Btn.Text = "فرصت های تجاری بسته شده ی من در سال مالی جاری";
+         this.Oprt11_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead12_Btn
+         // Oprt12_Btn
          // 
-         this.Lead12_Btn.Name = "Lead12_Btn";
-         this.Lead12_Btn.Tag = "12";
-         this.Lead12_Btn.Text = "سرنخ های تجاری قدیمی تر از 6 ماه";
-         this.Lead12_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt12_Btn.Name = "Oprt12_Btn";
+         this.Oprt12_Btn.Tag = "12";
+         this.Oprt12_Btn.Text = "فرصت های تجاری در سال مالی جاری";
+         this.Oprt12_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead13_Btn
+         // Oprt13_Btn
          // 
-         this.Lead13_Btn.Name = "Lead13_Btn";
-         this.Lead13_Btn.Tag = "13";
-         this.Lead13_Btn.Text = "همه سرنخ های تجاری";
-         this.Lead13_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt13_Btn.Name = "Oprt13_Btn";
+         this.Oprt13_Btn.Tag = "13";
+         this.Oprt13_Btn.Text = "فرصت های تجاری که این هفته باز شده اند";
+         this.Oprt13_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
-         // Lead14_Btn
+         // Oprt14_Btn
          // 
-         this.Lead14_Btn.Name = "Lead14_Btn";
-         this.Lead14_Btn.Tag = "14";
-         this.Lead14_Btn.Text = "همه سرنخ های تجاری در سال مالی جاری";
-         this.Lead14_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Oprt14_Btn.Name = "Oprt14_Btn";
+         this.Oprt14_Btn.Tag = "14";
+         this.Oprt14_Btn.Text = "فرصت های تجاری که در ماه بعد بسته خواهند شد";
+         this.Oprt14_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
+         // 
+         // Oprt15_Btn
+         // 
+         this.Oprt15_Btn.Name = "Oprt15_Btn";
+         this.Oprt15_Btn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Oprt15_Btn.SmallImage")));
+         this.Oprt15_Btn.Tag = "15";
+         this.Oprt15_Btn.Text = "فرصت های تجاری که من عضوی از آنها هستم";
+         this.Oprt15_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
+         // 
+         // Oprt16_Btn
+         // 
+         this.Oprt16_Btn.Name = "Oprt16_Btn";
+         this.Oprt16_Btn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Oprt16_Btn.SmallImage")));
+         this.Oprt16_Btn.Tag = "16";
+         this.Oprt16_Btn.Text = "فرصت های تجاری که هفته پیش باز شده اند";
+         this.Oprt16_Btn.Click += new System.EventHandler(this.OpportunityShows_Btn_Click);
          // 
          // ribbonGroup2
          // 
@@ -445,12 +469,12 @@
          // 
          // Lead_Gc
          // 
-         this.Lead_Gc.DataSource = this.LeadBs;
+         this.Lead_Gc.DataSource = this.OprtBs;
          this.Lead_Gc.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Lead_Gc.Location = new System.Drawing.Point(0, 118);
          this.Lead_Gc.LookAndFeel.SkinName = "Office 2013";
          this.Lead_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Lead_Gc.MainView = this.Lead_Gv;
+         this.Lead_Gc.MainView = this.Opportunities_Gv;
          this.Lead_Gc.Name = "Lead_Gc";
          this.Lead_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
@@ -459,24 +483,24 @@
          this.Lead_Gc.Size = new System.Drawing.Size(903, 336);
          this.Lead_Gc.TabIndex = 2;
          this.Lead_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.Lead_Gv});
+            this.Opportunities_Gv});
          // 
-         // Lead_Gv
+         // Opportunities_Gv
          // 
-         this.Lead_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Lead_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Lead_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
-         this.Lead_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Lead_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Lead_Gv.Appearance.HeaderPanel.Options.UseFont = true;
-         this.Lead_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.Lead_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Lead_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Lead_Gv.Appearance.Row.Options.UseFont = true;
-         this.Lead_Gv.Appearance.Row.Options.UseTextOptions = true;
-         this.Lead_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Lead_Gv.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.Lead_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Opportunities_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.Opportunities_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Opportunities_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
+         this.Opportunities_Gv.Appearance.FocusedRow.Options.UseFont = true;
+         this.Opportunities_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Opportunities_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Opportunities_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Opportunities_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Opportunities_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Opportunities_Gv.Appearance.Row.Options.UseFont = true;
+         this.Opportunities_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Opportunities_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Opportunities_Gv.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.Opportunities_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colOWNR_CODE,
             this.colTOPC,
             this.colSTAT,
@@ -484,21 +508,24 @@
             this.colFRST_NAME,
             this.colLAST_NAME,
             this.colCRET_TIME,
-            this.colPSBL_NUMB});
-         this.Lead_Gv.GridControl = this.Lead_Gc;
-         this.Lead_Gv.Name = "Lead_Gv";
-         this.Lead_Gv.OptionsBehavior.Editable = false;
-         this.Lead_Gv.OptionsBehavior.ReadOnly = true;
-         this.Lead_Gv.OptionsFind.AlwaysVisible = true;
-         this.Lead_Gv.OptionsFind.FindDelay = 100;
-         this.Lead_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Lead_Gv.OptionsSelection.MultiSelect = true;
-         this.Lead_Gv.OptionsView.ShowDetailButtons = false;
-         this.Lead_Gv.OptionsView.ShowGroupPanel = false;
-         this.Lead_Gv.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.Lead_Gv.OptionsView.ShowIndicator = false;
-         this.Lead_Gv.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.Lead_Gv.DoubleClick += new System.EventHandler(this.Lead_Gv_DoubleClick);
+            this.colPSBL_NUMB,
+            this.colEMST_CLOS_DATE,
+            this.colEMST_REVN_AMNT,
+            this.colAGRE_DATE});
+         this.Opportunities_Gv.GridControl = this.Lead_Gc;
+         this.Opportunities_Gv.Name = "Opportunities_Gv";
+         this.Opportunities_Gv.OptionsBehavior.Editable = false;
+         this.Opportunities_Gv.OptionsBehavior.ReadOnly = true;
+         this.Opportunities_Gv.OptionsFind.AlwaysVisible = true;
+         this.Opportunities_Gv.OptionsFind.FindDelay = 100;
+         this.Opportunities_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Opportunities_Gv.OptionsSelection.MultiSelect = true;
+         this.Opportunities_Gv.OptionsView.ShowDetailButtons = false;
+         this.Opportunities_Gv.OptionsView.ShowGroupPanel = false;
+         this.Opportunities_Gv.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.Opportunities_Gv.OptionsView.ShowIndicator = false;
+         this.Opportunities_Gv.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.Opportunities_Gv.DoubleClick += new System.EventHandler(this.Lead_Gv_DoubleClick);
          // 
          // colOWNR_CODE
          // 
@@ -516,8 +543,8 @@
          this.colTOPC.FieldName = "TOPC";
          this.colTOPC.Name = "colTOPC";
          this.colTOPC.Visible = true;
-         this.colTOPC.VisibleIndex = 5;
-         this.colTOPC.Width = 323;
+         this.colTOPC.VisibleIndex = 8;
+         this.colTOPC.Width = 167;
          // 
          // colSTAT
          // 
@@ -528,7 +555,7 @@
          this.colSTAT.OptionsColumn.FixedWidth = true;
          this.colSTAT.Visible = true;
          this.colSTAT.VisibleIndex = 4;
-         this.colSTAT.Width = 92;
+         this.colSTAT.Width = 62;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -568,20 +595,18 @@
          this.colFRST_NAME.Caption = "نام";
          this.colFRST_NAME.FieldName = "Service_Public.FRST_NAME";
          this.colFRST_NAME.Name = "colFRST_NAME";
-         this.colFRST_NAME.OptionsColumn.FixedWidth = true;
          this.colFRST_NAME.Visible = true;
-         this.colFRST_NAME.VisibleIndex = 7;
-         this.colFRST_NAME.Width = 93;
+         this.colFRST_NAME.VisibleIndex = 10;
+         this.colFRST_NAME.Width = 65;
          // 
          // colLAST_NAME
          // 
          this.colLAST_NAME.Caption = "نام خانوادگی";
          this.colLAST_NAME.FieldName = "Service_Public.LAST_NAME";
          this.colLAST_NAME.Name = "colLAST_NAME";
-         this.colLAST_NAME.OptionsColumn.FixedWidth = true;
          this.colLAST_NAME.Visible = true;
-         this.colLAST_NAME.VisibleIndex = 6;
-         this.colLAST_NAME.Width = 139;
+         this.colLAST_NAME.VisibleIndex = 9;
+         this.colLAST_NAME.Width = 87;
          // 
          // colCRET_TIME
          // 
@@ -612,22 +637,54 @@
          this.colPSBL_NUMB.Name = "colPSBL_NUMB";
          this.colPSBL_NUMB.Visible = true;
          this.colPSBL_NUMB.VisibleIndex = 3;
+         this.colPSBL_NUMB.Width = 53;
          // 
-         // SHW_LEAD_F
+         // colEMST_CLOS_DATE
+         // 
+         this.colEMST_CLOS_DATE.Caption = "تاریخ تخمینی بسته شدن";
+         this.colEMST_CLOS_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.colEMST_CLOS_DATE.FieldName = "EMST_CLOS_DATE";
+         this.colEMST_CLOS_DATE.Name = "colEMST_CLOS_DATE";
+         this.colEMST_CLOS_DATE.Visible = true;
+         this.colEMST_CLOS_DATE.VisibleIndex = 6;
+         this.colEMST_CLOS_DATE.Width = 66;
+         // 
+         // colEMST_REVN_AMNT
+         // 
+         this.colEMST_REVN_AMNT.Caption = "درآمد تخمینی";
+         this.colEMST_REVN_AMNT.DisplayFormat.FormatString = "{0:n0}";
+         this.colEMST_REVN_AMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colEMST_REVN_AMNT.FieldName = "EMST_REVN_AMNT";
+         this.colEMST_REVN_AMNT.Name = "colEMST_REVN_AMNT";
+         this.colEMST_REVN_AMNT.Visible = true;
+         this.colEMST_REVN_AMNT.VisibleIndex = 5;
+         this.colEMST_REVN_AMNT.Width = 59;
+         // 
+         // colAGRE_DATE
+         // 
+         this.colAGRE_DATE.Caption = "تاریخ واقعی بسته شدن فرصت تجاری";
+         this.colAGRE_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.colAGRE_DATE.FieldName = "Request_Row.Request.SAVE_DATE";
+         this.colAGRE_DATE.Name = "colAGRE_DATE";
+         this.colAGRE_DATE.Visible = true;
+         this.colAGRE_DATE.VisibleIndex = 7;
+         this.colAGRE_DATE.Width = 88;
+         // 
+         // SHW_OPRT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.Controls.Add(this.Lead_Gc);
          this.Controls.Add(this.Menu_Rbn);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Name = "SHW_LEAD_F";
+         this.Name = "SHW_OPRT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(903, 454);
-         ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OprtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Lead_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Opportunities_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
@@ -640,7 +697,7 @@
       #endregion
 
       private DevExpress.XtraGrid.Columns.GridColumn Actn_Clmn;
-      private Windows.Forms.BindingSource LeadBs;
+      private Windows.Forms.BindingSource OprtBs;
       private Windows.Forms.BindingSource DsstgBs;
       private C1.Win.C1Ribbon.C1Ribbon Menu_Rbn;
       private C1.Win.C1Ribbon.RibbonApplicationMenu ribbonApplicationMenu1;
@@ -671,7 +728,7 @@
       private C1.Win.C1Ribbon.RibbonButton Back_Butn;
       private C1.Win.C1Ribbon.RibbonTopToolBar ribbonTopToolBar1;
       private DevExpress.XtraGrid.GridControl Lead_Gc;
-      private DevExpress.XtraGrid.Views.Grid.GridView Lead_Gv;
+      private DevExpress.XtraGrid.Views.Grid.GridView Opportunities_Gv;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private DevExpress.XtraGrid.Columns.GridColumn colOWNR_CODE;
@@ -684,19 +741,24 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
       private DevExpress.XtraGrid.Columns.GridColumn colPSBL_NUMB;
       private C1.Win.C1Ribbon.RibbonMenu ribbonMenu1;
-      private C1.Win.C1Ribbon.RibbonButton Lead1_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead2_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead3_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead4_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead5_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead6_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead7_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead8_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead9_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead10_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead11_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead12_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead13_Btn;
-      private C1.Win.C1Ribbon.RibbonButton Lead14_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt1_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt2_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt3_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt4_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt5_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt6_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt7_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt8_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt9_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt10_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt11_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt12_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt13_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt14_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt15_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Oprt16_Btn;
+      private DevExpress.XtraGrid.Columns.GridColumn colEMST_CLOS_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn colEMST_REVN_AMNT;
+      private DevExpress.XtraGrid.Columns.GridColumn colAGRE_DATE;
    }
 }

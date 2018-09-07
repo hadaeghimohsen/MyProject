@@ -10,7 +10,7 @@ namespace System.CRM.Code
    partial class CRM
    {
       public ISendRequest _Wall { get; set; }
-      
+
       internal Ui.MasterPage.FRST_PAGE_F _Frst_Page_F { get; set; }
       //internal Ui.BaseDefination.STNG_DFIN_F _Stng_Dfin_F { get; set; }
       internal Ui.BaseDefination.REGN_DFIN_F _Regn_Dfin_F { get; set; }
@@ -34,7 +34,9 @@ namespace System.CRM.Code
       internal Ui.Notification.NOTF_TOTL_F _Notf_Totl_F { get; set; }
       internal Ui.Notification.TASK_FLOW_F _Task_Flow_F { get; set; }
       internal Ui.Leads.SHW_LEAD_F _Shw_Lead_F { get; set; }
+      internal Ui.Leads.SHW_OPRT_F _Shw_Oprt_F { get; set; }
       internal Ui.Leads.INF_LEAD_F _Inf_Lead_F { get; set; }
+      internal Ui.Leads.RSL_LEAD_F _Rsl_Lead_F { get; set; }
       internal Ui.Activity.OPT_LOGC_F _Opt_Logc_F { get; set; }
       internal Ui.Activity.OPT_TASK_F _Opt_Task_F { get; set; }
       internal Ui.Activity.OPT_APON_F _Opt_Apon_F { get; set; }
@@ -114,5 +116,6 @@ namespace System.CRM.Code
 
       internal Ui.CampaignActivity.INF_CAMA_F _Inf_Cama_F { get; set; }
       internal Ui.CampaignActivity.SHW_CAMA_F _Shw_Cama_F { get; set; }
+
    }
 }

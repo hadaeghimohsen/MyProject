@@ -116,10 +116,11 @@
     <Compile Include="Code\CRM.StartPoint.cs" />
     <Compile Include="Code\CRM.Tasks.cs" />
     <Compile Include="Code\CRM.Uis.cs" />
-    <Compile Include="Data\iCRM.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="Data\iCRM.cs">
       <DependentUpon>iCRM.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\iCRM.designer.cs">
+      <DependentUpon>iCRM.cs</DependentUpon>
     </Compile>
     <Compile Include="ExceptionHandlings\ExceptionLogs.cs" />
     <Compile Include="ExtCode\Extensions.cs" />
@@ -711,11 +712,26 @@
     <Compile Include="Ui\HistoryAction\HST_UTAG_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Leads\RSL_LEAD_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Leads\RSL_LEAD_F.Designer.cs">
+      <DependentUpon>RSL_LEAD_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Leads\INF_LEAD_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Leads\INF_LEAD_F.Designer.cs">
       <DependentUpon>INF_LEAD_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Leads\RSL_LEAD_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Leads\SHW_OPRT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Leads\SHW_OPRT_F.Designer.cs">
+      <DependentUpon>SHW_OPRT_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Leads\SHW_LEAD_F.cs">
       <SubType>UserControl</SubType>
@@ -724,6 +740,9 @@
       <DependentUpon>SHW_LEAD_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Leads\INF_LEAD_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Leads\SHW_OPRT_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Leads\SHW_LEAD_F.RequestRespons.cs">
@@ -2294,6 +2313,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1639.png">
       <Link>Resources\IMAGE_1639.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1643.png">
+      <Link>Resources\IMAGE_1643.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1644.png">
+      <Link>Resources\IMAGE_1644.png</Link>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\System.JobRouting\System.JobRouting.csproj">
@@ -2471,8 +2496,14 @@
     <EmbeddedResource Include="Ui\HistoryAction\HST_UTAG_F.resx">
       <DependentUpon>HST_UTAG_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Leads\RSL_LEAD_F.resx">
+      <DependentUpon>RSL_LEAD_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Leads\INF_LEAD_F.resx">
       <DependentUpon>INF_LEAD_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Leads\SHW_OPRT_F.resx">
+      <DependentUpon>SHW_OPRT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Leads\SHW_LEAD_F.resx">
       <DependentUpon>SHW_LEAD_F.cs</DependentUpon>
@@ -2614,7 +2645,6 @@
     <None Include="Properties\DataSources\System.CRM.Data.Base_Tariff.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Base_Tariff_Detail.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Base_Unit.datasource" />
-    <None Include="Properties\DataSources\System.CRM.Data.Basic_Calculate_Discount.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Campaign.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Campaign_Activity.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Campaign_Quick.datasource" />
@@ -2633,6 +2663,7 @@
     <None Include="Properties\DataSources\System.CRM.Data.D_AFNT.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_ATYP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CAMT.datasource" />
+    <None Include="Properties\DataSources\System.CRM.Data.D_CELV.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CETP.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLON.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.D_CLVW.datasource" />
@@ -2700,8 +2731,6 @@
     <None Include="Properties\DataSources\System.CRM.Data.Expense_Type.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Extra_Info.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Final_Result.datasource" />
-    <None Include="Properties\DataSources\System.CRM.Data.Finance_Document.datasource" />
-    <None Include="Properties\DataSources\System.CRM.Data.Gain_Loss_Rial.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.iCRMDataContext.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Image_Document.datasource" />
     <None Include="Properties\DataSources\System.CRM.Data.Isic_Activity.datasource" />

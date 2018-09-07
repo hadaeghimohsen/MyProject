@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -10,13 +11,16 @@ using System.Xml.Linq;
 
 namespace System.CRM.Ui.Leads
 {
-   partial class SHW_LEAD_F : ISendRequest
+   partial class RSL_LEAD_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      
+      private long ldid;
+      private string conftype, formCaller;
+
+      private XElement xinput;
 
       public void SendRequest(Job job)
       {
@@ -47,6 +51,12 @@ namespace System.CRM.Ui.Leads
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 40:
+               CordinateGetSet(job);
+               break;
+            case 150:
+               SetMentioned(job);
                break;
             default:
                break;
@@ -105,6 +115,8 @@ namespace System.CRM.Ui.Leads
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         
 
          job.Status = StatusType.Successful;
       }
@@ -187,15 +199,30 @@ namespace System.CRM.Ui.Leads
       {
          if (InvokeRequired)
          {
-            Invoke(new Action(() => { DsstgBs.DataSource = iCRM.D_SSTGs; }));            
+            Invoke(
+               new Action(() =>
+               {
+                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+
+                  DsstgBs.DataSource = iCRM.D_SSTGs;
+                  DcelvBs.DataSource = iCRM.D_CELVs;
+                  DpltpBs.DataSource = iCRM.D_PLTPs;
+                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+               })
+            );
          }
          else
          {
+            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+
             DsstgBs.DataSource = iCRM.D_SSTGs;
+            DcelvBs.DataSource = iCRM.D_CELVs;
+            DpltpBs.DataSource = iCRM.D_PLTPs;
+            LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
          }
          
          job.Status = StatusType.Successful;
-      }      
+      }
 
       /// <summary>
       /// Code 10
@@ -203,34 +230,79 @@ namespace System.CRM.Ui.Leads
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         var xinput = job.Input as XElement;
-         if(xinput != null)
-         {
-            if (xinput.Attribute("onoftag") != null)
-               onoftag = xinput.Attribute("onoftag").Value;
-            
-            if (xinput.Attribute("compcode") != null)
-               compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
-            else
-               compcode = 0;
-         }         
+         xinput = job.Input as XElement;
 
-         if (InvokeRequired)
-         {
-            Invoke(
-               new Action(
-                  () =>
-                  {
-                     Execute_Query();
-                  }
-               )
-            );
-         }
+         if (xinput.Attribute("formcaller") != null)
+            formCaller = xinput.Attribute("formcaller").Value;
          else
-         {
-            Execute_Query();
-         }
+            formCaller = "";
+
+         conftype = xinput.Attribute("conftype").Value;
+
+         ldid = Convert.ToInt64(xinput.Attribute("ldid").Value);
+
+         RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = ColorTranslator.FromHtml(xinput.Attribute("colr").Value);
+
+         Execute_Query();
+
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void CordinateGetSet(Job job)
+      {
+         //var xinput = job.Input as XElement;
+         //if (xinput != null)
+         //{
+         //   var serv = LstServBs.Current as Data.Service;
+         //   if (xinput.Attribute("outputtype").Value == "servcord")
+         //   {
+         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               
+         //      if(cordx != serv.CORD_X_DNRM && cordy != serv.CORD_Y_DNRM)
+         //      {
+         //         // Call Update Service_Public
+         //         try
+         //         {
+         //            iCRM.CHNG_SRPB_P(
+         //               new XElement("Service",
+         //                  new XAttribute("fileno", serv.FILE_NO),
+         //                  new XAttribute("actntype", "001"),
+         //                  new XAttribute("cordx", cordx),
+         //                  new XAttribute("cordy", cordy)
+         //               )
+         //            );
+         //            requery = true;
+         //         }
+         //         catch (Exception exc)
+         //         {
+         //            MessageBox.Show(exc.Message);                     
+         //         }
+         //         finally
+         //         {
+         //            if(requery)
+         //            {
+         //               Execute_Query();
+         //            }
+         //         }
+         //      }
+         //   }            
+         //}
+
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 150
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetMentioned(Job job)
+      {
+         var xinput = job.Input as XElement;
       }
    }
 }

@@ -161,9 +161,8 @@ namespace System.CRM.Ui.BaseDefination
             var rqrq = RqrqBs.Current as Data.Request_Requester;
             var sunt = SuntBs.Current as Data.Sub_Unit;
 
-            if (sunt == null || rqrq == null) { BcdsBs.List.Clear(); OgdcBs.List.Clear(); return; }
+            if (sunt == null || rqrq == null) { OgdcBs.List.Clear(); return; }
 
-            BcdsBs.DataSource = iCRM.Basic_Calculate_Discounts.Where(b => b.Sub_Unit == sunt);
             OgdcBs.DataSource = iCRM.Organ_Documents.Where(o => o.Sub_Unit == sunt && o.Request_Document.Request_Requester == rqrq);
          }
          catch (Exception exc)

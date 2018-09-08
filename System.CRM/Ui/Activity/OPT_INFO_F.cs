@@ -118,6 +118,26 @@ namespace System.CRM.Ui.Activity
                )
             );
          }
+         else if(infocode == "005")
+         {
+            _DefaultGateway.Gateway(
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                   new Job(SendType.Self, 24 /* Execute Inf_Lead_F */),
+                   new Job(SendType.SelfToUserInterface, "INF_LEAD_F", 10 /* Execute Actn_Calf_F */)
+                   {
+                      Input = 
+                        new XElement("Lead",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("type", "servicelead"),
+                           new XAttribute("fileno", fileno)
+                        )
+                   }
+                 }
+               )
+            );
+         }
       }
    }
 }

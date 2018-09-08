@@ -38,6 +38,8 @@
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+         this.Lead_Butn = new System.MaxUi.RoundedButton();
+         this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.SuspendLayout();
          // 
          // Message_Butn
@@ -81,7 +83,7 @@
          this.Payment_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1601;
          this.Payment_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Payment_Butn.ImageVisiable = true;
-         this.Payment_Butn.Location = new System.Drawing.Point(323, 18);
+         this.Payment_Butn.Location = new System.Drawing.Point(382, 18);
          this.Payment_Butn.Name = "Payment_Butn";
          this.Payment_Butn.NormalBorderColor = System.Drawing.Color.Gray;
          this.Payment_Butn.NormalColorA = System.Drawing.Color.White;
@@ -107,7 +109,7 @@
          this.SendFile_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1529;
          this.SendFile_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.SendFile_Butn.ImageVisiable = true;
-         this.SendFile_Butn.Location = new System.Drawing.Point(432, 18);
+         this.SendFile_Butn.Location = new System.Drawing.Point(491, 18);
          this.SendFile_Butn.Name = "SendFile_Butn";
          this.SendFile_Butn.NormalBorderColor = System.Drawing.Color.Gray;
          this.SendFile_Butn.NormalColorA = System.Drawing.Color.White;
@@ -133,7 +135,7 @@
          this.Email_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1580;
          this.Email_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Email_Butn.ImageVisiable = true;
-         this.Email_Butn.Location = new System.Drawing.Point(542, 18);
+         this.Email_Butn.Location = new System.Drawing.Point(601, 18);
          this.Email_Butn.Name = "Email_Butn";
          this.Email_Butn.NormalBorderColor = System.Drawing.Color.Gray;
          this.Email_Butn.NormalColorA = System.Drawing.Color.White;
@@ -159,7 +161,7 @@
          this.CallLog_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1567;
          this.CallLog_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.CallLog_Butn.ImageVisiable = true;
-         this.CallLog_Butn.Location = new System.Drawing.Point(652, 18);
+         this.CallLog_Butn.Location = new System.Drawing.Point(711, 18);
          this.CallLog_Butn.Name = "CallLog_Butn";
          this.CallLog_Butn.NormalBorderColor = System.Drawing.Color.Gray;
          this.CallLog_Butn.NormalColorA = System.Drawing.Color.White;
@@ -180,7 +182,7 @@
          this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(650, 72);
+         this.labelControl3.Location = new System.Drawing.Point(709, 72);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(45, 14);
          this.labelControl3.TabIndex = 14;
@@ -195,7 +197,7 @@
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(515, 72);
+         this.labelControl1.Location = new System.Drawing.Point(574, 72);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(92, 14);
          this.labelControl1.TabIndex = 14;
@@ -210,7 +212,7 @@
          this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(411, 72);
+         this.labelControl2.Location = new System.Drawing.Point(470, 72);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(83, 14);
          this.labelControl2.TabIndex = 14;
@@ -225,7 +227,7 @@
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(328, 72);
+         this.labelControl7.Location = new System.Drawing.Point(387, 72);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(31, 14);
          this.labelControl7.TabIndex = 14;
@@ -247,6 +249,47 @@
          this.labelControl8.Text = "موقعیت جغرافیایی";
          this.labelControl8.Visible = false;
          // 
+         // Lead_Butn
+         // 
+         this.Lead_Butn.Active = true;
+         this.Lead_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Lead_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Lead_Butn.Caption = "";
+         this.Lead_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Lead_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Lead_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Lead_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Lead_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Lead_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1519;
+         this.Lead_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.Lead_Butn.ImageVisiable = true;
+         this.Lead_Butn.Location = new System.Drawing.Point(283, 18);
+         this.Lead_Butn.Name = "Lead_Butn";
+         this.Lead_Butn.NormalBorderColor = System.Drawing.Color.Gray;
+         this.Lead_Butn.NormalColorA = System.Drawing.Color.White;
+         this.Lead_Butn.NormalColorB = System.Drawing.Color.White;
+         this.Lead_Butn.Size = new System.Drawing.Size(36, 36);
+         this.Lead_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.Lead_Butn.TabIndex = 13;
+         this.Lead_Butn.Tag = "005";
+         this.Lead_Butn.Tooltip = null;
+         this.Lead_Butn.Click += new System.EventHandler(this.Info_Butn_Click);
+         // 
+         // labelControl4
+         // 
+         this.labelControl4.AllowHtmlString = true;
+         this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+         this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl4.Location = new System.Drawing.Point(265, 72);
+         this.labelControl4.Name = "labelControl4";
+         this.labelControl4.Size = new System.Drawing.Size(71, 14);
+         this.labelControl4.TabIndex = 14;
+         this.labelControl4.Text = "سرنخ تجاری";
+         // 
          // OPT_INFO_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -257,7 +300,9 @@
          this.Controls.Add(this.labelControl7);
          this.Controls.Add(this.labelControl2);
          this.Controls.Add(this.labelControl1);
+         this.Controls.Add(this.labelControl4);
          this.Controls.Add(this.labelControl3);
+         this.Controls.Add(this.Lead_Butn);
          this.Controls.Add(this.CallLog_Butn);
          this.Controls.Add(this.Email_Butn);
          this.Controls.Add(this.SendFile_Butn);
@@ -284,6 +329,8 @@
       private DevExpress.XtraEditors.LabelControl labelControl2;
       private DevExpress.XtraEditors.LabelControl labelControl7;
       private DevExpress.XtraEditors.LabelControl labelControl8;
+      private MaxUi.RoundedButton Lead_Butn;
+      private DevExpress.XtraEditors.LabelControl labelControl4;
 
 
    }

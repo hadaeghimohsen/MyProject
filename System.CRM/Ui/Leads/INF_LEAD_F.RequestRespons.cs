@@ -272,6 +272,11 @@ namespace System.CRM.Ui.Leads
          else
             formType = "normal";
 
+         if (xinput.Attribute("fileno") != null)
+            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+         else
+            fileno = 0;
+
          Execute_Query();
 
          switch (xinput.Attribute("type").Value)
@@ -281,7 +286,9 @@ namespace System.CRM.Ui.Leads
                xinput.Attribute("type").Value = "newlead";
                break;
             case "companylead":
-            case "servicelead":               
+               break;
+            case "servicelead":
+               SubmitChange_Butn_Click(null, null);
                break;
             case "refresh":
                break;

@@ -107,6 +107,8 @@ namespace System.CRM.Ui.Leads
                Approve_Butn.ToolTipText = "تایید صلاحیت";
                Disapprove_Butn.Image = Properties.Resources.IMAGE_1636;
                Disapprove_Butn.ToolTipText = "عدم تایید صلاحیت";
+
+               RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = Color.Gold;
                return; 
             }
 
@@ -231,7 +233,7 @@ namespace System.CRM.Ui.Leads
                if (Name_Txt.EditValue == null || Name_Txt.EditValue.ToString() == "") { Name_Txt.EditValue = "نامشخص"; }
             }
 
-            if (leadtype.In("newlead", "newleadupdate"))
+            if (leadtype.In("newlead", "newleadupdate", "serviceleadupdate"))
             {
                iCRM.OPR_LEAD_P(
                   new XElement("Request",
@@ -298,7 +300,26 @@ namespace System.CRM.Ui.Leads
                );
             }
             #endregion
+            #region Service Lead
+            if (leadtype.In("servicelead"))
+            {
+               iCRM.OPR_LEAD_P(
+                  new XElement("Request",
+                     new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
+                     new XAttribute("rqstrqid", ""),
+                     new XAttribute("leadtype", leadtype),
+                     new XElement("Service",
+                        new XAttribute("fileno", fileno)
+                     ),
+                     new XElement("Lead",
+                        new XAttribute("ownrcode", Ownr_Lov.EditValue)
+                     )
+                  )
+               );
 
+               //xinput.Attribute("type").Value = "newlead";
+            }
+            #endregion
             requery = true;
          }
          catch (Exception exc)

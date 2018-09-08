@@ -168,7 +168,8 @@ namespace System.CRM.Ui.Leads
                   new XAttribute("colr", ColorTranslator.ToHtml( RqstMsttColor_Butn.NormalColorA )),
                   new XAttribute("conftype", conftype),
                   new XAttribute("emstclosdate", EmstClosDate_Dt.Value.HasValue ? EmstClosDate_Dt.Value.Value.ToString("yyyy-MM-dd") : ""),
-                  new XAttribute("emstrevnamnt", EmstRevnAmnt_Txt.EditValue)
+                  new XAttribute("emstrevnamnt", EmstRevnAmnt_Txt.EditValue),
+                  new XAttribute("cmnt", LeadCmnt_Txt.EditValue)
                )
             );
 

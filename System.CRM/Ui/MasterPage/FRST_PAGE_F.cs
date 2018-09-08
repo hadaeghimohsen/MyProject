@@ -914,12 +914,12 @@ namespace System.CRM.Ui.MasterPage
 
       private void SaleMarketingList_Butn_Click(object sender, EventArgs e)
       {
-
+         MarketingList_Butn_Click(null, null);
       }
 
       private void SaleQuickCampaign_Butn_Click(object sender, EventArgs e)
       {
-
+         MarketingQuickCampaign_Butn_Click(null, null);
       }
 
       private void SaleGoal_Butn_Click(object sender, EventArgs e)
@@ -966,12 +966,12 @@ namespace System.CRM.Ui.MasterPage
 
       private void ServiceShowAcnt_Butn_Click(object sender, EventArgs e)
       {
-
+         SaleShowAcnt_Butn_Click(null, null);
       }
 
       private void ServiceShowCont_Butn_Click(object sender, EventArgs e)
       {
-
+         SaleShowCont_Butn_Click(null, null);
       }
 
       private void ServiceShowSocialProfile_Butn_Click(object sender, EventArgs e)
@@ -1058,17 +1058,17 @@ namespace System.CRM.Ui.MasterPage
 
       private void MarketingShowAcnt_Butn_Click(object sender, EventArgs e)
       {
-
+         SaleShowAcnt_Butn_Click(null, null);
       }
 
       private void MarketingShowCont_Butn_Click(object sender, EventArgs e)
       {
-
+         SaleShowCont_Butn_Click(null, null);
       }
 
       private void MarketingLead_Butn_Click(object sender, EventArgs e)
       {
-
+         SaleShowLead_Butn_Click(null, null);
       }
 
       private void MarketingList_Butn_Click(object sender, EventArgs e)

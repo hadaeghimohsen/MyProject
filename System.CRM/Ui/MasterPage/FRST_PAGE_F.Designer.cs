@@ -589,6 +589,7 @@
          // 
          // SaleRollupQuery_Butn
          // 
+         this.SaleRollupQuery_Butn.Enabled = false;
          this.SaleRollupQuery_Butn.Name = "SaleRollupQuery_Butn";
          this.SaleRollupQuery_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SaleRollupQuery_Butn.SmallImage")));
          this.SaleRollupQuery_Butn.ToolTip = "جستجو های معیار جستجو";
@@ -774,6 +775,7 @@
          // 
          // ServiceRollupQuery_Butn
          // 
+         this.ServiceRollupQuery_Butn.Enabled = false;
          this.ServiceRollupQuery_Butn.Name = "ServiceRollupQuery_Butn";
          this.ServiceRollupQuery_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceRollupQuery_Butn.SmallImage")));
          this.ServiceRollupQuery_Butn.ToolTip = "جستجوهای معیار جستجو";

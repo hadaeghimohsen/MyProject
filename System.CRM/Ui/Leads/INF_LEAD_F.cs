@@ -233,7 +233,7 @@ namespace System.CRM.Ui.Leads
                if (Name_Txt.EditValue == null || Name_Txt.EditValue.ToString() == "") { Name_Txt.EditValue = "نامشخص"; }
             }
 
-            if (leadtype.In("newlead", "newleadupdate", "serviceleadupdate"))
+            if (leadtype.In("newlead", "newleadupdate", "serviceleadupdate", "companyleadupdate"))
             {
                iCRM.OPR_LEAD_P(
                   new XElement("Request",
@@ -301,7 +301,7 @@ namespace System.CRM.Ui.Leads
             }
             #endregion
             #region Service Lead
-            if (leadtype.In("servicelead"))
+            if (leadtype.In("servicelead", "companylead"))
             {
                iCRM.OPR_LEAD_P(
                   new XElement("Request",
@@ -311,13 +311,14 @@ namespace System.CRM.Ui.Leads
                      new XElement("Service",
                         new XAttribute("fileno", fileno)
                      ),
+                     new XElement("Company",
+                        new XAttribute("code", compcode)
+                     ),
                      new XElement("Lead",
                         new XAttribute("ownrcode", Ownr_Lov.EditValue)
                      )
                   )
                );
-
-               //xinput.Attribute("type").Value = "newlead";
             }
             #endregion
             requery = true;

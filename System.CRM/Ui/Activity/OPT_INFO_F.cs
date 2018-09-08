@@ -21,7 +21,7 @@ namespace System.CRM.Ui.Activity
          InitializeComponent();
       }
 
-      private long fileno, compcode;
+      private long? fileno, compcode;
       private XElement xinput;
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -130,8 +130,9 @@ namespace System.CRM.Ui.Activity
                       Input = 
                         new XElement("Lead",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("type", "servicelead"),
-                           new XAttribute("fileno", fileno)
+                           new XAttribute("type", fileno != 0 ? "servicelead" : "companylead"),
+                           new XAttribute("fileno", fileno),
+                           new XAttribute("compcode", compcode)
                         )
                    }
                  }

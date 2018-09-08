@@ -277,6 +277,11 @@ namespace System.CRM.Ui.Leads
          else
             fileno = 0;
 
+         if (xinput.Attribute("compcode") != null)
+            compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
+         else
+            compcode = 0;
+
          Execute_Query();
 
          switch (xinput.Attribute("type").Value)
@@ -286,7 +291,6 @@ namespace System.CRM.Ui.Leads
                xinput.Attribute("type").Value = "newlead";
                break;
             case "companylead":
-               break;
             case "servicelead":
                SubmitChange_Butn_Click(null, null);
                break;

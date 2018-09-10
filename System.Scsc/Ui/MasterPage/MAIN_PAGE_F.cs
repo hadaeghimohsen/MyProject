@@ -1047,6 +1047,7 @@ namespace System.Scsc.Ui.MasterPage
                                            AND ms.Vald_Type = '002'
                                            AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
                                            AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
+                                           AND CAST(ms.STRT_DATE as DATE) <= CAST(GETDATE() AS DATE)
                                            AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
                                            AND (mt.Chck_Attn_Alrm = '001' AND CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
                                        ", figh.FILE_NO) 
@@ -1062,6 +1063,7 @@ namespace System.Scsc.Ui.MasterPage
                                            AND ms.Vald_Type = '002'
                                            AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
                                            AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
+                                           AND CAST(ms.STRT_DATE as DATE) <= CAST(GETDATE() AS DATE)
                                            AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
                                            AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
                                        ", figh.FILE_NO) 
@@ -1117,7 +1119,7 @@ namespace System.Scsc.Ui.MasterPage
                                               AND ms.Type = '001'
                                               AND ms.Vald_Type = '002'
                                               AND ms.Fgpb_Rwno_Dnrm = fp.Rwno
-                                              AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code                                           
+                                              AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
                                               AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
                                             ORDER BY ms.Rwno DESC
                                        ", figh.FILE_NO) 

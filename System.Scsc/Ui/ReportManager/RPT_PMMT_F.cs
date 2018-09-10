@@ -25,6 +25,7 @@ namespace System.Scsc.Ui.ReportManager
 
       private void Execute_Query()
       {
+         iScsc = new Data.iScscDataContext(ConnectionString);
          try
          {
             if (tc_master.SelectedTab == tp_001)

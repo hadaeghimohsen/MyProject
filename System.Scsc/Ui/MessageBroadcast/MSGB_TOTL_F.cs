@@ -222,25 +222,37 @@ namespace System.Scsc.Ui.MessageBroadcast
                (f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Length > 0) &&
                !(f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && 
                Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101 &&               
-               (
-                  f.FGPB_TYPE_DNRM != "009" ? (
-                     (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(f.CBMT_CODE_DNRM)) &&
-                     (cochs == null || cochs.Count == 0 || cochs.Contains(f.COCH_FILE_NO_DNRM)) &&
-                     (mtods == null || mtods.Count == 0 ||  mtods.Contains(f.MTOD_CODE_DNRM))
-                  ) : (
-                     f.Member_Ships.Any(
-                        m => 
-                           m.RECT_CODE == "004" &&
-                           m.RWNO == f.MBSP_RWNO_DNRM &&
-                           m.Sessions.Any(
-                              s => 
-                                 s.SESN_TYPE == "003" &&
-                                 (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(s.CBMT_CODE)) &&
-                                 (cochs == null || cochs.Count == 0 ||  cochs.Contains(s.COCH_FILE_NO_DNRM)) &&
-                                 (mtods == null || mtods.Count == 0 ||  mtods.Contains(s.MTOD_CODE_DNRM))
-                           )
-                     )
+               (                  
+                  f.Member_Ships
+                  .Any(
+                     ms => ms.TYPE == "001" && 
+                           ms.VALD_TYPE == "002" &&
+                           (
+                              (ms.NUMB_OF_ATTN_MONT == 0 && ms.END_DATE.Value.Date >= DateTime.Now.Date) ||
+                              (ms.NUMB_OF_ATTN_MONT != 0 && ms.SUM_ATTN_MONT_DNRM <= ms.NUMB_OF_ATTN_MONT && ms.END_DATE.Value.Date >= DateTime.Now.Date)
+                           ) &&
+                           (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(ms.Fighter_Public.CBMT_CODE)) &&
+                           (cochs == null || cochs.Count == 0 || cochs.Contains(ms.Fighter_Public.COCH_FILE_NO)) &&
+                           (mtods == null || mtods.Count == 0 ||  mtods.Contains(ms.Fighter_Public.MTOD_CODE))
                   )
+                  //f.FGPB_TYPE_DNRM != "009" ? (
+                  //   (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(f.CBMT_CODE_DNRM)) &&
+                  //   (cochs == null || cochs.Count == 0 || cochs.Contains(f.COCH_FILE_NO_DNRM)) &&
+                  //   (mtods == null || mtods.Count == 0 ||  mtods.Contains(f.MTOD_CODE_DNRM))
+                  //) : (
+                  //   f.Member_Ships.Any(
+                  //      m => 
+                  //         m.RECT_CODE == "004" &&
+                  //         m.RWNO == f.MBSP_RWNO_DNRM &&
+                  //         m.Sessions.Any(
+                  //            s => 
+                  //               s.SESN_TYPE == "003" &&
+                  //               (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(s.CBMT_CODE)) &&
+                  //               (cochs == null || cochs.Count == 0 ||  cochs.Contains(s.COCH_FILE_NO_DNRM)) &&
+                  //               (mtods == null || mtods.Count == 0 ||  mtods.Contains(s.MTOD_CODE_DNRM))
+                  //         )
+                  //   )
+                  //)
                )
             ).ToList()
             .Where(r => phonnumb.IsMatch(r.CELL_PHON_DNRM));

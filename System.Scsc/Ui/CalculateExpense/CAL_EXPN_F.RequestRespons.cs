@@ -181,9 +181,9 @@ namespace System.Scsc.Ui.CalculateExpense
       private void LoadData(Job job)
       {
          EpitBs.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "001");
-         RqttBs.DataSource = iScsc.Requester_Types.Where(r =>  r.CODE != "002" && r.CODE !=  "003" && r.CODE != "004");
+         RqttBs.DataSource = iScsc.Requester_Types.Where(r =>  r.CODE == "001");
          DegrBs.DataSource = iScsc.D_DEGRs;
-         ActvBs.DataSource = iScsc.D_ACTVs;
+         DactvBs.DataSource = iScsc.D_ACTVs;
          CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003");
          DcetpBs.DataSource = iScsc.D_CETPs;
          DysnoBs.DataSource = iScsc.D_YSNOs;

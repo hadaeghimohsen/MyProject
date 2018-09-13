@@ -441,6 +441,10 @@ namespace System.Scsc.Ui.Settings
          DCstpBs1.DataSource = iScsc.D_CSTPs;         
          DIttpBs1.DataSource = iScsc.D_ITTPs;
 
+         AttnComPortName_Lov.Items.Clear();
+         GateComPortName_Lov.Items.Clear();
+         ExpnComPortName_Lov.Items.Clear();
+
          AttnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
          GateComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
          ExpnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());

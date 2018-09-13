@@ -513,7 +513,7 @@
          // 
          label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label9.AutoSize = true;
-         label9.Location = new System.Drawing.Point(274, 53);
+         label9.Location = new System.Drawing.Point(316, 55);
          label9.Name = "label9";
          label9.Size = new System.Drawing.Size(75, 14);
          label9.TabIndex = 32;
@@ -523,17 +523,17 @@
          // 
          label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label10.AutoSize = true;
-         label10.Location = new System.Drawing.Point(274, 23);
+         label10.Location = new System.Drawing.Point(317, 27);
          label10.Name = "label10";
-         label10.Size = new System.Drawing.Size(142, 14);
+         label10.Size = new System.Drawing.Size(98, 14);
          label10.TabIndex = 31;
-         label10.Text = "مبلع دوره / تعداد جلسات :";
+         label10.Text = "شاخص محاسبه :";
          // 
          // label19
          // 
          label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label19.AutoSize = true;
-         label19.Location = new System.Drawing.Point(121, 23);
+         label19.Location = new System.Drawing.Point(163, 25);
          label19.Name = "label19";
          label19.Size = new System.Drawing.Size(42, 14);
          label19.TabIndex = 39;
@@ -1235,7 +1235,7 @@
          // Rqtp_Lov
          // 
          this.Rqtp_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rqtp_Lov.Location = new System.Drawing.Point(19, 20);
+         this.Rqtp_Lov.Location = new System.Drawing.Point(61, 22);
          this.Rqtp_Lov.Name = "Rqtp_Lov";
          this.Rqtp_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Rqtp_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1320,7 +1320,7 @@
          // Cetp1_Lov
          // 
          this.Cetp1_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cetp1_Lov.Location = new System.Drawing.Point(172, 50);
+         this.Cetp1_Lov.Location = new System.Drawing.Point(214, 52);
          this.Cetp1_Lov.Name = "Cetp1_Lov";
          this.Cetp1_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Cetp1_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1345,7 +1345,7 @@
          // Cxtp1_Lov
          // 
          this.Cxtp1_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cxtp1_Lov.Location = new System.Drawing.Point(172, 20);
+         this.Cxtp1_Lov.Location = new System.Drawing.Point(214, 22);
          this.Cxtp1_Lov.Name = "Cxtp1_Lov";
          this.Cxtp1_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Cxtp1_Lov.Properties.Appearance.Options.UseFont = true;

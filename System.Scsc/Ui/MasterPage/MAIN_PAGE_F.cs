@@ -207,30 +207,13 @@ namespace System.Scsc.Ui.MasterPage
 
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))
-            {
-               //FngrPrnt_Txt.BackColor = SystemColors.Info;
-               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";               
                return;
-            }
-            else
-            {               
-               //FngrPrnt_Txt.BackColor = Color.White;
-               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی و کد انگشتی";
-            }
 
             if (barCodeSetting.CLER_ZERO == "002")
                enrollNumber = enrollNumber.TrimStart('0');
-            //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-            //   return;
-            //oldenrollnumber = enrollNumber;
 
             if (barCodeSetting.BAR_CODE_DATA_TYPE == "001")
             {
-               //var temp = Convert.ToInt64(enrollNumber);
-               //if(temp < 0)
-               //{
-               //   temp = 4294967296 + temp;
-               //}
                try
                {
                   var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(enrollNumber));
@@ -246,16 +229,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                }
                catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
-            }
-
-            //var temp = Convert.ToInt64(enrollNumber);
-            //if (temp < 0)
-            //{
-            //   temp = 4294967296 + temp;
-            //   enrollNumber = temp.ToString();
-            //}
-            
-            //MessageBox.Show(enrollNumber);
+            }                       
 
             if (InvokeRequired)
                Invoke(new Action(() => axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1)));
@@ -824,11 +798,11 @@ namespace System.Scsc.Ui.MasterPage
             if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "003"; }
             if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
 
-            // 1396/10/26 * اگر سیستم به صورتی باشد که نرم افزار اپراتور پشت آن قرار ندارد
+            // 1396/10/26 * اگر سیستم به صورتی باشد که نرم افزار اپراتور پشت آن قرار ندارد            
             if(iScsc.Computer_Actions.FirstOrDefault(ca => ca.COMP_NAME == xHost.Attribute("name").Value).CHCK_DOBL_ATTN_STAT == "002")
                if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                   return;
-            
+
             // 1397/05/10 * تست اینکه آیا سرور برقرار هست یا خیر
             if (SrvrPing_Butn.Appearance.BackColor != Color.LightGreen) return;
 

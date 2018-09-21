@@ -117,5 +117,8 @@ namespace System.CRM.Code
       internal Ui.CampaignActivity.INF_CAMA_F _Inf_Cama_F { get; set; }
       internal Ui.CampaignActivity.SHW_CAMA_F _Shw_Cama_F { get; set; }
 
+      internal Ui.Cases.INF_CASE_F _Inf_Case_F { get; set; }
+      internal Ui.Cases.SHW_CASE_F _Shw_Case_F { get; set; }
+
    }
 }

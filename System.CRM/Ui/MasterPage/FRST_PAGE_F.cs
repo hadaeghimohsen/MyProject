@@ -981,7 +981,21 @@ namespace System.CRM.Ui.MasterPage
 
       private void ServiceCase_Butn_Click(object sender, EventArgs e)
       {
-
+         Job _InteractWithCRM =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 104 /* Execute Shw_Case_F */),
+                new Job(SendType.SelfToUserInterface, "SHW_CASE_F", 10 /* Execute Actn_CalF_P */)
+                {
+                   Executive = ExecutiveType.Asynchronous,
+                   Input = 
+                     new XElement("Case", 
+                        new XAttribute("onoftag", "on")
+                     )
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithCRM);
       }
 
       private void ServiceServiceCalendar_Butn_Click(object sender, EventArgs e)

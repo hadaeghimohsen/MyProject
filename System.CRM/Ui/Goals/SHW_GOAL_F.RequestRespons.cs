@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.CRM.Ui.CampaignActivity
+namespace System.CRM.Ui.Goals
 {
-   partial class SHW_CAMA_F : ISendRequest
+   partial class SHW_GOAL_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private string formCaller = "none";
+      
 
       public void SendRequest(Job job)
       {
@@ -47,12 +47,6 @@ namespace System.CRM.Ui.CampaignActivity
                break;
             case 10:
                Actn_CalF_P(job);
-               break;
-            case 11:
-               GetNewRecord(job);
-               break;
-            case 100:
-               SetFilterOnQuery(job);
                break;
             default:
                break;
@@ -132,7 +126,6 @@ namespace System.CRM.Ui.CampaignActivity
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
-
          job.Status = StatusType.Successful;
       }
 
@@ -195,19 +188,13 @@ namespace System.CRM.Ui.CampaignActivity
       {
          if (InvokeRequired)
          {
-            Invoke(new Action(() =>
-            {
-               JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
-               DcmstBs.DataSource = iCRM.D_CMSTs;
-               DcntpBs.DataSource = iCRM.D_CNTPs;
-            }));
+            Invoke(new Action(() => { DsstgBs.DataSource = iCRM.D_SSTGs; }));            
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
-            DcmstBs.DataSource = iCRM.D_CMSTs;
-            DcntpBs.DataSource = iCRM.D_CNTPs;
+            DsstgBs.DataSource = iCRM.D_SSTGs;
          }
+         
          job.Status = StatusType.Successful;
       }      
 
@@ -217,100 +204,33 @@ namespace System.CRM.Ui.CampaignActivity
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         xinput = job.Input as XElement;
-         if (xinput != null)
+         var xinput = job.Input as XElement;
+         if(xinput != null)
          {
-            if (xinput.Attribute("formcaller") != null)
-               formCaller = xinput.Attribute("formcaller").Value;
-
-            if (xinput.Attribute("campcode") != null)
-               campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
+            if (xinput.Attribute("onoftag") != null)
+               onoftag = xinput.Attribute("onoftag").Value;
+            
+            if (xinput.Attribute("compcode") != null)
+               compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
             else
-               campcode = null;
-         }
+               compcode = 0;
+         }         
 
          if (InvokeRequired)
-            Invoke(new Action(() => Execute_Query()));
+         {
+            Invoke(
+               new Action(
+                  () =>
+                  {
+                     Execute_Query();
+                  }
+               )
+            );
+         }
          else
+         {
             Execute_Query();
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// Code 11
-      /// </summary>
-      /// <param name="job"></param>
-      private void GetNewRecord(Job job)
-      {
-         var mklt = CamaBs.Current as Data.Marketing_List;
-         if (mklt == null) return;
-
-         var xinput = job.Input as XElement;
-         var newmklt = CamaBs.Current as Data.Marketing_List;
-
-         if (xinput != null)
-         {
-            switch (xinput.Attribute("moveposition").Value)
-            {
-               case "next":
-                  CamaBs.MoveNext();
-                  newmklt = CamaBs.Current as Data.Marketing_List;
-
-                  if (mklt == newmklt) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Marketing_List", new XAttribute("code", newmklt.MLID))},
-                       })
-                  );
-                  break;
-               case "previous":
-                  CamaBs.MovePrevious();
-                  newmklt = CamaBs.Current as Data.Marketing_List;
-
-                  if (mklt == newmklt) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Marketing_List", new XAttribute("code", newmklt.MLID))},
-                       })
-                  );
-                  break;
-               default:
-                  break;
-            }
          }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetFilterOnQuery(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            var count = 0;
-            if (xinput.Element("Tags") != null)
-               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
-            if (xinput.Element("Regions") != null)
-               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
-            if (xinput.Element("Extra_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
-            if (xinput.Element("Contact_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-         }
-         else
-         {
-            Filter_Butn.Tag = null;
-         }
-         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

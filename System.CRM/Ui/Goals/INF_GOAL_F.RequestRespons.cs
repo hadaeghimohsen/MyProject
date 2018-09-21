@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.CRM.Ui.CampaignActivity
+namespace System.CRM.Ui.Goals
 {
-   partial class SHW_CAMA_F : ISendRequest
+   partial class INF_GOAL_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private string formCaller = "none";
+      private long fileno, compcode, rqid;
+      private XElement xinput;
 
       public void SendRequest(Job job)
       {
@@ -48,11 +49,11 @@ namespace System.CRM.Ui.CampaignActivity
             case 10:
                Actn_CalF_P(job);
                break;
-            case 11:
-               GetNewRecord(job);
+            case 40:
+               CordinateGetSet(job);
                break;
-            case 100:
-               SetFilterOnQuery(job);
+            case 150:
+               SetMentioned(job);
                break;
             default:
                break;
@@ -95,7 +96,6 @@ namespace System.CRM.Ui.CampaignActivity
       /// <param name="job"></param>
       private void Set(Job job)
       {
-         Menu_Rbn.Minimized = true;
          var GetConnectionString =
             new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>" };
          _DefaultGateway.Gateway(
@@ -112,6 +112,8 @@ namespace System.CRM.Ui.CampaignActivity
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         
 
          job.Status = StatusType.Successful;
       }
@@ -132,7 +134,6 @@ namespace System.CRM.Ui.CampaignActivity
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
-
          job.Status = StatusType.Successful;
       }
 
@@ -195,21 +196,64 @@ namespace System.CRM.Ui.CampaignActivity
       {
          if (InvokeRequired)
          {
-            Invoke(new Action(() =>
-            {
-               JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
-               DcmstBs.DataSource = iCRM.D_CMSTs;
-               DcntpBs.DataSource = iCRM.D_CNTPs;
-            }));
+            Invoke(
+               new Action(() =>
+               {
+                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+
+                  //DtrgtBs.DataSource = iCRM.D_TRGTs;
+                  //DstdyBs.DataSource = iCRM.D_STDies;
+                  DysnoBs.DataSource = iCRM.D_YSNOs;
+                  //DcmstBs.DataSource = iCRM.D_CMSTs;
+                  DcntpBs.DataSource = iCRM.D_CNTPs;
+                  DprtfBs.DataSource = iCRM.D_PRTFs;
+                  DprpcBs.DataSource = iCRM.D_PRPCs;
+                  DsistBs.DataSource = iCRM.D_SISTs;
+                  DcttpBs.DataSource = iCRM.D_CTTPs;
+                  DsstgBs.DataSource = iCRM.D_SSTGs;
+                  DrqstBs.DataSource = iCRM.D_RQSTs;
+                  DsltmBs.DataSource = iCRM.D_SLTMs;
+                  DstkhBs.DataSource = iCRM.D_STKHs;
+                  CntyBs.DataSource = iCRM.Countries;
+                  IsicGropBs.DataSource = iCRM.Isic_Groups;
+                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+
+                  LstCampBs.DataSource = iCRM.Campaigns;
+                  //LstLeadBs.DataSource = iCRM.Leads;
+               })
+            );
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
-            DcmstBs.DataSource = iCRM.D_CMSTs;
+            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+
+            //DtrgtBs.DataSource = iCRM.D_TRGTs;
+            //DstdyBs.DataSource = iCRM.D_STDies;
+            DysnoBs.DataSource = iCRM.D_YSNOs;
+            //DcmstBs.DataSource = iCRM.D_CMSTs;
             DcntpBs.DataSource = iCRM.D_CNTPs;
+            DprtfBs.DataSource = iCRM.D_PRTFs;
+            DprpcBs.DataSource = iCRM.D_PRPCs;
+            DsistBs.DataSource = iCRM.D_SISTs;
+            DcttpBs.DataSource = iCRM.D_CTTPs;
+            DsstgBs.DataSource = iCRM.D_SSTGs;
+            DrqstBs.DataSource = iCRM.D_RQSTs;
+            DsltmBs.DataSource = iCRM.D_SLTMs;
+            DstkhBs.DataSource = iCRM.D_STKHs;
+            CntyBs.DataSource = iCRM.Countries;
+            IsicGropBs.DataSource = iCRM.Isic_Groups;
+            LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+
+            LstCampBs.DataSource = iCRM.Campaigns;
+            //LstLeadBs.DataSource = iCRM.Leads;
          }
+         
          job.Status = StatusType.Successful;
-      }      
+      }
 
       /// <summary>
       /// Code 10
@@ -218,100 +262,104 @@ namespace System.CRM.Ui.CampaignActivity
       private void Actn_CalF_P(Job job)
       {
          xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            if (xinput.Attribute("formcaller") != null)
-               formCaller = xinput.Attribute("formcaller").Value;
-
-            if (xinput.Attribute("campcode") != null)
-               campcode = Convert.ToInt64(xinput.Attribute("campcode").Value);
-            else
-               campcode = null;
-         }
-
-         if (InvokeRequired)
-            Invoke(new Action(() => Execute_Query()));
+         if(xinput.Attribute("rqid") != null)
+            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
          else
-            Execute_Query();
-         job.Status = StatusType.Successful;
-      }
+            rqid = 0;
 
-      /// <summary>
-      /// Code 11
-      /// </summary>
-      /// <param name="job"></param>
-      private void GetNewRecord(Job job)
-      {
-         var mklt = CamaBs.Current as Data.Marketing_List;
-         if (mklt == null) return;
-
-         var xinput = job.Input as XElement;
-         var newmklt = CamaBs.Current as Data.Marketing_List;
-
-         if (xinput != null)
-         {
-            switch (xinput.Attribute("moveposition").Value)
-            {
-               case "next":
-                  CamaBs.MoveNext();
-                  newmklt = CamaBs.Current as Data.Marketing_List;
-
-                  if (mklt == newmklt) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Marketing_List", new XAttribute("code", newmklt.MLID))},
-                       })
-                  );
-                  break;
-               case "previous":
-                  CamaBs.MovePrevious();
-                  newmklt = CamaBs.Current as Data.Marketing_List;
-
-                  if (mklt == newmklt) return;
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       { 
-                          new Job(SendType.SelfToUserInterface, "INF_MKLT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Marketing_List", new XAttribute("code", newmklt.MLID))},
-                       })
-                  );
-                  break;
-               default:
-                  break;
-            }
-         }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetFilterOnQuery(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            var count = 0;
-            if (xinput.Element("Tags") != null)
-               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
-            if (xinput.Element("Regions") != null)
-               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
-            if (xinput.Element("Extra_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
-            if (xinput.Element("Contact_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-         }
+         if (xinput.Attribute("formtype") != null)
+            formType = xinput.Attribute("formtype").Value;
          else
-         {
-            Filter_Butn.Tag = null;
-         }
+            formType = "normal";
+
+         if (xinput.Attribute("fileno") != null)
+            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+         else
+            fileno = 0;
+
+         if (xinput.Attribute("compcode") != null)
+            compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
+         else
+            compcode = 0;
+
          Execute_Query();
+
+         switch (xinput.Attribute("type").Value)
+         {
+            case "newleadupdate":
+               RqstBs.Position = RqstBs.IndexOf(RqstBs.List.OfType<Data.Request>().First(r => r.RQID == rqid));
+               xinput.Attribute("type").Value = "newlead";
+               break;
+            case "companylead":
+            case "servicelead":
+               SubmitChange_Butn_Click(null, null);
+               break;
+            case "refresh":
+               break;
+            default:
+               if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
+                  RqstBs.AddNew();
+               break;
+         }         
+
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void CordinateGetSet(Job job)
+      {
+         //var xinput = job.Input as XElement;
+         //if (xinput != null)
+         //{
+         //   var serv = LstServBs.Current as Data.Service;
+         //   if (xinput.Attribute("outputtype").Value == "servcord")
+         //   {
+         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               
+         //      if(cordx != serv.CORD_X_DNRM && cordy != serv.CORD_Y_DNRM)
+         //      {
+         //         // Call Update Service_Public
+         //         try
+         //         {
+         //            iCRM.CHNG_SRPB_P(
+         //               new XElement("Service",
+         //                  new XAttribute("fileno", serv.FILE_NO),
+         //                  new XAttribute("actntype", "001"),
+         //                  new XAttribute("cordx", cordx),
+         //                  new XAttribute("cordy", cordy)
+         //               )
+         //            );
+         //            requery = true;
+         //         }
+         //         catch (Exception exc)
+         //         {
+         //            MessageBox.Show(exc.Message);                     
+         //         }
+         //         finally
+         //         {
+         //            if(requery)
+         //            {
+         //               Execute_Query();
+         //            }
+         //         }
+         //      }
+         //   }            
+         //}
+
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 150
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetMentioned(Job job)
+      {
+         var xinput = job.Input as XElement;
       }
    }
 }

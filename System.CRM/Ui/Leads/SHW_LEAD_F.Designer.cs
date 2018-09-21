@@ -28,9 +28,10 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_LEAD_F));
-         this.LeadBs = new System.Windows.Forms.BindingSource();
-         this.DsstgBs = new System.Windows.Forms.BindingSource();
+         this.LeadBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -87,6 +88,8 @@
          this.colCRET_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.colPSBL_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Lead1_Lbl = new C1.Win.C1Ribbon.RibbonLabel();
+         this.ribbonSeparator1 = new C1.Win.C1Ribbon.RibbonSeparator();
          ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
@@ -306,6 +309,8 @@
          // 
          // ribbonMenu1
          // 
+         this.ribbonMenu1.Items.Add(this.Lead1_Lbl);
+         this.ribbonMenu1.Items.Add(this.ribbonSeparator1);
          this.ribbonMenu1.Items.Add(this.Lead1_Btn);
          this.ribbonMenu1.Items.Add(this.Lead2_Btn);
          this.ribbonMenu1.Items.Add(this.Lead3_Btn);
@@ -613,6 +618,15 @@
          this.colPSBL_NUMB.Visible = true;
          this.colPSBL_NUMB.VisibleIndex = 3;
          // 
+         // Lead1_Lbl
+         // 
+         this.Lead1_Lbl.Name = "Lead1_Lbl";
+         this.Lead1_Lbl.Text = "نمایش های سیستم";
+         // 
+         // ribbonSeparator1
+         // 
+         this.ribbonSeparator1.Name = "ribbonSeparator1";
+         // 
          // SHW_LEAD_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,5 +712,7 @@
       private C1.Win.C1Ribbon.RibbonButton Lead12_Btn;
       private C1.Win.C1Ribbon.RibbonButton Lead13_Btn;
       private C1.Win.C1Ribbon.RibbonButton Lead14_Btn;
+      private C1.Win.C1Ribbon.RibbonLabel Lead1_Lbl;
+      private C1.Win.C1Ribbon.RibbonSeparator ribbonSeparator1;
    }
 }

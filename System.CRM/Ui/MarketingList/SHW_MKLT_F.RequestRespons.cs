@@ -95,6 +95,8 @@ namespace System.CRM.Ui.MarketingList
       /// <param name="job"></param>
       private void Set(Job job)
       {
+         Menu_Rbn.Minimized = true;
+
          var GetConnectionString =
             new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>" };
          _DefaultGateway.Gateway(

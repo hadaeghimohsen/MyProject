@@ -516,6 +516,16 @@ namespace System.CRM.Code
             if (_Shw_Oprt_F == null)
                _Shw_Oprt_F = new Ui.Leads.SHW_OPRT_F { _DefaultGateway = this };
          }
+         else if (value == "inf_case_f")
+         {
+            if (_Inf_Case_F == null)
+               _Inf_Case_F = new Ui.Cases.INF_CASE_F { _DefaultGateway = this };
+         }
+         else if (value == "shw_case_f")
+         {
+            if (_Shw_Case_F == null)
+               _Shw_Case_F = new Ui.Cases.SHW_CASE_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -3020,6 +3030,56 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "SHW_OPRT_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 104
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Case_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_case_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_CASE_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CASE_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CASE_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_CASE_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 105
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Case_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_case_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_CASE_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_CASE_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INF_CASE_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "INF_CASE_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

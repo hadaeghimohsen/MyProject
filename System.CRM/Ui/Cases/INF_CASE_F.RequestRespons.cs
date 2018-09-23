@@ -207,8 +207,10 @@ namespace System.CRM.Ui.Cases
                   DrqstBs.DataSource = iCRM.D_RQSTs;
                   DfinrBs.DataSource = iCRM.D_FINRs;
                   DysnoBs.DataSource = iCRM.D_YSNOs;
-                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+                  LstCompBs.DataSource = iCRM.Companies/*.Where(c => c.TYPE == "002")*/;
                   LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+
+                  ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CASE");
                })
             );
          }
@@ -222,8 +224,10 @@ namespace System.CRM.Ui.Cases
             DrqstBs.DataSource = iCRM.D_RQSTs;
             DfinrBs.DataSource = iCRM.D_FINRs;
             DlevlBs.DataSource = iCRM.D_LEVLs;
-            LstCompBs.DataSource = iCRM.Companies.Where(c => c.TYPE == "002");
+            LstCompBs.DataSource = iCRM.Companies/*.Where(c => c.TYPE == "002")*/;
             LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
+
+            ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CASE");
          }
          
          job.Status = StatusType.Successful;

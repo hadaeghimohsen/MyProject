@@ -73,6 +73,7 @@ namespace System.CRM.Ui.BaseDefination
 
             switch (formCaller)
             {
+               case "INF_CASE_F":
                case "CJBP_DFIN_F":
                case "INF_CTWK_F":
                case "ADD_INFO_F":

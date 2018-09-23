@@ -51,7 +51,7 @@ namespace System.CRM.Ui.Cases
             {
                var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
                   .Where(rqst =>
-                        rqst.RQTP_CODE == "014" &&
+                        rqst.RQTP_CODE == "015" &&
                         rqst.RQST_STAT == "001" &&
                         rqst.RQTT_CODE == "004" &&
                         rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
@@ -71,7 +71,7 @@ namespace System.CRM.Ui.Cases
             {
                var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
                   .Where(rqst =>
-                        rqst.RQTP_CODE == "014" &&
+                        rqst.RQTP_CODE == "015" &&
                         //rqst.RQST_STAT == "001" &&
                         rqst.RQID == rqid &&
                         rqst.RQTT_CODE == "004" &&
@@ -103,29 +103,9 @@ namespace System.CRM.Ui.Cases
             var rqst = RqstBs.Current as Data.Request;
             if (rqst == null || rqst.RQID == 0) 
             {
-               CreateChild_Butn.Image = Properties.Resources.IMAGE_1635;
-               CreateChild_Butn.ToolTipText = "تایید صلاحیت";
-               ResolveCase_Butn.Image = Properties.Resources.IMAGE_1636;
-               ResolveCase_Butn.ToolTipText = "عدم تایید صلاحیت";
-
                RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = Color.Gold;
                return; 
-            }
-
-            if(rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 1)
-            {
-               CreateChild_Butn.Image = Properties.Resources.IMAGE_1635;
-               CreateChild_Butn.ToolTipText = "تایید صلاحیت";
-               ResolveCase_Butn.Image = Properties.Resources.IMAGE_1636;
-               ResolveCase_Butn.ToolTipText = "عدم تایید صلاحیت";
-            }
-            else
-            {
-               CreateChild_Butn.Image = Properties.Resources.IMAGE_1643;
-               CreateChild_Butn.ToolTipText = "بستن به عنوان برنده";
-               ResolveCase_Butn.Image = Properties.Resources.IMAGE_1644;
-               ResolveCase_Butn.ToolTipText = "بستن به عنوان از دست رفته";
-            }
+            }            
             
             if(rqst.SSTT_MSTT_CODE == 99 && rqst.SSTT_CODE == 99)
             {
@@ -147,6 +127,25 @@ namespace System.CRM.Ui.Cases
                if (control != null)
                   control.EditValue = null;
             }
+            else if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 79 /* Execute Apbs_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("App_Base",
+                                 new XAttribute("tablename", "CASE"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     }
+                  )
+               );
+            }
          }
          catch { }
       }
@@ -158,6 +157,39 @@ namespace System.CRM.Ui.Cases
             var casetype = xinput.Attribute("type").Value;
 
             var rqst = RqstBs.Current as Data.Request;
+
+            if (Titl_Txt.EditValue == null || Titl_Txt.EditValue.ToString() == "") { Titl_Txt.Focus(); return; }
+            if (ServFileNo_Lov.EditValue == null || ServFileNo_Lov.EditValue.ToString() == "") { ServFileNo_Lov.Focus(); return; }
+            if (CompCode_Lov.EditValue == null || CompCode_Lov.EditValue.ToString() == "") { CompCode_Lov.Focus(); return; }
+
+            iCRM.OPR_CASE_P(
+               new XElement("Request",
+                  new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
+                  new XAttribute("rqstrqid", ""),
+                  new XAttribute("casetype", casetype),                  
+                  new XElement("Request_Row",
+                     new XAttribute("servfileno", ServFileNo_Lov.EditValue),
+                     new XAttribute("compcode", CompCode_Lov.EditValue),
+                     new XElement("Case",
+                        new XAttribute("ownrcode", Ownr_Lov.EditValue),
+                        new XAttribute("titl", Titl_Txt.Text),
+                        new XAttribute("apbscode", ApbsCode_Lov.EditValue),
+                        new XAttribute("orgntype", OrgnType_Lov.EditValue),
+                        new XAttribute("priotype", PrioType_Lov.EditValue),
+                        new XAttribute("stat", Stat_Lov.EditValue),
+                        new XAttribute("cmnt", Cmnt_Txt.Text),
+                        new XAttribute("type", Type_Lov.EditValue),
+                        new XAttribute("prntcasecsid", PrntCaseCsid_Lov.EditValue),
+                        new XAttribute("escltype", EsclType_Lov.EditValue),
+                        new XAttribute("escldate", EsclDate_Dt.Value.HasValue ? EsclDate_Dt.Value.Value.ToString("yyyy-MM-dd") : ""),
+                        new XAttribute("flowupdate", FlowUpDate_Dt.Value.HasValue ? FlowUpDate_Dt.Value.Value.ToString("yyyy-MM-dd") : ""),
+                        new XAttribute("sentfrstresp", SentFrstResp_Lov.EditValue),
+                        new XAttribute("serlnumb", SerlNumb_Txt.Text),
+                        new XAttribute("servlevl", ServLevl_Lov.EditValue)
+                     )
+                  )
+               )
+            );
             
             requery = true;
          }
@@ -439,5 +471,24 @@ namespace System.CRM.Ui.Cases
          }
       }
       #endregion
+
+      private void RightMenuLink_Lb_Click(object sender, EventArgs e)
+      {
+         var menulink = sender as LabelControl;
+         switch (menulink.Tag.ToString())
+         {
+            case "1":
+               Titl_Txt.Focus();
+               break;
+            case "2":
+               Type_Lov.Focus();
+               break;
+            case "3":
+               searchLookUpEdit4.Focus();
+               break;
+            default:
+               break;
+         }
+      }
    }
 }

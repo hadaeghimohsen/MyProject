@@ -74,6 +74,9 @@
          this.Case12_Btn = new C1.Win.C1Ribbon.RibbonButton();
          this.Case13_Btn = new C1.Win.C1Ribbon.RibbonButton();
          this.Case14_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Case15_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Case16_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Case17_Btn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.Back_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
@@ -83,6 +86,7 @@
          this.colTITL = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colFRST_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,25 +95,23 @@
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.colPRIO_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORGN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCOMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Case15_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Case16_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.Case17_Btn = new C1.Win.C1Ribbon.RibbonButton();
-         this.DsistBs = new System.Windows.Forms.BindingSource(this.components);
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DsstgBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsistBs = new System.Windows.Forms.BindingSource(this.components);
+         this.colCOMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          ((System.ComponentModel.ISupportInitialize)(this.CaseBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DprioBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Case_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DsistBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DsistBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          this.SuspendLayout();
          // 
          // CaseBs
@@ -358,98 +360,121 @@
          this.Case1_Btn.Name = "Case1_Btn";
          this.Case1_Btn.Tag = "1";
          this.Case1_Btn.Text = "Cases Being Followed";
-         this.Case1_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case1_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case2_Btn
          // 
          this.Case2_Btn.Name = "Case2_Btn";
          this.Case2_Btn.Tag = "2";
          this.Case2_Btn.Text = "Case I Follow";
-         this.Case2_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case2_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case3_Btn
          // 
          this.Case3_Btn.Name = "Case3_Btn";
          this.Case3_Btn.Tag = "3";
          this.Case3_Btn.Text = "ارتباطات من";
-         this.Case3_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case3_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case4_Btn
          // 
          this.Case4_Btn.Name = "Case4_Btn";
          this.Case4_Btn.Tag = "4";
          this.Case4_Btn.Text = "پرونده های اخیر";
-         this.Case4_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case4_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case5_Btn
          // 
          this.Case5_Btn.Name = "Case5_Btn";
          this.Case5_Btn.Tag = "5";
          this.Case5_Btn.Text = "پرونده های باز شده در 7 روز گذشته";
-         this.Case5_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case5_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case6_Btn
          // 
          this.Case6_Btn.Name = "Case6_Btn";
          this.Case6_Btn.Tag = "6";
          this.Case6_Btn.Text = "پرونده های حل شده";
-         this.Case6_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case6_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case7_Btn
          // 
          this.Case7_Btn.Name = "Case7_Btn";
          this.Case7_Btn.Tag = "7";
          this.Case7_Btn.Text = "پرونده های حل شده توسط من در 7 روز گذشته";
-         this.Case7_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case7_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case8_Btn
          // 
          this.Case8_Btn.Name = "Case8_Btn";
          this.Case8_Btn.Tag = "8";
          this.Case8_Btn.Text = "پرونده های حل شده در 7 روز گذشته";
-         this.Case8_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case8_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case9_Btn
          // 
          this.Case9_Btn.Name = "Case9_Btn";
          this.Case9_Btn.Tag = "9";
          this.Case9_Btn.Text = "پرونده های حل شده من";
-         this.Case9_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case9_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case10_Btn
          // 
          this.Case10_Btn.Name = "Case10_Btn";
          this.Case10_Btn.Tag = "10";
          this.Case10_Btn.Text = "پرونده های حل شده ی اعضا تیم من";
-         this.Case10_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case10_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case11_Btn
          // 
          this.Case11_Btn.Name = "Case11_Btn";
          this.Case11_Btn.Tag = "11";
          this.Case11_Btn.Text = "پرونده های فعال";
-         this.Case11_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case11_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case12_Btn
          // 
          this.Case12_Btn.Name = "Case12_Btn";
          this.Case12_Btn.Tag = "12";
          this.Case12_Btn.Text = "پرونده های فعال با وضعیت فرزند والد";
-         this.Case12_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case12_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case13_Btn
          // 
          this.Case13_Btn.Name = "Case13_Btn";
          this.Case13_Btn.Tag = "13";
          this.Case13_Btn.Text = "پرونده های فعال باز شده در 7 روز گذشته";
-         this.Case13_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case13_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // Case14_Btn
          // 
          this.Case14_Btn.Name = "Case14_Btn";
          this.Case14_Btn.Tag = "14";
          this.Case14_Btn.Text = "پرونده های فعال باز شده ی من در 7 روز گذشته";
-         this.Case14_Btn.Click += new System.EventHandler(this.LeadShows_Btn_Click);
+         this.Case14_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
+         // 
+         // Case15_Btn
+         // 
+         this.Case15_Btn.Name = "Case15_Btn";
+         this.Case15_Btn.Tag = "15";
+         this.Case15_Btn.Text = "پرونده های فعال من";
+         this.Case15_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
+         // 
+         // Case16_Btn
+         // 
+         this.Case16_Btn.Name = "Case16_Btn";
+         this.Case16_Btn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Case16_Btn.SmallImage")));
+         this.Case16_Btn.Tag = "16";
+         this.Case16_Btn.Text = "پرونده های فعال من با وضعیت فرزند والد";
+         this.Case16_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
+         // 
+         // Case17_Btn
+         // 
+         this.Case17_Btn.Name = "Case17_Btn";
+         this.Case17_Btn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Case17_Btn.SmallImage")));
+         this.Case17_Btn.Tag = "17";
+         this.Case17_Btn.Text = "تمام پرونده ها";
+         this.Case17_Btn.Click += new System.EventHandler(this.CaseShows_Btn_Click);
          // 
          // ribbonGroup2
          // 
@@ -484,7 +509,8 @@
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemLookUpEdit1,
             this.repositoryItemTimeEdit1,
-            this.repositoryItemLookUpEdit2});
+            this.repositoryItemLookUpEdit2,
+            this.repositoryItemLookUpEdit3});
          this.Lead_Gc.Size = new System.Drawing.Size(903, 336);
          this.Lead_Gc.TabIndex = 2;
          this.Lead_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -566,11 +592,15 @@
          this.repositoryItemLookUpEdit1.AutoHeight = false;
          this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit1.DataSource = this.DprioBs;
+         this.repositoryItemLookUpEdit1.DataSource = this.DsstgBs;
          this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
          this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
          this.repositoryItemLookUpEdit1.NullText = "---";
          this.repositoryItemLookUpEdit1.ValueMember = "VALU";
+         // 
+         // DsstgBs
+         // 
+         this.DsstgBs.DataSource = typeof(System.CRM.Data.D_SSTG);
          // 
          // colCRET_DATE
          // 
@@ -635,7 +665,7 @@
          // colPRIO_TYPE
          // 
          this.colPRIO_TYPE.Caption = "اولویت";
-         this.colPRIO_TYPE.ColumnEdit = this.repositoryItemLookUpEdit1;
+         this.colPRIO_TYPE.ColumnEdit = this.repositoryItemLookUpEdit3;
          this.colPRIO_TYPE.FieldName = "PRIO_TYPE";
          this.colPRIO_TYPE.Name = "colPRIO_TYPE";
          this.colPRIO_TYPE.Visible = true;
@@ -652,39 +682,6 @@
          this.colORGN_TYPE.VisibleIndex = 5;
          this.colORGN_TYPE.Width = 55;
          // 
-         // colCOMP_NAME
-         // 
-         this.colCOMP_NAME.Caption = "نام مشتری";
-         this.colCOMP_NAME.FieldName = "Company.NAME";
-         this.colCOMP_NAME.Name = "colCOMP_NAME";
-         this.colCOMP_NAME.Visible = true;
-         this.colCOMP_NAME.VisibleIndex = 4;
-         this.colCOMP_NAME.Width = 77;
-         // 
-         // Case15_Btn
-         // 
-         this.Case15_Btn.Name = "Case15_Btn";
-         this.Case15_Btn.Tag = "15";
-         this.Case15_Btn.Text = "پرونده های فعال من";
-         // 
-         // Case16_Btn
-         // 
-         this.Case16_Btn.Name = "Case16_Btn";
-         this.Case16_Btn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Case16_Btn.SmallImage")));
-         this.Case16_Btn.Tag = "16";
-         this.Case16_Btn.Text = "پرونده های فعال من با وضعیت فرزند والد";
-         // 
-         // Case17_Btn
-         // 
-         this.Case17_Btn.Name = "Case17_Btn";
-         this.Case17_Btn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Case17_Btn.SmallImage")));
-         this.Case17_Btn.Tag = "17";
-         this.Case17_Btn.Text = "تمام پرونده ها";
-         // 
-         // DsistBs
-         // 
-         this.DsistBs.DataSource = typeof(System.CRM.Data.D_SIST);
-         // 
          // repositoryItemLookUpEdit2
          // 
          this.repositoryItemLookUpEdit2.AutoHeight = false;
@@ -699,9 +696,29 @@
          this.repositoryItemLookUpEdit2.NullText = "---";
          this.repositoryItemLookUpEdit2.ValueMember = "VALU";
          // 
-         // DsstgBs
+         // DsistBs
          // 
-         this.DsstgBs.DataSource = typeof(System.CRM.Data.D_SSTG);
+         this.DsistBs.DataSource = typeof(System.CRM.Data.D_SIST);
+         // 
+         // colCOMP_NAME
+         // 
+         this.colCOMP_NAME.Caption = "نام مشتری";
+         this.colCOMP_NAME.FieldName = "Company.NAME";
+         this.colCOMP_NAME.Name = "colCOMP_NAME";
+         this.colCOMP_NAME.Visible = true;
+         this.colCOMP_NAME.VisibleIndex = 4;
+         this.colCOMP_NAME.Width = 77;
+         // 
+         // repositoryItemLookUpEdit3
+         // 
+         this.repositoryItemLookUpEdit3.AutoHeight = false;
+         this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit3.DataSource = this.DprioBs;
+         this.repositoryItemLookUpEdit3.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
+         this.repositoryItemLookUpEdit3.NullText = "---";
+         this.repositoryItemLookUpEdit3.ValueMember = "VALU";
          // 
          // SHW_CASE_F
          // 
@@ -719,12 +736,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Case_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DsistBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DsstgBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DsistBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -801,5 +819,6 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
       private Windows.Forms.BindingSource DsistBs;
       private Windows.Forms.BindingSource DsstgBs;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
    }
 }

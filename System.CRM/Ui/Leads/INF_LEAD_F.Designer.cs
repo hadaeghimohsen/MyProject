@@ -625,7 +625,7 @@
          this.LeadBn.Name = "LeadBn";
          this.LeadBn.PositionItem = null;
          this.LeadBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.LeadBn.Size = new System.Drawing.Size(1068, 47);
+         this.LeadBn.Size = new System.Drawing.Size(1051, 47);
          this.LeadBn.TabIndex = 2;
          this.LeadBn.Text = "bindingNavigator1";
          // 
@@ -824,7 +824,7 @@
          this.RqstBnDefaultPrint1.Image = global::System.CRM.Properties.Resources.IMAGE_1059;
          this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
          this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(227, 46);
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(203, 22);
          this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
          this.RqstBnDefaultPrint1.ToolTipText = "چاپ پیش فرض";
          // 
@@ -834,20 +834,20 @@
          this.RqstBnPrint1.Name = "RqstBnPrint1";
          this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-         this.RqstBnPrint1.Size = new System.Drawing.Size(227, 46);
+         this.RqstBnPrint1.Size = new System.Drawing.Size(203, 22);
          this.RqstBnPrint1.Text = "انتخاب چاپ";
          this.RqstBnPrint1.ToolTipText = "انتخاب چاپ";
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
          // 
          // RqstBnSettingPrint1
          // 
          this.RqstBnSettingPrint1.Image = global::System.CRM.Properties.Resources.IMAGE_1091;
          this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
-         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(227, 46);
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(203, 22);
          this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
          this.RqstBnSettingPrint1.ToolTipText = "تنظیمات چاپ";
          // 
@@ -1034,7 +1034,7 @@
          this.Trgt_Tc.Name = "Trgt_Tc";
          this.Trgt_Tc.PaintStyleName = "PropertyView";
          this.Trgt_Tc.SelectedTabPage = this.Close_Tp;
-         this.Trgt_Tc.Size = new System.Drawing.Size(1058, 136);
+         this.Trgt_Tc.Size = new System.Drawing.Size(1041, 136);
          this.Trgt_Tc.TabIndex = 62;
          this.Trgt_Tc.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Propose_Tp,
@@ -1069,7 +1069,7 @@
          this.Close_Tp.Controls.Add(this.Rqid_Txt);
          this.Close_Tp.Controls.Add(this.labelControl36);
          this.Close_Tp.Name = "Close_Tp";
-         this.Close_Tp.Size = new System.Drawing.Size(1058, 115);
+         this.Close_Tp.Size = new System.Drawing.Size(1041, 115);
          this.Close_Tp.Text = "اطلاعات درخواست";
          // 
          // RqstMsttColor_Butn
@@ -1102,7 +1102,7 @@
          this.dateTimeSelector2.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs, "MDFY_DATE", true));
          this.dateTimeSelector2.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector2.Location = new System.Drawing.Point(236, 46);
+         this.dateTimeSelector2.Location = new System.Drawing.Point(219, 46);
          this.dateTimeSelector2.Name = "dateTimeSelector2";
          this.dateTimeSelector2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector2.Size = new System.Drawing.Size(100, 23);
@@ -1115,7 +1115,7 @@
          this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs, "CRET_DATE", true));
          this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(445, 45);
+         this.dateTimeSelector1.Location = new System.Drawing.Point(428, 45);
          this.dateTimeSelector1.Name = "dateTimeSelector1";
          this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector1.Size = new System.Drawing.Size(108, 23);
@@ -1128,7 +1128,7 @@
          this.SaveDate_Dt.CustomFormat = "dd/MM/yyyy";
          this.SaveDate_Dt.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs, "SAVE_DATE", true));
          this.SaveDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.SaveDate_Dt.Location = new System.Drawing.Point(640, 16);
+         this.SaveDate_Dt.Location = new System.Drawing.Point(623, 16);
          this.SaveDate_Dt.Name = "SaveDate_Dt";
          this.SaveDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.SaveDate_Dt.Size = new System.Drawing.Size(108, 23);
@@ -1147,7 +1147,7 @@
          this.labelControl43.LineColor = System.Drawing.Color.Blue;
          this.labelControl43.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl43.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl43.Location = new System.Drawing.Point(342, 43);
+         this.labelControl43.Location = new System.Drawing.Point(325, 43);
          this.labelControl43.Name = "labelControl43";
          this.labelControl43.Size = new System.Drawing.Size(96, 27);
          this.labelControl43.TabIndex = 56;
@@ -1165,7 +1165,7 @@
          this.labelControl38.LineColor = System.Drawing.Color.Blue;
          this.labelControl38.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl38.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl38.Location = new System.Drawing.Point(559, 43);
+         this.labelControl38.Location = new System.Drawing.Point(542, 43);
          this.labelControl38.Name = "labelControl38";
          this.labelControl38.Size = new System.Drawing.Size(66, 27);
          this.labelControl38.TabIndex = 56;
@@ -1183,7 +1183,7 @@
          this.labelControl34.LineColor = System.Drawing.Color.Blue;
          this.labelControl34.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl34.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl34.Location = new System.Drawing.Point(559, 78);
+         this.labelControl34.Location = new System.Drawing.Point(542, 78);
          this.labelControl34.Name = "labelControl34";
          this.labelControl34.Size = new System.Drawing.Size(66, 27);
          this.labelControl34.TabIndex = 56;
@@ -1201,7 +1201,7 @@
          this.labelControl35.LineColor = System.Drawing.Color.Blue;
          this.labelControl35.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl35.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl35.Location = new System.Drawing.Point(754, 13);
+         this.labelControl35.Location = new System.Drawing.Point(737, 13);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(66, 27);
          this.labelControl35.TabIndex = 56;
@@ -1219,7 +1219,7 @@
          this.labelControl33.LineColor = System.Drawing.Color.Blue;
          this.labelControl33.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl33.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl33.Location = new System.Drawing.Point(950, 44);
+         this.labelControl33.Location = new System.Drawing.Point(933, 44);
          this.labelControl33.Name = "labelControl33";
          this.labelControl33.Size = new System.Drawing.Size(86, 27);
          this.labelControl33.TabIndex = 56;
@@ -1229,7 +1229,7 @@
          // 
          this.SendThnkYou_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SendThnkYou_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LeadBs, "SEND_THNK_YOU", true));
-         this.SendThnkYou_Lov.Location = new System.Drawing.Point(445, 78);
+         this.SendThnkYou_Lov.Location = new System.Drawing.Point(428, 78);
          this.SendThnkYou_Lov.Name = "SendThnkYou_Lov";
          this.SendThnkYou_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.SendThnkYou_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1272,7 +1272,7 @@
          // 
          this.RqstStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqstStat_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "RQST_STAT", true));
-         this.RqstStat_Lov.Location = new System.Drawing.Point(831, 44);
+         this.RqstStat_Lov.Location = new System.Drawing.Point(814, 44);
          this.RqstStat_Lov.Name = "RqstStat_Lov";
          this.RqstStat_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.RqstStat_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1316,7 +1316,7 @@
          this.buttonEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "MDFY_BY", true));
          this.buttonEdit2.EditValue = "";
-         this.buttonEdit2.Location = new System.Drawing.Point(236, 10);
+         this.buttonEdit2.Location = new System.Drawing.Point(219, 10);
          this.buttonEdit2.Name = "buttonEdit2";
          this.buttonEdit2.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit2.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1345,7 +1345,7 @@
          this.labelControl42.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl42.Location = new System.Drawing.Point(342, 11);
+         this.labelControl42.Location = new System.Drawing.Point(325, 11);
          this.labelControl42.Name = "labelControl42";
          this.labelControl42.Size = new System.Drawing.Size(96, 27);
          this.labelControl42.TabIndex = 64;
@@ -1356,7 +1356,7 @@
          this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "CRET_BY", true));
          this.buttonEdit1.EditValue = "";
-         this.buttonEdit1.Location = new System.Drawing.Point(445, 10);
+         this.buttonEdit1.Location = new System.Drawing.Point(428, 10);
          this.buttonEdit1.Name = "buttonEdit1";
          this.buttonEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.buttonEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1385,7 +1385,7 @@
          this.labelControl25.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl25.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl25.Location = new System.Drawing.Point(559, 11);
+         this.labelControl25.Location = new System.Drawing.Point(542, 11);
          this.labelControl25.Name = "labelControl25";
          this.labelControl25.Size = new System.Drawing.Size(79, 27);
          this.labelControl25.TabIndex = 64;
@@ -1396,11 +1396,11 @@
          this.LeadId_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LeadId_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LeadBs, "LDID", true));
          this.LeadId_Txt.EditValue = "";
-         this.LeadId_Txt.Location = new System.Drawing.Point(640, 44);
+         this.LeadId_Txt.Location = new System.Drawing.Point(623, 44);
          this.LeadId_Txt.Name = "LeadId_Txt";
          this.LeadId_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.LeadId_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.LeadId_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LeadId_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LeadId_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.LeadId_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.LeadId_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1422,11 +1422,11 @@
          this.CompCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CompCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "CODE", true));
          this.CompCode_Txt.EditValue = "";
-         this.CompCode_Txt.Location = new System.Drawing.Point(640, 78);
+         this.CompCode_Txt.Location = new System.Drawing.Point(623, 78);
          this.CompCode_Txt.Name = "CompCode_Txt";
          this.CompCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.CompCode_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.CompCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CompCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CompCode_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.CompCode_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.CompCode_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1456,7 +1456,7 @@
          this.labelControl49.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl49.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl49.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl49.Location = new System.Drawing.Point(754, 45);
+         this.labelControl49.Location = new System.Drawing.Point(737, 45);
          this.labelControl49.Name = "labelControl49";
          this.labelControl49.Size = new System.Drawing.Size(66, 27);
          this.labelControl49.TabIndex = 64;
@@ -1467,11 +1467,11 @@
          this.FileNo_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FileNo_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs, "SERV_FILE_NO", true));
          this.FileNo_Txt.EditValue = "";
-         this.FileNo_Txt.Location = new System.Drawing.Point(831, 78);
+         this.FileNo_Txt.Location = new System.Drawing.Point(814, 78);
          this.FileNo_Txt.Name = "FileNo_Txt";
          this.FileNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.FileNo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.FileNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FileNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.FileNo_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.FileNo_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.FileNo_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1503,7 +1503,7 @@
          this.labelControl48.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl48.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl48.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl48.Location = new System.Drawing.Point(754, 79);
+         this.labelControl48.Location = new System.Drawing.Point(737, 79);
          this.labelControl48.Name = "labelControl48";
          this.labelControl48.Size = new System.Drawing.Size(66, 27);
          this.labelControl48.TabIndex = 64;
@@ -1518,7 +1518,7 @@
          this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl4.Location = new System.Drawing.Point(950, 79);
+         this.labelControl4.Location = new System.Drawing.Point(933, 79);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(87, 27);
          this.labelControl4.TabIndex = 64;
@@ -1529,11 +1529,11 @@
          this.Rqid_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Rqid_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs, "RQID", true));
          this.Rqid_Txt.EditValue = "";
-         this.Rqid_Txt.Location = new System.Drawing.Point(831, 10);
+         this.Rqid_Txt.Location = new System.Drawing.Point(814, 10);
          this.Rqid_Txt.Name = "Rqid_Txt";
          this.Rqid_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Rqid_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Rqid_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqid_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Rqid_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.Rqid_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.Rqid_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1559,7 +1559,7 @@
          this.labelControl36.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl36.Location = new System.Drawing.Point(950, 11);
+         this.labelControl36.Location = new System.Drawing.Point(933, 11);
          this.labelControl36.Name = "labelControl36";
          this.labelControl36.Size = new System.Drawing.Size(87, 27);
          this.labelControl36.TabIndex = 64;
@@ -2253,7 +2253,7 @@
          this.Topc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Topc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LeadBs, "TOPC", true));
          this.Topc_Txt.EditValue = "";
-         this.Topc_Txt.Location = new System.Drawing.Point(734, 235);
+         this.Topc_Txt.Location = new System.Drawing.Point(717, 235);
          this.Topc_Txt.Name = "Topc_Txt";
          this.Topc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Topc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2285,7 +2285,7 @@
          this.labelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(972, 236);
+         this.labelControl39.Location = new System.Drawing.Point(955, 236);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(62, 27);
          this.labelControl39.TabIndex = 64;
@@ -2300,7 +2300,7 @@
          this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(972, 270);
+         this.labelControl2.Location = new System.Drawing.Point(955, 270);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(62, 27);
          this.labelControl2.TabIndex = 64;
@@ -2311,7 +2311,7 @@
          this.FrstName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs, "FRST_NAME", true));
          this.FrstName_Txt.EditValue = "";
-         this.FrstName_Txt.Location = new System.Drawing.Point(734, 269);
+         this.FrstName_Txt.Location = new System.Drawing.Point(717, 269);
          this.FrstName_Txt.Name = "FrstName_Txt";
          this.FrstName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.FrstName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2343,7 +2343,7 @@
          this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(972, 304);
+         this.labelControl3.Location = new System.Drawing.Point(955, 304);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(62, 27);
          this.labelControl3.TabIndex = 64;
@@ -2354,7 +2354,7 @@
          this.LastName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs, "LAST_NAME", true));
          this.LastName_Txt.EditValue = "";
-         this.LastName_Txt.Location = new System.Drawing.Point(734, 303);
+         this.LastName_Txt.Location = new System.Drawing.Point(717, 303);
          this.LastName_Txt.Name = "LastName_Txt";
          this.LastName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.LastName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2386,7 +2386,7 @@
          this.labelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(973, 372);
+         this.labelControl14.Location = new System.Drawing.Point(956, 372);
          this.labelControl14.Name = "labelControl14";
          this.labelControl14.Size = new System.Drawing.Size(85, 27);
          this.labelControl14.TabIndex = 67;
@@ -2400,7 +2400,7 @@
          this.labelControl37.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl37.Location = new System.Drawing.Point(973, 338);
+         this.labelControl37.Location = new System.Drawing.Point(956, 338);
          this.labelControl37.Name = "labelControl37";
          this.labelControl37.Size = new System.Drawing.Size(64, 27);
          this.labelControl37.TabIndex = 68;
@@ -2414,7 +2414,7 @@
          this.labelControl40.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl40.Location = new System.Drawing.Point(972, 404);
+         this.labelControl40.Location = new System.Drawing.Point(955, 404);
          this.labelControl40.Name = "labelControl40";
          this.labelControl40.Size = new System.Drawing.Size(67, 27);
          this.labelControl40.TabIndex = 71;
@@ -2425,7 +2425,7 @@
          this.CellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs, "CELL_PHON", true));
          this.CellPhon_Txt.EditValue = "";
-         this.CellPhon_Txt.Location = new System.Drawing.Point(734, 371);
+         this.CellPhon_Txt.Location = new System.Drawing.Point(717, 371);
          this.CellPhon_Txt.Name = "CellPhon_Txt";
          this.CellPhon_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.CellPhon_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2453,7 +2453,7 @@
          this.TellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs, "TELL_PHON", true));
          this.TellPhon_Txt.EditValue = "";
-         this.TellPhon_Txt.Location = new System.Drawing.Point(734, 337);
+         this.TellPhon_Txt.Location = new System.Drawing.Point(717, 337);
          this.TellPhon_Txt.Name = "TellPhon_Txt";
          this.TellPhon_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.TellPhon_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2481,7 +2481,7 @@
          this.EmalAdrs_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EmalAdrs_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SrpbBs, "EMAL_ADRS", true));
          this.EmalAdrs_Txt.EditValue = "";
-         this.EmalAdrs_Txt.Location = new System.Drawing.Point(734, 405);
+         this.EmalAdrs_Txt.Location = new System.Drawing.Point(717, 405);
          this.EmalAdrs_Txt.Name = "EmalAdrs_Txt";
          this.EmalAdrs_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.EmalAdrs_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2513,7 +2513,7 @@
          this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(962, 202);
+         this.labelControl5.Location = new System.Drawing.Point(945, 202);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(66, 27);
          this.labelControl5.TabIndex = 57;
@@ -2526,7 +2526,7 @@
          this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(950, 450);
+         this.labelControl6.Location = new System.Drawing.Point(933, 450);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(66, 27);
          this.labelControl6.TabIndex = 57;
@@ -2537,7 +2537,7 @@
          this.Regn_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Regn_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "REGN_CODE", true));
          this.Regn_Lov.EditValue = "";
-         this.Regn_Lov.Location = new System.Drawing.Point(734, 650);
+         this.Regn_Lov.Location = new System.Drawing.Point(717, 650);
          this.Regn_Lov.Name = "Regn_Lov";
          this.Regn_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Regn_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2590,7 +2590,7 @@
          this.Prvn_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Prvn_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "REGN_PRVN_CODE", true));
          this.Prvn_Lov.EditValue = "";
-         this.Prvn_Lov.Location = new System.Drawing.Point(849, 650);
+         this.Prvn_Lov.Location = new System.Drawing.Point(832, 650);
          this.Prvn_Lov.Name = "Prvn_Lov";
          this.Prvn_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Prvn_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2641,7 +2641,7 @@
          this.Cnty_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cnty_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "REGN_PRVN_CNTY_CODE", true));
          this.Cnty_Lov.EditValue = "";
-         this.Cnty_Lov.Location = new System.Drawing.Point(734, 616);
+         this.Cnty_Lov.Location = new System.Drawing.Point(717, 616);
          this.Cnty_Lov.Name = "Cnty_Lov";
          this.Cnty_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Cnty_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2695,7 +2695,7 @@
          this.labelControl71.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl71.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl71.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl71.Location = new System.Drawing.Point(973, 619);
+         this.labelControl71.Location = new System.Drawing.Point(956, 619);
          this.labelControl71.Name = "labelControl71";
          this.labelControl71.Size = new System.Drawing.Size(61, 59);
          this.labelControl71.TabIndex = 72;
@@ -2709,7 +2709,7 @@
          this.labelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(973, 549);
+         this.labelControl7.Location = new System.Drawing.Point(956, 549);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(61, 27);
          this.labelControl7.TabIndex = 73;
@@ -2720,7 +2720,7 @@
          this.PostAdrs_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PostAdrs_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "POST_ADRS", true));
          this.PostAdrs_Txt.EditValue = "";
-         this.PostAdrs_Txt.Location = new System.Drawing.Point(734, 549);
+         this.PostAdrs_Txt.Location = new System.Drawing.Point(717, 549);
          this.PostAdrs_Txt.Name = "PostAdrs_Txt";
          this.PostAdrs_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.PostAdrs_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2749,7 +2749,7 @@
          this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl8.Location = new System.Drawing.Point(972, 484);
+         this.labelControl8.Location = new System.Drawing.Point(955, 484);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(62, 27);
          this.labelControl8.TabIndex = 64;
@@ -2760,7 +2760,7 @@
          this.Name_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Name_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "NAME", true));
          this.Name_Txt.EditValue = "";
-         this.Name_Txt.Location = new System.Drawing.Point(734, 483);
+         this.Name_Txt.Location = new System.Drawing.Point(717, 483);
          this.Name_Txt.Name = "Name_Txt";
          this.Name_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Name_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2791,7 +2791,7 @@
          this.labelControl41.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl41.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl41.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl41.Location = new System.Drawing.Point(973, 517);
+         this.labelControl41.Location = new System.Drawing.Point(956, 517);
          this.labelControl41.Name = "labelControl41";
          this.labelControl41.Size = new System.Drawing.Size(64, 27);
          this.labelControl41.TabIndex = 79;
@@ -2802,7 +2802,7 @@
          this.WebSite_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.WebSite_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "WEB_SITE", true));
          this.WebSite_Txt.EditValue = "";
-         this.WebSite_Txt.Location = new System.Drawing.Point(734, 517);
+         this.WebSite_Txt.Location = new System.Drawing.Point(717, 517);
          this.WebSite_Txt.Name = "WebSite_Txt";
          this.WebSite_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.WebSite_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2841,7 +2841,7 @@
          this.BillCord_Butn.ImageProfile = global::System.CRM.Properties.Resources.IMAGE_1564;
          this.BillCord_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.BillCord_Butn.ImageVisiable = true;
-         this.BillCord_Butn.Location = new System.Drawing.Point(936, 684);
+         this.BillCord_Butn.Location = new System.Drawing.Point(919, 684);
          this.BillCord_Butn.Name = "BillCord_Butn";
          this.BillCord_Butn.NormalBorderColor = System.Drawing.Color.LightGray;
          this.BillCord_Butn.NormalColorA = System.Drawing.Color.White;
@@ -2859,7 +2859,7 @@
          this.labelControl47.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl47.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl47.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl47.Location = new System.Drawing.Point(973, 686);
+         this.labelControl47.Location = new System.Drawing.Point(956, 686);
          this.labelControl47.Name = "labelControl47";
          this.labelControl47.Size = new System.Drawing.Size(61, 27);
          this.labelControl47.TabIndex = 80;
@@ -2870,7 +2870,7 @@
          this.CompDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CompDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "COMP_DESC", true));
          this.CompDesc_Txt.EditValue = "";
-         this.CompDesc_Txt.Location = new System.Drawing.Point(734, 944);
+         this.CompDesc_Txt.Location = new System.Drawing.Point(717, 944);
          this.CompDesc_Txt.Name = "CompDesc_Txt";
          this.CompDesc_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.CompDesc_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2895,7 +2895,7 @@
          this.TrcbTcid_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TrcbTcid_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "TRCB_TCID", true));
          this.TrcbTcid_Lov.EditValue = "";
-         this.TrcbTcid_Lov.Location = new System.Drawing.Point(734, 875);
+         this.TrcbTcid_Lov.Location = new System.Drawing.Point(717, 875);
          this.TrcbTcid_Lov.Name = "TrcbTcid_Lov";
          this.TrcbTcid_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.TrcbTcid_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -2981,7 +2981,7 @@
          this.labelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl9.Location = new System.Drawing.Point(988, 912);
+         this.labelControl9.Location = new System.Drawing.Point(971, 912);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(78, 27);
          this.labelControl9.TabIndex = 82;
@@ -2995,7 +2995,7 @@
          this.labelControl46.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl46.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl46.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl46.Location = new System.Drawing.Point(988, 945);
+         this.labelControl46.Location = new System.Drawing.Point(971, 945);
          this.labelControl46.Name = "labelControl46";
          this.labelControl46.Size = new System.Drawing.Size(71, 27);
          this.labelControl46.TabIndex = 83;
@@ -3009,7 +3009,7 @@
          this.labelControl13.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl13.Location = new System.Drawing.Point(988, 842);
+         this.labelControl13.Location = new System.Drawing.Point(971, 842);
          this.labelControl13.Name = "labelControl13";
          this.labelControl13.Size = new System.Drawing.Size(78, 27);
          this.labelControl13.TabIndex = 84;
@@ -3023,7 +3023,7 @@
          this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(988, 876);
+         this.labelControl20.Location = new System.Drawing.Point(971, 876);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(80, 27);
          this.labelControl20.TabIndex = 85;
@@ -3037,7 +3037,7 @@
          this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(988, 810);
+         this.labelControl12.Location = new System.Drawing.Point(971, 810);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(78, 27);
          this.labelControl12.TabIndex = 86;
@@ -3051,7 +3051,7 @@
          this.labelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(988, 774);
+         this.labelControl15.Location = new System.Drawing.Point(971, 774);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(78, 27);
          this.labelControl15.TabIndex = 87;
@@ -3062,7 +3062,7 @@
          this.EconCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EconCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ECON_CODE", true));
          this.EconCode_Txt.EditValue = "";
-         this.EconCode_Txt.Location = new System.Drawing.Point(734, 909);
+         this.EconCode_Txt.Location = new System.Drawing.Point(717, 909);
          this.EconCode_Txt.Name = "EconCode_Txt";
          this.EconCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.EconCode_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3090,7 +3090,7 @@
          this.IsicGrop_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IsicGrop_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ISCP_ISCA_ISCG_CODE", true));
          this.IsicGrop_Lov.EditValue = "";
-         this.IsicGrop_Lov.Location = new System.Drawing.Point(734, 773);
+         this.IsicGrop_Lov.Location = new System.Drawing.Point(717, 773);
          this.IsicGrop_Lov.Name = "IsicGrop_Lov";
          this.IsicGrop_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.IsicGrop_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3155,7 +3155,7 @@
          this.IsicActv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IsicActv_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ISCP_ISCA_CODE", true));
          this.IsicActv_Lov.EditValue = "";
-         this.IsicActv_Lov.Location = new System.Drawing.Point(734, 807);
+         this.IsicActv_Lov.Location = new System.Drawing.Point(717, 807);
          this.IsicActv_Lov.Name = "IsicActv_Lov";
          this.IsicActv_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.IsicActv_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3220,7 +3220,7 @@
          this.IsicProd_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IsicProd_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ISCP_CODE", true));
          this.IsicProd_Lov.EditValue = "";
-         this.IsicProd_Lov.Location = new System.Drawing.Point(734, 841);
+         this.IsicProd_Lov.Location = new System.Drawing.Point(717, 841);
          this.IsicProd_Lov.Name = "IsicProd_Lov";
          this.IsicProd_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.IsicProd_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3287,7 +3287,7 @@
          this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl16.Location = new System.Drawing.Point(974, 738);
+         this.labelControl16.Location = new System.Drawing.Point(957, 738);
          this.labelControl16.Name = "labelControl16";
          this.labelControl16.Size = new System.Drawing.Size(84, 27);
          this.labelControl16.TabIndex = 65;
@@ -3300,7 +3300,7 @@
          this.labelControl17.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(620, 738);
+         this.labelControl17.Location = new System.Drawing.Point(603, 738);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(98, 27);
          this.labelControl17.TabIndex = 57;
@@ -3313,7 +3313,7 @@
          this.labelControl18.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl18.Location = new System.Drawing.Point(578, 774);
+         this.labelControl18.Location = new System.Drawing.Point(561, 774);
          this.labelControl18.Name = "labelControl18";
          this.labelControl18.Size = new System.Drawing.Size(125, 27);
          this.labelControl18.TabIndex = 85;
@@ -3324,7 +3324,7 @@
          this.Camp_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Camp_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LeadBs, "CAMP_CMID", true));
          this.Camp_Lov.EditValue = "";
-         this.Camp_Lov.Location = new System.Drawing.Point(218, 773);
+         this.Camp_Lov.Location = new System.Drawing.Point(201, 773);
          this.Camp_Lov.Name = "Camp_Lov";
          this.Camp_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Camp_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3379,7 +3379,7 @@
          // 
          this.SendCampInfo_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SendCampInfo_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LeadBs, "SEND_CAMP_INFO", true));
-         this.SendCampInfo_Lov.Location = new System.Drawing.Point(420, 807);
+         this.SendCampInfo_Lov.Location = new System.Drawing.Point(403, 807);
          this.SendCampInfo_Lov.Name = "SendCampInfo_Lov";
          this.SendCampInfo_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.SendCampInfo_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3426,7 +3426,7 @@
          this.labelControl19.LineColor = System.Drawing.Color.Blue;
          this.labelControl19.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
          this.labelControl19.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl19.Location = new System.Drawing.Point(578, 808);
+         this.labelControl19.Location = new System.Drawing.Point(561, 808);
          this.labelControl19.Name = "labelControl19";
          this.labelControl19.Size = new System.Drawing.Size(140, 27);
          this.labelControl19.TabIndex = 54;
@@ -3436,7 +3436,7 @@
          // 
          this.AlowLett_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AlowLett_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ALOW_LETT", true));
-         this.AlowLett_Lov.Location = new System.Drawing.Point(420, 1044);
+         this.AlowLett_Lov.Location = new System.Drawing.Point(403, 1044);
          this.AlowLett_Lov.Name = "AlowLett_Lov";
          this.AlowLett_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AlowLett_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3475,7 +3475,7 @@
          // 
          this.AlowFax_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AlowFax_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ALOW_FAX", true));
-         this.AlowFax_Lov.Location = new System.Drawing.Point(420, 1010);
+         this.AlowFax_Lov.Location = new System.Drawing.Point(403, 1010);
          this.AlowFax_Lov.Name = "AlowFax_Lov";
          this.AlowFax_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AlowFax_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3514,7 +3514,7 @@
          // 
          this.AlowPhon_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AlowPhon_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ALOW_PHON", true));
-         this.AlowPhon_Lov.Location = new System.Drawing.Point(420, 976);
+         this.AlowPhon_Lov.Location = new System.Drawing.Point(403, 976);
          this.AlowPhon_Lov.Name = "AlowPhon_Lov";
          this.AlowPhon_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AlowPhon_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3553,7 +3553,7 @@
          // 
          this.AlowBulkEmal_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AlowBulkEmal_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ALOW_BULK_EMAL", true));
-         this.AlowBulkEmal_Lov.Location = new System.Drawing.Point(420, 942);
+         this.AlowBulkEmal_Lov.Location = new System.Drawing.Point(403, 942);
          this.AlowBulkEmal_Lov.Name = "AlowBulkEmal_Lov";
          this.AlowBulkEmal_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AlowBulkEmal_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3592,7 +3592,7 @@
          // 
          this.AlowEmal_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AlowEmal_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "ALOW_EMAL", true));
-         this.AlowEmal_Lov.Location = new System.Drawing.Point(420, 908);
+         this.AlowEmal_Lov.Location = new System.Drawing.Point(403, 908);
          this.AlowEmal_Lov.Name = "AlowEmal_Lov";
          this.AlowEmal_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AlowEmal_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3631,7 +3631,7 @@
          // 
          this.ContMtod_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ContMtod_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CompBs, "CONT_MTOD", true));
-         this.ContMtod_Lov.Location = new System.Drawing.Point(420, 875);
+         this.ContMtod_Lov.Location = new System.Drawing.Point(403, 875);
          this.ContMtod_Lov.Name = "ContMtod_Lov";
          this.ContMtod_Lov.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ContMtod_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3677,7 +3677,7 @@
          this.labelControl55.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
          this.labelControl55.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl55.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl55.Location = new System.Drawing.Point(611, 844);
+         this.labelControl55.Location = new System.Drawing.Point(594, 844);
          this.labelControl55.Name = "labelControl55";
          this.labelControl55.Size = new System.Drawing.Size(107, 27);
          this.labelControl55.TabIndex = 94;
@@ -3691,7 +3691,7 @@
          this.labelControl64.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl64.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl64.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl64.Location = new System.Drawing.Point(580, 1045);
+         this.labelControl64.Location = new System.Drawing.Point(563, 1045);
          this.labelControl64.Name = "labelControl64";
          this.labelControl64.Size = new System.Drawing.Size(117, 27);
          this.labelControl64.TabIndex = 95;
@@ -3705,7 +3705,7 @@
          this.labelControl63.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl63.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl63.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl63.Location = new System.Drawing.Point(580, 1011);
+         this.labelControl63.Location = new System.Drawing.Point(563, 1011);
          this.labelControl63.Name = "labelControl63";
          this.labelControl63.Size = new System.Drawing.Size(117, 27);
          this.labelControl63.TabIndex = 96;
@@ -3719,7 +3719,7 @@
          this.labelControl62.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl62.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl62.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl62.Location = new System.Drawing.Point(580, 977);
+         this.labelControl62.Location = new System.Drawing.Point(563, 977);
          this.labelControl62.Name = "labelControl62";
          this.labelControl62.Size = new System.Drawing.Size(117, 27);
          this.labelControl62.TabIndex = 97;
@@ -3733,7 +3733,7 @@
          this.labelControl61.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl61.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl61.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl61.Location = new System.Drawing.Point(580, 942);
+         this.labelControl61.Location = new System.Drawing.Point(563, 942);
          this.labelControl61.Name = "labelControl61";
          this.labelControl61.Size = new System.Drawing.Size(117, 27);
          this.labelControl61.TabIndex = 98;
@@ -3747,7 +3747,7 @@
          this.labelControl60.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl60.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl60.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl60.Location = new System.Drawing.Point(580, 909);
+         this.labelControl60.Location = new System.Drawing.Point(563, 909);
          this.labelControl60.Name = "labelControl60";
          this.labelControl60.Size = new System.Drawing.Size(117, 27);
          this.labelControl60.TabIndex = 99;
@@ -3761,7 +3761,7 @@
          this.labelControl59.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl59.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl59.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl59.Location = new System.Drawing.Point(580, 876);
+         this.labelControl59.Location = new System.Drawing.Point(563, 876);
          this.labelControl59.Name = "labelControl59";
          this.labelControl59.Size = new System.Drawing.Size(117, 27);
          this.labelControl59.TabIndex = 100;
@@ -3788,7 +3788,7 @@
          this.xtraTabControl4.Name = "xtraTabControl4";
          this.xtraTabControl4.PaintStyleName = "PropertyView";
          this.xtraTabControl4.SelectedTabPage = this.xtraTabPage4;
-         this.xtraTabControl4.Size = new System.Drawing.Size(419, 496);
+         this.xtraTabControl4.Size = new System.Drawing.Size(402, 496);
          this.xtraTabControl4.TabIndex = 107;
          this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -3804,7 +3804,7 @@
          this.xtraTabPage4.Controls.Add(this.panel1);
          this.xtraTabPage4.Name = "xtraTabPage4";
          this.xtraTabPage4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.xtraTabPage4.Size = new System.Drawing.Size(419, 475);
+         this.xtraTabPage4.Size = new System.Drawing.Size(402, 475);
          this.xtraTabPage4.Text = "فعالیت ها";
          // 
          // gridControl1
@@ -3818,7 +3818,7 @@
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSearchLookUpEdit1});
-         this.gridControl1.Size = new System.Drawing.Size(419, 444);
+         this.gridControl1.Size = new System.Drawing.Size(402, 444);
          this.gridControl1.TabIndex = 59;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView12});
@@ -3942,7 +3942,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(419, 31);
+         this.panel1.Size = new System.Drawing.Size(402, 31);
          this.panel1.TabIndex = 55;
          // 
          // c1Button15
@@ -4030,7 +4030,7 @@
          this.xtraTabPage1.Controls.Add(this.gridControl3);
          this.xtraTabPage1.Controls.Add(this.panel3);
          this.xtraTabPage1.Name = "xtraTabPage1";
-         this.xtraTabPage1.Size = new System.Drawing.Size(436, 475);
+         this.xtraTabPage1.Size = new System.Drawing.Size(419, 475);
          this.xtraTabPage1.Text = "پست ها";
          // 
          // gridControl3
@@ -4044,7 +4044,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2,
             this.repositoryItemSearchLookUpEdit3});
-         this.gridControl3.Size = new System.Drawing.Size(436, 444);
+         this.gridControl3.Size = new System.Drawing.Size(419, 444);
          this.gridControl3.TabIndex = 61;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -4168,7 +4168,7 @@
          this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel3.Location = new System.Drawing.Point(0, 0);
          this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(436, 31);
+         this.panel3.Size = new System.Drawing.Size(419, 31);
          this.panel3.TabIndex = 60;
          // 
          // c1Button1
@@ -4256,7 +4256,7 @@
          this.xtraTabPage5.Controls.Add(this.gridControl2);
          this.xtraTabPage5.Controls.Add(this.panel2);
          this.xtraTabPage5.Name = "xtraTabPage5";
-         this.xtraTabPage5.Size = new System.Drawing.Size(436, 475);
+         this.xtraTabPage5.Size = new System.Drawing.Size(419, 475);
          this.xtraTabPage5.Text = "یادداشت";
          // 
          // gridControl2
@@ -4271,7 +4271,7 @@
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemTimeEdit1});
-         this.gridControl2.Size = new System.Drawing.Size(436, 444);
+         this.gridControl2.Size = new System.Drawing.Size(419, 444);
          this.gridControl2.TabIndex = 59;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Note_Gv});
@@ -4392,7 +4392,7 @@
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(0, 0);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(436, 31);
+         this.panel2.Size = new System.Drawing.Size(419, 31);
          this.panel2.TabIndex = 60;
          // 
          // HelpNote_Butn
@@ -5427,7 +5427,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "INF_LEAD_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1068, 820);
+         this.Size = new System.Drawing.Size(1051, 820);
          ((System.ComponentModel.ISupportInitialize)(this.LeadBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs)).EndInit();

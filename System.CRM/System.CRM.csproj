@@ -487,6 +487,15 @@
     <Compile Include="Ui\Cases\INF_CASE_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Cases\RSL_CASE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Cases\RSL_CASE_F.Designer.cs">
+      <DependentUpon>RSL_CASE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Cases\RSL_CASE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Cases\SHW_CASE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2465,6 +2474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Cases\INF_CASE_F.resx">
       <DependentUpon>INF_CASE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Cases\RSL_CASE_F.resx">
+      <DependentUpon>RSL_CASE_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Cases\SHW_CASE_F.resx">
       <DependentUpon>SHW_CASE_F.cs</DependentUpon>

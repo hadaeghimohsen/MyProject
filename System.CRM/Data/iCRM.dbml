@@ -2017,7 +2017,7 @@
       <Association Name="App_Base_Define_Job_Personnel_Relation" Member="Job_Personnel_Relations" ThisKey="CODE" OtherKey="APBS_CODE" Type="Job_Personnel_Relation" />
       <Association Name="App_Base_Define_Job_Personnel" Member="Job_Personnels" ThisKey="CODE" OtherKey="INIT_FORM_LOAD" Type="Job_Personnel" />
       <Association Name="App_Base_Define_Job_Personnel1" Member="Job_Personnels1" ThisKey="CODE" OtherKey="INIT_SECT_LOAD" Type="Job_Personnel" />
-      <Association Name="App_Base_Define_Case" Member="Cases" ThisKey="CODE" OtherKey="APBS_CODE" Type="Case" />
+      <Association Name="App_Base_Define_Case" Member="Cases" ThisKey="CODE" OtherKey="SUBJ_APBS_CODE" Type="Case" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId50">
@@ -3826,45 +3826,6 @@
       <Association Name="Transaction_Currency_Base_Lead" Member="Transaction_Currency_Base" ThisKey="TRCB_TCID" OtherKey="TCID" Type="Transaction_Currency_Base" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.[Case]" Member="Cases">
-    <Type Name="Case">
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SRPB_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SRPB_RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SRPB_RECT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TITL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORGN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRIO_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRNT_CASE_CSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ESCL_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ESCL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FLOW_UP_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SENT_FRST_RESP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SERL_NUMB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SERV_LEVL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Case_Case" Member="Cases" ThisKey="CSID" OtherKey="PRNT_CASE_CSID" Type="Case" />
-      <Association Name="Case_Similar_Case" Member="Similar_Cases" ThisKey="CSID" OtherKey="FRST_CASE_CSID" Type="Similar_Case" />
-      <Association Name="Case_Similar_Case1" Member="Similar_Cases1" ThisKey="CSID" OtherKey="SCND_CASE_CSID" Type="Similar_Case" />
-      <Association Name="App_Base_Define_Case" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
-      <Association Name="Case_Case" Member="Case1" ThisKey="PRNT_CASE_CSID" OtherKey="CSID" Type="Case" IsForeignKey="true" />
-      <Association Name="Company_Case" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
-      <Association Name="Job_Personnel_Case" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
-      <Association Name="Request_Row_Case" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Service_Public_Case" Member="Service_Public" ThisKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Similar_Case" Member="Similar_Cases">
     <Type Name="Similar_Case">
       <Column Name="FRST_CASE_CSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -3882,6 +3843,48 @@
     <Type Name="D_LEVL">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Case]" Member="Cases">
+    <Type Name="Case">
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OWNR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRPB_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRPB_RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRPB_RECT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TITL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUBJ_APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORGN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRIO_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRNT_CASE_CSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ESCL_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ESCL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FLOW_UP_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SENT_FRST_RESP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERL_NUMB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERV_LEVL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RESP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_MIN_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RMRK_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Case_Similar_Case" Member="Similar_Cases" ThisKey="CSID" OtherKey="FRST_CASE_CSID" Type="Similar_Case" />
+      <Association Name="Case_Similar_Case1" Member="Similar_Cases1" ThisKey="CSID" OtherKey="SCND_CASE_CSID" Type="Similar_Case" />
+      <Association Name="Case_Case" Member="Cases" ThisKey="CSID" OtherKey="PRNT_CASE_CSID" Type="Case" />
+      <Association Name="App_Base_Define_Case" Member="App_Base_Define" ThisKey="SUBJ_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="Case_Case" Member="Case1" ThisKey="PRNT_CASE_CSID" OtherKey="CSID" Type="Case" IsForeignKey="true" />
+      <Association Name="Company_Case" Member="Company" ThisKey="COMP_CODE" OtherKey="CODE" Type="Company" IsForeignKey="true" />
+      <Association Name="Job_Personnel_Case" Member="Job_Personnel" ThisKey="OWNR_CODE" OtherKey="CODE" Type="Job_Personnel" IsForeignKey="true" />
+      <Association Name="Request_Row_Case" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
+      <Association Name="Service_Public_Case" Member="Service_Public" ThisKey="SRPB_SERV_FILE_NO,SRPB_RWNO,SRPB_RECT_CODE" OtherKey="SERV_FILE_NO,RWNO,RECT_CODE" Type="Service_Public" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.CNCL_RQST_P" Method="CNCL_RQST_P">
@@ -5679,6 +5682,10 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.OPR_CASE_P" Method="OPR_CASE_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CONF_CASE_P" Method="CONF_CASE_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -10,13 +11,15 @@ using System.Xml.Linq;
 
 namespace System.CRM.Ui.Cases
 {
-   partial class INF_CASE_F : ISendRequest
+   partial class RSL_CASE_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private long fileno, compcode, rqid;
+      private long csid;
+      private string conftype, formCaller;
+
       private XElement xinput;
 
       public void SendRequest(Job job)
@@ -198,38 +201,14 @@ namespace System.CRM.Ui.Cases
          {
             Invoke(
                new Action(() =>
-               {                  
-                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-
-                  DlevlBs.DataSource = iCRM.D_LEVLs;
-                  DsistBs.DataSource = iCRM.D_SISTs;
-                  DsstgBs.DataSource = iCRM.D_SSTGs;
-                  DrqstBs.DataSource = iCRM.D_RQSTs;
-                  DfinrBs.DataSource = iCRM.D_FINRs;
-                  DysnoBs.DataSource = iCRM.D_YSNOs;
-                  DprioBs.DataSource = iCRM.D_PRIOs;
-                  LstCompBs.DataSource = iCRM.Companies/*.Where(c => c.TYPE == "002")*/;
-                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-
-                  ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CASE");
+               {
+                  DsstgBs.DataSource = iCRM.D_SSTGs.Where(d => d.VALU == "013" || d.VALU == "014");
                })
             );
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-
-            DysnoBs.DataSource = iCRM.D_YSNOs;
-            DsistBs.DataSource = iCRM.D_SISTs;
-            DsstgBs.DataSource = iCRM.D_SSTGs;
-            DrqstBs.DataSource = iCRM.D_RQSTs;
-            DfinrBs.DataSource = iCRM.D_FINRs;
-            DlevlBs.DataSource = iCRM.D_LEVLs;
-            DprioBs.DataSource = iCRM.D_PRIOs;
-            LstCompBs.DataSource = iCRM.Companies/*.Where(c => c.TYPE == "002")*/;
-            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-
-            ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CASE");
+            DsstgBs.DataSource = iCRM.D_SSTGs.Where(d => d.VALU == "013" || d.VALU == "014");
          }
          
          job.Status = StatusType.Successful;
@@ -242,45 +221,17 @@ namespace System.CRM.Ui.Cases
       private void Actn_CalF_P(Job job)
       {
          xinput = job.Input as XElement;
-         if(xinput.Attribute("rqid") != null)
-            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
-         else
-            rqid = 0;
 
-         if (xinput.Attribute("formtype") != null)
-            formType = xinput.Attribute("formtype").Value;
+         if (xinput.Attribute("formcaller") != null)
+            formCaller = xinput.Attribute("formcaller").Value;
          else
-            formType = "normal";
+            formCaller = "";
 
-         if (xinput.Attribute("fileno") != null)
-            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-         else
-            fileno = 0;
+         csid = Convert.ToInt64(xinput.Attribute("csid").Value);
 
-         if (xinput.Attribute("compcode") != null)
-            compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
-         else
-            compcode = 0;
+         RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = ColorTranslator.FromHtml(xinput.Attribute("colr").Value);
 
          Execute_Query();
-
-         switch (xinput.Attribute("type").Value)
-         {
-            case "newcaseupdate":
-               RqstBs.Position = RqstBs.IndexOf(RqstBs.List.OfType<Data.Request>().First(r => r.RQID == rqid));
-               xinput.Attribute("type").Value = "newcase";
-               break;
-            case "companycase":
-            case "servicecase":
-               SubmitChange_Butn_Click(null, null);
-               break;
-            case "refresh":
-               break;
-            default:
-               if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
-                  RqstBs.AddNew();
-               break;
-         }         
 
          job.Status = StatusType.Successful;
       }
@@ -291,6 +242,45 @@ namespace System.CRM.Ui.Cases
       /// <param name="job"></param>
       private void CordinateGetSet(Job job)
       {
+         //var xinput = job.Input as XElement;
+         //if (xinput != null)
+         //{
+         //   var serv = LstServBs.Current as Data.Service;
+         //   if (xinput.Attribute("outputtype").Value == "servcord")
+         //   {
+         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               
+         //      if(cordx != serv.CORD_X_DNRM && cordy != serv.CORD_Y_DNRM)
+         //      {
+         //         // Call Update Service_Public
+         //         try
+         //         {
+         //            iCRM.CHNG_SRPB_P(
+         //               new XElement("Service",
+         //                  new XAttribute("fileno", serv.FILE_NO),
+         //                  new XAttribute("actntype", "001"),
+         //                  new XAttribute("cordx", cordx),
+         //                  new XAttribute("cordy", cordy)
+         //               )
+         //            );
+         //            requery = true;
+         //         }
+         //         catch (Exception exc)
+         //         {
+         //            MessageBox.Show(exc.Message);                     
+         //         }
+         //         finally
+         //         {
+         //            if(requery)
+         //            {
+         //               Execute_Query();
+         //            }
+         //         }
+         //      }
+         //   }            
+         //}
+
          job.Status = StatusType.Successful;
       }
 

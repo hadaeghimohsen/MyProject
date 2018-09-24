@@ -26,7 +26,7 @@ namespace System.CRM.Ui.Cases
 
       private string onoftag;
       private long compcode = 0;
-      private string caseShow = "13";
+      private string caseShow = "15";
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -353,16 +353,16 @@ namespace System.CRM.Ui.Cases
       {
          try
          {
-            var cases = CaseBs.Current as Data.Lead;
+            var cases = CaseBs.Current as Data.Case;
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
                  {                  
-                   new Job(SendType.Self, 106 /* Execute Inf_Case_F */),
+                   new Job(SendType.Self, 105 /* Execute Inf_Case_F */),
                    new Job(SendType.SelfToUserInterface, "INF_CASE_F", 10 /* Execute Actn_Calf_F */)
                    {
                       Input = 
-                        new XElement("Lead",
+                        new XElement("Case",
                            new XAttribute("formcaller", GetType().Name),
                            new XAttribute("type", "newcaseupdate"),
                            new XAttribute("rqid", cases.RQRO_RQST_RQID),
@@ -493,7 +493,7 @@ namespace System.CRM.Ui.Cases
          Case_Gv.OptionsFind.AlwaysVisible = !Case_Gv.OptionsFind.AlwaysVisible;
       }
 
-      private void LeadShows_Btn_Click(object sender, EventArgs e)
+      private void CaseShows_Btn_Click(object sender, EventArgs e)
       {
          caseShow = ((RibbonButton)sender).Tag.ToString();
          Execute_Query();

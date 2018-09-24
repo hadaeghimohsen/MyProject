@@ -173,7 +173,7 @@ namespace System.CRM.Ui.Cases
                      new XElement("Case",
                         new XAttribute("ownrcode", Ownr_Lov.EditValue),
                         new XAttribute("titl", Titl_Txt.Text),
-                        new XAttribute("apbscode", ApbsCode_Lov.EditValue),
+                        new XAttribute("subjapbscode", SubjApbsCode_Lov.EditValue),
                         new XAttribute("orgntype", OrgnType_Lov.EditValue),
                         new XAttribute("priotype", PrioType_Lov.EditValue),
                         new XAttribute("stat", Stat_Lov.EditValue),
@@ -334,59 +334,25 @@ namespace System.CRM.Ui.Cases
             var rqst = RqstBs.Current as Data.Request;
             if (rqst == null) return;
 
-            var lead = CaseBs.Current as Data.Lead;
-            if (lead == null) return;
+            var cases = CaseBs.Current as Data.Case;
+            if (cases == null) return;
 
-            string conftype = "", colr = "";
-
-            // ثبت موقت باشد
-            if (rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 1)
-            {
-               conftype = "001";
-               colr = ColorTranslator.ToHtml(Color.Red);
-               //rqst.SSTT_CODE = 4;
-               //rqst.COLR = ColorTranslator.ToHtml(Color.Red);
-
-               iCRM.CONF_LEAD_P(
-                  new XElement("Lead",
-                     new XAttribute("rqid", rqst.RQID),
-                     new XAttribute("colr", colr),
-                     new XAttribute("conftype", conftype)
-                  )
-               );
-
-               requery = true;
-            }
-            // عدم تایید صلاحیت
-            //else if ((rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 3) && MessageBox.Show(this, "سرنخ تجاری شما قبلا در وضعیت تایید صلاحیت قرار گرفته است.\n\rآیا مایل به عدم تایید صلاحیت آن هستید؟", "عدم تایید صلاحیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading) == DialogResult.Yes)
-            //{
-            //   //rqst.SSTT_CODE = 4;
-            //   //rqst.COLR = ColorTranslator.ToHtml(Color.Red);
-            //}
-            // شکست در فروش محصول
-            else if (rqst.SSTT_MSTT_CODE == 1 && rqst.SSTT_CODE == 3)
-            {
-               conftype = "004";
-               colr = ColorTranslator.ToHtml(Color.LightGray);
-
-               Job _InteractWithCRM =
-                 new Job(SendType.External, "Localhost",
-                    new List<Job>
-                    {                  
-                      new Job(SendType.Self, 102 /* Execute Rsl_Lead_F */),
-                      new Job(SendType.SelfToUserInterface, "RSL_LEAD_F", 10 /* Execute Actn_Calf_F */)
-                      {
-                         Input = 
-                           new XElement("Lead",
-                              new XAttribute("formcaller", GetType().Name),
-                              new XAttribute("conftype", conftype),
-                              new XAttribute("colr", colr),
-                              new XAttribute("ldid", lead.LDID)
-                           )
-                      }
-                    });
-               _DefaultGateway.Gateway(_InteractWithCRM);
-            }            
+            Job _InteractWithCRM =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.Self, 106 /* Execute Rsl_Case_F */),
+                     new Job(SendType.SelfToUserInterface, "RSL_CASE_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                        new XElement("Case",
+                           new XAttribute("formcaller", GetType().Name),
+                           new XAttribute("colr", ColorTranslator.ToHtml(Color.LightGray)),
+                           new XAttribute("csid", cases.CSID)
+                        )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithCRM);
          }
          catch (Exception exc)
          {

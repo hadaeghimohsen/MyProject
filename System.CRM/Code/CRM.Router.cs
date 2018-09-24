@@ -341,6 +341,9 @@ namespace System.CRM.Code
             case 105:
                Inf_Case_F(job);
                break;
+            case 106:
+               Rsl_Case_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -659,6 +662,9 @@ namespace System.CRM.Code
                break;
             case "INF_CASE_F":
                _Inf_Case_F.SendRequest(job);
+               break;
+            case "RSL_CASE_F":
+               _Rsl_Case_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

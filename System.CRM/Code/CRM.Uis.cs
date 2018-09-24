@@ -119,6 +119,7 @@ namespace System.CRM.Code
 
       internal Ui.Cases.INF_CASE_F _Inf_Case_F { get; set; }
       internal Ui.Cases.SHW_CASE_F _Shw_Case_F { get; set; }
+      internal Ui.Cases.RSL_CASE_F _Rsl_Case_F { get; set; }
 
    }
 }

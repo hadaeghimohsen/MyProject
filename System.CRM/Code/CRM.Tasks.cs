@@ -526,6 +526,11 @@ namespace System.CRM.Code
             if (_Shw_Case_F == null)
                _Shw_Case_F = new Ui.Cases.SHW_CASE_F { _DefaultGateway = this };
          }
+         else if (value == "rsl_case_f")
+         {
+            if (_Rsl_Case_F == null)
+               _Rsl_Case_F = new Ui.Cases.RSL_CASE_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -3080,6 +3085,31 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "INF_CASE_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "INF_CASE_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "INF_CASE_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 106
+      /// </summary>
+      /// <param name="job"></param>
+      private void Rsl_Case_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "rsl_case_f"},
+                  new Job(SendType.SelfToUserInterface, "RSL_CASE_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "RSL_CASE_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "RSL_CASE_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "RSL_CASE_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

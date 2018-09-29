@@ -153,6 +153,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
             case 39:
                DoWork4SettingsRegion(job);
                break;
+            case 40:
+               DoWork4SettingsSystemLicense(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -279,6 +282,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
                break;
             case "SettingsRegion":
                _SettingsRegion.SendRequest(job);
+               break;
+            case "SettingsSystemLicense":
+               _SettingsSystemLicense.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

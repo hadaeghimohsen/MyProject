@@ -329,6 +329,15 @@
     <Compile Include="SecPolicy\Share\Ui\SettingsMailServer.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemLicense.Designer.cs">
+      <DependentUpon>SettingsSystemLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemLicense.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsUnAuthoriseGateway.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -802,6 +811,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsMailServer.resx">
       <DependentUpon>SettingsMailServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystemLicense.resx">
+      <DependentUpon>SettingsSystemLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsUnAuthoriseGateway.resx">
       <DependentUpon>SettingsUnAuthoriseGateway.cs</DependentUpon>

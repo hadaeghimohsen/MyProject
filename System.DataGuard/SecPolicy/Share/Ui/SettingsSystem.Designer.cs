@@ -28,15 +28,16 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.components = new System.ComponentModel.Container();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsSystem));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsSystem));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colDFLT_APP_STRT_STAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,8 +49,8 @@
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.SubSysDesc_Text = new DevExpress.XtraEditors.MemoEdit();
-         this.PackageUserGatewayBs = new System.Windows.Forms.BindingSource();
-         this.UserGatewayBs = new System.Windows.Forms.BindingSource();
+         this.PackageUserGatewayBs = new System.Windows.Forms.BindingSource(this.components);
+         this.UserGatewayBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl51 = new DevExpress.XtraEditors.LabelControl();
          this.InstallUninstall_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
@@ -60,7 +61,7 @@
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.LICN_TYPE_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.DLL_NAME_Lbl = new DevExpress.XtraEditors.LabelControl();
-         this.SubSysBs = new System.Windows.Forms.BindingSource();
+         this.SubSysBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.LICN_TRIL_DATE_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.INST_DATE_Lbl = new DevExpress.XtraEditors.LabelControl();
@@ -113,7 +114,7 @@
          this.DisabledDefaultApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveDefaultApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.searchLookUpEdit1 = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.UsersBs = new System.Windows.Forms.BindingSource();
+         this.UsersBs = new System.Windows.Forms.BindingSource(this.components);
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUB_SYS1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDESC1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -177,7 +178,7 @@
          this.linkLabel13 = new System.Windows.Forms.LinkLabel();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.PackageActivityBs = new System.Windows.Forms.BindingSource();
+         this.PackageActivityBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSSIT_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSSIT_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -194,7 +195,7 @@
          this.colSub_System_Item = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.UserQiuckActionBs = new System.Windows.Forms.BindingSource();
+         this.UserQiuckActionBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPIUG_PKIN_PAKG_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPIUG_PKIN_PAKG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -282,15 +283,19 @@
          this.SystemPackage_Lnk = new System.Windows.Forms.LinkLabel();
          this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
          this.tp_004 = new System.Windows.Forms.TabPage();
-         this.labelControl49 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl50 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
+         this.SysemLicense_Lnk = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
          this.tp_005 = new System.Windows.Forms.TabPage();
          this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
          this.ClearSubSysJobs_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -410,7 +415,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1193, 59);
+         this.panel1.Size = new System.Drawing.Size(1064, 59);
          this.panel1.TabIndex = 0;
          // 
          // labelControl1
@@ -422,7 +427,7 @@
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(996, 0);
+         this.labelControl1.Location = new System.Drawing.Point(867, 0);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(136, 59);
          this.labelControl1.TabIndex = 1;
@@ -435,7 +440,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1132, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1003, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -455,7 +460,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1193, 731);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1064, 731);
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -472,7 +477,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(969, 731);
+         this.Tb_Master.Size = new System.Drawing.Size(840, 731);
          this.Tb_Master.TabIndex = 0;
          // 
          // tp_001
@@ -482,7 +487,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(961, 704);
+         this.tp_001.Size = new System.Drawing.Size(832, 704);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "برنامه ها";
@@ -534,7 +539,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.sub_SystemGridControl);
          this.splitContainerControl2.Panel2.Controls.Add(this.linkLabel2);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(955, 662);
+         this.splitContainerControl2.Size = new System.Drawing.Size(826, 662);
          this.splitContainerControl2.SplitterPosition = 246;
          this.splitContainerControl2.TabIndex = 2;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -560,7 +565,7 @@
          this.SubSysDesc_Text.Properties.NullValuePrompt = "لطفا متن خود را وارد کنید";
          this.SubSysDesc_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.SubSysDesc_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.SubSysDesc_Text.Size = new System.Drawing.Size(602, 64);
+         this.SubSysDesc_Text.Size = new System.Drawing.Size(473, 64);
          this.SubSysDesc_Text.TabIndex = 37;
          // 
          // PackageUserGatewayBs
@@ -582,7 +587,7 @@
          this.labelControl51.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl51.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl51.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl51.Location = new System.Drawing.Point(445, 463);
+         this.labelControl51.Location = new System.Drawing.Point(316, 463);
          this.labelControl51.Name = "labelControl51";
          this.labelControl51.Size = new System.Drawing.Size(222, 36);
          this.labelControl51.TabIndex = 33;
@@ -598,7 +603,7 @@
          this.InstallUninstall_Butn.Appearance.Options.UseFont = true;
          this.InstallUninstall_Butn.Appearance.Options.UseForeColor = true;
          this.InstallUninstall_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.InstallUninstall_Butn.Location = new System.Drawing.Point(524, 595);
+         this.InstallUninstall_Butn.Location = new System.Drawing.Point(395, 595);
          this.InstallUninstall_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.InstallUninstall_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.InstallUninstall_Butn.Name = "InstallUninstall_Butn";
@@ -618,7 +623,7 @@
          this.labelControl21.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl21.LineColor = System.Drawing.Color.Black;
          this.labelControl21.LineVisible = true;
-         this.labelControl21.Location = new System.Drawing.Point(310, 103);
+         this.labelControl21.Location = new System.Drawing.Point(181, 103);
          this.labelControl21.Name = "labelControl21";
          this.labelControl21.Size = new System.Drawing.Size(48, 37);
          this.labelControl21.TabIndex = 13;
@@ -634,7 +639,7 @@
          this.labelControl20.LineColor = System.Drawing.Color.Black;
          this.labelControl20.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
          this.labelControl20.LineVisible = true;
-         this.labelControl20.Location = new System.Drawing.Point(351, 84);
+         this.labelControl20.Location = new System.Drawing.Point(222, 84);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(15, 78);
          this.labelControl20.TabIndex = 12;
@@ -649,7 +654,7 @@
          this.labelControl23.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl23.LineColor = System.Drawing.Color.Black;
          this.labelControl23.LineVisible = true;
-         this.labelControl23.Location = new System.Drawing.Point(358, 155);
+         this.labelControl23.Location = new System.Drawing.Point(229, 155);
          this.labelControl23.Name = "labelControl23";
          this.labelControl23.Size = new System.Drawing.Size(10, 14);
          this.labelControl23.TabIndex = 16;
@@ -664,7 +669,7 @@
          this.labelControl22.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl22.LineColor = System.Drawing.Color.Black;
          this.labelControl22.LineVisible = true;
-         this.labelControl22.Location = new System.Drawing.Point(358, 76);
+         this.labelControl22.Location = new System.Drawing.Point(229, 76);
          this.labelControl22.Name = "labelControl22";
          this.labelControl22.Size = new System.Drawing.Size(10, 14);
          this.labelControl22.TabIndex = 15;
@@ -680,7 +685,7 @@
          this.Emptydb_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Emptydb_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1405;
          this.Emptydb_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Emptydb_Butn.Location = new System.Drawing.Point(243, 103);
+         this.Emptydb_Butn.Location = new System.Drawing.Point(114, 103);
          this.Emptydb_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Emptydb_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Emptydb_Butn.Name = "Emptydb_Butn";
@@ -699,7 +704,7 @@
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl17.LineColor = System.Drawing.Color.Black;
          this.labelControl17.LineVisible = true;
-         this.labelControl17.Location = new System.Drawing.Point(310, 170);
+         this.labelControl17.Location = new System.Drawing.Point(181, 170);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(56, 37);
          this.labelControl17.TabIndex = 11;
@@ -713,7 +718,7 @@
          this.LICN_TYPE_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.LICN_TYPE_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.LICN_TYPE_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.LICN_TYPE_Lbl.Location = new System.Drawing.Point(243, 337);
+         this.LICN_TYPE_Lbl.Location = new System.Drawing.Point(114, 337);
          this.LICN_TYPE_Lbl.Name = "LICN_TYPE_Lbl";
          this.LICN_TYPE_Lbl.Size = new System.Drawing.Size(230, 36);
          this.LICN_TYPE_Lbl.TabIndex = 10;
@@ -729,7 +734,7 @@
          this.DLL_NAME_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.DLL_NAME_Lbl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SubSysBs, "DLL_NAME", true));
          this.DLL_NAME_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.DLL_NAME_Lbl.Location = new System.Drawing.Point(243, 293);
+         this.DLL_NAME_Lbl.Location = new System.Drawing.Point(114, 293);
          this.DLL_NAME_Lbl.Name = "DLL_NAME_Lbl";
          this.DLL_NAME_Lbl.Size = new System.Drawing.Size(230, 36);
          this.DLL_NAME_Lbl.TabIndex = 10;
@@ -750,7 +755,7 @@
          this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SubSysBs, "VERS_NO", true));
          this.labelControl11.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl11.Location = new System.Drawing.Point(243, 421);
+         this.labelControl11.Location = new System.Drawing.Point(114, 421);
          this.labelControl11.Name = "labelControl11";
          this.labelControl11.Size = new System.Drawing.Size(230, 36);
          this.labelControl11.TabIndex = 7;
@@ -765,7 +770,7 @@
          this.LICN_TRIL_DATE_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.LICN_TRIL_DATE_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.LICN_TRIL_DATE_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.LICN_TRIL_DATE_Lbl.Location = new System.Drawing.Point(243, 379);
+         this.LICN_TRIL_DATE_Lbl.Location = new System.Drawing.Point(114, 379);
          this.LICN_TRIL_DATE_Lbl.Name = "LICN_TRIL_DATE_Lbl";
          this.LICN_TRIL_DATE_Lbl.Size = new System.Drawing.Size(230, 36);
          this.LICN_TRIL_DATE_Lbl.TabIndex = 7;
@@ -780,7 +785,7 @@
          this.INST_DATE_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.INST_DATE_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.INST_DATE_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.INST_DATE_Lbl.Location = new System.Drawing.Point(243, 251);
+         this.INST_DATE_Lbl.Location = new System.Drawing.Point(114, 251);
          this.INST_DATE_Lbl.Name = "INST_DATE_Lbl";
          this.INST_DATE_Lbl.Size = new System.Drawing.Size(230, 36);
          this.INST_DATE_Lbl.TabIndex = 7;
@@ -835,7 +840,7 @@
          this.Shrinkdb_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Shrinkdb_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1404;
          this.Shrinkdb_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Shrinkdb_Butn.Location = new System.Drawing.Point(243, 168);
+         this.Shrinkdb_Butn.Location = new System.Drawing.Point(114, 168);
          this.Shrinkdb_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Shrinkdb_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Shrinkdb_Butn.Name = "Shrinkdb_Butn";
@@ -855,7 +860,7 @@
          this.RefreshApp_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.RefreshApp_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1392;
          this.RefreshApp_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.RefreshApp_Butn.Location = new System.Drawing.Point(243, 42);
+         this.RefreshApp_Butn.Location = new System.Drawing.Point(114, 42);
          this.RefreshApp_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.RefreshApp_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RefreshApp_Butn.Name = "RefreshApp_Butn";
@@ -874,7 +879,7 @@
          this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl16.LineColor = System.Drawing.Color.Black;
          this.labelControl16.LineVisible = true;
-         this.labelControl16.Location = new System.Drawing.Point(243, 575);
+         this.labelControl16.Location = new System.Drawing.Point(114, 575);
          this.labelControl16.Name = "labelControl16";
          this.labelControl16.Size = new System.Drawing.Size(424, 14);
          this.labelControl16.TabIndex = 5;
@@ -889,7 +894,7 @@
          this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl13.LineColor = System.Drawing.Color.Black;
          this.labelControl13.LineVisible = true;
-         this.labelControl13.Location = new System.Drawing.Point(243, 210);
+         this.labelControl13.Location = new System.Drawing.Point(114, 210);
          this.labelControl13.Name = "labelControl13";
          this.labelControl13.Size = new System.Drawing.Size(424, 37);
          this.labelControl13.TabIndex = 5;
@@ -905,7 +910,7 @@
          this.labelControl8.LineColor = System.Drawing.Color.Black;
          this.labelControl8.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
          this.labelControl8.LineVisible = true;
-         this.labelControl8.Location = new System.Drawing.Point(468, 42);
+         this.labelControl8.Location = new System.Drawing.Point(339, 42);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(27, 162);
          this.labelControl8.TabIndex = 5;
@@ -917,7 +922,7 @@
          this.NDF_Lbl.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.NDF_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.NDF_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.NDF_Lbl.Location = new System.Drawing.Point(372, 126);
+         this.NDF_Lbl.Location = new System.Drawing.Point(243, 126);
          this.NDF_Lbl.Name = "NDF_Lbl";
          this.NDF_Lbl.Size = new System.Drawing.Size(90, 36);
          this.NDF_Lbl.TabIndex = 4;
@@ -932,7 +937,7 @@
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(501, 126);
+         this.labelControl7.Location = new System.Drawing.Point(372, 126);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(166, 36);
          this.labelControl7.TabIndex = 4;
@@ -945,7 +950,7 @@
          this.LDF_Lbl.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.LDF_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.LDF_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.LDF_Lbl.Location = new System.Drawing.Point(372, 168);
+         this.LDF_Lbl.Location = new System.Drawing.Point(243, 168);
          this.LDF_Lbl.Name = "LDF_Lbl";
          this.LDF_Lbl.Size = new System.Drawing.Size(90, 36);
          this.LDF_Lbl.TabIndex = 4;
@@ -960,7 +965,7 @@
          this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(501, 168);
+         this.labelControl6.Location = new System.Drawing.Point(372, 168);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(166, 36);
          this.labelControl6.TabIndex = 4;
@@ -973,7 +978,7 @@
          this.MDF_Lbl.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.MDF_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.MDF_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.MDF_Lbl.Location = new System.Drawing.Point(372, 84);
+         this.MDF_Lbl.Location = new System.Drawing.Point(243, 84);
          this.MDF_Lbl.Name = "MDF_Lbl";
          this.MDF_Lbl.Size = new System.Drawing.Size(90, 36);
          this.MDF_Lbl.TabIndex = 4;
@@ -988,7 +993,7 @@
          this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl3.Location = new System.Drawing.Point(501, 84);
+         this.labelControl3.Location = new System.Drawing.Point(372, 84);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(166, 36);
          this.labelControl3.TabIndex = 4;
@@ -1003,7 +1008,7 @@
          this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(501, 421);
+         this.labelControl10.Location = new System.Drawing.Point(372, 421);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(166, 36);
          this.labelControl10.TabIndex = 3;
@@ -1018,7 +1023,7 @@
          this.labelControl35.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(501, 379);
+         this.labelControl35.Location = new System.Drawing.Point(372, 379);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(166, 36);
          this.labelControl35.TabIndex = 3;
@@ -1031,7 +1036,7 @@
          this.labelControl9.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl9.Location = new System.Drawing.Point(372, 42);
+         this.labelControl9.Location = new System.Drawing.Point(243, 42);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(90, 36);
          this.labelControl9.TabIndex = 3;
@@ -1046,7 +1051,7 @@
          this.labelControl33.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl33.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl33.Location = new System.Drawing.Point(501, 337);
+         this.labelControl33.Location = new System.Drawing.Point(372, 337);
          this.labelControl33.Name = "labelControl33";
          this.labelControl33.Size = new System.Drawing.Size(166, 36);
          this.labelControl33.TabIndex = 3;
@@ -1061,7 +1066,7 @@
          this.labelControl15.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(501, 295);
+         this.labelControl15.Location = new System.Drawing.Point(372, 295);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(166, 36);
          this.labelControl15.TabIndex = 3;
@@ -1076,7 +1081,7 @@
          this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(501, 253);
+         this.labelControl14.Location = new System.Drawing.Point(372, 253);
          this.labelControl14.Name = "labelControl14";
          this.labelControl14.Size = new System.Drawing.Size(166, 36);
          this.labelControl14.TabIndex = 3;
@@ -1091,7 +1096,7 @@
          this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(501, 42);
+         this.labelControl5.Location = new System.Drawing.Point(372, 42);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(166, 36);
          this.labelControl5.TabIndex = 3;
@@ -1108,7 +1113,7 @@
          this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl4.Location = new System.Drawing.Point(0, 0);
          this.labelControl4.Name = "labelControl4";
-         this.labelControl4.Size = new System.Drawing.Size(704, 36);
+         this.labelControl4.Size = new System.Drawing.Size(575, 36);
          this.labelControl4.TabIndex = 2;
          this.labelControl4.Text = "میزان فضای استفاده شده";
          // 
@@ -1274,7 +1279,7 @@
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl2.Location = new System.Drawing.Point(3, 3);
          this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(955, 36);
+         this.labelControl2.Size = new System.Drawing.Size(826, 36);
          this.labelControl2.TabIndex = 0;
          this.labelControl2.Text = "برنامه ها و قابلیت های انار";
          // 
@@ -1285,7 +1290,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(961, 704);
+         this.tp_002.Size = new System.Drawing.Size(832, 704);
          this.tp_002.TabIndex = 1;
          this.tp_002.Tag = "2";
          this.tp_002.Text = "برنامه های پیش فرض";
@@ -1307,7 +1312,7 @@
          this.splitContainerControl3.Panel1.Text = "Panel1";
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl1);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(955, 662);
+         this.splitContainerControl3.Size = new System.Drawing.Size(826, 662);
          this.splitContainerControl3.SplitterPosition = 246;
          this.splitContainerControl3.TabIndex = 4;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -1323,7 +1328,7 @@
          this.labelControl18.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl18.Location = new System.Drawing.Point(224, 218);
+         this.labelControl18.Location = new System.Drawing.Point(95, 218);
          this.labelControl18.Name = "labelControl18";
          this.labelControl18.Size = new System.Drawing.Size(447, 60);
          this.labelControl18.TabIndex = 19;
@@ -1341,7 +1346,7 @@
          this.labelControl12.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(224, 42);
+         this.labelControl12.Location = new System.Drawing.Point(95, 42);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(447, 85);
          this.labelControl12.TabIndex = 19;
@@ -1357,7 +1362,7 @@
          this.DisabledDefaultApp_Butn.Appearance.Options.UseFont = true;
          this.DisabledDefaultApp_Butn.Appearance.Options.UseForeColor = true;
          this.DisabledDefaultApp_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.DisabledDefaultApp_Butn.Location = new System.Drawing.Point(467, 284);
+         this.DisabledDefaultApp_Butn.Location = new System.Drawing.Point(338, 284);
          this.DisabledDefaultApp_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DisabledDefaultApp_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DisabledDefaultApp_Butn.Name = "DisabledDefaultApp_Butn";
@@ -1377,7 +1382,7 @@
          this.SaveDefaultApp_Butn.Appearance.Options.UseFont = true;
          this.SaveDefaultApp_Butn.Appearance.Options.UseForeColor = true;
          this.SaveDefaultApp_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.SaveDefaultApp_Butn.Location = new System.Drawing.Point(550, 173);
+         this.SaveDefaultApp_Butn.Location = new System.Drawing.Point(421, 173);
          this.SaveDefaultApp_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SaveDefaultApp_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveDefaultApp_Butn.Name = "SaveDefaultApp_Butn";
@@ -1391,7 +1396,7 @@
          // 
          this.searchLookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.searchLookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.UsersBs, "DFLT_SUB_SYS", true));
-         this.searchLookUpEdit1.Location = new System.Drawing.Point(343, 133);
+         this.searchLookUpEdit1.Location = new System.Drawing.Point(214, 133);
          this.searchLookUpEdit1.Name = "searchLookUpEdit1";
          this.searchLookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.searchLookUpEdit1.Properties.Appearance.Options.UseFont = true;
@@ -1400,7 +1405,7 @@
          this.searchLookUpEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.searchLookUpEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.DataGuard.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.DataGuard.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.searchLookUpEdit1.Properties.DataSource = this.SubSysBs;
          this.searchLookUpEdit1.Properties.DisplayMember = "DESC";
          this.searchLookUpEdit1.Properties.LookAndFeel.SkinName = "Office 2013";
@@ -1564,7 +1569,7 @@
          this.labelControl44.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl44.Location = new System.Drawing.Point(0, 0);
          this.labelControl44.Name = "labelControl44";
-         this.labelControl44.Size = new System.Drawing.Size(704, 36);
+         this.labelControl44.Size = new System.Drawing.Size(575, 36);
          this.labelControl44.TabIndex = 2;
          this.labelControl44.Text = "انتخاب برنامه پیش فرض";
          // 
@@ -1788,7 +1793,7 @@
          this.labelControl45.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl45.Location = new System.Drawing.Point(3, 3);
          this.labelControl45.Name = "labelControl45";
-         this.labelControl45.Size = new System.Drawing.Size(955, 36);
+         this.labelControl45.Size = new System.Drawing.Size(826, 36);
          this.labelControl45.TabIndex = 3;
          this.labelControl45.Text = "برنامه پیش فرض کاربران";
          // 
@@ -1799,7 +1804,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(961, 704);
+         this.tp_003.Size = new System.Drawing.Size(832, 704);
          this.tp_003.TabIndex = 2;
          this.tp_003.Tag = "3";
          this.tp_003.Text = "پیام ها و عملکردها";
@@ -1816,7 +1821,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(955, 662);
+         this.splitContainerControl4.Size = new System.Drawing.Size(826, 662);
          this.splitContainerControl4.SplitterPosition = 325;
          this.splitContainerControl4.TabIndex = 21;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -1837,7 +1842,7 @@
          this.splitContainerControl6.Panel1.Text = "Panel1";
          this.splitContainerControl6.Panel2.Controls.Add(this.splitContainerControl7);
          this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(625, 662);
+         this.splitContainerControl6.Size = new System.Drawing.Size(496, 662);
          this.splitContainerControl6.SplitterPosition = 208;
          this.splitContainerControl6.TabIndex = 21;
          this.splitContainerControl6.Text = "splitContainerControl6";
@@ -1849,7 +1854,7 @@
          this.labelControl25.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.labelControl25.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1415;
          this.labelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl25.Location = new System.Drawing.Point(541, 12);
+         this.labelControl25.Location = new System.Drawing.Point(412, 12);
          this.labelControl25.Name = "labelControl25";
          this.labelControl25.Size = new System.Drawing.Size(71, 51);
          this.labelControl25.TabIndex = 5;
@@ -1863,7 +1868,7 @@
          this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.Location = new System.Drawing.Point(232, 69);
+         this.labelControl26.Location = new System.Drawing.Point(103, 69);
          this.labelControl26.Name = "labelControl26";
          this.labelControl26.Size = new System.Drawing.Size(380, 33);
          this.labelControl26.TabIndex = 5;
@@ -1880,7 +1885,7 @@
          this.simpleButton16.Appearance.Options.UseForeColor = true;
          this.simpleButton16.Image = global::System.DataGuard.Properties.Resources.IMAGE_1435;
          this.simpleButton16.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton16.Location = new System.Drawing.Point(232, 24);
+         this.simpleButton16.Location = new System.Drawing.Point(103, 24);
          this.simpleButton16.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton16.Name = "simpleButton16";
@@ -1897,7 +1902,7 @@
          this.labelControl24.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl24.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl24.Location = new System.Drawing.Point(250, 148);
+         this.labelControl24.Location = new System.Drawing.Point(121, 148);
          this.labelControl24.Name = "labelControl24";
          this.labelControl24.Size = new System.Drawing.Size(362, 46);
          this.labelControl24.TabIndex = 4;
@@ -1907,7 +1912,7 @@
          // 
          this.SHOW_NOTF_STAT_Ts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SHOW_NOTF_STAT_Ts.EditValue = true;
-         this.SHOW_NOTF_STAT_Ts.Location = new System.Drawing.Point(416, 113);
+         this.SHOW_NOTF_STAT_Ts.Location = new System.Drawing.Point(287, 113);
          this.SHOW_NOTF_STAT_Ts.Name = "SHOW_NOTF_STAT_Ts";
          this.SHOW_NOTF_STAT_Ts.Properties.LookAndFeel.SkinName = "Office 2013";
          this.SHOW_NOTF_STAT_Ts.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1924,7 +1929,7 @@
          this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl28.Location = new System.Drawing.Point(493, 108);
+         this.labelControl28.Location = new System.Drawing.Point(364, 108);
          this.labelControl28.Name = "labelControl28";
          this.labelControl28.Size = new System.Drawing.Size(94, 34);
          this.labelControl28.TabIndex = 7;
@@ -1937,7 +1942,7 @@
          this.linkLabel13.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.linkLabel13.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.linkLabel13.LinkColor = System.Drawing.Color.RoyalBlue;
-         this.linkLabel13.Location = new System.Drawing.Point(284, 41);
+         this.linkLabel13.Location = new System.Drawing.Point(155, 41);
          this.linkLabel13.Name = "linkLabel13";
          this.linkLabel13.Size = new System.Drawing.Size(251, 14);
          this.linkLabel13.TabIndex = 19;
@@ -1956,7 +1961,7 @@
          this.splitContainerControl7.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl7.Panel2.Controls.Add(this.panel5);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(625, 449);
+         this.splitContainerControl7.Size = new System.Drawing.Size(496, 449);
          this.splitContainerControl7.SplitterPosition = 175;
          this.splitContainerControl7.TabIndex = 0;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -1972,7 +1977,7 @@
          this.gridControl6.Name = "gridControl6";
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1});
-         this.gridControl6.Size = new System.Drawing.Size(625, 175);
+         this.gridControl6.Size = new System.Drawing.Size(496, 175);
          this.gridControl6.TabIndex = 22;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2136,7 +2141,7 @@
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit2});
-         this.gridControl4.Size = new System.Drawing.Size(625, 224);
+         this.gridControl4.Size = new System.Drawing.Size(496, 224);
          this.gridControl4.TabIndex = 25;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -2314,7 +2319,7 @@
          this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.panel5.Location = new System.Drawing.Point(0, 224);
          this.panel5.Name = "panel5";
-         this.panel5.Size = new System.Drawing.Size(625, 45);
+         this.panel5.Size = new System.Drawing.Size(496, 45);
          this.panel5.TabIndex = 24;
          // 
          // ChangeStatUserQiuckAction_Butn
@@ -2328,7 +2333,7 @@
          this.ChangeStatUserQiuckAction_Butn.Appearance.Options.UseForeColor = true;
          this.ChangeStatUserQiuckAction_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1420;
          this.ChangeStatUserQiuckAction_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ChangeStatUserQiuckAction_Butn.Location = new System.Drawing.Point(460, 3);
+         this.ChangeStatUserQiuckAction_Butn.Location = new System.Drawing.Point(331, 3);
          this.ChangeStatUserQiuckAction_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ChangeStatUserQiuckAction_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ChangeStatUserQiuckAction_Butn.Name = "ChangeStatUserQiuckAction_Butn";
@@ -2348,7 +2353,7 @@
          this.DeleteUserQuickAction_Butn.Appearance.Options.UseForeColor = true;
          this.DeleteUserQuickAction_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1418;
          this.DeleteUserQuickAction_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DeleteUserQuickAction_Butn.Location = new System.Drawing.Point(516, 3);
+         this.DeleteUserQuickAction_Butn.Location = new System.Drawing.Point(387, 3);
          this.DeleteUserQuickAction_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DeleteUserQuickAction_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DeleteUserQuickAction_Butn.Name = "DeleteUserQuickAction_Butn";
@@ -2368,7 +2373,7 @@
          this.AddSaveUserQuickAction_Butn.Appearance.Options.UseForeColor = true;
          this.AddSaveUserQuickAction_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1422;
          this.AddSaveUserQuickAction_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AddSaveUserQuickAction_Butn.Location = new System.Drawing.Point(572, 3);
+         this.AddSaveUserQuickAction_Butn.Location = new System.Drawing.Point(443, 3);
          this.AddSaveUserQuickAction_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AddSaveUserQuickAction_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AddSaveUserQuickAction_Butn.Name = "AddSaveUserQuickAction_Butn";
@@ -2829,165 +2834,221 @@
          this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl27.Location = new System.Drawing.Point(3, 3);
          this.labelControl27.Name = "labelControl27";
-         this.labelControl27.Size = new System.Drawing.Size(955, 36);
+         this.labelControl27.Size = new System.Drawing.Size(826, 36);
          this.labelControl27.TabIndex = 5;
          this.labelControl27.Text = "پیام ها و عملکرد ها";
          // 
          // tp_004
          // 
-         this.tp_004.Controls.Add(this.labelControl49);
-         this.tp_004.Controls.Add(this.labelControl47);
-         this.tp_004.Controls.Add(this.labelControl42);
-         this.tp_004.Controls.Add(this.labelControl39);
-         this.tp_004.Controls.Add(this.labelControl48);
-         this.tp_004.Controls.Add(this.labelControl46);
-         this.tp_004.Controls.Add(this.labelControl41);
-         this.tp_004.Controls.Add(this.labelControl38);
          this.tp_004.Controls.Add(this.labelControl37);
+         this.tp_004.Controls.Add(this.labelControl50);
+         this.tp_004.Controls.Add(this.labelControl43);
+         this.tp_004.Controls.Add(this.SysemLicense_Lnk);
+         this.tp_004.Controls.Add(this.labelControl48);
+         this.tp_004.Controls.Add(this.labelControl42);
+         this.tp_004.Controls.Add(this.labelControl46);
+         this.tp_004.Controls.Add(this.labelControl40);
+         this.tp_004.Controls.Add(this.labelControl41);
+         this.tp_004.Controls.Add(this.labelControl47);
+         this.tp_004.Controls.Add(this.labelControl36);
+         this.tp_004.Controls.Add(this.labelControl39);
+         this.tp_004.Controls.Add(this.labelControl38);
          this.tp_004.Location = new System.Drawing.Point(4, 23);
          this.tp_004.Name = "tp_004";
          this.tp_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_004.Size = new System.Drawing.Size(961, 704);
+         this.tp_004.Size = new System.Drawing.Size(832, 704);
          this.tp_004.TabIndex = 5;
          this.tp_004.Tag = "4";
          this.tp_004.Text = "درباره ما";
          this.tp_004.UseVisualStyleBackColor = true;
          // 
-         // labelControl49
+         // labelControl37
          // 
-         this.labelControl49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl49.Appearance.Font = new System.Drawing.Font("B Koodak", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl49.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl49.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl49.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl49.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl49.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl49.Location = new System.Drawing.Point(494, 242);
-         this.labelControl49.Name = "labelControl49";
-         this.labelControl49.Size = new System.Drawing.Size(263, 34);
-         this.labelControl49.TabIndex = 9;
-         this.labelControl49.Text = "9505-0015";
+         this.labelControl37.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl37.Appearance.Font = new System.Drawing.Font("B Koodak", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl37.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+         this.labelControl37.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1412;
+         this.labelControl37.Appearance.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+         this.labelControl37.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl37.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
+         this.labelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+         this.labelControl37.Location = new System.Drawing.Point(6, 45);
+         this.labelControl37.Name = "labelControl37";
+         this.labelControl37.Size = new System.Drawing.Size(289, 149);
+         this.labelControl37.TabIndex = 6;
+         this.labelControl37.Text = "نرم افزار جامع انار";
          // 
-         // labelControl47
+         // labelControl50
          // 
-         this.labelControl47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl47.Appearance.Font = new System.Drawing.Font("B Koodak", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl47.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl47.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl47.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl47.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl47.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl47.Location = new System.Drawing.Point(494, 202);
-         this.labelControl47.Name = "labelControl47";
-         this.labelControl47.Size = new System.Drawing.Size(263, 34);
-         this.labelControl47.TabIndex = 9;
-         this.labelControl47.Text = "1607";
+         this.labelControl50.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.labelControl50.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F);
+         this.labelControl50.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1376;
+         this.labelControl50.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl50.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl50.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl50.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl50.Location = new System.Drawing.Point(3, 3);
+         this.labelControl50.Name = "labelControl50";
+         this.labelControl50.Size = new System.Drawing.Size(826, 36);
+         this.labelControl50.TabIndex = 9;
+         this.labelControl50.Text = "درباره ما";
          // 
-         // labelControl42
+         // labelControl43
          // 
-         this.labelControl42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl42.Appearance.Font = new System.Drawing.Font("B Koodak", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl42.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl42.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl42.Location = new System.Drawing.Point(494, 162);
-         this.labelControl42.Name = "labelControl42";
-         this.labelControl42.Size = new System.Drawing.Size(263, 34);
-         this.labelControl42.TabIndex = 9;
-         this.labelControl42.Text = "نسخه طلایی";
+         this.labelControl43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl43.Appearance.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl43.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl43.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl43.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl43.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl43.Location = new System.Drawing.Point(318, 214);
+         this.labelControl43.Name = "labelControl43";
+         this.labelControl43.Size = new System.Drawing.Size(307, 34);
+         this.labelControl43.TabIndex = 8;
+         this.labelControl43.Text = "Mac Address";
          // 
-         // labelControl39
+         // SysemLicense_Lnk
          // 
-         this.labelControl39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl39.Appearance.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl39.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl39.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(494, 109);
-         this.labelControl39.Name = "labelControl39";
-         this.labelControl39.Size = new System.Drawing.Size(263, 34);
-         this.labelControl39.TabIndex = 9;
-         this.labelControl39.Text = "mohsen-lt";
+         this.SysemLicense_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SysemLicense_Lnk.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SysemLicense_Lnk.Appearance.ForeColor = System.Drawing.Color.DodgerBlue;
+         this.SysemLicense_Lnk.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.SysemLicense_Lnk.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.SysemLicense_Lnk.Cursor = System.Windows.Forms.Cursors.Hand;
+         this.SysemLicense_Lnk.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.SysemLicense_Lnk.Location = new System.Drawing.Point(375, 334);
+         this.SysemLicense_Lnk.Name = "SysemLicense_Lnk";
+         this.SysemLicense_Lnk.Size = new System.Drawing.Size(395, 34);
+         this.SysemLicense_Lnk.TabIndex = 8;
+         this.SysemLicense_Lnk.Text = "تغییر تاریخ نسخه پشتیبانی محصول یا بروز کردن اطلاعات محصول";
+         this.SysemLicense_Lnk.Click += new System.EventHandler(this.SysemLicense_Lnk_Click);
          // 
          // labelControl48
          // 
          this.labelControl48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl48.Appearance.Font = new System.Drawing.Font("B Koodak", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl48.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl48.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl48.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1414;
          this.labelControl48.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl48.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl48.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl48.Location = new System.Drawing.Point(763, 242);
+         this.labelControl48.Location = new System.Drawing.Point(631, 214);
          this.labelControl48.Name = "labelControl48";
-         this.labelControl48.Size = new System.Drawing.Size(192, 34);
+         this.labelControl48.Size = new System.Drawing.Size(139, 34);
          this.labelControl48.TabIndex = 8;
-         this.labelControl48.Text = "شماره سریال";
+         this.labelControl48.Text = "آدرس فیزیکی شبکه";
+         // 
+         // labelControl42
+         // 
+         this.labelControl42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl42.Appearance.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl42.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl42.Location = new System.Drawing.Point(318, 174);
+         this.labelControl42.Name = "labelControl42";
+         this.labelControl42.Size = new System.Drawing.Size(307, 34);
+         this.labelControl42.TabIndex = 8;
+         this.labelControl42.Text = "RAM Installed";
          // 
          // labelControl46
          // 
          this.labelControl46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl46.Appearance.Font = new System.Drawing.Font("B Koodak", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl46.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl46.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl46.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1396;
          this.labelControl46.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl46.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl46.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl46.Location = new System.Drawing.Point(763, 202);
+         this.labelControl46.Location = new System.Drawing.Point(631, 174);
          this.labelControl46.Name = "labelControl46";
-         this.labelControl46.Size = new System.Drawing.Size(192, 34);
+         this.labelControl46.Size = new System.Drawing.Size(139, 34);
          this.labelControl46.TabIndex = 8;
-         this.labelControl46.Text = "شماره ورژن نرم افزار";
+         this.labelControl46.Text = "حافظه RAM نصب شده";
+         // 
+         // labelControl40
+         // 
+         this.labelControl40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl40.Appearance.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl40.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl40.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl40.Location = new System.Drawing.Point(318, 134);
+         this.labelControl40.Name = "labelControl40";
+         this.labelControl40.Size = new System.Drawing.Size(307, 34);
+         this.labelControl40.TabIndex = 8;
+         this.labelControl40.Text = "CPU ID";
          // 
          // labelControl41
          // 
          this.labelControl41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl41.Appearance.Font = new System.Drawing.Font("B Koodak", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl41.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl41.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl41.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1398;
          this.labelControl41.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl41.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl41.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl41.Location = new System.Drawing.Point(763, 162);
+         this.labelControl41.Location = new System.Drawing.Point(631, 134);
          this.labelControl41.Name = "labelControl41";
-         this.labelControl41.Size = new System.Drawing.Size(192, 34);
+         this.labelControl41.Size = new System.Drawing.Size(139, 34);
          this.labelControl41.TabIndex = 8;
-         this.labelControl41.Text = "نسخه خریداری شده";
+         this.labelControl41.Text = "پردازنده";
+         // 
+         // labelControl47
+         // 
+         this.labelControl47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl47.Appearance.Font = new System.Drawing.Font("IRANSans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl47.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl47.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl47.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl47.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl47.Location = new System.Drawing.Point(458, 294);
+         this.labelControl47.Name = "labelControl47";
+         this.labelControl47.Size = new System.Drawing.Size(348, 34);
+         this.labelControl47.TabIndex = 8;
+         this.labelControl47.Text = "اطلاعات لایسنس های خریداری شده";
+         // 
+         // labelControl36
+         // 
+         this.labelControl36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl36.Appearance.Font = new System.Drawing.Font("IRANSans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl36.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl36.Location = new System.Drawing.Point(614, 54);
+         this.labelControl36.Name = "labelControl36";
+         this.labelControl36.Size = new System.Drawing.Size(192, 34);
+         this.labelControl36.TabIndex = 8;
+         this.labelControl36.Text = "اطلاعات سیستم";
+         // 
+         // labelControl39
+         // 
+         this.labelControl39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl39.Appearance.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl39.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl39.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl39.Location = new System.Drawing.Point(318, 94);
+         this.labelControl39.Name = "labelControl39";
+         this.labelControl39.Size = new System.Drawing.Size(307, 34);
+         this.labelControl39.TabIndex = 8;
+         this.labelControl39.Text = "Computer Name";
          // 
          // labelControl38
          // 
          this.labelControl38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl38.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl38.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl38.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl38.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1413;
          this.labelControl38.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl38.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl38.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl38.Location = new System.Drawing.Point(763, 109);
+         this.labelControl38.Location = new System.Drawing.Point(631, 94);
          this.labelControl38.Name = "labelControl38";
-         this.labelControl38.Size = new System.Drawing.Size(192, 34);
+         this.labelControl38.Size = new System.Drawing.Size(139, 34);
          this.labelControl38.TabIndex = 8;
          this.labelControl38.Text = "نام کامپیوتر";
-         // 
-         // labelControl37
-         // 
-         this.labelControl37.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.labelControl37.Appearance.Font = new System.Drawing.Font("B Koodak", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl37.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-         this.labelControl37.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1412;
-         this.labelControl37.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl37.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl37.Location = new System.Drawing.Point(3, 3);
-         this.labelControl37.Name = "labelControl37";
-         this.labelControl37.Size = new System.Drawing.Size(955, 100);
-         this.labelControl37.TabIndex = 6;
-         this.labelControl37.Text = "نرم افزار جامع انار";
          // 
          // tp_005
          // 
@@ -2995,7 +3056,7 @@
          this.tp_005.Controls.Add(this.labelControl19);
          this.tp_005.Location = new System.Drawing.Point(4, 23);
          this.tp_005.Name = "tp_005";
-         this.tp_005.Size = new System.Drawing.Size(961, 704);
+         this.tp_005.Size = new System.Drawing.Size(832, 704);
          this.tp_005.TabIndex = 6;
          this.tp_005.Tag = "5";
          this.tp_005.Text = "اجراهای زمان بندی";
@@ -3017,7 +3078,7 @@
          this.splitContainerControl8.Panel1.Text = "Panel1";
          this.splitContainerControl8.Panel2.Controls.Add(this.gridControl5);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(961, 668);
+         this.splitContainerControl8.Size = new System.Drawing.Size(832, 668);
          this.splitContainerControl8.SplitterPosition = 246;
          this.splitContainerControl8.TabIndex = 21;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -3071,7 +3132,7 @@
          this.Pn_SubSys0.Controls.Add(this.labelControl31);
          this.Pn_SubSys0.Location = new System.Drawing.Point(19, 121);
          this.Pn_SubSys0.Name = "Pn_SubSys0";
-         this.Pn_SubSys0.Size = new System.Drawing.Size(677, 278);
+         this.Pn_SubSys0.Size = new System.Drawing.Size(548, 278);
          this.Pn_SubSys0.TabIndex = 23;
          // 
          // InstallUninstallJobs_Butn
@@ -3084,7 +3145,7 @@
          this.InstallUninstallJobs_Butn.Appearance.Options.UseFont = true;
          this.InstallUninstallJobs_Butn.Appearance.Options.UseForeColor = true;
          this.InstallUninstallJobs_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.InstallUninstallJobs_Butn.Location = new System.Drawing.Point(501, 144);
+         this.InstallUninstallJobs_Butn.Location = new System.Drawing.Point(372, 144);
          this.InstallUninstallJobs_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.InstallUninstallJobs_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.InstallUninstallJobs_Butn.Name = "InstallUninstallJobs_Butn";
@@ -3099,7 +3160,7 @@
          this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SubSysBs, "FREQ_INTR", true));
          this.buttonEdit1.EditValue = "";
-         this.buttonEdit1.Location = new System.Drawing.Point(610, 33);
+         this.buttonEdit1.Location = new System.Drawing.Point(481, 33);
          this.buttonEdit1.Name = "buttonEdit1";
          this.buttonEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.buttonEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -3113,7 +3174,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -3131,7 +3192,7 @@
          this.labelControl32.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl32.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl32.Location = new System.Drawing.Point(118, 89);
+         this.labelControl32.Location = new System.Drawing.Point(-11, 89);
          this.labelControl32.Name = "labelControl32";
          this.labelControl32.Size = new System.Drawing.Size(556, 49);
          this.labelControl32.TabIndex = 18;
@@ -3149,7 +3210,7 @@
          this.labelControl34.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl34.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl34.Location = new System.Drawing.Point(565, 33);
+         this.labelControl34.Location = new System.Drawing.Point(436, 33);
          this.labelControl34.Name = "labelControl34";
          this.labelControl34.Size = new System.Drawing.Size(39, 24);
          this.labelControl34.TabIndex = 18;
@@ -3165,7 +3226,7 @@
          this.labelControl31.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl31.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl31.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl31.Location = new System.Drawing.Point(567, 3);
+         this.labelControl31.Location = new System.Drawing.Point(438, 3);
          this.labelControl31.Name = "labelControl31";
          this.labelControl31.Size = new System.Drawing.Size(107, 24);
          this.labelControl31.TabIndex = 18;
@@ -3181,7 +3242,7 @@
          this.labelControl30.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl30.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl30.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl30.Location = new System.Drawing.Point(446, 17);
+         this.labelControl30.Location = new System.Drawing.Point(317, 17);
          this.labelControl30.Name = "labelControl30";
          this.labelControl30.Size = new System.Drawing.Size(250, 38);
          this.labelControl30.TabIndex = 19;
@@ -3190,7 +3251,7 @@
          // Ts_JobsStat
          // 
          this.Ts_JobsStat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Ts_JobsStat.Location = new System.Drawing.Point(625, 91);
+         this.Ts_JobsStat.Location = new System.Drawing.Point(496, 91);
          this.Ts_JobsStat.Name = "Ts_JobsStat";
          this.Ts_JobsStat.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_JobsStat.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -3208,7 +3269,7 @@
          this.labelControl29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl29.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl29.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl29.Location = new System.Drawing.Point(82, 61);
+         this.labelControl29.Location = new System.Drawing.Point(-47, 61);
          this.labelControl29.Name = "labelControl29";
          this.labelControl29.Size = new System.Drawing.Size(614, 24);
          this.labelControl29.TabIndex = 18;
@@ -3363,7 +3424,7 @@
          this.labelControl19.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl19.Location = new System.Drawing.Point(0, 0);
          this.labelControl19.Name = "labelControl19";
-         this.labelControl19.Size = new System.Drawing.Size(961, 36);
+         this.labelControl19.Size = new System.Drawing.Size(832, 36);
          this.labelControl19.TabIndex = 6;
          this.labelControl19.Text = "اجراهای زمان بندی";
          // 
@@ -3500,7 +3561,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SettingsSystem";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1193, 790);
+         this.Size = new System.Drawing.Size(1064, 790);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
@@ -3619,10 +3680,6 @@
       private DevExpress.XtraEditors.LabelControl labelControl33;
       private DevExpress.XtraEditors.LabelControl labelControl37;
       private DevExpress.XtraEditors.LabelControl labelControl38;
-      private DevExpress.XtraEditors.LabelControl labelControl49;
-      private DevExpress.XtraEditors.LabelControl labelControl47;
-      private DevExpress.XtraEditors.LabelControl labelControl42;
-      private DevExpress.XtraEditors.LabelControl labelControl39;
       private DevExpress.XtraEditors.LabelControl labelControl48;
       private DevExpress.XtraEditors.LabelControl labelControl46;
       private DevExpress.XtraEditors.LabelControl labelControl41;
@@ -3857,6 +3914,14 @@
       private DevExpress.XtraEditors.LabelControl labelControl34;
       private DevExpress.XtraEditors.SimpleButton ClearSubSysJobs_Butn;
       private DevExpress.XtraEditors.SimpleButton SetSubSysJobs_Butn;
+      private DevExpress.XtraEditors.LabelControl labelControl43;
+      private DevExpress.XtraEditors.LabelControl labelControl42;
+      private DevExpress.XtraEditors.LabelControl labelControl40;
+      private DevExpress.XtraEditors.LabelControl labelControl36;
+      private DevExpress.XtraEditors.LabelControl labelControl39;
+      private DevExpress.XtraEditors.LabelControl labelControl47;
+      private DevExpress.XtraEditors.LabelControl SysemLicense_Lnk;
+      private DevExpress.XtraEditors.LabelControl labelControl50;
 
    }
 }

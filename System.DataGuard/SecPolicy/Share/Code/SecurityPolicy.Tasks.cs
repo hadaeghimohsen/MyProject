@@ -244,6 +244,12 @@ namespace System.DataGuard.SecPolicy.Share.Code
                _SettingsRegion = new Ui.SettingsRegion { _DefaultGateway = this };
             job.Output = _SettingsRegion;
          }
+         else if (value == "settingssystemlicense")
+         {
+            if (_SettingsSystemLicense == null)
+               _SettingsSystemLicense = new Ui.SettingsSystemLicense { _DefaultGateway = this };
+            job.Output = _SettingsSystemLicense;
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -1189,6 +1195,31 @@ namespace System.DataGuard.SecPolicy.Share.Code
                   //new Job(SendType.SelfToUserInterface, "SettingsSystemPackage", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "SettingsRegion", 07 /* Execute LoadData */),
                   new Job(SendType.SelfToUserInterface, "SettingsRegion", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4SettingsSystemLicense(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi*/){Input = "settingssystemlicense"},
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemLicense", 02 /* Execute Set */),                  
+                  //new Job(SendType.SelfToUserInterface, "SettingsSystemPackage", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemLicense", 07 /* Execute LoadData */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemLicense", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

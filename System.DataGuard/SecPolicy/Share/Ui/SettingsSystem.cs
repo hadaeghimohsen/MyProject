@@ -428,7 +428,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             subsys.JOBS_STAT = "001";
             subsys.FREQ_INTR = null;
 
-            iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR);
+            iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.CLNT_LICN_DESC, subsys.SRVR_LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR);
          }
          catch (Exception exc)
          {
@@ -443,7 +443,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var subsys = SubSysBs.Current as Data.Sub_System;
             if (subsys == null) return;
 
-            iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR);
+            iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.CLNT_LICN_DESC, subsys.SRVR_LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR);
          }
          catch (Exception exc)
          {
@@ -469,6 +469,19 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void SysemLicense_Lnk_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 40 /* Execute DoWork4SettingsSystemLicense */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemLicense", 10 /* Execute ActionCallWindow */)
+               }
+            )
+         );
       }
    }
 }

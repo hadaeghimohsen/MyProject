@@ -103,8 +103,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Sub_System_Action_Center" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
       <Association Name="User_Action_Center" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
+      <Association Name="Sub_System_Action_Center" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="DataGuard.V#Computers" Member="V_Computers">
@@ -539,8 +539,8 @@
       <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Box_Privilege_User_Privilege" Member="Box_Privilege" ThisKey="BOXP_BPID" OtherKey="BPID" Type="Box_Privilege" IsForeignKey="true" />
-      <Association Name="Sub_System_User_Privilege" Member="Sub_System" ThisKey="Sub_Sys" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
       <Association Name="User_User_Privilege" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Sub_System_User_Privilege" Member="Sub_System" ThisKey="Sub_Sys" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="DataGuard.Role" Member="Roles">
@@ -703,55 +703,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="DataGuard.Sub_System" Member="Sub_Systems">
-    <Type Name="Sub_System">
-      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SCHM_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="INST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="INST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DLL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CAN_UN_INST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_APP_STRT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LICN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LICN_TRIL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LICN_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="VERS_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DB_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SUB_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SUPR_EMAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="JOBS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FREQ_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Sub_System_Package" Member="Packages" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Package" />
-      <Association Name="Sub_System_Action_Center" Member="Action_Centers" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Action_Center" />
-      <Association Name="Sub_System_Sub_System_Item" Member="Sub_System_Items" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System_Item" />
-      <Association Name="Sub_System_DataSource" Member="DataSources" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="DataSource" />
-      <Association Name="Sub_System_Box_Privilege" Member="Box_Privileges" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Box_Privilege" />
-      <Association Name="Sub_System_User_Privilege" Member="User_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="User_Privilege" />
-      <Association Name="Sub_System_Role" Member="Roles" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Role" />
-      <Association Name="Sub_System_Role_Privilege" Member="Role_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="Role_Privilege" />
-      <Association Name="Sub_System_Transaction_Log" Member="Transaction_Logs" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Transaction_Log" />
-      <Association Name="Sub_System_Localization" Member="Localizations" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Localization" />
-      <Association Name="Sub_System_Form" Member="Forms" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Form" />
-    </Type>
-    <UpdateFunction FunctionId="FunctionId1">
-      <Argument Parameter="sub_Sys" Member="SUB_SYS" />
-      <Argument Parameter="stat" Member="STAT" />
-      <Argument Parameter="inst_Stat" Member="INST_STAT" />
-      <Argument Parameter="inst_Date" Member="INST_DATE" />
-      <Argument Parameter="licn_Type" Member="LICN_TYPE" />
-      <Argument Parameter="licn_Tril_Date" Member="LICN_TRIL_DATE" />
-      <Argument Parameter="licn_Desc" Member="LICN_DESC" />
-      <Argument Parameter="sub_Desc" Member="SUB_DESC" />
-      <Argument Parameter="jobs_Stat" Member="JOBS_STAT" />
-      <Argument Parameter="freq_Intr" Member="FREQ_INTR" />
-    </UpdateFunction>
-  </Table>
   <Table Name="DataGuard.D$CNTP" Member="D_CNTPs">
     <Type Name="D_CNTP">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -796,8 +747,8 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Gateway_Transaction_Log" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
-      <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
       <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
+      <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="DataGuard.D$REGN" Member="D_REGNs">
@@ -911,8 +862,8 @@
       <Column Name="GUID" Type="System.String" DbType="VarChar(38)" CanBeNull="true" />
       <Column Name="FORM_PATH" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Association Name="Form_Form_Control" Member="Form_Controls" ThisKey="ID" OtherKey="FORM_ID" Type="Form_Control" />
-      <Association Name="Sub_System_Form" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
       <Association Name="Localization_Form" Member="Localization" ThisKey="LCAL_LCID" OtherKey="LCID" Type="Localization" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Sub_System_Form" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="Global.Form_Controls" Member="Form_Controls">
@@ -964,6 +915,61 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
+  </Table>
+  <Table Name="DataGuard.Sub_System" Member="Sub_Systems">
+    <Type Name="Sub_System">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SCHM_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DLL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CAN_UN_INST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_APP_STRT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LICN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LICN_TRIL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CLNT_LICN_DESC" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRVR_LICN_DESC" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VERS_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DB_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUPR_EMAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="JOBS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FREQ_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BACK_UP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BACK_UP_APP_EXIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BACK_UP_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UPLD_FILE_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Sub_System_Package" Member="Packages" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Package" />
+      <Association Name="Sub_System_Action_Center" Member="Action_Centers" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Action_Center" />
+      <Association Name="Sub_System_Sub_System_Item" Member="Sub_System_Items" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System_Item" />
+      <Association Name="Sub_System_DataSource" Member="DataSources" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="DataSource" />
+      <Association Name="Sub_System_Box_Privilege" Member="Box_Privileges" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Box_Privilege" />
+      <Association Name="Sub_System_User_Privilege" Member="User_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="User_Privilege" />
+      <Association Name="Sub_System_Role" Member="Roles" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Role" />
+      <Association Name="Sub_System_Role_Privilege" Member="Role_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="Role_Privilege" />
+      <Association Name="Sub_System_Transaction_Log" Member="Transaction_Logs" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Transaction_Log" />
+      <Association Name="Sub_System_Localization" Member="Localizations" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Localization" />
+      <Association Name="Sub_System_Form" Member="Forms" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Form" />
+    </Type>
+    <UpdateFunction FunctionId="FunctionId1">
+      <Argument Parameter="sub_Sys" Member="SUB_SYS" />
+      <Argument Parameter="stat" Member="STAT" />
+      <Argument Parameter="inst_Stat" Member="INST_STAT" />
+      <Argument Parameter="inst_Date" Member="INST_DATE" />
+      <Argument Parameter="licn_Type" Member="LICN_TYPE" />
+      <Argument Parameter="licn_Tril_Date" Member="LICN_TRIL_DATE" />
+      <Argument Parameter="clnt_Licn_Desc" Member="CLNT_LICN_DESC" />
+      <Argument Parameter="srvr_Licn_Desc" Member="SRVR_LICN_DESC" />
+      <Argument Parameter="sub_Desc" Member="SUB_DESC" />
+      <Argument Parameter="jobs_Stat" Member="JOBS_STAT" />
+      <Argument Parameter="freq_Intr" Member="FREQ_INTR" />
+    </UpdateFunction>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
@@ -1084,19 +1090,6 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId1" Name="DataGuard.UpdateSubSystem" Method="UpdateSubSystem">
-    <Parameter Name="Sub_Sys" Parameter="sub_Sys" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Inst_Stat" Parameter="inst_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Inst_Date" Parameter="inst_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Licn_Type" Parameter="licn_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Licn_Tril_Date" Parameter="licn_Tril_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Licn_Desc" Parameter="licn_Desc" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Sub_Desc" Parameter="sub_Desc" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="Jobs_Stat" Parameter="jobs_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Freq_Intr" Parameter="freq_Intr" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="DataGuard.InstallOrUninstallJob" Method="InstallOrUninstallJob">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <ElementType Name="InstallOrUninstallJobResult">
@@ -1128,5 +1121,19 @@
   <Function Name="dbo.GET_SRVR_U" Method="GET_SRVR_U" IsComposable="true">
     <Parameter Name="P_RqstXml" Parameter="p_RqstXml" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.String" />
+  </Function>
+  <Function Id="FunctionId1" Name="DataGuard.UpdateSubSystem" Method="UpdateSubSystem">
+    <Parameter Name="Sub_Sys" Parameter="sub_Sys" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Inst_Stat" Parameter="inst_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Inst_Date" Parameter="inst_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Licn_Type" Parameter="licn_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Licn_Tril_Date" Parameter="licn_Tril_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Clnt_Licn_Desc" Parameter="clnt_Licn_Desc" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Srvr_Licn_Desc" Parameter="srvr_Licn_Desc" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Sub_Desc" Parameter="sub_Desc" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Jobs_Stat" Parameter="jobs_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Freq_Intr" Parameter="freq_Intr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

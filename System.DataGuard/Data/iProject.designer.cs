@@ -129,8 +129,6 @@ namespace System.DataGuard.Data
     partial void InsertMail_Server(Mail_Server instance);
     partial void UpdateMail_Server(Mail_Server instance);
     partial void DeleteMail_Server(Mail_Server instance);
-    partial void InsertSub_System(Sub_System instance);
-    partial void DeleteSub_System(Sub_System instance);
     partial void InsertTransaction_Log(Transaction_Log instance);
     partial void UpdateTransaction_Log(Transaction_Log instance);
     partial void DeleteTransaction_Log(Transaction_Log instance);
@@ -152,6 +150,8 @@ namespace System.DataGuard.Data
     partial void InsertApp_Domain(App_Domain instance);
     partial void UpdateApp_Domain(App_Domain instance);
     partial void DeleteApp_Domain(App_Domain instance);
+    partial void InsertSub_System(Sub_System instance);
+    partial void DeleteSub_System(Sub_System instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -592,14 +592,6 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Sub_System> Sub_Systems
-		{
-			get
-			{
-				return this.GetTable<Sub_System>();
-			}
-		}
-		
 		public System.Data.Linq.Table<D_CNTP> D_CNTPs
 		{
 			get
@@ -712,9 +704,17 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Sub_System> Sub_Systems
+		{
+			get
+			{
+				return this.GetTable<Sub_System>();
+			}
+		}
+		
 		private void UpdateSub_System(Sub_System obj)
 		{
-			this.UpdateSubSystem(((System.Nullable<int>)(obj.SUB_SYS)), obj.STAT, obj.INST_STAT, ((System.Nullable<System.DateTime>)(obj.INST_DATE)), obj.LICN_TYPE, ((System.Nullable<System.DateTime>)(obj.LICN_TRIL_DATE)), obj.LICN_DESC, obj.SUB_DESC, obj.JOBS_STAT, ((System.Nullable<int>)(obj.FREQ_INTR)));
+			this.UpdateSubSystem(((System.Nullable<int>)(obj.SUB_SYS)), obj.STAT, obj.INST_STAT, ((System.Nullable<System.DateTime>)(obj.INST_DATE)), obj.LICN_TYPE, ((System.Nullable<System.DateTime>)(obj.LICN_TRIL_DATE)), obj.CLNT_LICN_DESC, obj.SRVR_LICN_DESC, obj.SUB_DESC, obj.JOBS_STAT, ((System.Nullable<int>)(obj.FREQ_INTR)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.SaveHostInfo")]
@@ -894,13 +894,6 @@ namespace System.DataGuard.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.UpdateSubSystem")]
-		public int UpdateSubSystem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Sys", DbType="Int")] System.Nullable<int> sub_Sys, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Stat", DbType="VarChar(3)")] string inst_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Date", DbType="DateTime")] System.Nullable<System.DateTime> inst_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Type", DbType="VarChar(3)")] string licn_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Tril_Date", DbType="DateTime")] System.Nullable<System.DateTime> licn_Tril_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Desc", DbType="NVarChar(1000)")] string licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Desc", DbType="NVarChar(500)")] string sub_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Jobs_Stat", DbType="VarChar(3)")] string jobs_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Freq_Intr", DbType="Int")] System.Nullable<int> freq_Intr)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sub_Sys, stat, inst_Stat, inst_Date, licn_Type, licn_Tril_Date, licn_Desc, sub_Desc, jobs_Stat, freq_Intr);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.InstallOrUninstallJob")]
 		public ISingleResult<InstallOrUninstallJobResult> InstallOrUninstallJob([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -948,6 +941,13 @@ namespace System.DataGuard.Data
 		public string GET_SRVR_U([global::System.Data.Linq.Mapping.ParameterAttribute(Name="P_RqstXml", DbType="Xml")] System.Xml.Linq.XElement p_RqstXml)
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_RqstXml).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.UpdateSubSystem")]
+		public int UpdateSubSystem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Sys", DbType="Int")] System.Nullable<int> sub_Sys, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Stat", DbType="VarChar(3)")] string inst_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Date", DbType="DateTime")] System.Nullable<System.DateTime> inst_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Type", DbType="VarChar(3)")] string licn_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Tril_Date", DbType="DateTime")] System.Nullable<System.DateTime> licn_Tril_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clnt_Licn_Desc", DbType="NVarChar(4000)")] string clnt_Licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srvr_Licn_Desc", DbType="NVarChar(4000)")] string srvr_Licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Desc", DbType="NVarChar(500)")] string sub_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Jobs_Stat", DbType="VarChar(3)")] string jobs_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Freq_Intr", DbType="Int")] System.Nullable<int> freq_Intr)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sub_Sys, stat, inst_Stat, inst_Date, licn_Type, licn_Tril_Date, clnt_Licn_Desc, srvr_Licn_Desc, sub_Desc, jobs_Stat, freq_Intr);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -3007,9 +3007,9 @@ namespace System.DataGuard.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Sub_System> _Sub_System;
-		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Sub_System> _Sub_System;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3041,8 +3041,8 @@ namespace System.DataGuard.Data
 		
 		public Action_Center()
 		{
-			this._Sub_System = default(EntityRef<Sub_System>);
 			this._User = default(EntityRef<User>);
+			this._Sub_System = default(EntityRef<Sub_System>);
 			OnCreated();
 		}
 		
@@ -3274,40 +3274,6 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Action_Center", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
-		public Sub_System Sub_System
-		{
-			get
-			{
-				return this._Sub_System.Entity;
-			}
-			set
-			{
-				Sub_System previousValue = this._Sub_System.Entity;
-				if (((previousValue != value) 
-							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sub_System.Entity = null;
-						previousValue.Action_Centers.Remove(this);
-					}
-					this._Sub_System.Entity = value;
-					if ((value != null))
-					{
-						value.Action_Centers.Add(this);
-						this._SUB_SYS = value.SUB_SYS;
-					}
-					else
-					{
-						this._SUB_SYS = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Sub_System");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Action_Center", Storage="_User", ThisKey="USER_ID", OtherKey="ID", IsForeignKey=true)]
 		public User User
 		{
@@ -3338,6 +3304,40 @@ namespace System.DataGuard.Data
 						this._USER_ID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Action_Center", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
+		public Sub_System Sub_System
+		{
+			get
+			{
+				return this._Sub_System.Entity;
+			}
+			set
+			{
+				Sub_System previousValue = this._Sub_System.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_System.Entity = null;
+						previousValue.Action_Centers.Remove(this);
+					}
+					this._Sub_System.Entity = value;
+					if ((value != null))
+					{
+						value.Action_Centers.Add(this);
+						this._SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._SUB_SYS = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Sub_System");
 				}
 			}
 		}
@@ -14909,852 +14909,6 @@ namespace System.DataGuard.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Sub_System")]
-	public partial class Sub_System : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SUB_SYS;
-		
-		private string _DESC;
-		
-		private string _SCHM_NAME;
-		
-		private string _STAT;
-		
-		private string _INST_STAT;
-		
-		private System.Nullable<System.DateTime> _INST_DATE;
-		
-		private string _DLL_NAME;
-		
-		private string _CAN_UN_INST;
-		
-		private string _DFLT_APP_STRT_STAT;
-		
-		private string _LICN_TYPE;
-		
-		private System.Nullable<System.DateTime> _LICN_TRIL_DATE;
-		
-		private string _LICN_DESC;
-		
-		private string _VERS_NO;
-		
-		private string _DB_NAME;
-		
-		private string _SUB_DESC;
-		
-		private string _SUPR_EMAL;
-		
-		private string _JOBS_STAT;
-		
-		private System.Nullable<int> _FREQ_INTR;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Package> _Packages;
-		
-		private EntitySet<Action_Center> _Action_Centers;
-		
-		private EntitySet<Sub_System_Item> _Sub_System_Items;
-		
-		private EntitySet<DataSource> _DataSources;
-		
-		private EntitySet<Box_Privilege> _Box_Privileges;
-		
-		private EntitySet<Role> _Roles;
-		
-		private EntitySet<Role_Privilege> _Role_Privileges;
-		
-		private EntitySet<Transaction_Log> _Transaction_Logs;
-		
-		private EntitySet<Localization> _Localizations;
-		
-		private EntitySet<Form> _Forms;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSUB_SYSChanging(int value);
-    partial void OnSUB_SYSChanged();
-    partial void OnDESCChanging(string value);
-    partial void OnDESCChanged();
-    partial void OnSCHM_NAMEChanging(string value);
-    partial void OnSCHM_NAMEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnINST_STATChanging(string value);
-    partial void OnINST_STATChanged();
-    partial void OnINST_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnINST_DATEChanged();
-    partial void OnDLL_NAMEChanging(string value);
-    partial void OnDLL_NAMEChanged();
-    partial void OnCAN_UN_INSTChanging(string value);
-    partial void OnCAN_UN_INSTChanged();
-    partial void OnDFLT_APP_STRT_STATChanging(string value);
-    partial void OnDFLT_APP_STRT_STATChanged();
-    partial void OnLICN_TYPEChanging(string value);
-    partial void OnLICN_TYPEChanged();
-    partial void OnLICN_TRIL_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnLICN_TRIL_DATEChanged();
-    partial void OnLICN_DESCChanging(string value);
-    partial void OnLICN_DESCChanged();
-    partial void OnVERS_NOChanging(string value);
-    partial void OnVERS_NOChanged();
-    partial void OnDB_NAMEChanging(string value);
-    partial void OnDB_NAMEChanged();
-    partial void OnSUB_DESCChanging(string value);
-    partial void OnSUB_DESCChanged();
-    partial void OnSUPR_EMALChanging(string value);
-    partial void OnSUPR_EMALChanged();
-    partial void OnJOBS_STATChanging(string value);
-    partial void OnJOBS_STATChanged();
-    partial void OnFREQ_INTRChanging(System.Nullable<int> value);
-    partial void OnFREQ_INTRChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Sub_System()
-		{
-			this._Packages = new EntitySet<Package>(new Action<Package>(this.attach_Packages), new Action<Package>(this.detach_Packages));
-			this._Action_Centers = new EntitySet<Action_Center>(new Action<Action_Center>(this.attach_Action_Centers), new Action<Action_Center>(this.detach_Action_Centers));
-			this._Sub_System_Items = new EntitySet<Sub_System_Item>(new Action<Sub_System_Item>(this.attach_Sub_System_Items), new Action<Sub_System_Item>(this.detach_Sub_System_Items));
-			this._DataSources = new EntitySet<DataSource>(new Action<DataSource>(this.attach_DataSources), new Action<DataSource>(this.detach_DataSources));
-			this._Box_Privileges = new EntitySet<Box_Privilege>(new Action<Box_Privilege>(this.attach_Box_Privileges), new Action<Box_Privilege>(this.detach_Box_Privileges));
-			this._Roles = new EntitySet<Role>(new Action<Role>(this.attach_Roles), new Action<Role>(this.detach_Roles));
-			this._Role_Privileges = new EntitySet<Role_Privilege>(new Action<Role_Privilege>(this.attach_Role_Privileges), new Action<Role_Privilege>(this.detach_Role_Privileges));
-			this._Transaction_Logs = new EntitySet<Transaction_Log>(new Action<Transaction_Log>(this.attach_Transaction_Logs), new Action<Transaction_Log>(this.detach_Transaction_Logs));
-			this._Localizations = new EntitySet<Localization>(new Action<Localization>(this.attach_Localizations), new Action<Localization>(this.detach_Localizations));
-			this._Forms = new EntitySet<Form>(new Action<Form>(this.attach_Forms), new Action<Form>(this.detach_Forms));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SUB_SYS
-		{
-			get
-			{
-				return this._SUB_SYS;
-			}
-			set
-			{
-				if ((this._SUB_SYS != value))
-				{
-					this.OnSUB_SYSChanging(value);
-					this.SendPropertyChanging();
-					this._SUB_SYS = value;
-					this.SendPropertyChanged("SUB_SYS");
-					this.OnSUB_SYSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DESC]", Storage="_DESC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string DESC
-		{
-			get
-			{
-				return this._DESC;
-			}
-			set
-			{
-				if ((this._DESC != value))
-				{
-					this.OnDESCChanging(value);
-					this.SendPropertyChanging();
-					this._DESC = value;
-					this.SendPropertyChanged("DESC");
-					this.OnDESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
-		public string SCHM_NAME
-		{
-			get
-			{
-				return this._SCHM_NAME;
-			}
-			set
-			{
-				if ((this._SCHM_NAME != value))
-				{
-					this.OnSCHM_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._SCHM_NAME = value;
-					this.SendPropertyChanged("SCHM_NAME");
-					this.OnSCHM_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string INST_STAT
-		{
-			get
-			{
-				return this._INST_STAT;
-			}
-			set
-			{
-				if ((this._INST_STAT != value))
-				{
-					this.OnINST_STATChanging(value);
-					this.SendPropertyChanging();
-					this._INST_STAT = value;
-					this.SendPropertyChanged("INST_STAT");
-					this.OnINST_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> INST_DATE
-		{
-			get
-			{
-				return this._INST_DATE;
-			}
-			set
-			{
-				if ((this._INST_DATE != value))
-				{
-					this.OnINST_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._INST_DATE = value;
-					this.SendPropertyChanged("INST_DATE");
-					this.OnINST_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DLL_NAME", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string DLL_NAME
-		{
-			get
-			{
-				return this._DLL_NAME;
-			}
-			set
-			{
-				if ((this._DLL_NAME != value))
-				{
-					this.OnDLL_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._DLL_NAME = value;
-					this.SendPropertyChanged("DLL_NAME");
-					this.OnDLL_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAN_UN_INST", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string CAN_UN_INST
-		{
-			get
-			{
-				return this._CAN_UN_INST;
-			}
-			set
-			{
-				if ((this._CAN_UN_INST != value))
-				{
-					this.OnCAN_UN_INSTChanging(value);
-					this.SendPropertyChanging();
-					this._CAN_UN_INST = value;
-					this.SendPropertyChanged("CAN_UN_INST");
-					this.OnCAN_UN_INSTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_APP_STRT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DFLT_APP_STRT_STAT
-		{
-			get
-			{
-				return this._DFLT_APP_STRT_STAT;
-			}
-			set
-			{
-				if ((this._DFLT_APP_STRT_STAT != value))
-				{
-					this.OnDFLT_APP_STRT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DFLT_APP_STRT_STAT = value;
-					this.SendPropertyChanged("DFLT_APP_STRT_STAT");
-					this.OnDFLT_APP_STRT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string LICN_TYPE
-		{
-			get
-			{
-				return this._LICN_TYPE;
-			}
-			set
-			{
-				if ((this._LICN_TYPE != value))
-				{
-					this.OnLICN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._LICN_TYPE = value;
-					this.SendPropertyChanged("LICN_TYPE");
-					this.OnLICN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_TRIL_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> LICN_TRIL_DATE
-		{
-			get
-			{
-				return this._LICN_TRIL_DATE;
-			}
-			set
-			{
-				if ((this._LICN_TRIL_DATE != value))
-				{
-					this.OnLICN_TRIL_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._LICN_TRIL_DATE = value;
-					this.SendPropertyChanged("LICN_TRIL_DATE");
-					this.OnLICN_TRIL_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_DESC", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
-		public string LICN_DESC
-		{
-			get
-			{
-				return this._LICN_DESC;
-			}
-			set
-			{
-				if ((this._LICN_DESC != value))
-				{
-					this.OnLICN_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._LICN_DESC = value;
-					this.SendPropertyChanged("LICN_DESC");
-					this.OnLICN_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VERS_NO", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string VERS_NO
-		{
-			get
-			{
-				return this._VERS_NO;
-			}
-			set
-			{
-				if ((this._VERS_NO != value))
-				{
-					this.OnVERS_NOChanging(value);
-					this.SendPropertyChanging();
-					this._VERS_NO = value;
-					this.SendPropertyChanged("VERS_NO");
-					this.OnVERS_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DB_NAME", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DB_NAME
-		{
-			get
-			{
-				return this._DB_NAME;
-			}
-			set
-			{
-				if ((this._DB_NAME != value))
-				{
-					this.OnDB_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._DB_NAME = value;
-					this.SendPropertyChanged("DB_NAME");
-					this.OnDB_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_DESC", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string SUB_DESC
-		{
-			get
-			{
-				return this._SUB_DESC;
-			}
-			set
-			{
-				if ((this._SUB_DESC != value))
-				{
-					this.OnSUB_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._SUB_DESC = value;
-					this.SendPropertyChanged("SUB_DESC");
-					this.OnSUB_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPR_EMAL", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string SUPR_EMAL
-		{
-			get
-			{
-				return this._SUPR_EMAL;
-			}
-			set
-			{
-				if ((this._SUPR_EMAL != value))
-				{
-					this.OnSUPR_EMALChanging(value);
-					this.SendPropertyChanging();
-					this._SUPR_EMAL = value;
-					this.SendPropertyChanged("SUPR_EMAL");
-					this.OnSUPR_EMALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JOBS_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string JOBS_STAT
-		{
-			get
-			{
-				return this._JOBS_STAT;
-			}
-			set
-			{
-				if ((this._JOBS_STAT != value))
-				{
-					this.OnJOBS_STATChanging(value);
-					this.SendPropertyChanging();
-					this._JOBS_STAT = value;
-					this.SendPropertyChanged("JOBS_STAT");
-					this.OnJOBS_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREQ_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> FREQ_INTR
-		{
-			get
-			{
-				return this._FREQ_INTR;
-			}
-			set
-			{
-				if ((this._FREQ_INTR != value))
-				{
-					this.OnFREQ_INTRChanging(value);
-					this.SendPropertyChanging();
-					this._FREQ_INTR = value;
-					this.SendPropertyChanged("FREQ_INTR");
-					this.OnFREQ_INTRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Package", Storage="_Packages", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Package> Packages
-		{
-			get
-			{
-				return this._Packages;
-			}
-			set
-			{
-				this._Packages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Action_Center", Storage="_Action_Centers", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Action_Center> Action_Centers
-		{
-			get
-			{
-				return this._Action_Centers;
-			}
-			set
-			{
-				this._Action_Centers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Sub_System_Item", Storage="_Sub_System_Items", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Sub_System_Item> Sub_System_Items
-		{
-			get
-			{
-				return this._Sub_System_Items;
-			}
-			set
-			{
-				this._Sub_System_Items.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_DataSource", Storage="_DataSources", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<DataSource> DataSources
-		{
-			get
-			{
-				return this._DataSources;
-			}
-			set
-			{
-				this._DataSources.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Box_Privilege", Storage="_Box_Privileges", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Box_Privilege> Box_Privileges
-		{
-			get
-			{
-				return this._Box_Privileges;
-			}
-			set
-			{
-				this._Box_Privileges.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Role", Storage="_Roles", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Role> Roles
-		{
-			get
-			{
-				return this._Roles;
-			}
-			set
-			{
-				this._Roles.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Role_Privilege", Storage="_Role_Privileges", ThisKey="SUB_SYS", OtherKey="Sub_Sys")]
-		public EntitySet<Role_Privilege> Role_Privileges
-		{
-			get
-			{
-				return this._Role_Privileges;
-			}
-			set
-			{
-				this._Role_Privileges.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Transaction_Log", Storage="_Transaction_Logs", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Transaction_Log> Transaction_Logs
-		{
-			get
-			{
-				return this._Transaction_Logs;
-			}
-			set
-			{
-				this._Transaction_Logs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Localization", Storage="_Localizations", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Localization> Localizations
-		{
-			get
-			{
-				return this._Localizations;
-			}
-			set
-			{
-				this._Localizations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Form", Storage="_Forms", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Form> Forms
-		{
-			get
-			{
-				return this._Forms;
-			}
-			set
-			{
-				this._Forms.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Packages(Package entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Packages(Package entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Action_Centers(Action_Center entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Action_Centers(Action_Center entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Sub_System_Items(Sub_System_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Sub_System_Items(Sub_System_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_DataSources(DataSource entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_DataSources(DataSource entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Box_Privileges(Box_Privilege entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Box_Privileges(Box_Privilege entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Roles(Role entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Roles(Role entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Role_Privileges(Role_Privilege entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Role_Privileges(Role_Privilege entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Transaction_Logs(Transaction_Log entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Transaction_Logs(Transaction_Log entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Localizations(Localization entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Localizations(Localization entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-		
-		private void attach_Forms(Form entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Forms(Form entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.D$CNTP")]
 	public partial class D_CNTP
 	{
@@ -15944,9 +15098,9 @@ namespace System.DataGuard.Data
 		
 		private EntityRef<Gateway> _Gateway;
 		
-		private EntityRef<Sub_System> _Sub_System;
-		
 		private EntityRef<Pos_Device> _Pos_Device;
+		
+		private EntityRef<Sub_System> _Sub_System;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -16003,8 +15157,8 @@ namespace System.DataGuard.Data
 		public Transaction_Log()
 		{
 			this._Gateway = default(EntityRef<Gateway>);
-			this._Sub_System = default(EntityRef<Sub_System>);
 			this._Pos_Device = default(EntityRef<Pos_Device>);
+			this._Sub_System = default(EntityRef<Sub_System>);
 			OnCreated();
 		}
 		
@@ -16514,40 +15668,6 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Transaction_Log", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
-		public Sub_System Sub_System
-		{
-			get
-			{
-				return this._Sub_System.Entity;
-			}
-			set
-			{
-				Sub_System previousValue = this._Sub_System.Entity;
-				if (((previousValue != value) 
-							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sub_System.Entity = null;
-						previousValue.Transaction_Logs.Remove(this);
-					}
-					this._Sub_System.Entity = value;
-					if ((value != null))
-					{
-						value.Transaction_Logs.Add(this);
-						this._SUB_SYS = value.SUB_SYS;
-					}
-					else
-					{
-						this._SUB_SYS = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Sub_System");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pos_Device_Transaction_Log", Storage="_Pos_Device", ThisKey="POSD_PSID", OtherKey="PSID", IsForeignKey=true)]
 		public Pos_Device Pos_Device
 		{
@@ -16578,6 +15698,40 @@ namespace System.DataGuard.Data
 						this._POSD_PSID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Pos_Device");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Transaction_Log", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
+		public Sub_System Sub_System
+		{
+			get
+			{
+				return this._Sub_System.Entity;
+			}
+			set
+			{
+				Sub_System previousValue = this._Sub_System.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_System.Entity = null;
+						previousValue.Transaction_Logs.Remove(this);
+					}
+					this._Sub_System.Entity = value;
+					if ((value != null))
+					{
+						value.Transaction_Logs.Add(this);
+						this._SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._SUB_SYS = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Sub_System");
 				}
 			}
 		}
@@ -18800,9 +17954,9 @@ namespace System.DataGuard.Data
 		
 		private EntitySet<Form_Control> _Form_Controls;
 		
-		private EntityRef<Sub_System> _Sub_System;
-		
 		private EntityRef<Localization> _Localization;
+		
+		private EntityRef<Sub_System> _Sub_System;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -18829,8 +17983,8 @@ namespace System.DataGuard.Data
 		public Form()
 		{
 			this._Form_Controls = new EntitySet<Form_Control>(new Action<Form_Control>(this.attach_Form_Controls), new Action<Form_Control>(this.detach_Form_Controls));
-			this._Sub_System = default(EntityRef<Sub_System>);
 			this._Localization = default(EntityRef<Localization>);
+			this._Sub_System = default(EntityRef<Sub_System>);
 			OnCreated();
 		}
 		
@@ -19015,40 +18169,6 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Form", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
-		public Sub_System Sub_System
-		{
-			get
-			{
-				return this._Sub_System.Entity;
-			}
-			set
-			{
-				Sub_System previousValue = this._Sub_System.Entity;
-				if (((previousValue != value) 
-							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sub_System.Entity = null;
-						previousValue.Forms.Remove(this);
-					}
-					this._Sub_System.Entity = value;
-					if ((value != null))
-					{
-						value.Forms.Add(this);
-						this._SUB_SYS = value.SUB_SYS;
-					}
-					else
-					{
-						this._SUB_SYS = default(int);
-					}
-					this.SendPropertyChanged("Sub_System");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Localization_Form", Storage="_Localization", ThisKey="LCAL_LCID", OtherKey="LCID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Localization Localization
 		{
@@ -19079,6 +18199,40 @@ namespace System.DataGuard.Data
 						this._LCAL_LCID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Localization");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Form", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
+		public Sub_System Sub_System
+		{
+			get
+			{
+				return this._Sub_System.Entity;
+			}
+			set
+			{
+				Sub_System previousValue = this._Sub_System.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_System.Entity = null;
+						previousValue.Forms.Remove(this);
+					}
+					this._Sub_System.Entity = value;
+					if ((value != null))
+					{
+						value.Forms.Add(this);
+						this._SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._SUB_SYS = default(int);
+					}
+					this.SendPropertyChanged("Sub_System");
 				}
 			}
 		}
@@ -19863,6 +19017,972 @@ namespace System.DataGuard.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Sub_System")]
+	public partial class Sub_System : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SUB_SYS;
+		
+		private string _DESC;
+		
+		private string _SCHM_NAME;
+		
+		private string _STAT;
+		
+		private string _INST_STAT;
+		
+		private System.Nullable<System.DateTime> _INST_DATE;
+		
+		private string _DLL_NAME;
+		
+		private string _CAN_UN_INST;
+		
+		private string _DFLT_APP_STRT_STAT;
+		
+		private string _LICN_TYPE;
+		
+		private System.Nullable<System.DateTime> _LICN_TRIL_DATE;
+		
+		private string _CLNT_LICN_DESC;
+		
+		private string _SRVR_LICN_DESC;
+		
+		private string _VERS_NO;
+		
+		private string _DB_NAME;
+		
+		private string _SUB_DESC;
+		
+		private string _SUPR_EMAL;
+		
+		private string _JOBS_STAT;
+		
+		private System.Nullable<int> _FREQ_INTR;
+		
+		private string _BACK_UP_STAT;
+		
+		private string _BACK_UP_APP_EXIT;
+		
+		private string _BACK_UP_PATH_ADRS;
+		
+		private string _UPLD_FILE_PATH_ADRS;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Package> _Packages;
+		
+		private EntitySet<Action_Center> _Action_Centers;
+		
+		private EntitySet<Sub_System_Item> _Sub_System_Items;
+		
+		private EntitySet<DataSource> _DataSources;
+		
+		private EntitySet<Box_Privilege> _Box_Privileges;
+		
+		private EntitySet<Role> _Roles;
+		
+		private EntitySet<Role_Privilege> _Role_Privileges;
+		
+		private EntitySet<Transaction_Log> _Transaction_Logs;
+		
+		private EntitySet<Localization> _Localizations;
+		
+		private EntitySet<Form> _Forms;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSUB_SYSChanging(int value);
+    partial void OnSUB_SYSChanged();
+    partial void OnDESCChanging(string value);
+    partial void OnDESCChanged();
+    partial void OnSCHM_NAMEChanging(string value);
+    partial void OnSCHM_NAMEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnINST_STATChanging(string value);
+    partial void OnINST_STATChanged();
+    partial void OnINST_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINST_DATEChanged();
+    partial void OnDLL_NAMEChanging(string value);
+    partial void OnDLL_NAMEChanged();
+    partial void OnCAN_UN_INSTChanging(string value);
+    partial void OnCAN_UN_INSTChanged();
+    partial void OnDFLT_APP_STRT_STATChanging(string value);
+    partial void OnDFLT_APP_STRT_STATChanged();
+    partial void OnLICN_TYPEChanging(string value);
+    partial void OnLICN_TYPEChanged();
+    partial void OnLICN_TRIL_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnLICN_TRIL_DATEChanged();
+    partial void OnCLNT_LICN_DESCChanging(string value);
+    partial void OnCLNT_LICN_DESCChanged();
+    partial void OnSRVR_LICN_DESCChanging(string value);
+    partial void OnSRVR_LICN_DESCChanged();
+    partial void OnVERS_NOChanging(string value);
+    partial void OnVERS_NOChanged();
+    partial void OnDB_NAMEChanging(string value);
+    partial void OnDB_NAMEChanged();
+    partial void OnSUB_DESCChanging(string value);
+    partial void OnSUB_DESCChanged();
+    partial void OnSUPR_EMALChanging(string value);
+    partial void OnSUPR_EMALChanged();
+    partial void OnJOBS_STATChanging(string value);
+    partial void OnJOBS_STATChanged();
+    partial void OnFREQ_INTRChanging(System.Nullable<int> value);
+    partial void OnFREQ_INTRChanged();
+    partial void OnBACK_UP_STATChanging(string value);
+    partial void OnBACK_UP_STATChanged();
+    partial void OnBACK_UP_APP_EXITChanging(string value);
+    partial void OnBACK_UP_APP_EXITChanged();
+    partial void OnBACK_UP_PATH_ADRSChanging(string value);
+    partial void OnBACK_UP_PATH_ADRSChanged();
+    partial void OnUPLD_FILE_PATH_ADRSChanging(string value);
+    partial void OnUPLD_FILE_PATH_ADRSChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Sub_System()
+		{
+			this._Packages = new EntitySet<Package>(new Action<Package>(this.attach_Packages), new Action<Package>(this.detach_Packages));
+			this._Action_Centers = new EntitySet<Action_Center>(new Action<Action_Center>(this.attach_Action_Centers), new Action<Action_Center>(this.detach_Action_Centers));
+			this._Sub_System_Items = new EntitySet<Sub_System_Item>(new Action<Sub_System_Item>(this.attach_Sub_System_Items), new Action<Sub_System_Item>(this.detach_Sub_System_Items));
+			this._DataSources = new EntitySet<DataSource>(new Action<DataSource>(this.attach_DataSources), new Action<DataSource>(this.detach_DataSources));
+			this._Box_Privileges = new EntitySet<Box_Privilege>(new Action<Box_Privilege>(this.attach_Box_Privileges), new Action<Box_Privilege>(this.detach_Box_Privileges));
+			this._Roles = new EntitySet<Role>(new Action<Role>(this.attach_Roles), new Action<Role>(this.detach_Roles));
+			this._Role_Privileges = new EntitySet<Role_Privilege>(new Action<Role_Privilege>(this.attach_Role_Privileges), new Action<Role_Privilege>(this.detach_Role_Privileges));
+			this._Transaction_Logs = new EntitySet<Transaction_Log>(new Action<Transaction_Log>(this.attach_Transaction_Logs), new Action<Transaction_Log>(this.detach_Transaction_Logs));
+			this._Localizations = new EntitySet<Localization>(new Action<Localization>(this.attach_Localizations), new Action<Localization>(this.detach_Localizations));
+			this._Forms = new EntitySet<Form>(new Action<Form>(this.attach_Forms), new Action<Form>(this.detach_Forms));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SUB_SYS
+		{
+			get
+			{
+				return this._SUB_SYS;
+			}
+			set
+			{
+				if ((this._SUB_SYS != value))
+				{
+					this.OnSUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_SYS = value;
+					this.SendPropertyChanged("SUB_SYS");
+					this.OnSUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DESC]", Storage="_DESC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string DESC
+		{
+			get
+			{
+				return this._DESC;
+			}
+			set
+			{
+				if ((this._DESC != value))
+				{
+					this.OnDESCChanging(value);
+					this.SendPropertyChanging();
+					this._DESC = value;
+					this.SendPropertyChanged("DESC");
+					this.OnDESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string SCHM_NAME
+		{
+			get
+			{
+				return this._SCHM_NAME;
+			}
+			set
+			{
+				if ((this._SCHM_NAME != value))
+				{
+					this.OnSCHM_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SCHM_NAME = value;
+					this.SendPropertyChanged("SCHM_NAME");
+					this.OnSCHM_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string INST_STAT
+		{
+			get
+			{
+				return this._INST_STAT;
+			}
+			set
+			{
+				if ((this._INST_STAT != value))
+				{
+					this.OnINST_STATChanging(value);
+					this.SendPropertyChanging();
+					this._INST_STAT = value;
+					this.SendPropertyChanged("INST_STAT");
+					this.OnINST_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> INST_DATE
+		{
+			get
+			{
+				return this._INST_DATE;
+			}
+			set
+			{
+				if ((this._INST_DATE != value))
+				{
+					this.OnINST_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INST_DATE = value;
+					this.SendPropertyChanged("INST_DATE");
+					this.OnINST_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DLL_NAME", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string DLL_NAME
+		{
+			get
+			{
+				return this._DLL_NAME;
+			}
+			set
+			{
+				if ((this._DLL_NAME != value))
+				{
+					this.OnDLL_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._DLL_NAME = value;
+					this.SendPropertyChanged("DLL_NAME");
+					this.OnDLL_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAN_UN_INST", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CAN_UN_INST
+		{
+			get
+			{
+				return this._CAN_UN_INST;
+			}
+			set
+			{
+				if ((this._CAN_UN_INST != value))
+				{
+					this.OnCAN_UN_INSTChanging(value);
+					this.SendPropertyChanging();
+					this._CAN_UN_INST = value;
+					this.SendPropertyChanged("CAN_UN_INST");
+					this.OnCAN_UN_INSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_APP_STRT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DFLT_APP_STRT_STAT
+		{
+			get
+			{
+				return this._DFLT_APP_STRT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_APP_STRT_STAT != value))
+				{
+					this.OnDFLT_APP_STRT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_APP_STRT_STAT = value;
+					this.SendPropertyChanged("DFLT_APP_STRT_STAT");
+					this.OnDFLT_APP_STRT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string LICN_TYPE
+		{
+			get
+			{
+				return this._LICN_TYPE;
+			}
+			set
+			{
+				if ((this._LICN_TYPE != value))
+				{
+					this.OnLICN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._LICN_TYPE = value;
+					this.SendPropertyChanged("LICN_TYPE");
+					this.OnLICN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_TRIL_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> LICN_TRIL_DATE
+		{
+			get
+			{
+				return this._LICN_TRIL_DATE;
+			}
+			set
+			{
+				if ((this._LICN_TRIL_DATE != value))
+				{
+					this.OnLICN_TRIL_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._LICN_TRIL_DATE = value;
+					this.SendPropertyChanged("LICN_TRIL_DATE");
+					this.OnLICN_TRIL_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLNT_LICN_DESC", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string CLNT_LICN_DESC
+		{
+			get
+			{
+				return this._CLNT_LICN_DESC;
+			}
+			set
+			{
+				if ((this._CLNT_LICN_DESC != value))
+				{
+					this.OnCLNT_LICN_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._CLNT_LICN_DESC = value;
+					this.SendPropertyChanged("CLNT_LICN_DESC");
+					this.OnCLNT_LICN_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRVR_LICN_DESC", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SRVR_LICN_DESC
+		{
+			get
+			{
+				return this._SRVR_LICN_DESC;
+			}
+			set
+			{
+				if ((this._SRVR_LICN_DESC != value))
+				{
+					this.OnSRVR_LICN_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SRVR_LICN_DESC = value;
+					this.SendPropertyChanged("SRVR_LICN_DESC");
+					this.OnSRVR_LICN_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VERS_NO", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string VERS_NO
+		{
+			get
+			{
+				return this._VERS_NO;
+			}
+			set
+			{
+				if ((this._VERS_NO != value))
+				{
+					this.OnVERS_NOChanging(value);
+					this.SendPropertyChanging();
+					this._VERS_NO = value;
+					this.SendPropertyChanged("VERS_NO");
+					this.OnVERS_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DB_NAME", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string DB_NAME
+		{
+			get
+			{
+				return this._DB_NAME;
+			}
+			set
+			{
+				if ((this._DB_NAME != value))
+				{
+					this.OnDB_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._DB_NAME = value;
+					this.SendPropertyChanged("DB_NAME");
+					this.OnDB_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_DESC", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string SUB_DESC
+		{
+			get
+			{
+				return this._SUB_DESC;
+			}
+			set
+			{
+				if ((this._SUB_DESC != value))
+				{
+					this.OnSUB_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_DESC = value;
+					this.SendPropertyChanged("SUB_DESC");
+					this.OnSUB_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPR_EMAL", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string SUPR_EMAL
+		{
+			get
+			{
+				return this._SUPR_EMAL;
+			}
+			set
+			{
+				if ((this._SUPR_EMAL != value))
+				{
+					this.OnSUPR_EMALChanging(value);
+					this.SendPropertyChanging();
+					this._SUPR_EMAL = value;
+					this.SendPropertyChanged("SUPR_EMAL");
+					this.OnSUPR_EMALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JOBS_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string JOBS_STAT
+		{
+			get
+			{
+				return this._JOBS_STAT;
+			}
+			set
+			{
+				if ((this._JOBS_STAT != value))
+				{
+					this.OnJOBS_STATChanging(value);
+					this.SendPropertyChanging();
+					this._JOBS_STAT = value;
+					this.SendPropertyChanged("JOBS_STAT");
+					this.OnJOBS_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREQ_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> FREQ_INTR
+		{
+			get
+			{
+				return this._FREQ_INTR;
+			}
+			set
+			{
+				if ((this._FREQ_INTR != value))
+				{
+					this.OnFREQ_INTRChanging(value);
+					this.SendPropertyChanging();
+					this._FREQ_INTR = value;
+					this.SendPropertyChanged("FREQ_INTR");
+					this.OnFREQ_INTRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string BACK_UP_STAT
+		{
+			get
+			{
+				return this._BACK_UP_STAT;
+			}
+			set
+			{
+				if ((this._BACK_UP_STAT != value))
+				{
+					this.OnBACK_UP_STATChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_STAT = value;
+					this.SendPropertyChanged("BACK_UP_STAT");
+					this.OnBACK_UP_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string BACK_UP_APP_EXIT
+		{
+			get
+			{
+				return this._BACK_UP_APP_EXIT;
+			}
+			set
+			{
+				if ((this._BACK_UP_APP_EXIT != value))
+				{
+					this.OnBACK_UP_APP_EXITChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_APP_EXIT = value;
+					this.SendPropertyChanged("BACK_UP_APP_EXIT");
+					this.OnBACK_UP_APP_EXITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_PATH_ADRS", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string BACK_UP_PATH_ADRS
+		{
+			get
+			{
+				return this._BACK_UP_PATH_ADRS;
+			}
+			set
+			{
+				if ((this._BACK_UP_PATH_ADRS != value))
+				{
+					this.OnBACK_UP_PATH_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_PATH_ADRS = value;
+					this.SendPropertyChanged("BACK_UP_PATH_ADRS");
+					this.OnBACK_UP_PATH_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLD_FILE_PATH_ADRS", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string UPLD_FILE_PATH_ADRS
+		{
+			get
+			{
+				return this._UPLD_FILE_PATH_ADRS;
+			}
+			set
+			{
+				if ((this._UPLD_FILE_PATH_ADRS != value))
+				{
+					this.OnUPLD_FILE_PATH_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._UPLD_FILE_PATH_ADRS = value;
+					this.SendPropertyChanged("UPLD_FILE_PATH_ADRS");
+					this.OnUPLD_FILE_PATH_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Package", Storage="_Packages", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Package> Packages
+		{
+			get
+			{
+				return this._Packages;
+			}
+			set
+			{
+				this._Packages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Action_Center", Storage="_Action_Centers", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Action_Center> Action_Centers
+		{
+			get
+			{
+				return this._Action_Centers;
+			}
+			set
+			{
+				this._Action_Centers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Sub_System_Item", Storage="_Sub_System_Items", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Sub_System_Item> Sub_System_Items
+		{
+			get
+			{
+				return this._Sub_System_Items;
+			}
+			set
+			{
+				this._Sub_System_Items.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_DataSource", Storage="_DataSources", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<DataSource> DataSources
+		{
+			get
+			{
+				return this._DataSources;
+			}
+			set
+			{
+				this._DataSources.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Box_Privilege", Storage="_Box_Privileges", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Box_Privilege> Box_Privileges
+		{
+			get
+			{
+				return this._Box_Privileges;
+			}
+			set
+			{
+				this._Box_Privileges.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Role", Storage="_Roles", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Role> Roles
+		{
+			get
+			{
+				return this._Roles;
+			}
+			set
+			{
+				this._Roles.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Role_Privilege", Storage="_Role_Privileges", ThisKey="SUB_SYS", OtherKey="Sub_Sys")]
+		public EntitySet<Role_Privilege> Role_Privileges
+		{
+			get
+			{
+				return this._Role_Privileges;
+			}
+			set
+			{
+				this._Role_Privileges.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Transaction_Log", Storage="_Transaction_Logs", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Transaction_Log> Transaction_Logs
+		{
+			get
+			{
+				return this._Transaction_Logs;
+			}
+			set
+			{
+				this._Transaction_Logs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Localization", Storage="_Localizations", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Localization> Localizations
+		{
+			get
+			{
+				return this._Localizations;
+			}
+			set
+			{
+				this._Localizations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Form", Storage="_Forms", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Form> Forms
+		{
+			get
+			{
+				return this._Forms;
+			}
+			set
+			{
+				this._Forms.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Packages(Package entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Packages(Package entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Action_Centers(Action_Center entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Action_Centers(Action_Center entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Sub_System_Items(Sub_System_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Sub_System_Items(Sub_System_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_DataSources(DataSource entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_DataSources(DataSource entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Box_Privileges(Box_Privilege entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Box_Privileges(Box_Privilege entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Roles(Role entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Roles(Role entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Role_Privileges(Role_Privilege entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Role_Privileges(Role_Privilege entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Transaction_Logs(Transaction_Log entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Transaction_Logs(Transaction_Log entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Localizations(Localization entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Localizations(Localization entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Forms(Form entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Forms(Form entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
 		}
 	}
 	

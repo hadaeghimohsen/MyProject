@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.CRM.Ui.BaseDefination
+namespace System.CRM.Ui.Contract
 {
-   partial class APBS_DFIN_F : ISendRequest
+   partial class SHW_CNTR_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
+      private string CurrentUser;
+      
 
       public void SendRequest(Job job)
       {
@@ -59,42 +61,14 @@ namespace System.CRM.Ui.BaseDefination
       {
          Keys keyData = (Keys)job.Input;
 
-         if (keyData == (Keys.Control | Keys.S))
+         if (keyData == Keys.Enter)
          {
-            SubmitChanged_Clicked(null, null);
-         }
-         else if (keyData == Keys.Enter)
-         {            
+            SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.Escape)
          {
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
-
-            switch (formCaller)
-            {
-               case "INF_CONT_F":
-               case "INF_CASE_F":
-               case "CJBP_DFIN_F":
-               case "INF_CTWK_F":
-               case "ADD_INFO_F":
-               case "TSK_TAG_F":
-               case "RLAT_SINF_F":
-               case "RLAT_CINF_F":
-               case "OPT_SNDF_F":
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
-                     {
-                        Input = 
-                           new XElement("Action",
-                              new XAttribute("type", "refresh")
-                           )
-                     }
-                  );
-                  break;
-               default:
-                  break;
-            }
          }
 
          job.Status = StatusType.Successful;
@@ -115,15 +89,17 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private void Set(Job job)
       {
+         Menu_Rbn.Minimized = true;
          var GetConnectionString =
             new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>" };
          _DefaultGateway.Gateway(
             GetConnectionString
          );
-         
+
          ConnectionString = GetConnectionString.Output.ToString();
          iCRM = new Data.iCRMDataContext(GetConnectionString.Output.ToString());
 
+         CurrentUser = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
          var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          _DefaultGateway.Gateway(GetHostInfo);
 
@@ -140,25 +116,16 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
-         //Job _Paint = new Job(SendType.External, "Desktop",
-         //   new List<Job>
-         //   {
-         //      //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
-         //      new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> {string.Format("CRM:{0}", this.GetType().Name), this }  },
-         //      new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 08 /* Execute PastOnWall */) { Input = this }               
-         //   });
-         //_DefaultGateway.Gateway(_Paint);
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
-               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
-               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("CRM:{0}", this.GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:stretch:center"} }               
+               //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> {string.Format("CRM:{0}", this.GetType().Name), this }  },
+               new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 08 /* Execute PastOnWall */) { Input = this }               
             });
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
-
          job.Status = StatusType.Successful;
       }
 
@@ -168,10 +135,15 @@ namespace System.CRM.Ui.BaseDefination
       /// <param name="job"></param>
       private void UnPaint(Job job)
       {
-         job.Next =
-            new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
-               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */,
-                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)) { Input = this });
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
+                  new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
+                  //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
+               })
+            );
 
          job.Status = StatusType.Successful;
       }
@@ -192,20 +164,20 @@ namespace System.CRM.Ui.BaseDefination
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>16</Privilege><Sub_Sys>11</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>67</Privilege><Sub_Sys>11</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 16 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 67 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
                         #endregion                        
                      })                     
                   });
-         _DefaultGateway.Gateway(_InteractWithJob);         
+         _DefaultGateway.Gateway(_InteractWithJob);
       }
 
       /// <summary>
@@ -213,9 +185,23 @@ namespace System.CRM.Ui.BaseDefination
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
-      {         
+      {
+         if (InvokeRequired)
+         {
+            Invoke(new Action(() => 
+            { 
+               DsstgBs.DataSource = iCRM.D_SSTGs;
+               ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTRACT");
+            }));
+         }
+         else
+         {
+            DsstgBs.DataSource = iCRM.D_SSTGs;
+            ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTRACT");
+         }
+         
          job.Status = StatusType.Successful;
-      }
+      }      
 
       /// <summary>
       /// Code 10
@@ -226,26 +212,33 @@ namespace System.CRM.Ui.BaseDefination
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            tableName = xinput.Attribute("tablename").Value;
-            formCaller = xinput.Attribute("formcaller").Value;
-
-            switch(tableName)
-            {
-               case "COMPANYCHART_INFO":
-               case "RELATION_INFO":
-               case "CONTACT_INFO":
-               case "TAG":
-                  SApbBn.Visible = Sapb_Gc.Visible = false;
-                  break;
-               case "EXTRA_INFO":
-                  SApbBn.Visible = Sapb_Gc.Visible = true;
-                  break;
-            }
+            if (xinput.Attribute("onoftag") != null)
+               onoftag = xinput.Attribute("onoftag").Value;
             
+            if (xinput.Attribute("compcode") != null)
+               compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
+            else
+               compcode = 0;
+         }         
+
+         if (InvokeRequired)
+         {
+            Invoke(
+               new Action(
+                  () =>
+                  {
+                     Execute_Query();
+                  }
+               )
+            );
+         }
+         else
+         {
             Execute_Query();
          }
          job.Status = StatusType.Successful;
       }
-
    }
 }
+
+

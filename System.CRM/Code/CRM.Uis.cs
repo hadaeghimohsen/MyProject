@@ -121,5 +121,8 @@ namespace System.CRM.Code
       internal Ui.Cases.SHW_CASE_F _Shw_Case_F { get; set; }
       internal Ui.Cases.RSL_CASE_F _Rsl_Case_F { get; set; }
 
+      internal Ui.Contract.INF_CNTR_F _Inf_Cntr_F { get; set; }
+      internal Ui.Contract.SHW_CNTR_F _Shw_Cntr_F { get; set; }
+
    }
 }

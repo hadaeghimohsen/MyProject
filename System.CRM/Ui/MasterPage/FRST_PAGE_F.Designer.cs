@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
          this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
@@ -91,7 +90,7 @@
          this.ServiceQueues_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup25 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ServiceArticles_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton36 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ServiceContract_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ServiceProduct_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ServiceService_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup26 = new C1.Win.C1Ribbon.RibbonGroup();
@@ -229,8 +228,8 @@
          this.oTask_Butn = new System.MaxUi.RoundedButton();
          this.iTask_Butn = new System.MaxUi.RoundedButton();
          this.User_Butn = new System.MaxUi.RoundedButton();
-         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
-         this.ToolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+         this.ServBs = new System.Windows.Forms.BindingSource();
+         this.ToolTipInfo = new System.Windows.Forms.ToolTip();
          this.roundedButton1 = new System.MaxUi.RoundedButton();
          this.InfoServ_Rm = new DevExpress.XtraBars.Ribbon.RadialMenu();
          this.HistLogc_Butn = new DevExpress.XtraBars.BarButtonItem();
@@ -247,7 +246,7 @@
          this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
          this.HistFinr_Butn = new DevExpress.XtraBars.BarButtonItem();
-         this.InfoServ_Bm = new DevExpress.XtraBars.BarManager(this.components);
+         this.InfoServ_Bm = new DevExpress.XtraBars.BarManager();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -255,7 +254,7 @@
          this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-         this.Tm_Refreshing = new System.Windows.Forms.Timer(this.components);
+         this.Tm_Refreshing = new System.Windows.Forms.Timer();
          this.ShowInfo_Pn = new System.Windows.Forms.Panel();
          this.CloseInfo_Butn = new System.Windows.Forms.Button();
          this.TextInfo_Txt = new System.Windows.Forms.Label();
@@ -717,7 +716,7 @@
          // ribbonGroup25
          // 
          this.ribbonGroup25.Items.Add(this.ServiceArticles_Butn);
-         this.ribbonGroup25.Items.Add(this.ribbonButton36);
+         this.ribbonGroup25.Items.Add(this.ServiceContract_Butn);
          this.ribbonGroup25.Items.Add(this.ServiceProduct_Butn);
          this.ribbonGroup25.Items.Add(this.ServiceService_Butn);
          this.ribbonGroup25.Name = "ribbonGroup25";
@@ -730,12 +729,12 @@
          this.ServiceArticles_Butn.ToolTip = "مقالات";
          this.ServiceArticles_Butn.Click += new System.EventHandler(this.ServiceArticles_Butn_Click);
          // 
-         // ribbonButton36
+         // ServiceContract_Butn
          // 
-         this.ribbonButton36.Name = "ribbonButton36";
-         this.ribbonButton36.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton36.SmallImage")));
-         this.ribbonButton36.ToolTip = "قراردادها";
-         this.ribbonButton36.Click += new System.EventHandler(this.ribbonButton36_Click);
+         this.ServiceContract_Butn.Name = "ServiceContract_Butn";
+         this.ServiceContract_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ServiceContract_Butn.SmallImage")));
+         this.ServiceContract_Butn.ToolTip = "قراردادها";
+         this.ServiceContract_Butn.Click += new System.EventHandler(this.ServiceContract_Butn_Click);
          // 
          // ServiceProduct_Butn
          // 
@@ -2407,7 +2406,7 @@
       private C1.Win.C1Ribbon.RibbonButton ServiceQueues_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup25;
       private C1.Win.C1Ribbon.RibbonButton ServiceArticles_Butn;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton36;
+      private C1.Win.C1Ribbon.RibbonButton ServiceContract_Butn;
       private C1.Win.C1Ribbon.RibbonButton ServiceProduct_Butn;
       private C1.Win.C1Ribbon.RibbonButton ServiceService_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup26;

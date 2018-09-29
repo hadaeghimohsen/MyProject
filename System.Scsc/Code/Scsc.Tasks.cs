@@ -620,6 +620,7 @@ namespace System.Scsc.Code
          {
             if (_Aop_Bufe_F == null)
                _Aop_Bufe_F = new Ui.AggregateOperation.AOP_BUFE_F { _DefaultGateway = this };
+            job.Output = _Aop_Bufe_F;
          }
          else if (value == "adm_hrsc_f")
          {

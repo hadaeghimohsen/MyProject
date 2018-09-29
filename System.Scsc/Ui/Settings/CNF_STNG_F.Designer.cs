@@ -1124,7 +1124,6 @@
          this.groupBox16.TabIndex = 0;
          this.groupBox16.TabStop = false;
          this.groupBox16.Text = "مدیریت ON/OFF کردن دستگاه های بازی";
-         this.groupBox16.Visible = false;
          // 
          // ExpnComPortName_Lov
          // 

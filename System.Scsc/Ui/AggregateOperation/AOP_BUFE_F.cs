@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private bool requery = false, setondebt = false;
       private int agopindx = 0, aodtindx = 0;
+      private string stat, macadrs;
 
       private void Execute_Query()
       {
@@ -543,7 +544,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             //aodt.END_TIME = DateTime.Now.TimeOfDay;
             aodt.END_TIME = DateTime.Now;
-
+            aodt.STAT = "003";
+            
             AodtBs1.EndEdit();
 
             iScsc.SubmitChanges();

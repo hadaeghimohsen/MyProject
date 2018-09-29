@@ -191,6 +191,7 @@
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.More_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SrvrPing_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.GameHours_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.GateAttn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -1512,6 +1513,7 @@
          this.spc_desktop.Panel2.Controls.Add(this.StartMenu_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.More_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.SrvrPing_Butn);
+         this.spc_desktop.Panel2.Controls.Add(this.GameHours_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.GateAttn_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.AttendanceSystemAlert_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.ActionCenter_Butn);
@@ -1551,7 +1553,7 @@
          this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
          this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.TlgrmBot_Butn.Location = new System.Drawing.Point(530, 5);
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(500, 5);
          this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
@@ -1620,7 +1622,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(560, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(530, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -1732,7 +1734,7 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(646, 5);
+         this.More_Butn.Location = new System.Drawing.Point(616, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
@@ -1750,12 +1752,29 @@
          this.SrvrPing_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1408;
          this.SrvrPing_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SrvrPing_Butn.Location = new System.Drawing.Point(676, 5);
+         this.SrvrPing_Butn.Location = new System.Drawing.Point(646, 5);
          this.SrvrPing_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SrvrPing_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SrvrPing_Butn.Name = "SrvrPing_Butn";
          this.SrvrPing_Butn.Size = new System.Drawing.Size(30, 27);
          this.SrvrPing_Butn.TabIndex = 14;
+         // 
+         // GameHours_Butn
+         // 
+         this.GameHours_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.GameHours_Butn.Appearance.BorderColor = System.Drawing.Color.White;
+         this.GameHours_Butn.Appearance.Options.UseBackColor = true;
+         this.GameHours_Butn.Appearance.Options.UseBorderColor = true;
+         this.GameHours_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.GameHours_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.GameHours_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1428;
+         this.GameHours_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.GameHours_Butn.Location = new System.Drawing.Point(676, 5);
+         this.GameHours_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.GameHours_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.GameHours_Butn.Name = "GameHours_Butn";
+         this.GameHours_Butn.Size = new System.Drawing.Size(30, 27);
+         this.GameHours_Butn.TabIndex = 20;
          // 
          // GateAttn_Butn
          // 
@@ -1878,6 +1897,10 @@
          // Sp_GateAttn
          // 
          this.Sp_GateAttn.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Sp_GateAttn_DataReceived);
+         // 
+         // Sp_ExpnExtr
+         // 
+         this.Sp_ExpnExtr.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Sp_ExpnExtr_DataReceived);
          // 
          // MAIN_PAGE_F
          // 
@@ -2052,5 +2075,6 @@
       private DevExpress.XtraBars.Ribbon.RibbonPage AgrOption_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory SystemAdmin_RPgc;
       private DevExpress.XtraEditors.SimpleButton ChngAttnActn_Butn;
+      private DevExpress.XtraEditors.SimpleButton GameHours_Butn;
    }
 }

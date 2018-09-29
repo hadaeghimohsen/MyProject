@@ -239,7 +239,70 @@ namespace System.Scsc.Ui.AggregateOperation
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         var xinput = job.Input as XElement;
+
+         if (xinput.Attribute("stat") != null)
+            stat = xinput.Attribute("stat").Value;
+         else
+            stat = null;
+
+         if (xinput.Attribute("macadrs") != null)
+            macadrs = xinput.Attribute("macadrs").Value;
+         else
+            macadrs = null;
+
          Execute_Query();
+
+         #region Device Input
+         if (stat != null)
+         {
+            if (!AgopBs1.List.OfType<Data.Aggregation_Operation>().Any(a => a.FROM_DATE.Value.Date == DateTime.Now.Date))
+            {
+               AgopBs1.AddNew();
+               var agop = AgopBs1.Current as Data.Aggregation_Operation;
+               agop.FROM_DATE = agop.TO_DATE = DateTime.Now;
+               Edit_Butn_Click(null, null);
+            }
+
+            AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(a => a.FROM_DATE.Value.Date == DateTime.Now.Date));
+            var expn = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.RELY_CMND == macadrs);
+            if(AodtBs1.Count == 0)
+            { 
+               if(stat == "START")
+               {
+                  ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
+                  OpenDesk_Butn_Click(null, null);
+               }
+            }
+            else
+            {
+               switch (stat)
+               {
+                  case "START":
+                     if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
+                     {
+                        AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
+                        var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                        aodt.END_TIME = null;
+                        CalcDesk_Butn_Click(null, null);
+                     }
+                     else
+                     {
+                        ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
+                        OpenDesk_Butn_Click(null, null);
+                     }
+                     break;
+                  case "STOP":
+                     if (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
+                     {
+                        AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
+                        DeskClose_Butn_Click(null, null);
+                     }
+                     break;
+               }
+            }
+         }
+         #endregion
 
          job.Status = StatusType.Successful;
       }

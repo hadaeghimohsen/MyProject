@@ -329,11 +329,20 @@
     <Compile Include="SecPolicy\Share\Ui\SettingsMailServer.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemScript.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemScript.Designer.cs">
+      <DependentUpon>SettingsSystemScript.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsSystemLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsSystemLicense.Designer.cs">
       <DependentUpon>SettingsSystemLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemScriptRequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsSystemLicense.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -812,6 +821,9 @@
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsMailServer.resx">
       <DependentUpon>SettingsMailServer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystemScript.resx">
+      <DependentUpon>SettingsSystemScript.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystemLicense.resx">
       <DependentUpon>SettingsSystemLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -948,6 +960,8 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.D_MGTP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_MSG.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_NSCL.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_PSRC.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_PTYP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_REGN.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_VLDT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_YSNO.datasource" />
@@ -975,6 +989,8 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Role_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Role_User.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Sas_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Script.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Script_Parameter.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Scsc_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Security_Managment.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.ServiceDef_Privilege.datasource" />

@@ -156,6 +156,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
             case 40:
                DoWork4SettingsSystemLicense(job);
                break;
+            case 41:
+               DoWork4SettingsSystemScript(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -285,6 +288,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
                break;
             case "SettingsSystemLicense":
                _SettingsSystemLicense.SendRequest(job);
+               break;
+            case "SettingsSystemScript":
+               _SettingsSystemScript.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

@@ -422,5 +422,509 @@ namespace System.DataGuard.Self.Code
          job.Status = StatusType.Successful;         
       }
 
+      /// <summary>
+      /// Code 12
+      /// Retrieving Processor Id.
+      /// </summary>
+      /// <returns></returns>
+      /// 
+      private void DoWork4GetProcessorId(Job job)
+      {
+         ManagementClass mc = new ManagementClass("win32_processor");
+         ManagementObjectCollection moc = mc.GetInstances();
+         String Id = String.Empty;
+         foreach (ManagementObject mo in moc)
+         {
+
+            Id = mo.Properties["processorID"].Value.ToString();
+            break;
+         }
+
+         job.Output = Id;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 13
+      /// Retrieving HDD Serial No.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetHDDSerialNo(Job job)
+      {
+         ManagementClass mangnmt = new ManagementClass("Win32_LogicalDisk");
+         ManagementObjectCollection mcol = mangnmt.GetInstances();
+         string result = "";
+         foreach (ManagementObject strt in mcol)
+         {
+            result += Convert.ToString(strt["VolumeSerialNumber"]);
+         }
+
+         job.Output = result;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 14
+      /// Retrieving System MAC Address.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetMACAddress(Job job)
+      {
+         ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+         ManagementObjectCollection moc = mc.GetInstances();
+         string MACAddress = String.Empty;
+         foreach (ManagementObject mo in moc)
+         {
+            if (MACAddress == String.Empty)
+            {
+               if ((bool)mo["IPEnabled"] == true) MACAddress = mo["MacAddress"].ToString();
+            }
+            mo.Dispose();
+         }
+
+         MACAddress = MACAddress.Replace(":", "");
+         job.Output = MACAddress;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 15
+      /// Retrieving CD-DVD Drive Path.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetCdRomDrive(Job job)
+      {
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_CDROMDrive");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("Drive").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+            catch { }
+         }
+
+         job.Output = "CD ROM Drive Letter: Unknown";
+         job.Status = StatusType.Failed;
+      }
+
+      /// <summary>
+      /// Code 16
+      /// Retrieving BIOS Maker.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetBIOSmaker(Job job)
+      {
+
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BIOS");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("Manufacturer").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+            catch { }
+
+         }
+
+         job.Output = "BIOS Maker: Unknown";
+         job.Status = StatusType.Failed;
+      }
+
+      /// <summary>
+      /// Code 17
+      /// Retrieving BIOS Serial No.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetBIOSserNo(Job job)
+      {
+
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BIOS");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("SerialNumber").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+
+            catch { }
+
+         }
+
+         job.Output = "BIOS Serial Number: Unknown";
+         job.Status = StatusType.Failed;
+      }
+
+      /// <summary>
+      /// Code 18
+      /// Retrieving BIOS Caption.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetBIOScaption(Job job)
+      {
+
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BIOS");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("Caption").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+            catch { }
+         }
+
+         job.Output = "BIOS Caption: Unknown";
+         job.Status = StatusType.Failed;
+      }
+
+      /// <summary>
+      /// Code 19
+      /// Retrieving System Account Name.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetAccountName(Job job)
+      {
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_UserAccount");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("Name").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+            catch { }
+         }
+         job.Output = "User Account Name: Unknown";
+         job.Status = StatusType.Failed;
+      }
+
+      /// <summary>
+      /// Code 20
+      /// Retrieving Physical Ram Memory.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetPhysicalMemory(Job job)
+      {
+         ManagementScope oMs = new ManagementScope();
+         ObjectQuery oQuery = new ObjectQuery("SELECT Capacity FROM Win32_PhysicalMemory");
+         ManagementObjectSearcher oSearcher = new ManagementObjectSearcher(oMs, oQuery);
+         ManagementObjectCollection oCollection = oSearcher.Get();
+
+         long MemSize = 0;
+         long mCap = 0;
+
+         // In case more than one Memory sticks are installed
+         foreach (ManagementObject obj in oCollection)
+         {
+            mCap = Convert.ToInt64(obj["Capacity"]);
+            MemSize += mCap;
+         }
+         MemSize = (MemSize / 1024) / 1024;
+         job.Output = MemSize.ToString() + " MB";
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 21
+      /// Retrieving No of Ram Slot on Motherboard.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetNoRamSlots(Job job)
+      {
+
+         int MemSlots = 0;
+         ManagementScope oMs = new ManagementScope();
+         ObjectQuery oQuery2 = new ObjectQuery("SELECT MemoryDevices FROM Win32_PhysicalMemoryArray");
+         ManagementObjectSearcher oSearcher2 = new ManagementObjectSearcher(oMs, oQuery2);
+         ManagementObjectCollection oCollection2 = oSearcher2.Get();
+         foreach (ManagementObject obj in oCollection2)
+         {
+            MemSlots = Convert.ToInt32(obj["MemoryDevices"]);
+
+         }
+         job.Output = MemSlots.ToString();
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 22
+      /// method for retrieving the CPU Manufacturer
+      /// using the WMI class
+      /// </summary>
+      /// <returns>CPU Manufacturer</returns>
+      private void DoWork4GetCPUManufacturer(Job job)
+      {
+         string cpuMan = String.Empty;
+         //create an instance of the Managemnet class with the
+         //Win32_Processor class
+         ManagementClass mgmt = new ManagementClass("Win32_Processor");
+         //create a ManagementObjectCollection to loop through
+         ManagementObjectCollection objCol = mgmt.GetInstances();
+         //start our loop for all processors found
+         foreach (ManagementObject obj in objCol)
+         {
+            if (cpuMan == String.Empty)
+            {
+               // only return manufacturer from first CPU
+               cpuMan = obj.Properties["Manufacturer"].Value.ToString();
+            }
+         }
+         job.Output = cpuMan;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 23
+      /// method to retrieve the CPU's current
+      /// clock speed using the WMI class
+      /// </summary>
+      /// <returns>Clock speed</returns>
+      private void DoWork4GetCPUCurrentClockSpeed(Job job)
+      {
+         int cpuClockSpeed = 0;
+         //create an instance of the Managemnet class with the
+         //Win32_Processor class
+         ManagementClass mgmt = new ManagementClass("Win32_Processor");
+         //create a ManagementObjectCollection to loop through
+         ManagementObjectCollection objCol = mgmt.GetInstances();
+         //start our loop for all processors found
+         foreach (ManagementObject obj in objCol)
+         {
+            if (cpuClockSpeed == 0)
+            {
+               // only return cpuStatus from first CPU
+               cpuClockSpeed = Convert.ToInt32(obj.Properties["CurrentClockSpeed"].Value.ToString());
+            }
+         }
+         //return the status
+         job.Output = cpuClockSpeed;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 24
+      /// method to retrieve the network adapters
+      /// default IP gateway using WMI
+      /// </summary>
+      /// <returns>adapters default IP gateway</returns>
+      private void DoWork4GetDefaultIPGateway(Job job)
+      {
+         //create out management class object using the
+         //Win32_NetworkAdapterConfiguration class to get the attributes
+         //of the network adapter
+         ManagementClass mgmt = new ManagementClass("Win32_NetworkAdapterConfiguration");
+         //create our ManagementObjectCollection to get the attributes with
+         ManagementObjectCollection objCol = mgmt.GetInstances();
+         string gateway = String.Empty;
+         //loop through all the objects we find
+         foreach (ManagementObject obj in objCol)
+         {
+            if (gateway == String.Empty)  // only return MAC Address from first card
+            {
+               //grab the value from the first network adapter we find
+               //you can change the string to an array and get all
+               //network adapters found as well
+               //check to see if the adapter's IPEnabled
+               //equals true
+               if ((bool)obj["IPEnabled"] == true)
+               {
+                  gateway = obj["DefaultIPGateway"].ToString();
+               }
+            }
+            //dispose of our object
+            obj.Dispose();
+         }
+         //replace the ":" with an empty space, this could also
+         //be removed if you wish
+         gateway = gateway.Replace(":", "");
+         //return the mac address
+         job.Output = gateway;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 25
+      /// Retrieving Motherboard Manufacturer.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetBoardMaker(Job job)
+      {
+
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("Manufacturer").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+
+            catch { }
+
+         }
+
+         job.Output = "Board Maker: Unknown";
+         job.Status = StatusType.Failed;
+
+      }
+
+      /// <summary>
+      /// Code 26
+      /// Retrieving Motherboard Product Id.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetBoardProductId(Job job)
+      {
+
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("Product").ToString();
+               job.Status = StatusType.Successful;
+               return;
+
+            }
+
+            catch { }
+
+         }
+
+         job.Output = "Product: Unknown";
+         job.Status = StatusType.Failed;
+
+      }
+
+      /// <summary>
+      /// Code 27
+      /// Retrieve CPU Speed.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetCpuSpeedInGHz(Job job)
+      {
+         double? GHz = null;
+         using (ManagementClass mc = new ManagementClass("Win32_Processor"))
+         {
+            foreach (ManagementObject mo in mc.GetInstances())
+            {
+               GHz = 0.001 * (UInt32)mo.Properties["CurrentClockSpeed"].Value;
+               break;
+            }
+         }
+         job.Output = GHz;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 28
+      /// Retrieving Current Language
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetCurrentLanguage(Job job)
+      {
+
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BIOS");
+
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = wmi.GetPropertyValue("CurrentLanguage").ToString();
+               job.Status = StatusType.Successful;
+               return;
+            }
+
+            catch { }
+
+         }
+
+         job.Output = "BIOS Maker: Unknown";
+         job.Status = StatusType.Failed;
+
+      }
+
+      /// <summary>
+      /// Code 29
+      /// Retrieving Current Language.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetOSInformation(Job job)
+      {
+         ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
+         foreach (ManagementObject wmi in searcher.Get())
+         {
+            try
+            {
+               job.Output = ((string)wmi["Caption"]).Trim() + ", " + (string)wmi["Version"] + ", " + (string)wmi["OSArchitecture"];
+               job.Status = StatusType.Successful;
+               return;
+            }
+            catch { }
+         }
+         job.Output = "BIOS Maker: Unknown";
+         job.Status = StatusType.Failed;
+      }
+
+      /// <summary>
+      /// Code 30
+      /// Retrieving Processor Information.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetProcessorInformation(Job job)
+      {
+         ManagementClass mc = new ManagementClass("win32_processor");
+         ManagementObjectCollection moc = mc.GetInstances();
+         String info = String.Empty;
+         foreach (ManagementObject mo in moc)
+         {
+            string name = (string)mo["Name"];
+            name = name.Replace("(TM)", "™").Replace("(tm)", "™").Replace("(R)", "®").Replace("(r)", "®").Replace("(C)", "©").Replace("(c)", "©").Replace("    ", " ").Replace("  ", " ");
+
+            info = name + ", " + (string)mo["Caption"] + ", " + (string)mo["SocketDesignation"];
+            //mo.Properties["Name"].Value.ToString();
+            //break;
+         }
+         job.Output = info;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 31
+      /// Retrieving Computer Name.
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetComputerName(Job job)
+      {
+         ManagementClass mc = new ManagementClass("Win32_ComputerSystem");
+         ManagementObjectCollection moc = mc.GetInstances();
+         String info = String.Empty;
+         foreach (ManagementObject mo in moc)
+         {
+            info = (string)mo["Name"];
+            //mo.Properties["Name"].Value.ToString();
+            //break;
+         }
+         job.Output = info;
+         job.Status = StatusType.Successful;
+      }
+
    }
 }

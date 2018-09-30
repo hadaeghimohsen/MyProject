@@ -80,6 +80,69 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             UserGatewayBs.Position = user;
             PackageUserGatewayBs.Position = packinstuser;
          }
+         else if(Tb_Master.SelectedTab == tp_004)
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "DataGuard",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 31 /* Execute DoWork4GetComputerName */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>((output) =>
+                                 {
+                                    ComputerName_Lb.Text = output.ToString();
+                                 })
+                           },
+                           new Job(SendType.Self, 30 /* Execute DoWork4GetProcessorInformation */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>((output) =>
+                                 {
+                                    CpuId_Lb.Text = output.ToString();
+                                 })
+                           },
+                           new Job(SendType.Self, 25 /* Execute DoWork4GetBoardMaker */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>((output) =>
+                                 {
+                                    MBInfo_Lb.Text = output.ToString();
+                                 })
+                           },
+                           new Job(SendType.Self, 26 /* Execute DoWork4GetBoardProductId */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>((output) =>
+                                 {
+                                    MBInfo_Lb.Text += " , " + output.ToString();
+                                 })
+                           },
+                           new Job(SendType.Self, 20 /* Execute DoWork4GetPhysicalMemory */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>((output) =>
+                                 {
+                                    RamInstalled_Lb.Text = output.ToString();
+                                 })
+                           },
+                           new Job(SendType.Self, 29 /* Execute DoWork4GetOSInformation */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>((output) =>
+                                 {
+                                    OSInfo_Lb.Text = output.ToString();
+                                 })
+                           },
+                        }
+                     )
+                  }
+               )
+            );
+         }
          else if(Tb_Master.SelectedTab == tp_005)
          {
             if(SubSysBs.Count == 0)
@@ -479,6 +542,22 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                {
                   new Job(SendType.Self, 40 /* Execute DoWork4SettingsSystemLicense */),
                   new Job(SendType.SelfToUserInterface, "SettingsSystemLicense", 10 /* Execute ActionCallWindow */)
+               }
+            )
+         );
+      }
+
+      private void RunScript_Butn_Click(object sender, EventArgs e)
+      {
+         var subsys = SubSysBs.Current as Data.Sub_System;
+         if (subsys == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 41 /* Execute DoWork4SettingsSystemScript */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemScript", 10 /* Execute ActionCallWindow */){Input = new XElement("Script", new XAttribute("subsys", subsys.SUB_SYS))}
                }
             )
          );

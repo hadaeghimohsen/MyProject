@@ -68,6 +68,66 @@ namespace System.DataGuard.Self.Code
             case 11:
                DoWork4GetServer(job);
                break;
+            case 12:
+               DoWork4GetProcessorId(job);
+               break;
+            case 13:
+               DoWork4GetHDDSerialNo(job);
+               break;
+            case 14:
+               DoWork4GetMACAddress(job);
+               break;
+            case 15:
+               DoWork4GetCdRomDrive(job);
+               break;
+            case 16:
+               DoWork4GetBIOSmaker(job);
+               break;
+            case 17:
+               DoWork4GetBIOSserNo(job);
+               break;
+            case 18:
+               DoWork4GetBIOScaption(job);
+               break;
+            case 19:
+               DoWork4GetAccountName(job);
+               break;
+            case 20:
+               DoWork4GetPhysicalMemory(job);
+               break;
+            case 21:
+               DoWork4GetNoRamSlots(job);
+               break;
+            case 22:
+               DoWork4GetCPUManufacturer(job);
+               break;
+            case 23:
+               DoWork4GetCPUCurrentClockSpeed(job);
+               break;
+            case 24:
+               DoWork4GetDefaultIPGateway(job);
+               break;
+            case 25:
+               DoWork4GetBoardMaker(job);
+               break;
+            case 26:
+               DoWork4GetBoardProductId(job);
+               break;
+            case 27:
+               DoWork4GetCpuSpeedInGHz(job);
+               break;
+            case 28:
+               DoWork4GetCurrentLanguage(job);
+               break;
+            case 29:
+               DoWork4GetOSInformation(job);
+               break;
+            case 30:
+               DoWork4GetProcessorInformation(job);
+               break;
+            case 31:
+               DoWork4GetComputerName(job);
+               break;
             default:
                break;
          }

@@ -956,6 +956,7 @@
       <Association Name="Sub_System_Transaction_Log" Member="Transaction_Logs" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Transaction_Log" />
       <Association Name="Sub_System_Localization" Member="Localizations" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Localization" />
       <Association Name="Sub_System_Form" Member="Forms" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Form" />
+      <Association Name="Sub_System_Script" Member="Scripts" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Script" />
     </Type>
     <UpdateFunction FunctionId="FunctionId1">
       <Argument Parameter="sub_Sys" Member="SUB_SYS" />
@@ -970,6 +971,47 @@
       <Argument Parameter="jobs_Stat" Member="JOBS_STAT" />
       <Argument Parameter="freq_Intr" Member="FREQ_INTR" />
     </UpdateFunction>
+  </Table>
+  <Table Name="DataGuard.D$PTYP" Member="D_PTYPs">
+    <Type Name="D_PTYP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$PSRC" Member="D_PSRCs">
+    <Type Name="D_PSRC">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Global.Script" Member="Scripts">
+    <Type Name="Script">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PARM_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PARM_SORC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Script_Script_Parameter" Member="Script_Parameters" ThisKey="CODE" OtherKey="SCRP_CODE" Type="Script_Parameter" />
+      <Association Name="Sub_System_Script" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Script_Parameter" Member="Script_Parameters">
+    <Type Name="Script_Parameter">
+      <Column Name="SCRP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INIT_VALU" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Script_Script_Parameter" Member="Script" ThisKey="SCRP_CODE" OtherKey="CODE" Type="Script" IsForeignKey="true" />
+    </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />

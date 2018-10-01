@@ -8,6 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -46,6 +49,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                break;
             case 10:
                ActionCallWindow(job);
+               break;
+            case 100:
+               ExecuteNoneQuery(job);
+               break;
+            case 101:
+               ExecuteDataAdapter(job);
                break;
             default:
                break;
@@ -201,6 +210,112 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
          SwitchButtonsTabPage(Apps_Butn);
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 100
+      /// </summary>
+      /// <param name="job"></param>
+      private void ExecuteNoneQuery(Job job)
+      {
+         try
+         {
+            var script = ScrpBs.Current as Data.Script;
+            if (script == null) return;
+
+            var GetConnectionString =
+            new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self);            
+
+            switch (script.SUB_SYS)
+            {
+               case 0:
+                  GetConnectionString.Input = "<Database>iProject</Database><Dbms>SqlServer</Dbms>";
+                  break;
+               case 5:
+                  GetConnectionString.Input = "<Database>iScsc</Database><Dbms>SqlServer</Dbms>";
+                  break;
+               case 11:
+                  GetConnectionString.Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>";
+                  break;
+               default:
+                  break;
+            }
+
+            _DefaultGateway.Gateway(
+               GetConnectionString
+            );
+
+            var constr = GetConnectionString.Output.ToString();
+
+            SqlCommand sqlcom =
+               new SqlCommand(job.Input.ToString(), 
+                  new SqlConnection(constr)
+               );
+
+            sqlcom.Connection.Open();
+            job.Output = sqlcom.ExecuteNonQuery();
+            sqlcom.Connection.Close();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            job.Status = StatusType.Failed;
+            job.Output = exc.Message;
+         }
+      }
+
+      /// <summary>
+      /// Code 101
+      /// </summary>
+      /// <param name="job"></param>
+      private void ExecuteDataAdapter(Job job)
+      {
+         try
+         {
+            var script = ScrpBs.Current as Data.Script;
+            if (script == null) return;
+
+            var GetConnectionString =
+            new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self);
+
+            switch (script.SUB_SYS)
+            {
+               case 0:
+                  GetConnectionString.Input = "<Database>iProject</Database><Dbms>SqlServer</Dbms>";
+                  break;
+               case 5:
+                  GetConnectionString.Input = "<Database>iScsc</Database><Dbms>SqlServer</Dbms>";
+                  break;
+               case 11:
+                  GetConnectionString.Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>";
+                  break;
+               default:
+                  break;
+            }
+
+            _DefaultGateway.Gateway(
+               GetConnectionString
+            );
+
+            var constr = GetConnectionString.Output.ToString();
+
+            SqlDataAdapter SqlAdp = new SqlDataAdapter(            
+               new SqlCommand(job.Input.ToString(),
+                  new SqlConnection(constr)
+               )
+            );
+
+            DataSet ds = new DataSet();
+            SqlAdp.Fill(ds);
+
+            job.Output = ds;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            job.Status = StatusType.Failed;
+            job.Output = exc.Message;
+         }
       }
    }
 }

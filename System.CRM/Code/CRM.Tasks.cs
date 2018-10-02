@@ -541,6 +541,16 @@ namespace System.CRM.Code
             if (_Shw_Cntr_F == null)
                _Shw_Cntr_F = new Ui.Contract.SHW_CNTR_F { _DefaultGateway = this };
          }
+         else if (value == "inf_clin_f")
+         {
+            if (_Inf_Clin_F == null)
+               _Inf_Clin_F = new Ui.Contract.INF_CLIN_F { _DefaultGateway = this };
+         }
+         else if (value == "shw_clin_f")
+         {
+            if (_Shw_Clin_F == null)
+               _Shw_Clin_F = new Ui.Contract.SHW_CLIN_F { _DefaultGateway = this };
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -3170,6 +3180,56 @@ namespace System.CRM.Code
                   new Job(SendType.SelfToUserInterface, "INF_CNTR_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "INF_CNTR_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "INF_CNTR_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 109
+      /// </summary>
+      /// <param name="job"></param>
+      private void Shw_Clin_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "shw_clin_f"},
+                  new Job(SendType.SelfToUserInterface, "SHW_CLIN_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CLIN_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SHW_CLIN_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "SHW_CLIN_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 110
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inf_Clin_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inf_clin_f"},
+                  new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
+                  new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

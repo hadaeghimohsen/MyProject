@@ -30,7 +30,6 @@
       {
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Desktop));
          DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
@@ -328,6 +327,7 @@
          this.LNK_XTerm.TabStop = true;
          this.LNK_XTerm.Text = "XTerm";
          this.LNK_XTerm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_XTerm.Visible = false;
          // 
          // LNK_SCSC
          // 
@@ -396,6 +396,7 @@
          this.LNK_ResidentialComplex.TabStop = true;
          this.LNK_ResidentialComplex.Text = "نرم افزار مدیریت مجتمع مسکونی";
          this.LNK_ResidentialComplex.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_ResidentialComplex.Visible = false;
          // 
          // LNK_Supplies
          // 
@@ -413,6 +414,7 @@
          this.LNK_Supplies.TabStop = true;
          this.LNK_Supplies.Text = "نرم افزار مدیریت تدارکات";
          this.LNK_Supplies.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_Supplies.Visible = false;
          // 
          // LNK_ISP
          // 
@@ -447,6 +449,7 @@
          this.LNK_MedicalSickFile.TabStop = true;
          this.LNK_MedicalSickFile.Text = "پرونده پزشکی بیماران";
          this.LNK_MedicalSickFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_MedicalSickFile.Visible = false;
          // 
          // linkLabel1
          // 
@@ -464,6 +467,7 @@
          this.linkLabel1.TabStop = true;
          this.linkLabel1.Text = "نرم افزار مدیریت آرایشگاه";
          this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.linkLabel1.Visible = false;
          // 
          // LNK_CRM
          // 
@@ -534,16 +538,10 @@
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
          this.AdjustDateTime_Butn.Size = new System.Drawing.Size(77, 49);
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
          toolTipTitleItem1.Text = "کاربر گرامی";
          toolTipItem1.LeftIndent = 6;
          toolTipItem1.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
          toolTipTitleItem2.LeftIndent = 6;
          toolTipTitleItem2.Text = "تغییر مد کاربری";
          superToolTip1.Items.Add(toolTipTitleItem1);
@@ -575,16 +573,10 @@
          this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton5.Name = "simpleButton5";
          this.simpleButton5.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
          toolTipTitleItem3.Text = "کاربر گرامی";
          toolTipItem2.LeftIndent = 6;
          toolTipItem2.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
          toolTipTitleItem4.LeftIndent = 6;
          toolTipTitleItem4.Text = "تغییر مد کاربری";
          superToolTip2.Items.Add(toolTipTitleItem3);
@@ -615,16 +607,10 @@
          this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton4.Name = "simpleButton4";
          this.simpleButton4.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
          toolTipTitleItem5.Text = "کاربر گرامی";
          toolTipItem3.LeftIndent = 6;
          toolTipItem3.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
          toolTipTitleItem6.LeftIndent = 6;
          toolTipTitleItem6.Text = "تغییر مد کاربری";
          superToolTip3.Items.Add(toolTipTitleItem5);
@@ -655,16 +641,10 @@
          this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton3.Name = "simpleButton3";
          this.simpleButton3.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-         toolTipTitleItem7.Appearance.Options.UseImage = true;
-         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
          toolTipTitleItem7.Text = "کاربر گرامی";
          toolTipItem4.LeftIndent = 6;
          toolTipItem4.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
          toolTipTitleItem8.LeftIndent = 6;
          toolTipTitleItem8.Text = "تغییر مد کاربری";
          superToolTip4.Items.Add(toolTipTitleItem7);
@@ -695,16 +675,10 @@
          this.StartMenu_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.StartMenu_Butn.Name = "StartMenu_Butn";
          this.StartMenu_Butn.Size = new System.Drawing.Size(54, 49);
-         toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
-         toolTipTitleItem9.Appearance.Options.UseImage = true;
-         toolTipTitleItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem9.Image")));
          toolTipTitleItem9.Text = "کاربر گرامی";
          toolTipItem5.LeftIndent = 6;
          toolTipItem5.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem10.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
-         toolTipTitleItem10.Appearance.Options.UseImage = true;
-         toolTipTitleItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem10.Image")));
          toolTipTitleItem10.LeftIndent = 6;
          toolTipTitleItem10.Text = "تغییر مد کاربری";
          superToolTip5.Items.Add(toolTipTitleItem9);

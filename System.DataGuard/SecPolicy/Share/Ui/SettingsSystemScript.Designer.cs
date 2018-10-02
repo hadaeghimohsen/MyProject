@@ -29,14 +29,14 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
          DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel1 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
          DevExpress.XtraEditors.Repository.TrackBarLabel trackBarLabel2 = new DevExpress.XtraEditors.Repository.TrackBarLabel();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -45,10 +45,14 @@
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.Result_Lb = new System.Windows.Forms.Label();
+         this.ExecuteType_Tbc = new DevExpress.XtraEditors.TrackBarControl();
          this.ExecuteRows_Pgb = new DevExpress.XtraEditors.ProgressBarControl();
-         this.Execute_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+         this.FilePath_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.SheetName_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.CompName_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.ScrpBs = new System.Windows.Forms.BindingSource(this.components);
          this.SubSysBs = new System.Windows.Forms.BindingSource(this.components);
@@ -57,6 +61,13 @@
          this.DpsrcBs = new System.Windows.Forms.BindingSource(this.components);
          this.buttonEdit1 = new DevExpress.XtraEditors.LookUpEdit();
          this.DptypBs = new System.Windows.Forms.BindingSource(this.components);
+         this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.Cmnd_Txt = new System.Windows.Forms.TextBox();
+         this.tabControl1 = new System.Windows.Forms.TabControl();
+         this.tp_result = new System.Windows.Forms.TabPage();
+         this.Result_Dgv = new System.Windows.Forms.DataGridView();
+         this.tp_datarows = new System.Windows.Forms.TabPage();
+         this.SourceInfoRows_Dgv = new System.Windows.Forms.DataGridView();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.sub_SystemGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -85,6 +96,7 @@
          this.DelScript_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AddScript_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveScript_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Execute_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
          this.ScppBs = new System.Windows.Forms.BindingSource(this.components);
          this.Scpp_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -97,19 +109,7 @@
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.Apps_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Cmnd_Txt = new System.Windows.Forms.TextBox();
-         this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.Result_Dgv = new System.Windows.Forms.DataGridView();
-         this.ExecuteType_Tbc = new DevExpress.XtraEditors.TrackBarControl();
-         this.Result_Lb = new System.Windows.Forms.Label();
-         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-         this.FilePath_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.SelectFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.SheetName_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.tabControl1 = new System.Windows.Forms.TabControl();
-         this.tp_result = new System.Windows.Forms.TabPage();
-         this.tp_datarows = new System.Windows.Forms.TabPage();
-         this.SourceInfoRows_Dgv = new System.Windows.Forms.DataGridView();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -119,7 +119,11 @@
          this.splitContainerControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
          this.splitContainerControl5.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExecuteRows_Pgb.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FilePath_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SheetName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ScrpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).BeginInit();
@@ -127,6 +131,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.DpsrcBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DptypBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).BeginInit();
+         this.splitContainerControl6.SuspendLayout();
+         this.tabControl1.SuspendLayout();
+         this.tp_result.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Result_Dgv)).BeginInit();
+         this.tp_datarows.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.SourceInfoRows_Dgv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
          this.splitContainerControl3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sub_SystemGridControl)).BeginInit();
@@ -141,17 +152,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Scpp_Gv)).BeginInit();
          this.panel3.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).BeginInit();
-         this.splitContainerControl6.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Result_Dgv)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FilePath_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SheetName_Txt.Properties)).BeginInit();
-         this.tabControl1.SuspendLayout();
-         this.tp_result.SuspendLayout();
-         this.tp_datarows.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.SourceInfoRows_Dgv)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -275,6 +275,43 @@
          this.splitContainerControl5.TabIndex = 10;
          this.splitContainerControl5.Text = "splitContainerControl5";
          // 
+         // Result_Lb
+         // 
+         this.Result_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Result_Lb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.Result_Lb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Result_Lb.Location = new System.Drawing.Point(155, 38);
+         this.Result_Lb.Name = "Result_Lb";
+         this.Result_Lb.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.Result_Lb.Size = new System.Drawing.Size(124, 23);
+         this.Result_Lb.TabIndex = 15;
+         this.Result_Lb.Text = "0 msecs";
+         this.Result_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
+         // ExecuteType_Tbc
+         // 
+         this.ExecuteType_Tbc.EditValue = null;
+         this.ExecuteType_Tbc.Location = new System.Drawing.Point(3, 38);
+         this.ExecuteType_Tbc.Name = "ExecuteType_Tbc";
+         this.ExecuteType_Tbc.Properties.LabelAppearance.Options.UseTextOptions = true;
+         this.ExecuteType_Tbc.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         trackBarLabel1.Label = "اجرای تنها";
+         trackBarLabel2.Label = "اجرا همراه خروجی";
+         trackBarLabel2.Value = 1;
+         this.ExecuteType_Tbc.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
+            trackBarLabel1,
+            trackBarLabel2,
+            trackBarLabel1,
+            trackBarLabel2,
+            trackBarLabel1,
+            trackBarLabel2});
+         this.ExecuteType_Tbc.Properties.LargeChange = 1;
+         this.ExecuteType_Tbc.Properties.Maximum = 1;
+         this.ExecuteType_Tbc.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
+         this.ExecuteType_Tbc.Properties.ShowLabels = true;
+         this.ExecuteType_Tbc.Size = new System.Drawing.Size(146, 52);
+         this.ExecuteType_Tbc.TabIndex = 14;
+         // 
          // ExecuteRows_Pgb
          // 
          this.ExecuteRows_Pgb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -286,25 +323,6 @@
          this.ExecuteRows_Pgb.Size = new System.Drawing.Size(278, 26);
          this.ExecuteRows_Pgb.TabIndex = 13;
          this.ExecuteRows_Pgb.Visible = false;
-         // 
-         // Execute_Butn
-         // 
-         this.Execute_Butn.Appearance.Font = new System.Drawing.Font("B Badr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Execute_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.Execute_Butn.Appearance.Options.UseFont = true;
-         this.Execute_Butn.Appearance.Options.UseForeColor = true;
-         this.Execute_Butn.Appearance.Options.UseTextOptions = true;
-         this.Execute_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Execute_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1376;
-         this.Execute_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Execute_Butn.Location = new System.Drawing.Point(85, 3);
-         this.Execute_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Execute_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Execute_Butn.Name = "Execute_Butn";
-         this.Execute_Butn.Size = new System.Drawing.Size(38, 38);
-         this.Execute_Butn.TabIndex = 12;
-         this.Execute_Butn.ToolTip = "اجرا کردن اسکریپت";
-         this.Execute_Butn.Click += new System.EventHandler(this.Execute_Butn_Click);
          // 
          // labelControl4
          // 
@@ -321,6 +339,21 @@
          this.labelControl4.TabIndex = 5;
          this.labelControl4.Text = "<size=9><color=red>*</color></size> منبع پارامتر";
          // 
+         // labelControl5
+         // 
+         this.labelControl5.AllowHtmlString = true;
+         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl5.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl5.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl5.Location = new System.Drawing.Point(589, 73);
+         this.labelControl5.Name = "labelControl5";
+         this.labelControl5.Size = new System.Drawing.Size(76, 22);
+         this.labelControl5.TabIndex = 5;
+         this.labelControl5.Text = "<size=9><color=red>*</color></size> مسیر فایل";
+         // 
          // labelControl3
          // 
          this.labelControl3.AllowHtmlString = true;
@@ -335,6 +368,59 @@
          this.labelControl3.Size = new System.Drawing.Size(76, 22);
          this.labelControl3.TabIndex = 5;
          this.labelControl3.Text = "<size=9><color=red>*</color></size> نوع پارامتر";
+         // 
+         // FilePath_Txt
+         // 
+         this.FilePath_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FilePath_Txt.EditValue = "D:\\Result.xls";
+         this.FilePath_Txt.Location = new System.Drawing.Point(287, 70);
+         this.FilePath_Txt.Name = "FilePath_Txt";
+         this.FilePath_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.FilePath_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.FilePath_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FilePath_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.FilePath_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.FilePath_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FilePath_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FilePath_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.FilePath_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FilePath_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.FilePath_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.FilePath_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.FilePath_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.FilePath_Txt.Properties.NullText = "---";
+         this.FilePath_Txt.Properties.NullValuePrompt = "---";
+         this.FilePath_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.FilePath_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.FilePath_Txt.Size = new System.Drawing.Size(296, 26);
+         this.FilePath_Txt.TabIndex = 4;
+         this.FilePath_Txt.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FilePath_Txt_ButtonPressed);
+         // 
+         // SheetName_Txt
+         // 
+         this.SheetName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SheetName_Txt.EditValue = "Data1";
+         this.SheetName_Txt.Location = new System.Drawing.Point(155, 70);
+         this.SheetName_Txt.Name = "SheetName_Txt";
+         this.SheetName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.SheetName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.SheetName_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SheetName_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.SheetName_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.SheetName_Txt.Properties.Appearance.Options.UseFont = true;
+         this.SheetName_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.SheetName_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.SheetName_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.SheetName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.SheetName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.SheetName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SheetName_Txt.Properties.NullText = "---";
+         this.SheetName_Txt.Properties.NullValuePrompt = "---";
+         this.SheetName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.SheetName_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.SheetName_Txt.Size = new System.Drawing.Size(124, 26);
+         this.SheetName_Txt.TabIndex = 4;
          // 
          // CompName_Txt
          // 
@@ -355,7 +441,7 @@
          this.CompName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CompName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CompName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.CompName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CompName_Txt.Properties.NullText = "---";
          this.CompName_Txt.Properties.NullValuePrompt = "---";
@@ -406,7 +492,7 @@
          this.lookUpEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.lookUpEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 104, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -444,7 +530,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.buttonEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 104, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -462,6 +548,99 @@
          // DptypBs
          // 
          this.DptypBs.DataSource = typeof(System.DataGuard.Data.D_PTYP);
+         // 
+         // splitContainerControl6
+         // 
+         this.splitContainerControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl6.Horizontal = false;
+         this.splitContainerControl6.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl6.Name = "splitContainerControl6";
+         this.splitContainerControl6.Panel1.Controls.Add(this.Cmnd_Txt);
+         this.splitContainerControl6.Panel1.Text = "Panel1";
+         this.splitContainerControl6.Panel2.Controls.Add(this.tabControl1);
+         this.splitContainerControl6.Panel2.Text = "Panel2";
+         this.splitContainerControl6.Size = new System.Drawing.Size(673, 426);
+         this.splitContainerControl6.SplitterPosition = 201;
+         this.splitContainerControl6.TabIndex = 11;
+         this.splitContainerControl6.Text = "splitContainerControl6";
+         // 
+         // Cmnd_Txt
+         // 
+         this.Cmnd_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ScrpBs, "CMND", true));
+         this.Cmnd_Txt.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Cmnd_Txt.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Cmnd_Txt.Location = new System.Drawing.Point(0, 0);
+         this.Cmnd_Txt.Multiline = true;
+         this.Cmnd_Txt.Name = "Cmnd_Txt";
+         this.Cmnd_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.Cmnd_Txt.Size = new System.Drawing.Size(673, 201);
+         this.Cmnd_Txt.TabIndex = 10;
+         this.Cmnd_Txt.Text = "SELECT * \r\n  FROM Fighter \r\n WHERE CAST(Conf_Date AS DATE) BETWEEN dbo.Get_Stom_U" +
+    "(\':FROMDATE\') AND dbo.Get_Stom_U(\':TODATE\');";
+         // 
+         // tabControl1
+         // 
+         this.tabControl1.Controls.Add(this.tp_result);
+         this.tabControl1.Controls.Add(this.tp_datarows);
+         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl1.Location = new System.Drawing.Point(0, 0);
+         this.tabControl1.Name = "tabControl1";
+         this.tabControl1.RightToLeftLayout = true;
+         this.tabControl1.SelectedIndex = 0;
+         this.tabControl1.Size = new System.Drawing.Size(673, 220);
+         this.tabControl1.TabIndex = 1;
+         // 
+         // tp_result
+         // 
+         this.tp_result.Controls.Add(this.Result_Dgv);
+         this.tp_result.Location = new System.Drawing.Point(4, 23);
+         this.tp_result.Name = "tp_result";
+         this.tp_result.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_result.Size = new System.Drawing.Size(665, 193);
+         this.tp_result.TabIndex = 0;
+         this.tp_result.Text = "خروجی";
+         this.tp_result.UseVisualStyleBackColor = true;
+         // 
+         // Result_Dgv
+         // 
+         this.Result_Dgv.AllowUserToAddRows = false;
+         this.Result_Dgv.AllowUserToDeleteRows = false;
+         dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.Result_Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+         this.Result_Dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.Result_Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.Result_Dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Result_Dgv.Location = new System.Drawing.Point(3, 3);
+         this.Result_Dgv.Name = "Result_Dgv";
+         this.Result_Dgv.ReadOnly = true;
+         this.Result_Dgv.Size = new System.Drawing.Size(659, 187);
+         this.Result_Dgv.TabIndex = 0;
+         // 
+         // tp_datarows
+         // 
+         this.tp_datarows.Controls.Add(this.SourceInfoRows_Dgv);
+         this.tp_datarows.Location = new System.Drawing.Point(4, 23);
+         this.tp_datarows.Name = "tp_datarows";
+         this.tp_datarows.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_datarows.Size = new System.Drawing.Size(665, 193);
+         this.tp_datarows.TabIndex = 1;
+         this.tp_datarows.Text = "اطلاعات از منبع";
+         this.tp_datarows.UseVisualStyleBackColor = true;
+         // 
+         // SourceInfoRows_Dgv
+         // 
+         this.SourceInfoRows_Dgv.AllowUserToAddRows = false;
+         this.SourceInfoRows_Dgv.AllowUserToDeleteRows = false;
+         dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.SourceInfoRows_Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+         this.SourceInfoRows_Dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SourceInfoRows_Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.SourceInfoRows_Dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.SourceInfoRows_Dgv.Location = new System.Drawing.Point(3, 3);
+         this.SourceInfoRows_Dgv.Name = "SourceInfoRows_Dgv";
+         this.SourceInfoRows_Dgv.ReadOnly = true;
+         this.SourceInfoRows_Dgv.Size = new System.Drawing.Size(659, 187);
+         this.SourceInfoRows_Dgv.TabIndex = 1;
          // 
          // splitContainerControl3
          // 
@@ -743,6 +922,25 @@
          this.SaveScript_Butn.ToolTip = "ذخیره کردن اسکریپت";
          this.SaveScript_Butn.Click += new System.EventHandler(this.SaveScript_Butn_Click);
          // 
+         // Execute_Butn
+         // 
+         this.Execute_Butn.Appearance.Font = new System.Drawing.Font("B Badr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Execute_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.Execute_Butn.Appearance.Options.UseFont = true;
+         this.Execute_Butn.Appearance.Options.UseForeColor = true;
+         this.Execute_Butn.Appearance.Options.UseTextOptions = true;
+         this.Execute_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Execute_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1376;
+         this.Execute_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Execute_Butn.Location = new System.Drawing.Point(85, 3);
+         this.Execute_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Execute_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Execute_Butn.Name = "Execute_Butn";
+         this.Execute_Butn.Size = new System.Drawing.Size(38, 38);
+         this.Execute_Butn.TabIndex = 12;
+         this.Execute_Butn.ToolTip = "اجرا کردن اسکریپت";
+         this.Execute_Butn.Click += new System.EventHandler(this.Execute_Butn_Click);
+         // 
          // gridControl2
          // 
          this.gridControl2.DataSource = this.ScppBs;
@@ -913,199 +1111,6 @@
          this.Apps_Butn.Text = "اسکریپت";
          this.Apps_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // Cmnd_Txt
-         // 
-         this.Cmnd_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ScrpBs, "CMND", true));
-         this.Cmnd_Txt.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Cmnd_Txt.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cmnd_Txt.Location = new System.Drawing.Point(0, 0);
-         this.Cmnd_Txt.Multiline = true;
-         this.Cmnd_Txt.Name = "Cmnd_Txt";
-         this.Cmnd_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.Cmnd_Txt.Size = new System.Drawing.Size(673, 201);
-         this.Cmnd_Txt.TabIndex = 10;
-         this.Cmnd_Txt.Text = "SELECT * \r\n  FROM Fighter \r\n WHERE CAST(Conf_Date AS DATE) BETWEEN dbo.Get_Stom_U" +
-    "(\':FROMDATE\') AND dbo.Get_Stom_U(\':TODATE\');";
-         // 
-         // splitContainerControl6
-         // 
-         this.splitContainerControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.splitContainerControl6.Horizontal = false;
-         this.splitContainerControl6.Location = new System.Drawing.Point(0, 0);
-         this.splitContainerControl6.Name = "splitContainerControl6";
-         this.splitContainerControl6.Panel1.Controls.Add(this.Cmnd_Txt);
-         this.splitContainerControl6.Panel1.Text = "Panel1";
-         this.splitContainerControl6.Panel2.Controls.Add(this.tabControl1);
-         this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(673, 426);
-         this.splitContainerControl6.SplitterPosition = 201;
-         this.splitContainerControl6.TabIndex = 11;
-         this.splitContainerControl6.Text = "splitContainerControl6";
-         // 
-         // Result_Dgv
-         // 
-         this.Result_Dgv.AllowUserToAddRows = false;
-         this.Result_Dgv.AllowUserToDeleteRows = false;
-         dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.Result_Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-         this.Result_Dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.Result_Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.Result_Dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Result_Dgv.Location = new System.Drawing.Point(3, 3);
-         this.Result_Dgv.Name = "Result_Dgv";
-         this.Result_Dgv.ReadOnly = true;
-         this.Result_Dgv.Size = new System.Drawing.Size(659, 187);
-         this.Result_Dgv.TabIndex = 0;
-         // 
-         // ExecuteType_Tbc
-         // 
-         this.ExecuteType_Tbc.Location = new System.Drawing.Point(3, 38);
-         this.ExecuteType_Tbc.Name = "ExecuteType_Tbc";
-         this.ExecuteType_Tbc.Properties.LabelAppearance.Options.UseTextOptions = true;
-         this.ExecuteType_Tbc.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         trackBarLabel1.Label = "اجرای تنها";
-         trackBarLabel2.Label = "اجرا همراه خروجی";
-         trackBarLabel2.Value = 1;
-         this.ExecuteType_Tbc.Properties.Labels.AddRange(new DevExpress.XtraEditors.Repository.TrackBarLabel[] {
-            trackBarLabel1,
-            trackBarLabel2});
-         this.ExecuteType_Tbc.Properties.LargeChange = 1;
-         this.ExecuteType_Tbc.Properties.Maximum = 1;
-         this.ExecuteType_Tbc.Properties.Orientation = System.Windows.Forms.Orientation.Vertical;
-         this.ExecuteType_Tbc.Properties.ShowLabels = true;
-         this.ExecuteType_Tbc.Size = new System.Drawing.Size(146, 52);
-         this.ExecuteType_Tbc.TabIndex = 14;
-         // 
-         // Result_Lb
-         // 
-         this.Result_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Result_Lb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Result_Lb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Result_Lb.Location = new System.Drawing.Point(155, 38);
-         this.Result_Lb.Name = "Result_Lb";
-         this.Result_Lb.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.Result_Lb.Size = new System.Drawing.Size(124, 23);
-         this.Result_Lb.TabIndex = 15;
-         this.Result_Lb.Text = " 31 msecs";
-         this.Result_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
-         // labelControl5
-         // 
-         this.labelControl5.AllowHtmlString = true;
-         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl5.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl5.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(589, 73);
-         this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(76, 22);
-         this.labelControl5.TabIndex = 5;
-         this.labelControl5.Text = "<size=9><color=red>*</color></size> مسیر فایل";
-         // 
-         // FilePath_Txt
-         // 
-         this.FilePath_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FilePath_Txt.EditValue = "D:\\Result.xls";
-         this.FilePath_Txt.Location = new System.Drawing.Point(287, 70);
-         this.FilePath_Txt.Name = "FilePath_Txt";
-         this.FilePath_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.FilePath_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.FilePath_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FilePath_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.FilePath_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.FilePath_Txt.Properties.Appearance.Options.UseFont = true;
-         this.FilePath_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FilePath_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.FilePath_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FilePath_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.FilePath_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.FilePath_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
-         this.FilePath_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.FilePath_Txt.Properties.NullText = "---";
-         this.FilePath_Txt.Properties.NullValuePrompt = "---";
-         this.FilePath_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.FilePath_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.FilePath_Txt.Size = new System.Drawing.Size(296, 26);
-         this.FilePath_Txt.TabIndex = 4;
-         this.FilePath_Txt.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FilePath_Txt_ButtonPressed);
-         // 
-         // SheetName_Txt
-         // 
-         this.SheetName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.SheetName_Txt.EditValue = "Data1";
-         this.SheetName_Txt.Location = new System.Drawing.Point(155, 70);
-         this.SheetName_Txt.Name = "SheetName_Txt";
-         this.SheetName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.SheetName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.SheetName_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SheetName_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.SheetName_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.SheetName_Txt.Properties.Appearance.Options.UseFont = true;
-         this.SheetName_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.SheetName_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.SheetName_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.SheetName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.SheetName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.SheetName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.SheetName_Txt.Properties.NullText = "---";
-         this.SheetName_Txt.Properties.NullValuePrompt = "---";
-         this.SheetName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.SheetName_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.SheetName_Txt.Size = new System.Drawing.Size(124, 26);
-         this.SheetName_Txt.TabIndex = 4;
-         // 
-         // tabControl1
-         // 
-         this.tabControl1.Controls.Add(this.tp_result);
-         this.tabControl1.Controls.Add(this.tp_datarows);
-         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tabControl1.Location = new System.Drawing.Point(0, 0);
-         this.tabControl1.Name = "tabControl1";
-         this.tabControl1.RightToLeftLayout = true;
-         this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(673, 220);
-         this.tabControl1.TabIndex = 1;
-         // 
-         // tp_result
-         // 
-         this.tp_result.Controls.Add(this.Result_Dgv);
-         this.tp_result.Location = new System.Drawing.Point(4, 23);
-         this.tp_result.Name = "tp_result";
-         this.tp_result.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_result.Size = new System.Drawing.Size(665, 193);
-         this.tp_result.TabIndex = 0;
-         this.tp_result.Text = "خروجی";
-         this.tp_result.UseVisualStyleBackColor = true;
-         // 
-         // tp_datarows
-         // 
-         this.tp_datarows.Controls.Add(this.SourceInfoRows_Dgv);
-         this.tp_datarows.Location = new System.Drawing.Point(4, 23);
-         this.tp_datarows.Name = "tp_datarows";
-         this.tp_datarows.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_datarows.Size = new System.Drawing.Size(665, 193);
-         this.tp_datarows.TabIndex = 1;
-         this.tp_datarows.Text = "اطلاعات از منبع";
-         this.tp_datarows.UseVisualStyleBackColor = true;
-         // 
-         // SourceInfoRows_Dgv
-         // 
-         this.SourceInfoRows_Dgv.AllowUserToAddRows = false;
-         this.SourceInfoRows_Dgv.AllowUserToDeleteRows = false;
-         dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.SourceInfoRows_Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-         this.SourceInfoRows_Dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.SourceInfoRows_Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.SourceInfoRows_Dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.SourceInfoRows_Dgv.Location = new System.Drawing.Point(3, 3);
-         this.SourceInfoRows_Dgv.Name = "SourceInfoRows_Dgv";
-         this.SourceInfoRows_Dgv.ReadOnly = true;
-         this.SourceInfoRows_Dgv.Size = new System.Drawing.Size(659, 187);
-         this.SourceInfoRows_Dgv.TabIndex = 1;
-         // 
          // SettingsSystemScript
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1125,7 +1130,11 @@
          this.splitContainerControl2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
          this.splitContainerControl5.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExecuteRows_Pgb.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FilePath_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SheetName_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompName_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ScrpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).EndInit();
@@ -1133,6 +1142,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.DpsrcBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DptypBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).EndInit();
+         this.splitContainerControl6.ResumeLayout(false);
+         this.tabControl1.ResumeLayout(false);
+         this.tp_result.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.Result_Dgv)).EndInit();
+         this.tp_datarows.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.SourceInfoRows_Dgv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
          this.splitContainerControl3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.sub_SystemGridControl)).EndInit();
@@ -1147,17 +1163,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Scpp_Gv)).EndInit();
          this.panel3.ResumeLayout(false);
          this.flowLayoutPanel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).EndInit();
-         this.splitContainerControl6.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.Result_Dgv)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ExecuteType_Tbc)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FilePath_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SheetName_Txt.Properties)).EndInit();
-         this.tabControl1.ResumeLayout(false);
-         this.tp_result.ResumeLayout(false);
-         this.tp_datarows.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.SourceInfoRows_Dgv)).EndInit();
          this.ResumeLayout(false);
 
       }

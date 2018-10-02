@@ -559,20 +559,38 @@
     <Compile Include="Ui\Contacts\SHW_CONT_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Contract\INF_CLIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Contract\INF_CLIN_F.Designer.cs">
+      <DependentUpon>INF_CLIN_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Contract\INF_CNTR_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Contract\INF_CNTR_F.Designer.cs">
       <DependentUpon>INF_CNTR_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Contract\INF_CLIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Contract\INF_CNTR_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Contract\SHW_CLIN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Contract\SHW_CLIN_F.Designer.cs">
+      <DependentUpon>SHW_CLIN_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Contract\SHW_CNTR_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Contract\SHW_CNTR_F.Designer.cs">
       <DependentUpon>SHW_CNTR_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Contract\SHW_CLIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Contract\SHW_CNTR_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -2529,8 +2547,14 @@
     <EmbeddedResource Include="Ui\Contacts\SHW_CONT_F.resx">
       <DependentUpon>SHW_CONT_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Contract\INF_CLIN_F.resx">
+      <DependentUpon>INF_CLIN_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Contract\INF_CNTR_F.resx">
       <DependentUpon>INF_CNTR_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Contract\SHW_CLIN_F.resx">
+      <DependentUpon>SHW_CLIN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Contract\SHW_CNTR_F.resx">
       <DependentUpon>SHW_CNTR_F.cs</DependentUpon>

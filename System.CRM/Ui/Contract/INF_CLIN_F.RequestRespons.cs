@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace System.CRM.Ui.Contract
 {
-   partial class INF_CNTR_F : ISendRequest
+   partial class INF_CLIN_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;

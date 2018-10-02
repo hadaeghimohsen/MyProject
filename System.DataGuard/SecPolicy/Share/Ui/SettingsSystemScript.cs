@@ -229,6 +229,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             switch (script.PARM_TYPE)
             {
+               case "000":
                case "001":
                   // Static * Before Run Script Set Value Parameters
                   ScppBs.List.OfType<Data.Script_Parameter>().ToList().ForEach(sp => cmnd = cmnd.Replace(":" + sp.NAME, sp.INIT_VALU));

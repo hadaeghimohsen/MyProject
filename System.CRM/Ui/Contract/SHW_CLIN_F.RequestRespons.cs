@@ -10,14 +10,13 @@ using System.Xml.Linq;
 
 namespace System.CRM.Ui.Contract
 {
-   partial class INF_CNTR_F : ISendRequest
+   partial class SHW_CLIN_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private long fileno, compcode, rqid;
-      private XElement xinput;
+      
 
       public void SendRequest(Job job)
       {
@@ -48,12 +47,6 @@ namespace System.CRM.Ui.Contract
                break;
             case 10:
                Actn_CalF_P(job);
-               break;
-            case 40:
-               CordinateGetSet(job);
-               break;
-            case 150:
-               SetMentioned(job);
                break;
             default:
                break;
@@ -96,6 +89,7 @@ namespace System.CRM.Ui.Contract
       /// <param name="job"></param>
       private void Set(Job job)
       {
+         Menu_Rbn.Minimized = true;
          var GetConnectionString =
             new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>" };
          _DefaultGateway.Gateway(
@@ -112,8 +106,6 @@ namespace System.CRM.Ui.Contract
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
-
-         
 
          job.Status = StatusType.Successful;
       }
@@ -196,42 +188,18 @@ namespace System.CRM.Ui.Contract
       {
          if (InvokeRequired)
          {
-            Invoke(
-               new Action(() =>
-               {                  
-                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-
-                  DsstgBs.DataSource = iCRM.D_SSTGs.Where(d => d.VALU == "007" || d.VALU == "015" || d.VALU == "016" || d.VALU == "017" || d.VALU == "018");
-                  DlevlBs.DataSource = iCRM.D_LEVLs;                  
-                  DrqstBs.DataSource = iCRM.D_RQSTs;
-                  DcetpBs.DataSource = iCRM.D_CETPs;
-                  DferqBs.DataSource = iCRM.D_FERQs;
-                  LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-
-                  TempApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTRACT");
-               })
-            );
+            Invoke(new Action(() => 
+            { 
+               
+            }));
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-
-            DsstgBs.DataSource = iCRM.D_SSTGs.Where(d => d.VALU == "007" || d.VALU == "015" || d.VALU == "016" || d.VALU == "017" || d.VALU == "018");
-            DrqstBs.DataSource = iCRM.D_RQSTs;
-            DlevlBs.DataSource = iCRM.D_LEVLs;
-            DcetpBs.DataSource = iCRM.D_CETPs;
-            DferqBs.DataSource = iCRM.D_FERQs;
-            LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-
-            TempApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTRACT");
+            
          }
          
          job.Status = StatusType.Successful;
-      }
+      }      
 
       /// <summary>
       /// Code 10
@@ -239,66 +207,31 @@ namespace System.CRM.Ui.Contract
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         xinput = job.Input as XElement;
-         if(xinput.Attribute("rqid") != null)
-            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
-         else
-            rqid = 0;
-
-         if (xinput.Attribute("formtype") != null)
-            formType = xinput.Attribute("formtype").Value;
-         else
-            formType = "normal";
-
-         if (xinput.Attribute("fileno") != null)
-            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-         else
-            fileno = 0;
-
-         if (xinput.Attribute("compcode") != null)
-            compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
-         else
-            compcode = 0;
-
-         Execute_Query();
-
-         switch (xinput.Attribute("type").Value)
+         var xinput = job.Input as XElement;
+         if(xinput != null)
          {
-            case "newcontractupdate":
-               RqstBs.Position = RqstBs.IndexOf(RqstBs.List.OfType<Data.Request>().First(r => r.RQID == rqid));
-               xinput.Attribute("type").Value = "newcase";
-               break;
-            case "companycontract":
-            case "servicecontract":
-               SubmitChange_Butn_Click(null, null);
-               break;
-            case "refresh":
-               break;
-            default:
-               if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
-                  RqstBs.AddNew();
-               break;
+            if (xinput.Attribute("cntrcode") != null)
+               cntrcode = Convert.ToInt64(xinput.Attribute("cntrcode").Value);
+            else
+               cntrcode = 0;
          }         
 
+         if (InvokeRequired)
+         {
+            Invoke(
+               new Action(
+                  () =>
+                  {
+                     Execute_Query();
+                  }
+               )
+            );
+         }
+         else
+         {
+            Execute_Query();
+         }
          job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// Code 40
-      /// </summary>
-      /// <param name="job"></param>
-      private void CordinateGetSet(Job job)
-      {
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// Code 150
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetMentioned(Job job)
-      {
-         var xinput = job.Input as XElement;
       }
    }
 }

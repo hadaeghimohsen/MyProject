@@ -2012,7 +2012,6 @@ namespace System.CRM.Ui.Acounts
             iCRM.SubmitChanges();
 
             requery = true;
-            SubmitChangeCompany_Butn.Visible = false;
          }
          catch (Exception exc)
          {

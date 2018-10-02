@@ -20,9 +20,9 @@ using System.CRM.ExtCode;
 
 namespace System.CRM.Ui.Contract
 {
-   public partial class INF_CNTR_F : UserControl
+   public partial class INF_CLIN_F : UserControl
    {
-      public INF_CNTR_F()
+      public INF_CLIN_F()
       {
          InitializeComponent();
       }
@@ -457,66 +457,5 @@ namespace System.CRM.Ui.Contract
                break;
          }
       }
-
-      #region Contract Line
-      private void NewContractLine_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            var cntr = ContBs.Current as Data.Contract;
-            if (cntr == null || cntr.CNID == 0) return;
-
-            Job _InteractWithCRM =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                 {                  
-                   new Job(SendType.Self, 110 /* Execute Inf_Clin_F */),
-                   new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 10 /* Execute Actn_Calf_F */)
-                   {
-                      Input = 
-                        new XElement("Contract",
-                           new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("type", "newcontract"),
-                           new XAttribute("cnid", cntr.CNID)
-                        )
-                   }
-                 });
-            _DefaultGateway.Gateway(_InteractWithCRM);
-         }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
-      }
-
-      private void DelContractLine_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void ShowContractLine_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            var cntr = ContBs.Current as Data.Contract;
-            if (cntr == null || cntr.CNID == 0) return;
-
-            Job _InteractWithCRM =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                 {                  
-                   new Job(SendType.Self, 109 /* Execute Shw_Clin_F */),
-                   new Job(SendType.SelfToUserInterface, "SHW_CLIN_F", 10 /* Execute Actn_Calf_F */)
-                   {
-                      Input = 
-                        new XElement("Contract",
-                           new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("type", "newcontractupdate"),
-                           new XAttribute("cnid", cntr.CNID)
-                        )
-                   }
-                 });
-            _DefaultGateway.Gateway(_InteractWithCRM);
-         }
-         catch { }
-      }
-      #endregion
    }
 }

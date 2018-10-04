@@ -48,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{28B135
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Dolphin", "System.Dolphin\System.Dolphin.csproj", "{45D60751-0AA2-43E1-BD36-C2281AD63042}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Accounting.cs", "System.Accounting.cs\System.Accounting.cs.csproj", "{8A814108-9A65-42CD-B6C7-713C40496C30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Accounting", "System.Accounting.cs\System.Accounting.csproj", "{8A814108-9A65-42CD-B6C7-713C40496C30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -639,6 +639,9 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1071.png">
       <Link>Resources\IMAGE_1071.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1072.png">
+      <Link>Resources\IMAGE_1072.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1084.png">
       <Link>Resources\IMAGE_1084.png</Link>
     </Content>

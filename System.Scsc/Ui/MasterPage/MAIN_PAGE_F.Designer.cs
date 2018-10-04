@@ -1493,7 +1493,7 @@
          this.spc_desktop.Panel1.AutoScroll = true;
          this.spc_desktop.Panel1.AutoScrollMinSize = new System.Drawing.Size(1220, 432);
          this.spc_desktop.Panel1.BackColor = System.Drawing.Color.White;
-         this.spc_desktop.Panel1.BackgroundImage = global::System.Scsc.Properties.Resources.IMAGE_1242;
+         this.spc_desktop.Panel1.BackgroundImage = global::System.Scsc.Properties.Resources.IMAGE_1238;
          this.spc_desktop.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
          this.spc_desktop.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          // 

@@ -187,7 +187,7 @@ namespace System.CRM.Ui.Contract
 
       private void ContractShows_Btn_Click(object sender, EventArgs e)
       {
-         contractShow = ((RibbonButton)sender).Tag.ToString();
+         //contractShow = ((RibbonButton)sender).Tag.ToString();
          Execute_Query();
       }
       #endregion

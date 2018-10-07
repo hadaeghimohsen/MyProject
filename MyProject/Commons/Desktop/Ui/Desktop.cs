@@ -522,5 +522,54 @@ namespace MyProject.Commons.Desktop.Ui
             new Job(SendType.External, "Program", "Commons:Desktop", 05 /* Execute DoWork4StartMenu */, SendType.Self) { Input = _GetToggleMode.Output }
          );
       }
+
+      private void LNK_ACCOUNTING_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Desktop",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>1</Privilege><Sub_Sys>14</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              Job _ShowError = new Job(SendType.External, "Role", "Commons", 02 /* Execute DoWork4ErrorHandling */, SendType.Self)
+                              {
+                                 Input = @"<HTML>
+                                             <body>
+                                                <p style=""float:right"">
+                                                   <ol>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
+                                                      <ul>
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
+                                                      </ul>
+                                                   </ol>
+                                                </p>
+                                             </body>
+                                             </HTML>"
+                              };
+                              _DefaultGateway.Gateway(_ShowError);
+                              #endregion                           
+                           })
+                        },
+                        #endregion
+                        #region DoWork
+                        new Job(SendType.External, "Program", "Accounting", 02 /* Execute Frst_Page_F */,SendType.Self)
+                        #endregion
+                     })                     
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

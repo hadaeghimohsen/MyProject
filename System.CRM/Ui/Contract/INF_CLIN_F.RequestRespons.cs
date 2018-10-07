@@ -16,7 +16,7 @@ namespace System.CRM.Ui.Contract
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
-      private long fileno, compcode, rqid;
+      private long cnid, clid;
       private XElement xinput;
 
       public void SendRequest(Job job)
@@ -198,36 +198,14 @@ namespace System.CRM.Ui.Contract
          {
             Invoke(
                new Action(() =>
-               {                  
-                  JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-                  TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-
-                  DsstgBs.DataSource = iCRM.D_SSTGs.Where(d => d.VALU == "007" || d.VALU == "015" || d.VALU == "016" || d.VALU == "017" || d.VALU == "018");
-                  DlevlBs.DataSource = iCRM.D_LEVLs;                  
-                  DrqstBs.DataSource = iCRM.D_RQSTs;
-                  DcetpBs.DataSource = iCRM.D_CETPs;
-                  DferqBs.DataSource = iCRM.D_FERQs;
+               {
                   LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-                  LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-
-                  TempApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTRACT");
                })
             );
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
-            TrcbBs.DataSource = iCRM.Transaction_Currency_Bases;
-
-            DsstgBs.DataSource = iCRM.D_SSTGs.Where(d => d.VALU == "007" || d.VALU == "015" || d.VALU == "016" || d.VALU == "017" || d.VALU == "018");
-            DrqstBs.DataSource = iCRM.D_RQSTs;
-            DlevlBs.DataSource = iCRM.D_LEVLs;
-            DcetpBs.DataSource = iCRM.D_CETPs;
-            DferqBs.DataSource = iCRM.D_FERQs;
-            LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-            LstServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-
-            TempApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTRACT");
+            LstCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");            
          }
          
          job.Status = StatusType.Successful;
@@ -240,43 +218,39 @@ namespace System.CRM.Ui.Contract
       private void Actn_CalF_P(Job job)
       {
          xinput = job.Input as XElement;
-         if(xinput.Attribute("rqid") != null)
-            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
+         if(xinput.Attribute("cnid") != null)
+            cnid = Convert.ToInt64(xinput.Attribute("cnid").Value);
          else
-            rqid = 0;
+            cnid = 0;
 
          if (xinput.Attribute("formtype") != null)
             formType = xinput.Attribute("formtype").Value;
          else
             formType = "normal";
 
-         if (xinput.Attribute("fileno") != null)
-            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+         if (xinput.Attribute("clid") != null)
+            clid = Convert.ToInt64(xinput.Attribute("clid").Value);
          else
-            fileno = 0;
-
-         if (xinput.Attribute("compcode") != null)
-            compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
-         else
-            compcode = 0;
+            clid = 0;
 
          Execute_Query();
 
          switch (xinput.Attribute("type").Value)
          {
-            case "newcontractupdate":
-               RqstBs.Position = RqstBs.IndexOf(RqstBs.List.OfType<Data.Request>().First(r => r.RQID == rqid));
+            case "newcontractlineupdate":
+               ClinBs.Position = ClinBs.IndexOf(ClinBs.List.OfType<Data.Contract_Line>().First(c => c.CONT_CNID == cnid));
                xinput.Attribute("type").Value = "newcase";
-               break;
-            case "companycontract":
-            case "servicecontract":
-               SubmitChange_Butn_Click(null, null);
                break;
             case "refresh":
                break;
             default:
-               if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))
-                  RqstBs.AddNew();
+               if (!ClinBs.List.OfType<Data.Contract_Line>().Any(c => c.CLID == 0))
+               {
+                  ClinBs.AddNew();
+                  var clin = ClinBs.Current as Data.Contract_Line;
+                  if (clin == null) return;
+                  iCRM.Contract_Lines.InsertOnSubmit(clin);
+               }
                break;
          }         
 

@@ -66306,7 +66306,7 @@ namespace System.CRM.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONT_CNID", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONT_CNID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> CONT_CNID
 		{
 			get
@@ -66350,7 +66350,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TITL", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TITL", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string TITL
 		{
 			get
@@ -66370,7 +66370,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> STRT_DATE
 		{
 			get
@@ -66390,7 +66390,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> END_DATE
 		{
 			get
@@ -66410,7 +66410,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QNTY", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QNTY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> QNTY
 		{
 			get
@@ -66430,7 +66430,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RATE", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RATE", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> RATE
 		{
 			get
@@ -66450,7 +66450,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_PRIC", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> TOTL_PRIC
 		{
 			get
@@ -66470,7 +66470,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCN_AMNT", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCN_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> DSCN_AMNT
 		{
 			get
@@ -66490,7 +66490,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCN_PRCT_DNRM", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCN_PRCT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> DSCN_PRCT_DNRM
 		{
 			get
@@ -66510,7 +66510,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NET_AMNT_DNRM", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NET_AMNT_DNRM", DbType="NChar(10)", UpdateCheck=UpdateCheck.Never)]
 		public string NET_AMNT_DNRM
 		{
 			get
@@ -66530,7 +66530,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERL_NUMB", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERL_NUMB", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string SERL_NUMB
 		{
 			get
@@ -66550,7 +66550,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_CASE_MINT", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_CASE_MINT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> TOTL_CASE_MINT
 		{
 			get
@@ -66570,7 +66570,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOT_USED", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOT_USED", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> ALOT_USED
 		{
 			get
@@ -66590,7 +66590,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOT_REMN", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALOT_REMN", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> ALOT_REMN
 		{
 			get
@@ -66610,7 +66610,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -66630,7 +66630,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -66650,7 +66650,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -66670,7 +66670,7 @@ namespace System.CRM.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get

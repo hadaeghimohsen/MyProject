@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
@@ -54,7 +55,7 @@
          DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
          this.FLP_Desktop = new System.Windows.Forms.FlowLayoutPanel();
-         this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+         this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.نمایشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.ایکونبزرگToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.ایکونعادیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,7 +81,7 @@
          this.LNK_SCSC = new System.Windows.Forms.LinkLabel();
          this.LNK_Emis = new System.Windows.Forms.LinkLabel();
          this.LNK_SMS = new System.Windows.Forms.LinkLabel();
-         this.LNK_ResidentialComplex = new System.Windows.Forms.LinkLabel();
+         this.LNK_HOTELING = new System.Windows.Forms.LinkLabel();
          this.LNK_Supplies = new System.Windows.Forms.LinkLabel();
          this.LNK_ISP = new System.Windows.Forms.LinkLabel();
          this.LNK_MedicalSickFile = new System.Windows.Forms.LinkLabel();
@@ -94,7 +95,7 @@
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_startdrawer = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
          this.label1 = new System.Windows.Forms.Label();
          this.FLP_Desktop.SuspendLayout();
          this.contextMenuStrip1.SuspendLayout();
@@ -115,7 +116,7 @@
          this.FLP_Desktop.Controls.Add(this.LNK_SCSC);
          this.FLP_Desktop.Controls.Add(this.LNK_Emis);
          this.FLP_Desktop.Controls.Add(this.LNK_SMS);
-         this.FLP_Desktop.Controls.Add(this.LNK_ResidentialComplex);
+         this.FLP_Desktop.Controls.Add(this.LNK_HOTELING);
          this.FLP_Desktop.Controls.Add(this.LNK_Supplies);
          this.FLP_Desktop.Controls.Add(this.LNK_ISP);
          this.FLP_Desktop.Controls.Add(this.LNK_MedicalSickFile);
@@ -126,7 +127,7 @@
          this.FLP_Desktop.Location = new System.Drawing.Point(0, 70);
          this.FLP_Desktop.Name = "FLP_Desktop";
          this.FLP_Desktop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.FLP_Desktop.Size = new System.Drawing.Size(793, 295);
+         this.FLP_Desktop.Size = new System.Drawing.Size(1248, 309);
          this.FLP_Desktop.TabIndex = 49;
          // 
          // contextMenuStrip1
@@ -267,7 +268,7 @@
          this.LNK_SecurityManagment.Image = global::MyProject.Properties.Resources.IMAGE_1151;
          this.LNK_SecurityManagment.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SecurityManagment.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_SecurityManagment.Location = new System.Drawing.Point(848, 8);
+         this.LNK_SecurityManagment.Location = new System.Drawing.Point(1116, 8);
          this.LNK_SecurityManagment.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_SecurityManagment.Name = "LNK_SecurityManagment";
          this.LNK_SecurityManagment.Size = new System.Drawing.Size(124, 85);
@@ -284,7 +285,7 @@
          this.LNK_ServiceDefinition.Image = global::MyProject.Properties.Resources.IMAGE_1007;
          this.LNK_ServiceDefinition.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ServiceDefinition.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_ServiceDefinition.Location = new System.Drawing.Point(848, 109);
+         this.LNK_ServiceDefinition.Location = new System.Drawing.Point(1116, 109);
          this.LNK_ServiceDefinition.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ServiceDefinition.Name = "LNK_ServiceDefinition";
          this.LNK_ServiceDefinition.Size = new System.Drawing.Size(124, 85);
@@ -301,7 +302,7 @@
          this.LNK_ReportManagment.Image = global::MyProject.Properties.Resources.IMAGE_1059;
          this.LNK_ReportManagment.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ReportManagment.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_ReportManagment.Location = new System.Drawing.Point(708, 8);
+         this.LNK_ReportManagment.Location = new System.Drawing.Point(976, 8);
          this.LNK_ReportManagment.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ReportManagment.Name = "LNK_ReportManagment";
          this.LNK_ReportManagment.Size = new System.Drawing.Size(124, 96);
@@ -319,7 +320,7 @@
          this.LNK_XTerm.Image = global::MyProject.Properties.Resources.IMAGE_1158;
          this.LNK_XTerm.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_XTerm.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_XTerm.Location = new System.Drawing.Point(708, 120);
+         this.LNK_XTerm.Location = new System.Drawing.Point(976, 120);
          this.LNK_XTerm.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_XTerm.Name = "LNK_XTerm";
          this.LNK_XTerm.Size = new System.Drawing.Size(124, 85);
@@ -336,7 +337,7 @@
          this.LNK_SCSC.Image = global::MyProject.Properties.Resources.IMAGE_1084;
          this.LNK_SCSC.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SCSC.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_SCSC.Location = new System.Drawing.Point(568, 8);
+         this.LNK_SCSC.Location = new System.Drawing.Point(836, 8);
          this.LNK_SCSC.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_SCSC.Name = "LNK_SCSC";
          this.LNK_SCSC.Size = new System.Drawing.Size(124, 85);
@@ -353,7 +354,7 @@
          this.LNK_Emis.Image = global::MyProject.Properties.Resources.IMAGE_1085;
          this.LNK_Emis.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_Emis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_Emis.Location = new System.Drawing.Point(568, 109);
+         this.LNK_Emis.Location = new System.Drawing.Point(836, 109);
          this.LNK_Emis.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_Emis.Name = "LNK_Emis";
          this.LNK_Emis.Size = new System.Drawing.Size(124, 97);
@@ -370,7 +371,7 @@
          this.LNK_SMS.Image = global::MyProject.Properties.Resources.IMAGE_1154;
          this.LNK_SMS.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SMS.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_SMS.Location = new System.Drawing.Point(428, 8);
+         this.LNK_SMS.Location = new System.Drawing.Point(696, 8);
          this.LNK_SMS.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_SMS.Name = "LNK_SMS";
          this.LNK_SMS.Size = new System.Drawing.Size(124, 85);
@@ -380,23 +381,23 @@
          this.LNK_SMS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
          this.LNK_SMS.Click += new System.EventHandler(this.LNK_SMS_ItemClick);
          // 
-         // LNK_ResidentialComplex
+         // LNK_HOTELING
          // 
-         this.LNK_ResidentialComplex.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_ResidentialComplex.Enabled = false;
-         this.LNK_ResidentialComplex.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LNK_ResidentialComplex.Image = global::MyProject.Properties.Resources.IMAGE_1155;
-         this.LNK_ResidentialComplex.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.LNK_ResidentialComplex.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_ResidentialComplex.Location = new System.Drawing.Point(428, 109);
-         this.LNK_ResidentialComplex.Margin = new System.Windows.Forms.Padding(8);
-         this.LNK_ResidentialComplex.Name = "LNK_ResidentialComplex";
-         this.LNK_ResidentialComplex.Size = new System.Drawing.Size(124, 97);
-         this.LNK_ResidentialComplex.TabIndex = 2;
-         this.LNK_ResidentialComplex.TabStop = true;
-         this.LNK_ResidentialComplex.Text = "نرم افزار مدیریت مجتمع مسکونی";
-         this.LNK_ResidentialComplex.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-         this.LNK_ResidentialComplex.Visible = false;
+         this.LNK_HOTELING.Cursor = System.Windows.Forms.Cursors.Hand;
+         this.LNK_HOTELING.Enabled = false;
+         this.LNK_HOTELING.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_HOTELING.Image = global::MyProject.Properties.Resources.IMAGE_1155;
+         this.LNK_HOTELING.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+         this.LNK_HOTELING.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_HOTELING.Location = new System.Drawing.Point(696, 109);
+         this.LNK_HOTELING.Margin = new System.Windows.Forms.Padding(8);
+         this.LNK_HOTELING.Name = "LNK_HOTELING";
+         this.LNK_HOTELING.Size = new System.Drawing.Size(124, 97);
+         this.LNK_HOTELING.TabIndex = 2;
+         this.LNK_HOTELING.TabStop = true;
+         this.LNK_HOTELING.Text = "نرم افزار مدیریت هتلداری";
+         this.LNK_HOTELING.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_HOTELING.Visible = false;
          // 
          // LNK_Supplies
          // 
@@ -406,7 +407,7 @@
          this.LNK_Supplies.Image = global::MyProject.Properties.Resources.IMAGE_1156;
          this.LNK_Supplies.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_Supplies.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_Supplies.Location = new System.Drawing.Point(288, 8);
+         this.LNK_Supplies.Location = new System.Drawing.Point(556, 8);
          this.LNK_Supplies.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_Supplies.Name = "LNK_Supplies";
          this.LNK_Supplies.Size = new System.Drawing.Size(124, 92);
@@ -423,7 +424,7 @@
          this.LNK_ISP.Image = global::MyProject.Properties.Resources.IMAGE_1168;
          this.LNK_ISP.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ISP.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_ISP.Location = new System.Drawing.Point(288, 116);
+         this.LNK_ISP.Location = new System.Drawing.Point(556, 116);
          this.LNK_ISP.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ISP.Name = "LNK_ISP";
          this.LNK_ISP.Size = new System.Drawing.Size(124, 112);
@@ -441,7 +442,7 @@
          this.LNK_MedicalSickFile.Image = global::MyProject.Properties.Resources.IMAGE_1099;
          this.LNK_MedicalSickFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_MedicalSickFile.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_MedicalSickFile.Location = new System.Drawing.Point(148, 8);
+         this.LNK_MedicalSickFile.Location = new System.Drawing.Point(416, 8);
          this.LNK_MedicalSickFile.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_MedicalSickFile.Name = "LNK_MedicalSickFile";
          this.LNK_MedicalSickFile.Size = new System.Drawing.Size(124, 97);
@@ -459,7 +460,7 @@
          this.linkLabel1.Image = global::MyProject.Properties.Resources.IMAGE_1173;
          this.linkLabel1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel1.Location = new System.Drawing.Point(148, 121);
+         this.linkLabel1.Location = new System.Drawing.Point(416, 121);
          this.linkLabel1.Margin = new System.Windows.Forms.Padding(8);
          this.linkLabel1.Name = "linkLabel1";
          this.linkLabel1.Size = new System.Drawing.Size(124, 94);
@@ -476,7 +477,7 @@
          this.LNK_CRM.Image = global::MyProject.Properties.Resources.IMAGE_1224;
          this.LNK_CRM.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_CRM.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_CRM.Location = new System.Drawing.Point(8, 8);
+         this.LNK_CRM.Location = new System.Drawing.Point(276, 8);
          this.LNK_CRM.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_CRM.Name = "LNK_CRM";
          this.LNK_CRM.Size = new System.Drawing.Size(124, 100);
@@ -493,7 +494,7 @@
          this.LNK_ROBOTECH.Image = global::MyProject.Properties.Resources.IMAGE_1159;
          this.LNK_ROBOTECH.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ROBOTECH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_ROBOTECH.Location = new System.Drawing.Point(8, 124);
+         this.LNK_ROBOTECH.Location = new System.Drawing.Point(276, 124);
          this.LNK_ROBOTECH.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ROBOTECH.Name = "LNK_ROBOTECH";
          this.LNK_ROBOTECH.Size = new System.Drawing.Size(124, 100);
@@ -513,9 +514,9 @@
          this.panel1.Controls.Add(this.StartMenu_Butn);
          this.panel1.Controls.Add(this.sb_startdrawer);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.panel1.Location = new System.Drawing.Point(0, 365);
+         this.panel1.Location = new System.Drawing.Point(0, 379);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(793, 55);
+         this.panel1.Size = new System.Drawing.Size(1248, 55);
          this.panel1.TabIndex = 50;
          // 
          // AdjustDateTime_Butn
@@ -669,7 +670,7 @@
          this.StartMenu_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.StartMenu_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1102;
          this.StartMenu_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter;
-         this.StartMenu_Butn.Location = new System.Drawing.Point(722, 3);
+         this.StartMenu_Butn.Location = new System.Drawing.Point(1177, 3);
          this.StartMenu_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
          this.StartMenu_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.StartMenu_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -702,7 +703,7 @@
          this.sb_startdrawer.Appearance.Options.UseForeColor = true;
          this.sb_startdrawer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
          this.sb_startdrawer.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_startdrawer.Location = new System.Drawing.Point(778, 3);
+         this.sb_startdrawer.Location = new System.Drawing.Point(1233, 3);
          this.sb_startdrawer.LookAndFeel.SkinName = "Office 2010 Silver";
          this.sb_startdrawer.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.sb_startdrawer.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -723,7 +724,7 @@
          this.label1.Font = new System.Drawing.Font("B Koodak", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label1.Image = global::MyProject.Properties.Resources.IMAGE_1102;
          this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.label1.Location = new System.Drawing.Point(442, 10);
+         this.label1.Location = new System.Drawing.Point(897, 10);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(347, 47);
          this.label1.TabIndex = 45;
@@ -738,7 +739,7 @@
          this.Controls.Add(this.panel1);
          this.Controls.Add(this.label1);
          this.Name = "Desktop";
-         this.Size = new System.Drawing.Size(793, 420);
+         this.Size = new System.Drawing.Size(1248, 434);
          this.FLP_Desktop.ResumeLayout(false);
          this.contextMenuStrip1.ResumeLayout(false);
          this.panel1.ResumeLayout(false);
@@ -756,7 +757,7 @@
       private System.Windows.Forms.LinkLabel LNK_SCSC;
       private System.Windows.Forms.LinkLabel LNK_Emis;
       private System.Windows.Forms.LinkLabel LNK_SMS;
-      private System.Windows.Forms.LinkLabel LNK_ResidentialComplex;
+      private System.Windows.Forms.LinkLabel LNK_HOTELING;
       private System.Windows.Forms.LinkLabel LNK_Supplies;
       private System.Windows.Forms.LinkLabel LNK_XTerm;
       private DevExpress.XtraEditors.SimpleButton sb_startdrawer;

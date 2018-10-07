@@ -3895,25 +3895,25 @@
   </Table>
   <Table Name="dbo.Contract_Line" Member="Contract_Lines">
     <Type Name="Contract_Line">
-      <Column Name="CONT_CNID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CONT_CNID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TITL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="QNTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RATE" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TOTL_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DSCN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DSCN_PRCT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NET_AMNT_DNRM" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="SERL_NUMB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="TOTL_CASE_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ALOT_USED" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ALOT_REMN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TITL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="QNTY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RATE" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCN_PRCT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NET_AMNT_DNRM" Type="System.String" DbType="NChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERL_NUMB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_CASE_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOT_USED" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALOT_REMN" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Contract_Contract_Line" Member="Contract" ThisKey="CONT_CNID" OtherKey="CNID" Type="Contract" IsForeignKey="true" />
     </Type>
   </Table>

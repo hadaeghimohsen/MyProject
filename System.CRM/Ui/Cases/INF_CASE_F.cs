@@ -368,15 +368,15 @@ namespace System.CRM.Ui.Cases
       #region Note
       private void AddNote_Butn_Click(object sender, EventArgs e)
       {
-         var lead = CaseBs.Current as Data.Lead;
-         if (lead == null) return;
+         var cases = CaseBs.Current as Data.Case;
+         if (cases == null || cases.Request_Row == null) return;
          if (NoteBs.List.OfType<Data.Note>().Any(n => n.NTID == 0)) return;
 
          NoteBs.AddNew();
          var note = NoteBs.Current as Data.Note;
-         note.LEAD_LDID = lead.LDID;
-         note.SERV_FILE_NO = lead.SRPB_SERV_FILE_NO;
-         note.COMP_CODE_DNRM = lead.COMP_CODE;
+         note.Request_Row = cases.Request_Row;
+         note.SERV_FILE_NO = cases.SRPB_SERV_FILE_NO;
+         note.COMP_CODE_DNRM = cases.COMP_CODE;
 
          Note_Gv.SelectRow(Note_Gv.RowCount - 1);
 
@@ -387,8 +387,8 @@ namespace System.CRM.Ui.Cases
       {
          try
          {
-            var lead = CaseBs.Current as Data.Lead;
-            if (lead == null) return;
+            var cases = CaseBs.Current as Data.Case;
+            if (cases == null) return;
 
             if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 

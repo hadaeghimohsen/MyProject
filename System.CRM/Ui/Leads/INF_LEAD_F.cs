@@ -533,12 +533,12 @@ namespace System.CRM.Ui.Leads
       private void AddNote_Butn_Click(object sender, EventArgs e)
       {
          var lead = LeadBs.Current as Data.Lead;
-         if (lead == null) return;
+         if (lead == null || lead.Request_Row == null) return;
          if (NoteBs.List.OfType<Data.Note>().Any(n => n.NTID == 0)) return;
 
          NoteBs.AddNew();
          var note = NoteBs.Current as Data.Note;
-         note.LEAD_LDID = lead.LDID;
+         note.Request_Row = lead.Request_Row;
          note.SERV_FILE_NO = lead.SRPB_SERV_FILE_NO;
          note.COMP_CODE_DNRM = lead.COMP_CODE;
 

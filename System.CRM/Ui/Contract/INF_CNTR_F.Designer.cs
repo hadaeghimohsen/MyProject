@@ -203,12 +203,12 @@
          this.colNATL_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.panel7 = new System.Windows.Forms.Panel();
-         this.SaveStakeholder_Butn = new C1.Win.C1Input.C1Button();
+         this.SaveContractLine_Butn = new C1.Win.C1Input.C1Button();
          this.HelpContractLine_Butn = new C1.Win.C1Input.C1Button();
          this.ShowContractLine_Butn = new C1.Win.C1Input.C1Button();
          this.DelContractLine_Butn = new C1.Win.C1Input.C1Button();
          this.NewContractLine_Butn = new C1.Win.C1Input.C1Button();
-         this.AddStakeholder_Butn = new C1.Win.C1Input.C1Button();
+         this.AddContractLine_Butn = new C1.Win.C1Input.C1Button();
          this.LstCompBs = new System.Windows.Forms.BindingSource(this.components);
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.NetPricDnrm_Txt = new DevExpress.XtraEditors.ButtonEdit();
@@ -357,12 +357,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView10)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
          this.panel7.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.SaveStakeholder_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveContractLine_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.HelpContractLine_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ShowContractLine_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DelContractLine_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NewContractLine_Butn)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.AddStakeholder_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddContractLine_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LstCompBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
          this.splitContainerControl3.SuspendLayout();
@@ -1520,7 +1520,8 @@
          // 
          // NoteBs
          // 
-         this.NoteBs.DataSource = this.ContBs;
+         this.NoteBs.DataMember = "Notes";
+         this.NoteBs.DataSource = this.RqroBs;
          // 
          // xtraTabControl4
          // 
@@ -2416,34 +2417,34 @@
          // 
          // panel7
          // 
-         this.panel7.Controls.Add(this.SaveStakeholder_Butn);
+         this.panel7.Controls.Add(this.SaveContractLine_Butn);
          this.panel7.Controls.Add(this.HelpContractLine_Butn);
          this.panel7.Controls.Add(this.ShowContractLine_Butn);
          this.panel7.Controls.Add(this.DelContractLine_Butn);
          this.panel7.Controls.Add(this.NewContractLine_Butn);
-         this.panel7.Controls.Add(this.AddStakeholder_Butn);
+         this.panel7.Controls.Add(this.AddContractLine_Butn);
          this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel7.Location = new System.Drawing.Point(0, 0);
          this.panel7.Name = "panel7";
          this.panel7.Size = new System.Drawing.Size(295, 31);
          this.panel7.TabIndex = 55;
          // 
-         // SaveStakeholder_Butn
+         // SaveContractLine_Butn
          // 
-         this.SaveStakeholder_Butn.Enabled = false;
-         this.SaveStakeholder_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.SaveStakeholder_Butn.FlatAppearance.BorderSize = 0;
-         this.SaveStakeholder_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.SaveStakeholder_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.SaveStakeholder_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.SaveStakeholder_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SaveStakeholder_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
-         this.SaveStakeholder_Butn.Location = new System.Drawing.Point(96, 3);
-         this.SaveStakeholder_Butn.Name = "SaveStakeholder_Butn";
-         this.SaveStakeholder_Butn.Size = new System.Drawing.Size(25, 25);
-         this.SaveStakeholder_Butn.TabIndex = 63;
-         this.SaveStakeholder_Butn.UseVisualStyleBackColor = true;
-         this.SaveStakeholder_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.SaveContractLine_Butn.Enabled = false;
+         this.SaveContractLine_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.SaveContractLine_Butn.FlatAppearance.BorderSize = 0;
+         this.SaveContractLine_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.SaveContractLine_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.SaveContractLine_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveContractLine_Butn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveContractLine_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1633;
+         this.SaveContractLine_Butn.Location = new System.Drawing.Point(96, 3);
+         this.SaveContractLine_Butn.Name = "SaveContractLine_Butn";
+         this.SaveContractLine_Butn.Size = new System.Drawing.Size(25, 25);
+         this.SaveContractLine_Butn.TabIndex = 63;
+         this.SaveContractLine_Butn.UseVisualStyleBackColor = true;
+         this.SaveContractLine_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
          // HelpContractLine_Butn
          // 
@@ -2512,22 +2513,22 @@
          this.NewContractLine_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          this.NewContractLine_Butn.Click += new System.EventHandler(this.NewContractLine_Butn_Click);
          // 
-         // AddStakeholder_Butn
+         // AddContractLine_Butn
          // 
-         this.AddStakeholder_Butn.Enabled = false;
-         this.AddStakeholder_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-         this.AddStakeholder_Butn.FlatAppearance.BorderSize = 0;
-         this.AddStakeholder_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
-         this.AddStakeholder_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-         this.AddStakeholder_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.AddStakeholder_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AddStakeholder_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
-         this.AddStakeholder_Butn.Location = new System.Drawing.Point(34, 3);
-         this.AddStakeholder_Butn.Name = "AddStakeholder_Butn";
-         this.AddStakeholder_Butn.Size = new System.Drawing.Size(25, 25);
-         this.AddStakeholder_Butn.TabIndex = 62;
-         this.AddStakeholder_Butn.UseVisualStyleBackColor = true;
-         this.AddStakeholder_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
+         this.AddContractLine_Butn.Enabled = false;
+         this.AddContractLine_Butn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.AddContractLine_Butn.FlatAppearance.BorderSize = 0;
+         this.AddContractLine_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+         this.AddContractLine_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+         this.AddContractLine_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddContractLine_Butn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddContractLine_Butn.Image = global::System.CRM.Properties.Resources.IMAGE_1629;
+         this.AddContractLine_Butn.Location = new System.Drawing.Point(34, 3);
+         this.AddContractLine_Butn.Name = "AddContractLine_Butn";
+         this.AddContractLine_Butn.Size = new System.Drawing.Size(25, 25);
+         this.AddContractLine_Butn.TabIndex = 62;
+         this.AddContractLine_Butn.UseVisualStyleBackColor = true;
+         this.AddContractLine_Butn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Silver;
          // 
          // LstCompBs
          // 
@@ -3730,12 +3731,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView10)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
          this.panel7.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.SaveStakeholder_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveContractLine_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.HelpContractLine_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ShowContractLine_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DelContractLine_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NewContractLine_Butn)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.AddStakeholder_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AddContractLine_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LstCompBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
          this.splitContainerControl3.ResumeLayout(false);
@@ -3845,12 +3846,12 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit2;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView10;
       private Windows.Forms.Panel panel7;
-      private C1.Win.C1Input.C1Button SaveStakeholder_Butn;
+      private C1.Win.C1Input.C1Button SaveContractLine_Butn;
       private C1.Win.C1Input.C1Button HelpContractLine_Butn;
       private C1.Win.C1Input.C1Button ShowContractLine_Butn;
       private C1.Win.C1Input.C1Button DelContractLine_Butn;
       private C1.Win.C1Input.C1Button NewContractLine_Butn;
-      private C1.Win.C1Input.C1Button AddStakeholder_Butn;
+      private C1.Win.C1Input.C1Button AddContractLine_Butn;
       private DevExpress.XtraEditors.LabelControl labelControl33;
       private DevExpress.XtraEditors.LookUpEdit RqstStat_Lov;
       private Atf.UI.DateTimeSelector SaveDate_Dt;

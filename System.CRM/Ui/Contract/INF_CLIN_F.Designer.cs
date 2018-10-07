@@ -850,7 +850,8 @@
          // 
          // NoteBs
          // 
-         this.NoteBs.DataSource = this.CntrBs;
+         this.NoteBs.DataMember = "Notes";
+         this.NoteBs.DataSource = this.ClinBs;
          // 
          // xtraTabControl4
          // 

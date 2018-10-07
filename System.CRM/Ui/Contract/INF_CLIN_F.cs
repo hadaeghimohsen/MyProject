@@ -146,15 +146,15 @@ namespace System.CRM.Ui.Contract
       #region Note
       private void AddNote_Butn_Click(object sender, EventArgs e)
       {
-         var lead = CntrBs.Current as Data.Lead;
-         if (lead == null) return;
+         var cnln = ClinBs.Current as Data.Contract_Line;
+         if (cnln == null || cnln.CLID == 0) return;
          if (NoteBs.List.OfType<Data.Note>().Any(n => n.NTID == 0)) return;
 
          NoteBs.AddNew();
          var note = NoteBs.Current as Data.Note;
-         note.LEAD_LDID = lead.LDID;
-         note.SERV_FILE_NO = lead.SRPB_SERV_FILE_NO;
-         note.COMP_CODE_DNRM = lead.COMP_CODE;
+         note.CNLN_CLID = cnln.CLID;
+         note.SERV_FILE_NO = cnln.Contract.SRPB_SERV_FILE_NO;
+         note.COMP_CODE_DNRM = cnln.Contract.COMP_CODE;
 
          Note_Gv.SelectRow(Note_Gv.RowCount - 1);
 
@@ -165,8 +165,8 @@ namespace System.CRM.Ui.Contract
       {
          try
          {
-            var lead = CntrBs.Current as Data.Lead;
-            if (lead == null) return;
+            var cnln = ClinBs.Current as Data.Contract_Line;
+            if (cnln == null || cnln.CLID == 0) return;
 
             if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 

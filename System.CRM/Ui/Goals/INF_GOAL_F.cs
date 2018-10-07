@@ -538,7 +538,7 @@ namespace System.CRM.Ui.Goals
 
          NoteBs.AddNew();
          var note = NoteBs.Current as Data.Note;
-         note.LEAD_LDID = lead.LDID;
+         //note.LEAD_LDID = lead.LDID;
          note.SERV_FILE_NO = lead.SRPB_SERV_FILE_NO;
          note.COMP_CODE_DNRM = lead.COMP_CODE;
 

@@ -907,6 +907,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Account_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Aggregation_Operation.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Aggregation_Operation_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.App_Base_Define.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Attendance.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Base_Calculate_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Base_Unit.datasource" />
@@ -919,6 +920,9 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Calorie.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Expense_Coach.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Campitition.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Cando.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Cando_Block.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Cando_Block_Unit.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cash.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Category_Belt.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Change_Body_Fitness.datasource" />
@@ -978,6 +982,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_LNTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MBTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MGTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_MRID.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSGT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSRT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSTP.datasource" />

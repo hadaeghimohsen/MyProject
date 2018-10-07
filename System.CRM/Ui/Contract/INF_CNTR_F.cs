@@ -476,7 +476,7 @@ namespace System.CRM.Ui.Contract
                       Input = 
                         new XElement("Contract",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("type", "newcontract"),
+                           new XAttribute("type", "newcontractline"),
                            new XAttribute("cnid", cntr.CNID)
                         )
                    }
@@ -508,7 +508,7 @@ namespace System.CRM.Ui.Contract
                       Input = 
                         new XElement("Contract",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("type", "newcontractupdate"),
+                           new XAttribute("type", "newcontractlineupdate"),
                            new XAttribute("cnid", cntr.CNID)
                         )
                    }

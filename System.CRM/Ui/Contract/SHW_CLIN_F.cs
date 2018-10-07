@@ -24,7 +24,7 @@ namespace System.CRM.Ui.Contract
          InitializeComponent();
       }
 
-      private long cntrcode;
+      private long cnid;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -36,29 +36,29 @@ namespace System.CRM.Ui.Contract
       private void Execute_Query()
       {
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ClinBs.DataSource = iCRM.Contract_Lines.Where(cl => cl.CONT_CNID == cntrcode);
+         ClinBs.DataSource = iCRM.Contract_Lines.Where(cl => cl.CONT_CNID == cnid);
       }
 
 
       #region Mouse Click
-      private void Contract_Gv_DoubleClick(object sender, EventArgs e)
+      private void ContractLine_Gv_DoubleClick(object sender, EventArgs e)
       {
          try
          {
-            var cont = ClinBs.Current as Data.Contract;
+            var clin = ClinBs.Current as Data.Contract_Line;
             Job _InteractWithCRM =
               new Job(SendType.External, "Localhost",
                  new List<Job>
                  {                  
-                   new Job(SendType.Self, 108 /* Execute Inf_Cntr_F */),
-                   new Job(SendType.SelfToUserInterface, "INF_CNTR_F", 10 /* Execute Actn_Calf_F */)
+                   new Job(SendType.Self, 110 /* Execute Inf_Clin_F */),
+                   new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 10 /* Execute Actn_Calf_F */)
                    {
                       Input = 
                         new XElement("Case",
                            new XAttribute("formcaller", GetType().Name),
-                           new XAttribute("type", "newcontractupdate"),
-                           new XAttribute("rqid", cont.RQRO_RQST_RQID),
-                           new XAttribute("formtype", cont.Request_Row.Request.RQST_STAT == "002" ? "showhistory" : "normal")
+                           new XAttribute("type", "newcontractlineupdate"),
+                           new XAttribute("cnid", clin.CONT_CNID),
+                           new XAttribute("clid", clin.CLID)
                         )
                    }
                  });
@@ -75,13 +75,14 @@ namespace System.CRM.Ui.Contract
            new Job(SendType.External, "Localhost",
               new List<Job>
               {                  
-                new Job(SendType.Self, 108 /* Execute Inf_Cntr_F */),
-                new Job(SendType.SelfToUserInterface, "INF_CNTR_F", 10 /* Execute Actn_Calf_F */)
+                new Job(SendType.Self, 110 /* Execute Inf_Clin_F */),
+                new Job(SendType.SelfToUserInterface, "INF_CLIN_F", 10 /* Execute Actn_Calf_F */)
                 {
                    Input = 
                      new XElement("Contract",
                         new XAttribute("formcaller", GetType().Name),
-                        new XAttribute("type", "newcontract")
+                        new XAttribute("type", "newcontractline"),
+                        new XAttribute("cnid", cnid)
                      )
                 }
               });
@@ -90,7 +91,7 @@ namespace System.CRM.Ui.Contract
 
       private void Edit_Butn_Click(object sender, EventArgs e)
       {
-         Contract_Gv_DoubleClick(null, null);
+         ContractLine_Gv_DoubleClick(null, null);
       }
 
       private void Delete_Butn_Click(object sender, EventArgs e)
@@ -182,7 +183,7 @@ namespace System.CRM.Ui.Contract
 
       private void GridFind_Tgbt_Click(object sender, EventArgs e)
       {
-         Contract_Gv.OptionsFind.AlwaysVisible = !Contract_Gv.OptionsFind.AlwaysVisible;
+         ContractLine_Gv.OptionsFind.AlwaysVisible = !ContractLine_Gv.OptionsFind.AlwaysVisible;
       }
 
       private void ContractShows_Btn_Click(object sender, EventArgs e)

@@ -69,24 +69,24 @@
          this.Back_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Lead_Gc = new DevExpress.XtraGrid.GridControl();
-         this.Contract_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
-         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
-         this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.ContractLine_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colTITL = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNET_AMNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colALOT_REMN = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          ((System.ComponentModel.ISupportInitialize)(this.ClinBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Contract_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ContractLine_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          this.SuspendLayout();
          // 
@@ -385,7 +385,7 @@
          this.Lead_Gc.Location = new System.Drawing.Point(0, 118);
          this.Lead_Gc.LookAndFeel.SkinName = "Office 2013";
          this.Lead_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Lead_Gc.MainView = this.Contract_Gv;
+         this.Lead_Gc.MainView = this.ContractLine_Gv;
          this.Lead_Gc.Name = "Lead_Gc";
          this.Lead_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
@@ -396,96 +396,41 @@
          this.Lead_Gc.Size = new System.Drawing.Size(903, 336);
          this.Lead_Gc.TabIndex = 2;
          this.Lead_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.Contract_Gv});
+            this.ContractLine_Gv});
          // 
-         // Contract_Gv
+         // ContractLine_Gv
          // 
-         this.Contract_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Contract_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Contract_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
-         this.Contract_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Contract_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Contract_Gv.Appearance.HeaderPanel.Options.UseFont = true;
-         this.Contract_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.Contract_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Contract_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Contract_Gv.Appearance.Row.Options.UseFont = true;
-         this.Contract_Gv.Appearance.Row.Options.UseTextOptions = true;
-         this.Contract_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Contract_Gv.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.Contract_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.ContractLine_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ContractLine_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.ContractLine_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
+         this.ContractLine_Gv.Appearance.FocusedRow.Options.UseFont = true;
+         this.ContractLine_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.ContractLine_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.ContractLine_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.ContractLine_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.ContractLine_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.ContractLine_Gv.Appearance.Row.Options.UseFont = true;
+         this.ContractLine_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.ContractLine_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.ContractLine_Gv.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.ContractLine_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colTITL,
             this.colNET_AMNT_DNRM,
             this.colALOT_REMN});
-         this.Contract_Gv.GridControl = this.Lead_Gc;
-         this.Contract_Gv.Name = "Contract_Gv";
-         this.Contract_Gv.OptionsBehavior.Editable = false;
-         this.Contract_Gv.OptionsBehavior.ReadOnly = true;
-         this.Contract_Gv.OptionsFind.AlwaysVisible = true;
-         this.Contract_Gv.OptionsFind.FindDelay = 100;
-         this.Contract_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Contract_Gv.OptionsSelection.MultiSelect = true;
-         this.Contract_Gv.OptionsView.ShowDetailButtons = false;
-         this.Contract_Gv.OptionsView.ShowGroupPanel = false;
-         this.Contract_Gv.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.Contract_Gv.OptionsView.ShowIndicator = false;
-         this.Contract_Gv.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.Contract_Gv.DoubleClick += new System.EventHandler(this.Contract_Gv_DoubleClick);
-         // 
-         // persianRepositoryItemDateEdit1
-         // 
-         this.persianRepositoryItemDateEdit1.AutoHeight = false;
-         this.persianRepositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-         this.persianRepositoryItemDateEdit1.Name = "persianRepositoryItemDateEdit1";
-         // 
-         // repositoryItemLookUpEdit1
-         // 
-         this.repositoryItemLookUpEdit1.AutoHeight = false;
-         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit1.DisplayMember = "TITL_DESC";
-         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-         this.repositoryItemLookUpEdit1.NullText = "---";
-         this.repositoryItemLookUpEdit1.ValueMember = "CODE";
-         // 
-         // repositoryItemLookUpEdit2
-         // 
-         this.repositoryItemLookUpEdit2.AutoHeight = false;
-         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
-         this.repositoryItemLookUpEdit2.NullText = "---";
-         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
-         // 
-         // repositoryItemTimeEdit1
-         // 
-         this.repositoryItemTimeEdit1.AutoHeight = false;
-         this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-         this.repositoryItemTimeEdit1.DisplayFormat.FormatString = "HH:mm";
-         this.repositoryItemTimeEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-         this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
-         this.repositoryItemTimeEdit1.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-         // 
-         // repositoryItemLookUpEdit3
-         // 
-         this.repositoryItemLookUpEdit3.AutoHeight = false;
-         this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit3.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
-         this.repositoryItemLookUpEdit3.NullText = "---";
-         this.repositoryItemLookUpEdit3.ValueMember = "VALU";
+         this.ContractLine_Gv.GridControl = this.Lead_Gc;
+         this.ContractLine_Gv.Name = "ContractLine_Gv";
+         this.ContractLine_Gv.OptionsBehavior.Editable = false;
+         this.ContractLine_Gv.OptionsBehavior.ReadOnly = true;
+         this.ContractLine_Gv.OptionsFind.AlwaysVisible = true;
+         this.ContractLine_Gv.OptionsFind.FindDelay = 100;
+         this.ContractLine_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.ContractLine_Gv.OptionsSelection.MultiSelect = true;
+         this.ContractLine_Gv.OptionsView.ShowDetailButtons = false;
+         this.ContractLine_Gv.OptionsView.ShowGroupPanel = false;
+         this.ContractLine_Gv.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.ContractLine_Gv.OptionsView.ShowIndicator = false;
+         this.ContractLine_Gv.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.ContractLine_Gv.DoubleClick += new System.EventHandler(this.ContractLine_Gv_DoubleClick);
          // 
          // colTITL
          // 
@@ -514,6 +459,61 @@
          this.colALOT_REMN.VisibleIndex = 1;
          this.colALOT_REMN.Width = 100;
          // 
+         // persianRepositoryItemDateEdit1
+         // 
+         this.persianRepositoryItemDateEdit1.AutoHeight = false;
+         this.persianRepositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.persianRepositoryItemDateEdit1.Name = "persianRepositoryItemDateEdit1";
+         // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.DisplayMember = "TITL_DESC";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.NullText = "---";
+         this.repositoryItemLookUpEdit1.ValueMember = "CODE";
+         // 
+         // repositoryItemTimeEdit1
+         // 
+         this.repositoryItemTimeEdit1.AutoHeight = false;
+         this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.repositoryItemTimeEdit1.DisplayFormat.FormatString = "HH:mm";
+         this.repositoryItemTimeEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+         this.repositoryItemTimeEdit1.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         // 
+         // repositoryItemLookUpEdit2
+         // 
+         this.repositoryItemLookUpEdit2.AutoHeight = false;
+         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
+         this.repositoryItemLookUpEdit2.NullText = "---";
+         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
+         // 
+         // repositoryItemLookUpEdit3
+         // 
+         this.repositoryItemLookUpEdit3.AutoHeight = false;
+         this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit3.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
+         this.repositoryItemLookUpEdit3.NullText = "---";
+         this.repositoryItemLookUpEdit3.ValueMember = "VALU";
+         // 
          // SHW_CLIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,12 +527,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.ClinBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Lead_Gc)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Contract_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ContractLine_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
@@ -572,7 +572,7 @@
       private C1.Win.C1Ribbon.RibbonButton Back_Butn;
       private C1.Win.C1Ribbon.RibbonTopToolBar ribbonTopToolBar1;
       private DevExpress.XtraGrid.GridControl Lead_Gc;
-      private DevExpress.XtraGrid.Views.Grid.GridView Contract_Gv;
+      private DevExpress.XtraGrid.Views.Grid.GridView ContractLine_Gv;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;

@@ -210,10 +210,10 @@ namespace System.CRM.Ui.Contract
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            if (xinput.Attribute("cntrcode") != null)
-               cntrcode = Convert.ToInt64(xinput.Attribute("cntrcode").Value);
+            if (xinput.Attribute("cnid") != null)
+               cnid = Convert.ToInt64(xinput.Attribute("cnid").Value);
             else
-               cntrcode = 0;
+               cnid = 0;
          }         
 
          if (InvokeRequired)

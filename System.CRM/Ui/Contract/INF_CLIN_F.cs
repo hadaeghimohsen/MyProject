@@ -45,12 +45,12 @@ namespace System.CRM.Ui.Contract
          {
             iCRM = new Data.iCRMDataContext(ConnectionString);
 
-            cntrindex = ContBs.Position;
+            cntrindex = CntrBs.Position;
 
-            ContBs.DataSource =
+            CntrBs.DataSource =
                iCRM.Contracts.Where(c => c.CNID == cnid);
             
-            ContBs.Position = cntrindex;
+            CntrBs.Position = cntrindex;
             requery = false;
          }
          catch { }
@@ -104,6 +104,8 @@ namespace System.CRM.Ui.Contract
             if (!StrtDate_Dt.Value.HasValue) { StrtDate_Dt.Focus(); return; }
             if (!EndDate_Dt.Value.HasValue) { EndDate_Dt.Focus(); return; }
 
+            ClinBs.EndEdit();
+
             iCRM.SubmitChanges();
             
             requery = true;
@@ -144,7 +146,7 @@ namespace System.CRM.Ui.Contract
       #region Note
       private void AddNote_Butn_Click(object sender, EventArgs e)
       {
-         var lead = ContBs.Current as Data.Lead;
+         var lead = CntrBs.Current as Data.Lead;
          if (lead == null) return;
          if (NoteBs.List.OfType<Data.Note>().Any(n => n.NTID == 0)) return;
 
@@ -163,7 +165,7 @@ namespace System.CRM.Ui.Contract
       {
          try
          {
-            var lead = ContBs.Current as Data.Lead;
+            var lead = CntrBs.Current as Data.Lead;
             if (lead == null) return;
 
             if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;

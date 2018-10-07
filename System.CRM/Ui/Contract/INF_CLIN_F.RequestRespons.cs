@@ -238,7 +238,7 @@ namespace System.CRM.Ui.Contract
          switch (xinput.Attribute("type").Value)
          {
             case "newcontractlineupdate":
-               ClinBs.Position = ClinBs.IndexOf(ClinBs.List.OfType<Data.Contract_Line>().First(c => c.CONT_CNID == cnid));
+               ClinBs.Position = ClinBs.IndexOf(ClinBs.List.OfType<Data.Contract_Line>().First(c => c.CONT_CNID == cnid && c.CLID == clid));
                xinput.Attribute("type").Value = "newcase";
                break;
             case "refresh":
@@ -249,6 +249,7 @@ namespace System.CRM.Ui.Contract
                   ClinBs.AddNew();
                   var clin = ClinBs.Current as Data.Contract_Line;
                   if (clin == null) return;
+                  clin.CONT_CNID = cnid;
                   iCRM.Contract_Lines.InsertOnSubmit(clin);
                }
                break;

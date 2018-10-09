@@ -2688,13 +2688,13 @@ namespace System.Scsc.Ui.MasterPage
 
             if (pingstatus.Status == IPStatus.Success)
             {
-               //SrvrPing_Butn.Image = Properties.Resources.IMAGE_1423;
+               SrvrPing_Butn.Image = Properties.Resources.IMAGE_1408;
                SrvrPing_Butn.Appearance.BackColor = Color.LightGreen;
                SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} \n\rNetwork connected.", SrvrPing_Butn.Tag);
             }
             else
             {
-               //SrvrPing_Butn.Image = Properties.Resources.IMAGE_1418;
+               SrvrPing_Butn.Image = Properties.Resources.IMAGE_1418;
                SrvrPing_Butn.Appearance.BackColor = Color.Pink;
                SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} \n\rNetwork disconnected.", SrvrPing_Butn.Tag);
             }

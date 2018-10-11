@@ -3696,6 +3696,10 @@
       <Column Name="NUMB_HORS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="NUMB_MINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="NUMB_DAYS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TOTL_NUMB_ATTN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RCPT_NUMB_ATTN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MIN_NUMB_ATTN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="NUMB_PKET_ATTN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />

@@ -67058,6 +67058,14 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<short> _NUMB_DAYS;
 		
+		private System.Nullable<int> _TOTL_NUMB_ATTN;
+		
+		private System.Nullable<int> _RCPT_NUMB_ATTN;
+		
+		private System.Nullable<short> _MIN_NUMB_ATTN;
+		
+		private System.Nullable<short> _NUMB_PKET_ATTN;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -67150,6 +67158,14 @@ namespace System.Scsc.Data
     partial void OnNUMB_MINTChanged();
     partial void OnNUMB_DAYSChanging(System.Nullable<short> value);
     partial void OnNUMB_DAYSChanged();
+    partial void OnTOTL_NUMB_ATTNChanging(System.Nullable<int> value);
+    partial void OnTOTL_NUMB_ATTNChanged();
+    partial void OnRCPT_NUMB_ATTNChanging(System.Nullable<int> value);
+    partial void OnRCPT_NUMB_ATTNChanged();
+    partial void OnMIN_NUMB_ATTNChanging(System.Nullable<short> value);
+    partial void OnMIN_NUMB_ATTNChanged();
+    partial void OnNUMB_PKET_ATTNChanging(System.Nullable<short> value);
+    partial void OnNUMB_PKET_ATTNChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -67838,6 +67854,86 @@ namespace System.Scsc.Data
 					this._NUMB_DAYS = value;
 					this.SendPropertyChanged("NUMB_DAYS");
 					this.OnNUMB_DAYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_NUMB_ATTN", DbType="Int")]
+		public System.Nullable<int> TOTL_NUMB_ATTN
+		{
+			get
+			{
+				return this._TOTL_NUMB_ATTN;
+			}
+			set
+			{
+				if ((this._TOTL_NUMB_ATTN != value))
+				{
+					this.OnTOTL_NUMB_ATTNChanging(value);
+					this.SendPropertyChanging();
+					this._TOTL_NUMB_ATTN = value;
+					this.SendPropertyChanged("TOTL_NUMB_ATTN");
+					this.OnTOTL_NUMB_ATTNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCPT_NUMB_ATTN", DbType="Int")]
+		public System.Nullable<int> RCPT_NUMB_ATTN
+		{
+			get
+			{
+				return this._RCPT_NUMB_ATTN;
+			}
+			set
+			{
+				if ((this._RCPT_NUMB_ATTN != value))
+				{
+					this.OnRCPT_NUMB_ATTNChanging(value);
+					this.SendPropertyChanging();
+					this._RCPT_NUMB_ATTN = value;
+					this.SendPropertyChanged("RCPT_NUMB_ATTN");
+					this.OnRCPT_NUMB_ATTNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB_ATTN", DbType="SmallInt")]
+		public System.Nullable<short> MIN_NUMB_ATTN
+		{
+			get
+			{
+				return this._MIN_NUMB_ATTN;
+			}
+			set
+			{
+				if ((this._MIN_NUMB_ATTN != value))
+				{
+					this.OnMIN_NUMB_ATTNChanging(value);
+					this.SendPropertyChanging();
+					this._MIN_NUMB_ATTN = value;
+					this.SendPropertyChanged("MIN_NUMB_ATTN");
+					this.OnMIN_NUMB_ATTNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_PKET_ATTN", DbType="SmallInt")]
+		public System.Nullable<short> NUMB_PKET_ATTN
+		{
+			get
+			{
+				return this._NUMB_PKET_ATTN;
+			}
+			set
+			{
+				if ((this._NUMB_PKET_ATTN != value))
+				{
+					this.OnNUMB_PKET_ATTNChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_PKET_ATTN = value;
+					this.SendPropertyChanged("NUMB_PKET_ATTN");
+					this.OnNUMB_PKET_ATTNChanged();
 				}
 			}
 		}

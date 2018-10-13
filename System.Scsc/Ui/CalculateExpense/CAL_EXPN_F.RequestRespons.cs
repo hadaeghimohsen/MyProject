@@ -184,7 +184,7 @@ namespace System.Scsc.Ui.CalculateExpense
          RqttBs.DataSource = iScsc.Requester_Types.Where(r =>  r.CODE == "001");
          DegrBs.DataSource = iScsc.D_DEGRs;
          DactvBs.DataSource = iScsc.D_ACTVs;
-         CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003");
+         CochBs.DataSource = iScsc.Fighters.Where(f => (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101);
          DcetpBs.DataSource = iScsc.D_CETPs;
          DysnoBs.DataSource = iScsc.D_YSNOs;
          DcxtpBs.DataSource = iScsc.D_CXTPs;

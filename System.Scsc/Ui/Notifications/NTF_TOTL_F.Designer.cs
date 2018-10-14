@@ -524,7 +524,7 @@
          // 
          // label10
          // 
-         label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label10.AutoSize = true;
          label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label10.Location = new System.Drawing.Point(914, 49);
@@ -535,7 +535,7 @@
          // 
          // label11
          // 
-         label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label11.AutoSize = true;
          label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label11.Location = new System.Drawing.Point(908, 22);
@@ -628,7 +628,7 @@
          // 
          // label20
          // 
-         label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+         label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label20.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label20.Location = new System.Drawing.Point(542, 22);
          label20.Name = "label20";
@@ -670,7 +670,7 @@
          // 
          // label31
          // 
-         label31.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label31.AutoSize = true;
          label31.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label31.Location = new System.Drawing.Point(1102, 34);
@@ -678,11 +678,10 @@
          label31.Size = new System.Drawing.Size(72, 14);
          label31.TabIndex = 29;
          label31.Text = "از تاریخ چک :";
-         label31.Visible = false;
          // 
          // label32
          // 
-         label32.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label32.AutoSize = true;
          label32.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label32.Location = new System.Drawing.Point(1102, 62);
@@ -690,11 +689,10 @@
          label32.Size = new System.Drawing.Size(72, 14);
          label32.TabIndex = 29;
          label32.Text = "تا تاریخ چک :";
-         label32.Visible = false;
          // 
          // label33
          // 
-         label33.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label33.AutoSize = true;
          label33.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label33.Location = new System.Drawing.Point(911, 34);
@@ -702,11 +700,10 @@
          label33.Size = new System.Drawing.Size(79, 14);
          label33.TabIndex = 29;
          label33.Text = "از تاریخ وصول :";
-         label33.Visible = false;
          // 
          // label34
          // 
-         label34.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label34.AutoSize = true;
          label34.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          label34.Location = new System.Drawing.Point(911, 62);
@@ -714,7 +711,6 @@
          label34.Size = new System.Drawing.Size(79, 14);
          label34.TabIndex = 29;
          label34.Text = "تا تاریخ وصول :";
-         label34.Visible = false;
          // 
          // colEXIT_TIME
          // 
@@ -3334,7 +3330,6 @@
          // 
          // Btn_PrintSetting4
          // 
-         this.Btn_PrintSetting4.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.Btn_PrintSetting4.BackColor = System.Drawing.Color.Transparent;
          this.Btn_PrintSetting4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Btn_PrintSetting4.Caption = "";
@@ -3356,7 +3351,6 @@
          // 
          // Btn_Print4
          // 
-         this.Btn_Print4.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.Btn_Print4.BackColor = System.Drawing.Color.Transparent;
          this.Btn_Print4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Btn_Print4.Caption = "";
@@ -3378,7 +3372,6 @@
          // 
          // Btn_PrintDefault4
          // 
-         this.Btn_PrintDefault4.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.Btn_PrintDefault4.BackColor = System.Drawing.Color.Transparent;
          this.Btn_PrintDefault4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Btn_PrintDefault4.Caption = "";
@@ -3400,7 +3393,6 @@
          // 
          // Btn_Search4
          // 
-         this.Btn_Search4.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.Btn_Search4.BackColor = System.Drawing.Color.Transparent;
          this.Btn_Search4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Btn_Search4.Caption = "";
@@ -3422,7 +3414,7 @@
          // 
          // Nud_ExpDay4
          // 
-         this.Nud_ExpDay4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.Nud_ExpDay4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Nud_ExpDay4.EditValue = new decimal(new int[] {
             0,
             0,
@@ -3442,7 +3434,7 @@
          // 
          // Dt_ExpDate4
          // 
-         this.Dt_ExpDate4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.Dt_ExpDate4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Dt_ExpDate4.CustomFormat = "dd/MM/yyyy";
          this.Dt_ExpDate4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Dt_ExpDate4.Format = Atf.UI.DateTimeSelectorFormat.Custom;
@@ -3866,6 +3858,9 @@
          // 
          // gridControl4
          // 
+         this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl4.DataSource = this.PmtcBs6;
          this.gridControl4.Location = new System.Drawing.Point(12, 87);
          this.gridControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -3876,7 +3871,7 @@
             this.repositoryItemLookUpEdit15,
             this.persianRepositoryItemDateEdit10,
             this.repositoryItemLookUpEdit16});
-         this.gridControl4.Size = new System.Drawing.Size(1159, 388);
+         this.gridControl4.Size = new System.Drawing.Size(1159, 381);
          this.gridControl4.TabIndex = 27;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView8});
@@ -4103,7 +4098,7 @@
          // 
          // ToRcptDate_Date
          // 
-         this.ToRcptDate_Date.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.ToRcptDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ToRcptDate_Date.CustomFormat = "dd/MM/yyyy";
          this.ToRcptDate_Date.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ToRcptDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
@@ -4112,11 +4107,10 @@
          this.ToRcptDate_Date.Size = new System.Drawing.Size(100, 23);
          this.ToRcptDate_Date.TabIndex = 28;
          this.ToRcptDate_Date.UsePersianFormat = true;
-         this.ToRcptDate_Date.Visible = false;
          // 
          // FromRcptDate_Date
          // 
-         this.FromRcptDate_Date.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.FromRcptDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FromRcptDate_Date.CustomFormat = "dd/MM/yyyy";
          this.FromRcptDate_Date.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FromRcptDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
@@ -4125,11 +4119,10 @@
          this.FromRcptDate_Date.Size = new System.Drawing.Size(100, 23);
          this.FromRcptDate_Date.TabIndex = 28;
          this.FromRcptDate_Date.UsePersianFormat = true;
-         this.FromRcptDate_Date.Visible = false;
          // 
          // ToChekDate_Date
          // 
-         this.ToChekDate_Date.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.ToChekDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ToChekDate_Date.CustomFormat = "dd/MM/yyyy";
          this.ToChekDate_Date.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ToChekDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
@@ -4138,11 +4131,10 @@
          this.ToChekDate_Date.Size = new System.Drawing.Size(100, 23);
          this.ToChekDate_Date.TabIndex = 28;
          this.ToChekDate_Date.UsePersianFormat = true;
-         this.ToChekDate_Date.Visible = false;
          // 
          // FromChekDate_Date
          // 
-         this.FromChekDate_Date.Anchor = System.Windows.Forms.AnchorStyles.Right;
+         this.FromChekDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FromChekDate_Date.CustomFormat = "dd/MM/yyyy";
          this.FromChekDate_Date.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FromChekDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
@@ -4151,7 +4143,6 @@
          this.FromChekDate_Date.Size = new System.Drawing.Size(100, 23);
          this.FromChekDate_Date.TabIndex = 28;
          this.FromChekDate_Date.UsePersianFormat = true;
-         this.FromChekDate_Date.Visible = false;
          // 
          // Allcheck_Cb
          // 
@@ -4166,7 +4157,6 @@
          // 
          // newMaxBtn1
          // 
-         this.newMaxBtn1.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.newMaxBtn1.BackColor = System.Drawing.Color.Transparent;
          this.newMaxBtn1.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.newMaxBtn1.Caption = "";
@@ -4187,7 +4177,6 @@
          // 
          // newMaxBtn2
          // 
-         this.newMaxBtn2.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.newMaxBtn2.BackColor = System.Drawing.Color.Transparent;
          this.newMaxBtn2.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.newMaxBtn2.Caption = "";
@@ -4208,7 +4197,6 @@
          // 
          // newMaxBtn3
          // 
-         this.newMaxBtn3.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.newMaxBtn3.BackColor = System.Drawing.Color.Transparent;
          this.newMaxBtn3.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.newMaxBtn3.Caption = "";
@@ -4229,7 +4217,6 @@
          // 
          // newMaxBtn4
          // 
-         this.newMaxBtn4.Anchor = System.Windows.Forms.AnchorStyles.Left;
          this.newMaxBtn4.BackColor = System.Drawing.Color.Transparent;
          this.newMaxBtn4.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.newMaxBtn4.Caption = "";
@@ -4370,13 +4357,13 @@
          // 
          // TitlForm_Lb
          // 
-         this.TitlForm_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TitlForm_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlForm_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.TitlForm_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(925, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(931, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
          this.TitlForm_Lb.Size = new System.Drawing.Size(199, 59);
          this.TitlForm_Lb.TabIndex = 1;

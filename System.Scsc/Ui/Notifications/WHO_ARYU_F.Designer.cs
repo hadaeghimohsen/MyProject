@@ -37,8 +37,6 @@
          System.Windows.Forms.Label label3;
          System.Windows.Forms.Label label4;
          System.Windows.Forms.Label label5;
-         System.Windows.Forms.Label label6;
-         System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label8;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
@@ -47,7 +45,9 @@
          DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         this.Mtod_Lb = new System.Windows.Forms.Label();
          this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.Ctgy_Lb = new System.Windows.Forms.Label();
          this.Lbl_AmntType = new System.Windows.Forms.Label();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -110,8 +110,6 @@
          label3 = new System.Windows.Forms.Label();
          label4 = new System.Windows.Forms.Label();
          label5 = new System.Windows.Forms.Label();
-         label6 = new System.Windows.Forms.Label();
-         label7 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
@@ -215,38 +213,38 @@
          label5.Text = "جلسه خصوصی\r\n با مربی";
          label5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
          // 
-         // label6
+         // Mtod_Lb
          // 
-         label6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Method.MTOD_DESC", true));
-         label6.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label6.ForeColor = System.Drawing.Color.White;
-         label6.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
-         label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-         label6.Location = new System.Drawing.Point(12, 2);
-         label6.Name = "label6";
-         label6.Size = new System.Drawing.Size(382, 46);
-         label6.TabIndex = 26;
-         label6.Text = "بدن سازی";
-         label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Mtod_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Method.MTOD_DESC", true));
+         this.Mtod_Lb.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Lb.ForeColor = System.Drawing.Color.White;
+         this.Mtod_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
+         this.Mtod_Lb.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+         this.Mtod_Lb.Location = new System.Drawing.Point(12, 2);
+         this.Mtod_Lb.Name = "Mtod_Lb";
+         this.Mtod_Lb.Size = new System.Drawing.Size(382, 46);
+         this.Mtod_Lb.TabIndex = 26;
+         this.Mtod_Lb.Text = "بدن سازی";
+         this.Mtod_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // AttnBs1
          // 
          this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
          this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
          // 
-         // label7
+         // Ctgy_Lb
          // 
-         label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Category_Belt.CTGY_DESC", true));
-         label7.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label7.ForeColor = System.Drawing.Color.White;
-         label7.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
-         label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-         label7.Location = new System.Drawing.Point(12, 48);
-         label7.Name = "label7";
-         label7.Size = new System.Drawing.Size(382, 46);
-         label7.TabIndex = 26;
-         label7.Text = "12 جلسه ای";
-         label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Ctgy_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Category_Belt.CTGY_DESC", true));
+         this.Ctgy_Lb.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Ctgy_Lb.ForeColor = System.Drawing.Color.White;
+         this.Ctgy_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
+         this.Ctgy_Lb.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+         this.Ctgy_Lb.Location = new System.Drawing.Point(12, 48);
+         this.Ctgy_Lb.Name = "Ctgy_Lb";
+         this.Ctgy_Lb.Size = new System.Drawing.Size(382, 46);
+         this.Ctgy_Lb.TabIndex = 26;
+         this.Ctgy_Lb.Text = "12 جلسه ای";
+         this.Ctgy_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label8
          // 
@@ -780,8 +778,8 @@
          this.panel1.BackColor = System.Drawing.Color.Transparent;
          this.panel1.Controls.Add(this.dateTimeSelector3);
          this.panel1.Controls.Add(this.dateTimeSelector2);
-         this.panel1.Controls.Add(label7);
-         this.panel1.Controls.Add(label6);
+         this.panel1.Controls.Add(this.Ctgy_Lb);
+         this.panel1.Controls.Add(this.Mtod_Lb);
          this.panel1.Controls.Add(label2);
          this.panel1.Controls.Add(label1);
          this.panel1.Location = new System.Drawing.Point(407, 12);
@@ -1138,6 +1136,8 @@
       private Windows.Forms.ToolStripButton PrintSetting_Butn;
       private Windows.Forms.ToolStripSeparator toolStripSeparator2;
       private DevExpress.XtraEditors.TextEdit RemindAttn_Txt;
+      private Windows.Forms.Label Mtod_Lb;
+      private Windows.Forms.Label Ctgy_Lb;
 
    }
 }

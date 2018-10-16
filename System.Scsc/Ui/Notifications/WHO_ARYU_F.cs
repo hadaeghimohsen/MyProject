@@ -222,6 +222,11 @@ namespace System.Scsc.Ui.Notifications
                panel1.Visible = false;
                return;
             }
+            Ctgy_Lb.Visible = false;
+         }
+         else
+         {
+            Ctgy_Lb.Visible = true;
          }
          //***else if (attn.Fighter1.FGPB_TYPE_DNRM == "008")
          //***   FighterType_Lab.ImageKey = "IMAGE_1087.png";

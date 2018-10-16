@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.JobRouting.Jobs;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,5 +106,36 @@ namespace System.DataAccess.Guis
                 });
             _Odbc.Gateway(_TestConnection);
         }
+
+        [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool IsWow64Process([In] IntPtr hProcess, [Out] out bool lpSystemInfo);
+
+        private bool Is64Bit()
+        {
+           if (IntPtr.Size == 8 || (IntPtr.Size == 4 && Is32BitProcessOn64BitProcessor()))
+           {
+              return true;
+           }
+           else
+           {
+              return false;
+           }
+        }
+
+        private bool Is32BitProcessOn64BitProcessor()
+        {
+           bool retVal;
+
+           IsWow64Process(Process.GetCurrentProcess().Handle, out retVal);
+
+           return retVal;
+        }
+
+        //[DllImport("ODBCCP32.dll")]
+        //public static extern bool SQLConfigDataSource(IntPtr parent, int request, string driver, string attributes);
+
+        [DllImport("ODBCCP32.dll")]
+        public static extern int SQLGetPrivateProfileString(string lpszSection, string lpszEntry, string lpszDefault, string @RetBuffer, int cbRetBuffer, string lpszFilename);
     }
 }

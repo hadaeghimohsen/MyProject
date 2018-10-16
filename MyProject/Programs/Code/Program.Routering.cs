@@ -84,6 +84,15 @@ namespace MyProject.Programs.Code
                   jobs.Status = StatusType.Failed;
                }
                break;
+            case "Setup":
+               if (_Setup != null)
+                  _Setup.Gateway(jobs);
+               else
+               {
+                  //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);
+                  jobs.Status = StatusType.Failed;
+               }
+               break;
             default:
                jobs.Status = StatusType.Failed;
                break;

@@ -325,5 +325,19 @@ namespace System.DataAccess.Odbccfg
          job.Status = StatusType.Successful;
       }
 
+      /// <summary>
+      /// Code 08
+      /// </summary>
+      /// <param name="job"></param>
+      private void DsnNameExists(Job job)
+      {
+         Job _ExistsDsnName = new Job(SendType.SelfToUserInterface, "OdbcSettings", 04 /* Execute DSNExists */)
+         {
+            Input = job.Input
+         };
+         Manager(_ExistsDsnName);
+
+         job.Status = _ExistsDsnName.Status;
+      }
    }
 }

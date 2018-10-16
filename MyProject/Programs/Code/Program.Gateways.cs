@@ -14,6 +14,7 @@ using Msgb = System.MessageBroadcast;
 using ISP = System.ISP;
 using CRM = System.CRM;
 using RoboTech = System.RoboTech;
+using Setup = System.Setup;
 
 namespace MyProject.Programs.Code
 {
@@ -31,5 +32,6 @@ namespace MyProject.Programs.Code
       internal ISP.Code.ISP _ISP { get; set; }
       internal CRM.Code.CRM _CRM { get; set; }
       internal RoboTech.Code.RoboTech _RoboTech { get; set; }
+      internal Setup.Code.Setup _Setup { get; set; }
    }
 }

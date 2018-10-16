@@ -89,6 +89,24 @@ namespace System.Setup.Ui.LTR.License
       /// <param name="job"></param>
       private void Set(Job job)
       {
+         _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "DefaultGateway",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "DataGuard", 
+                              new List<Job>
+                              {
+                                 new Job(SendType.Self, 31 /* Execute DoWork4GetComputerName */ ){AfterChangedOutput = new Action<object>((output) => HostInstaller_Txt.Text = output.ToString() )},
+                              }
+                           )                           
+                        }
+                     )
+                  }
+               )
+            );
          job.Status = StatusType.Successful;
       }
 

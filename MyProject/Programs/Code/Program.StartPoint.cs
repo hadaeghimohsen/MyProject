@@ -40,60 +40,63 @@ namespace MyProject.Programs.Code
           Application.SetCompatibleTextRenderingDefault(false);
 
           Program _prg = new Program();
-          Job _Startup = new Job(SendType.External, "Program",
-             new List<Job>
-             {
-                new Job(SendType.External, "DataGuard",
+          #region Check iProject Dsn Name ODBC
+          // 1397/07/24 * بررسی اینکه آیا راه ارتباطی در 
+          // ODBC 
+          // ثبت شده است یا خیر
+          
+          var checkDsniProject = StatusType.Failed;
+          _prg.Gateway(
+             new Job(SendType.External, "Program",
                 new List<Job>
                 {
-                   new Job(SendType.Self, 02 /* Execute DoWork4Login */),
-                }),                
-                new Job(SendType.Self, 01 /* Execute Startup*/),                
-             });
-          _prg.Gateway(_Startup);
+                   new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Odbc",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 08 /* Execute DsnNameExists */){ Input = "iProject", AfterChangedStatus = new Action<StatusType>((s) => checkDsniProject = s) }
+                           }
+                        )
+                     }
+                  )
+                }
+             )             
+          );
 
-          // 1397/07/24
-          _prg.Gateway(
-             #region Check iProject Dsn
-                new Job(SendType.External, "Commons",
+          if (checkDsniProject == StatusType.Failed)
+          {
+             _prg.Gateway(
+                new Job(SendType.External, "Program",
                    new List<Job>
                    {
-                      new Job(SendType.External, "Odbc",
-                         new List<Job>
-                         {
-                            #region Check Dsn Name
-                            new Job(SendType.Self, 08 /* Execute DsnNameExists */){
-                               Input = "iProject",
-                               AfterChangedStatus = 
-                                 new Action<StatusType>(
-                                    (status) =>
-                                       {
-                                          if(status == StatusType.Failed)
-                                          {
-                                             _prg.Gateway(
-                                                new Job(SendType.External, "Program",
-                                                   new List<Job>
-                                                   {
-                                                      new Job(SendType.External, "Setup",
-                                                         new List<Job>
-                                                         {
-                                                            new Job(SendType.Self, 03 /* Execute Chk_Licn_F */)
-                                                         }
-                                                      )
-                                                   }
-                                                )
-                                             );
-                                          }
-                                       }
-                                 )
-                            }
-                            #endregion  
-                         }
-                      )
+                     new Job(SendType.External, "Setup",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 03 /* Execute Chk_Licn_F */)
+                        }
+                     ),
+                     new Job(SendType.Self, 01 /* Execute Startup*/)
                    }
                 )
-                #endregion
-          );
+             );
+          }
+          #endregion
+          else
+          {
+             Job _Startup = new Job(SendType.External, "Program",
+                new List<Job>
+                {
+                   new Job(SendType.External, "DataGuard",
+                   new List<Job>
+                   {
+                      new Job(SendType.Self, 02 /* Execute DoWork4Login */),
+                   }),                
+                   new Job(SendType.Self, 01 /* Execute Startup*/),
+                });
+             _prg.Gateway(_Startup);
+          }          
        }
     }
 }

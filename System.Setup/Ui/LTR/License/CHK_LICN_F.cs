@@ -74,7 +74,7 @@ namespace System.Setup.Ui.LTR.License
                   CellPhon_Txt.Text, // 1
                   EmailAddress_Txt.Text, // 2
                   LicServer_Rb.Checked ? "002" : "001", // 5
-                  LicenseKey_Txt.Text
+                  LicenseKey_Txt.Text // 6
                };
 
             // get unvisible data
@@ -82,19 +82,24 @@ namespace System.Setup.Ui.LTR.License
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
-                     new Job(SendType.External, "Commons",
+                     new Job(SendType.External, "DefaultGateway",
                         new List<Job>
                         {
-                           new Job(SendType.Self, 19 /* Execute DoWork4GetAccountName */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 18 /* Execute DoWork4GetBIOScaption */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 25 /* Execute DoWork4GetBoardMaker */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 26 /* Execute DoWork4GetBoardProductId */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 13 /* Execute DoWork4GetHDDSerialNo */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 14 /* Execute DoWork4GetMACAddress */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 29 /* Execute DoWork4GetOSInformation */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 20 /* Execute DoWork4GetPhysicalMemory */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 12 /* Execute DoWork4GetProcessorId */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
-                           new Job(SendType.Self, 30 /* Execute DoWork4GetProcessorInformation */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))}
+                           new Job(SendType.External, "DataGuard", 
+                              new List<Job>
+                              {
+                                 new Job(SendType.Self, 19 /* Execute DoWork4GetAccountName */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); AccountName_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 18 /* Execute DoWork4GetBIOScaption */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); BIOSCaption_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 25 /* Execute DoWork4GetBoardMaker */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); BoardMaker_Txt.Text = output.ToString();})},
+                                 //new Job(SendType.Self, 26 /* Execute DoWork4GetBoardProductId */ ){AfterChangedOutput = new Action<object>((output) => dataclient.Add(output.ToString()))},
+                                 new Job(SendType.Self, 13 /* Execute DoWork4GetHDDSerialNo */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); HDDSerialNo_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 14 /* Execute DoWork4GetMACAddress */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); MACAddress_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 29 /* Execute DoWork4GetOSInformation */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); OSInfo_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 20 /* Execute DoWork4GetPhysicalMemory */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); PhysicalMemory_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 12 /* Execute DoWork4GetProcessorId */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); ProcessorID_Txt.Text = output.ToString();})},
+                                 new Job(SendType.Self, 30 /* Execute DoWork4GetProcessorInformation */ ){AfterChangedOutput = new Action<object>((output) => {dataclient.Add(output.ToString()); ProcessorInfo_Txt.Text = output.ToString();})}
+                              }
+                           )                           
                         }
                      )
                   }
@@ -165,14 +170,25 @@ namespace System.Setup.Ui.LTR.License
 
             ServerKey0_Text.Text = serverkeyTemp;
 
-            Company_Txt.Text = dataclient[0];
-            CellPhon_Txt.Text = dataclient[1];
-            EmailAddress_Txt.Text = dataclient[2];
-            UserInstaller_Txt.Text = dataclient[3];
+            if (HostInstaller_Txt.Text != dataclient[0]) { MessageBox.Show("License key is not valid!"); return; }
+            if (UserInstaller_Txt.Text != dataclient[1]) { MessageBox.Show("License key is not valid!"); return; }
+            if (Company_Txt.Text != dataclient[2]) { MessageBox.Show("License key is not valid!"); return; }
+            if (CellPhon_Txt.Text != dataclient[3]) { MessageBox.Show("License key is not valid!"); return; }
+            if (EmailAddress_Txt.Text != dataclient[4]) { MessageBox.Show("License key is not valid!"); return; }
+            if ((LicServer_Rb.Checked ? "002" : "001") != dataclient[5]) { MessageBox.Show("License key is not valid!"); return; }
+            if (LicenseKey_Txt.Text != dataclient[6]) { MessageBox.Show("License key is not valid!"); return; }
+            if (AccountName_Txt.Text != dataclient[7]) { MessageBox.Show("License key is not valid!"); return; }
+            if (BIOSCaption_Txt.Text != dataclient[8]) { MessageBox.Show("License key is not valid!"); return; }
+            if (BoardMaker_Txt.Text != dataclient[9]) { MessageBox.Show("License key is not valid!"); return; }
+            if (HDDSerialNo_Txt.Text != dataclient[10]) { MessageBox.Show("License key is not valid!"); return; }
+            if (MACAddress_Txt.Text != dataclient[11]) { MessageBox.Show("License key is not valid!"); return; }
+            if (OSInfo_Txt.Text != dataclient[12]) { MessageBox.Show("License key is not valid!"); return; }
+            if (PhysicalMemory_Txt.Text != dataclient[13]) { MessageBox.Show("License key is not valid!"); return; }
+            if (ProcessorID_Txt.Text != dataclient[14]) { MessageBox.Show("License key is not valid!"); return; }
+            if (ProcessorInfo_Txt.Text != dataclient[15]) { MessageBox.Show("License key is not valid!"); return; }
 
-            if (dataclient[5] == "001") LicClient_Rb.Checked = true; else LicServer_Rb.Checked = true;
-
-            GenerateKey_Butn_Click(null, null);
+            MessageBox.Show("Activation in successfully");
+            //GenerateKey_Butn_Click(null, null);
          }
          catch (Exception exc)
          {
@@ -233,6 +249,7 @@ namespace System.Setup.Ui.LTR.License
       {
          try
          {
+            ClientSysInfo1_Pn.Visible = false;
             if (ClientKey1_Text.Text == "") return;
 
             var datastring = Decrypt(ClientKey1_Text.Text);
@@ -244,6 +261,16 @@ namespace System.Setup.Ui.LTR.License
             UserInstaller1_Txt.Text = dataclient[3];
             HostInstaller1_Txt.EditValue = dataclient[4];
             if (dataclient[5] == "002") LicServer1_Rb.Checked = true; else LicClient1_Rb.Checked = true;
+            LicenseKey1_Txt.Text = dataclient[6];
+            AccountName1_Txt.Text = dataclient[7];
+            BIOSCaption1_Txt.Text = dataclient[8];
+            BoardMaker1_Txt.Text = dataclient[9];
+            HDDSerialNo1_Txt.Text = dataclient[10];
+            MACAddress1_Txt.Text = dataclient[11];
+            OSInfo1_Txt.Text = dataclient[12];
+            PhysicalMemory1_Txt.Text = dataclient[13];
+            ProcessorID1_Txt.Text = dataclient[14];
+            ProcessorInfo1_Txt.Text = dataclient[15];
          }
          catch (Exception exc)
          {
@@ -274,13 +301,21 @@ namespace System.Setup.Ui.LTR.License
                   UserInstaller1_Txt.Text, // 3
                   HostInstaller1_Txt.EditValue.ToString(), // 4
                   LicServer1_Rb.Checked ? "002" : "001", // 5
-                  "0", // 6
-                  "BWG7X-J98B3-W34RT-33B3R-JVYW9", 
-                  "9FJCR-X7BKD-G84RY-QYH4P-VYYB7"
+                  LicenseKey1_Txt.Text, // 6                  
+                  AccountName1_Txt.Text,
+                  BIOSCaption1_Txt.Text,
+                  BoardMaker1_Txt.Text,
+                  HDDSerialNo1_Txt.Text,
+                  MACAddress1_Txt.Text,
+                  OSInfo1_Txt.Text,
+                  PhysicalMemory1_Txt.Text,
+                  ProcessorID1_Txt.Text,
+                  ProcessorInfo1_Txt.Text
                };
             var datastring = string.Join(":", dataclient);
 
             ServerKey1_Text.Text = Encrypt(datastring);
+            ClientSysInfo1_Pn.Visible = true;
          }
          catch (Exception exc)
          {

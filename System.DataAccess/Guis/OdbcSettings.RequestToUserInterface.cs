@@ -13,8 +13,8 @@ namespace System.DataAccess.Guis
    {
       internal Odbccfg.Odbc _Odbc { get; set; }
 
-      private const string ODBC_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBC.INI\\";
-      private const string ODBCINST_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBCINST.INI\\";
+      private string ODBC_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBC.INI\\";
+      private string ODBCINST_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBCINST.INI\\";
 
       internal void RequestToUserInterface(Job job)
       {
@@ -178,21 +178,44 @@ namespace System.DataAccess.Guis
       ///<returns></returns>
       private void DSNExists(Job job)
       {
-         string dsnName = job.Input.ToString();
-         var driversKey = Registry.LocalMachine.CreateSubKey(ODBCINST_INI_REG_PATH + "ODBC Drivers");
-         if (driversKey == null)
+         try
          {
-            //throw new Exception("ODBC Registry key for drivers does not exist");
-            job.Status = StatusType.Failed;
-            return;
-         }
+            string dsnName = job.Input.ToString();
+            //if(Is64Bit())
+            //{
+            //   ODBC_INI_REG_PATH = "Software\\Wow6432Node\\ODBC\\ODBC.INI\\";
+            //   ODBCINST_INI_REG_PATH = "Software\\Wow6432Node\\ODBC\\ODBCINST.INI\\";
+            //}
+            //else
+            //{
+            //   ODBC_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBC.INI\\";
+            //   ODBCINST_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBCINST.INI\\";
+            //}
 
-         
-         job.Output = driversKey.GetValue(dsnName) != null;
-         if ((bool)job.Output)
-            job.Status = StatusType.Successful;
-         else
-            job.Status = StatusType.Failed;
+            //var driversKey = Registry.LocalMachine.CreateSubKey(ODBCINST_INI_REG_PATH + "ODBC Drivers");
+            //if (driversKey == null)
+            //{
+            //   //throw new Exception("ODBC Registry key for drivers does not exist");
+            //   job.Status = StatusType.Failed;
+            //   return;
+            //}
+
+
+            //job.Output = driversKey.GetValue(dsnName) != null;
+            //if ((bool)job.Output)
+            //   job.Status = StatusType.Successful;
+            //else
+            //   job.Status = StatusType.Failed;
+
+            int iData;
+            string strRetBuff = "";
+            iData = SQLGetPrivateProfileString("ODBC Data Sources", dsnName, "", strRetBuff, 200, "odbc.ini");
+            if(iData != 0)
+               job.Status = StatusType.Successful;
+            else
+               job.Status = StatusType.Failed;
+         }
+         catch { job.Status = StatusType.Successful; }
       }
 
       ///<summary>

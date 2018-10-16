@@ -537,6 +537,10 @@
       <Project>{4512985c-8e08-4d8c-b09c-eba676f68d9e}</Project>
       <Name>System.ServiceDefinition</Name>
     </ProjectReference>
+    <ProjectReference Include="..\System.Setup\System.Setup.csproj">
+      <Project>{48de07ea-f709-4aea-98fe-879bdcf6ef8e}</Project>
+      <Name>System.Setup</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

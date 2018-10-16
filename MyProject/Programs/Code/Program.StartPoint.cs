@@ -20,6 +20,7 @@ namespace MyProject.Programs.Code
 
           _Commons = new Commons.Code.Commons(_Wall) { _DefaultGateway = this };
           _DataGuard = new System.DataGuard.Self.Code.DataGuard(_Commons, _Wall) { _DefaultGateway = this };
+          _Setup = new System.Setup.Code.Setup(_Commons, _Wall) { _DefaultGateway = this };
        }
 
        private bool _readyToWork;
@@ -46,10 +47,53 @@ namespace MyProject.Programs.Code
                 new List<Job>
                 {
                    new Job(SendType.Self, 02 /* Execute DoWork4Login */),
-                }),
-                new Job(SendType.Self, 01 /* Execute Startup*/)                
+                }),                
+                new Job(SendType.Self, 01 /* Execute Startup*/),                
              });
           _prg.Gateway(_Startup);
-       }       
+
+          // 1397/07/24
+          _prg.Gateway(
+             #region Check iProject Dsn
+                new Job(SendType.External, "Commons",
+                   new List<Job>
+                   {
+                      new Job(SendType.External, "Odbc",
+                         new List<Job>
+                         {
+                            #region Check Dsn Name
+                            new Job(SendType.Self, 08 /* Execute DsnNameExists */){
+                               Input = "iProject",
+                               AfterChangedStatus = 
+                                 new Action<StatusType>(
+                                    (status) =>
+                                       {
+                                          if(status == StatusType.Failed)
+                                          {
+                                             _prg.Gateway(
+                                                new Job(SendType.External, "Program",
+                                                   new List<Job>
+                                                   {
+                                                      new Job(SendType.External, "Setup",
+                                                         new List<Job>
+                                                         {
+                                                            new Job(SendType.Self, 03 /* Execute Chk_Licn_F */)
+                                                         }
+                                                      )
+                                                   }
+                                                )
+                                             );
+                                          }
+                                       }
+                                 )
+                            }
+                            #endregion  
+                         }
+                      )
+                   }
+                )
+                #endregion
+          );
+       }
     }
 }

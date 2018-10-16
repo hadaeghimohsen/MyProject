@@ -51,6 +51,9 @@ namespace System.DataAccess.Odbccfg
                case 07:
                     Import2Odbc(job);
                     break;
+               case 08:
+                    DsnNameExists(job);
+                    break;
                default:
                     job.Status = StatusType.Failed;
                     break;

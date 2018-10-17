@@ -36,7 +36,19 @@
          this.ribbonContextualTabGroup2 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
          this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup11 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.SupplierDashboard_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.NewSqlServerInstance_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ConfigDatabase_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup15 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup16 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
+         this.ribbonGroup12 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton6 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup18 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton8 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
          this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_stngdfin = new C1.Win.C1Ribbon.RibbonButton();
@@ -92,18 +104,6 @@
          this.ShowInfo_Pn = new System.Windows.Forms.Panel();
          this.CloseInfo_Butn = new System.Windows.Forms.Button();
          this.TextInfo_Txt = new System.Windows.Forms.Label();
-         this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
-         this.ribbonGroup12 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonGroup15 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonGroup16 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonGroup18 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton6 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton8 = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.ShowInfo_Pn.SuspendLayout();
          this.SuspendLayout();
@@ -170,17 +170,103 @@
          // 
          // ribbonGroup11
          // 
-         this.ribbonGroup11.Items.Add(this.SupplierDashboard_Butn);
-         this.ribbonGroup11.Items.Add(this.ribbonButton1);
+         this.ribbonGroup11.Items.Add(this.NewSqlServerInstance_Butn);
+         this.ribbonGroup11.Items.Add(this.ConfigDatabase_Butn);
          this.ribbonGroup11.Name = "ribbonGroup11";
          this.ribbonGroup11.Text = "Database Configuration";
          // 
-         // SupplierDashboard_Butn
+         // NewSqlServerInstance_Butn
          // 
-         this.SupplierDashboard_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("SupplierDashboard_Butn.LargeImage")));
-         this.SupplierDashboard_Butn.Name = "SupplierDashboard_Butn";
-         this.SupplierDashboard_Butn.Text = "New Instance";
-         this.SupplierDashboard_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.NewSqlServerInstance_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("NewSqlServerInstance_Butn.LargeImage")));
+         this.NewSqlServerInstance_Butn.Name = "NewSqlServerInstance_Butn";
+         this.NewSqlServerInstance_Butn.Text = "New Instance";
+         this.NewSqlServerInstance_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.NewSqlServerInstance_Butn.Click += new System.EventHandler(this.NewSqlServerInstance_Butn_Click);
+         // 
+         // ConfigDatabase_Butn
+         // 
+         this.ConfigDatabase_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("ConfigDatabase_Butn.LargeImage")));
+         this.ConfigDatabase_Butn.Name = "ConfigDatabase_Butn";
+         this.ConfigDatabase_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ConfigDatabase_Butn.SmallImage")));
+         this.ConfigDatabase_Butn.Text = "Config  Instance";
+         this.ConfigDatabase_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ConfigDatabase_Butn.Click += new System.EventHandler(this.ConfigDatabase_Butn_Click);
+         // 
+         // ribbonGroup15
+         // 
+         this.ribbonGroup15.Items.Add(this.ribbonButton3);
+         this.ribbonGroup15.Name = "ribbonGroup15";
+         this.ribbonGroup15.Text = "Install Components";
+         // 
+         // ribbonButton3
+         // 
+         this.ribbonButton3.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.LargeImage")));
+         this.ribbonButton3.Name = "ribbonButton3";
+         this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
+         this.ribbonButton3.Text = "Install Component";
+         this.ribbonButton3.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         // 
+         // ribbonGroup16
+         // 
+         this.ribbonGroup16.Items.Add(this.ribbonButton4);
+         this.ribbonGroup16.Name = "ribbonGroup16";
+         this.ribbonGroup16.Text = "Create User && Roles";
+         // 
+         // ribbonButton4
+         // 
+         this.ribbonButton4.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.LargeImage")));
+         this.ribbonButton4.Name = "ribbonButton4";
+         this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
+         this.ribbonButton4.Text = "User && Role";
+         this.ribbonButton4.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         // 
+         // ribbonGroup17
+         // 
+         this.ribbonGroup17.Items.Add(this.ribbonButton5);
+         this.ribbonGroup17.Name = "ribbonGroup17";
+         this.ribbonGroup17.Text = "Finalization Installing";
+         // 
+         // ribbonButton5
+         // 
+         this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
+         this.ribbonButton5.Name = "ribbonButton5";
+         this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
+         this.ribbonButton5.Text = "Finilization";
+         // 
+         // ribbonTab4
+         // 
+         this.ribbonTab4.Groups.Add(this.ribbonGroup12);
+         this.ribbonTab4.Groups.Add(this.ribbonGroup18);
+         this.ribbonTab4.Name = "ribbonTab4";
+         this.ribbonTab4.Text = "Client";
+         // 
+         // ribbonGroup12
+         // 
+         this.ribbonGroup12.Items.Add(this.ribbonButton6);
+         this.ribbonGroup12.Name = "ribbonGroup12";
+         this.ribbonGroup12.Text = "Database Connection Confiuration";
+         // 
+         // ribbonButton6
+         // 
+         this.ribbonButton6.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.LargeImage")));
+         this.ribbonButton6.Name = "ribbonButton6";
+         this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
+         this.ribbonButton6.Text = "Create Connection";
+         this.ribbonButton6.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         // 
+         // ribbonGroup18
+         // 
+         this.ribbonGroup18.Items.Add(this.ribbonButton8);
+         this.ribbonGroup18.Name = "ribbonGroup18";
+         this.ribbonGroup18.Text = "Install Component";
+         // 
+         // ribbonButton8
+         // 
+         this.ribbonButton8.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.LargeImage")));
+         this.ribbonButton8.Name = "ribbonButton8";
+         this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
+         this.ribbonButton8.Text = "Install Component";
+         this.ribbonButton8.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          // 
          // ribbonQat1
          // 
@@ -571,7 +657,6 @@
          // roundedButton1
          // 
          this.roundedButton1.Active = true;
-         this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.roundedButton1.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
          this.roundedButton1.Caption = "!";
          this.roundedButton1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -607,6 +692,7 @@
          // 
          // CloseInfo_Butn
          // 
+         this.CloseInfo_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CloseInfo_Butn.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CloseInfo_Butn.Location = new System.Drawing.Point(739, 4);
          this.CloseInfo_Butn.Name = "CloseInfo_Butn";
@@ -629,90 +715,6 @@
          this.TextInfo_Txt.TabIndex = 7;
          this.TextInfo_Txt.Text = "System is ready to do.";
          this.TextInfo_Txt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
-         // ribbonTab4
-         // 
-         this.ribbonTab4.Groups.Add(this.ribbonGroup12);
-         this.ribbonTab4.Groups.Add(this.ribbonGroup18);
-         this.ribbonTab4.Name = "ribbonTab4";
-         this.ribbonTab4.Text = "Client";
-         // 
-         // ribbonGroup12
-         // 
-         this.ribbonGroup12.Items.Add(this.ribbonButton6);
-         this.ribbonGroup12.Name = "ribbonGroup12";
-         this.ribbonGroup12.Text = "Database Connection Confiuration";
-         // 
-         // ribbonGroup15
-         // 
-         this.ribbonGroup15.Items.Add(this.ribbonButton3);
-         this.ribbonGroup15.Name = "ribbonGroup15";
-         this.ribbonGroup15.Text = "Install Components";
-         // 
-         // ribbonGroup16
-         // 
-         this.ribbonGroup16.Items.Add(this.ribbonButton4);
-         this.ribbonGroup16.Name = "ribbonGroup16";
-         this.ribbonGroup16.Text = "Create User && Roles";
-         // 
-         // ribbonGroup17
-         // 
-         this.ribbonGroup17.Items.Add(this.ribbonButton5);
-         this.ribbonGroup17.Name = "ribbonGroup17";
-         this.ribbonGroup17.Text = "Finalization Installing";
-         // 
-         // ribbonGroup18
-         // 
-         this.ribbonGroup18.Items.Add(this.ribbonButton8);
-         this.ribbonGroup18.Name = "ribbonGroup18";
-         this.ribbonGroup18.Text = "Install Component";
-         // 
-         // ribbonButton1
-         // 
-         this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
-         this.ribbonButton1.Name = "ribbonButton1";
-         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-         this.ribbonButton1.Text = "Config  Instance";
-         this.ribbonButton1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         // 
-         // ribbonButton3
-         // 
-         this.ribbonButton3.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.LargeImage")));
-         this.ribbonButton3.Name = "ribbonButton3";
-         this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-         this.ribbonButton3.Text = "Install Component";
-         this.ribbonButton3.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         // 
-         // ribbonButton4
-         // 
-         this.ribbonButton4.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.LargeImage")));
-         this.ribbonButton4.Name = "ribbonButton4";
-         this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
-         this.ribbonButton4.Text = "User && Role";
-         this.ribbonButton4.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         // 
-         // ribbonButton5
-         // 
-         this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
-         this.ribbonButton5.Name = "ribbonButton5";
-         this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-         this.ribbonButton5.Text = "Finilization";
-         // 
-         // ribbonButton6
-         // 
-         this.ribbonButton6.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.LargeImage")));
-         this.ribbonButton6.Name = "ribbonButton6";
-         this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
-         this.ribbonButton6.Text = "Create Connection";
-         this.ribbonButton6.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         // 
-         // ribbonButton8
-         // 
-         this.ribbonButton8.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.LargeImage")));
-         this.ribbonButton8.Name = "ribbonButton8";
-         this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
-         this.ribbonButton8.Text = "Install Component";
-         this.ribbonButton8.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          // 
          // FRST_PAGE_F
          // 
@@ -791,7 +793,7 @@
       private C1.Win.C1Ribbon.RibbonContextualTabGroup ribbonContextualTabGroup2;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab2;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup11;
-      private C1.Win.C1Ribbon.RibbonButton SupplierDashboard_Butn;
+      private C1.Win.C1Ribbon.RibbonButton NewSqlServerInstance_Butn;
       private Windows.Forms.Panel ShowInfo_Pn;
       private MaxUi.RoundedButton roundedButton1;
       private Windows.Forms.Label TextInfo_Txt;
@@ -802,7 +804,7 @@
       private C1.Win.C1Ribbon.RibbonTab ribbonTab4;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup12;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup18;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton1;
+      private C1.Win.C1Ribbon.RibbonButton ConfigDatabase_Butn;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton3;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton4;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton5;

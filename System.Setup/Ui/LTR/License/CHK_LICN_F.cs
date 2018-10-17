@@ -13,6 +13,7 @@ using System.Globalization;
 using System.Xml.Linq;
 using System.IO;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace System.Setup.Ui.LTR.License
 {
@@ -27,10 +28,8 @@ namespace System.Setup.Ui.LTR.License
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
-         // Close Start Drawer
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute DoWork4SettingsDrawer */, SendType.SelfToUserInterface) { Input = Keys.Escape }
-         );
+         Application.Exit();
+         Process.GetCurrentProcess().Kill();
       }      
 
       #region Request License Key
@@ -106,7 +105,7 @@ namespace System.Setup.Ui.LTR.License
                )
             );
 
-            var datastring = string.Join(":", dataclient);
+            var datastring = string.Join("::##::", dataclient);
 
             ClientKey0_Text.Text = Encrypt(datastring);
          }
@@ -166,7 +165,7 @@ namespace System.Setup.Ui.LTR.License
 
             var serverkeyTemp = ServerKey0_Text.Text;
             var datastring = Decrypt(ServerKey0_Text.Text);
-            var dataclient = datastring.Split(':').ToList();
+            var dataclient = datastring.Split(new string[] { "::##::" }, StringSplitOptions.None).ToList();
 
             ServerKey0_Text.Text = serverkeyTemp;
 
@@ -187,8 +186,16 @@ namespace System.Setup.Ui.LTR.License
             if (ProcessorID_Txt.Text != dataclient[14]) { MessageBox.Show("License key is not valid!"); return; }
             if (ProcessorInfo_Txt.Text != dataclient[15]) { MessageBox.Show("License key is not valid!"); return; }
 
-            MessageBox.Show("Activation in successfully");
-            //GenerateKey_Butn_Click(null, null);
+            // Open First Page Setup
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 02 /* Execute Frst_Page_F */)
+                  }
+               )
+            );
+            
          }
          catch (Exception exc)
          {
@@ -253,13 +260,13 @@ namespace System.Setup.Ui.LTR.License
             if (ClientKey1_Text.Text == "") return;
 
             var datastring = Decrypt(ClientKey1_Text.Text);
-            var dataclient = datastring.Split(':').ToList();
+            var dataclient = datastring.Split(new string[] { "::##::" }, StringSplitOptions.None).ToList();
 
-            Company1_Txt.Text = dataclient[0];
-            Cellphon1_Txt.Text = dataclient[1];
-            EmailAddress1_Txt.Text = dataclient[2];
-            UserInstaller1_Txt.Text = dataclient[3];
-            HostInstaller1_Txt.EditValue = dataclient[4];
+            HostInstaller1_Txt.EditValue = dataclient[0];
+            UserInstaller1_Txt.Text = dataclient[1];            
+            Company1_Txt.Text = dataclient[2];
+            Cellphon1_Txt.Text = dataclient[3];
+            EmailAddress1_Txt.Text = dataclient[4];
             if (dataclient[5] == "002") LicServer1_Rb.Checked = true; else LicClient1_Rb.Checked = true;
             LicenseKey1_Txt.Text = dataclient[6];
             AccountName1_Txt.Text = dataclient[7];
@@ -295,11 +302,11 @@ namespace System.Setup.Ui.LTR.License
 
             var dataclient =
                new List<string> { 
-                  Company1_Txt.Text, // 0
-                  Cellphon1_Txt.Text, // 1
-                  EmailAddress1_Txt.Text, // 2
-                  UserInstaller1_Txt.Text, // 3
-                  HostInstaller1_Txt.EditValue.ToString(), // 4
+                  HostInstaller1_Txt.Text, // 0
+                  UserInstaller1_Txt.Text, // 1
+                  Company1_Txt.Text, // 2
+                  Cellphon1_Txt.Text, // 3
+                  EmailAddress1_Txt.Text, // 4
                   LicServer1_Rb.Checked ? "002" : "001", // 5
                   LicenseKey1_Txt.Text, // 6                  
                   AccountName1_Txt.Text,
@@ -312,7 +319,7 @@ namespace System.Setup.Ui.LTR.License
                   ProcessorID1_Txt.Text,
                   ProcessorInfo1_Txt.Text
                };
-            var datastring = string.Join(":", dataclient);
+            var datastring = string.Join("::##::", dataclient);
 
             ServerKey1_Text.Text = Encrypt(datastring);
             ClientSysInfo1_Pn.Visible = true;

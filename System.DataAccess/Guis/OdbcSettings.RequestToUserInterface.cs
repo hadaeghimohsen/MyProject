@@ -15,6 +15,14 @@ namespace System.DataAccess.Guis
 
       private string ODBC_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBC.INI\\";
       private string ODBCINST_INI_REG_PATH = "SOFTWARE\\ODBC\\ODBCINST.INI\\";
+      
+      private const short ODBC_ADD_DSN = 1;
+      private const short ODBC_CONFIG_DSN = 2;
+      private const short ODBC_REMOVE_DSN = 3;
+      private const short ODBC_ADD_SYS_DSN = 4;
+      private const short ODBC_CONFIG_SYS_DSN = 5;
+      private const short ODBC_REMOVE_SYS_DSN = 6;
+      private const int vbAPINull = 0;
 
       internal void RequestToUserInterface(Job job)
       {
@@ -49,6 +57,12 @@ namespace System.DataAccess.Guis
                break;
             case 10:
                Import2Odbc(job);
+               break;
+            case 11:
+               WindowsPlatform(job);
+               break;
+            case 12:
+               CreateDsnNameWithoutGrant(job);
                break;
             default:
                job.Status = StatusType.Failed;
@@ -392,5 +406,57 @@ namespace System.DataAccess.Guis
             });
       }
 
+      /// <summary>
+      /// Code 11
+      /// </summary>
+      /// <param name="job"></param>
+      private void WindowsPlatform(Job job)
+      {
+         job.Output = Is64Bit() ? "64" : "32";
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 12
+      /// </summary>
+      /// <param name="job"></param>
+      private void CreateDsnNameWithoutGrant(Job job)
+      {
+         try
+         {
+            string dsnName = (job.Input as List<object>)[0].ToString(),
+                   description = (job.Input as List<object>)[1].ToString(),
+                   server = (job.Input as List<object>)[2].ToString(),
+                   driverName = (job.Input as List<object>)[3].ToString(),
+                   database = (job.Input as List<object>)[4].ToString(),
+                   uid = (job.Input as List<object>)[5].ToString(),
+                   pwd = (job.Input as List<object>)[6].ToString();
+
+            string strAttributes = "DSN=" + dsnName + "\0";
+            strAttributes += "SYSTEM=" + server + "\0";
+            strAttributes += "UID=" + uid + "\0";
+            strAttributes += "PWD=" + pwd + "\0";
+
+            string strDSN = "";
+            strDSN = strDSN + "System = " + server + "\n";
+            strDSN = strDSN + "Description = " + description + "\n";
+
+            if (SQLConfigDataSource((IntPtr)vbAPINull, ODBC_ADD_SYS_DSN, driverName, strAttributes))
+            {
+               job.Output = "Successful";
+               job.Status = StatusType.Successful;
+            }
+            else
+            {
+               job.Output = "Failed";
+               job.Status = StatusType.Failed;
+            }
+         }
+         catch(Exception exc)
+         {
+            job.Output = exc.Message;
+            job.Status = StatusType.Failed;            
+         }
+      }
    }
 }

@@ -82,12 +82,20 @@
     <Compile Include="Ui\LTR\MasterPage\FRST_PAGE_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\LTR\Server\SQL_CONF_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\LTR\Server\SQL_CONF_F.Designer.cs">
+      <DependentUpon>SQL_CONF_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\LTR\Server\SQL_CONF_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="ExtCode\" />
     <Folder Include="Ui\LTR\Client\" />
-    <Folder Include="Ui\LTR\Server\" />
     <Folder Include="Ui\RTL\" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\LTR\MasterPage\FRST_PAGE_F.resx">
       <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\LTR\Server\SQL_CONF_F.resx">
+      <DependentUpon>SQL_CONF_F.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

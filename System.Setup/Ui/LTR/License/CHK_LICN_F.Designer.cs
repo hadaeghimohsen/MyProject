@@ -35,6 +35,25 @@
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Tb_Master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
+         this.ClientSysInfo_Pn = new System.Windows.Forms.Panel();
+         this.AccountName_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
+         this.BIOSCaption_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
+         this.ProcessorInfo_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
+         this.PhysicalMemory_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
+         this.MACAddress_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
+         this.ProcessorID_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.BoardMaker_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.OSInfo_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.HDDSerialNo_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
@@ -108,28 +127,19 @@
          this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-         this.ClientSysInfo_Pn = new System.Windows.Forms.Panel();
-         this.AccountName_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
-         this.BIOSCaption_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
-         this.ProcessorInfo_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
-         this.PhysicalMemory_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
-         this.MACAddress_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
-         this.ProcessorID_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.BoardMaker_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.OSInfo_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.HDDSerialNo_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
+         this.ClientSysInfo_Pn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.AccountName_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BIOSCaption_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ProcessorInfo_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PhysicalMemory_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MACAddress_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ProcessorID_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BoardMaker_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OSInfo_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HDDSerialNo_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.HostInstaller_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserInstaller_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LicenseKey_Txt.Properties)).BeginInit();
@@ -160,16 +170,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.PasswordHash_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServerKey1_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClientKey1_Text.Properties)).BeginInit();
-         this.ClientSysInfo_Pn.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.AccountName_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BIOSCaption_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ProcessorInfo_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PhysicalMemory_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MACAddress_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ProcessorID_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BoardMaker_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OSInfo_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.HDDSerialNo_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -256,6 +256,383 @@
          this.tp_001.Tag = "1";
          this.tp_001.Text = "Installer Activation";
          this.tp_001.UseVisualStyleBackColor = true;
+         // 
+         // ClientSysInfo_Pn
+         // 
+         this.ClientSysInfo_Pn.Controls.Add(this.AccountName_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl34);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl35);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl36);
+         this.ClientSysInfo_Pn.Controls.Add(this.BIOSCaption_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl37);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl38);
+         this.ClientSysInfo_Pn.Controls.Add(this.ProcessorInfo_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl39);
+         this.ClientSysInfo_Pn.Controls.Add(this.PhysicalMemory_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl40);
+         this.ClientSysInfo_Pn.Controls.Add(this.MACAddress_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl41);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl42);
+         this.ClientSysInfo_Pn.Controls.Add(this.ProcessorID_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.BoardMaker_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.OSInfo_Txt);
+         this.ClientSysInfo_Pn.Controls.Add(this.HDDSerialNo_Txt);
+         this.ClientSysInfo_Pn.Location = new System.Drawing.Point(591, 143);
+         this.ClientSysInfo_Pn.Name = "ClientSysInfo_Pn";
+         this.ClientSysInfo_Pn.Size = new System.Drawing.Size(397, 301);
+         this.ClientSysInfo_Pn.TabIndex = 82;
+         this.ClientSysInfo_Pn.Visible = false;
+         // 
+         // AccountName_Txt
+         // 
+         this.AccountName_Txt.EditValue = "";
+         this.AccountName_Txt.Location = new System.Drawing.Point(159, 8);
+         this.AccountName_Txt.Name = "AccountName_Txt";
+         this.AccountName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.AccountName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.AccountName_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AccountName_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.AccountName_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.AccountName_Txt.Properties.Appearance.Options.UseFont = true;
+         this.AccountName_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.AccountName_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.AccountName_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.AccountName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.AccountName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.AccountName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.AccountName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AccountName_Txt.Properties.NullText = "---";
+         this.AccountName_Txt.Properties.NullValuePrompt = "---";
+         this.AccountName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.AccountName_Txt.Size = new System.Drawing.Size(225, 26);
+         this.AccountName_Txt.TabIndex = 0;
+         // 
+         // labelControl34
+         // 
+         this.labelControl34.AllowHtmlString = true;
+         this.labelControl34.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl34.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl34.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl34.Location = new System.Drawing.Point(9, 9);
+         this.labelControl34.Name = "labelControl34";
+         this.labelControl34.Size = new System.Drawing.Size(144, 22);
+         this.labelControl34.TabIndex = 71;
+         this.labelControl34.Text = "Account Name";
+         // 
+         // labelControl35
+         // 
+         this.labelControl35.AllowHtmlString = true;
+         this.labelControl35.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl35.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl35.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl35.Location = new System.Drawing.Point(9, 40);
+         this.labelControl35.Name = "labelControl35";
+         this.labelControl35.Size = new System.Drawing.Size(144, 22);
+         this.labelControl35.TabIndex = 69;
+         this.labelControl35.Text = "BIOS Caption";
+         // 
+         // labelControl36
+         // 
+         this.labelControl36.AllowHtmlString = true;
+         this.labelControl36.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl36.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl36.Location = new System.Drawing.Point(9, 106);
+         this.labelControl36.Name = "labelControl36";
+         this.labelControl36.Size = new System.Drawing.Size(144, 22);
+         this.labelControl36.TabIndex = 68;
+         this.labelControl36.Text = "HDD Serial No";
+         // 
+         // BIOSCaption_Txt
+         // 
+         this.BIOSCaption_Txt.EditValue = "";
+         this.BIOSCaption_Txt.Location = new System.Drawing.Point(159, 40);
+         this.BIOSCaption_Txt.Name = "BIOSCaption_Txt";
+         this.BIOSCaption_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.BIOSCaption_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.BIOSCaption_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BIOSCaption_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.BIOSCaption_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.BIOSCaption_Txt.Properties.Appearance.Options.UseFont = true;
+         this.BIOSCaption_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.BIOSCaption_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.BIOSCaption_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.BIOSCaption_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.BIOSCaption_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.BIOSCaption_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.BIOSCaption_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.BIOSCaption_Txt.Properties.NullText = "---";
+         this.BIOSCaption_Txt.Properties.NullValuePrompt = "---";
+         this.BIOSCaption_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.BIOSCaption_Txt.Size = new System.Drawing.Size(225, 26);
+         this.BIOSCaption_Txt.TabIndex = 1;
+         // 
+         // labelControl37
+         // 
+         this.labelControl37.AllowHtmlString = true;
+         this.labelControl37.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl37.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl37.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl37.Location = new System.Drawing.Point(9, 171);
+         this.labelControl37.Name = "labelControl37";
+         this.labelControl37.Size = new System.Drawing.Size(144, 22);
+         this.labelControl37.TabIndex = 68;
+         this.labelControl37.Text = "OS Information";
+         // 
+         // labelControl38
+         // 
+         this.labelControl38.AllowHtmlString = true;
+         this.labelControl38.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl38.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl38.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl38.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl38.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl38.Location = new System.Drawing.Point(9, 138);
+         this.labelControl38.Name = "labelControl38";
+         this.labelControl38.Size = new System.Drawing.Size(144, 22);
+         this.labelControl38.TabIndex = 67;
+         this.labelControl38.Text = "MAC Address";
+         // 
+         // ProcessorInfo_Txt
+         // 
+         this.ProcessorInfo_Txt.EditValue = "";
+         this.ProcessorInfo_Txt.Location = new System.Drawing.Point(159, 267);
+         this.ProcessorInfo_Txt.Name = "ProcessorInfo_Txt";
+         this.ProcessorInfo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.ProcessorInfo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.ProcessorInfo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ProcessorInfo_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.ProcessorInfo_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.ProcessorInfo_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ProcessorInfo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ProcessorInfo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.ProcessorInfo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ProcessorInfo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.ProcessorInfo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.ProcessorInfo_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.ProcessorInfo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ProcessorInfo_Txt.Properties.NullText = "---";
+         this.ProcessorInfo_Txt.Properties.NullValuePrompt = "---";
+         this.ProcessorInfo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ProcessorInfo_Txt.Size = new System.Drawing.Size(225, 26);
+         this.ProcessorInfo_Txt.TabIndex = 8;
+         // 
+         // labelControl39
+         // 
+         this.labelControl39.AllowHtmlString = true;
+         this.labelControl39.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl39.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl39.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl39.Location = new System.Drawing.Point(9, 235);
+         this.labelControl39.Name = "labelControl39";
+         this.labelControl39.Size = new System.Drawing.Size(144, 22);
+         this.labelControl39.TabIndex = 68;
+         this.labelControl39.Text = "Processor ID";
+         // 
+         // PhysicalMemory_Txt
+         // 
+         this.PhysicalMemory_Txt.EditValue = "";
+         this.PhysicalMemory_Txt.Location = new System.Drawing.Point(159, 203);
+         this.PhysicalMemory_Txt.Name = "PhysicalMemory_Txt";
+         this.PhysicalMemory_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.PhysicalMemory_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.PhysicalMemory_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PhysicalMemory_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.PhysicalMemory_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.PhysicalMemory_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PhysicalMemory_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PhysicalMemory_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.PhysicalMemory_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PhysicalMemory_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.PhysicalMemory_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.PhysicalMemory_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.PhysicalMemory_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PhysicalMemory_Txt.Properties.NullText = "---";
+         this.PhysicalMemory_Txt.Properties.NullValuePrompt = "---";
+         this.PhysicalMemory_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.PhysicalMemory_Txt.Size = new System.Drawing.Size(225, 26);
+         this.PhysicalMemory_Txt.TabIndex = 6;
+         // 
+         // labelControl40
+         // 
+         this.labelControl40.AllowHtmlString = true;
+         this.labelControl40.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl40.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl40.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl40.Location = new System.Drawing.Point(9, 203);
+         this.labelControl40.Name = "labelControl40";
+         this.labelControl40.Size = new System.Drawing.Size(144, 22);
+         this.labelControl40.TabIndex = 67;
+         this.labelControl40.Text = "Physical Memory";
+         // 
+         // MACAddress_Txt
+         // 
+         this.MACAddress_Txt.EditValue = "";
+         this.MACAddress_Txt.Location = new System.Drawing.Point(159, 138);
+         this.MACAddress_Txt.Name = "MACAddress_Txt";
+         this.MACAddress_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.MACAddress_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.MACAddress_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.MACAddress_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.MACAddress_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.MACAddress_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MACAddress_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.MACAddress_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.MACAddress_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.MACAddress_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.MACAddress_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.MACAddress_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.MACAddress_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.MACAddress_Txt.Properties.NullText = "---";
+         this.MACAddress_Txt.Properties.NullValuePrompt = "---";
+         this.MACAddress_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.MACAddress_Txt.Size = new System.Drawing.Size(225, 26);
+         this.MACAddress_Txt.TabIndex = 4;
+         // 
+         // labelControl41
+         // 
+         this.labelControl41.AllowHtmlString = true;
+         this.labelControl41.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl41.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl41.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl41.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl41.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl41.Location = new System.Drawing.Point(9, 72);
+         this.labelControl41.Name = "labelControl41";
+         this.labelControl41.Size = new System.Drawing.Size(144, 22);
+         this.labelControl41.TabIndex = 66;
+         this.labelControl41.Text = "Board Maker";
+         // 
+         // labelControl42
+         // 
+         this.labelControl42.AllowHtmlString = true;
+         this.labelControl42.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl42.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl42.Location = new System.Drawing.Point(9, 267);
+         this.labelControl42.Name = "labelControl42";
+         this.labelControl42.Size = new System.Drawing.Size(144, 22);
+         this.labelControl42.TabIndex = 67;
+         this.labelControl42.Text = "Processor Information";
+         // 
+         // ProcessorID_Txt
+         // 
+         this.ProcessorID_Txt.EditValue = "";
+         this.ProcessorID_Txt.Location = new System.Drawing.Point(159, 235);
+         this.ProcessorID_Txt.Name = "ProcessorID_Txt";
+         this.ProcessorID_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.ProcessorID_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.ProcessorID_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ProcessorID_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.ProcessorID_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.ProcessorID_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ProcessorID_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ProcessorID_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.ProcessorID_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ProcessorID_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.ProcessorID_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.ProcessorID_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.ProcessorID_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ProcessorID_Txt.Properties.NullText = "---";
+         this.ProcessorID_Txt.Properties.NullValuePrompt = "---";
+         this.ProcessorID_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ProcessorID_Txt.Size = new System.Drawing.Size(225, 26);
+         this.ProcessorID_Txt.TabIndex = 7;
+         // 
+         // BoardMaker_Txt
+         // 
+         this.BoardMaker_Txt.EditValue = "";
+         this.BoardMaker_Txt.Location = new System.Drawing.Point(159, 72);
+         this.BoardMaker_Txt.Name = "BoardMaker_Txt";
+         this.BoardMaker_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.BoardMaker_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.BoardMaker_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BoardMaker_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.BoardMaker_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.BoardMaker_Txt.Properties.Appearance.Options.UseFont = true;
+         this.BoardMaker_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.BoardMaker_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.BoardMaker_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.BoardMaker_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.BoardMaker_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.BoardMaker_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.BoardMaker_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.BoardMaker_Txt.Properties.NullText = "---";
+         this.BoardMaker_Txt.Properties.NullValuePrompt = "---";
+         this.BoardMaker_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.BoardMaker_Txt.Size = new System.Drawing.Size(225, 26);
+         this.BoardMaker_Txt.TabIndex = 2;
+         // 
+         // OSInfo_Txt
+         // 
+         this.OSInfo_Txt.EditValue = "";
+         this.OSInfo_Txt.Location = new System.Drawing.Point(159, 171);
+         this.OSInfo_Txt.Name = "OSInfo_Txt";
+         this.OSInfo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.OSInfo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.OSInfo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OSInfo_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.OSInfo_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.OSInfo_Txt.Properties.Appearance.Options.UseFont = true;
+         this.OSInfo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.OSInfo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.OSInfo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.OSInfo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.OSInfo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.OSInfo_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.OSInfo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OSInfo_Txt.Properties.NullText = "---";
+         this.OSInfo_Txt.Properties.NullValuePrompt = "---";
+         this.OSInfo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.OSInfo_Txt.Size = new System.Drawing.Size(225, 26);
+         this.OSInfo_Txt.TabIndex = 5;
+         // 
+         // HDDSerialNo_Txt
+         // 
+         this.HDDSerialNo_Txt.EditValue = "";
+         this.HDDSerialNo_Txt.Location = new System.Drawing.Point(159, 106);
+         this.HDDSerialNo_Txt.Name = "HDDSerialNo_Txt";
+         this.HDDSerialNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.HDDSerialNo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.HDDSerialNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.HDDSerialNo_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.HDDSerialNo_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.HDDSerialNo_Txt.Properties.Appearance.Options.UseFont = true;
+         this.HDDSerialNo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.HDDSerialNo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.HDDSerialNo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.HDDSerialNo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.HDDSerialNo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.HDDSerialNo_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+         this.HDDSerialNo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.HDDSerialNo_Txt.Properties.NullText = "---";
+         this.HDDSerialNo_Txt.Properties.NullValuePrompt = "---";
+         this.HDDSerialNo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.HDDSerialNo_Txt.Size = new System.Drawing.Size(225, 26);
+         this.HDDSerialNo_Txt.TabIndex = 3;
          // 
          // labelControl4
          // 
@@ -1460,8 +1837,6 @@
          this.VIKey_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.VIKey_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.VIKey_Txt.Properties.Appearance.Options.UseFont = true;
-         this.VIKey_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.VIKey_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.VIKey_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.VIKey_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
          this.VIKey_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -1488,8 +1863,6 @@
          this.SaltKey_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.SaltKey_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.SaltKey_Txt.Properties.Appearance.Options.UseFont = true;
-         this.SaltKey_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.SaltKey_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.SaltKey_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SaltKey_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
          this.SaltKey_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -1516,8 +1889,6 @@
          this.PasswordHash_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.PasswordHash_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.PasswordHash_Txt.Properties.Appearance.Options.UseFont = true;
-         this.PasswordHash_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.PasswordHash_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.PasswordHash_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.PasswordHash_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
          this.PasswordHash_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -1651,383 +2022,6 @@
          this.labelControl21.TabIndex = 47;
          this.labelControl21.Text = "Password Hash";
          // 
-         // ClientSysInfo_Pn
-         // 
-         this.ClientSysInfo_Pn.Controls.Add(this.AccountName_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl34);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl35);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl36);
-         this.ClientSysInfo_Pn.Controls.Add(this.BIOSCaption_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl37);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl38);
-         this.ClientSysInfo_Pn.Controls.Add(this.ProcessorInfo_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl39);
-         this.ClientSysInfo_Pn.Controls.Add(this.PhysicalMemory_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl40);
-         this.ClientSysInfo_Pn.Controls.Add(this.MACAddress_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl41);
-         this.ClientSysInfo_Pn.Controls.Add(this.labelControl42);
-         this.ClientSysInfo_Pn.Controls.Add(this.ProcessorID_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.BoardMaker_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.OSInfo_Txt);
-         this.ClientSysInfo_Pn.Controls.Add(this.HDDSerialNo_Txt);
-         this.ClientSysInfo_Pn.Location = new System.Drawing.Point(591, 143);
-         this.ClientSysInfo_Pn.Name = "ClientSysInfo_Pn";
-         this.ClientSysInfo_Pn.Size = new System.Drawing.Size(397, 301);
-         this.ClientSysInfo_Pn.TabIndex = 82;
-         this.ClientSysInfo_Pn.Visible = false;
-         // 
-         // AccountName_Txt
-         // 
-         this.AccountName_Txt.EditValue = "";
-         this.AccountName_Txt.Location = new System.Drawing.Point(159, 8);
-         this.AccountName_Txt.Name = "AccountName_Txt";
-         this.AccountName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.AccountName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.AccountName_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AccountName_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.AccountName_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.AccountName_Txt.Properties.Appearance.Options.UseFont = true;
-         this.AccountName_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.AccountName_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.AccountName_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.AccountName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.AccountName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.AccountName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.AccountName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AccountName_Txt.Properties.NullText = "---";
-         this.AccountName_Txt.Properties.NullValuePrompt = "---";
-         this.AccountName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.AccountName_Txt.Size = new System.Drawing.Size(225, 26);
-         this.AccountName_Txt.TabIndex = 0;
-         // 
-         // labelControl34
-         // 
-         this.labelControl34.AllowHtmlString = true;
-         this.labelControl34.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl34.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl34.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl34.Location = new System.Drawing.Point(9, 9);
-         this.labelControl34.Name = "labelControl34";
-         this.labelControl34.Size = new System.Drawing.Size(144, 22);
-         this.labelControl34.TabIndex = 71;
-         this.labelControl34.Text = "Account Name";
-         // 
-         // labelControl35
-         // 
-         this.labelControl35.AllowHtmlString = true;
-         this.labelControl35.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl35.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl35.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(9, 40);
-         this.labelControl35.Name = "labelControl35";
-         this.labelControl35.Size = new System.Drawing.Size(144, 22);
-         this.labelControl35.TabIndex = 69;
-         this.labelControl35.Text = "BIOS Caption";
-         // 
-         // labelControl36
-         // 
-         this.labelControl36.AllowHtmlString = true;
-         this.labelControl36.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl36.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl36.Location = new System.Drawing.Point(9, 106);
-         this.labelControl36.Name = "labelControl36";
-         this.labelControl36.Size = new System.Drawing.Size(144, 22);
-         this.labelControl36.TabIndex = 68;
-         this.labelControl36.Text = "HDD Serial No";
-         // 
-         // BIOSCaption_Txt
-         // 
-         this.BIOSCaption_Txt.EditValue = "";
-         this.BIOSCaption_Txt.Location = new System.Drawing.Point(159, 40);
-         this.BIOSCaption_Txt.Name = "BIOSCaption_Txt";
-         this.BIOSCaption_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.BIOSCaption_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.BIOSCaption_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BIOSCaption_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.BIOSCaption_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.BIOSCaption_Txt.Properties.Appearance.Options.UseFont = true;
-         this.BIOSCaption_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.BIOSCaption_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.BIOSCaption_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.BIOSCaption_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.BIOSCaption_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.BIOSCaption_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.BIOSCaption_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.BIOSCaption_Txt.Properties.NullText = "---";
-         this.BIOSCaption_Txt.Properties.NullValuePrompt = "---";
-         this.BIOSCaption_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.BIOSCaption_Txt.Size = new System.Drawing.Size(225, 26);
-         this.BIOSCaption_Txt.TabIndex = 1;
-         // 
-         // labelControl37
-         // 
-         this.labelControl37.AllowHtmlString = true;
-         this.labelControl37.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl37.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl37.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl37.Location = new System.Drawing.Point(9, 171);
-         this.labelControl37.Name = "labelControl37";
-         this.labelControl37.Size = new System.Drawing.Size(144, 22);
-         this.labelControl37.TabIndex = 68;
-         this.labelControl37.Text = "OS Information";
-         // 
-         // labelControl38
-         // 
-         this.labelControl38.AllowHtmlString = true;
-         this.labelControl38.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl38.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl38.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl38.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl38.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl38.Location = new System.Drawing.Point(9, 138);
-         this.labelControl38.Name = "labelControl38";
-         this.labelControl38.Size = new System.Drawing.Size(144, 22);
-         this.labelControl38.TabIndex = 67;
-         this.labelControl38.Text = "MAC Address";
-         // 
-         // ProcessorInfo_Txt
-         // 
-         this.ProcessorInfo_Txt.EditValue = "";
-         this.ProcessorInfo_Txt.Location = new System.Drawing.Point(159, 267);
-         this.ProcessorInfo_Txt.Name = "ProcessorInfo_Txt";
-         this.ProcessorInfo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.ProcessorInfo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.ProcessorInfo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ProcessorInfo_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.ProcessorInfo_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.ProcessorInfo_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ProcessorInfo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ProcessorInfo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.ProcessorInfo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ProcessorInfo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.ProcessorInfo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.ProcessorInfo_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.ProcessorInfo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ProcessorInfo_Txt.Properties.NullText = "---";
-         this.ProcessorInfo_Txt.Properties.NullValuePrompt = "---";
-         this.ProcessorInfo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ProcessorInfo_Txt.Size = new System.Drawing.Size(225, 26);
-         this.ProcessorInfo_Txt.TabIndex = 8;
-         // 
-         // labelControl39
-         // 
-         this.labelControl39.AllowHtmlString = true;
-         this.labelControl39.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl39.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl39.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(9, 235);
-         this.labelControl39.Name = "labelControl39";
-         this.labelControl39.Size = new System.Drawing.Size(144, 22);
-         this.labelControl39.TabIndex = 68;
-         this.labelControl39.Text = "Processor ID";
-         // 
-         // PhysicalMemory_Txt
-         // 
-         this.PhysicalMemory_Txt.EditValue = "";
-         this.PhysicalMemory_Txt.Location = new System.Drawing.Point(159, 203);
-         this.PhysicalMemory_Txt.Name = "PhysicalMemory_Txt";
-         this.PhysicalMemory_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.PhysicalMemory_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.PhysicalMemory_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.PhysicalMemory_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.PhysicalMemory_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.PhysicalMemory_Txt.Properties.Appearance.Options.UseFont = true;
-         this.PhysicalMemory_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.PhysicalMemory_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.PhysicalMemory_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.PhysicalMemory_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.PhysicalMemory_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.PhysicalMemory_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.PhysicalMemory_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PhysicalMemory_Txt.Properties.NullText = "---";
-         this.PhysicalMemory_Txt.Properties.NullValuePrompt = "---";
-         this.PhysicalMemory_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PhysicalMemory_Txt.Size = new System.Drawing.Size(225, 26);
-         this.PhysicalMemory_Txt.TabIndex = 6;
-         // 
-         // labelControl40
-         // 
-         this.labelControl40.AllowHtmlString = true;
-         this.labelControl40.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl40.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl40.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl40.Location = new System.Drawing.Point(9, 203);
-         this.labelControl40.Name = "labelControl40";
-         this.labelControl40.Size = new System.Drawing.Size(144, 22);
-         this.labelControl40.TabIndex = 67;
-         this.labelControl40.Text = "Physical Memory";
-         // 
-         // MACAddress_Txt
-         // 
-         this.MACAddress_Txt.EditValue = "";
-         this.MACAddress_Txt.Location = new System.Drawing.Point(159, 138);
-         this.MACAddress_Txt.Name = "MACAddress_Txt";
-         this.MACAddress_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.MACAddress_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.MACAddress_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.MACAddress_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.MACAddress_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.MACAddress_Txt.Properties.Appearance.Options.UseFont = true;
-         this.MACAddress_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.MACAddress_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.MACAddress_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.MACAddress_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.MACAddress_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.MACAddress_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.MACAddress_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.MACAddress_Txt.Properties.NullText = "---";
-         this.MACAddress_Txt.Properties.NullValuePrompt = "---";
-         this.MACAddress_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.MACAddress_Txt.Size = new System.Drawing.Size(225, 26);
-         this.MACAddress_Txt.TabIndex = 4;
-         // 
-         // labelControl41
-         // 
-         this.labelControl41.AllowHtmlString = true;
-         this.labelControl41.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl41.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl41.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl41.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl41.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl41.Location = new System.Drawing.Point(9, 72);
-         this.labelControl41.Name = "labelControl41";
-         this.labelControl41.Size = new System.Drawing.Size(144, 22);
-         this.labelControl41.TabIndex = 66;
-         this.labelControl41.Text = "Board Maker";
-         // 
-         // labelControl42
-         // 
-         this.labelControl42.AllowHtmlString = true;
-         this.labelControl42.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl42.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl42.Location = new System.Drawing.Point(9, 267);
-         this.labelControl42.Name = "labelControl42";
-         this.labelControl42.Size = new System.Drawing.Size(144, 22);
-         this.labelControl42.TabIndex = 67;
-         this.labelControl42.Text = "Processor Information";
-         // 
-         // ProcessorID_Txt
-         // 
-         this.ProcessorID_Txt.EditValue = "";
-         this.ProcessorID_Txt.Location = new System.Drawing.Point(159, 235);
-         this.ProcessorID_Txt.Name = "ProcessorID_Txt";
-         this.ProcessorID_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.ProcessorID_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.ProcessorID_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ProcessorID_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.ProcessorID_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.ProcessorID_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ProcessorID_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ProcessorID_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.ProcessorID_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ProcessorID_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.ProcessorID_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.ProcessorID_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.ProcessorID_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ProcessorID_Txt.Properties.NullText = "---";
-         this.ProcessorID_Txt.Properties.NullValuePrompt = "---";
-         this.ProcessorID_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ProcessorID_Txt.Size = new System.Drawing.Size(225, 26);
-         this.ProcessorID_Txt.TabIndex = 7;
-         // 
-         // BoardMaker_Txt
-         // 
-         this.BoardMaker_Txt.EditValue = "";
-         this.BoardMaker_Txt.Location = new System.Drawing.Point(159, 72);
-         this.BoardMaker_Txt.Name = "BoardMaker_Txt";
-         this.BoardMaker_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.BoardMaker_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.BoardMaker_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.BoardMaker_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.BoardMaker_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.BoardMaker_Txt.Properties.Appearance.Options.UseFont = true;
-         this.BoardMaker_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.BoardMaker_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.BoardMaker_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.BoardMaker_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.BoardMaker_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.BoardMaker_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.BoardMaker_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.BoardMaker_Txt.Properties.NullText = "---";
-         this.BoardMaker_Txt.Properties.NullValuePrompt = "---";
-         this.BoardMaker_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.BoardMaker_Txt.Size = new System.Drawing.Size(225, 26);
-         this.BoardMaker_Txt.TabIndex = 2;
-         // 
-         // OSInfo_Txt
-         // 
-         this.OSInfo_Txt.EditValue = "";
-         this.OSInfo_Txt.Location = new System.Drawing.Point(159, 171);
-         this.OSInfo_Txt.Name = "OSInfo_Txt";
-         this.OSInfo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.OSInfo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.OSInfo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.OSInfo_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.OSInfo_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.OSInfo_Txt.Properties.Appearance.Options.UseFont = true;
-         this.OSInfo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.OSInfo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.OSInfo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.OSInfo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.OSInfo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.OSInfo_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.OSInfo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.OSInfo_Txt.Properties.NullText = "---";
-         this.OSInfo_Txt.Properties.NullValuePrompt = "---";
-         this.OSInfo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OSInfo_Txt.Size = new System.Drawing.Size(225, 26);
-         this.OSInfo_Txt.TabIndex = 5;
-         // 
-         // HDDSerialNo_Txt
-         // 
-         this.HDDSerialNo_Txt.EditValue = "";
-         this.HDDSerialNo_Txt.Location = new System.Drawing.Point(159, 106);
-         this.HDDSerialNo_Txt.Name = "HDDSerialNo_Txt";
-         this.HDDSerialNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.HDDSerialNo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.HDDSerialNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.HDDSerialNo_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.HDDSerialNo_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.HDDSerialNo_Txt.Properties.Appearance.Options.UseFont = true;
-         this.HDDSerialNo_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.HDDSerialNo_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.HDDSerialNo_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.HDDSerialNo_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.HDDSerialNo_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.HDDSerialNo_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-         this.HDDSerialNo_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.HDDSerialNo_Txt.Properties.NullText = "---";
-         this.HDDSerialNo_Txt.Properties.NullValuePrompt = "---";
-         this.HDDSerialNo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.HDDSerialNo_Txt.Size = new System.Drawing.Size(225, 26);
-         this.HDDSerialNo_Txt.TabIndex = 3;
-         // 
          // CHK_LICN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2042,6 +2036,16 @@
          this.Tb_Master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
          this.tp_001.PerformLayout();
+         this.ClientSysInfo_Pn.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.AccountName_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BIOSCaption_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ProcessorInfo_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PhysicalMemory_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MACAddress_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ProcessorID_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BoardMaker_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OSInfo_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HDDSerialNo_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.HostInstaller_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserInstaller_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LicenseKey_Txt.Properties)).EndInit();
@@ -2073,16 +2077,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.PasswordHash_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServerKey1_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClientKey1_Text.Properties)).EndInit();
-         this.ClientSysInfo_Pn.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.AccountName_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BIOSCaption_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ProcessorInfo_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PhysicalMemory_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.MACAddress_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ProcessorID_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BoardMaker_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OSInfo_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.HDDSerialNo_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }

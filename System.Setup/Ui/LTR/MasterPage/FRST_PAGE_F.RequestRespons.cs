@@ -80,8 +80,8 @@ namespace System.Setup.Ui.LTR.MasterPage
          }
          else if (keyData == Keys.Escape)
          {
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
 
          job.Status = StatusType.Successful;

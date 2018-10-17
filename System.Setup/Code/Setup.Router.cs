@@ -39,6 +39,9 @@ namespace System.Setup.Code
             case 03:
                Chk_Licn_F(job);
                break;
+            case 04:
+               Sql_Conf_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -57,6 +60,9 @@ namespace System.Setup.Code
                break;
             case "CHK_LICN_F":
                _Chk_Licn_F.SendRequest(job);
+               break;
+            case "SQL_CONF_F":
+               _Sql_Conf_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

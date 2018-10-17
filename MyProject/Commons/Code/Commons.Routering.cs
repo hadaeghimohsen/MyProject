@@ -156,6 +156,9 @@ namespace MyProject.Commons.Code
             case 35:
                DoWork4GetServer(job);
                break;
+            case 36:
+               DoWork4GetWindowsPlatform(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

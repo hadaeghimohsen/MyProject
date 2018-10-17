@@ -132,8 +132,8 @@ namespace System.DataAccess.Guis
            return retVal;
         }
 
-        //[DllImport("ODBCCP32.dll")]
-        //public static extern bool SQLConfigDataSource(IntPtr parent, int request, string driver, string attributes);
+        [DllImport("ODBCCP32.dll")]
+        public static extern bool SQLConfigDataSource(IntPtr parent, int request, string driver, string attributes);
 
         [DllImport("ODBCCP32.dll")]
         public static extern int SQLGetPrivateProfileString(string lpszSection, string lpszEntry, string lpszDefault, string @RetBuffer, int cbRetBuffer, string lpszFilename);

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace System.Setup.Ui.LTR.MasterPage
 {
@@ -25,155 +26,54 @@ namespace System.Setup.Ui.LTR.MasterPage
       {
       }
 
-      #region Settings
-      private void SettingBussinesManagement_Butn_Click(object sender, EventArgs e)
+      private void NewSqlServerInstance_Butn_Click(object sender, EventArgs e)
       {
-
+         try
+         {
+            var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            //MessageBox.Show(execpath);
+            var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
+            //MessageBox.Show(parentpath.FullName);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>{
+                     new Job(SendType.External, "Commons",
+                        new List<Job>{
+                           new Job(SendType.Self, 36 /* Execute DoWork4GetWindowsPlatform */)
+                           {
+                              AfterChangedOutput = 
+                                 new Action<object>(
+                                    (output) => 
+                                       {
+                                          var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\" + output.ToString() + "\\SQLEXPRWT_x64_ENU.exe";
+                                          sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\64\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
+                                          Process.Start(sqlserverpath);//, configfile);                                          
+                                       }
+                                 )
+                           }
+                        }
+                     )
+                  }
+               )
+            );
+            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
-      private void SettingTemplate_Butn_Click(object sender, EventArgs e)
+      private void ConfigDatabase_Butn_Click(object sender, EventArgs e)
       {
-
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 04 /* Execute Sql_Conf_F */)
+               }
+            )
+         );
       }
-
-      private void SettingProductCatlog_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingServiceManagement_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingCustomization_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingSolution_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingDynamicMarketplace_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingPluginHistory_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingAdministration_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingSecurity_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingDataManagment_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingSystemJob_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingDocumentManagement_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingAuditing_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingEmailConfig_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingActivityFeedConfig_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingActivityFeedRole_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingSocialNetwork_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingProcess_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void SettingInteractiveServiceHub_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-      #endregion
-
-      #region Help
-      private void HelpHelp_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void HelpSaleVideoTrainging_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void HelpApplyClassTraining_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void HelpApplyRemoteTraining_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-      #endregion
-
-      #region Utility
-      private void UtilityNew_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void UtilityLastActivity_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void UtilityAdvanceFilter_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void UtilityOption_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-
-      private void UtilitySearch_Butn_Click(object sender, EventArgs e)
-      {
-
-      }
-      #endregion
    }
 }

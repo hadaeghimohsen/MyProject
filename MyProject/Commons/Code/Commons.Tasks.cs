@@ -1039,5 +1039,27 @@ namespace MyProject.Commons.Code
             job.Status = StatusType.Successful;
          }
       }
+
+      /// <summary>
+      /// Code 36
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4GetWindowsPlatform(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.OwnerDefineWorkWith.AddRange(new List<Job>
+               {
+                  new Job(SendType.External, "Odbc",
+                     new List<Job>
+                     {
+                        new Job(SendType.SelfToUserInterface,"OdbcSettings", 11 /* Execute WindowsPlatform */)
+                     })
+               });
+            job.Status = StatusType.WaitForPreconditions;
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+            job.Status = StatusType.Successful;
+      }
    }
 }

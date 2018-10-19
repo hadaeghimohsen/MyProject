@@ -27,15 +27,20 @@ namespace System.Setup.Ui.LTR.MasterPage
          try
          {
             var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            //MessageBox.Show(execpath);
             var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
-            //MessageBox.Show(parentpath.FullName);
             if (Environment.Is64BitOperatingSystem)
             {
                var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\64bit\\SQLEXPRWT_x64_ENU.exe";
-               sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\64\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
-               Process.Start(sqlserverpath);//, configfile);                                          
+               //sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\64\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
+               Process.Start(sqlserverpath);
             }
+            else
+            {
+               var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\32bit\\SQLEXPRWT_x64_ENU.exe";
+               //sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\32\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
+               Process.Start(sqlserverpath);
+            }
+
          }
          catch (Exception exc)
          {

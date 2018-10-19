@@ -15,8 +15,9 @@ using System.Xml.Linq;
 using System.IO;
 using System.Security.Cryptography;
 using System.Diagnostics;
-using Microsoft.SqlServer.Server;
-
+using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
+using System.Collections.Specialized;  
 
 namespace System.Setup.Ui.LTR.Server
 {
@@ -177,7 +178,8 @@ namespace System.Setup.Ui.LTR.Server
                {
                   Value = 
                      new XElement("Params",
-                        _hostInfo.Output as XElement
+                        new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
+                        _hostInfo.Output as XElement                        
                      ).ToString()
                }
             );
@@ -220,36 +222,34 @@ namespace System.Setup.Ui.LTR.Server
       {
          try
          {
+            AttachRespons_Lb.Text = "Wait for respons action";
             if (ChooseSubSys_Lov.SelectedItem.ToString() == "") { ChooseSubSys_Lov.Focus(); return; }
             if (DatabaseFiles_Lst.Items.Count == 0) { DatabaseFiles_Lst.Focus(); return; }
 
             // 1st Step * Attach Database File to Sql Server Instance
-            SqlCommand cmd =
-               new SqlCommand(
-                  string.Format(
-                  @"CREATE DATABASE [{0}] ON 
-                    ( FILENAME = N'{1}' ),
-                    ( FILENAME = N'{2}' ),
-                    ( FILENAME = N'{3}' )
-                     FOR ATTACH",
-                       ChooseSubSys_Lov.SelectedItem,
-                       SelectDatabaseFile_Ofd.FileNames.FirstOrDefault(dbf => dbf.EndsWith(".mdf")),
-                       SelectDatabaseFile_Ofd.FileNames.FirstOrDefault(dbf => dbf.EndsWith(".ldf")),
-                       SelectDatabaseFile_Ofd.FileNames.FirstOrDefault(dbf => dbf.EndsWith(".ndf"))
-                  ),
-                  WinAuth_Rb.Checked ?
+            ServerConnection sc =
+               new ServerConnection(
+                     WinAuth_Rb.Checked ?
                      new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
                      :
                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
-               );
+                  );
 
-            cmd.Connection.Open();
-            cmd.ExecuteNonQuery();
-            cmd.Connection.Close();            
+            Microsoft.SqlServer.Management.Smo.Server iServer = 
+               new Microsoft.SqlServer.Management.Smo.Server(sc);
+
+            sc.Connect();
+
+            if (iServer.Databases.Contains(ChooseSubSys_Lov.SelectedItem.ToString())) { AttachRespons_Lb.Text = "Database is exists ready"; return; }
+
+            StringCollection dbFilePath = new StringCollection();
+            dbFilePath.AddRange(DatabaseFiles_Lst.Items.OfType<string>().ToArray());
+            iServer.AttachDatabase(ChooseSubSys_Lov.SelectedItem.ToString(), dbFilePath);
+            AttachRespons_Lb.Text = "Attach database files successfully!";
          }
          catch (Exception exc)
          {
-
+            AttachRespons_Lb.Text = "Attach database files failed!";
          }
       }
       #endregion
@@ -259,14 +259,10 @@ namespace System.Setup.Ui.LTR.Server
       {
          try
          {
-            Tp_4_CheckExistsSqlServerInstance_Lb.Visible = Tp_4_CreateDatabaseLink_Lb.Visible = false;
             // First Step * connect to database iProject with scott user
-            Tp_4_CheckExistsSqlServerInstance_Lb.Visible = true;
             var con = new SqlConnection(string.Format("server={0};database=iProject;Persist Security Info=True;User ID=scott;Password=abcABC123!@#", Server_Txt.Text));
             con.Open();
             con.Close();
-
-            Tp_4_CheckExistsSqlServerInstance_Lb.Visible = false;
 
             // Second Step * Create Odbc Connection With iProject Dsn Name
             _DefaultGateway.Gateway(

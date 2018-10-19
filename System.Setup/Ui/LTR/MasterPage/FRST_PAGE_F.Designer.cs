@@ -42,8 +42,6 @@
          this.InstallComponent_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup16 = new C1.Win.C1Ribbon.RibbonGroup();
          this.UsersRole_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup12 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton6 = new C1.Win.C1Ribbon.RibbonButton();
@@ -164,7 +162,6 @@
          this.ribbonTab2.Groups.Add(this.ribbonGroup11);
          this.ribbonTab2.Groups.Add(this.ribbonGroup15);
          this.ribbonTab2.Groups.Add(this.ribbonGroup16);
-         this.ribbonTab2.Groups.Add(this.ribbonGroup17);
          this.ribbonTab2.Name = "ribbonTab2";
          this.ribbonTab2.Text = "Server";
          // 
@@ -221,19 +218,6 @@
          this.UsersRole_Butn.Text = "User && Role";
          this.UsersRole_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.UsersRole_Butn.Click += new System.EventHandler(this.UsersRole_Butn_Click);
-         // 
-         // ribbonGroup17
-         // 
-         this.ribbonGroup17.Items.Add(this.ribbonButton5);
-         this.ribbonGroup17.Name = "ribbonGroup17";
-         this.ribbonGroup17.Text = "Finalization Installing";
-         // 
-         // ribbonButton5
-         // 
-         this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
-         this.ribbonButton5.Name = "ribbonButton5";
-         this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-         this.ribbonButton5.Text = "Finilization";
          // 
          // ribbonTab4
          // 
@@ -804,14 +788,12 @@
       private Windows.Forms.Button CloseInfo_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup15;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup16;
-      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup17;
       private C1.Win.C1Ribbon.RibbonTab ribbonTab4;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup12;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup18;
       private C1.Win.C1Ribbon.RibbonButton ConfigDatabase_Butn;
       private C1.Win.C1Ribbon.RibbonButton InstallComponent_Butn;
       private C1.Win.C1Ribbon.RibbonButton UsersRole_Butn;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton5;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton6;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton8;
 

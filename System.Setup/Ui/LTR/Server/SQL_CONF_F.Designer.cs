@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SQL_CONF_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -43,23 +43,25 @@
          this.Server_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.Password_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.ConnectionStatus_Lb = new DevExpress.XtraEditors.LabelControl();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.Username_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.WinAuth_Rb = new System.Windows.Forms.RadioButton();
          this.SqlServerAuth_Rb = new System.Windows.Forms.RadioButton();
          this.Clear_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         this.CreateConnectionDatabaseInstance_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.AttachDatabaseFiles_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RestoreBackupFile_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Connect_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.progressBarControl2 = new DevExpress.XtraEditors.ProgressBarControl();
-         this.checkBox1 = new System.Windows.Forms.CheckBox();
-         this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-         this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
+         this.CreateTestDemoDatabase_Cb = new System.Windows.Forms.CheckBox();
+         this.InstallConfigDatabase_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.SelectPathTargetDbFile_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.SelectBackupFile_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PathTargetDbFile_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-         this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+         this.BackupFile_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
@@ -76,24 +78,24 @@
          this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-         this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-         this.listBox1 = new System.Windows.Forms.ListBox();
-         this.comboBox1 = new System.Windows.Forms.ComboBox();
+         this.AttachDatabaseFile_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.SelectDatabaseFile_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DatabaseFiles_Lst = new System.Windows.Forms.ListBox();
+         this.ChooseSubSys_Lov = new System.Windows.Forms.ComboBox();
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-         this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
          this.tp_004 = new System.Windows.Forms.TabPage();
-         this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-         this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
          this.progressBarControl3 = new DevExpress.XtraEditors.ProgressBarControl();
          this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
+         this.Tp_4_CreateDatabaseLink_Lb = new DevExpress.XtraEditors.LabelControl();
          this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+         this.Tp_4_CheckExistsSqlServerInstance_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.TestInstanceCreateDatabaseLink_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
+         this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
+         this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -102,8 +104,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.Username_Txt.Properties)).BeginInit();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.progressBarControl2.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PathTargetDbFile_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BackupFile_Txt.Properties)).BeginInit();
          this.tp_003.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
          this.tp_004.SuspendLayout();
@@ -170,13 +172,14 @@
          this.tp_001.Controls.Add(this.Server_Txt);
          this.tp_001.Controls.Add(this.labelControl7);
          this.tp_001.Controls.Add(this.Password_Txt);
+         this.tp_001.Controls.Add(this.ConnectionStatus_Lb);
          this.tp_001.Controls.Add(this.labelControl8);
          this.tp_001.Controls.Add(this.Username_Txt);
          this.tp_001.Controls.Add(this.WinAuth_Rb);
          this.tp_001.Controls.Add(this.SqlServerAuth_Rb);
          this.tp_001.Controls.Add(this.Clear_Butn);
-         this.tp_001.Controls.Add(this.simpleButton7);
-         this.tp_001.Controls.Add(this.simpleButton1);
+         this.tp_001.Controls.Add(this.CreateConnectionDatabaseInstance_Butn);
+         this.tp_001.Controls.Add(this.AttachDatabaseFiles_Butn);
          this.tp_001.Controls.Add(this.RestoreBackupFile_Butn);
          this.tp_001.Controls.Add(this.Connect_Butn);
          this.tp_001.Location = new System.Drawing.Point(4, 23);
@@ -249,12 +252,11 @@
          this.Server_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Server_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Server_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Server_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Server_Txt.Properties.NullText = "---";
          this.Server_Txt.Properties.NullValuePrompt = "---";
          this.Server_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.Server_Txt.Properties.ReadOnly = true;
          this.Server_Txt.Size = new System.Drawing.Size(404, 26);
          this.Server_Txt.TabIndex = 0;
          // 
@@ -294,8 +296,24 @@
          this.Password_Txt.Properties.NullText = "---";
          this.Password_Txt.Properties.NullValuePrompt = "---";
          this.Password_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.Password_Txt.Properties.UseSystemPasswordChar = true;
          this.Password_Txt.Size = new System.Drawing.Size(404, 26);
          this.Password_Txt.TabIndex = 4;
+         // 
+         // ConnectionStatus_Lb
+         // 
+         this.ConnectionStatus_Lb.AllowHtmlString = true;
+         this.ConnectionStatus_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ConnectionStatus_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.ConnectionStatus_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1611;
+         this.ConnectionStatus_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.ConnectionStatus_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.ConnectionStatus_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+         this.ConnectionStatus_Lb.Location = new System.Drawing.Point(240, 192);
+         this.ConnectionStatus_Lb.Name = "ConnectionStatus_Lb";
+         this.ConnectionStatus_Lb.Size = new System.Drawing.Size(220, 38);
+         this.ConnectionStatus_Lb.TabIndex = 3;
+         this.ConnectionStatus_Lb.Text = "Connection Check";
          // 
          // labelControl8
          // 
@@ -339,22 +357,22 @@
          // WinAuth_Rb
          // 
          this.WinAuth_Rb.AutoSize = true;
-         this.WinAuth_Rb.Checked = true;
          this.WinAuth_Rb.Location = new System.Drawing.Point(148, 80);
          this.WinAuth_Rb.Name = "WinAuth_Rb";
          this.WinAuth_Rb.Size = new System.Drawing.Size(160, 18);
          this.WinAuth_Rb.TabIndex = 5;
-         this.WinAuth_Rb.TabStop = true;
          this.WinAuth_Rb.Text = "Windows Authentication";
          this.WinAuth_Rb.UseVisualStyleBackColor = true;
          // 
          // SqlServerAuth_Rb
          // 
          this.SqlServerAuth_Rb.AutoSize = true;
+         this.SqlServerAuth_Rb.Checked = true;
          this.SqlServerAuth_Rb.Location = new System.Drawing.Point(148, 104);
          this.SqlServerAuth_Rb.Name = "SqlServerAuth_Rb";
          this.SqlServerAuth_Rb.Size = new System.Drawing.Size(171, 18);
          this.SqlServerAuth_Rb.TabIndex = 6;
+         this.SqlServerAuth_Rb.TabStop = true;
          this.SqlServerAuth_Rb.Text = "SQL Server Authentication";
          this.SqlServerAuth_Rb.UseVisualStyleBackColor = true;
          // 
@@ -373,22 +391,45 @@
          this.Clear_Butn.TabIndex = 9;
          this.Clear_Butn.Text = "Clear";
          this.Clear_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.Clear_Butn.Click += new System.EventHandler(this.Clear_Butn_Click);
          // 
-         // simpleButton1
+         // CreateConnectionDatabaseInstance_Butn
          // 
-         this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton1.Appearance.Options.UseFont = true;
-         this.simpleButton1.Appearance.Options.UseForeColor = true;
-         this.simpleButton1.Image = global::System.Setup.Properties.Resources.IMAGE_1394;
-         this.simpleButton1.Location = new System.Drawing.Point(148, 292);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(404, 38);
-         this.simpleButton1.TabIndex = 9;
-         this.simpleButton1.Text = "Attach Database files";
-         this.simpleButton1.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.CreateConnectionDatabaseInstance_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CreateConnectionDatabaseInstance_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.CreateConnectionDatabaseInstance_Butn.Appearance.Options.UseFont = true;
+         this.CreateConnectionDatabaseInstance_Butn.Appearance.Options.UseForeColor = true;
+         this.CreateConnectionDatabaseInstance_Butn.Appearance.Options.UseTextOptions = true;
+         this.CreateConnectionDatabaseInstance_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+         this.CreateConnectionDatabaseInstance_Butn.Image = global::System.Setup.Properties.Resources.IMAGE_1408;
+         this.CreateConnectionDatabaseInstance_Butn.Location = new System.Drawing.Point(148, 336);
+         this.CreateConnectionDatabaseInstance_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.CreateConnectionDatabaseInstance_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CreateConnectionDatabaseInstance_Butn.Name = "CreateConnectionDatabaseInstance_Butn";
+         this.CreateConnectionDatabaseInstance_Butn.Size = new System.Drawing.Size(404, 38);
+         this.CreateConnectionDatabaseInstance_Butn.TabIndex = 9;
+         this.CreateConnectionDatabaseInstance_Butn.Text = "Create Connection Database Instance";
+         this.CreateConnectionDatabaseInstance_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.CreateConnectionDatabaseInstance_Butn.Click += new System.EventHandler(this.CreateConnectionDatabaseInstance_Butn_Click);
+         // 
+         // AttachDatabaseFiles_Butn
+         // 
+         this.AttachDatabaseFiles_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AttachDatabaseFiles_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.AttachDatabaseFiles_Butn.Appearance.Options.UseFont = true;
+         this.AttachDatabaseFiles_Butn.Appearance.Options.UseForeColor = true;
+         this.AttachDatabaseFiles_Butn.Appearance.Options.UseTextOptions = true;
+         this.AttachDatabaseFiles_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+         this.AttachDatabaseFiles_Butn.Image = global::System.Setup.Properties.Resources.IMAGE_1394;
+         this.AttachDatabaseFiles_Butn.Location = new System.Drawing.Point(148, 292);
+         this.AttachDatabaseFiles_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AttachDatabaseFiles_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AttachDatabaseFiles_Butn.Name = "AttachDatabaseFiles_Butn";
+         this.AttachDatabaseFiles_Butn.Size = new System.Drawing.Size(404, 38);
+         this.AttachDatabaseFiles_Butn.TabIndex = 9;
+         this.AttachDatabaseFiles_Butn.Text = "Attach Database files";
+         this.AttachDatabaseFiles_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.AttachDatabaseFiles_Butn.Click += new System.EventHandler(this.AttachDatabaseFile_Butn_Click);
          // 
          // RestoreBackupFile_Butn
          // 
@@ -396,6 +437,8 @@
          this.RestoreBackupFile_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.RestoreBackupFile_Butn.Appearance.Options.UseFont = true;
          this.RestoreBackupFile_Butn.Appearance.Options.UseForeColor = true;
+         this.RestoreBackupFile_Butn.Appearance.Options.UseTextOptions = true;
+         this.RestoreBackupFile_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
          this.RestoreBackupFile_Butn.Image = global::System.Setup.Properties.Resources.IMAGE_1395;
          this.RestoreBackupFile_Butn.Location = new System.Drawing.Point(148, 248);
          this.RestoreBackupFile_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -405,6 +448,7 @@
          this.RestoreBackupFile_Butn.TabIndex = 9;
          this.RestoreBackupFile_Butn.Text = "Restore Backup file and initializing";
          this.RestoreBackupFile_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.RestoreBackupFile_Butn.Click += new System.EventHandler(this.RestoreBackupFile_Butn_Click);
          // 
          // Connect_Butn
          // 
@@ -421,18 +465,19 @@
          this.Connect_Butn.TabIndex = 9;
          this.Connect_Butn.Text = "Connect";
          this.Connect_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.Connect_Butn.Click += new System.EventHandler(this.Connect_Butn_Click);
          // 
          // tp_002
          // 
          this.tp_002.AutoScroll = true;
          this.tp_002.Controls.Add(this.progressBarControl2);
-         this.tp_002.Controls.Add(this.checkBox1);
-         this.tp_002.Controls.Add(this.simpleButton4);
-         this.tp_002.Controls.Add(this.simpleButton3);
-         this.tp_002.Controls.Add(this.simpleButton2);
-         this.tp_002.Controls.Add(this.buttonEdit2);
+         this.tp_002.Controls.Add(this.CreateTestDemoDatabase_Cb);
+         this.tp_002.Controls.Add(this.InstallConfigDatabase_Butn);
+         this.tp_002.Controls.Add(this.SelectPathTargetDbFile_Butn);
+         this.tp_002.Controls.Add(this.SelectBackupFile_Butn);
+         this.tp_002.Controls.Add(this.PathTargetDbFile_Txt);
          this.tp_002.Controls.Add(this.labelControl9);
-         this.tp_002.Controls.Add(this.buttonEdit1);
+         this.tp_002.Controls.Add(this.BackupFile_Txt);
          this.tp_002.Controls.Add(this.labelControl18);
          this.tp_002.Controls.Add(this.labelControl17);
          this.tp_002.Controls.Add(this.labelControl16);
@@ -461,89 +506,93 @@
          this.progressBarControl2.Size = new System.Drawing.Size(404, 7);
          this.progressBarControl2.TabIndex = 80;
          // 
-         // checkBox1
+         // CreateTestDemoDatabase_Cb
          // 
-         this.checkBox1.AutoSize = true;
-         this.checkBox1.Location = new System.Drawing.Point(164, 191);
-         this.checkBox1.Name = "checkBox1";
-         this.checkBox1.Size = new System.Drawing.Size(223, 18);
-         this.checkBox1.TabIndex = 68;
-         this.checkBox1.Text = "Create Test and Demo database file";
-         this.checkBox1.UseVisualStyleBackColor = true;
+         this.CreateTestDemoDatabase_Cb.AutoSize = true;
+         this.CreateTestDemoDatabase_Cb.Location = new System.Drawing.Point(164, 191);
+         this.CreateTestDemoDatabase_Cb.Name = "CreateTestDemoDatabase_Cb";
+         this.CreateTestDemoDatabase_Cb.Size = new System.Drawing.Size(223, 18);
+         this.CreateTestDemoDatabase_Cb.TabIndex = 68;
+         this.CreateTestDemoDatabase_Cb.Text = "Create Test and Demo database file";
+         this.CreateTestDemoDatabase_Cb.UseVisualStyleBackColor = true;
          // 
-         // simpleButton4
+         // InstallConfigDatabase_Butn
          // 
-         this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton4.Appearance.Options.UseFont = true;
-         this.simpleButton4.Appearance.Options.UseForeColor = true;
-         this.simpleButton4.Image = global::System.Setup.Properties.Resources.IMAGE_1375;
-         this.simpleButton4.Location = new System.Drawing.Point(164, 147);
-         this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton4.Name = "simpleButton4";
-         this.simpleButton4.Size = new System.Drawing.Size(404, 38);
-         this.simpleButton4.TabIndex = 67;
-         this.simpleButton4.Text = "Install and Configuration database file";
-         this.simpleButton4.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.InstallConfigDatabase_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.InstallConfigDatabase_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.InstallConfigDatabase_Butn.Appearance.Options.UseFont = true;
+         this.InstallConfigDatabase_Butn.Appearance.Options.UseForeColor = true;
+         this.InstallConfigDatabase_Butn.Appearance.Options.UseTextOptions = true;
+         this.InstallConfigDatabase_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+         this.InstallConfigDatabase_Butn.Image = global::System.Setup.Properties.Resources.IMAGE_1375;
+         this.InstallConfigDatabase_Butn.Location = new System.Drawing.Point(164, 147);
+         this.InstallConfigDatabase_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.InstallConfigDatabase_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.InstallConfigDatabase_Butn.Name = "InstallConfigDatabase_Butn";
+         this.InstallConfigDatabase_Butn.Size = new System.Drawing.Size(404, 38);
+         this.InstallConfigDatabase_Butn.TabIndex = 67;
+         this.InstallConfigDatabase_Butn.Text = "Install and Configuration database file";
+         this.InstallConfigDatabase_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.InstallConfigDatabase_Butn.Click += new System.EventHandler(this.InstallConfigDatabase_Butn_Click);
          // 
-         // simpleButton3
+         // SelectPathTargetDbFile_Butn
          // 
-         this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton3.Appearance.Options.UseFont = true;
-         this.simpleButton3.Appearance.Options.UseForeColor = true;
-         this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton3.Location = new System.Drawing.Point(574, 89);
-         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton3.Name = "simpleButton3";
-         this.simpleButton3.Size = new System.Drawing.Size(167, 26);
-         this.simpleButton3.TabIndex = 67;
-         this.simpleButton3.Text = "Select Path Target db file";
-         this.simpleButton3.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SelectPathTargetDbFile_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SelectPathTargetDbFile_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.SelectPathTargetDbFile_Butn.Appearance.Options.UseFont = true;
+         this.SelectPathTargetDbFile_Butn.Appearance.Options.UseForeColor = true;
+         this.SelectPathTargetDbFile_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SelectPathTargetDbFile_Butn.Location = new System.Drawing.Point(574, 89);
+         this.SelectPathTargetDbFile_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SelectPathTargetDbFile_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SelectPathTargetDbFile_Butn.Name = "SelectPathTargetDbFile_Butn";
+         this.SelectPathTargetDbFile_Butn.Size = new System.Drawing.Size(167, 26);
+         this.SelectPathTargetDbFile_Butn.TabIndex = 67;
+         this.SelectPathTargetDbFile_Butn.Text = "Select Path Target db file";
+         this.SelectPathTargetDbFile_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SelectPathTargetDbFile_Butn.Click += new System.EventHandler(this.SelectPathTargetDbFile_Butn_Click);
          // 
-         // simpleButton2
+         // SelectBackupFile_Butn
          // 
-         this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton2.Appearance.Options.UseFont = true;
-         this.simpleButton2.Appearance.Options.UseForeColor = true;
-         this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton2.Location = new System.Drawing.Point(574, 57);
-         this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton2.Name = "simpleButton2";
-         this.simpleButton2.Size = new System.Drawing.Size(167, 26);
-         this.simpleButton2.TabIndex = 67;
-         this.simpleButton2.Text = "Select backup file";
-         this.simpleButton2.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SelectBackupFile_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SelectBackupFile_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.SelectBackupFile_Butn.Appearance.Options.UseFont = true;
+         this.SelectBackupFile_Butn.Appearance.Options.UseForeColor = true;
+         this.SelectBackupFile_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SelectBackupFile_Butn.Location = new System.Drawing.Point(574, 57);
+         this.SelectBackupFile_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SelectBackupFile_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SelectBackupFile_Butn.Name = "SelectBackupFile_Butn";
+         this.SelectBackupFile_Butn.Size = new System.Drawing.Size(167, 26);
+         this.SelectBackupFile_Butn.TabIndex = 67;
+         this.SelectBackupFile_Butn.Text = "Select backup file";
+         this.SelectBackupFile_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SelectBackupFile_Butn.Click += new System.EventHandler(this.SelectBackupFile_Butn_Click);
          // 
-         // buttonEdit2
+         // PathTargetDbFile_Txt
          // 
-         this.buttonEdit2.EditValue = "";
-         this.buttonEdit2.Location = new System.Drawing.Point(164, 89);
-         this.buttonEdit2.Name = "buttonEdit2";
-         this.buttonEdit2.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.buttonEdit2.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.buttonEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.buttonEdit2.Properties.Appearance.Options.UseBackColor = true;
-         this.buttonEdit2.Properties.Appearance.Options.UseBorderColor = true;
-         this.buttonEdit2.Properties.Appearance.Options.UseFont = true;
-         this.buttonEdit2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.buttonEdit2.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.buttonEdit2.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.buttonEdit2.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.buttonEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.buttonEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.buttonEdit2.Properties.NullText = "---";
-         this.buttonEdit2.Properties.NullValuePrompt = "---";
-         this.buttonEdit2.Properties.NullValuePromptShowForEmptyValue = true;
-         this.buttonEdit2.Properties.ReadOnly = true;
-         this.buttonEdit2.Size = new System.Drawing.Size(404, 26);
-         this.buttonEdit2.TabIndex = 65;
+         this.PathTargetDbFile_Txt.EditValue = "";
+         this.PathTargetDbFile_Txt.Location = new System.Drawing.Point(164, 89);
+         this.PathTargetDbFile_Txt.Name = "PathTargetDbFile_Txt";
+         this.PathTargetDbFile_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.PathTargetDbFile_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.PathTargetDbFile_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PathTargetDbFile_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.PathTargetDbFile_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.PathTargetDbFile_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PathTargetDbFile_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PathTargetDbFile_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.PathTargetDbFile_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PathTargetDbFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.PathTargetDbFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.PathTargetDbFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+         this.PathTargetDbFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PathTargetDbFile_Txt.Properties.NullText = "---";
+         this.PathTargetDbFile_Txt.Properties.NullValuePrompt = "---";
+         this.PathTargetDbFile_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.PathTargetDbFile_Txt.Size = new System.Drawing.Size(404, 26);
+         this.PathTargetDbFile_Txt.TabIndex = 65;
          // 
          // labelControl9
          // 
@@ -559,31 +608,30 @@
          this.labelControl9.TabIndex = 66;
          this.labelControl9.Text = "Path Target db file";
          // 
-         // buttonEdit1
+         // BackupFile_Txt
          // 
-         this.buttonEdit1.EditValue = "";
-         this.buttonEdit1.Location = new System.Drawing.Point(164, 57);
-         this.buttonEdit1.Name = "buttonEdit1";
-         this.buttonEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.buttonEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.buttonEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.buttonEdit1.Properties.Appearance.Options.UseBackColor = true;
-         this.buttonEdit1.Properties.Appearance.Options.UseBorderColor = true;
-         this.buttonEdit1.Properties.Appearance.Options.UseFont = true;
-         this.buttonEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.buttonEdit1.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.buttonEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.buttonEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-         this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.buttonEdit1.Properties.NullText = "---";
-         this.buttonEdit1.Properties.NullValuePrompt = "---";
-         this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.buttonEdit1.Properties.ReadOnly = true;
-         this.buttonEdit1.Size = new System.Drawing.Size(404, 26);
-         this.buttonEdit1.TabIndex = 65;
+         this.BackupFile_Txt.EditValue = "";
+         this.BackupFile_Txt.Location = new System.Drawing.Point(164, 57);
+         this.BackupFile_Txt.Name = "BackupFile_Txt";
+         this.BackupFile_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.BackupFile_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.BackupFile_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BackupFile_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.BackupFile_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.BackupFile_Txt.Properties.Appearance.Options.UseFont = true;
+         this.BackupFile_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.BackupFile_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.BackupFile_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.BackupFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.BackupFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.BackupFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+         this.BackupFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.BackupFile_Txt.Properties.NullText = "---";
+         this.BackupFile_Txt.Properties.NullValuePrompt = "---";
+         this.BackupFile_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.BackupFile_Txt.Size = new System.Drawing.Size(404, 26);
+         this.BackupFile_Txt.TabIndex = 65;
          // 
          // labelControl18
          // 
@@ -711,10 +759,10 @@
          this.tp_003.Controls.Add(this.labelControl22);
          this.tp_003.Controls.Add(this.labelControl23);
          this.tp_003.Controls.Add(this.labelControl24);
-         this.tp_003.Controls.Add(this.simpleButton6);
-         this.tp_003.Controls.Add(this.simpleButton5);
-         this.tp_003.Controls.Add(this.listBox1);
-         this.tp_003.Controls.Add(this.comboBox1);
+         this.tp_003.Controls.Add(this.AttachDatabaseFile_Butn);
+         this.tp_003.Controls.Add(this.SelectDatabaseFile_Butn);
+         this.tp_003.Controls.Add(this.DatabaseFiles_Lst);
+         this.tp_003.Controls.Add(this.ChooseSubSys_Lov);
          this.tp_003.Controls.Add(this.labelControl12);
          this.tp_003.Controls.Add(this.labelControl11);
          this.tp_003.Controls.Add(this.labelControl10);
@@ -823,63 +871,68 @@
          this.labelControl24.TabIndex = 78;
          this.labelControl24.Text = ">";
          // 
-         // simpleButton6
+         // AttachDatabaseFile_Butn
          // 
-         this.simpleButton6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton6.Appearance.Options.UseFont = true;
-         this.simpleButton6.Appearance.Options.UseForeColor = true;
-         this.simpleButton6.Image = global::System.Setup.Properties.Resources.IMAGE_1399;
-         this.simpleButton6.Location = new System.Drawing.Point(176, 197);
-         this.simpleButton6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton6.Name = "simpleButton6";
-         this.simpleButton6.Size = new System.Drawing.Size(404, 38);
-         this.simpleButton6.TabIndex = 72;
-         this.simpleButton6.Text = "Attach database file";
-         this.simpleButton6.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.AttachDatabaseFile_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AttachDatabaseFile_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.AttachDatabaseFile_Butn.Appearance.Options.UseFont = true;
+         this.AttachDatabaseFile_Butn.Appearance.Options.UseForeColor = true;
+         this.AttachDatabaseFile_Butn.Appearance.Options.UseTextOptions = true;
+         this.AttachDatabaseFile_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+         this.AttachDatabaseFile_Butn.Image = global::System.Setup.Properties.Resources.IMAGE_1399;
+         this.AttachDatabaseFile_Butn.Location = new System.Drawing.Point(176, 197);
+         this.AttachDatabaseFile_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AttachDatabaseFile_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AttachDatabaseFile_Butn.Name = "AttachDatabaseFile_Butn";
+         this.AttachDatabaseFile_Butn.Size = new System.Drawing.Size(456, 38);
+         this.AttachDatabaseFile_Butn.TabIndex = 72;
+         this.AttachDatabaseFile_Butn.Text = "Attach database file";
+         this.AttachDatabaseFile_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.AttachDatabaseFile_Butn.Click += new System.EventHandler(this.AttachDatabaseFile_Butn_Click_1);
          // 
-         // simpleButton5
+         // SelectDatabaseFile_Butn
          // 
-         this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton5.Appearance.Options.UseFont = true;
-         this.simpleButton5.Appearance.Options.UseForeColor = true;
-         this.simpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton5.Location = new System.Drawing.Point(638, 60);
-         this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton5.Name = "simpleButton5";
-         this.simpleButton5.Size = new System.Drawing.Size(167, 22);
-         this.simpleButton5.TabIndex = 71;
-         this.simpleButton5.Text = "Select database files";
-         this.simpleButton5.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SelectDatabaseFile_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SelectDatabaseFile_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.SelectDatabaseFile_Butn.Appearance.Options.UseFont = true;
+         this.SelectDatabaseFile_Butn.Appearance.Options.UseForeColor = true;
+         this.SelectDatabaseFile_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SelectDatabaseFile_Butn.Location = new System.Drawing.Point(638, 60);
+         this.SelectDatabaseFile_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SelectDatabaseFile_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SelectDatabaseFile_Butn.Name = "SelectDatabaseFile_Butn";
+         this.SelectDatabaseFile_Butn.Size = new System.Drawing.Size(167, 22);
+         this.SelectDatabaseFile_Butn.TabIndex = 71;
+         this.SelectDatabaseFile_Butn.Text = "Select database files";
+         this.SelectDatabaseFile_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SelectDatabaseFile_Butn.Click += new System.EventHandler(this.SelectDatabaseFile_Butn_Click);
          // 
-         // listBox1
+         // DatabaseFiles_Lst
          // 
-         this.listBox1.FormattingEnabled = true;
-         this.listBox1.ItemHeight = 14;
-         this.listBox1.Location = new System.Drawing.Point(176, 88);
-         this.listBox1.Name = "listBox1";
-         this.listBox1.Size = new System.Drawing.Size(629, 88);
-         this.listBox1.TabIndex = 70;
+         this.DatabaseFiles_Lst.FormattingEnabled = true;
+         this.DatabaseFiles_Lst.ItemHeight = 14;
+         this.DatabaseFiles_Lst.Location = new System.Drawing.Point(176, 88);
+         this.DatabaseFiles_Lst.Name = "DatabaseFiles_Lst";
+         this.DatabaseFiles_Lst.Size = new System.Drawing.Size(629, 88);
+         this.DatabaseFiles_Lst.TabIndex = 70;
          // 
-         // comboBox1
+         // ChooseSubSys_Lov
          // 
-         this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-         this.comboBox1.FormattingEnabled = true;
-         this.comboBox1.Items.AddRange(new object[] {
+         this.ChooseSubSys_Lov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.ChooseSubSys_Lov.FormattingEnabled = true;
+         this.ChooseSubSys_Lov.Items.AddRange(new object[] {
             "iProject",
+            "iProject001",
             "iScsc",
             "iScsc001",
             "iCRM",
             "iCRM001",
             "iRoboTech",
             "iRoboTech001"});
-         this.comboBox1.Location = new System.Drawing.Point(176, 60);
-         this.comboBox1.Name = "comboBox1";
-         this.comboBox1.Size = new System.Drawing.Size(456, 22);
-         this.comboBox1.TabIndex = 69;
+         this.ChooseSubSys_Lov.Location = new System.Drawing.Point(176, 60);
+         this.ChooseSubSys_Lov.Name = "ChooseSubSys_Lov";
+         this.ChooseSubSys_Lov.Size = new System.Drawing.Size(456, 22);
+         this.ChooseSubSys_Lov.TabIndex = 69;
          // 
          // labelControl12
          // 
@@ -925,32 +978,14 @@
          this.labelControl10.TabIndex = 65;
          this.labelControl10.Text = "Choose database files to Attatching";
          // 
-         // simpleButton7
-         // 
-         this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton7.Appearance.Options.UseFont = true;
-         this.simpleButton7.Appearance.Options.UseForeColor = true;
-         this.simpleButton7.Image = global::System.Setup.Properties.Resources.IMAGE_1408;
-         this.simpleButton7.Location = new System.Drawing.Point(148, 336);
-         this.simpleButton7.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton7.Name = "simpleButton7";
-         this.simpleButton7.Size = new System.Drawing.Size(404, 38);
-         this.simpleButton7.TabIndex = 9;
-         this.simpleButton7.Text = "Create Connection Database Instance";
-         this.simpleButton7.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         // 
          // tp_004
          // 
          this.tp_004.Controls.Add(this.progressBarControl3);
          this.tp_004.Controls.Add(this.labelControl26);
-         this.tp_004.Controls.Add(this.labelControl27);
-         this.tp_004.Controls.Add(this.labelControl28);
-         this.tp_004.Controls.Add(this.labelControl29);
+         this.tp_004.Controls.Add(this.Tp_4_CreateDatabaseLink_Lb);
          this.tp_004.Controls.Add(this.labelControl30);
-         this.tp_004.Controls.Add(this.labelControl31);
-         this.tp_004.Controls.Add(this.simpleButton8);
+         this.tp_004.Controls.Add(this.Tp_4_CheckExistsSqlServerInstance_Lb);
+         this.tp_004.Controls.Add(this.TestInstanceCreateDatabaseLink_Butn);
          this.tp_004.Controls.Add(this.labelControl25);
          this.tp_004.Location = new System.Drawing.Point(4, 23);
          this.tp_004.Name = "tp_004";
@@ -959,38 +994,6 @@
          this.tp_004.TabIndex = 3;
          this.tp_004.Text = "Create Connection Database Instance";
          this.tp_004.UseVisualStyleBackColor = true;
-         // 
-         // labelControl25
-         // 
-         this.labelControl25.Appearance.BackColor = System.Drawing.SystemColors.Info;
-         this.labelControl25.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl25.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.labelControl25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl25.Appearance.Image")));
-         this.labelControl25.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.labelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl25.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl25.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
-         this.labelControl25.Location = new System.Drawing.Point(3, 3);
-         this.labelControl25.Name = "labelControl25";
-         this.labelControl25.Size = new System.Drawing.Size(1136, 36);
-         this.labelControl25.TabIndex = 66;
-         this.labelControl25.Text = "Create Connection Database Instance";
-         // 
-         // simpleButton8
-         // 
-         this.simpleButton8.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton8.Appearance.Options.UseFont = true;
-         this.simpleButton8.Appearance.Options.UseForeColor = true;
-         this.simpleButton8.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton8.Image")));
-         this.simpleButton8.Location = new System.Drawing.Point(112, 76);
-         this.simpleButton8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton8.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton8.Name = "simpleButton8";
-         this.simpleButton8.Size = new System.Drawing.Size(377, 38);
-         this.simpleButton8.TabIndex = 67;
-         this.simpleButton8.Text = "Test Instance and Create Database Link";
-         this.simpleButton8.ToolTip = "پاک کردن اطلاعات پیش نویس";
          // 
          // progressBarControl3
          // 
@@ -1011,55 +1014,26 @@
          this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.Location = new System.Drawing.Point(112, 207);
+         this.labelControl26.Location = new System.Drawing.Point(112, 179);
          this.labelControl26.Name = "labelControl26";
          this.labelControl26.Size = new System.Drawing.Size(404, 22);
          this.labelControl26.TabIndex = 82;
          this.labelControl26.Text = "Create Database Link";
          // 
-         // labelControl27
+         // Tp_4_CreateDatabaseLink_Lb
          // 
-         this.labelControl27.AllowHtmlString = true;
-         this.labelControl27.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl27.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl27.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl27.Location = new System.Drawing.Point(87, 207);
-         this.labelControl27.Name = "labelControl27";
-         this.labelControl27.Size = new System.Drawing.Size(19, 22);
-         this.labelControl27.TabIndex = 83;
-         this.labelControl27.Text = ">";
-         // 
-         // labelControl28
-         // 
-         this.labelControl28.AllowHtmlString = true;
-         this.labelControl28.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl28.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl28.Location = new System.Drawing.Point(112, 179);
-         this.labelControl28.Name = "labelControl28";
-         this.labelControl28.Size = new System.Drawing.Size(404, 22);
-         this.labelControl28.TabIndex = 84;
-         this.labelControl28.Text = "Check Database Instance";
-         // 
-         // labelControl29
-         // 
-         this.labelControl29.AllowHtmlString = true;
-         this.labelControl29.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl29.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl29.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl29.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl29.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl29.Location = new System.Drawing.Point(87, 179);
-         this.labelControl29.Name = "labelControl29";
-         this.labelControl29.Size = new System.Drawing.Size(19, 22);
-         this.labelControl29.TabIndex = 85;
-         this.labelControl29.Text = ">";
+         this.Tp_4_CreateDatabaseLink_Lb.AllowHtmlString = true;
+         this.Tp_4_CreateDatabaseLink_Lb.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Tp_4_CreateDatabaseLink_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.Tp_4_CreateDatabaseLink_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Tp_4_CreateDatabaseLink_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.Tp_4_CreateDatabaseLink_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Tp_4_CreateDatabaseLink_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Tp_4_CreateDatabaseLink_Lb.Location = new System.Drawing.Point(87, 179);
+         this.Tp_4_CreateDatabaseLink_Lb.Name = "Tp_4_CreateDatabaseLink_Lb";
+         this.Tp_4_CreateDatabaseLink_Lb.Size = new System.Drawing.Size(19, 22);
+         this.Tp_4_CreateDatabaseLink_Lb.TabIndex = 83;
+         this.Tp_4_CreateDatabaseLink_Lb.Text = ">";
          // 
          // labelControl30
          // 
@@ -1073,22 +1047,66 @@
          this.labelControl30.Name = "labelControl30";
          this.labelControl30.Size = new System.Drawing.Size(404, 22);
          this.labelControl30.TabIndex = 86;
-         this.labelControl30.Text = "Check Exists SqlServer Instance";
+         this.labelControl30.Text = "Check Exists SqlServer Instance and Database";
          // 
-         // labelControl31
+         // Tp_4_CheckExistsSqlServerInstance_Lb
          // 
-         this.labelControl31.AllowHtmlString = true;
-         this.labelControl31.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl31.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl31.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl31.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl31.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl31.Location = new System.Drawing.Point(87, 151);
-         this.labelControl31.Name = "labelControl31";
-         this.labelControl31.Size = new System.Drawing.Size(19, 22);
-         this.labelControl31.TabIndex = 87;
-         this.labelControl31.Text = ">";
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.AllowHtmlString = true;
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Appearance.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Location = new System.Drawing.Point(87, 151);
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Name = "Tp_4_CheckExistsSqlServerInstance_Lb";
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Size = new System.Drawing.Size(19, 22);
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.TabIndex = 87;
+         this.Tp_4_CheckExistsSqlServerInstance_Lb.Text = ">";
+         // 
+         // TestInstanceCreateDatabaseLink_Butn
+         // 
+         this.TestInstanceCreateDatabaseLink_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TestInstanceCreateDatabaseLink_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.TestInstanceCreateDatabaseLink_Butn.Appearance.Options.UseFont = true;
+         this.TestInstanceCreateDatabaseLink_Butn.Appearance.Options.UseForeColor = true;
+         this.TestInstanceCreateDatabaseLink_Butn.Appearance.Options.UseTextOptions = true;
+         this.TestInstanceCreateDatabaseLink_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+         this.TestInstanceCreateDatabaseLink_Butn.Image = ((System.Drawing.Image)(resources.GetObject("TestInstanceCreateDatabaseLink_Butn.Image")));
+         this.TestInstanceCreateDatabaseLink_Butn.Location = new System.Drawing.Point(112, 76);
+         this.TestInstanceCreateDatabaseLink_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.TestInstanceCreateDatabaseLink_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TestInstanceCreateDatabaseLink_Butn.Name = "TestInstanceCreateDatabaseLink_Butn";
+         this.TestInstanceCreateDatabaseLink_Butn.Size = new System.Drawing.Size(377, 38);
+         this.TestInstanceCreateDatabaseLink_Butn.TabIndex = 67;
+         this.TestInstanceCreateDatabaseLink_Butn.Text = "Test Instance and Create Database Link";
+         this.TestInstanceCreateDatabaseLink_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.TestInstanceCreateDatabaseLink_Butn.Click += new System.EventHandler(this.TestInstanceCreateDatabaseLink_Butn_Click);
+         // 
+         // labelControl25
+         // 
+         this.labelControl25.Appearance.BackColor = System.Drawing.SystemColors.Info;
+         this.labelControl25.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl25.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.labelControl25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl25.Appearance.Image")));
+         this.labelControl25.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.labelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl25.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl25.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
+         this.labelControl25.Location = new System.Drawing.Point(3, 3);
+         this.labelControl25.Name = "labelControl25";
+         this.labelControl25.Size = new System.Drawing.Size(1136, 36);
+         this.labelControl25.TabIndex = 66;
+         this.labelControl25.Text = "Create Connection Database Instance";
+         // 
+         // SelectBackupFile_Ofd
+         // 
+         this.SelectBackupFile_Ofd.Filter = "Sql Backup File|*.bak";
+         // 
+         // SelectDatabaseFile_Ofd
+         // 
+         this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
+         this.SelectDatabaseFile_Ofd.Multiselect = true;
          // 
          // SQL_CONF_F
          // 
@@ -1110,8 +1128,8 @@
          this.tp_002.ResumeLayout(false);
          this.tp_002.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.progressBarControl2.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PathTargetDbFile_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BackupFile_Txt.Properties)).EndInit();
          this.tp_003.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
          this.tp_004.ResumeLayout(false);
@@ -1143,22 +1161,22 @@
       private DevExpress.XtraEditors.SimpleButton Clear_Butn;
       private Windows.Forms.TabPage tp_003;
       private DevExpress.XtraEditors.SimpleButton RestoreBackupFile_Butn;
-      private DevExpress.XtraEditors.SimpleButton simpleButton1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton2;
-      private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+      private DevExpress.XtraEditors.SimpleButton AttachDatabaseFiles_Butn;
+      private DevExpress.XtraEditors.SimpleButton SelectBackupFile_Butn;
+      private DevExpress.XtraEditors.ButtonEdit BackupFile_Txt;
       private DevExpress.XtraEditors.LabelControl labelControl6;
-      private DevExpress.XtraEditors.SimpleButton simpleButton3;
-      private DevExpress.XtraEditors.ButtonEdit buttonEdit2;
+      private DevExpress.XtraEditors.SimpleButton SelectPathTargetDbFile_Butn;
+      private DevExpress.XtraEditors.ButtonEdit PathTargetDbFile_Txt;
       private DevExpress.XtraEditors.LabelControl labelControl9;
-      private DevExpress.XtraEditors.SimpleButton simpleButton4;
-      private Windows.Forms.CheckBox checkBox1;
+      private DevExpress.XtraEditors.SimpleButton InstallConfigDatabase_Butn;
+      private Windows.Forms.CheckBox CreateTestDemoDatabase_Cb;
       private DevExpress.XtraEditors.LabelControl labelControl10;
-      private Windows.Forms.ComboBox comboBox1;
+      private Windows.Forms.ComboBox ChooseSubSys_Lov;
       private DevExpress.XtraEditors.LabelControl labelControl11;
       private DevExpress.XtraEditors.LabelControl labelControl12;
-      private DevExpress.XtraEditors.SimpleButton simpleButton5;
-      private Windows.Forms.ListBox listBox1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton6;
+      private DevExpress.XtraEditors.SimpleButton SelectDatabaseFile_Butn;
+      private Windows.Forms.ListBox DatabaseFiles_Lst;
+      private DevExpress.XtraEditors.SimpleButton AttachDatabaseFile_Butn;
       private DevExpress.XtraEditors.LabelControl labelControl16;
       private DevExpress.XtraEditors.LabelControl labelControl15;
       private DevExpress.XtraEditors.LabelControl labelControl13;
@@ -1173,17 +1191,19 @@
       private DevExpress.XtraEditors.LabelControl labelControl24;
       private DevExpress.XtraEditors.ProgressBarControl progressBarControl2;
       private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton7;
+      private DevExpress.XtraEditors.SimpleButton CreateConnectionDatabaseInstance_Butn;
       private Windows.Forms.TabPage tp_004;
-      private DevExpress.XtraEditors.SimpleButton simpleButton8;
+      private DevExpress.XtraEditors.SimpleButton TestInstanceCreateDatabaseLink_Butn;
       private DevExpress.XtraEditors.LabelControl labelControl25;
       private DevExpress.XtraEditors.ProgressBarControl progressBarControl3;
       private DevExpress.XtraEditors.LabelControl labelControl26;
-      private DevExpress.XtraEditors.LabelControl labelControl27;
-      private DevExpress.XtraEditors.LabelControl labelControl28;
-      private DevExpress.XtraEditors.LabelControl labelControl29;
       private DevExpress.XtraEditors.LabelControl labelControl30;
-      private DevExpress.XtraEditors.LabelControl labelControl31;
+      private DevExpress.XtraEditors.LabelControl Tp_4_CreateDatabaseLink_Lb;
+      private DevExpress.XtraEditors.LabelControl Tp_4_CheckExistsSqlServerInstance_Lb;
+      private Windows.Forms.OpenFileDialog SelectBackupFile_Ofd;
+      private Windows.Forms.FolderBrowserDialog SelectPathTargetDbFile_Fbd;
+      private DevExpress.XtraEditors.LabelControl ConnectionStatus_Lb;
+      private Windows.Forms.OpenFileDialog SelectDatabaseFile_Ofd;
 
    }
 }

@@ -24,8 +24,6 @@ namespace System.Setup.Ui.LTR.License
          InitializeComponent();
       }
 
-      private bool requery = false;
-
       private void Back_Butn_Click(object sender, EventArgs e)
       {
          Application.Exit();

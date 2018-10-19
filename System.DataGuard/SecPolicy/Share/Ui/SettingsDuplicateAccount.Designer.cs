@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDuplicateAccount));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -45,6 +44,7 @@
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.SourceUserName_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.UserBs = new System.Windows.Forms.BindingSource();
          this.ImageSourceAccount_Pb = new System.Windows.Forms.PictureBox();
          this.Ts_GrantToPrivilege = new DevExpress.XtraEditors.ToggleSwitch();
          this.ImageTargetAccount_Pb = new System.Windows.Forms.PictureBox();
@@ -53,17 +53,16 @@
          this.Ts_GrantToRole = new DevExpress.XtraEditors.ToggleSwitch();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.UserTitleName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserName_Be.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ReenterNewPassword_Be.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NewPassword_Be.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ImageSourceAccount_Pb)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_GrantToPrivilege.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ImageTargetAccount_Pb)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_GrantToRole.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -78,7 +77,7 @@
          // 
          // labelControl1
          // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl1.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.labelControl1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.Appearance.Image")));
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,9 +85,9 @@
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(334, 0);
+         this.labelControl1.Location = new System.Drawing.Point(301, 0);
          this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(188, 59);
+         this.labelControl1.Size = new System.Drawing.Size(221, 59);
          this.labelControl1.TabIndex = 1;
          this.labelControl1.Text = "نمونه برداری از کاربر";
          // 
@@ -257,16 +256,16 @@
          // 
          this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl6.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl6.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(22, 215);
+         this.labelControl6.Location = new System.Drawing.Point(32, 215);
          this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(538, 46);
+         this.labelControl6.Size = new System.Drawing.Size(515, 46);
          this.labelControl6.TabIndex = 16;
          this.labelControl6.Text = "اگر می خواهید از رمز عبور استفاده کنید از گزینه استفاده کنید که در خاطرتان باقی ب" +
     "ماند که بتوانید به راحتی رمز خود را یادآور شوید";
@@ -275,14 +274,14 @@
          // 
          this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl2.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl2.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl2.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(438, 370);
+         this.labelControl2.Location = new System.Drawing.Point(419, 367);
          this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(109, 23);
+         this.labelControl2.Size = new System.Drawing.Size(128, 26);
          this.labelControl2.TabIndex = 16;
          this.labelControl2.Text = "ورود خود را ایمن کنید";
          // 
@@ -299,6 +298,10 @@
          this.SourceUserName_Lb.Size = new System.Drawing.Size(165, 29);
          this.SourceUserName_Lb.TabIndex = 20;
          this.SourceUserName_Lb.Text = "Source";
+         // 
+         // UserBs
+         // 
+         this.UserBs.DataSource = typeof(System.DataGuard.Data.User);
          // 
          // ImageSourceAccount_Pb
          // 
@@ -351,14 +354,14 @@
          // 
          this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl5.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl5.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl5.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl5.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(405, 475);
+         this.labelControl5.Location = new System.Drawing.Point(386, 472);
          this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(142, 23);
+         this.labelControl5.Size = new System.Drawing.Size(161, 26);
          this.labelControl5.TabIndex = 23;
          this.labelControl5.Text = "انتصاب سطح های دسترسی";
          // 
@@ -366,7 +369,7 @@
          // 
          this.Ts_GrantToRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ts_GrantToRole.EditValue = true;
-         this.Ts_GrantToRole.Location = new System.Drawing.Point(476, 563);
+         this.Ts_GrantToRole.Location = new System.Drawing.Point(476, 566);
          this.Ts_GrantToRole.Name = "Ts_GrantToRole";
          this.Ts_GrantToRole.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_GrantToRole.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -378,14 +381,14 @@
          // 
          this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl7.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl7.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl7.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.labelControl7.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(408, 534);
+         this.labelControl7.Location = new System.Drawing.Point(393, 534);
          this.labelControl7.Name = "labelControl7";
-         this.labelControl7.Size = new System.Drawing.Size(139, 23);
+         this.labelControl7.Size = new System.Drawing.Size(154, 26);
          this.labelControl7.TabIndex = 23;
          this.labelControl7.Text = "انتصاب گروه های دسترسی";
          // 
@@ -402,10 +405,6 @@
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(225, 85);
          this.labelControl3.TabIndex = 16;
-         // 
-         // UserBs
-         // 
-         this.UserBs.DataSource = typeof(System.DataGuard.Data.User);
          // 
          // SettingsDuplicateAccount
          // 
@@ -439,11 +438,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.UserName_Be.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ReenterNewPassword_Be.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NewPassword_Be.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ImageSourceAccount_Pb)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_GrantToPrivilege.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ImageTargetAccount_Pb)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_GrantToRole.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 

@@ -23,9 +23,18 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
+
+         int usr = UserBs1.Position;
+         int dats = DatSBs1.Position;
+         int auds = AudsBs1.Position;
+
          UserBs1.DataSource = iProject.Users.Where(u => u.IsVisible);
-         DatSBs1.DataSource = iProject.DataSources.Where(d => d.IsVisible && d.Database_Alias != null);
+         DatSBs1.DataSource = iProject.DataSources.Where(d => d.IsVisible && d.Database_Alias != null && d.Sub_System.INST_STAT == "002" && d.Sub_System.STAT == "002");
          AudsBs1.DataSource = iProject.Access_User_Datasources;
+
+         UserBs1.Position = usr;
+         DatSBs1.Position = dats;
+         AudsBs1.Position = auds;
       }
 
       private void Actv_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -88,6 +97,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             crntaud.DataSource = crntds;
             crntaud.User = crntuser;
             crntaud.STAT = "002";
+            crntaud.ACES_TYPE = "001";
 
             iProject.Access_User_Datasources.InsertOnSubmit(crntaud);
             

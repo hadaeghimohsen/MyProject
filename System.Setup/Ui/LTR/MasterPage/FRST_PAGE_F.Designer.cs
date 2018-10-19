@@ -39,9 +39,9 @@
          this.NewSqlServerInstance_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ConfigDatabase_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup15 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
+         this.InstallComponent_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup16 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
+         this.UsersRole_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
@@ -194,31 +194,33 @@
          // 
          // ribbonGroup15
          // 
-         this.ribbonGroup15.Items.Add(this.ribbonButton3);
+         this.ribbonGroup15.Items.Add(this.InstallComponent_Butn);
          this.ribbonGroup15.Name = "ribbonGroup15";
          this.ribbonGroup15.Text = "Install Components";
          // 
-         // ribbonButton3
+         // InstallComponent_Butn
          // 
-         this.ribbonButton3.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.LargeImage")));
-         this.ribbonButton3.Name = "ribbonButton3";
-         this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-         this.ribbonButton3.Text = "Install Component";
-         this.ribbonButton3.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.InstallComponent_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("InstallComponent_Butn.LargeImage")));
+         this.InstallComponent_Butn.Name = "InstallComponent_Butn";
+         this.InstallComponent_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("InstallComponent_Butn.SmallImage")));
+         this.InstallComponent_Butn.Text = "Install Component";
+         this.InstallComponent_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.InstallComponent_Butn.Click += new System.EventHandler(this.InstallComponent_Butn_Click);
          // 
          // ribbonGroup16
          // 
-         this.ribbonGroup16.Items.Add(this.ribbonButton4);
+         this.ribbonGroup16.Items.Add(this.UsersRole_Butn);
          this.ribbonGroup16.Name = "ribbonGroup16";
          this.ribbonGroup16.Text = "Create User && Roles";
          // 
-         // ribbonButton4
+         // UsersRole_Butn
          // 
-         this.ribbonButton4.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.LargeImage")));
-         this.ribbonButton4.Name = "ribbonButton4";
-         this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
-         this.ribbonButton4.Text = "User && Role";
-         this.ribbonButton4.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.UsersRole_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn.LargeImage")));
+         this.UsersRole_Butn.Name = "UsersRole_Butn";
+         this.UsersRole_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn.SmallImage")));
+         this.UsersRole_Butn.Text = "User && Role";
+         this.UsersRole_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.UsersRole_Butn.Click += new System.EventHandler(this.UsersRole_Butn_Click);
          // 
          // ribbonGroup17
          // 
@@ -253,6 +255,7 @@
          this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
          this.ribbonButton6.Text = "Create Connection";
          this.ribbonButton6.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ribbonButton6.Click += new System.EventHandler(this.ConfigDatabase_Butn_Click);
          // 
          // ribbonGroup18
          // 
@@ -267,6 +270,7 @@
          this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
          this.ribbonButton8.Text = "Install Component";
          this.ribbonButton8.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ribbonButton8.Click += new System.EventHandler(this.InstallComponent_Butn_Click);
          // 
          // ribbonQat1
          // 
@@ -805,8 +809,8 @@
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup12;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup18;
       private C1.Win.C1Ribbon.RibbonButton ConfigDatabase_Butn;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton3;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton4;
+      private C1.Win.C1Ribbon.RibbonButton InstallComponent_Butn;
+      private C1.Win.C1Ribbon.RibbonButton UsersRole_Butn;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton5;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton6;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton8;

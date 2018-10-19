@@ -62,7 +62,7 @@ namespace System.DataAccess.Guis
                WindowsPlatform(job);
                break;
             case 12:
-               CreateDsnNameWithoutGrant(job);
+               CreateDsnName(job);
                break;
             default:
                job.Status = StatusType.Failed;
@@ -420,7 +420,7 @@ namespace System.DataAccess.Guis
       /// Code 12
       /// </summary>
       /// <param name="job"></param>
-      private void CreateDsnNameWithoutGrant(Job job)
+      private void CreateDsnName(Job job)
       {
          try
          {
@@ -429,34 +429,72 @@ namespace System.DataAccess.Guis
                    server = (job.Input as List<object>)[2].ToString(),
                    driverName = (job.Input as List<object>)[3].ToString(),
                    database = (job.Input as List<object>)[4].ToString(),
-                   uid = (job.Input as List<object>)[5].ToString(),
-                   pwd = (job.Input as List<object>)[6].ToString();
+                   uid = (job.Input as List<object>)[5].ToString();
+                   //pwd = (job.Input as List<object>)[6].ToString();
 
-            string strAttributes = "DSN=" + dsnName + "\0";
-            strAttributes += "SYSTEM=" + server + "\0";
-            strAttributes += "UID=" + uid + "\0";
-            strAttributes += "PWD=" + pwd + "\0";
+            bool trustedConnection = (bool)(job.Input as List<object>)[6];
 
-            string strDSN = "";
-            strDSN = strDSN + "System = " + server + "\n";
-            strDSN = strDSN + "Description = " + description + "\n";
+            // Lookup driver path from driver name
+            var driverKey = Registry.LocalMachine.CreateSubKey(ODBCINST_INI_REG_PATH + driverName);
+            if (driverKey == null) throw new Exception(string.Format("ODBC Registry key for driver '{0}' does not exist", driverName));
+            string driverPath = driverKey.GetValue("Driver").ToString();
 
-            if (SQLConfigDataSource((IntPtr)vbAPINull, ODBC_ADD_SYS_DSN, driverName, strAttributes))
-            {
-               job.Output = "Successful";
-               job.Status = StatusType.Successful;
-            }
-            else
-            {
-               job.Output = "Failed";
-               job.Status = StatusType.Failed;
-            }
+            // Add value to odbc data sources
+            var datasourcesKey = Registry.LocalMachine.CreateSubKey(ODBC_INI_REG_PATH + "ODBC Data Sources");
+            if (datasourcesKey == null) throw new Exception("ODBC Registry key for datasources does not exist");
+            datasourcesKey.SetValue(dsnName, driverName);
+
+            // Create new key in odbc.ini with dsn name and add values
+            var dsnKey = Registry.LocalMachine.CreateSubKey(ODBC_INI_REG_PATH + dsnName);
+            if (dsnKey == null) throw new Exception("ODBC Registry key for DSN was not created");
+            dsnKey.SetValue("DSN", dsnName);
+            dsnKey.SetValue("Database", database);
+            dsnKey.SetValue("Description", description);
+            dsnKey.SetValue("Driver", driverPath);
+            dsnKey.SetValue("LastUser", uid);
+            //dsnKey.SetValue("Password", pwd);
+            dsnKey.SetValue("Server", server);
+            dsnKey.SetValue("Trusted_Connection", trustedConnection ? "Yes" : "No");
+
+            job.Status = StatusType.Successful;
          }
-         catch(Exception exc)
+         catch
          {
-            job.Output = exc.Message;
-            job.Status = StatusType.Failed;            
+            job.Status = StatusType.Failed;
          }
+         //try
+         //{
+         //   string dsnName = (job.Input as List<object>)[0].ToString(),
+         //          description = (job.Input as List<object>)[1].ToString(),
+         //          server = (job.Input as List<object>)[2].ToString(),
+         //          driverName = (job.Input as List<object>)[3].ToString(),
+         //          database = (job.Input as List<object>)[4].ToString(),
+         //          uid = (job.Input as List<object>)[5].ToString(),
+         //          pwd = (job.Input as List<object>)[6].ToString();
+
+         //   string strAttributes = "DSN=" + dsnName + "\0";
+         //   strAttributes += "SERVER=" + server + "\0";
+         //   strAttributes += "DATABASE=" + database + "\0";
+         //   strAttributes += "Uid=" + uid + "\0";
+         //   strAttributes += "pwd=" + pwd + "\0";
+         //   strAttributes += "TRUSTED_CONNECTION=TRUE" + "\0";
+
+         //   if (SQLConfigDataSource((IntPtr)vbAPINull, ODBC_ADD_DSN, driverName, strAttributes))
+         //   {
+         //      job.Output = "Successful";
+         //      job.Status = StatusType.Successful;
+         //   }
+         //   else
+         //   {
+         //      job.Output = "Failed";
+         //      job.Status = StatusType.Failed;
+         //   }
+         //}
+         //catch(Exception exc)
+         //{
+         //   job.Output = exc.Message;
+         //   job.Status = StatusType.Failed;            
+         //}
       }
    }
 }

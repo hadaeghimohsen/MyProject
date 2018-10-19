@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAccount));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -46,6 +45,7 @@
          this.SelectImageGallery_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TakeImage_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+         this.UserBs = new System.Windows.Forms.BindingSource();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -58,9 +58,12 @@
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.SendEmail_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.OtherUsers_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Ts_DefaultUserMailServer = new DevExpress.XtraEditors.ToggleSwitch();
          this.Ts_ContactPublicStatus = new DevExpress.XtraEditors.ToggleSwitch();
          this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -87,16 +90,14 @@
          this.ChangePassword_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-         this.Ts_DefaultUserMailServer = new DevExpress.XtraEditors.ToggleSwitch();
-         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ImageAccount_Pb)).BeginInit();
          this.tp_002.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Ts_DefaultUserMailServer.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_ContactPublicStatus.Properties)).BeginInit();
          this.tp_003.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
@@ -106,8 +107,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Ts_PrivacyLockScreenStat.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Ts_DefaultUserMailServer.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).BeginInit();
          this.SuspendLayout();
          // 
          // Back_Butn
@@ -183,7 +182,7 @@
          // 
          this.MyUserAccount_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.MyUserAccount_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.MyUserAccount_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.MyUserAccount_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.MyUserAccount_Butn.Appearance.Options.UseFont = true;
          this.MyUserAccount_Butn.Appearance.Options.UseForeColor = true;
@@ -205,7 +204,7 @@
          // 
          this.Amail_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Amail_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Amail_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Amail_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.Amail_Butn.Appearance.Options.UseFont = true;
          this.Amail_Butn.Appearance.Options.UseForeColor = true;
@@ -227,7 +226,7 @@
          // 
          this.LoginMethod_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.LoginMethod_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LoginMethod_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LoginMethod_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.LoginMethod_Butn.Appearance.Options.UseFont = true;
          this.LoginMethod_Butn.Appearance.Options.UseForeColor = true;
@@ -330,6 +329,12 @@
          this.labelControl5.TabIndex = 11;
          this.labelControl5.Text = "کاربر ارشد آرتا";
          // 
+         // UserBs
+         // 
+         this.UserBs.DataSource = typeof(System.DataGuard.Data.User);
+         this.UserBs.CurrentChanged += new System.EventHandler(this.UserBs_CurrentChanged);
+         this.UserBs.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.UserBs_ListChanged);
+         // 
          // labelControl4
          // 
          this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -393,6 +398,7 @@
          // 
          // tp_002
          // 
+         this.tp_002.AutoScroll = true;
          this.tp_002.Controls.Add(this.JobSchedule_Lnk);
          this.tp_002.Controls.Add(this.MailServer_Lnk);
          this.tp_002.Controls.Add(this.labelControl20);
@@ -490,7 +496,7 @@
          // 
          this.SendEmail_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SendEmail_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.SendEmail_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SendEmail_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SendEmail_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.SendEmail_Butn.Appearance.Options.UseBackColor = true;
          this.SendEmail_Butn.Appearance.Options.UseFont = true;
@@ -499,11 +505,11 @@
          this.SendEmail_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.SendEmail_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1385;
          this.SendEmail_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.SendEmail_Butn.Location = new System.Drawing.Point(515, 145);
+         this.SendEmail_Butn.Location = new System.Drawing.Point(488, 145);
          this.SendEmail_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SendEmail_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SendEmail_Butn.Name = "SendEmail_Butn";
-         this.SendEmail_Butn.Size = new System.Drawing.Size(199, 38);
+         this.SendEmail_Butn.Size = new System.Drawing.Size(226, 38);
          this.SendEmail_Butn.TabIndex = 25;
          this.SendEmail_Butn.Text = "ارسال ایمیل";
          this.SendEmail_Butn.Click += new System.EventHandler(this.SendEmail_Butn_Click);
@@ -512,7 +518,7 @@
          // 
          this.OtherUsers_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.OtherUsers_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.OtherUsers_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OtherUsers_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OtherUsers_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.OtherUsers_Butn.Appearance.Options.UseBackColor = true;
          this.OtherUsers_Butn.Appearance.Options.UseFont = true;
@@ -521,14 +527,25 @@
          this.OtherUsers_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.OtherUsers_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1433;
          this.OtherUsers_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OtherUsers_Butn.Location = new System.Drawing.Point(515, 565);
+         this.OtherUsers_Butn.Location = new System.Drawing.Point(488, 565);
          this.OtherUsers_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OtherUsers_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OtherUsers_Butn.Name = "OtherUsers_Butn";
-         this.OtherUsers_Butn.Size = new System.Drawing.Size(199, 38);
+         this.OtherUsers_Butn.Size = new System.Drawing.Size(226, 38);
          this.OtherUsers_Butn.TabIndex = 25;
          this.OtherUsers_Butn.Text = "اطلاعات دیگر کاربران";
          this.OtherUsers_Butn.Click += new System.EventHandler(this.OtherUsers_Butn_Click);
+         // 
+         // Ts_DefaultUserMailServer
+         // 
+         this.Ts_DefaultUserMailServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Ts_DefaultUserMailServer.Location = new System.Drawing.Point(643, 347);
+         this.Ts_DefaultUserMailServer.Name = "Ts_DefaultUserMailServer";
+         this.Ts_DefaultUserMailServer.Properties.LookAndFeel.SkinName = "Office 2013";
+         this.Ts_DefaultUserMailServer.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Ts_DefaultUserMailServer.Size = new System.Drawing.Size(71, 24);
+         this.Ts_DefaultUserMailServer.TabIndex = 24;
+         this.Ts_DefaultUserMailServer.Toggled += new System.EventHandler(this.Ts_DefaultUserMailServer_Toggled);
          // 
          // Ts_ContactPublicStatus
          // 
@@ -559,6 +576,24 @@
          this.labelControl22.Text = "برای ارسال ایمیل به دوستان و همکاران می توانید از این گزینه استفاده کنید. لازم به" +
     " ذکر هست که باید در قسمت تنظیمات ایمیل مشخصات ایمیل خود را وارد کرده باشید";
          // 
+         // labelControl27
+         // 
+         this.labelControl27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl27.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl27.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl27.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl27.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl27.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl27.Location = new System.Drawing.Point(132, 312);
+         this.labelControl27.Name = "labelControl27";
+         this.labelControl27.Size = new System.Drawing.Size(582, 29);
+         this.labelControl27.TabIndex = 23;
+         this.labelControl27.Text = "در صورت فعال بودن این گزینه برای کاربر، سرور شما می تواند برای انجام یک سری از کا" +
+    "رهای خود از این کاربر استفاده کند";
+         // 
          // labelControl18
          // 
          this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -576,6 +611,20 @@
          this.labelControl18.TabIndex = 23;
          this.labelControl18.Text = "در صورت فعال کردن این گزینه اطلاعات وارد شده از جانب شما در لیست دوستان به صورت ع" +
     "مومی برای تمامی کاربران قابل رویت می باشد";
+         // 
+         // labelControl26
+         // 
+         this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl26.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl26.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl26.Location = new System.Drawing.Point(464, 277);
+         this.labelControl26.Name = "labelControl26";
+         this.labelControl26.Size = new System.Drawing.Size(266, 36);
+         this.labelControl26.TabIndex = 22;
+         this.labelControl26.Text = "مشارکت در وظایف سمت سرور";
          // 
          // labelControl19
          // 
@@ -626,7 +675,7 @@
          // 
          this.UserMail_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.UserMail_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.UserMail_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UserMail_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.UserMail_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.UserMail_Butn.Appearance.Options.UseBackColor = true;
          this.UserMail_Butn.Appearance.Options.UseFont = true;
@@ -635,11 +684,11 @@
          this.UserMail_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.UserMail_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1407;
          this.UserMail_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.UserMail_Butn.Location = new System.Drawing.Point(515, 101);
+         this.UserMail_Butn.Location = new System.Drawing.Point(488, 101);
          this.UserMail_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UserMail_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UserMail_Butn.Name = "UserMail_Butn";
-         this.UserMail_Butn.Size = new System.Drawing.Size(199, 38);
+         this.UserMail_Butn.Size = new System.Drawing.Size(226, 38);
          this.UserMail_Butn.TabIndex = 11;
          this.UserMail_Butn.Text = "تنظیمات ایمیل نرم افزاری";
          this.UserMail_Butn.Click += new System.EventHandler(this.MailServer_Butn_Click);
@@ -1054,55 +1103,6 @@
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
-         // labelControl26
-         // 
-         this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl26.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl26.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.Location = new System.Drawing.Point(464, 277);
-         this.labelControl26.Name = "labelControl26";
-         this.labelControl26.Size = new System.Drawing.Size(266, 36);
-         this.labelControl26.TabIndex = 22;
-         this.labelControl26.Text = "مشارکت در وظایف سمت سرور";
-         // 
-         // labelControl27
-         // 
-         this.labelControl27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl27.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl27.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl27.Appearance.ForeColor = System.Drawing.Color.Gray;
-         this.labelControl27.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl27.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl27.Location = new System.Drawing.Point(132, 312);
-         this.labelControl27.Name = "labelControl27";
-         this.labelControl27.Size = new System.Drawing.Size(582, 29);
-         this.labelControl27.TabIndex = 23;
-         this.labelControl27.Text = "در صورت فعال بودن این گزینه برای کاربر، سرور شما می تواند برای انجام یک سری از کا" +
-    "رهای خود از این کاربر استفاده کند";
-         // 
-         // Ts_DefaultUserMailServer
-         // 
-         this.Ts_DefaultUserMailServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Ts_DefaultUserMailServer.Location = new System.Drawing.Point(643, 347);
-         this.Ts_DefaultUserMailServer.Name = "Ts_DefaultUserMailServer";
-         this.Ts_DefaultUserMailServer.Properties.LookAndFeel.SkinName = "Office 2013";
-         this.Ts_DefaultUserMailServer.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Ts_DefaultUserMailServer.Size = new System.Drawing.Size(71, 24);
-         this.Ts_DefaultUserMailServer.TabIndex = 24;
-         this.Ts_DefaultUserMailServer.Toggled += new System.EventHandler(this.Ts_DefaultUserMailServer_Toggled);
-         // 
-         // UserBs
-         // 
-         this.UserBs.DataSource = typeof(System.DataGuard.Data.User);
-         this.UserBs.CurrentChanged += new System.EventHandler(this.UserBs_CurrentChanged);
-         this.UserBs.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.UserBs_ListChanged);
-         // 
          // SettingsAccount
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1118,9 +1118,11 @@
          this.Tb_Master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
          this.tp_001.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ImageAccount_Pb)).EndInit();
          this.tp_002.ResumeLayout(false);
          this.tp_002.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Ts_DefaultUserMailServer.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_ContactPublicStatus.Properties)).EndInit();
          this.tp_003.ResumeLayout(false);
          this.tp_003.PerformLayout();
@@ -1131,8 +1133,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.Ts_PrivacyLockScreenStat.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.Ts_DefaultUserMailServer.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.UserBs)).EndInit();
          this.ResumeLayout(false);
 
       }

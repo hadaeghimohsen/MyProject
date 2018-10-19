@@ -74,7 +74,7 @@ namespace MyProject.Programs.Code
                      new Job(SendType.External, "Setup",
                         new List<Job>
                         {
-                           new Job(SendType.Self, 03 /* Execute Chk_Licn_F */)
+                           new Job(SendType.Self, 02 /* Execute Chk_Licn_F */)
                         }
                      ),
                      new Job(SendType.Self, 01 /* Execute Startup*/)

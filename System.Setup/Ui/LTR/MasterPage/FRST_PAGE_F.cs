@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace System.Setup.Ui.LTR.MasterPage
 {
@@ -20,12 +22,6 @@ namespace System.Setup.Ui.LTR.MasterPage
          InitializeComponent();
       }
 
-      private string formCaller;
-
-      private void Execute_Query()
-      {
-      }
-
       private void NewSqlServerInstance_Butn_Click(object sender, EventArgs e)
       {
          try
@@ -34,29 +30,12 @@ namespace System.Setup.Ui.LTR.MasterPage
             //MessageBox.Show(execpath);
             var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
             //MessageBox.Show(parentpath.FullName);
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
-                  new List<Job>{
-                     new Job(SendType.External, "Commons",
-                        new List<Job>{
-                           new Job(SendType.Self, 36 /* Execute DoWork4GetWindowsPlatform */)
-                           {
-                              AfterChangedOutput = 
-                                 new Action<object>(
-                                    (output) => 
-                                       {
-                                          var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\" + output.ToString() + "\\SQLEXPRWT_x64_ENU.exe";
-                                          sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\64\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
-                                          Process.Start(sqlserverpath);//, configfile);                                          
-                                       }
-                                 )
-                           }
-                        }
-                     )
-                  }
-               )
-            );
-            
+            if (Environment.Is64BitOperatingSystem)
+            {
+               var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\64bit\\SQLEXPRWT_x64_ENU.exe";
+               sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\64\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
+               Process.Start(sqlserverpath);//, configfile);                                          
+            }
          }
          catch (Exception exc)
          {
@@ -71,6 +50,76 @@ namespace System.Setup.Ui.LTR.MasterPage
                new List<Job>
                {
                   new Job(SendType.Self, 04 /* Execute Sql_Conf_F */)
+               }
+            )
+         );
+      }
+
+      [DllImport("gdi32.dll", EntryPoint = "AddFontResourceW", SetLastError = true)]
+      public static extern int AddFontResource([In][MarshalAs(UnmanagedType.LPWStr)]
+                                         string lpFileName);
+      private void InstallComponent_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            // Install Fonts
+            var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
+            var fontspath = parentpath.FullName + "\\tools\\fonts";
+
+            foreach (var font in IO.Directory.GetFiles(fontspath))
+            {
+               var result = AddFontResource(font);
+            }
+
+            // Install Finger Print SDK
+            var sdkpath = parentpath.FullName + "\\tools\\fpsdk";
+            if (Environment.Is64BitOperatingSystem)
+            {               
+               foreach (var dllfile in IO.Directory.GetFiles(sdkpath).Where(f => f.Contains(".dll")))
+               {
+                  IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\syswow64\") + new IO.FileInfo(dllfile).Name, true);
+               }
+               Process.Start(sdkpath + "\\Just64bit_register_SDK.bat");
+            }
+            else
+            {
+               foreach (var dllfile in IO.Directory.GetFiles(sdkpath).Where(f => f.Contains(".dll")))
+               {
+                  IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\system32\") + new IO.FileInfo(dllfile).Name, true);
+               }
+               Process.Start(sdkpath + "\\Just32bit_register_SDK.bat");
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UsersRole_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "DefaultGateway",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "DataGuard",
+                           new List<Job>
+                           {
+                              new Job(SendType.External, "SecurityPolicy",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 25 /* Execute DoWork4SettingsAccountChangePassword */),                  
+                                    new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 10 /* Execute ActionCallWindows */)
+                                 }
+                              )
+                           }
+                        )
+                     }
+                  )
                }
             )
          );

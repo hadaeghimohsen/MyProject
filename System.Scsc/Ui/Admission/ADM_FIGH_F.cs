@@ -809,6 +809,47 @@ namespace System.Scsc.Ui.Admission
 
       }
 
+      #region Finger Print Device Operation
+      private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+         
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface) 
+            { 
+               Input = 
+                  new XElement("Command",
+                     new XAttribute("type", "fngrprntdev"),
+                     new XAttribute("fngractn", "enroll"),
+                     new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                  )
+            }
+         );
+      }
+
+      private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            {
+               Input =
+                  new XElement("Command",
+                     new XAttribute("type", "fngrprntdev"),
+                     new XAttribute("fngractn", "delete"),
+                     new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                  )
+            }
+         );
+      }
+
+      private void RqstBnFlashFngrPrnt1_Click(object sender, EventArgs e)
+      {
+
+      }
+      #endregion
+      
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
          //if (tb_master.SelectedTab == tp_001)
@@ -1375,5 +1416,7 @@ namespace System.Scsc.Ui.Admission
                Execute_Query();
          }
       }
+
+      
    }
 }

@@ -592,9 +592,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             catch { }
          }
-
-
-         if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "gatecontrol")
+         else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "gatecontrol")
          {
             if((job.Input as XElement).Attribute("gateactn").Value == "open")
             {
@@ -608,8 +606,18 @@ namespace System.Scsc.Ui.MasterPage
             {
                Error_Gate();
             }
-         }         
-
+         }
+         else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "fngrprntdev")
+         {
+            if ((job.Input as XElement).Attribute("fngractn").Value == "enroll")
+            {
+               Enroll_Finger((job.Input as XElement).Attribute("fngrprnt").Value);
+            }
+            else if ((job.Input as XElement).Attribute("fngractn").Value == "delete")
+            {
+               Delete_Finger((job.Input as XElement).Attribute("fngrprnt").Value);
+            }
+         }
          job.Status = StatusType.Successful;
       }
 

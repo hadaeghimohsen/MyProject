@@ -141,7 +141,7 @@ namespace System.Scsc.Ui.MasterPage
 
             if (barCodeSetting == null) return;
 
-            if (barCodeSetting.ATTN_SYST_TYPE != "001") return;
+            if (barCodeSetting.ATTN_SYST_TYPE.NotIn("001", "004")) return;
 
             this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
 
@@ -155,6 +155,7 @@ namespace System.Scsc.Ui.MasterPage
                this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
                Tsp_AttnSys.Text = "سیستم بارکد خوان فعال";
                Tsp_AttnSys.ForeColor = Color.Green;
+               AttendanceSystemAlert_Butn.Tag = barCodeSetting.ATTN_SYST_TYPE;
             }
             else
             {
@@ -630,6 +631,34 @@ namespace System.Scsc.Ui.MasterPage
                      new XAttribute("stat", TlgrmBotSetting.RUN_RBOT == "002" ? true : false)
                   )
                );
+         }
+      }
+      #endregion
+
+      #region FingerPrint Kaviani
+      private void Enroll_Finger(string enrollId)
+      {
+         try
+         {
+            Sp_Barcode.WriteLine("enroll");
+            Sp_Barcode.WriteLine(enrollId);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Delete_Finger(string enrollId)
+      {
+         try
+         {
+            Sp_Barcode.WriteLine("delete");
+            Sp_Barcode.WriteLine(enrollId);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
       #endregion

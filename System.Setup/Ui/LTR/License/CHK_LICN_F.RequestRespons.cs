@@ -167,6 +167,43 @@ namespace System.Setup.Ui.LTR.License
       /// <param name="job"></param>
       private void ActionCallWindow(Job job)
       {
+         var xinput = job.Input as XElement;
+         if(xinput != null)
+         {
+            if(xinput.Attribute("type") != null)
+            {
+               var subsys = xinput.Attribute("subsys").Value;
+               switch (xinput.Attribute("type").Value)
+               {
+                  case "install":
+                     switch (subsys)
+	                  {
+                        case "iproject":
+                           job.Output = Kernel1_Cb.Checked ? "valid" : "notvalid";
+                           break;
+                        case "iscsc":
+                           job.Output = Arta1_Cb.Checked ? "valid" : "notvalid";
+                           break;
+                        case "icrm":
+                           job.Output = CRM1_Cb.Checked ? "valid" : "notvalid";
+                           break;
+                        case "irobotech":
+                           job.Output = Telegram1_Cb.Checked ? "valid" : "notvalid";
+                           break;
+                        default:
+                           job.Output = "notvalid";
+                           break;
+	                  }
+                     break;
+                  case "update":
+                     break;
+                  case "remove":
+                     break;
+                  default:
+                     break;
+               }
+            }
+         }
          job.Status = StatusType.Successful;
       }
    }

@@ -141,6 +141,18 @@ namespace System.Setup.Ui.LTR.Server
             var backupFileInfo = new IO.FileInfo( BackupFile_Txt.Text );
             var backName = backupFileInfo.Name.Substring(0, backupFileInfo.Name.LastIndexOf('.'));
             /// Check validation Subsystem in Anar LicenceKey
+            var _CheckSubSysInstallation =
+               new Job(SendType.External, "localhost", "CHK_LICN_F", 10 /* Execute ActionCallWindow */, SendType.SelfToUserInterface) 
+               { 
+                  Input = 
+                     new XElement("CheckValidation",
+                        new XAttribute("subsys", backName.ToLower()),
+                        new XAttribute("type", "install")
+                     )
+               };
+            _DefaultGateway.Gateway(_CheckSubSysInstallation);
+            if (_CheckSubSysInstallation.Output.ToString() == "notvalid") { MessageBox.Show("The Application is not valid for install on Server"); return; }
+
             /// IF CUSTOMER CAN INSTALL SUBSYSTEM GOTO RESTORE BACKUP DATABASE
             SqlCommand cmd =
                new SqlCommand(
@@ -179,6 +191,7 @@ namespace System.Setup.Ui.LTR.Server
                   Value = 
                      new XElement("Params",
                         new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
+                        new XAttribute("licensekey", )
                         _hostInfo.Output as XElement                        
                      ).ToString()
                }

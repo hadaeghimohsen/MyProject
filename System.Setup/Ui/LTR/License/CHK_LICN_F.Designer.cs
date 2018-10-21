@@ -127,6 +127,16 @@
          this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+         this.Kernel_Cb = new System.Windows.Forms.CheckBox();
+         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+         this.Arta_Cb = new System.Windows.Forms.CheckBox();
+         this.CRM_Cb = new System.Windows.Forms.CheckBox();
+         this.Telegram_Cb = new System.Windows.Forms.CheckBox();
+         this.Telegram1_Cb = new System.Windows.Forms.CheckBox();
+         this.CRM1_Cb = new System.Windows.Forms.CheckBox();
+         this.Arta1_Cb = new System.Windows.Forms.CheckBox();
+         this.Kernel1_Cb = new System.Windows.Forms.CheckBox();
+         this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -219,7 +229,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(1150, 487);
+         this.Tb_Master.Size = new System.Drawing.Size(1150, 609);
          this.Tb_Master.TabIndex = 0;
          // 
          // tp_001
@@ -251,7 +261,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(1142, 460);
+         this.tp_001.Size = new System.Drawing.Size(1142, 582);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "Installer Activation";
@@ -259,6 +269,11 @@
          // 
          // ClientSysInfo_Pn
          // 
+         this.ClientSysInfo_Pn.Controls.Add(this.Telegram1_Cb);
+         this.ClientSysInfo_Pn.Controls.Add(this.CRM1_Cb);
+         this.ClientSysInfo_Pn.Controls.Add(this.Arta1_Cb);
+         this.ClientSysInfo_Pn.Controls.Add(this.Kernel1_Cb);
+         this.ClientSysInfo_Pn.Controls.Add(this.labelControl43);
          this.ClientSysInfo_Pn.Controls.Add(this.AccountName_Txt);
          this.ClientSysInfo_Pn.Controls.Add(this.labelControl34);
          this.ClientSysInfo_Pn.Controls.Add(this.labelControl35);
@@ -277,16 +292,16 @@
          this.ClientSysInfo_Pn.Controls.Add(this.BoardMaker_Txt);
          this.ClientSysInfo_Pn.Controls.Add(this.OSInfo_Txt);
          this.ClientSysInfo_Pn.Controls.Add(this.HDDSerialNo_Txt);
-         this.ClientSysInfo_Pn.Location = new System.Drawing.Point(591, 143);
+         this.ClientSysInfo_Pn.Location = new System.Drawing.Point(591, 187);
          this.ClientSysInfo_Pn.Name = "ClientSysInfo_Pn";
-         this.ClientSysInfo_Pn.Size = new System.Drawing.Size(397, 301);
+         this.ClientSysInfo_Pn.Size = new System.Drawing.Size(526, 301);
          this.ClientSysInfo_Pn.TabIndex = 82;
          this.ClientSysInfo_Pn.Visible = false;
          // 
          // AccountName_Txt
          // 
          this.AccountName_Txt.EditValue = "";
-         this.AccountName_Txt.Location = new System.Drawing.Point(159, 8);
+         this.AccountName_Txt.Location = new System.Drawing.Point(390, 8);
          this.AccountName_Txt.Name = "AccountName_Txt";
          this.AccountName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AccountName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -305,7 +320,7 @@
          this.AccountName_Txt.Properties.NullText = "---";
          this.AccountName_Txt.Properties.NullValuePrompt = "---";
          this.AccountName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.AccountName_Txt.Size = new System.Drawing.Size(225, 26);
+         this.AccountName_Txt.Size = new System.Drawing.Size(129, 26);
          this.AccountName_Txt.TabIndex = 0;
          // 
          // labelControl34
@@ -316,7 +331,7 @@
          this.labelControl34.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl34.Location = new System.Drawing.Point(9, 9);
+         this.labelControl34.Location = new System.Drawing.Point(240, 9);
          this.labelControl34.Name = "labelControl34";
          this.labelControl34.Size = new System.Drawing.Size(144, 22);
          this.labelControl34.TabIndex = 71;
@@ -330,7 +345,7 @@
          this.labelControl35.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl35.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl35.Location = new System.Drawing.Point(9, 40);
+         this.labelControl35.Location = new System.Drawing.Point(240, 40);
          this.labelControl35.Name = "labelControl35";
          this.labelControl35.Size = new System.Drawing.Size(144, 22);
          this.labelControl35.TabIndex = 69;
@@ -344,7 +359,7 @@
          this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl36.Location = new System.Drawing.Point(9, 106);
+         this.labelControl36.Location = new System.Drawing.Point(240, 106);
          this.labelControl36.Name = "labelControl36";
          this.labelControl36.Size = new System.Drawing.Size(144, 22);
          this.labelControl36.TabIndex = 68;
@@ -353,7 +368,7 @@
          // BIOSCaption_Txt
          // 
          this.BIOSCaption_Txt.EditValue = "";
-         this.BIOSCaption_Txt.Location = new System.Drawing.Point(159, 40);
+         this.BIOSCaption_Txt.Location = new System.Drawing.Point(390, 40);
          this.BIOSCaption_Txt.Name = "BIOSCaption_Txt";
          this.BIOSCaption_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.BIOSCaption_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -372,7 +387,7 @@
          this.BIOSCaption_Txt.Properties.NullText = "---";
          this.BIOSCaption_Txt.Properties.NullValuePrompt = "---";
          this.BIOSCaption_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.BIOSCaption_Txt.Size = new System.Drawing.Size(225, 26);
+         this.BIOSCaption_Txt.Size = new System.Drawing.Size(129, 26);
          this.BIOSCaption_Txt.TabIndex = 1;
          // 
          // labelControl37
@@ -383,7 +398,7 @@
          this.labelControl37.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl37.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl37.Location = new System.Drawing.Point(9, 171);
+         this.labelControl37.Location = new System.Drawing.Point(240, 171);
          this.labelControl37.Name = "labelControl37";
          this.labelControl37.Size = new System.Drawing.Size(144, 22);
          this.labelControl37.TabIndex = 68;
@@ -397,7 +412,7 @@
          this.labelControl38.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl38.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl38.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl38.Location = new System.Drawing.Point(9, 138);
+         this.labelControl38.Location = new System.Drawing.Point(240, 138);
          this.labelControl38.Name = "labelControl38";
          this.labelControl38.Size = new System.Drawing.Size(144, 22);
          this.labelControl38.TabIndex = 67;
@@ -406,7 +421,7 @@
          // ProcessorInfo_Txt
          // 
          this.ProcessorInfo_Txt.EditValue = "";
-         this.ProcessorInfo_Txt.Location = new System.Drawing.Point(159, 267);
+         this.ProcessorInfo_Txt.Location = new System.Drawing.Point(390, 267);
          this.ProcessorInfo_Txt.Name = "ProcessorInfo_Txt";
          this.ProcessorInfo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ProcessorInfo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -425,7 +440,7 @@
          this.ProcessorInfo_Txt.Properties.NullText = "---";
          this.ProcessorInfo_Txt.Properties.NullValuePrompt = "---";
          this.ProcessorInfo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ProcessorInfo_Txt.Size = new System.Drawing.Size(225, 26);
+         this.ProcessorInfo_Txt.Size = new System.Drawing.Size(129, 26);
          this.ProcessorInfo_Txt.TabIndex = 8;
          // 
          // labelControl39
@@ -436,7 +451,7 @@
          this.labelControl39.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl39.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl39.Location = new System.Drawing.Point(9, 235);
+         this.labelControl39.Location = new System.Drawing.Point(240, 235);
          this.labelControl39.Name = "labelControl39";
          this.labelControl39.Size = new System.Drawing.Size(144, 22);
          this.labelControl39.TabIndex = 68;
@@ -445,7 +460,7 @@
          // PhysicalMemory_Txt
          // 
          this.PhysicalMemory_Txt.EditValue = "";
-         this.PhysicalMemory_Txt.Location = new System.Drawing.Point(159, 203);
+         this.PhysicalMemory_Txt.Location = new System.Drawing.Point(390, 203);
          this.PhysicalMemory_Txt.Name = "PhysicalMemory_Txt";
          this.PhysicalMemory_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.PhysicalMemory_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -464,7 +479,7 @@
          this.PhysicalMemory_Txt.Properties.NullText = "---";
          this.PhysicalMemory_Txt.Properties.NullValuePrompt = "---";
          this.PhysicalMemory_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PhysicalMemory_Txt.Size = new System.Drawing.Size(225, 26);
+         this.PhysicalMemory_Txt.Size = new System.Drawing.Size(129, 26);
          this.PhysicalMemory_Txt.TabIndex = 6;
          // 
          // labelControl40
@@ -475,7 +490,7 @@
          this.labelControl40.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl40.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl40.Location = new System.Drawing.Point(9, 203);
+         this.labelControl40.Location = new System.Drawing.Point(240, 203);
          this.labelControl40.Name = "labelControl40";
          this.labelControl40.Size = new System.Drawing.Size(144, 22);
          this.labelControl40.TabIndex = 67;
@@ -484,7 +499,7 @@
          // MACAddress_Txt
          // 
          this.MACAddress_Txt.EditValue = "";
-         this.MACAddress_Txt.Location = new System.Drawing.Point(159, 138);
+         this.MACAddress_Txt.Location = new System.Drawing.Point(390, 138);
          this.MACAddress_Txt.Name = "MACAddress_Txt";
          this.MACAddress_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.MACAddress_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -503,7 +518,7 @@
          this.MACAddress_Txt.Properties.NullText = "---";
          this.MACAddress_Txt.Properties.NullValuePrompt = "---";
          this.MACAddress_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.MACAddress_Txt.Size = new System.Drawing.Size(225, 26);
+         this.MACAddress_Txt.Size = new System.Drawing.Size(129, 26);
          this.MACAddress_Txt.TabIndex = 4;
          // 
          // labelControl41
@@ -514,7 +529,7 @@
          this.labelControl41.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl41.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl41.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl41.Location = new System.Drawing.Point(9, 72);
+         this.labelControl41.Location = new System.Drawing.Point(240, 72);
          this.labelControl41.Name = "labelControl41";
          this.labelControl41.Size = new System.Drawing.Size(144, 22);
          this.labelControl41.TabIndex = 66;
@@ -528,7 +543,7 @@
          this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl42.Location = new System.Drawing.Point(9, 267);
+         this.labelControl42.Location = new System.Drawing.Point(240, 267);
          this.labelControl42.Name = "labelControl42";
          this.labelControl42.Size = new System.Drawing.Size(144, 22);
          this.labelControl42.TabIndex = 67;
@@ -537,7 +552,7 @@
          // ProcessorID_Txt
          // 
          this.ProcessorID_Txt.EditValue = "";
-         this.ProcessorID_Txt.Location = new System.Drawing.Point(159, 235);
+         this.ProcessorID_Txt.Location = new System.Drawing.Point(390, 235);
          this.ProcessorID_Txt.Name = "ProcessorID_Txt";
          this.ProcessorID_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ProcessorID_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -556,13 +571,13 @@
          this.ProcessorID_Txt.Properties.NullText = "---";
          this.ProcessorID_Txt.Properties.NullValuePrompt = "---";
          this.ProcessorID_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ProcessorID_Txt.Size = new System.Drawing.Size(225, 26);
+         this.ProcessorID_Txt.Size = new System.Drawing.Size(129, 26);
          this.ProcessorID_Txt.TabIndex = 7;
          // 
          // BoardMaker_Txt
          // 
          this.BoardMaker_Txt.EditValue = "";
-         this.BoardMaker_Txt.Location = new System.Drawing.Point(159, 72);
+         this.BoardMaker_Txt.Location = new System.Drawing.Point(390, 72);
          this.BoardMaker_Txt.Name = "BoardMaker_Txt";
          this.BoardMaker_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.BoardMaker_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -581,13 +596,13 @@
          this.BoardMaker_Txt.Properties.NullText = "---";
          this.BoardMaker_Txt.Properties.NullValuePrompt = "---";
          this.BoardMaker_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.BoardMaker_Txt.Size = new System.Drawing.Size(225, 26);
+         this.BoardMaker_Txt.Size = new System.Drawing.Size(129, 26);
          this.BoardMaker_Txt.TabIndex = 2;
          // 
          // OSInfo_Txt
          // 
          this.OSInfo_Txt.EditValue = "";
-         this.OSInfo_Txt.Location = new System.Drawing.Point(159, 171);
+         this.OSInfo_Txt.Location = new System.Drawing.Point(390, 171);
          this.OSInfo_Txt.Name = "OSInfo_Txt";
          this.OSInfo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.OSInfo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -606,13 +621,13 @@
          this.OSInfo_Txt.Properties.NullText = "---";
          this.OSInfo_Txt.Properties.NullValuePrompt = "---";
          this.OSInfo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OSInfo_Txt.Size = new System.Drawing.Size(225, 26);
+         this.OSInfo_Txt.Size = new System.Drawing.Size(129, 26);
          this.OSInfo_Txt.TabIndex = 5;
          // 
          // HDDSerialNo_Txt
          // 
          this.HDDSerialNo_Txt.EditValue = "";
-         this.HDDSerialNo_Txt.Location = new System.Drawing.Point(159, 106);
+         this.HDDSerialNo_Txt.Location = new System.Drawing.Point(390, 106);
          this.HDDSerialNo_Txt.Name = "HDDSerialNo_Txt";
          this.HDDSerialNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.HDDSerialNo_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -631,7 +646,7 @@
          this.HDDSerialNo_Txt.Properties.NullText = "---";
          this.HDDSerialNo_Txt.Properties.NullValuePrompt = "---";
          this.HDDSerialNo_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.HDDSerialNo_Txt.Size = new System.Drawing.Size(225, 26);
+         this.HDDSerialNo_Txt.Size = new System.Drawing.Size(129, 26);
          this.HDDSerialNo_Txt.TabIndex = 3;
          // 
          // labelControl4
@@ -1089,7 +1104,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(1142, 460);
+         this.tp_002.Size = new System.Drawing.Size(1142, 582);
          this.tp_002.TabIndex = 1;
          this.tp_002.Tag = "2";
          this.tp_002.Text = "AnarSys Verify Activation";
@@ -1097,6 +1112,10 @@
          // 
          // ClientSysInfo1_Pn
          // 
+         this.ClientSysInfo1_Pn.Controls.Add(this.Telegram_Cb);
+         this.ClientSysInfo1_Pn.Controls.Add(this.CRM_Cb);
+         this.ClientSysInfo1_Pn.Controls.Add(this.Arta_Cb);
+         this.ClientSysInfo1_Pn.Controls.Add(this.Kernel_Cb);
          this.ClientSysInfo1_Pn.Controls.Add(this.AccountName1_Txt);
          this.ClientSysInfo1_Pn.Controls.Add(this.labelControl17);
          this.ClientSysInfo1_Pn.Controls.Add(this.labelControl18);
@@ -1113,6 +1132,7 @@
          this.ClientSysInfo1_Pn.Controls.Add(this.labelControl28);
          this.ClientSysInfo1_Pn.Controls.Add(this.ProcessorID1_Txt);
          this.ClientSysInfo1_Pn.Controls.Add(this.BoardMaker1_Txt);
+         this.ClientSysInfo1_Pn.Controls.Add(this.labelControl9);
          this.ClientSysInfo1_Pn.Controls.Add(this.OSInfo1_Txt);
          this.ClientSysInfo1_Pn.Controls.Add(this.HDDSerialNo1_Txt);
          this.ClientSysInfo1_Pn.Location = new System.Drawing.Point(574, 236);
@@ -1123,8 +1143,10 @@
          // 
          // AccountName1_Txt
          // 
+         this.AccountName1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.AccountName1_Txt.EditValue = "";
-         this.AccountName1_Txt.Location = new System.Drawing.Point(159, 8);
+         this.AccountName1_Txt.Location = new System.Drawing.Point(281, 8);
          this.AccountName1_Txt.Name = "AccountName1_Txt";
          this.AccountName1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.AccountName1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1143,7 +1165,7 @@
          this.AccountName1_Txt.Properties.NullText = "---";
          this.AccountName1_Txt.Properties.NullValuePrompt = "---";
          this.AccountName1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.AccountName1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.AccountName1_Txt.Size = new System.Drawing.Size(203, 26);
          this.AccountName1_Txt.TabIndex = 0;
          // 
          // labelControl17
@@ -1154,9 +1176,9 @@
          this.labelControl17.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(9, 9);
+         this.labelControl17.Location = new System.Drawing.Point(145, 9);
          this.labelControl17.Name = "labelControl17";
-         this.labelControl17.Size = new System.Drawing.Size(144, 22);
+         this.labelControl17.Size = new System.Drawing.Size(130, 22);
          this.labelControl17.TabIndex = 71;
          this.labelControl17.Text = "Account Name";
          // 
@@ -1168,9 +1190,9 @@
          this.labelControl18.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl18.Location = new System.Drawing.Point(9, 40);
+         this.labelControl18.Location = new System.Drawing.Point(145, 40);
          this.labelControl18.Name = "labelControl18";
-         this.labelControl18.Size = new System.Drawing.Size(144, 22);
+         this.labelControl18.Size = new System.Drawing.Size(130, 22);
          this.labelControl18.TabIndex = 69;
          this.labelControl18.Text = "BIOS Caption";
          // 
@@ -1182,16 +1204,18 @@
          this.labelControl19.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl19.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl19.Location = new System.Drawing.Point(9, 106);
+         this.labelControl19.Location = new System.Drawing.Point(145, 106);
          this.labelControl19.Name = "labelControl19";
-         this.labelControl19.Size = new System.Drawing.Size(144, 22);
+         this.labelControl19.Size = new System.Drawing.Size(130, 22);
          this.labelControl19.TabIndex = 68;
          this.labelControl19.Text = "HDD Serial No";
          // 
          // BIOSCaption1_Txt
          // 
+         this.BIOSCaption1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.BIOSCaption1_Txt.EditValue = "";
-         this.BIOSCaption1_Txt.Location = new System.Drawing.Point(159, 40);
+         this.BIOSCaption1_Txt.Location = new System.Drawing.Point(281, 40);
          this.BIOSCaption1_Txt.Name = "BIOSCaption1_Txt";
          this.BIOSCaption1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.BIOSCaption1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1210,7 +1234,7 @@
          this.BIOSCaption1_Txt.Properties.NullText = "---";
          this.BIOSCaption1_Txt.Properties.NullValuePrompt = "---";
          this.BIOSCaption1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.BIOSCaption1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.BIOSCaption1_Txt.Size = new System.Drawing.Size(203, 26);
          this.BIOSCaption1_Txt.TabIndex = 1;
          // 
          // labelControl25
@@ -1221,9 +1245,9 @@
          this.labelControl25.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl25.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl25.Location = new System.Drawing.Point(9, 171);
+         this.labelControl25.Location = new System.Drawing.Point(145, 171);
          this.labelControl25.Name = "labelControl25";
-         this.labelControl25.Size = new System.Drawing.Size(144, 22);
+         this.labelControl25.Size = new System.Drawing.Size(130, 22);
          this.labelControl25.TabIndex = 68;
          this.labelControl25.Text = "OS Information";
          // 
@@ -1235,16 +1259,18 @@
          this.labelControl20.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(9, 138);
+         this.labelControl20.Location = new System.Drawing.Point(145, 138);
          this.labelControl20.Name = "labelControl20";
-         this.labelControl20.Size = new System.Drawing.Size(144, 22);
+         this.labelControl20.Size = new System.Drawing.Size(130, 22);
          this.labelControl20.TabIndex = 67;
          this.labelControl20.Text = "MAC Address";
          // 
          // ProcessorInfo1_Txt
          // 
+         this.ProcessorInfo1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.ProcessorInfo1_Txt.EditValue = "";
-         this.ProcessorInfo1_Txt.Location = new System.Drawing.Point(159, 267);
+         this.ProcessorInfo1_Txt.Location = new System.Drawing.Point(281, 267);
          this.ProcessorInfo1_Txt.Name = "ProcessorInfo1_Txt";
          this.ProcessorInfo1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ProcessorInfo1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1263,7 +1289,7 @@
          this.ProcessorInfo1_Txt.Properties.NullText = "---";
          this.ProcessorInfo1_Txt.Properties.NullValuePrompt = "---";
          this.ProcessorInfo1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ProcessorInfo1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.ProcessorInfo1_Txt.Size = new System.Drawing.Size(203, 26);
          this.ProcessorInfo1_Txt.TabIndex = 8;
          // 
          // labelControl27
@@ -1274,16 +1300,18 @@
          this.labelControl27.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl27.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl27.Location = new System.Drawing.Point(9, 235);
+         this.labelControl27.Location = new System.Drawing.Point(145, 235);
          this.labelControl27.Name = "labelControl27";
-         this.labelControl27.Size = new System.Drawing.Size(144, 22);
+         this.labelControl27.Size = new System.Drawing.Size(130, 22);
          this.labelControl27.TabIndex = 68;
          this.labelControl27.Text = "Processor ID";
          // 
          // PhysicalMemory1_Txt
          // 
+         this.PhysicalMemory1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.PhysicalMemory1_Txt.EditValue = "";
-         this.PhysicalMemory1_Txt.Location = new System.Drawing.Point(159, 203);
+         this.PhysicalMemory1_Txt.Location = new System.Drawing.Point(281, 203);
          this.PhysicalMemory1_Txt.Name = "PhysicalMemory1_Txt";
          this.PhysicalMemory1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.PhysicalMemory1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1302,7 +1330,7 @@
          this.PhysicalMemory1_Txt.Properties.NullText = "---";
          this.PhysicalMemory1_Txt.Properties.NullValuePrompt = "---";
          this.PhysicalMemory1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.PhysicalMemory1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.PhysicalMemory1_Txt.Size = new System.Drawing.Size(203, 26);
          this.PhysicalMemory1_Txt.TabIndex = 6;
          // 
          // labelControl26
@@ -1313,16 +1341,18 @@
          this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.Location = new System.Drawing.Point(9, 203);
+         this.labelControl26.Location = new System.Drawing.Point(145, 203);
          this.labelControl26.Name = "labelControl26";
-         this.labelControl26.Size = new System.Drawing.Size(144, 22);
+         this.labelControl26.Size = new System.Drawing.Size(130, 22);
          this.labelControl26.TabIndex = 67;
          this.labelControl26.Text = "Physical Memory";
          // 
          // MACAddress1_Txt
          // 
+         this.MACAddress1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.MACAddress1_Txt.EditValue = "";
-         this.MACAddress1_Txt.Location = new System.Drawing.Point(159, 138);
+         this.MACAddress1_Txt.Location = new System.Drawing.Point(281, 138);
          this.MACAddress1_Txt.Name = "MACAddress1_Txt";
          this.MACAddress1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.MACAddress1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1341,7 +1371,7 @@
          this.MACAddress1_Txt.Properties.NullText = "---";
          this.MACAddress1_Txt.Properties.NullValuePrompt = "---";
          this.MACAddress1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.MACAddress1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.MACAddress1_Txt.Size = new System.Drawing.Size(203, 26);
          this.MACAddress1_Txt.TabIndex = 4;
          // 
          // labelControl22
@@ -1352,9 +1382,9 @@
          this.labelControl22.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl22.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl22.Location = new System.Drawing.Point(9, 72);
+         this.labelControl22.Location = new System.Drawing.Point(145, 72);
          this.labelControl22.Name = "labelControl22";
-         this.labelControl22.Size = new System.Drawing.Size(144, 22);
+         this.labelControl22.Size = new System.Drawing.Size(130, 22);
          this.labelControl22.TabIndex = 66;
          this.labelControl22.Text = "Board Maker";
          // 
@@ -1366,16 +1396,18 @@
          this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl28.Location = new System.Drawing.Point(9, 267);
+         this.labelControl28.Location = new System.Drawing.Point(145, 267);
          this.labelControl28.Name = "labelControl28";
-         this.labelControl28.Size = new System.Drawing.Size(144, 22);
+         this.labelControl28.Size = new System.Drawing.Size(130, 22);
          this.labelControl28.TabIndex = 67;
          this.labelControl28.Text = "Processor Information";
          // 
          // ProcessorID1_Txt
          // 
+         this.ProcessorID1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.ProcessorID1_Txt.EditValue = "";
-         this.ProcessorID1_Txt.Location = new System.Drawing.Point(159, 235);
+         this.ProcessorID1_Txt.Location = new System.Drawing.Point(281, 235);
          this.ProcessorID1_Txt.Name = "ProcessorID1_Txt";
          this.ProcessorID1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.ProcessorID1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1394,13 +1426,15 @@
          this.ProcessorID1_Txt.Properties.NullText = "---";
          this.ProcessorID1_Txt.Properties.NullValuePrompt = "---";
          this.ProcessorID1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ProcessorID1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.ProcessorID1_Txt.Size = new System.Drawing.Size(203, 26);
          this.ProcessorID1_Txt.TabIndex = 7;
          // 
          // BoardMaker1_Txt
          // 
+         this.BoardMaker1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.BoardMaker1_Txt.EditValue = "";
-         this.BoardMaker1_Txt.Location = new System.Drawing.Point(159, 72);
+         this.BoardMaker1_Txt.Location = new System.Drawing.Point(281, 72);
          this.BoardMaker1_Txt.Name = "BoardMaker1_Txt";
          this.BoardMaker1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.BoardMaker1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1419,13 +1453,15 @@
          this.BoardMaker1_Txt.Properties.NullText = "---";
          this.BoardMaker1_Txt.Properties.NullValuePrompt = "---";
          this.BoardMaker1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.BoardMaker1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.BoardMaker1_Txt.Size = new System.Drawing.Size(203, 26);
          this.BoardMaker1_Txt.TabIndex = 2;
          // 
          // OSInfo1_Txt
          // 
+         this.OSInfo1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.OSInfo1_Txt.EditValue = "";
-         this.OSInfo1_Txt.Location = new System.Drawing.Point(159, 171);
+         this.OSInfo1_Txt.Location = new System.Drawing.Point(281, 171);
          this.OSInfo1_Txt.Name = "OSInfo1_Txt";
          this.OSInfo1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.OSInfo1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1444,13 +1480,15 @@
          this.OSInfo1_Txt.Properties.NullText = "---";
          this.OSInfo1_Txt.Properties.NullValuePrompt = "---";
          this.OSInfo1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OSInfo1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.OSInfo1_Txt.Size = new System.Drawing.Size(203, 26);
          this.OSInfo1_Txt.TabIndex = 5;
          // 
          // HDDSerialNo1_Txt
          // 
+         this.HDDSerialNo1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.HDDSerialNo1_Txt.EditValue = "";
-         this.HDDSerialNo1_Txt.Location = new System.Drawing.Point(159, 106);
+         this.HDDSerialNo1_Txt.Location = new System.Drawing.Point(281, 106);
          this.HDDSerialNo1_Txt.Name = "HDDSerialNo1_Txt";
          this.HDDSerialNo1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.HDDSerialNo1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1469,7 +1507,7 @@
          this.HDDSerialNo1_Txt.Properties.NullText = "---";
          this.HDDSerialNo1_Txt.Properties.NullValuePrompt = "---";
          this.HDDSerialNo1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.HDDSerialNo1_Txt.Size = new System.Drawing.Size(325, 26);
+         this.HDDSerialNo1_Txt.Size = new System.Drawing.Size(203, 26);
          this.HDDSerialNo1_Txt.TabIndex = 3;
          // 
          // labelControl15
@@ -1782,7 +1820,7 @@
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
          this.labelControl2.Location = new System.Drawing.Point(3, 3);
          this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(1119, 36);
+         this.labelControl2.Size = new System.Drawing.Size(1136, 36);
          this.labelControl2.TabIndex = 64;
          this.labelControl2.Text = "Please Input data";
          // 
@@ -2022,6 +2060,118 @@
          this.labelControl21.TabIndex = 47;
          this.labelControl21.Text = "Password Hash";
          // 
+         // Kernel_Cb
+         // 
+         this.Kernel_Cb.AutoSize = true;
+         this.Kernel_Cb.Checked = true;
+         this.Kernel_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Kernel_Cb.Location = new System.Drawing.Point(12, 37);
+         this.Kernel_Cb.Name = "Kernel_Cb";
+         this.Kernel_Cb.Size = new System.Drawing.Size(60, 18);
+         this.Kernel_Cb.TabIndex = 82;
+         this.Kernel_Cb.Text = "Kernel";
+         this.Kernel_Cb.UseVisualStyleBackColor = true;
+         // 
+         // labelControl9
+         // 
+         this.labelControl9.AllowHtmlString = true;
+         this.labelControl9.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl9.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl9.Location = new System.Drawing.Point(12, 9);
+         this.labelControl9.Name = "labelControl9";
+         this.labelControl9.Size = new System.Drawing.Size(127, 22);
+         this.labelControl9.TabIndex = 71;
+         this.labelControl9.Text = "SubSystem Installer";
+         // 
+         // Arta_Cb
+         // 
+         this.Arta_Cb.AutoSize = true;
+         this.Arta_Cb.Location = new System.Drawing.Point(12, 61);
+         this.Arta_Cb.Name = "Arta_Cb";
+         this.Arta_Cb.Size = new System.Drawing.Size(117, 18);
+         this.Arta_Cb.TabIndex = 82;
+         this.Arta_Cb.Text = "Arta Managment";
+         this.Arta_Cb.UseVisualStyleBackColor = true;
+         // 
+         // CRM_Cb
+         // 
+         this.CRM_Cb.AutoSize = true;
+         this.CRM_Cb.Location = new System.Drawing.Point(12, 85);
+         this.CRM_Cb.Name = "CRM_Cb";
+         this.CRM_Cb.Size = new System.Drawing.Size(49, 18);
+         this.CRM_Cb.TabIndex = 82;
+         this.CRM_Cb.Text = "CRM";
+         this.CRM_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Telegram_Cb
+         // 
+         this.Telegram_Cb.AutoSize = true;
+         this.Telegram_Cb.Location = new System.Drawing.Point(12, 109);
+         this.Telegram_Cb.Name = "Telegram_Cb";
+         this.Telegram_Cb.Size = new System.Drawing.Size(103, 18);
+         this.Telegram_Cb.TabIndex = 82;
+         this.Telegram_Cb.Text = "Telegram App";
+         this.Telegram_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Telegram1_Cb
+         // 
+         this.Telegram1_Cb.AutoSize = true;
+         this.Telegram1_Cb.Location = new System.Drawing.Point(12, 106);
+         this.Telegram1_Cb.Name = "Telegram1_Cb";
+         this.Telegram1_Cb.Size = new System.Drawing.Size(103, 18);
+         this.Telegram1_Cb.TabIndex = 84;
+         this.Telegram1_Cb.Text = "Telegram App";
+         this.Telegram1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // CRM1_Cb
+         // 
+         this.CRM1_Cb.AutoSize = true;
+         this.CRM1_Cb.Location = new System.Drawing.Point(12, 82);
+         this.CRM1_Cb.Name = "CRM1_Cb";
+         this.CRM1_Cb.Size = new System.Drawing.Size(49, 18);
+         this.CRM1_Cb.TabIndex = 85;
+         this.CRM1_Cb.Text = "CRM";
+         this.CRM1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Arta1_Cb
+         // 
+         this.Arta1_Cb.AutoSize = true;
+         this.Arta1_Cb.Location = new System.Drawing.Point(12, 58);
+         this.Arta1_Cb.Name = "Arta1_Cb";
+         this.Arta1_Cb.Size = new System.Drawing.Size(117, 18);
+         this.Arta1_Cb.TabIndex = 86;
+         this.Arta1_Cb.Text = "Arta Managment";
+         this.Arta1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Kernel1_Cb
+         // 
+         this.Kernel1_Cb.AutoSize = true;
+         this.Kernel1_Cb.Checked = true;
+         this.Kernel1_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Kernel1_Cb.Location = new System.Drawing.Point(12, 34);
+         this.Kernel1_Cb.Name = "Kernel1_Cb";
+         this.Kernel1_Cb.Size = new System.Drawing.Size(60, 18);
+         this.Kernel1_Cb.TabIndex = 87;
+         this.Kernel1_Cb.Text = "Kernel";
+         this.Kernel1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // labelControl43
+         // 
+         this.labelControl43.AllowHtmlString = true;
+         this.labelControl43.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl43.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl43.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl43.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl43.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl43.Location = new System.Drawing.Point(12, 6);
+         this.labelControl43.Name = "labelControl43";
+         this.labelControl43.Size = new System.Drawing.Size(127, 22);
+         this.labelControl43.TabIndex = 83;
+         this.labelControl43.Text = "SubSystem Installer";
+         // 
          // CHK_LICN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2031,12 +2181,13 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "CHK_LICN_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.Size = new System.Drawing.Size(1150, 546);
+         this.Size = new System.Drawing.Size(1150, 668);
          this.panel1.ResumeLayout(false);
          this.Tb_Master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
          this.tp_001.PerformLayout();
          this.ClientSysInfo_Pn.ResumeLayout(false);
+         this.ClientSysInfo_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.AccountName_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BIOSCaption_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ProcessorInfo_Txt.Properties)).EndInit();
@@ -2057,6 +2208,7 @@
          this.tp_002.ResumeLayout(false);
          this.tp_002.PerformLayout();
          this.ClientSysInfo1_Pn.ResumeLayout(false);
+         this.ClientSysInfo1_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.AccountName1_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BIOSCaption1_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ProcessorInfo1_Txt.Properties)).EndInit();
@@ -2180,6 +2332,16 @@
       private DevExpress.XtraEditors.ButtonEdit BoardMaker_Txt;
       private DevExpress.XtraEditors.ButtonEdit OSInfo_Txt;
       private DevExpress.XtraEditors.ButtonEdit HDDSerialNo_Txt;
+      private Windows.Forms.CheckBox Telegram_Cb;
+      private Windows.Forms.CheckBox CRM_Cb;
+      private Windows.Forms.CheckBox Arta_Cb;
+      private Windows.Forms.CheckBox Kernel_Cb;
+      private DevExpress.XtraEditors.LabelControl labelControl9;
+      private Windows.Forms.CheckBox Telegram1_Cb;
+      private Windows.Forms.CheckBox CRM1_Cb;
+      private Windows.Forms.CheckBox Arta1_Cb;
+      private Windows.Forms.CheckBox Kernel1_Cb;
+      private DevExpress.XtraEditors.LabelControl labelControl43;
 
    }
 }

@@ -183,6 +183,10 @@ namespace System.Setup.Ui.LTR.License
             if (PhysicalMemory_Txt.Text != dataclient[13]) { MessageBox.Show("License key is not valid!"); return; }
             if (ProcessorID_Txt.Text != dataclient[14]) { MessageBox.Show("License key is not valid!"); return; }
             if (ProcessorInfo_Txt.Text != dataclient[15]) { MessageBox.Show("License key is not valid!"); return; }
+            Kernel1_Cb.Checked = (dataclient[16] == "Kernel+") ? true : false;
+            Arta1_Cb.Checked = (dataclient[17] == "Arta+") ? true : false;
+            CRM1_Cb.Checked = (dataclient[18] == "CRM+") ? true : false;
+            Telegram1_Cb.Checked = (dataclient[19] == "Telegram+") ? true : false;
 
             // Open First Page Setup
             _DefaultGateway.Gateway(
@@ -315,7 +319,11 @@ namespace System.Setup.Ui.LTR.License
                   OSInfo1_Txt.Text,
                   PhysicalMemory1_Txt.Text,
                   ProcessorID1_Txt.Text,
-                  ProcessorInfo1_Txt.Text
+                  ProcessorInfo1_Txt.Text,
+                  Kernel_Cb.Checked ? "Kernel+" : "Kernel-",
+                  Arta_Cb.Checked ? "Arta+" : "Arta-",
+                  CRM_Cb.Checked ? "CRM+" : "CRM-",
+                  Telegram_Cb.Checked ? "Telegram+" : "Telegram-"
                };
             var datastring = string.Join("::##::", dataclient);
 

@@ -105,6 +105,14 @@
          this.Redgate_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
          this.Shutdown_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.IntegrayionSystems_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup161 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.UsersRole_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup171 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton11 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup71 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.Shutdown_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.ShowInfo_Pn.SuspendLayout();
          this.SuspendLayout();
@@ -165,6 +173,7 @@
          this.ribbonTab2.Groups.Add(this.ribbonGroup11);
          this.ribbonTab2.Groups.Add(this.ribbonGroup15);
          this.ribbonTab2.Groups.Add(this.ribbonGroup16);
+         this.ribbonTab2.Groups.Add(this.ribbonGroup17);
          this.ribbonTab2.Groups.Add(this.ribbonGroup7);
          this.ribbonTab2.Name = "ribbonTab2";
          this.ribbonTab2.Text = "Server";
@@ -228,6 +237,9 @@
          // 
          this.ribbonTab4.Groups.Add(this.ribbonGroup12);
          this.ribbonTab4.Groups.Add(this.ribbonGroup18);
+         this.ribbonTab4.Groups.Add(this.ribbonGroup161);
+         this.ribbonTab4.Groups.Add(this.ribbonGroup171);
+         this.ribbonTab4.Groups.Add(this.ribbonGroup71);
          this.ribbonTab4.Name = "ribbonTab4";
          this.ribbonTab4.Text = "Client";
          // 
@@ -733,6 +745,66 @@
          this.Shutdown_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.Shutdown_Butn.Click += new System.EventHandler(this.Shutdown_Butn_Click);
          // 
+         // ribbonGroup17
+         // 
+         this.ribbonGroup17.Items.Add(this.IntegrayionSystems_Butn);
+         this.ribbonGroup17.Name = "ribbonGroup17";
+         this.ribbonGroup17.Text = "Finalization";
+         // 
+         // IntegrayionSystems_Butn
+         // 
+         this.IntegrayionSystems_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.LargeImage")));
+         this.IntegrayionSystems_Butn.Name = "IntegrayionSystems_Butn";
+         this.IntegrayionSystems_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.SmallImage")));
+         this.IntegrayionSystems_Butn.Text = "Integration Systems";
+         this.IntegrayionSystems_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.IntegrayionSystems_Butn.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
+         // 
+         // ribbonGroup161
+         // 
+         this.ribbonGroup161.Items.Add(this.UsersRole_Butn1);
+         this.ribbonGroup161.Name = "ribbonGroup161";
+         this.ribbonGroup161.Text = "Create User && Roles";
+         // 
+         // UsersRole_Butn1
+         // 
+         this.UsersRole_Butn1.LargeImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn1.LargeImage")));
+         this.UsersRole_Butn1.Name = "UsersRole_Butn1";
+         this.UsersRole_Butn1.SmallImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn1.SmallImage")));
+         this.UsersRole_Butn1.Text = "User && Role";
+         this.UsersRole_Butn1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.UsersRole_Butn1.Click += new System.EventHandler(this.UsersRole_Butn_Click);
+         // 
+         // ribbonGroup171
+         // 
+         this.ribbonGroup171.Items.Add(this.ribbonButton11);
+         this.ribbonGroup171.Name = "ribbonGroup171";
+         this.ribbonGroup171.Text = "Finalization";
+         // 
+         // ribbonButton11
+         // 
+         this.ribbonButton11.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.LargeImage")));
+         this.ribbonButton11.Name = "ribbonButton11";
+         this.ribbonButton11.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.SmallImage")));
+         this.ribbonButton11.Text = "Integration Systems";
+         this.ribbonButton11.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ribbonButton11.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
+         // 
+         // ribbonGroup71
+         // 
+         this.ribbonGroup71.Items.Add(this.Shutdown_Butn1);
+         this.ribbonGroup71.Name = "ribbonGroup71";
+         this.ribbonGroup71.Text = "Exit";
+         // 
+         // Shutdown_Butn1
+         // 
+         this.Shutdown_Butn1.LargeImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn1.LargeImage")));
+         this.Shutdown_Butn1.Name = "Shutdown_Butn1";
+         this.Shutdown_Butn1.SmallImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn1.SmallImage")));
+         this.Shutdown_Butn1.Text = "Shutdown";
+         this.Shutdown_Butn1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.Shutdown_Butn1.Click += new System.EventHandler(this.Shutdown_Butn_Click);
+         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -828,6 +900,14 @@
       private C1.Win.C1Ribbon.RibbonButton Redgate_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup7;
       private C1.Win.C1Ribbon.RibbonButton Shutdown_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup17;
+      private C1.Win.C1Ribbon.RibbonButton IntegrayionSystems_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup161;
+      private C1.Win.C1Ribbon.RibbonButton UsersRole_Butn1;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup171;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton11;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup71;
+      private C1.Win.C1Ribbon.RibbonButton Shutdown_Butn1;
 
    }
 }

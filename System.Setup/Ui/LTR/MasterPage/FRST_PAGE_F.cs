@@ -152,5 +152,10 @@ namespace System.Setup.Ui.LTR.MasterPage
          Application.Exit();
          Process.GetCurrentProcess().Kill();
       }
+
+      private void IntegrayionSystems_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
    }
 }

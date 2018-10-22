@@ -179,19 +179,39 @@ namespace System.Setup.Ui.LTR.License
                      switch (subsys)
 	                  {
                         case "iproject":
-                           job.Output = Kernel1_Cb.Checked ? "valid" : "notvalid";
+                           job.Output = 
+                              new XElement("License",
+                                 new XAttribute("status", Kernel1_Cb.Checked ? "valid" : "notvalid"),
+                                 new XAttribute("key", Kernel1_Cb.Checked ? ServerKey0_Text.Text : "")
+                              );
                            break;
                         case "iscsc":
-                           job.Output = Arta1_Cb.Checked ? "valid" : "notvalid";
+                           job.Output =
+                              new XElement("License",
+                                 new XAttribute("status", Arta1_Cb.Checked ? "valid" : "notvalid"),
+                                 new XAttribute("key", Arta1_Cb.Checked ? ServerKey0_Text.Text : "")
+                              );
                            break;
                         case "icrm":
-                           job.Output = CRM1_Cb.Checked ? "valid" : "notvalid";
+                           job.Output =
+                              new XElement("License",
+                                 new XAttribute("status", CRM1_Cb.Checked ? "valid" : "notvalid"),
+                                 new XAttribute("key", CRM1_Cb.Checked ? ServerKey0_Text.Text : "")
+                              );
                            break;
                         case "irobotech":
-                           job.Output = Telegram1_Cb.Checked ? "valid" : "notvalid";
+                           job.Output =
+                              new XElement("License",
+                                 new XAttribute("status", Telegram1_Cb.Checked ? "valid" : "notvalid"),
+                                 new XAttribute("key", Telegram1_Cb.Checked ? ServerKey0_Text.Text : "")
+                              );
                            break;
                         default:
-                           job.Output = "notvalid";
+                           job.Output =
+                              new XElement("License",
+                                 new XAttribute("status", "notvalid"),
+                                 new XAttribute("key", "")
+                              );
                            break;
 	                  }
                      break;

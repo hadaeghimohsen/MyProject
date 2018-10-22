@@ -151,7 +151,7 @@ namespace System.Setup.Ui.LTR.Server
                      )
                };
             _DefaultGateway.Gateway(_CheckSubSysInstallation);
-            if (_CheckSubSysInstallation.Output.ToString() == "notvalid") { MessageBox.Show("The Application is not valid for install on Server"); return; }
+            if ((_CheckSubSysInstallation.Output as XElement).Attribute("status").Value == "notvalid") { MessageBox.Show("The Application is not valid for install on Server"); return; }
 
             /// IF CUSTOMER CAN INSTALL SUBSYSTEM GOTO RESTORE BACKUP DATABASE
             SqlCommand cmd =
@@ -191,7 +191,7 @@ namespace System.Setup.Ui.LTR.Server
                   Value = 
                      new XElement("Params",
                         new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
-                        new XAttribute("licensekey", )
+                        new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
                         _hostInfo.Output as XElement                        
                      ).ToString()
                }

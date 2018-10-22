@@ -26,6 +26,7 @@ namespace System.Setup.Ui.LTR.MasterPage
       {
          try
          {
+            MessageBox.Show(this, "Please install the instance name \"MSSQLSERVER\" before installing SQL SERVER.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
             var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
             if (Environment.Is64BitOperatingSystem)
@@ -128,6 +129,28 @@ namespace System.Setup.Ui.LTR.MasterPage
                }
             )
          );
+      }
+
+      private void Redgate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
+            var redgatepath = parentpath.FullName + "\\tools\\redgate\\SQLToolbeltEssentials.exe";
+
+            Process.Start(redgatepath);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Shutdown_Butn_Click(object sender, EventArgs e)
+      {
+         Application.Exit();
+         Process.GetCurrentProcess().Kill();
       }
    }
 }

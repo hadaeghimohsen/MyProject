@@ -102,6 +102,9 @@
          this.ShowInfo_Pn = new System.Windows.Forms.Panel();
          this.CloseInfo_Butn = new System.Windows.Forms.Button();
          this.TextInfo_Txt = new System.Windows.Forms.Label();
+         this.Redgate_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.Shutdown_Butn = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.ShowInfo_Pn.SuspendLayout();
          this.SuspendLayout();
@@ -162,6 +165,7 @@
          this.ribbonTab2.Groups.Add(this.ribbonGroup11);
          this.ribbonTab2.Groups.Add(this.ribbonGroup15);
          this.ribbonTab2.Groups.Add(this.ribbonGroup16);
+         this.ribbonTab2.Groups.Add(this.ribbonGroup7);
          this.ribbonTab2.Name = "ribbonTab2";
          this.ribbonTab2.Text = "Server";
          // 
@@ -192,6 +196,7 @@
          // ribbonGroup15
          // 
          this.ribbonGroup15.Items.Add(this.InstallComponent_Butn);
+         this.ribbonGroup15.Items.Add(this.Redgate_Butn);
          this.ribbonGroup15.Name = "ribbonGroup15";
          this.ribbonGroup15.Text = "Install Components";
          // 
@@ -704,6 +709,30 @@
          this.TextInfo_Txt.Text = "System is ready to do.";
          this.TextInfo_Txt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
+         // Redgate_Butn
+         // 
+         this.Redgate_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Redgate_Butn.LargeImage")));
+         this.Redgate_Butn.Name = "Redgate_Butn";
+         this.Redgate_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Redgate_Butn.SmallImage")));
+         this.Redgate_Butn.Text = "Redgate Tools";
+         this.Redgate_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.Redgate_Butn.Click += new System.EventHandler(this.Redgate_Butn_Click);
+         // 
+         // ribbonGroup7
+         // 
+         this.ribbonGroup7.Items.Add(this.Shutdown_Butn);
+         this.ribbonGroup7.Name = "ribbonGroup7";
+         this.ribbonGroup7.Text = "Exit";
+         // 
+         // Shutdown_Butn
+         // 
+         this.Shutdown_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn.LargeImage")));
+         this.Shutdown_Butn.Name = "Shutdown_Butn";
+         this.Shutdown_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn.SmallImage")));
+         this.Shutdown_Butn.Text = "Shutdown";
+         this.Shutdown_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.Shutdown_Butn.Click += new System.EventHandler(this.Shutdown_Butn_Click);
+         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,6 +825,9 @@
       private C1.Win.C1Ribbon.RibbonButton UsersRole_Butn;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton6;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton8;
+      private C1.Win.C1Ribbon.RibbonButton Redgate_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup7;
+      private C1.Win.C1Ribbon.RibbonButton Shutdown_Butn;
 
    }
 }

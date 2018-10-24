@@ -202,12 +202,14 @@ namespace System.Setup.Ui.LTR.Server
                      :
                      new SqlConnection(string.Format("server={0};database={1};Persist Security Info=True;User ID={2};Password={3}", Server_Txt.Text, CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName, Username_Txt.Text, Password_Txt.Text));
 
+            cmd.CommandTimeout = 18000;
             cmd.Connection.Open();
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
          }
          catch (Exception exc)
          {
+            MessageBox.Show(exc.Message);
          }
       }
       #endregion

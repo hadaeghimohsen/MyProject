@@ -36,6 +36,11 @@
          this.Tb_Master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.ClientSysInfo_Pn = new System.Windows.Forms.Panel();
+         this.Telegram1_Cb = new System.Windows.Forms.CheckBox();
+         this.CRM1_Cb = new System.Windows.Forms.CheckBox();
+         this.Arta1_Cb = new System.Windows.Forms.CheckBox();
+         this.Kernel1_Cb = new System.Windows.Forms.CheckBox();
+         this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
          this.AccountName_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
@@ -79,6 +84,10 @@
          this.ClientKey0_Text = new DevExpress.XtraEditors.MemoEdit();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.ClientSysInfo1_Pn = new System.Windows.Forms.Panel();
+         this.Telegram_Cb = new System.Windows.Forms.CheckBox();
+         this.CRM_Cb = new System.Windows.Forms.CheckBox();
+         this.Arta_Cb = new System.Windows.Forms.CheckBox();
+         this.Kernel_Cb = new System.Windows.Forms.CheckBox();
          this.AccountName1_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
@@ -95,6 +104,7 @@
          this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
          this.ProcessorID1_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.BoardMaker1_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.OSInfo1_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.HDDSerialNo1_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -127,16 +137,6 @@
          this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-         this.Kernel_Cb = new System.Windows.Forms.CheckBox();
-         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-         this.Arta_Cb = new System.Windows.Forms.CheckBox();
-         this.CRM_Cb = new System.Windows.Forms.CheckBox();
-         this.Telegram_Cb = new System.Windows.Forms.CheckBox();
-         this.Telegram1_Cb = new System.Windows.Forms.CheckBox();
-         this.CRM1_Cb = new System.Windows.Forms.CheckBox();
-         this.Arta1_Cb = new System.Windows.Forms.CheckBox();
-         this.Kernel1_Cb = new System.Windows.Forms.CheckBox();
-         this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -297,6 +297,62 @@
          this.ClientSysInfo_Pn.Size = new System.Drawing.Size(526, 301);
          this.ClientSysInfo_Pn.TabIndex = 82;
          this.ClientSysInfo_Pn.Visible = false;
+         // 
+         // Telegram1_Cb
+         // 
+         this.Telegram1_Cb.AutoSize = true;
+         this.Telegram1_Cb.Location = new System.Drawing.Point(12, 106);
+         this.Telegram1_Cb.Name = "Telegram1_Cb";
+         this.Telegram1_Cb.Size = new System.Drawing.Size(103, 18);
+         this.Telegram1_Cb.TabIndex = 84;
+         this.Telegram1_Cb.Text = "Telegram App";
+         this.Telegram1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // CRM1_Cb
+         // 
+         this.CRM1_Cb.AutoSize = true;
+         this.CRM1_Cb.Location = new System.Drawing.Point(12, 82);
+         this.CRM1_Cb.Name = "CRM1_Cb";
+         this.CRM1_Cb.Size = new System.Drawing.Size(49, 18);
+         this.CRM1_Cb.TabIndex = 85;
+         this.CRM1_Cb.Text = "CRM";
+         this.CRM1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Arta1_Cb
+         // 
+         this.Arta1_Cb.AutoSize = true;
+         this.Arta1_Cb.Location = new System.Drawing.Point(12, 58);
+         this.Arta1_Cb.Name = "Arta1_Cb";
+         this.Arta1_Cb.Size = new System.Drawing.Size(117, 18);
+         this.Arta1_Cb.TabIndex = 86;
+         this.Arta1_Cb.Text = "Arta Managment";
+         this.Arta1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Kernel1_Cb
+         // 
+         this.Kernel1_Cb.AutoSize = true;
+         this.Kernel1_Cb.Checked = true;
+         this.Kernel1_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Kernel1_Cb.Location = new System.Drawing.Point(12, 34);
+         this.Kernel1_Cb.Name = "Kernel1_Cb";
+         this.Kernel1_Cb.Size = new System.Drawing.Size(60, 18);
+         this.Kernel1_Cb.TabIndex = 87;
+         this.Kernel1_Cb.Text = "Kernel";
+         this.Kernel1_Cb.UseVisualStyleBackColor = true;
+         // 
+         // labelControl43
+         // 
+         this.labelControl43.AllowHtmlString = true;
+         this.labelControl43.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl43.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl43.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl43.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl43.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl43.Location = new System.Drawing.Point(12, 6);
+         this.labelControl43.Name = "labelControl43";
+         this.labelControl43.Size = new System.Drawing.Size(127, 22);
+         this.labelControl43.TabIndex = 83;
+         this.labelControl43.Text = "SubSystem Installer";
          // 
          // AccountName_Txt
          // 
@@ -1141,6 +1197,54 @@
          this.ClientSysInfo1_Pn.TabIndex = 81;
          this.ClientSysInfo1_Pn.Visible = false;
          // 
+         // Telegram_Cb
+         // 
+         this.Telegram_Cb.AutoSize = true;
+         this.Telegram_Cb.Checked = true;
+         this.Telegram_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Telegram_Cb.Location = new System.Drawing.Point(12, 109);
+         this.Telegram_Cb.Name = "Telegram_Cb";
+         this.Telegram_Cb.Size = new System.Drawing.Size(103, 18);
+         this.Telegram_Cb.TabIndex = 82;
+         this.Telegram_Cb.Text = "Telegram App";
+         this.Telegram_Cb.UseVisualStyleBackColor = true;
+         // 
+         // CRM_Cb
+         // 
+         this.CRM_Cb.AutoSize = true;
+         this.CRM_Cb.Checked = true;
+         this.CRM_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.CRM_Cb.Location = new System.Drawing.Point(12, 85);
+         this.CRM_Cb.Name = "CRM_Cb";
+         this.CRM_Cb.Size = new System.Drawing.Size(49, 18);
+         this.CRM_Cb.TabIndex = 82;
+         this.CRM_Cb.Text = "CRM";
+         this.CRM_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Arta_Cb
+         // 
+         this.Arta_Cb.AutoSize = true;
+         this.Arta_Cb.Checked = true;
+         this.Arta_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Arta_Cb.Location = new System.Drawing.Point(12, 61);
+         this.Arta_Cb.Name = "Arta_Cb";
+         this.Arta_Cb.Size = new System.Drawing.Size(117, 18);
+         this.Arta_Cb.TabIndex = 82;
+         this.Arta_Cb.Text = "Arta Managment";
+         this.Arta_Cb.UseVisualStyleBackColor = true;
+         // 
+         // Kernel_Cb
+         // 
+         this.Kernel_Cb.AutoSize = true;
+         this.Kernel_Cb.Checked = true;
+         this.Kernel_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Kernel_Cb.Location = new System.Drawing.Point(12, 37);
+         this.Kernel_Cb.Name = "Kernel_Cb";
+         this.Kernel_Cb.Size = new System.Drawing.Size(60, 18);
+         this.Kernel_Cb.TabIndex = 82;
+         this.Kernel_Cb.Text = "Kernel";
+         this.Kernel_Cb.UseVisualStyleBackColor = true;
+         // 
          // AccountName1_Txt
          // 
          this.AccountName1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1455,6 +1559,20 @@
          this.BoardMaker1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.BoardMaker1_Txt.Size = new System.Drawing.Size(203, 26);
          this.BoardMaker1_Txt.TabIndex = 2;
+         // 
+         // labelControl9
+         // 
+         this.labelControl9.AllowHtmlString = true;
+         this.labelControl9.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl9.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl9.Location = new System.Drawing.Point(12, 9);
+         this.labelControl9.Name = "labelControl9";
+         this.labelControl9.Size = new System.Drawing.Size(127, 22);
+         this.labelControl9.TabIndex = 71;
+         this.labelControl9.Text = "SubSystem Installer";
          // 
          // OSInfo1_Txt
          // 
@@ -2059,118 +2177,6 @@
          this.labelControl21.Size = new System.Drawing.Size(122, 22);
          this.labelControl21.TabIndex = 47;
          this.labelControl21.Text = "Password Hash";
-         // 
-         // Kernel_Cb
-         // 
-         this.Kernel_Cb.AutoSize = true;
-         this.Kernel_Cb.Checked = true;
-         this.Kernel_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.Kernel_Cb.Location = new System.Drawing.Point(12, 37);
-         this.Kernel_Cb.Name = "Kernel_Cb";
-         this.Kernel_Cb.Size = new System.Drawing.Size(60, 18);
-         this.Kernel_Cb.TabIndex = 82;
-         this.Kernel_Cb.Text = "Kernel";
-         this.Kernel_Cb.UseVisualStyleBackColor = true;
-         // 
-         // labelControl9
-         // 
-         this.labelControl9.AllowHtmlString = true;
-         this.labelControl9.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl9.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl9.Location = new System.Drawing.Point(12, 9);
-         this.labelControl9.Name = "labelControl9";
-         this.labelControl9.Size = new System.Drawing.Size(127, 22);
-         this.labelControl9.TabIndex = 71;
-         this.labelControl9.Text = "SubSystem Installer";
-         // 
-         // Arta_Cb
-         // 
-         this.Arta_Cb.AutoSize = true;
-         this.Arta_Cb.Location = new System.Drawing.Point(12, 61);
-         this.Arta_Cb.Name = "Arta_Cb";
-         this.Arta_Cb.Size = new System.Drawing.Size(117, 18);
-         this.Arta_Cb.TabIndex = 82;
-         this.Arta_Cb.Text = "Arta Managment";
-         this.Arta_Cb.UseVisualStyleBackColor = true;
-         // 
-         // CRM_Cb
-         // 
-         this.CRM_Cb.AutoSize = true;
-         this.CRM_Cb.Location = new System.Drawing.Point(12, 85);
-         this.CRM_Cb.Name = "CRM_Cb";
-         this.CRM_Cb.Size = new System.Drawing.Size(49, 18);
-         this.CRM_Cb.TabIndex = 82;
-         this.CRM_Cb.Text = "CRM";
-         this.CRM_Cb.UseVisualStyleBackColor = true;
-         // 
-         // Telegram_Cb
-         // 
-         this.Telegram_Cb.AutoSize = true;
-         this.Telegram_Cb.Location = new System.Drawing.Point(12, 109);
-         this.Telegram_Cb.Name = "Telegram_Cb";
-         this.Telegram_Cb.Size = new System.Drawing.Size(103, 18);
-         this.Telegram_Cb.TabIndex = 82;
-         this.Telegram_Cb.Text = "Telegram App";
-         this.Telegram_Cb.UseVisualStyleBackColor = true;
-         // 
-         // Telegram1_Cb
-         // 
-         this.Telegram1_Cb.AutoSize = true;
-         this.Telegram1_Cb.Location = new System.Drawing.Point(12, 106);
-         this.Telegram1_Cb.Name = "Telegram1_Cb";
-         this.Telegram1_Cb.Size = new System.Drawing.Size(103, 18);
-         this.Telegram1_Cb.TabIndex = 84;
-         this.Telegram1_Cb.Text = "Telegram App";
-         this.Telegram1_Cb.UseVisualStyleBackColor = true;
-         // 
-         // CRM1_Cb
-         // 
-         this.CRM1_Cb.AutoSize = true;
-         this.CRM1_Cb.Location = new System.Drawing.Point(12, 82);
-         this.CRM1_Cb.Name = "CRM1_Cb";
-         this.CRM1_Cb.Size = new System.Drawing.Size(49, 18);
-         this.CRM1_Cb.TabIndex = 85;
-         this.CRM1_Cb.Text = "CRM";
-         this.CRM1_Cb.UseVisualStyleBackColor = true;
-         // 
-         // Arta1_Cb
-         // 
-         this.Arta1_Cb.AutoSize = true;
-         this.Arta1_Cb.Location = new System.Drawing.Point(12, 58);
-         this.Arta1_Cb.Name = "Arta1_Cb";
-         this.Arta1_Cb.Size = new System.Drawing.Size(117, 18);
-         this.Arta1_Cb.TabIndex = 86;
-         this.Arta1_Cb.Text = "Arta Managment";
-         this.Arta1_Cb.UseVisualStyleBackColor = true;
-         // 
-         // Kernel1_Cb
-         // 
-         this.Kernel1_Cb.AutoSize = true;
-         this.Kernel1_Cb.Checked = true;
-         this.Kernel1_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.Kernel1_Cb.Location = new System.Drawing.Point(12, 34);
-         this.Kernel1_Cb.Name = "Kernel1_Cb";
-         this.Kernel1_Cb.Size = new System.Drawing.Size(60, 18);
-         this.Kernel1_Cb.TabIndex = 87;
-         this.Kernel1_Cb.Text = "Kernel";
-         this.Kernel1_Cb.UseVisualStyleBackColor = true;
-         // 
-         // labelControl43
-         // 
-         this.labelControl43.AllowHtmlString = true;
-         this.labelControl43.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl43.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl43.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl43.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl43.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl43.Location = new System.Drawing.Point(12, 6);
-         this.labelControl43.Name = "labelControl43";
-         this.labelControl43.Size = new System.Drawing.Size(127, 22);
-         this.labelControl43.TabIndex = 83;
-         this.labelControl43.Text = "SubSystem Installer";
          // 
          // CHK_LICN_F
          // 

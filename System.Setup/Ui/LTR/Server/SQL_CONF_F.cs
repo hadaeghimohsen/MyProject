@@ -141,17 +141,17 @@ namespace System.Setup.Ui.LTR.Server
             var backupFileInfo = new IO.FileInfo( BackupFile_Txt.Text );
             var backName = backupFileInfo.Name.Substring(0, backupFileInfo.Name.LastIndexOf('.'));
             /// Check validation Subsystem in Anar LicenceKey
-            var _CheckSubSysInstallation =
-               new Job(SendType.External, "localhost", "CHK_LICN_F", 10 /* Execute ActionCallWindow */, SendType.SelfToUserInterface) 
-               { 
-                  Input = 
-                     new XElement("CheckValidation",
-                        new XAttribute("subsys", backName.ToLower()),
-                        new XAttribute("type", "install")
-                     )
-               };
-            _DefaultGateway.Gateway(_CheckSubSysInstallation);
-            if ((_CheckSubSysInstallation.Output as XElement).Attribute("status").Value == "notvalid") { MessageBox.Show("The Application is not valid for install on Server"); return; }
+            //var _CheckSubSysInstallation =
+            //   new Job(SendType.External, "localhost", "CHK_LICN_F", 10 /* Execute ActionCallWindow */, SendType.SelfToUserInterface) 
+            //   { 
+            //      Input = 
+            //         new XElement("CheckValidation",
+            //            new XAttribute("subsys", backName.ToLower()),
+            //            new XAttribute("type", "install")
+            //         )
+            //   };
+            //_DefaultGateway.Gateway(_CheckSubSysInstallation);
+            //if ((_CheckSubSysInstallation.Output as XElement).Attribute("status").Value == "notvalid") { MessageBox.Show("The Application is not valid for install on Server"); return; }
 
             /// IF CUSTOMER CAN INSTALL SUBSYSTEM GOTO RESTORE BACKUP DATABASE
             SqlCommand cmd =
@@ -174,7 +174,7 @@ namespace System.Setup.Ui.LTR.Server
                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
                );
             cmd.Connection.Open();
-            cmd.ExecuteNonQuery();
+            //cmd.ExecuteNonQuery();
             cmd.Connection.Close();
 
             // 2nd Step Empty Database for Ready to Use
@@ -191,7 +191,7 @@ namespace System.Setup.Ui.LTR.Server
                   Value = 
                      new XElement("Params",
                         new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
-                        new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
+                        //new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
                         _hostInfo.Output as XElement                        
                      ).ToString()
                }

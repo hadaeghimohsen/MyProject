@@ -40,13 +40,24 @@
          this.ConfigDatabase_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup15 = new C1.Win.C1Ribbon.RibbonGroup();
          this.InstallComponent_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Redgate_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup16 = new C1.Win.C1Ribbon.RibbonGroup();
          this.UsersRole_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.IntegrayionSystems_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.Shutdown_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup12 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton6 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup18 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton8 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup161 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.UsersRole_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup171 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton11 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup71 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.Shutdown_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
          this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
          this.rb_stngdfin = new C1.Win.C1Ribbon.RibbonButton();
@@ -102,17 +113,8 @@
          this.ShowInfo_Pn = new System.Windows.Forms.Panel();
          this.CloseInfo_Butn = new System.Windows.Forms.Button();
          this.TextInfo_Txt = new System.Windows.Forms.Label();
-         this.Redgate_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.Shutdown_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.IntegrayionSystems_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup161 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.UsersRole_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup171 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton11 = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup71 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.Shutdown_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
+         this.AnyDesk_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.ShowInfo_Pn.SuspendLayout();
          this.SuspendLayout();
@@ -123,12 +125,12 @@
          this.Menu_Rbn.BottomToolBarHolder = this.ribbonBottomToolBar1;
          this.Menu_Rbn.ConfigToolBarHolder = this.ribbonConfigToolBar1;
          this.Menu_Rbn.ContextualTabGroups.Add(this.ribbonContextualTabGroup2);
-         this.Menu_Rbn.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Menu_Rbn.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Menu_Rbn.Location = new System.Drawing.Point(0, 0);
          this.Menu_Rbn.Name = "Menu_Rbn";
          this.Menu_Rbn.QatHolder = this.ribbonQat1;
          this.Menu_Rbn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.Menu_Rbn.Size = new System.Drawing.Size(766, 143);
+         this.Menu_Rbn.Size = new System.Drawing.Size(1132, 143);
          this.Menu_Rbn.Tabs.Add(this.Comp_Rtab);
          this.Menu_Rbn.Tabs.Add(this.Serv_Rtab);
          this.Menu_Rbn.Tabs.Add(this.Cont_Rtab);
@@ -189,7 +191,7 @@
          // 
          this.NewSqlServerInstance_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("NewSqlServerInstance_Butn.LargeImage")));
          this.NewSqlServerInstance_Butn.Name = "NewSqlServerInstance_Butn";
-         this.NewSqlServerInstance_Butn.Text = "New Instance";
+         this.NewSqlServerInstance_Butn.Text = "New Instance ( 1 )";
          this.NewSqlServerInstance_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.NewSqlServerInstance_Butn.Click += new System.EventHandler(this.NewSqlServerInstance_Butn_Click);
          // 
@@ -198,7 +200,7 @@
          this.ConfigDatabase_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("ConfigDatabase_Butn.LargeImage")));
          this.ConfigDatabase_Butn.Name = "ConfigDatabase_Butn";
          this.ConfigDatabase_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ConfigDatabase_Butn.SmallImage")));
-         this.ConfigDatabase_Butn.Text = "Config  Instance";
+         this.ConfigDatabase_Butn.Text = "Config  Instance ( 2 )";
          this.ConfigDatabase_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.ConfigDatabase_Butn.Click += new System.EventHandler(this.ConfigDatabase_Butn_Click);
          // 
@@ -214,9 +216,18 @@
          this.InstallComponent_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("InstallComponent_Butn.LargeImage")));
          this.InstallComponent_Butn.Name = "InstallComponent_Butn";
          this.InstallComponent_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("InstallComponent_Butn.SmallImage")));
-         this.InstallComponent_Butn.Text = "Install Component";
+         this.InstallComponent_Butn.Text = "Install Component ( 3 )";
          this.InstallComponent_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.InstallComponent_Butn.Click += new System.EventHandler(this.InstallComponent_Butn_Click);
+         // 
+         // Redgate_Butn
+         // 
+         this.Redgate_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Redgate_Butn.LargeImage")));
+         this.Redgate_Butn.Name = "Redgate_Butn";
+         this.Redgate_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Redgate_Butn.SmallImage")));
+         this.Redgate_Butn.Text = "Redgate Tools ( # )";
+         this.Redgate_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.Redgate_Butn.Click += new System.EventHandler(this.Redgate_Butn_Click);
          // 
          // ribbonGroup16
          // 
@@ -229,9 +240,40 @@
          this.UsersRole_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn.LargeImage")));
          this.UsersRole_Butn.Name = "UsersRole_Butn";
          this.UsersRole_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn.SmallImage")));
-         this.UsersRole_Butn.Text = "User && Role";
+         this.UsersRole_Butn.Text = "User && Role ( 5 )";
          this.UsersRole_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.UsersRole_Butn.Click += new System.EventHandler(this.UsersRole_Butn_Click);
+         // 
+         // ribbonGroup17
+         // 
+         this.ribbonGroup17.Items.Add(this.IntegrayionSystems_Butn);
+         this.ribbonGroup17.Items.Add(this.AnyDesk_Butn);
+         this.ribbonGroup17.Name = "ribbonGroup17";
+         this.ribbonGroup17.Text = "Finalization";
+         // 
+         // IntegrayionSystems_Butn
+         // 
+         this.IntegrayionSystems_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.LargeImage")));
+         this.IntegrayionSystems_Butn.Name = "IntegrayionSystems_Butn";
+         this.IntegrayionSystems_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.SmallImage")));
+         this.IntegrayionSystems_Butn.Text = "Integration Systems ( 6 )";
+         this.IntegrayionSystems_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.IntegrayionSystems_Butn.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
+         // 
+         // ribbonGroup7
+         // 
+         this.ribbonGroup7.Items.Add(this.Shutdown_Butn);
+         this.ribbonGroup7.Name = "ribbonGroup7";
+         this.ribbonGroup7.Text = "Exit";
+         // 
+         // Shutdown_Butn
+         // 
+         this.Shutdown_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn.LargeImage")));
+         this.Shutdown_Butn.Name = "Shutdown_Butn";
+         this.Shutdown_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn.SmallImage")));
+         this.Shutdown_Butn.Text = "Exit";
+         this.Shutdown_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.Shutdown_Butn.Click += new System.EventHandler(this.Shutdown_Butn_Click);
          // 
          // ribbonTab4
          // 
@@ -254,7 +296,7 @@
          this.ribbonButton6.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.LargeImage")));
          this.ribbonButton6.Name = "ribbonButton6";
          this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
-         this.ribbonButton6.Text = "Create Connection";
+         this.ribbonButton6.Text = "Create Connection ( 1 )";
          this.ribbonButton6.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.ribbonButton6.Click += new System.EventHandler(this.ConfigDatabase_Butn_Click);
          // 
@@ -269,9 +311,55 @@
          this.ribbonButton8.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.LargeImage")));
          this.ribbonButton8.Name = "ribbonButton8";
          this.ribbonButton8.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.SmallImage")));
-         this.ribbonButton8.Text = "Install Component";
+         this.ribbonButton8.Text = "Install Component ( 2 )";
          this.ribbonButton8.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.ribbonButton8.Click += new System.EventHandler(this.InstallComponent_Butn_Click);
+         // 
+         // ribbonGroup161
+         // 
+         this.ribbonGroup161.Items.Add(this.UsersRole_Butn1);
+         this.ribbonGroup161.Name = "ribbonGroup161";
+         this.ribbonGroup161.Text = "Create User && Roles";
+         // 
+         // UsersRole_Butn1
+         // 
+         this.UsersRole_Butn1.LargeImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn1.LargeImage")));
+         this.UsersRole_Butn1.Name = "UsersRole_Butn1";
+         this.UsersRole_Butn1.SmallImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn1.SmallImage")));
+         this.UsersRole_Butn1.Text = "User && Role ( 3 )";
+         this.UsersRole_Butn1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.UsersRole_Butn1.Click += new System.EventHandler(this.UsersRole_Butn_Click);
+         // 
+         // ribbonGroup171
+         // 
+         this.ribbonGroup171.Items.Add(this.ribbonButton11);
+         this.ribbonGroup171.Items.Add(this.ribbonButton1);
+         this.ribbonGroup171.Name = "ribbonGroup171";
+         this.ribbonGroup171.Text = "Finalization";
+         // 
+         // ribbonButton11
+         // 
+         this.ribbonButton11.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.LargeImage")));
+         this.ribbonButton11.Name = "ribbonButton11";
+         this.ribbonButton11.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.SmallImage")));
+         this.ribbonButton11.Text = "Integration Systems ( 4 )";
+         this.ribbonButton11.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ribbonButton11.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
+         // 
+         // ribbonGroup71
+         // 
+         this.ribbonGroup71.Items.Add(this.Shutdown_Butn1);
+         this.ribbonGroup71.Name = "ribbonGroup71";
+         this.ribbonGroup71.Text = "Exit";
+         // 
+         // Shutdown_Butn1
+         // 
+         this.Shutdown_Butn1.LargeImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn1.LargeImage")));
+         this.Shutdown_Butn1.Name = "Shutdown_Butn1";
+         this.Shutdown_Butn1.SmallImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn1.SmallImage")));
+         this.Shutdown_Butn1.Text = "Exit";
+         this.Shutdown_Butn1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.Shutdown_Butn1.Click += new System.EventHandler(this.Shutdown_Butn_Click);
          // 
          // ribbonQat1
          // 
@@ -656,7 +744,7 @@
          this.Pnl_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Pnl_Desktop.Location = new System.Drawing.Point(0, 175);
          this.Pnl_Desktop.Name = "Pnl_Desktop";
-         this.Pnl_Desktop.Size = new System.Drawing.Size(766, 257);
+         this.Pnl_Desktop.Size = new System.Drawing.Size(1132, 257);
          this.Pnl_Desktop.TabIndex = 1;
          // 
          // roundedButton1
@@ -692,14 +780,14 @@
          this.ShowInfo_Pn.Dock = System.Windows.Forms.DockStyle.Top;
          this.ShowInfo_Pn.Location = new System.Drawing.Point(0, 143);
          this.ShowInfo_Pn.Name = "ShowInfo_Pn";
-         this.ShowInfo_Pn.Size = new System.Drawing.Size(766, 32);
+         this.ShowInfo_Pn.Size = new System.Drawing.Size(1132, 32);
          this.ShowInfo_Pn.TabIndex = 10;
          // 
          // CloseInfo_Butn
          // 
          this.CloseInfo_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CloseInfo_Butn.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.CloseInfo_Butn.Location = new System.Drawing.Point(739, 4);
+         this.CloseInfo_Butn.Location = new System.Drawing.Point(1105, 4);
          this.CloseInfo_Butn.Name = "CloseInfo_Butn";
          this.CloseInfo_Butn.Size = new System.Drawing.Size(24, 24);
          this.CloseInfo_Butn.TabIndex = 10;
@@ -716,94 +804,28 @@
          this.TextInfo_Txt.Location = new System.Drawing.Point(33, 3);
          this.TextInfo_Txt.Name = "TextInfo_Txt";
          this.TextInfo_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.TextInfo_Txt.Size = new System.Drawing.Size(694, 26);
+         this.TextInfo_Txt.Size = new System.Drawing.Size(1060, 26);
          this.TextInfo_Txt.TabIndex = 7;
          this.TextInfo_Txt.Text = "System is ready to do.";
          this.TextInfo_Txt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
-         // Redgate_Butn
+         // AnyDesk_Butn
          // 
-         this.Redgate_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Redgate_Butn.LargeImage")));
-         this.Redgate_Butn.Name = "Redgate_Butn";
-         this.Redgate_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Redgate_Butn.SmallImage")));
-         this.Redgate_Butn.Text = "Redgate Tools";
-         this.Redgate_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.Redgate_Butn.Click += new System.EventHandler(this.Redgate_Butn_Click);
+         this.AnyDesk_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("AnyDesk_Butn.LargeImage")));
+         this.AnyDesk_Butn.Name = "AnyDesk_Butn";
+         this.AnyDesk_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("AnyDesk_Butn.SmallImage")));
+         this.AnyDesk_Butn.Text = "Anydesk ( # )";
+         this.AnyDesk_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.AnyDesk_Butn.Click += new System.EventHandler(this.AnyDesk_Butn_Click);
          // 
-         // ribbonGroup7
+         // ribbonButton1
          // 
-         this.ribbonGroup7.Items.Add(this.Shutdown_Butn);
-         this.ribbonGroup7.Name = "ribbonGroup7";
-         this.ribbonGroup7.Text = "Exit";
-         // 
-         // Shutdown_Butn
-         // 
-         this.Shutdown_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn.LargeImage")));
-         this.Shutdown_Butn.Name = "Shutdown_Butn";
-         this.Shutdown_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn.SmallImage")));
-         this.Shutdown_Butn.Text = "Shutdown";
-         this.Shutdown_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.Shutdown_Butn.Click += new System.EventHandler(this.Shutdown_Butn_Click);
-         // 
-         // ribbonGroup17
-         // 
-         this.ribbonGroup17.Items.Add(this.IntegrayionSystems_Butn);
-         this.ribbonGroup17.Name = "ribbonGroup17";
-         this.ribbonGroup17.Text = "Finalization";
-         // 
-         // IntegrayionSystems_Butn
-         // 
-         this.IntegrayionSystems_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.LargeImage")));
-         this.IntegrayionSystems_Butn.Name = "IntegrayionSystems_Butn";
-         this.IntegrayionSystems_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.SmallImage")));
-         this.IntegrayionSystems_Butn.Text = "Integration Systems";
-         this.IntegrayionSystems_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.IntegrayionSystems_Butn.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
-         // 
-         // ribbonGroup161
-         // 
-         this.ribbonGroup161.Items.Add(this.UsersRole_Butn1);
-         this.ribbonGroup161.Name = "ribbonGroup161";
-         this.ribbonGroup161.Text = "Create User && Roles";
-         // 
-         // UsersRole_Butn1
-         // 
-         this.UsersRole_Butn1.LargeImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn1.LargeImage")));
-         this.UsersRole_Butn1.Name = "UsersRole_Butn1";
-         this.UsersRole_Butn1.SmallImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn1.SmallImage")));
-         this.UsersRole_Butn1.Text = "User && Role";
-         this.UsersRole_Butn1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.UsersRole_Butn1.Click += new System.EventHandler(this.UsersRole_Butn_Click);
-         // 
-         // ribbonGroup171
-         // 
-         this.ribbonGroup171.Items.Add(this.ribbonButton11);
-         this.ribbonGroup171.Name = "ribbonGroup171";
-         this.ribbonGroup171.Text = "Finalization";
-         // 
-         // ribbonButton11
-         // 
-         this.ribbonButton11.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.LargeImage")));
-         this.ribbonButton11.Name = "ribbonButton11";
-         this.ribbonButton11.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.SmallImage")));
-         this.ribbonButton11.Text = "Integration Systems";
-         this.ribbonButton11.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.ribbonButton11.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
-         // 
-         // ribbonGroup71
-         // 
-         this.ribbonGroup71.Items.Add(this.Shutdown_Butn1);
-         this.ribbonGroup71.Name = "ribbonGroup71";
-         this.ribbonGroup71.Text = "Exit";
-         // 
-         // Shutdown_Butn1
-         // 
-         this.Shutdown_Butn1.LargeImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn1.LargeImage")));
-         this.Shutdown_Butn1.Name = "Shutdown_Butn1";
-         this.Shutdown_Butn1.SmallImage = ((System.Drawing.Image)(resources.GetObject("Shutdown_Butn1.SmallImage")));
-         this.Shutdown_Butn1.Text = "Shutdown";
-         this.Shutdown_Butn1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.Shutdown_Butn1.Click += new System.EventHandler(this.Shutdown_Butn_Click);
+         this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
+         this.ribbonButton1.Name = "ribbonButton1";
+         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+         this.ribbonButton1.Text = "AnyDesk ( # )";
+         this.ribbonButton1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ribbonButton1.Click += new System.EventHandler(this.AnyDesk_Butn_Click);
          // 
          // FRST_PAGE_F
          // 
@@ -814,7 +836,7 @@
          this.Controls.Add(this.Menu_Rbn);
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(766, 432);
+         this.Size = new System.Drawing.Size(1132, 432);
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          this.ShowInfo_Pn.ResumeLayout(false);
          this.ResumeLayout(false);
@@ -908,6 +930,8 @@
       private C1.Win.C1Ribbon.RibbonButton ribbonButton11;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup71;
       private C1.Win.C1Ribbon.RibbonButton Shutdown_Butn1;
+      private C1.Win.C1Ribbon.RibbonButton AnyDesk_Butn;
+      private C1.Win.C1Ribbon.RibbonButton ribbonButton1;
 
    }
 }

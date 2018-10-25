@@ -41,7 +41,6 @@ namespace System.Setup.Ui.LTR.MasterPage
                //sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\32\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
                Process.Start(sqlserverpath);
             }
-
          }
          catch (Exception exc)
          {
@@ -95,7 +94,7 @@ namespace System.Setup.Ui.LTR.MasterPage
                   IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\system32\") + new IO.FileInfo(dllfile).Name, true);
                }
                Process.Start(sdkpath + "\\Just32bit_register_SDK.bat");
-            }
+            }            
          }
          catch (Exception exc)
          {
@@ -156,6 +155,22 @@ namespace System.Setup.Ui.LTR.MasterPage
       private void IntegrayionSystems_Butn_Click(object sender, EventArgs e)
       {
 
+      }
+
+      private void AnyDesk_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
+            var redgatepath = parentpath.FullName + "\\tools\\remote\\AnyDesk.exe";
+
+            Process.Start(redgatepath);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

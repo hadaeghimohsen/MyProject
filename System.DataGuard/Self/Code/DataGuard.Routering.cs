@@ -128,6 +128,9 @@ namespace System.DataGuard.Self.Code
             case 31:
                DoWork4GetComputerName(job);
                break;
+            case 32:
+               DoWork4CheckInstallTinyLock(job);
+               break;
             default:
                break;
          }

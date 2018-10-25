@@ -185,11 +185,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Ui\LTR\License\CHK_TINY_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\LTR\License\CHK_TINY_F.Designer.cs">
+      <DependentUpon>CHK_TINY_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\LTR\License\CHK_LICN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\LTR\License\CHK_LICN_F.Designer.cs">
       <DependentUpon>CHK_LICN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\LTR\License\CHK_TINY_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\LTR\License\CHK_LICN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -216,7 +225,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="ExtCode\" />
-    <Folder Include="Ui\LTR\Client\" />
     <Folder Include="Ui\RTL\" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +242,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\LTR\License\CHK_TINY_F.resx">
+      <DependentUpon>CHK_TINY_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\LTR\License\CHK_LICN_F.resx">
       <DependentUpon>CHK_LICN_F.cs</DependentUpon>

@@ -42,6 +42,9 @@ namespace System.Setup.Code
             case 04:
                Sql_Conf_F(job);
                break;
+            case 05:
+               Chk_Tiny_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -63,6 +66,9 @@ namespace System.Setup.Code
                break;
             case "SQL_CONF_F":
                _Sql_Conf_F.SendRequest(job);
+               break;
+            case "CHK_TINY_F":
+               _Chk_Tiny_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

@@ -926,5 +926,96 @@ namespace System.DataGuard.Self.Code
          job.Status = StatusType.Successful;
       }
 
+      /// <summary>
+      /// Code 32
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4CheckInstallTinyLock(Job job)
+      {
+         try
+         {
+            #region DeHashCode
+            var _jobkey =
+                     new Job(SendType.External, "Localhost", "DataGuard", 08 /* Execute DoWork4UnSecureHashCode */, SendType.Self) { Input = key };
+            _DefaultGateway.Gateway(
+               _jobkey
+            );
+
+            var _jobStrSafeKey1 =
+                     new Job(SendType.External, "Localhost", "DataGuard", 08 /* Execute DoWork4UnSecureHashCode */, SendType.Self) { Input = strSafeKey1 };
+            _DefaultGateway.Gateway(
+               _jobStrSafeKey1
+            );
+
+            var _jobStrSafeKey2 =
+                     new Job(SendType.External, "Localhost", "DataGuard", 08 /* Execute DoWork4UnSecureHashCode */, SendType.Self) { Input = strSafeKey2 };
+            _DefaultGateway.Gateway(
+               _jobStrSafeKey2
+            );
+            #endregion
+
+            TINYLib.TinyPlusCtrl tinyPlusCntl = new TINYLib.TinyPlusCtrl();
+            if (tinyPlusCntl.FindFirstTPlus(_jobkey.Output.ToString(), _jobStrSafeKey1.Output.ToString(), _jobStrSafeKey2.Output.ToString()) == 0)
+            {
+               int rnd = new Random().Next(5000);
+               int mainrnd = DateTime.Now.Millisecond + rnd;
+
+               if (mainrnd >= 5000)
+                  mainrnd /= 3;
+               if (tinyPlusCntl.GetTPlusQuery(ArrRequest[mainrnd]) == ArrResponse[mainrnd])
+               {
+                  string serialtiny = tinyPlusCntl.GetTPlusData(TINYLib.EnumTPlusData.TPLUS_DATAPARTITION);
+                  //GetUi(null);
+                  var serialdb = job.Input.ToString();//iProject.GETDATA(new XElement("Request", new XAttribute("code", "001")));
+
+                  var _jobHashCode =
+                     new Job(SendType.External, "Localhost", "DataGuard", 06 /* Execute DoWork4HashCode */, SendType.Self) { Input = serialdb };
+                  _DefaultGateway.Gateway(
+                     _jobHashCode
+                  );
+
+                  if (serialtiny.Trim() != _jobHashCode.Output.ToString().Trim())
+                     job.Output =
+                        new XElement("TL",
+                           new XAttribute("stat", "001"),
+                           new XAttribute("erorcode", "900002"),
+                           "ؿِزؼْ+ؾؼۗزُ+ٌٍُ+ِطزؽ+ِّۗ+سزؿغ,"
+                        );
+               }
+               else
+               {
+                  job.Output =
+                     new XElement("TL",
+                        new XAttribute("stat", "001"),
+                        new XAttribute("erorcode", "900003"),
+                        "ٌٍُ+ؾعص+زٌؽزؼۗ+ۗزٌص+ّؿغ,"
+                     );
+               }
+            }
+            else
+            {
+               job.Output =
+                     new XElement("TL",
+                        new XAttribute("stat", "001"),
+                        new XAttribute("erorcode", "900003"),
+                        "ٌٍُ+ؾعص+زٌؽزؼۗ+ۗزٌص+ّؿغ,"
+                     );
+            }
+         }
+         catch (Exception)
+         {
+            job.Output =
+                  new XElement("TL",
+                     new XAttribute("stat", "001"),
+                     new XAttribute("erorcode", "900001"),
+                     "سؼؼؾۗ+ٌٍُ+سز+عقز+ِٓزطْ+ؿغ,"
+                  );
+         }
+         finally
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
    }
 }

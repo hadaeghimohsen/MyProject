@@ -31,6 +31,11 @@ namespace System.Setup.Code
             if (_Sql_Conf_F == null)
                _Sql_Conf_F = new Ui.LTR.Server.SQL_CONF_F { _DefaultGateway = this };
          }
+         else if (value == "chk_tiny_f")
+         {
+            if (_Chk_Tiny_F == null)
+               _Chk_Tiny_F = new Ui.LTR.License.CHK_TINY_F { _DefaultGateway = this };
+         }
          
          job.Status = StatusType.Successful;
       }
@@ -99,6 +104,30 @@ namespace System.Setup.Code
                   new Job(SendType.SelfToUserInterface, "SQL_CONF_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "SQL_CONF_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "SQL_CONF_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 05
+      /// </summary>
+      /// <param name="job"></param>
+      private void Chk_Tiny_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "chk_tiny_f"},
+                  new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 03 /* Execute Paint */),                  
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

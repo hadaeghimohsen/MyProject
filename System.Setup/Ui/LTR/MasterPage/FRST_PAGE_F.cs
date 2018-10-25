@@ -31,13 +31,13 @@ namespace System.Setup.Ui.LTR.MasterPage
             var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
             if (Environment.Is64BitOperatingSystem)
             {
-               var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\64bit\\SQLEXPRWT_x64_ENU.exe";
+               var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\SQLEXPRWT_x64_ENU.exe";
                //sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\64\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
                Process.Start(sqlserverpath);
             }
             else
             {
-               var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\32bit\\SQLEXPRWT_x64_ENU.exe";
+               var sqlserverpath = parentpath.FullName + "\\tools\\sqlserver\\SQLEXPRWT_x86_ENU.exe";
                //sqlserverpath = @"D:\iData\Utility\MicrosoftComponents\Sql Server Collection\Express\32\setup.exe /CONFIGURATIONFILE=ConfigurationFile.ini";
                Process.Start(sqlserverpath);
             }

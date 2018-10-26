@@ -45,6 +45,7 @@
          this.UsersRole_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup17 = new C1.Win.C1Ribbon.RibbonGroup();
          this.IntegrayionSystems_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.AnyDesk_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
          this.Shutdown_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
@@ -56,6 +57,7 @@
          this.UsersRole_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup171 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton11 = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup71 = new C1.Win.C1Ribbon.RibbonGroup();
          this.Shutdown_Butn1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
@@ -113,8 +115,6 @@
          this.ShowInfo_Pn = new System.Windows.Forms.Panel();
          this.CloseInfo_Butn = new System.Windows.Forms.Button();
          this.TextInfo_Txt = new System.Windows.Forms.Label();
-         this.AnyDesk_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.ShowInfo_Pn.SuspendLayout();
          this.SuspendLayout();
@@ -240,7 +240,7 @@
          this.UsersRole_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn.LargeImage")));
          this.UsersRole_Butn.Name = "UsersRole_Butn";
          this.UsersRole_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("UsersRole_Butn.SmallImage")));
-         this.UsersRole_Butn.Text = "User && Role ( 5 )";
+         this.UsersRole_Butn.Text = "User && Role ( 4 )";
          this.UsersRole_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.UsersRole_Butn.Click += new System.EventHandler(this.UsersRole_Butn_Click);
          // 
@@ -256,9 +256,18 @@
          this.IntegrayionSystems_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.LargeImage")));
          this.IntegrayionSystems_Butn.Name = "IntegrayionSystems_Butn";
          this.IntegrayionSystems_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("IntegrayionSystems_Butn.SmallImage")));
-         this.IntegrayionSystems_Butn.Text = "Integration Systems ( 6 )";
+         this.IntegrayionSystems_Butn.Text = "Integration Systems ( 5 )";
          this.IntegrayionSystems_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.IntegrayionSystems_Butn.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
+         // 
+         // AnyDesk_Butn
+         // 
+         this.AnyDesk_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("AnyDesk_Butn.LargeImage")));
+         this.AnyDesk_Butn.Name = "AnyDesk_Butn";
+         this.AnyDesk_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("AnyDesk_Butn.SmallImage")));
+         this.AnyDesk_Butn.Text = "Anydesk ( # )";
+         this.AnyDesk_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.AnyDesk_Butn.Click += new System.EventHandler(this.AnyDesk_Butn_Click);
          // 
          // ribbonGroup7
          // 
@@ -345,6 +354,15 @@
          this.ribbonButton11.Text = "Integration Systems ( 4 )";
          this.ribbonButton11.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
          this.ribbonButton11.Click += new System.EventHandler(this.IntegrayionSystems_Butn_Click);
+         // 
+         // ribbonButton1
+         // 
+         this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
+         this.ribbonButton1.Name = "ribbonButton1";
+         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+         this.ribbonButton1.Text = "AnyDesk ( # )";
+         this.ribbonButton1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
+         this.ribbonButton1.Click += new System.EventHandler(this.AnyDesk_Butn_Click);
          // 
          // ribbonGroup71
          // 
@@ -808,24 +826,6 @@
          this.TextInfo_Txt.TabIndex = 7;
          this.TextInfo_Txt.Text = "System is ready to do.";
          this.TextInfo_Txt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
-         // AnyDesk_Butn
-         // 
-         this.AnyDesk_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("AnyDesk_Butn.LargeImage")));
-         this.AnyDesk_Butn.Name = "AnyDesk_Butn";
-         this.AnyDesk_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("AnyDesk_Butn.SmallImage")));
-         this.AnyDesk_Butn.Text = "Anydesk ( # )";
-         this.AnyDesk_Butn.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.AnyDesk_Butn.Click += new System.EventHandler(this.AnyDesk_Butn_Click);
-         // 
-         // ribbonButton1
-         // 
-         this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
-         this.ribbonButton1.Name = "ribbonButton1";
-         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-         this.ribbonButton1.Text = "AnyDesk ( # )";
-         this.ribbonButton1.TextImageRelation = C1.Win.C1Ribbon.TextImageRelation.ImageAboveText;
-         this.ribbonButton1.Click += new System.EventHandler(this.AnyDesk_Butn_Click);
          // 
          // FRST_PAGE_F
          // 

@@ -88,25 +88,7 @@ namespace System.Setup.Ui.LTR.License
       /// </summary>
       /// <param name="job"></param>
       private void Set(Job job)
-      {
-         _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.External, "DefaultGateway",
-                        new List<Job>
-                        {
-                           new Job(SendType.External, "DataGuard", 
-                              new List<Job>
-                              {
-                                 new Job(SendType.Self, 31 /* Execute DoWork4GetComputerName */ ){AfterChangedOutput = new Action<object>((output) => TinySNInstaller_Txt.Text = output.ToString() )},
-                              }
-                           )                           
-                        }
-                     )
-                  }
-               )
-            );
+      {         
          job.Status = StatusType.Successful;
       }
 
@@ -166,64 +148,7 @@ namespace System.Setup.Ui.LTR.License
       /// </summary>
       /// <param name="job"></param>
       private void ActionCallWindow(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if(xinput != null)
-         {
-            if(xinput.Attribute("type") != null)
-            {
-               var subsys = xinput.Attribute("subsys").Value;
-               switch (xinput.Attribute("type").Value)
-               {
-                  case "install":
-                     switch (subsys)
-	                  {
-                        case "iproject":
-                           job.Output = 
-                              new XElement("License",
-                                 new XAttribute("status", Kernel1_Cb.Checked ? "valid" : "notvalid"),
-                                 new XAttribute("key", Kernel1_Cb.Checked ? ServerKey0_Text.Text : "")
-                              );
-                           break;
-                        case "iscsc":
-                           job.Output =
-                              new XElement("License",
-                                 new XAttribute("status", Arta1_Cb.Checked ? "valid" : "notvalid"),
-                                 new XAttribute("key", Arta1_Cb.Checked ? ServerKey0_Text.Text : "")
-                              );
-                           break;
-                        case "icrm":
-                           job.Output =
-                              new XElement("License",
-                                 new XAttribute("status", CRM1_Cb.Checked ? "valid" : "notvalid"),
-                                 new XAttribute("key", CRM1_Cb.Checked ? ServerKey0_Text.Text : "")
-                              );
-                           break;
-                        case "irobotech":
-                           job.Output =
-                              new XElement("License",
-                                 new XAttribute("status", Telegram1_Cb.Checked ? "valid" : "notvalid"),
-                                 new XAttribute("key", Telegram1_Cb.Checked ? ServerKey0_Text.Text : "")
-                              );
-                           break;
-                        default:
-                           job.Output =
-                              new XElement("License",
-                                 new XAttribute("status", "notvalid"),
-                                 new XAttribute("key", "")
-                              );
-                           break;
-	                  }
-                     break;
-                  case "update":
-                     break;
-                  case "remove":
-                     break;
-                  default:
-                     break;
-               }
-            }
-         }
+      {         
          job.Status = StatusType.Successful;
       }
    }

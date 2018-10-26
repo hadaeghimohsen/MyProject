@@ -40,8 +40,9 @@ namespace System.Setup.Ui.LTR.License
             var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
             var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
             var tinypath = parentpath.FullName + "\\tools\\tinysdk";
+            tinypath = @"D:\AnarSys\tools\tinysdk";
             if (Environment.Is64BitOperatingSystem)
-            {
+            {               
                foreach (var dllfile in IO.Directory.GetFiles(tinypath).Where(f => f.Contains(".ocx")))
                {
                   IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\syswow64\") + new IO.FileInfo(dllfile).Name, true);
@@ -65,7 +66,7 @@ namespace System.Setup.Ui.LTR.License
             if (_CheckInstallTinyLock.Output != null)
             {
                var _jobUnSecureHashCode =
-                  new Job(SendType.External, "Localhost", "", 08 /* Execute DoWork4UnSecureHashCode  */, SendType.Self) { Input = (_CheckInstallTinyLock.Output as XElement).Value };
+                  new Job(SendType.External, "Localhost", "DefaultGateway:DataGuard", 08 /* Execute DoWork4UnSecureHashCode  */, SendType.Self) { Input = (_CheckInstallTinyLock.Output as XElement).Value };
                _DefaultGateway.Gateway(_jobUnSecureHashCode);
                MessageBox.Show(_jobUnSecureHashCode.Output.ToString());
             }

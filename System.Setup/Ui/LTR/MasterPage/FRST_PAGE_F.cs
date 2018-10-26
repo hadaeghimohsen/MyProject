@@ -154,7 +154,30 @@ namespace System.Setup.Ui.LTR.MasterPage
 
       private void IntegrayionSystems_Butn_Click(object sender, EventArgs e)
       {
-
+         try
+         {
+            Job _IntegrationSystems = 
+               new Job(SendType.External, "localhost", "Commons", 04 /* Execute DoWork4Odbc */, SendType.Self)
+               {
+                  Input = new List<object>
+                     {
+                        false, // 0- Command requires validation
+                        "procedure", // 1- Store procedure or function or command text
+                        false, // 2- object value input parameter
+                        false, // 3- have result query
+                        "sql query", // 4- (DataSet) or (xml string) or (sql query)
+                        null, // 5- Dataset or xml string or sql query
+                        "{call integrationsystems}", // 6- Store Procedure or function name or command text
+                        "iProject", // 7 - Dsn Name
+                        "scott" // 8 - User Name
+                     }               
+               };
+            _DefaultGateway.Gateway(_IntegrationSystems);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
       private void AnyDesk_Butn_Click(object sender, EventArgs e)

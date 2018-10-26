@@ -15,8 +15,6 @@ using System.Xml.Linq;
 using System.IO;
 using System.Security.Cryptography;
 using System.Diagnostics;
-using Microsoft.SqlServer.Management.Smo;
-using Microsoft.SqlServer.Management.Common;
 using System.Collections.Specialized;  
 
 namespace System.Setup.Ui.LTR.Server
@@ -242,24 +240,24 @@ namespace System.Setup.Ui.LTR.Server
             if (DatabaseFiles_Lst.Items.Count == 0) { DatabaseFiles_Lst.Focus(); return; }
 
             // 1st Step * Attach Database File to Sql Server Instance
-            ServerConnection sc =
-               new ServerConnection(
-                     WinAuth_Rb.Checked ?
-                     new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
-                     :
-                     new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
-                  );
+            //ServerConnection sc =
+            //   new ServerConnection(
+            //         WinAuth_Rb.Checked ?
+            //         new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
+            //         :
+            //         new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
+            //      );
 
-            Microsoft.SqlServer.Management.Smo.Server iServer = 
-               new Microsoft.SqlServer.Management.Smo.Server(sc);
+            //Microsoft.SqlServer.Management.Smo.Server iServer = 
+            //   new Microsoft.SqlServer.Management.Smo.Server(sc);
 
-            sc.Connect();
+            //sc.Connect();
 
-            if (iServer.Databases.Contains(ChooseSubSys_Lov.SelectedItem.ToString())) { AttachRespons_Lb.Text = "Database is exists ready"; return; }
+            //if (iServer.Databases.Contains(ChooseSubSys_Lov.SelectedItem.ToString())) { AttachRespons_Lb.Text = "Database is exists ready"; return; }
 
-            StringCollection dbFilePath = new StringCollection();
-            dbFilePath.AddRange(DatabaseFiles_Lst.Items.OfType<string>().ToArray());
-            iServer.AttachDatabase(ChooseSubSys_Lov.SelectedItem.ToString(), dbFilePath);
+            //StringCollection dbFilePath = new StringCollection();
+            //dbFilePath.AddRange(DatabaseFiles_Lst.Items.OfType<string>().ToArray());
+            //iServer.AttachDatabase(ChooseSubSys_Lov.SelectedItem.ToString(), dbFilePath);
             AttachRespons_Lb.Text = "Attach database files successfully!";
          }
          catch (Exception exc)

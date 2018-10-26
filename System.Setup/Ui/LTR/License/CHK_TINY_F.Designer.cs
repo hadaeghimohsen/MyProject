@@ -35,11 +35,11 @@
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Tb_Master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
+         this.Connect_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Clear_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.TinySNInstaller_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-         this.Clear_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Connect_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -111,6 +111,39 @@
          this.tp_001.Text = "Installer Activation";
          this.tp_001.UseVisualStyleBackColor = true;
          // 
+         // Connect_Butn
+         // 
+         this.Connect_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Connect_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.Connect_Butn.Appearance.Options.UseFont = true;
+         this.Connect_Butn.Appearance.Options.UseForeColor = true;
+         this.Connect_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Connect_Butn.Location = new System.Drawing.Point(182, 80);
+         this.Connect_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Connect_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Connect_Butn.Name = "Connect_Butn";
+         this.Connect_Butn.Size = new System.Drawing.Size(86, 38);
+         this.Connect_Butn.TabIndex = 11;
+         this.Connect_Butn.Text = "Connect";
+         this.Connect_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.Connect_Butn.Click += new System.EventHandler(this.Connect_Butn_Click);
+         // 
+         // Clear_Butn
+         // 
+         this.Clear_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Clear_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.Clear_Butn.Appearance.Options.UseFont = true;
+         this.Clear_Butn.Appearance.Options.UseForeColor = true;
+         this.Clear_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Clear_Butn.Location = new System.Drawing.Point(466, 80);
+         this.Clear_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Clear_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Clear_Butn.Name = "Clear_Butn";
+         this.Clear_Butn.Size = new System.Drawing.Size(86, 38);
+         this.Clear_Butn.TabIndex = 10;
+         this.Clear_Butn.Text = "Clear";
+         this.Clear_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         // 
          // labelControl4
          // 
          this.labelControl4.Appearance.BackColor = System.Drawing.SystemColors.Info;
@@ -149,7 +182,6 @@
          this.TinySNInstaller_Txt.Properties.NullText = "---";
          this.TinySNInstaller_Txt.Properties.NullValuePrompt = "---";
          this.TinySNInstaller_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.TinySNInstaller_Txt.Properties.ReadOnly = true;
          this.TinySNInstaller_Txt.Size = new System.Drawing.Size(370, 26);
          this.TinySNInstaller_Txt.TabIndex = 0;
          // 
@@ -166,39 +198,6 @@
          this.labelControl8.Size = new System.Drawing.Size(137, 22);
          this.labelControl8.TabIndex = 3;
          this.labelControl8.Text = "Please Input Serial No";
-         // 
-         // Clear_Butn
-         // 
-         this.Clear_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Clear_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.Clear_Butn.Appearance.Options.UseFont = true;
-         this.Clear_Butn.Appearance.Options.UseForeColor = true;
-         this.Clear_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Clear_Butn.Location = new System.Drawing.Point(466, 80);
-         this.Clear_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Clear_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Clear_Butn.Name = "Clear_Butn";
-         this.Clear_Butn.Size = new System.Drawing.Size(86, 38);
-         this.Clear_Butn.TabIndex = 10;
-         this.Clear_Butn.Text = "Clear";
-         this.Clear_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         // 
-         // Connect_Butn
-         // 
-         this.Connect_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Connect_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.Connect_Butn.Appearance.Options.UseFont = true;
-         this.Connect_Butn.Appearance.Options.UseForeColor = true;
-         this.Connect_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Connect_Butn.Location = new System.Drawing.Point(182, 80);
-         this.Connect_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Connect_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Connect_Butn.Name = "Connect_Butn";
-         this.Connect_Butn.Size = new System.Drawing.Size(86, 38);
-         this.Connect_Butn.TabIndex = 11;
-         this.Connect_Butn.Text = "Connect";
-         this.Connect_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.Connect_Butn.Click += new System.EventHandler(this.Connect_Butn_Click);
          // 
          // CHK_TINY_F
          // 

@@ -75,7 +75,8 @@ namespace MyProject.Programs.Code
                         new List<Job>
                         {
                            //new Job(SendType.Self, 03 /* Execute Chk_Licn_F */)
-                           new Job(SendType.Self, 02 /* Execute Frst_Page_F */)
+                           //new Job(SendType.Self, 02 /* Execute Frst_Page_F */)
+                           new Job(SendType.Self, 05 /* Execute Chk_Tiny_F */)
                         }
                      ),
                      new Job(SendType.Self, 01 /* Execute Startup*/)

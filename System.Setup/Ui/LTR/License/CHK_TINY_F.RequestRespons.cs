@@ -148,7 +148,22 @@ namespace System.Setup.Ui.LTR.License
       /// </summary>
       /// <param name="job"></param>
       private void ActionCallWindow(Job job)
-      {         
+      {
+         var xinput = job.Input as XElement;
+         if(xinput != null)
+         {
+            if(xinput.Attribute("type") != null)
+            {
+               switch (xinput.Attribute("type").Value)
+               {
+                  case "get":
+                     job.Output = TinySNInstaller_Txt.Text;
+                     break;
+                  default:
+                     break;
+               }
+            }
+         }
          job.Status = StatusType.Successful;
       }
    }

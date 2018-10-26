@@ -181,6 +181,18 @@ namespace System.Setup.Ui.LTR.Server
                new Job(SendType.External, "localhost", "DefaultGateway:DataGuard", 04 /* Execute GetHostInfo */, SendType.Self);
             _DefaultGateway.Gateway(_hostInfo);
             
+            /// Check Tiny Plus Serial No
+            var _CheckTinyPlusSerialNoInstallation =
+               new Job(SendType.External, "localhost", "CHK_TINY_F", 10 /* Execute ActionCallWindow */, SendType.SelfToUserInterface) 
+               { 
+                  Input = 
+                     new XElement("TinyPlus",
+                        new XAttribute("type", "get")
+                     )
+               };
+            _DefaultGateway.Gateway(_CheckTinyPlusSerialNoInstallation);
+
+
             cmd.CommandText = "InstallDatabase";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(
@@ -189,6 +201,7 @@ namespace System.Setup.Ui.LTR.Server
                   Value = 
                      new XElement("Params",
                         new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
+                        new XAttribute("tinyserialno", _CheckTinyPlusSerialNoInstallation.Output.ToString()),
                         //new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
                         _hostInfo.Output as XElement                        
                      ).ToString()

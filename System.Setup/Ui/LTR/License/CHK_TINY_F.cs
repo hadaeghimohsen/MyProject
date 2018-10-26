@@ -40,7 +40,7 @@ namespace System.Setup.Ui.LTR.License
             var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
             var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
             var tinypath = parentpath.FullName + "\\tools\\tinysdk";
-            tinypath = @"D:\AnarSys\tools\tinysdk";
+            //tinypath = @"D:\AnarSys\tools\tinysdk";
             if (Environment.Is64BitOperatingSystem)
             {               
                foreach (var dllfile in IO.Directory.GetFiles(tinypath).Where(f => f.Contains(".ocx")))

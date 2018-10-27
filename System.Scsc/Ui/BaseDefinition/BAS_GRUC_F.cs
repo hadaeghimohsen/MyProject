@@ -96,7 +96,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   new XAttribute("type", "004"),
                   new XElement("FgaUClub",
                      new XAttribute("sysuser", Fga_Club.SYS_USER),
-                     new XAttribute("mstrsysuser", Fga_Club.MAST_SYS_USER),
+                     //new XAttribute("mstrsysuser", Fga_Club.MAST_SYS_USER),
                      new XAttribute("clubcode", Fga_Club.CLUB_CODE)
                   )
                )

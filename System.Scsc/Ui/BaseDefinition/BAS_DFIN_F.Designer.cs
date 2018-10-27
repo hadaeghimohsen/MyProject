@@ -1028,10 +1028,10 @@
          // 
          this.RqtpCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqtpCode_Lb.AutoSize = true;
-         this.RqtpCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RqtpCode_Lb.Location = new System.Drawing.Point(367, 101);
+         this.RqtpCode_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqtpCode_Lb.Location = new System.Drawing.Point(361, 103);
          this.RqtpCode_Lb.Name = "RqtpCode_Lb";
-         this.RqtpCode_Lb.Size = new System.Drawing.Size(66, 28);
+         this.RqtpCode_Lb.Size = new System.Drawing.Size(72, 24);
          this.RqtpCode_Lb.TabIndex = 52;
          this.RqtpCode_Lb.Text = "نوع تقاضا :";
          // 
@@ -1039,10 +1039,10 @@
          // 
          this.ExitName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ExitName_Lb.AutoSize = true;
-         this.ExitName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ExitName_Lb.Location = new System.Drawing.Point(367, 61);
+         this.ExitName_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ExitName_Lb.Location = new System.Drawing.Point(361, 63);
          this.ExitName_Lb.Name = "ExitName_Lb";
-         this.ExitName_Lb.Size = new System.Drawing.Size(58, 28);
+         this.ExitName_Lb.Size = new System.Drawing.Size(59, 24);
          this.ExitName_Lb.TabIndex = 54;
          this.ExitName_Lb.Text = "نام آیتم :";
          // 
@@ -1050,10 +1050,10 @@
          // 
          this.RqttCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqttCode_Lb.AutoSize = true;
-         this.RqttCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RqttCode_Lb.Location = new System.Drawing.Point(367, 141);
+         this.RqttCode_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqttCode_Lb.Location = new System.Drawing.Point(361, 143);
          this.RqttCode_Lb.Name = "RqttCode_Lb";
-         this.RqttCode_Lb.Size = new System.Drawing.Size(77, 28);
+         this.RqttCode_Lb.Size = new System.Drawing.Size(85, 24);
          this.RqttCode_Lb.TabIndex = 52;
          this.RqttCode_Lb.Text = "نوع متقاضی :";
          // 
@@ -1061,10 +1061,10 @@
          // 
          this.OExitName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.OExitName_Lb.AutoSize = true;
-         this.OExitName_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OExitName_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OExitName_Lb.Location = new System.Drawing.Point(395, 61);
          this.OExitName_Lb.Name = "OExitName_Lb";
-         this.OExitName_Lb.Size = new System.Drawing.Size(58, 28);
+         this.OExitName_Lb.Size = new System.Drawing.Size(59, 24);
          this.OExitName_Lb.TabIndex = 54;
          this.OExitName_Lb.Text = "نام آیتم :";
          // 
@@ -1091,7 +1091,7 @@
          // 
          // Tilt_Lb
          // 
-         this.Tilt_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Tilt_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Tilt_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1150;
          this.Tilt_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.Tilt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -2160,7 +2160,7 @@
          // OutCome_Lb
          // 
          this.OutCome_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.OutCome_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OutCome_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OutCome_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.OutCome_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.OutCome_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -2520,7 +2520,7 @@
          this.textEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.textEdit1.Properties.NullValuePrompt = "شرح آیتم درآمد";
          this.textEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit1.Size = new System.Drawing.Size(345, 34);
+         this.textEdit1.Size = new System.Drawing.Size(339, 34);
          this.textEdit1.TabIndex = 55;
          // 
          // lookUpEdit2
@@ -2559,7 +2559,7 @@
          this.lookUpEdit2.Properties.NullValuePrompt = "انتخاب آیتم درآمد برای نوع متقاضی";
          this.lookUpEdit2.Properties.NullValuePromptShowForEmptyValue = true;
          this.lookUpEdit2.Properties.ValueMember = "CODE";
-         this.lookUpEdit2.Size = new System.Drawing.Size(345, 34);
+         this.lookUpEdit2.Size = new System.Drawing.Size(339, 34);
          this.lookUpEdit2.TabIndex = 53;
          // 
          // RqttBs1
@@ -2605,7 +2605,7 @@
          this.lookUpEdit1.Properties.NullValuePrompt = "انتخاب آیتم درآمد برای نوع تقاضا";
          this.lookUpEdit1.Properties.NullValuePromptShowForEmptyValue = true;
          this.lookUpEdit1.Properties.ValueMember = "CODE";
-         this.lookUpEdit1.Size = new System.Drawing.Size(345, 34);
+         this.lookUpEdit1.Size = new System.Drawing.Size(339, 34);
          this.lookUpEdit1.TabIndex = 53;
          // 
          // RqtpBs1
@@ -2615,7 +2615,7 @@
          // InCome_Lb
          // 
          this.InCome_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.InCome_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.InCome_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.InCome_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.InCome_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.InCome_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -2630,7 +2630,7 @@
          // ExpnItemTitl_Lb
          // 
          this.ExpnItemTitl_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.ExpnItemTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ExpnItemTitl_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ExpnItemTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.ExpnItemTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.ExpnItemTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -3175,7 +3175,7 @@
          // Ctgy_Lb
          // 
          this.Ctgy_Lb.Appearance.BackColor = System.Drawing.Color.Yellow;
-         this.Ctgy_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Ctgy_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Ctgy_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.Ctgy_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Ctgy_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -3505,7 +3505,7 @@
          // Mtod_Lb
          // 
          this.Mtod_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.Mtod_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Mtod_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Mtod_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.Mtod_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.Mtod_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -3520,7 +3520,7 @@
          // MtodTitl_Lb
          // 
          this.MtodTitl_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.MtodTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.MtodTitl_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.MtodTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.MtodTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.MtodTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -3803,7 +3803,7 @@
          // RegnDesc_Lb
          // 
          this.RegnDesc_Lb.Appearance.BackColor = System.Drawing.Color.Red;
-         this.RegnDesc_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RegnDesc_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RegnDesc_Lb.Appearance.ForeColor = System.Drawing.Color.Black;
          this.RegnDesc_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.RegnDesc_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -4009,7 +4009,7 @@
          // PrvnDesc_Lb
          // 
          this.PrvnDesc_Lb.Appearance.BackColor = System.Drawing.Color.White;
-         this.PrvnDesc_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PrvnDesc_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.PrvnDesc_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.PrvnDesc_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.PrvnDesc_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -4202,7 +4202,7 @@
          // CntyDesc_Lb
          // 
          this.CntyDesc_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.CntyDesc_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CntyDesc_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CntyDesc_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.CntyDesc_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.CntyDesc_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -4217,7 +4217,7 @@
          // RegnTitl_Lb
          // 
          this.RegnTitl_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.RegnTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RegnTitl_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RegnTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.RegnTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.RegnTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -4251,7 +4251,7 @@
          this.DuplicateClass_Pn.Controls.Add(this.CnclDuplClas_Butn);
          this.DuplicateClass_Pn.Controls.Add(this.AcptDuplClass_Butn);
          this.DuplicateClass_Pn.Controls.Add(this.DupCoch_Lov);
-         this.DuplicateClass_Pn.Location = new System.Drawing.Point(58, 102);
+         this.DuplicateClass_Pn.Location = new System.Drawing.Point(58, 81);
          this.DuplicateClass_Pn.Name = "DuplicateClass_Pn";
          this.DuplicateClass_Pn.Size = new System.Drawing.Size(414, 37);
          this.DuplicateClass_Pn.TabIndex = 36;
@@ -5001,7 +5001,7 @@
          this.DuplicateClass_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DuplicateClass_Butn.Image")));
          this.DuplicateClass_Butn.ImageIndex = 2;
          this.DuplicateClass_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DuplicateClass_Butn.Location = new System.Drawing.Point(12, 102);
+         this.DuplicateClass_Butn.Location = new System.Drawing.Point(12, 81);
          this.DuplicateClass_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DuplicateClass_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DuplicateClass_Butn.Name = "DuplicateClass_Butn";
@@ -5015,14 +5015,14 @@
          this.splitContainerControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.splitContainerControl9.Location = new System.Drawing.Point(12, 144);
+         this.splitContainerControl9.Location = new System.Drawing.Point(12, 124);
          this.splitContainerControl9.Name = "splitContainerControl9";
          this.splitContainerControl9.Panel1.Controls.Add(this.gridControl10);
          this.splitContainerControl9.Panel1.Text = "Panel1";
          this.splitContainerControl9.Panel2.Controls.Add(this.gridControl8);
          this.splitContainerControl9.Panel2.Controls.Add(this.panel11);
          this.splitContainerControl9.Panel2.Text = "Panel2";
-         this.splitContainerControl9.Size = new System.Drawing.Size(905, 475);
+         this.splitContainerControl9.Size = new System.Drawing.Size(905, 495);
          this.splitContainerControl9.SplitterPosition = 151;
          this.splitContainerControl9.TabIndex = 20;
          this.splitContainerControl9.Text = "splitContainerControl9";
@@ -5036,7 +5036,7 @@
          this.gridControl10.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl10.MainView = this.gridView9;
          this.gridControl10.Name = "gridControl10";
-         this.gridControl10.Size = new System.Drawing.Size(151, 475);
+         this.gridControl10.Size = new System.Drawing.Size(151, 495);
          this.gridControl10.TabIndex = 12;
          this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
@@ -5521,7 +5521,7 @@
             this.repositoryItemLookUpEdit12,
             this.repositoryItemLookUpEdit13,
             this.repositoryItemButtonEdit1});
-         this.gridControl8.Size = new System.Drawing.Size(749, 432);
+         this.gridControl8.Size = new System.Drawing.Size(749, 452);
          this.gridControl8.TabIndex = 65;
          this.gridControl8.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CbmtCoch_Gv});
@@ -6087,7 +6087,7 @@
          // 
          this.NewCoach_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NewCoach_Butn.Appearance.BackColor = System.Drawing.Color.LightGreen;
-         this.NewCoach_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NewCoach_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.NewCoach_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.NewCoach_Butn.Appearance.Options.UseBackColor = true;
          this.NewCoach_Butn.Appearance.Options.UseFont = true;
@@ -6096,7 +6096,7 @@
          this.NewCoach_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.NewCoach_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1422;
          this.NewCoach_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.NewCoach_Butn.Location = new System.Drawing.Point(684, 102);
+         this.NewCoach_Butn.Location = new System.Drawing.Point(684, 81);
          this.NewCoach_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.NewCoach_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.NewCoach_Butn.Name = "NewCoach_Butn";
@@ -6108,15 +6108,15 @@
          // CochDesc1_Lb
          // 
          this.CochDesc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CochDesc1_Lb.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CochDesc1_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CochDesc1_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.CochDesc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.CochDesc1_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.CochDesc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.CochDesc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.CochDesc1_Lb.Location = new System.Drawing.Point(310, 42);
+         this.CochDesc1_Lb.Location = new System.Drawing.Point(283, 42);
          this.CochDesc1_Lb.Name = "CochDesc1_Lb";
-         this.CochDesc1_Lb.Size = new System.Drawing.Size(607, 54);
+         this.CochDesc1_Lb.Size = new System.Drawing.Size(634, 27);
          this.CochDesc1_Lb.TabIndex = 12;
          this.CochDesc1_Lb.Text = "ایجاد و نمونه برداری از سرپرستان برای سرپرست جدید که بتوانند در بخش ها برنامه های" +
     " گروه خود را ارائه کنند";
@@ -6124,7 +6124,7 @@
          // CochTitl_Lb
          // 
          this.CochTitl_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.CochTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CochTitl_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CochTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.CochTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.CochTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -7055,7 +7055,7 @@
          // 
          this.AddClub_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AddClub_Butn.Appearance.BackColor = System.Drawing.Color.LightGreen;
-         this.AddClub_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddClub_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.AddClub_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.AddClub_Butn.Appearance.Options.UseBackColor = true;
          this.AddClub_Butn.Appearance.Options.UseFont = true;
@@ -7076,7 +7076,7 @@
          // CbmtDesc_Lb
          // 
          this.CbmtDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CbmtDesc_Lb.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CbmtDesc_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CbmtDesc_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.CbmtDesc_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.CbmtDesc_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
@@ -7090,7 +7090,7 @@
          // CbmtTitl_Lb
          // 
          this.CbmtTitl_Lb.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.CbmtTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CbmtTitl_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CbmtTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.CbmtTitl_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.CbmtTitl_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;

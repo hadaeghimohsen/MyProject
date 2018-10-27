@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAccount));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -90,6 +90,8 @@
          this.ChangePassword_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.DuplicateUser_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
@@ -175,7 +177,7 @@
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(219, 706);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(219, 816);
          this.flowLayoutPanel1.TabIndex = 1;
          // 
          // MyUserAccount_Butn
@@ -254,7 +256,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(756, 706);
+         this.Tb_Master.Size = new System.Drawing.Size(756, 816);
          this.Tb_Master.TabIndex = 0;
          // 
          // tp_001
@@ -401,9 +403,11 @@
          this.tp_002.AutoScroll = true;
          this.tp_002.Controls.Add(this.JobSchedule_Lnk);
          this.tp_002.Controls.Add(this.MailServer_Lnk);
+         this.tp_002.Controls.Add(this.labelControl28);
          this.tp_002.Controls.Add(this.labelControl20);
          this.tp_002.Controls.Add(this.labelControl21);
          this.tp_002.Controls.Add(this.SendEmail_Butn);
+         this.tp_002.Controls.Add(this.DuplicateUser_Butn);
          this.tp_002.Controls.Add(this.OtherUsers_Butn);
          this.tp_002.Controls.Add(this.Ts_DefaultUserMailServer);
          this.tp_002.Controls.Add(this.Ts_ContactPublicStatus);
@@ -418,7 +422,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(748, 679);
+         this.tp_002.Size = new System.Drawing.Size(748, 789);
          this.tp_002.TabIndex = 1;
          this.tp_002.Tag = "2";
          this.tp_002.Text = "ایمیل / دیگر کاربران";
@@ -527,11 +531,11 @@
          this.OtherUsers_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.OtherUsers_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1433;
          this.OtherUsers_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OtherUsers_Butn.Location = new System.Drawing.Point(488, 565);
+         this.OtherUsers_Butn.Location = new System.Drawing.Point(464, 565);
          this.OtherUsers_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OtherUsers_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OtherUsers_Butn.Name = "OtherUsers_Butn";
-         this.OtherUsers_Butn.Size = new System.Drawing.Size(226, 38);
+         this.OtherUsers_Butn.Size = new System.Drawing.Size(250, 38);
          this.OtherUsers_Butn.TabIndex = 25;
          this.OtherUsers_Butn.Text = "اطلاعات دیگر کاربران";
          this.OtherUsers_Butn.Click += new System.EventHandler(this.OtherUsers_Butn_Click);
@@ -750,7 +754,7 @@
          this.buttonEdit2.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.buttonEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit2.Properties.NullValuePromptShowForEmptyValue = true;
@@ -783,7 +787,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
@@ -816,7 +820,7 @@
          this.UserName_Be.Properties.AppearanceFocused.Options.UseFont = true;
          this.UserName_Be.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.UserName_Be.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.UserName_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UserName_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UserName_Be.Properties.NullValuePromptShowForEmptyValue = true;
@@ -1098,10 +1102,48 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(980, 706);
+         this.splitContainerControl1.Size = new System.Drawing.Size(980, 816);
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
+         // 
+         // DuplicateUser_Butn
+         // 
+         this.DuplicateUser_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DuplicateUser_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.DuplicateUser_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DuplicateUser_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.DuplicateUser_Butn.Appearance.Options.UseBackColor = true;
+         this.DuplicateUser_Butn.Appearance.Options.UseFont = true;
+         this.DuplicateUser_Butn.Appearance.Options.UseForeColor = true;
+         this.DuplicateUser_Butn.Appearance.Options.UseTextOptions = true;
+         this.DuplicateUser_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.DuplicateUser_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1433;
+         this.DuplicateUser_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.DuplicateUser_Butn.Location = new System.Drawing.Point(464, 639);
+         this.DuplicateUser_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DuplicateUser_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DuplicateUser_Butn.Name = "DuplicateUser_Butn";
+         this.DuplicateUser_Butn.Size = new System.Drawing.Size(250, 38);
+         this.DuplicateUser_Butn.TabIndex = 25;
+         this.DuplicateUser_Butn.Text = "نمونه برداری برای کاربر جدید";
+         this.DuplicateUser_Butn.Click += new System.EventHandler(this.DuplicateUser_Butn_Click);
+         // 
+         // labelControl28
+         // 
+         this.labelControl28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl28.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl28.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl28.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl28.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl28.Location = new System.Drawing.Point(487, 609);
+         this.labelControl28.Name = "labelControl28";
+         this.labelControl28.Size = new System.Drawing.Size(227, 22);
+         this.labelControl28.TabIndex = 27;
+         this.labelControl28.Text = "ایجاد کاربری جدید با نمونه برداری از کاربر جاری";
          // 
          // SettingsAccount
          // 
@@ -1112,7 +1154,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SettingsAccount";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(980, 765);
+         this.Size = new System.Drawing.Size(980, 875);
          this.panel1.ResumeLayout(false);
          this.flowLayoutPanel1.ResumeLayout(false);
          this.Tb_Master.ResumeLayout(false);
@@ -1197,6 +1239,8 @@
       private DevExpress.XtraEditors.ToggleSwitch Ts_DefaultUserMailServer;
       private DevExpress.XtraEditors.LabelControl labelControl27;
       private DevExpress.XtraEditors.LabelControl labelControl26;
+      private DevExpress.XtraEditors.LabelControl labelControl28;
+      private DevExpress.XtraEditors.SimpleButton DuplicateUser_Butn;
 
    }
 }

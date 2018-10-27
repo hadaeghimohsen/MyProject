@@ -107,7 +107,6 @@
          this.ABS_MENU.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Near;
          this.ABS_MENU.Location = new System.Drawing.Point(5, 100);
          this.ABS_MENU.Name = "ABS_MENU";
-         this.ABS_MENU.Position = 148;
          this.ABS_MENU.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.ABS_MENU.ShowGroupText = true;
          this.ABS_MENU.ShowText = true;

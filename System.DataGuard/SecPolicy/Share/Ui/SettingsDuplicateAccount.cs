@@ -105,15 +105,20 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                )
             );
 
-            _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
-               new List<Job>
-               {
-                  //new Job(SendType.Self, 25 /* Execute DoWork4SettingsAccountChangePassword */),                  
-                  new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 10 /* Execute ActionCallWindows */)
-               }
-            )
-         );
+            try
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        //new Job(SendType.Self, 25 /* Execute DoWork4SettingsAccountChangePassword */),                  
+                        new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 10 /* Execute ActionCallWindows */)
+                     }
+                  )
+               );
+            }
+            catch { }
+
             Back_Butn_Click(null, null);
          }
          catch (Exception exc)

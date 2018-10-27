@@ -30,6 +30,7 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_ADCL_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -38,7 +39,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          this.CordX_Lb = new System.Windows.Forms.Label();
          this.CordY_Lb = new System.Windows.Forms.Label();
          this.TellPhon_Lb = new System.Windows.Forms.Label();
@@ -86,10 +86,10 @@
          // 
          this.CordX_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CordX_Lb.AutoSize = true;
-         this.CordX_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CordX_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CordX_Lb.Location = new System.Drawing.Point(489, 326);
          this.CordX_Lb.Name = "CordX_Lb";
-         this.CordX_Lb.Size = new System.Drawing.Size(89, 28);
+         this.CordX_Lb.Size = new System.Drawing.Size(95, 24);
          this.CordX_Lb.TabIndex = 55;
          this.CordX_Lb.Text = "مختصات افقی :";
          // 
@@ -97,10 +97,10 @@
          // 
          this.CordY_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CordY_Lb.AutoSize = true;
-         this.CordY_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CordY_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CordY_Lb.Location = new System.Drawing.Point(489, 362);
          this.CordY_Lb.Name = "CordY_Lb";
-         this.CordY_Lb.Size = new System.Drawing.Size(105, 28);
+         this.CordY_Lb.Size = new System.Drawing.Size(108, 24);
          this.CordY_Lb.TabIndex = 55;
          this.CordY_Lb.Text = "مختصات عمودی :";
          // 
@@ -108,10 +108,10 @@
          // 
          this.TellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Lb.AutoSize = true;
-         this.TellPhon_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TellPhon_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TellPhon_Lb.Location = new System.Drawing.Point(489, 521);
          this.TellPhon_Lb.Name = "TellPhon_Lb";
-         this.TellPhon_Lb.Size = new System.Drawing.Size(77, 28);
+         this.TellPhon_Lb.Size = new System.Drawing.Size(79, 24);
          this.TellPhon_Lb.TabIndex = 55;
          this.TellPhon_Lb.Text = "شماره تلفن :";
          // 
@@ -119,10 +119,10 @@
          // 
          this.WebSite_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.WebSite_Lb.AutoSize = true;
-         this.WebSite_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.WebSite_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.WebSite_Lb.Location = new System.Drawing.Point(489, 593);
          this.WebSite_Lb.Name = "WebSite_Lb";
-         this.WebSite_Lb.Size = new System.Drawing.Size(108, 28);
+         this.WebSite_Lb.Size = new System.Drawing.Size(107, 24);
          this.WebSite_Lb.TabIndex = 56;
          this.WebSite_Lb.Text = "آدرس وب سایت :";
          // 
@@ -130,10 +130,10 @@
          // 
          this.EmalAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EmalAdrs_Lb.AutoSize = true;
-         this.EmalAdrs_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.EmalAdrs_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.EmalAdrs_Lb.Location = new System.Drawing.Point(489, 628);
          this.EmalAdrs_Lb.Name = "EmalAdrs_Lb";
-         this.EmalAdrs_Lb.Size = new System.Drawing.Size(84, 28);
+         this.EmalAdrs_Lb.Size = new System.Drawing.Size(83, 24);
          this.EmalAdrs_Lb.TabIndex = 56;
          this.EmalAdrs_Lb.Text = "آدرس ایمیل :";
          // 
@@ -141,10 +141,10 @@
          // 
          this.PostAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PostAdrs_Lb.AutoSize = true;
-         this.PostAdrs_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PostAdrs_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.PostAdrs_Lb.Location = new System.Drawing.Point(489, 485);
          this.PostAdrs_Lb.Name = "PostAdrs_Lb";
-         this.PostAdrs_Lb.Size = new System.Drawing.Size(80, 28);
+         this.PostAdrs_Lb.Size = new System.Drawing.Size(79, 24);
          this.PostAdrs_Lb.TabIndex = 56;
          this.PostAdrs_Lb.Text = "آدرس محل :";
          // 
@@ -152,10 +152,10 @@
          // 
          this.Name_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Name_Lb.AutoSize = true;
-         this.Name_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Name_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name_Lb.Location = new System.Drawing.Point(489, 134);
          this.Name_Lb.Name = "Name_Lb";
-         this.Name_Lb.Size = new System.Drawing.Size(82, 28);
+         this.Name_Lb.Size = new System.Drawing.Size(84, 24);
          this.Name_Lb.TabIndex = 55;
          this.Name_Lb.Text = "عنوان شیفت :";
          // 
@@ -163,10 +163,10 @@
          // 
          this.RegnCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RegnCode_Lb.AutoSize = true;
-         this.RegnCode_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RegnCode_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RegnCode_Lb.Location = new System.Drawing.Point(489, 229);
          this.RegnCode_Lb.Name = "RegnCode_Lb";
-         this.RegnCode_Lb.Size = new System.Drawing.Size(83, 28);
+         this.RegnCode_Lb.Size = new System.Drawing.Size(89, 24);
          this.RegnCode_Lb.TabIndex = 54;
          this.RegnCode_Lb.Text = "انتخاب ناحیه :";
          // 
@@ -174,10 +174,10 @@
          // 
          this.CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Lb.AutoSize = true;
-         this.CellPhon_Lb.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CellPhon_Lb.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CellPhon_Lb.Location = new System.Drawing.Point(489, 557);
          this.CellPhon_Lb.Name = "CellPhon_Lb";
-         this.CellPhon_Lb.Size = new System.Drawing.Size(84, 28);
+         this.CellPhon_Lb.Size = new System.Drawing.Size(84, 24);
          this.CellPhon_Lb.TabIndex = 55;
          this.CellPhon_Lb.Text = "شماره همراه :";
          // 
@@ -193,7 +193,7 @@
          // 
          // Title_Lbl
          // 
-         this.Title_Lbl.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Title_Lbl.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Title_Lbl.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
          this.Title_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.Title_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -224,7 +224,7 @@
          // SubmitChange_Butn
          // 
          this.SubmitChange_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.SubmitChange_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SubmitChange_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SubmitChange_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
          this.SubmitChange_Butn.Appearance.Options.UseBackColor = true;
          this.SubmitChange_Butn.Appearance.Options.UseFont = true;
@@ -263,7 +263,7 @@
          this.ClubName_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.ClubName_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.ClubName_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ClubName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ClubName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
          this.ClubName_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ClubName_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ClubName_Text.Properties.NullValuePrompt = "عنوان شیفت";
@@ -280,7 +280,7 @@
          // 
          this.Desc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Desc1_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Desc1_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.Desc1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.Desc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -292,7 +292,7 @@
          this.Desc1_Lb.Size = new System.Drawing.Size(538, 46);
          this.Desc1_Lb.TabIndex = 18;
          this.Desc1_Lb.Text = "اگر باشگاه شما شامل قسمت صبح و عصر یا خانم ها و آقایان هست می توانید شیفت مربوطه " +
-    "را ایجاد کنید و برنامه های کلاسی مربوط به هر شیفت را ایجاد کنید.";
+    "را ایجاد کنید و برنامه های کلاسی مربوط به هر شیفت را ایجاد کنید";
          // 
          // PostAddress_Text
          // 
@@ -317,7 +317,7 @@
          this.PostAddress_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.PostAddress_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.PostAddress_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PostAddress_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PostAddress_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.PostAddress_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PostAddress_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PostAddress_Text.Properties.NullValuePrompt = "آدرس محل شیفت باشگاه";
@@ -348,7 +348,7 @@
          this.Regn_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Regn_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Regn_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.Regn_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRVN_CNTY_CODE", "PRVN_CNTY_CODE", 135, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRVN_CODE", "PRVN_CODE", 82, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -379,7 +379,7 @@
          // 
          this.Desc2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Desc2_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Desc2_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc2_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Desc2_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
          this.Desc2_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1366;
          this.Desc2_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -435,7 +435,7 @@
          this.CordX_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CordX_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CordX_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CordX_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CordX_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.CordX_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CordX_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CordX_Text.Properties.NullValuePrompt = "مختصات افقی";
@@ -467,7 +467,7 @@
          this.CordY_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CordY_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CordY_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CordY_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CordY_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.CordY_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CordY_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CordY_Text.Properties.NullValuePrompt = "مختصات عمودی";
@@ -480,7 +480,7 @@
          // 
          this.Desc3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Desc3_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Desc3_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc3_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Desc3_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
          this.Desc3_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1503;
          this.Desc3_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -488,9 +488,9 @@
          this.Desc3_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc3_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc3_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc3_Lb.Location = new System.Drawing.Point(92, 266);
+         this.Desc3_Lb.Location = new System.Drawing.Point(65, 266);
          this.Desc3_Lb.Name = "Desc3_Lb";
-         this.Desc3_Lb.Size = new System.Drawing.Size(453, 52);
+         this.Desc3_Lb.Size = new System.Drawing.Size(480, 52);
          this.Desc3_Lb.TabIndex = 18;
          this.Desc3_Lb.Text = "این گزینه برای آن دسته از کسانی می باشد که نرم افزار باشگاه خود را به نرم افزار ه" +
     "وشمند تلگرامی متصل کرده و مشتری خود را از طریق گوشی دنبال می کنند";
@@ -518,7 +518,7 @@
          this.TellPhon_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.TellPhon_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.TellPhon_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("TellPhon_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("TellPhon_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.TellPhon_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TellPhon_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TellPhon_Text.Properties.NullValuePrompt = "شماره تلفن";
@@ -550,7 +550,7 @@
          this.CellPhon_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CellPhon_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CellPhon_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CellPhon_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CellPhon_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.CellPhon_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CellPhon_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CellPhon_Text.Properties.NullValuePrompt = "شماره همراه";
@@ -563,7 +563,7 @@
          // 
          this.Desc4_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Desc4_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Desc4_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc4_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Desc4_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
          this.Desc4_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1153;
          this.Desc4_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -601,7 +601,7 @@
          this.WebSite_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.WebSite_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.WebSite_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("WebSite_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("WebSite_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.WebSite_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.WebSite_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.WebSite_Text.Properties.NullValuePrompt = "آدرس وب سایت";
@@ -633,7 +633,7 @@
          this.EmailAddress_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.EmailAddress_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.EmailAddress_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EmailAddress_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EmailAddress_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.EmailAddress_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.EmailAddress_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.EmailAddress_Text.Properties.NullValuePrompt = "آدرس ایمیل";

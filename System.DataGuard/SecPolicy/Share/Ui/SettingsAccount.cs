@@ -368,5 +368,21 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
          user.DFLT_USER_HELP_SRVR = ts.IsOn ? "002" : "001";
       }
+
+      private void DuplicateUser_Butn_Click(object sender, EventArgs e)
+      {
+         var user = UserBs.Current as Data.User;
+         if (user == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 28 /* Execute DoWork4SettingsDuplicateAccount */),
+                  new Job(SendType.SelfToUserInterface, "SettingsDuplicateAccount", 10 /* Execute ActionCallWindow */){Input = user}
+               }
+            )
+         );
+      }
    }
 }

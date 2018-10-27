@@ -87,7 +87,7 @@
          // 
          // AcesUserClubTitl_Lb
          // 
-         this.AcesUserClubTitl_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AcesUserClubTitl_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.AcesUserClubTitl_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.AcesUserClubTitl_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("AcesUserClubTitl_Lb.Appearance.Image")));
          this.AcesUserClubTitl_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,7 +119,7 @@
          // GrantUserToClub_Butn
          // 
          this.GrantUserToClub_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-         this.GrantUserToClub_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GrantUserToClub_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.GrantUserToClub_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
          this.GrantUserToClub_Butn.Appearance.Options.UseBackColor = true;
          this.GrantUserToClub_Butn.Appearance.Options.UseFont = true;
@@ -140,7 +140,7 @@
          // 
          this.Desc1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Desc1_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Desc1_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Desc1_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.Desc1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.Desc1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -202,7 +202,7 @@
          this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView2.Appearance.Row.Options.UseFont = true;
          this.gridView2.Appearance.Row.Options.UseTextOptions = true;
          this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -311,7 +311,7 @@
          // ClubName_Lb
          // 
          this.ClubName_Lb.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.ClubName_Lb.Appearance.Font = new System.Drawing.Font("B Mitra", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ClubName_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ClubName_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.ClubName_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1122;
          this.ClubName_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -328,7 +328,7 @@
          // RevokeUserFromClub_Butn
          // 
          this.RevokeUserFromClub_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-         this.RevokeUserFromClub_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RevokeUserFromClub_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RevokeUserFromClub_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
          this.RevokeUserFromClub_Butn.Appearance.Options.UseBackColor = true;
          this.RevokeUserFromClub_Butn.Appearance.Options.UseFont = true;
@@ -365,7 +365,7 @@
          this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.gridView1.Appearance.Row.Options.UseFont = true;
          this.gridView1.Appearance.Row.Options.UseTextOptions = true;
          this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -410,7 +410,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.SystemColors.ControlLight;
+         this.BackColor = System.Drawing.SystemColors.Control;
          this.Controls.Add(this.splitContainerControl1);
          this.Controls.Add(this.Desc1_Lb);
          this.Controls.Add(this.panel1);

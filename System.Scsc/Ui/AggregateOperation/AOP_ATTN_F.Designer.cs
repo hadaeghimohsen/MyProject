@@ -427,7 +427,7 @@
          // 
          RegnCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          RegnCode_Lb.AutoSize = true;
-         RegnCode_Lb.Location = new System.Drawing.Point(218, 55);
+         RegnCode_Lb.Location = new System.Drawing.Point(303, 55);
          RegnCode_Lb.Name = "RegnCode_Lb";
          RegnCode_Lb.Size = new System.Drawing.Size(58, 14);
          RegnCode_Lb.TabIndex = 0;
@@ -455,7 +455,7 @@
          // 
          CtgyCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          CtgyCode_Lb.AutoSize = true;
-         CtgyCode_Lb.Location = new System.Drawing.Point(218, 83);
+         CtgyCode_Lb.Location = new System.Drawing.Point(303, 83);
          CtgyCode_Lb.Name = "CtgyCode_Lb";
          CtgyCode_Lb.Size = new System.Drawing.Size(83, 14);
          CtgyCode_Lb.TabIndex = 6;
@@ -465,7 +465,7 @@
          // 
          Coch_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          Coch_Lb.AutoSize = true;
-         Coch_Lb.Location = new System.Drawing.Point(218, 111);
+         Coch_Lb.Location = new System.Drawing.Point(303, 111);
          Coch_Lb.Name = "Coch_Lb";
          Coch_Lb.Size = new System.Drawing.Size(41, 14);
          Coch_Lb.TabIndex = 8;
@@ -475,7 +475,7 @@
          // 
          CbmtCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          CbmtCode_Lb.AutoSize = true;
-         CbmtCode_Lb.Location = new System.Drawing.Point(218, 138);
+         CbmtCode_Lb.Location = new System.Drawing.Point(303, 138);
          CbmtCode_Lb.Name = "CbmtCode_Lb";
          CbmtCode_Lb.Size = new System.Drawing.Size(92, 14);
          CbmtCode_Lb.TabIndex = 10;
@@ -485,7 +485,7 @@
          // 
          AttnDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          AttnDate_Lb.AutoSize = true;
-         AttnDate_Lb.Location = new System.Drawing.Point(218, 167);
+         AttnDate_Lb.Location = new System.Drawing.Point(303, 167);
          AttnDate_Lb.Name = "AttnDate_Lb";
          AttnDate_Lb.Size = new System.Drawing.Size(37, 14);
          AttnDate_Lb.TabIndex = 33;
@@ -495,7 +495,7 @@
          // 
          AttnByOthrCoch_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          AttnByOthrCoch_Lb.AutoSize = true;
-         AttnByOthrCoch_Lb.Location = new System.Drawing.Point(218, 275);
+         AttnByOthrCoch_Lb.Location = new System.Drawing.Point(303, 275);
          AttnByOthrCoch_Lb.Name = "AttnByOthrCoch_Lb";
          AttnByOthrCoch_Lb.Size = new System.Drawing.Size(92, 14);
          AttnByOthrCoch_Lb.TabIndex = 8;
@@ -541,7 +541,7 @@
          this.Master_Tc.Name = "Master_Tc";
          this.Master_Tc.RightToLeftLayout = true;
          this.Master_Tc.SelectedIndex = 0;
-         this.Master_Tc.Size = new System.Drawing.Size(812, 479);
+         this.Master_Tc.Size = new System.Drawing.Size(1008, 479);
          this.Master_Tc.TabIndex = 0;
          // 
          // tabPage1
@@ -551,7 +551,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(804, 452);
+         this.tabPage1.Size = new System.Drawing.Size(1000, 452);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "پارامتر عملیات حضور و غیاب مشترییان";
          // 
@@ -570,8 +570,8 @@
          // 
          this.splitContainer1.Panel2.Controls.Add(this.Result_Gb);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.splitContainer1.Size = new System.Drawing.Size(798, 446);
-         this.splitContainer1.SplitterDistance = 350;
+         this.splitContainer1.Size = new System.Drawing.Size(994, 446);
+         this.splitContainer1.SplitterDistance = 435;
          this.splitContainer1.TabIndex = 0;
          // 
          // InfoParm_Gb
@@ -606,7 +606,7 @@
          this.InfoParm_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.InfoParm_Gb.Location = new System.Drawing.Point(0, 0);
          this.InfoParm_Gb.Name = "InfoParm_Gb";
-         this.InfoParm_Gb.Size = new System.Drawing.Size(350, 446);
+         this.InfoParm_Gb.Size = new System.Drawing.Size(435, 446);
          this.InfoParm_Gb.TabIndex = 0;
          this.InfoParm_Gb.TabStop = false;
          this.InfoParm_Gb.Text = "ورود اطلاعات اولیه";
@@ -660,7 +660,7 @@
          this.FromDate_Dt.CustomFormat = "dd/MM/yyyy";
          this.FromDate_Dt.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.AgopBs1, "FROM_DATE", true));
          this.FromDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromDate_Dt.Location = new System.Drawing.Point(112, 162);
+         this.FromDate_Dt.Location = new System.Drawing.Point(197, 162);
          this.FromDate_Dt.Name = "FromDate_Dt";
          this.FromDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.FromDate_Dt.Size = new System.Drawing.Size(100, 23);
@@ -697,7 +697,7 @@
          this.AgopBn1.Name = "AgopBn1";
          this.AgopBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.AgopBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.AgopBn1.Size = new System.Drawing.Size(344, 25);
+         this.AgopBn1.Size = new System.Drawing.Size(429, 25);
          this.AgopBn1.TabIndex = 30;
          // 
          // bindingNavigatorAddNewItem
@@ -808,7 +808,7 @@
          this.CretRqst_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.CretRqst_Butn.Location = new System.Drawing.Point(209, 328);
          this.CretRqst_Butn.Name = "CretRqst_Butn";
-         this.CretRqst_Butn.Size = new System.Drawing.Size(135, 35);
+         this.CretRqst_Butn.Size = new System.Drawing.Size(220, 35);
          this.CretRqst_Butn.TabIndex = 9;
          this.CretRqst_Butn.Text = "ایجاد لیست";
          this.CretRqst_Butn.UseVisualStyleBackColor = true;
@@ -822,7 +822,7 @@
          this.ClearAll_Butn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.ClearAll_Butn.Location = new System.Drawing.Point(114, 369);
          this.ClearAll_Butn.Name = "ClearAll_Butn";
-         this.ClearAll_Butn.Size = new System.Drawing.Size(122, 71);
+         this.ClearAll_Butn.Size = new System.Drawing.Size(207, 71);
          this.ClearAll_Butn.TabIndex = 11;
          this.ClearAll_Butn.Text = "پاک کردن";
          this.ClearAll_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -888,7 +888,7 @@
          this.Edit_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.Edit_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1055;
          this.Edit_Butn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.Edit_Butn.Location = new System.Drawing.Point(242, 369);
+         this.Edit_Butn.Location = new System.Drawing.Point(327, 369);
          this.Edit_Butn.Name = "Edit_Butn";
          this.Edit_Butn.Size = new System.Drawing.Size(102, 71);
          this.Edit_Butn.TabIndex = 10;
@@ -904,7 +904,7 @@
          this.Regl_Gb.Controls.Add(this.rEGL_YEARTextEdit);
          this.Regl_Gb.Controls.Add(this.rEGL_CODETextEdit);
          this.Regl_Gb.Controls.Add(ReglCode_Lb);
-         this.Regl_Gb.Location = new System.Drawing.Point(40, 191);
+         this.Regl_Gb.Location = new System.Drawing.Point(125, 191);
          this.Regl_Gb.Name = "Regl_Gb";
          this.Regl_Gb.Size = new System.Drawing.Size(267, 76);
          this.Regl_Gb.TabIndex = 8;
@@ -968,7 +968,7 @@
             this.repositoryItemLookUpEdit1});
          this.cBMT_CODEGridLookUpEdit.Properties.ValueMember = "CODE";
          this.cBMT_CODEGridLookUpEdit.Properties.View = this.cBMT_CODEGridLookUpEditView;
-         this.cBMT_CODEGridLookUpEdit.Size = new System.Drawing.Size(164, 22);
+         this.cBMT_CODEGridLookUpEdit.Size = new System.Drawing.Size(249, 22);
          this.cBMT_CODEGridLookUpEdit.TabIndex = 3;
          // 
          // CbmtBs1
@@ -1142,7 +1142,7 @@
          this.NewCochFileNoGridLookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(800, 600);
          this.NewCochFileNoGridLookUpEdit.Properties.ValueMember = "FILE_NO";
          this.NewCochFileNoGridLookUpEdit.Properties.View = this.gridView2;
-         this.NewCochFileNoGridLookUpEdit.Size = new System.Drawing.Size(164, 22);
+         this.NewCochFileNoGridLookUpEdit.Size = new System.Drawing.Size(249, 22);
          this.NewCochFileNoGridLookUpEdit.TabIndex = 2;
          // 
          // CochBs1
@@ -1609,7 +1609,7 @@
          this.cOCH_FILE_NOGridLookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(800, 600);
          this.cOCH_FILE_NOGridLookUpEdit.Properties.ValueMember = "FILE_NO";
          this.cOCH_FILE_NOGridLookUpEdit.Properties.View = this.cOCH_FILE_NOGridLookUpEditView;
-         this.cOCH_FILE_NOGridLookUpEdit.Size = new System.Drawing.Size(164, 22);
+         this.cOCH_FILE_NOGridLookUpEdit.Size = new System.Drawing.Size(249, 22);
          this.cOCH_FILE_NOGridLookUpEdit.TabIndex = 2;
          // 
          // cOCH_FILE_NOGridLookUpEditView
@@ -2072,7 +2072,7 @@
          this.cTGY_CODEGridLookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(0, 600);
          this.cTGY_CODEGridLookUpEdit.Properties.ValueMember = "CODE";
          this.cTGY_CODEGridLookUpEdit.Properties.View = this.cTGY_CODEGridLookUpEditView;
-         this.cTGY_CODEGridLookUpEdit.Size = new System.Drawing.Size(164, 22);
+         this.cTGY_CODEGridLookUpEdit.Size = new System.Drawing.Size(249, 22);
          this.cTGY_CODEGridLookUpEdit.TabIndex = 1;
          // 
          // CtgyBs1
@@ -2207,7 +2207,7 @@
          this.rEGN_CODEGridLookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(0, 600);
          this.rEGN_CODEGridLookUpEdit.Properties.ValueMember = "CODE";
          this.rEGN_CODEGridLookUpEdit.Properties.View = this.rEGN_CODEGridLookUpEditView;
-         this.rEGN_CODEGridLookUpEdit.Size = new System.Drawing.Size(164, 22);
+         this.rEGN_CODEGridLookUpEdit.Size = new System.Drawing.Size(249, 22);
          this.rEGN_CODEGridLookUpEdit.TabIndex = 0;
          // 
          // RegnBs1
@@ -2319,7 +2319,7 @@
          this.Result_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Result_Gb.Location = new System.Drawing.Point(0, 0);
          this.Result_Gb.Name = "Result_Gb";
-         this.Result_Gb.Size = new System.Drawing.Size(444, 446);
+         this.Result_Gb.Size = new System.Drawing.Size(555, 446);
          this.Result_Gb.TabIndex = 0;
          this.Result_Gb.TabStop = false;
          this.Result_Gb.Text = "نتیجه عملیات برای مشترییان";
@@ -2336,7 +2336,7 @@
          this.aggregation_Operation_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.RecStat_Butn,
             this.repositoryItemGridLookUpEdit1});
-         this.aggregation_Operation_DetailsGridControl.Size = new System.Drawing.Size(438, 425);
+         this.aggregation_Operation_DetailsGridControl.Size = new System.Drawing.Size(549, 425);
          this.aggregation_Operation_DetailsGridControl.TabIndex = 0;
          this.aggregation_Operation_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2419,6 +2419,7 @@
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView1.OptionsView.ShowDetailButtons = false;
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
          // 
@@ -2988,7 +2989,7 @@
          // Back_Butn
          // 
          this.Back_Butn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Back_Butn.Location = new System.Drawing.Point(372, 489);
+         this.Back_Butn.Location = new System.Drawing.Point(470, 489);
          this.Back_Butn.Name = "Back_Butn";
          this.Back_Butn.Size = new System.Drawing.Size(75, 23);
          this.Back_Butn.TabIndex = 1;
@@ -3011,7 +3012,7 @@
          this.MinimumSize = new System.Drawing.Size(780, 522);
          this.Name = "AOP_ATTN_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(818, 522);
+         this.Size = new System.Drawing.Size(1014, 522);
          this.Master_Tc.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.splitContainer1.Panel1.ResumeLayout(false);

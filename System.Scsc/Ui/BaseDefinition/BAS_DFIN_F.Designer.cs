@@ -55,14 +55,16 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition13 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -901,7 +903,7 @@
          this.CbmtMtodStat1_Clm.Name = "CbmtMtodStat1_Clm";
          this.CbmtMtodStat1_Clm.OptionsColumn.FixedWidth = true;
          this.CbmtMtodStat1_Clm.Visible = true;
-         this.CbmtMtodStat1_Clm.VisibleIndex = 9;
+         this.CbmtMtodStat1_Clm.VisibleIndex = 5;
          this.CbmtMtodStat1_Clm.Width = 94;
          // 
          // repositoryItemLookUpEdit12
@@ -928,8 +930,8 @@
          this.Cbmt1MtodStat_Clm.Name = "Cbmt1MtodStat_Clm";
          this.Cbmt1MtodStat_Clm.OptionsColumn.FixedWidth = true;
          this.Cbmt1MtodStat_Clm.Visible = true;
-         this.Cbmt1MtodStat_Clm.VisibleIndex = 9;
-         this.Cbmt1MtodStat_Clm.Width = 94;
+         this.Cbmt1MtodStat_Clm.VisibleIndex = 5;
+         this.Cbmt1MtodStat_Clm.Width = 67;
          // 
          // repositoryItemLookUpEdit6
          // 
@@ -5580,9 +5582,15 @@
          styleFormatCondition9.Column = this.CbmtMtodStat1_Clm;
          styleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition9.Value1 = "001";
+         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition10.Appearance.Options.UseBackColor = true;
+         styleFormatCondition10.Column = this.CbmtCbmtTimeStat_Clm;
+         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition10.Value1 = "002";
          this.CbmtCoch_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition8,
-            styleFormatCondition9});
+            styleFormatCondition9,
+            styleFormatCondition10});
          this.CbmtCoch_Gv.GridControl = this.gridControl8;
          this.CbmtCoch_Gv.GroupCount = 2;
          this.CbmtCoch_Gv.Name = "CbmtCoch_Gv";
@@ -5775,7 +5783,7 @@
          this.CbmtStrtTime_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
          this.CbmtStrtTime_Clm.Name = "CbmtStrtTime_Clm";
          this.CbmtStrtTime_Clm.Visible = true;
-         this.CbmtStrtTime_Clm.VisibleIndex = 6;
+         this.CbmtStrtTime_Clm.VisibleIndex = 3;
          // 
          // CbmtEndTime_Clm
          // 
@@ -5787,7 +5795,7 @@
          this.CbmtEndTime_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
          this.CbmtEndTime_Clm.Name = "CbmtEndTime_Clm";
          this.CbmtEndTime_Clm.Visible = true;
-         this.CbmtEndTime_Clm.VisibleIndex = 4;
+         this.CbmtEndTime_Clm.VisibleIndex = 2;
          this.CbmtEndTime_Clm.Width = 70;
          // 
          // SexType_Clm
@@ -5797,7 +5805,7 @@
          this.SexType_Clm.FieldName = "SEX_TYPE";
          this.SexType_Clm.Name = "SexType_Clm";
          this.SexType_Clm.Visible = true;
-         this.SexType_Clm.VisibleIndex = 11;
+         this.SexType_Clm.VisibleIndex = 6;
          this.SexType_Clm.Width = 49;
          // 
          // repositoryItemLookUpEdit13
@@ -5862,8 +5870,6 @@
          this.CbmtDfltStat1_Clm.FieldName = "DFLT_STAT";
          this.CbmtDfltStat1_Clm.Name = "CbmtDfltStat1_Clm";
          this.CbmtDfltStat1_Clm.OptionsColumn.FixedWidth = true;
-         this.CbmtDfltStat1_Clm.Visible = true;
-         this.CbmtDfltStat1_Clm.VisibleIndex = 10;
          this.CbmtDfltStat1_Clm.Width = 107;
          // 
          // CbmtCpctNumb_Clm
@@ -5871,8 +5877,6 @@
          this.CbmtCpctNumb_Clm.Caption = "ظرفیت کلاس";
          this.CbmtCpctNumb_Clm.FieldName = "CPCT_NUMB";
          this.CbmtCpctNumb_Clm.Name = "CbmtCpctNumb_Clm";
-         this.CbmtCpctNumb_Clm.Visible = true;
-         this.CbmtCpctNumb_Clm.VisibleIndex = 3;
          this.CbmtCpctNumb_Clm.Width = 45;
          // 
          // CbmtCpctStat_Clm
@@ -5881,8 +5885,6 @@
          this.CbmtCpctStat_Clm.ColumnEdit = this.repositoryItemLookUpEdit12;
          this.CbmtCpctStat_Clm.FieldName = "CPCT_STAT";
          this.CbmtCpctStat_Clm.Name = "CbmtCpctStat_Clm";
-         this.CbmtCpctStat_Clm.Visible = true;
-         this.CbmtCpctStat_Clm.VisibleIndex = 2;
          this.CbmtCpctStat_Clm.Width = 45;
          // 
          // CbmtCbmtTime_Clm
@@ -5890,8 +5892,6 @@
          this.CbmtCbmtTime_Clm.Caption = "مدت زمان دوره";
          this.CbmtCbmtTime_Clm.FieldName = "CBMT_TIME";
          this.CbmtCbmtTime_Clm.Name = "CbmtCbmtTime_Clm";
-         this.CbmtCbmtTime_Clm.Visible = true;
-         this.CbmtCbmtTime_Clm.VisibleIndex = 1;
          this.CbmtCbmtTime_Clm.Width = 45;
          // 
          // CbmtCbmtTimeStat_Clm
@@ -5909,8 +5909,10 @@
          this.CmbtClasTime_Clm.Caption = "مدت زمان کلاس";
          this.CmbtClasTime_Clm.FieldName = "CLAS_TIME";
          this.CmbtClasTime_Clm.Name = "CmbtClasTime_Clm";
+         this.CmbtClasTime_Clm.OptionsColumn.AllowEdit = false;
+         this.CmbtClasTime_Clm.OptionsColumn.ReadOnly = true;
          this.CmbtClasTime_Clm.Visible = true;
-         this.CmbtClasTime_Clm.VisibleIndex = 5;
+         this.CmbtClasTime_Clm.VisibleIndex = 1;
          this.CmbtClasTime_Clm.Width = 45;
          // 
          // gridColumn59
@@ -5922,7 +5924,7 @@
          this.gridColumn59.OptionsColumn.FixedWidth = true;
          this.gridColumn59.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.gridColumn59.Visible = true;
-         this.gridColumn59.VisibleIndex = 7;
+         this.gridColumn59.VisibleIndex = 4;
          this.gridColumn59.Width = 82;
          // 
          // repositoryItemButtonEdit1
@@ -5945,8 +5947,6 @@
          this.CbmtAmnt1_Clm.GroupFormat.FormatString = "{0:n0}";
          this.CbmtAmnt1_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.CbmtAmnt1_Clm.Name = "CbmtAmnt1_Clm";
-         this.CbmtAmnt1_Clm.Visible = true;
-         this.CbmtAmnt1_Clm.VisibleIndex = 8;
          // 
          // panel11
          // 
@@ -6447,21 +6447,27 @@
             this.Cbmt1ClasTime_Clm,
             this.gridColumn32,
             this.Cbmt1Amnt_Clm});
-         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition10.Appearance.Options.UseBackColor = true;
-         styleFormatCondition10.ApplyToRow = true;
-         styleFormatCondition10.Column = this.Cbmt1MtodStat_Clm;
-         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition10.Value1 = "002";
-         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition11.Appearance.Options.UseBackColor = true;
          styleFormatCondition11.ApplyToRow = true;
          styleFormatCondition11.Column = this.Cbmt1MtodStat_Clm;
          styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition11.Value1 = "001";
+         styleFormatCondition11.Value1 = "002";
+         styleFormatCondition12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition12.Appearance.Options.UseBackColor = true;
+         styleFormatCondition12.ApplyToRow = true;
+         styleFormatCondition12.Column = this.Cbmt1MtodStat_Clm;
+         styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition12.Value1 = "001";
+         styleFormatCondition13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition13.Appearance.Options.UseBackColor = true;
+         styleFormatCondition13.Column = this.Cbmt1CbmtTimeStat_Clm;
+         styleFormatCondition13.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition13.Value1 = "002";
          this.Cbmt_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition10,
-            styleFormatCondition11});
+            styleFormatCondition11,
+            styleFormatCondition12,
+            styleFormatCondition13});
          this.Cbmt_Gv.GridControl = this.CbmtGv1;
          this.Cbmt_Gv.Name = "Cbmt_Gv";
          this.Cbmt_Gv.OptionsFind.AlwaysVisible = true;
@@ -6482,8 +6488,8 @@
          this.Cbmt1MtodCode_Clm.FieldName = "MTOD_CODE";
          this.Cbmt1MtodCode_Clm.Name = "Cbmt1MtodCode_Clm";
          this.Cbmt1MtodCode_Clm.Visible = true;
-         this.Cbmt1MtodCode_Clm.VisibleIndex = 13;
-         this.Cbmt1MtodCode_Clm.Width = 31;
+         this.Cbmt1MtodCode_Clm.VisibleIndex = 8;
+         this.Cbmt1MtodCode_Clm.Width = 74;
          // 
          // repositoryItemLookUpEdit2
          // 
@@ -6516,8 +6522,8 @@
          this.Cbmt1CochFileNo_Clm.FieldName = "COCH_FILE_NO";
          this.Cbmt1CochFileNo_Clm.Name = "Cbmt1CochFileNo_Clm";
          this.Cbmt1CochFileNo_Clm.Visible = true;
-         this.Cbmt1CochFileNo_Clm.VisibleIndex = 14;
-         this.Cbmt1CochFileNo_Clm.Width = 63;
+         this.Cbmt1CochFileNo_Clm.VisibleIndex = 9;
+         this.Cbmt1CochFileNo_Clm.Width = 96;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -6615,8 +6621,8 @@
          this.Cbmt1DayType_Clm.FieldName = "DAY_TYPE";
          this.Cbmt1DayType_Clm.Name = "Cbmt1DayType_Clm";
          this.Cbmt1DayType_Clm.Visible = true;
-         this.Cbmt1DayType_Clm.VisibleIndex = 12;
-         this.Cbmt1DayType_Clm.Width = 31;
+         this.Cbmt1DayType_Clm.VisibleIndex = 7;
+         this.Cbmt1DayType_Clm.Width = 49;
          // 
          // repositoryItemLookUpEdit4
          // 
@@ -6644,8 +6650,8 @@
          this.Cbmt1StrtTime_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
          this.Cbmt1StrtTime_Clm.Name = "Cbmt1StrtTime_Clm";
          this.Cbmt1StrtTime_Clm.Visible = true;
-         this.Cbmt1StrtTime_Clm.VisibleIndex = 6;
-         this.Cbmt1StrtTime_Clm.Width = 52;
+         this.Cbmt1StrtTime_Clm.VisibleIndex = 3;
+         this.Cbmt1StrtTime_Clm.Width = 74;
          // 
          // Cbmt1EndTime_Clm
          // 
@@ -6657,8 +6663,8 @@
          this.Cbmt1EndTime_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
          this.Cbmt1EndTime_Clm.Name = "Cbmt1EndTime_Clm";
          this.Cbmt1EndTime_Clm.Visible = true;
-         this.Cbmt1EndTime_Clm.VisibleIndex = 4;
-         this.Cbmt1EndTime_Clm.Width = 49;
+         this.Cbmt1EndTime_Clm.VisibleIndex = 2;
+         this.Cbmt1EndTime_Clm.Width = 70;
          // 
          // Cbmt1SexType_Clm
          // 
@@ -6667,8 +6673,8 @@
          this.Cbmt1SexType_Clm.FieldName = "SEX_TYPE";
          this.Cbmt1SexType_Clm.Name = "Cbmt1SexType_Clm";
          this.Cbmt1SexType_Clm.Visible = true;
-         this.Cbmt1SexType_Clm.VisibleIndex = 11;
-         this.Cbmt1SexType_Clm.Width = 28;
+         this.Cbmt1SexType_Clm.VisibleIndex = 6;
+         this.Cbmt1SexType_Clm.Width = 44;
          // 
          // repositoryItemLookUpEdit7
          // 
@@ -6728,8 +6734,6 @@
          this.Cbmt1DfltStat_Clm.FieldName = "DFLT_STAT";
          this.Cbmt1DfltStat_Clm.Name = "Cbmt1DfltStat_Clm";
          this.Cbmt1DfltStat_Clm.OptionsColumn.FixedWidth = true;
-         this.Cbmt1DfltStat_Clm.Visible = true;
-         this.Cbmt1DfltStat_Clm.VisibleIndex = 10;
          this.Cbmt1DfltStat_Clm.Width = 107;
          // 
          // Cbmt1CpctNumb_Clm
@@ -6737,9 +6741,7 @@
          this.Cbmt1CpctNumb_Clm.Caption = "ظرفیت کلاس";
          this.Cbmt1CpctNumb_Clm.FieldName = "CPCT_NUMB";
          this.Cbmt1CpctNumb_Clm.Name = "Cbmt1CpctNumb_Clm";
-         this.Cbmt1CpctNumb_Clm.Visible = true;
-         this.Cbmt1CpctNumb_Clm.VisibleIndex = 3;
-         this.Cbmt1CpctNumb_Clm.Width = 31;
+         this.Cbmt1CpctNumb_Clm.Width = 43;
          // 
          // Cbmt1CpctStat_Clm
          // 
@@ -6747,18 +6749,14 @@
          this.Cbmt1CpctStat_Clm.ColumnEdit = this.repositoryItemLookUpEdit6;
          this.Cbmt1CpctStat_Clm.FieldName = "CPCT_STAT";
          this.Cbmt1CpctStat_Clm.Name = "Cbmt1CpctStat_Clm";
-         this.Cbmt1CpctStat_Clm.Visible = true;
-         this.Cbmt1CpctStat_Clm.VisibleIndex = 2;
-         this.Cbmt1CpctStat_Clm.Width = 31;
+         this.Cbmt1CpctStat_Clm.Width = 43;
          // 
          // Cbmt1CbmtTime_Clm
          // 
          this.Cbmt1CbmtTime_Clm.Caption = "مدت زمان دوره";
          this.Cbmt1CbmtTime_Clm.FieldName = "CBMT_TIME";
          this.Cbmt1CbmtTime_Clm.Name = "Cbmt1CbmtTime_Clm";
-         this.Cbmt1CbmtTime_Clm.Visible = true;
-         this.Cbmt1CbmtTime_Clm.VisibleIndex = 1;
-         this.Cbmt1CbmtTime_Clm.Width = 31;
+         this.Cbmt1CbmtTime_Clm.Width = 43;
          // 
          // Cbmt1CbmtTimeStat_Clm
          // 
@@ -6768,16 +6766,18 @@
          this.Cbmt1CbmtTimeStat_Clm.Name = "Cbmt1CbmtTimeStat_Clm";
          this.Cbmt1CbmtTimeStat_Clm.Visible = true;
          this.Cbmt1CbmtTimeStat_Clm.VisibleIndex = 0;
-         this.Cbmt1CbmtTimeStat_Clm.Width = 31;
+         this.Cbmt1CbmtTimeStat_Clm.Width = 43;
          // 
          // Cbmt1ClasTime_Clm
          // 
          this.Cbmt1ClasTime_Clm.Caption = "مدت زمان کلاس";
          this.Cbmt1ClasTime_Clm.FieldName = "CLAS_TIME";
          this.Cbmt1ClasTime_Clm.Name = "Cbmt1ClasTime_Clm";
+         this.Cbmt1ClasTime_Clm.OptionsColumn.AllowEdit = false;
+         this.Cbmt1ClasTime_Clm.OptionsColumn.ReadOnly = true;
          this.Cbmt1ClasTime_Clm.Visible = true;
-         this.Cbmt1ClasTime_Clm.VisibleIndex = 5;
-         this.Cbmt1ClasTime_Clm.Width = 31;
+         this.Cbmt1ClasTime_Clm.VisibleIndex = 1;
+         this.Cbmt1ClasTime_Clm.Width = 43;
          // 
          // gridColumn32
          // 
@@ -6788,7 +6788,7 @@
          this.gridColumn32.OptionsColumn.FixedWidth = true;
          this.gridColumn32.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.gridColumn32.Visible = true;
-         this.gridColumn32.VisibleIndex = 7;
+         this.gridColumn32.VisibleIndex = 4;
          this.gridColumn32.Width = 82;
          // 
          // CbmtActn_Butn
@@ -6811,8 +6811,6 @@
          this.Cbmt1Amnt_Clm.GroupFormat.FormatString = "{0:n0}";
          this.Cbmt1Amnt_Clm.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.Cbmt1Amnt_Clm.Name = "Cbmt1Amnt_Clm";
-         this.Cbmt1Amnt_Clm.Visible = true;
-         this.Cbmt1Amnt_Clm.VisibleIndex = 8;
          this.Cbmt1Amnt_Clm.Width = 79;
          // 
          // textEdit3
@@ -6870,7 +6868,7 @@
          this.PrintSettingClubMethod_Butn.ImageIndex = 2;
          this.PrintSettingClubMethod_Butn.ImageList = this.imageList1;
          this.PrintSettingClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintSettingClubMethod_Butn.Location = new System.Drawing.Point(473, 3);
+         this.PrintSettingClubMethod_Butn.Location = new System.Drawing.Point(297, 3);
          this.PrintSettingClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintSettingClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintSettingClubMethod_Butn.Name = "PrintSettingClubMethod_Butn";
@@ -6928,20 +6926,20 @@
          this.WeekDay_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.WeekDay_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-         this.WeekDay_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.WeekDay_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.WeekDay_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
          this.WeekDay_Butn.Appearance.Options.UseBackColor = true;
          this.WeekDay_Butn.Appearance.Options.UseFont = true;
          this.WeekDay_Butn.Appearance.Options.UseForeColor = true;
          this.WeekDay_Butn.Image = ((System.Drawing.Image)(resources.GetObject("WeekDay_Butn.Image")));
-         this.WeekDay_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.WeekDay_Butn.Location = new System.Drawing.Point(611, 3);
+         this.WeekDay_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.WeekDay_Butn.Location = new System.Drawing.Point(433, 3);
          this.WeekDay_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.WeekDay_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.WeekDay_Butn.Name = "WeekDay_Butn";
-         this.WeekDay_Butn.Size = new System.Drawing.Size(40, 42);
+         this.WeekDay_Butn.Size = new System.Drawing.Size(101, 42);
          this.WeekDay_Butn.TabIndex = 2;
-         this.WeekDay_Butn.Text = "حذف";
+         this.WeekDay_Butn.Text = "ایام کلاسی";
          this.WeekDay_Butn.ToolTip = "روزهای هفته برنامه کلاسی";
          this.WeekDay_Butn.Click += new System.EventHandler(this.WeekDay_Butn_Click);
          // 
@@ -6950,18 +6948,18 @@
          this.DeleteClubMethod_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.DeleteClubMethod_Butn.Appearance.BackColor = System.Drawing.Color.Tomato;
-         this.DeleteClubMethod_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DeleteClubMethod_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.DeleteClubMethod_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
          this.DeleteClubMethod_Butn.Appearance.Options.UseBackColor = true;
          this.DeleteClubMethod_Butn.Appearance.Options.UseFont = true;
          this.DeleteClubMethod_Butn.Appearance.Options.UseForeColor = true;
          this.DeleteClubMethod_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteClubMethod_Butn.Image")));
-         this.DeleteClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DeleteClubMethod_Butn.Location = new System.Drawing.Point(657, 3);
+         this.DeleteClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.DeleteClubMethod_Butn.Location = new System.Drawing.Point(537, 3);
          this.DeleteClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DeleteClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DeleteClubMethod_Butn.Name = "DeleteClubMethod_Butn";
-         this.DeleteClubMethod_Butn.Size = new System.Drawing.Size(40, 42);
+         this.DeleteClubMethod_Butn.Size = new System.Drawing.Size(87, 42);
          this.DeleteClubMethod_Butn.TabIndex = 2;
          this.DeleteClubMethod_Butn.Text = "حذف";
          this.DeleteClubMethod_Butn.ToolTip = "حذف";
@@ -6980,7 +6978,7 @@
          this.PrintClubMethod_Butn.ImageIndex = 1;
          this.PrintClubMethod_Butn.ImageList = this.imageList1;
          this.PrintClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintClubMethod_Butn.Location = new System.Drawing.Point(519, 3);
+         this.PrintClubMethod_Butn.Location = new System.Drawing.Point(343, 3);
          this.PrintClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintClubMethod_Butn.Name = "PrintClubMethod_Butn";
@@ -6994,18 +6992,18 @@
          this.SaveClubMethod_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.SaveClubMethod_Butn.Appearance.BackColor = System.Drawing.Color.Gold;
-         this.SaveClubMethod_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveClubMethod_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveClubMethod_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
          this.SaveClubMethod_Butn.Appearance.Options.UseBackColor = true;
          this.SaveClubMethod_Butn.Appearance.Options.UseFont = true;
          this.SaveClubMethod_Butn.Appearance.Options.UseForeColor = true;
          this.SaveClubMethod_Butn.Image = ((System.Drawing.Image)(resources.GetObject("SaveClubMethod_Butn.Image")));
          this.SaveClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.SaveClubMethod_Butn.Location = new System.Drawing.Point(703, 3);
+         this.SaveClubMethod_Butn.Location = new System.Drawing.Point(627, 3);
          this.SaveClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SaveClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveClubMethod_Butn.Name = "SaveClubMethod_Butn";
-         this.SaveClubMethod_Butn.Size = new System.Drawing.Size(40, 42);
+         this.SaveClubMethod_Butn.Size = new System.Drawing.Size(84, 42);
          this.SaveClubMethod_Butn.TabIndex = 2;
          this.SaveClubMethod_Butn.Text = "ذخیره";
          this.SaveClubMethod_Butn.ToolTip = "ذخیره";
@@ -7022,7 +7020,7 @@
          this.PrintDefaultClubMethod_Butn.ImageIndex = 0;
          this.PrintDefaultClubMethod_Butn.ImageList = this.imageList1;
          this.PrintDefaultClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintDefaultClubMethod_Butn.Location = new System.Drawing.Point(565, 3);
+         this.PrintDefaultClubMethod_Butn.Location = new System.Drawing.Point(389, 3);
          this.PrintDefaultClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintDefaultClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintDefaultClubMethod_Butn.Name = "PrintDefaultClubMethod_Butn";
@@ -7036,16 +7034,16 @@
          this.AddClubMethod_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.AddClubMethod_Butn.Appearance.BackColor = System.Drawing.Color.Lime;
-         this.AddClubMethod_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AddClubMethod_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.AddClubMethod_Butn.Appearance.Options.UseBackColor = true;
          this.AddClubMethod_Butn.Appearance.Options.UseFont = true;
          this.AddClubMethod_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AddClubMethod_Butn.Image")));
          this.AddClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AddClubMethod_Butn.Location = new System.Drawing.Point(749, 3);
+         this.AddClubMethod_Butn.Location = new System.Drawing.Point(715, 3);
          this.AddClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AddClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AddClubMethod_Butn.Name = "AddClubMethod_Butn";
-         this.AddClubMethod_Butn.Size = new System.Drawing.Size(40, 42);
+         this.AddClubMethod_Butn.Size = new System.Drawing.Size(74, 42);
          this.AddClubMethod_Butn.TabIndex = 1;
          this.AddClubMethod_Butn.Text = "جدید";
          this.AddClubMethod_Butn.ToolTip = "جدید";

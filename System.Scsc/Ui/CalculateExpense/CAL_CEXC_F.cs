@@ -30,7 +30,7 @@ namespace System.Scsc.Ui.CalculateExpense
          }
          else if (tb_master.SelectedTab == tp_002)
          {
-            MOSX_Bs2.DataSource = iScsc.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "002");
+            MosxBs2.DataSource = iScsc.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "002");
          }
       }
 
@@ -40,7 +40,7 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             Validate();
             MsexBs.EndEdit();
-            MOSX_Bs2.EndEdit();
+            MosxBs2.EndEdit();
             iScsc.SubmitChanges();
             requery = true;
          }
@@ -127,7 +127,7 @@ namespace System.Scsc.Ui.CalculateExpense
                   new XElement("Process",
                      new XElement("Misc_Expenses",
                         new XAttribute("calcexpntype", "002"),
-                        MOSX_Bs2.List.OfType<Data.Misc_Expense>().ToList()
+                        MosxBs2.List.OfType<Data.Misc_Expense>().ToList()
                         .Select(m =>
                            new XElement("Misc_Expense",
                               new XAttribute("code", m.CODE),
@@ -165,7 +165,9 @@ namespace System.Scsc.Ui.CalculateExpense
             }
             else if (tb_master.SelectedTab == tp_002)
             {
-               var mosx = MOSX_Bs2.Current as Data.Misc_Expense;
+               MosxBs2.EndEdit();
+               Mosx_Gv.PostEditor();
+               var mosx = MosxBs2.Current as Data.Misc_Expense;
                if (mosx.CLUB_CODE == null)
                {
                   MessageBox.Show("هزینه بایستی به یکی از شیفت باشگاه تعلق گیرد");
@@ -211,7 +213,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
       private void REGN_LOV_Click(object sender, EventArgs e)
       {
-         var Crnt = MOSX_Bs2.Current as Data.Misc_Expense;
+         var Crnt = MosxBs2.Current as Data.Misc_Expense;
 
          if (Crnt == null) return;
          if (Crnt.REGN_PRVN_CODE == null) { return; }
@@ -233,10 +235,10 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
-            MOSX_Bs2.AddNew();
-            var mosx = MOSX_Bs2.Current as Data.Misc_Expense;
+            MosxBs2.AddNew();
+            var mosx = MosxBs2.Current as Data.Misc_Expense;
             mosx.CLUB_CODE = (ClubBs2.Current as Data.Club).CODE;
-            mosx.EPIT_CODE = (EPIT_Bs2.Current as Data.Expense_Item).CODE;
+            mosx.EPIT_CODE = (EpitBs2.Current as Data.Expense_Item).CODE;
             mosx.DELV_DATE = DateTime.Now;
 
             iScsc.Misc_Expenses.InsertOnSubmit(mosx);
@@ -248,12 +250,12 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
-            var mosx = MOSX_Bs2.Current as Data.Misc_Expense;
+            var mosx = MosxBs2.Current as Data.Misc_Expense;
 
             if (mosx != null && MessageBox.Show(this,"آیا با حذف هزینه مطمئن هستید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             if (mosx.CODE == 0)
-               MOSX_Bs2.RemoveCurrent();
+               MosxBs2.RemoveCurrent();
             else
             {
                iScsc.Misc_Expenses.DeleteOnSubmit(mosx);
@@ -288,10 +290,10 @@ namespace System.Scsc.Ui.CalculateExpense
                return;
             }
 
-            MOSX_Bs2.AddNew();
+            MosxBs2.AddNew();
 
             long? cnrtcode = pers.Fighter_Publics.FirstOrDefault(fp => fp.RWNO == pers.FGPB_RWNO_DNRM && fp.RECT_CODE == "004").CNTR_CODE;
-            var crnt = MOSX_Bs2.Current as Data.Misc_Expense;
+            var crnt = MosxBs2.Current as Data.Misc_Expense;
             crnt.EXPN_AMNT = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == cnrtcode).Sum(pd => pd.EXPN_PRIC ?? 0);
             crnt.EXPN_DESC = "حقوق و دستمزد";
             crnt.COCH_FILE_NO = fileno;

@@ -924,7 +924,7 @@ namespace System.Scsc.Ui.Common
                                  new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
                                  new XAttribute("qnty", pydt.QNTY ?? 1),
                                  new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
-                                 new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM),
+                                 new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
                                  new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM),
                                  new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM)
                               )
@@ -1659,7 +1659,7 @@ namespace System.Scsc.Ui.Common
                   break;
             }
 
-            PymtAmnt1_Txt.EditValue = null;
+            PymtAmnt_Txt.EditValue = null;
             PymtDate_DateTime001.Value = DateTime.Now;
             requery = true;
          }

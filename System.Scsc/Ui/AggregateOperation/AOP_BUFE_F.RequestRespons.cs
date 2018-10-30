@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -266,6 +267,24 @@ namespace System.Scsc.Ui.AggregateOperation
 
             AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(a => a.FROM_DATE.Value.Date == DateTime.Now.Date));
             var expn = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.RELY_CMND == macadrs);
+
+            // 1397/08/07 * اگر دستگاه به هزینه ای به عنوان میز متصل نباشد پیام مک آدرس دستگاه رو نشان میدهیم
+            /// و بعد کار را به اتمام میرسانیم
+            if(expn == null)
+            {
+               Clipboard.SetText(macadrs);
+               MessageBox.Show(this, 
+                  string.Format(
+                     "دستگاه جدیدی قصد اضافه شدن را دارد آدرس آن در حافظه ذخیره شده لطفا بررسی و اقدام کنید" + 
+                     "\n\r" +
+                     "\n\r" +
+                     "Mac Address : {0}", 
+                     macadrs
+                  ), 
+                  "تشخیص دستگاه جدید");
+               return;
+            }
+
             if(AodtBs1.Count == 0)
             { 
                if(stat == "START")
@@ -281,10 +300,16 @@ namespace System.Scsc.Ui.AggregateOperation
                   case "START":
                      if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
                      {
+                        int lastPosition = AodtBs1.Position;
+                        var filterType = AllRcrd_Lbl.Tag;
+                        Lbl_Click(AllRcrd_Lbl, null);                        
                         AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
                         var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
                         aodt.END_TIME = null;
                         CalcDesk_Butn_Click(null, null);
+                        AllRcrd_Lbl.Tag = filterType;
+                        Lbl_Click(InfoParm_Gb.Controls.OfType<LabelControl>().FirstOrDefault(l => l.Name == AllRcrd_Lbl.Tag.ToString()), null);
+                        AodtBs1.Position = lastPosition;
                      }
                      else
                      {

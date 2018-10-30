@@ -510,6 +510,7 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
+      private bool frstVistTablCntlF = false;
       private void Sp_ExpnExtr_DataReceived(object sender, IO.Ports.SerialDataReceivedEventArgs e)
       {
          try
@@ -524,10 +525,11 @@ namespace System.Scsc.Ui.MasterPage
             var macadrs = enrollNumber.Split('-').ToList()[1];
 
             if (InvokeRequired)
-            {
+            {               
                Invoke(
                   new Action(() =>
                      {
+                        //GameHours_Butn.Appearance.BackColor = Color.YellowGreen;
                         Job _GetAopBufeF =
                            new Job(SendType.External, "localhost",
                               new List<Job>
@@ -539,42 +541,46 @@ namespace System.Scsc.Ui.MasterPage
 
                         if (_GetAopBufeF.Output != null)
                         {
-                           _DefaultGateway.Gateway(
-                              new Job(SendType.External, "Localhost",
-                                 new List<Job>
-                                 {
-                                    new Job(SendType.Self, 131 /* Execute Aop_Bufe_F */),
-                                    new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
-                                       Input = 
-                                          new XElement("Request", 
-                                             new XAttribute("type", "tp_001"),
-                                             new XAttribute("stat", stat),
-                                             new XAttribute("macadrs", macadrs)
-                                          )
+                           if (frstVistTablCntlF)
+                           {
+                              _DefaultGateway.Gateway(
+                                 new Job(SendType.External, "Localhost",
+                                    new List<Job>
+                                    {
+                                       new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
+                                          Input = 
+                                             new XElement("Request", 
+                                                new XAttribute("type", "tp_001"),
+                                                new XAttribute("stat", stat),
+                                                new XAttribute("macadrs", macadrs)
+                                             )
+                                       }
                                     }
-                                 }
-                              )
-                           );
+                                 )
+                              );
+                           }
+                           else
+                           {
+                              frstVistTablCntlF = true;
+                              _DefaultGateway.Gateway(
+                                 new Job(SendType.External, "Localhost",
+                                    new List<Job>
+                                    {
+                                       new Job(SendType.Self, 131 /* Execute Aop_Bufe_F */),
+                                       new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
+                                          Input = 
+                                             new XElement("Request", 
+                                                new XAttribute("type", "tp_001"),
+                                                new XAttribute("stat", stat),
+                                                new XAttribute("macadrs", macadrs)
+                                             )
+                                       }
+                                    }
+                                 )
+                              );
+                           }
                         }
-                        //else
-                        //{
-                        //   _DefaultGateway.Gateway(
-                        //      new Job(SendType.External, "Localhost",
-                        //         new List<Job>
-                        //         {
-                        //            new Job(SendType.Self, 131 /* Execute Aop_Bufe_F */),
-                        //            new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
-                        //               Input = 
-                        //                  new XElement("Request", 
-                        //                     new XAttribute("type", "tp_001"),
-                        //                     new XAttribute("stat", stat),
-                        //                     new XAttribute("macadrs", macadrs)
-                        //                  )
-                        //            }
-                        //         }
-                        //      )
-                        //   );
-                        //}
+                        //GameHours_Butn.Appearance.BackColor = Color.Gainsboro;
                      })
                );
                

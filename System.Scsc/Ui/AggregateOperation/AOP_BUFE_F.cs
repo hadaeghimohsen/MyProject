@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
+using DevExpress.XtraEditors;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -79,6 +80,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            AgopBs1.EndEdit();
             var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
             if (crnt == null) return;
@@ -127,7 +129,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
-            if (crnt != null && MessageBox.Show(this, "آیا با انصراف دفتر فعلی موافق هستید؟", "انصراف دفتر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt == null || (crnt != null && MessageBox.Show(this, "آیا با انصراف دفتر فعلی موافق هستید؟", "انصراف دفتر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)) return;
 
             iScsc.INS_AGOP_P(
                new XElement("Process",
@@ -180,7 +182,7 @@ namespace System.Scsc.Ui.AggregateOperation
                );
                return;
             }
-            if (crnt.STAT != "001") { MessageBox.Show("این رکورد قبلا در وضعیت نهایی قرار گرفته"); return; }
+            if (crnt.STAT == "002") { MessageBox.Show("این رکورد قبلا در وضعیت نهایی قرار گرفته"); return; }
             switch (e.Button.Index)
             {
                case 0:
@@ -198,9 +200,23 @@ namespace System.Scsc.Ui.AggregateOperation
                   else
                      setondebt = false;
 
-                  if(crnt.END_TIME == null)
+                  if(crnt.STAT != "003")
                   {
                      MessageBox.Show(this, "میز بسته نشده لطفا دکمه بسته شدن میز را فشار دهید تا هزینه میز محاسبه شود");
+                     return;
+                  }
+
+                  var unitamnt = iScsc.D_ATYPs.FirstOrDefault(d => d.VALU == crnt.Aggregation_Operation.Regulation.AMNT_TYPE);
+                  // 1397/08/08 * برای حالت بدهکار شدن پیام هشدار نمایش داده شود
+                  if(setondebt && 
+                     MessageBox.Show(this, 
+                        string.Format("مشترک هزینه میز به مبلغ" + " " + "{0}" + " " + "{1}" + " بدهکار می باشد! " + "\n\r" + 
+                        "آیا عملیات ثبت بدهی انجام شود؟",
+                        crnt.TOTL_AMNT_DNRM - (crnt.CASH_AMNT + crnt.POS_AMNT),
+                        unitamnt.DOMN_DESC
+                        ), 
+                        "ثبت هزینه در حساب دفتری مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                  {
                      return;
                   }
                   //if(setondebt && (crnt.CELL_PHON == null || crnt.CELL_PHON == ""))
@@ -932,6 +948,87 @@ namespace System.Scsc.Ui.AggregateOperation
                Execute_Query();
          }
 
+      }
+
+      private void AgopBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var agop = AgopBs1.Current as Data.Aggregation_Operation;
+            if (agop == null) { TotlRcptAmnt_Txt.Text = TotlDebtAmnt_Txt.Text = TotlCashAmnt_Txt.Text = TotlPosAmnt_Txt.Text = "0"; return; }
+
+            TotlDebtAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.TOTL_AMNT_DNRM).ToString();
+            TotlRcptAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT + d.CASH_AMNT).ToString();
+            TotlCashAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.CASH_AMNT).ToString();
+            TotlPosAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT).ToString();
+            TotlRemnAmnt_Txt.Text = (agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.TOTL_AMNT_DNRM) - agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT + d.CASH_AMNT)).ToString();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Lbl_Click(object sender, EventArgs e)
+      {
+         LabelControl lbl = (LabelControl)sender;
+         AllRcrd_Lbl.Tag = lbl.Name;
+         switch (lbl.Name)
+         {
+            case "TablOpen_Lbl":
+               apdt_gv.ActiveFilterString = "STAT = '001' And Rec_Stat = '002'";
+               break;
+            case "TablClosDontCash_Lbl":
+               apdt_gv.ActiveFilterString = "STAT = '003' And Rec_Stat = '002'";
+               break;
+            case "TablClosDoCash_Lbl":
+               apdt_gv.ActiveFilterString = "STAT = '002' And Rec_Stat = '002'";
+               break;
+            case "AllRcrd_Lbl":
+               apdt_gv.ActiveFilterString = "Rec_Stat = '002'";
+               break;
+         }
+      }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
+
+      private void Cash_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
+            if (amnt == 0) return;
+
+            aodt.CASH_AMNT = amnt;
+
+            AodtBs1.EndEdit();
+
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE);
+            requery = true;
+
+            if (aodt.END_TIME != null)
+            {
+               //TotlMint_Txt.EditValue = aodt.END_TIME.Value.TimeOfDay.TotalMinutes - aodt.STRT_TIME.Value.TimeOfDay.TotalMinutes;
+               TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
+            }
+         }
+         catch(Exception exc)
+         { MessageBox.Show(exc.Message); }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
       }
    }
 }

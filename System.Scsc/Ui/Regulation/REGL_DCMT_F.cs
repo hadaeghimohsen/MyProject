@@ -477,5 +477,10 @@ namespace System.Scsc.Ui.Regulation
          }
       }
 
+      private void Expn_Gc_Enter(object sender, EventArgs e)
+      {
+         ExtrInfo_Gb.Focus();
+      }
+
    }
 }

@@ -145,6 +145,14 @@ namespace System.Scsc.Ui.BaseDefinition
             HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
             HldyBs.Position = hldy;
          }
+         else if(Tb_Master.SelectedTab == tp_008)
+         {
+            int coma = ComaBs.Position;
+            ComaBs.DataSource = iScsc.Computer_Actions;
+            ComaBs.Position = coma;
+
+            MtodBs1.DataSource = iScsc.Methods;
+         }
 
          requery = false;
       }
@@ -1894,6 +1902,180 @@ namespace System.Scsc.Ui.BaseDefinition
                Execute_Query();
          }
 
+      }
+
+      private void AddComa_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (ComaBs.List.OfType<Data.Computer_Action>().Any(ca => ca.CODE == 0)) return;
+
+            ComaBs.AddNew();
+            var coma = ComaBs.Current as Data.Computer_Action;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveComa_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            ComaBs.EndEdit();
+            Coma_Gv.PostEditor();
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>234</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    //iScsc.ExecuteCommand(string.Format("DELETE dbo.Computer_Action WHERE Code = {0}", coma.CODE));
+                                    iScsc.SubmitChanges();
+                                    requery = true;
+                                    return;
+                                 }
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 234 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),                  
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void DelComa_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            ComaBs.EndEdit();
+            Coma_Gv.PostEditor();
+
+            var coma = ComaBs.Current as Data.Computer_Action;
+            if (coma == null || coma.CODE == 0) return;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>235</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    iScsc.ExecuteCommand(string.Format("DELETE dbo.Computer_Action WHERE Code = {0}", coma.CODE));
+                                    requery = true;
+                                    return;
+                                 }
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 235 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),                  
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void Actn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            ComaBs.EndEdit();
+            Coma_Gv.PostEditor();
+
+            var coma = ComaBs.Current as Data.Computer_Action;
+            if (coma == null || coma.CODE == 0) return;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>234</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    iScsc.ExecuteCommand(string.Format("Update dbo.Computer_Action SET Mtod_Code = NULL WHERE Code = {0}", coma.CODE));
+                                    requery = true;
+                                    return;
+                                 }
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 234 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),                  
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
       }
    }
 }

@@ -190,9 +190,6 @@ namespace System.Scsc.Data
     partial void DeletePayment(Payment instance);
     partial void InsertExpense(Expense instance);
     partial void DeleteExpense(Expense instance);
-    partial void InsertComputer_Action(Computer_Action instance);
-    partial void UpdateComputer_Action(Computer_Action instance);
-    partial void DeleteComputer_Action(Computer_Action instance);
     partial void InsertMember_Ship(Member_Ship instance);
     partial void UpdateMember_Ship(Member_Ship instance);
     partial void DeleteMember_Ship(Member_Ship instance);
@@ -240,6 +237,9 @@ namespace System.Scsc.Data
     partial void InsertPayment_Expense(Payment_Expense instance);
     partial void UpdatePayment_Expense(Payment_Expense instance);
     partial void DeletePayment_Expense(Payment_Expense instance);
+    partial void InsertComputer_Action(Computer_Action instance);
+    partial void UpdateComputer_Action(Computer_Action instance);
+    partial void DeleteComputer_Action(Computer_Action instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -1528,14 +1528,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Computer_Action> Computer_Actions
-		{
-			get
-			{
-				return this.GetTable<Computer_Action>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Member_Ship> Member_Ships
 		{
 			get
@@ -1733,6 +1725,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Misc_Expense>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Computer_Action> Computer_Actions
+		{
+			get
+			{
+				return this.GetTable<Computer_Action>();
 			}
 		}
 		
@@ -46600,6 +46600,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Expense> _Payment_Expenses;
 		
+		private EntitySet<Computer_Action> _Computer_Actions;
+		
 		private EntityRef<Method> _Method1;
 		
     #region Extensibility Method Definitions
@@ -46649,6 +46651,7 @@ namespace System.Scsc.Data
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
 			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
+			this._Computer_Actions = new EntitySet<Computer_Action>(new Action<Computer_Action>(this.attach_Computer_Actions), new Action<Computer_Action>(this.detach_Computer_Actions));
 			this._Method1 = default(EntityRef<Method>);
 			OnCreated();
 		}
@@ -47092,6 +47095,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Computer_Action", Storage="_Computer_Actions", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Computer_Action> Computer_Actions
+		{
+			get
+			{
+				return this._Computer_Actions;
+			}
+			set
+			{
+				this._Computer_Actions.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Method1", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Method Method1
 		{
@@ -47325,235 +47341,17 @@ namespace System.Scsc.Data
 			this.SendPropertyChanging();
 			entity.Method = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Computer_Action")]
-	public partial class Computer_Action : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _CODE;
-		
-		private string _COMP_NAME;
-		
-		private string _CHCK_DOBL_ATTN_STAT;
-		
-		private string _CHCK_ATTN_ALRM;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnCOMP_NAMEChanging(string value);
-    partial void OnCOMP_NAMEChanged();
-    partial void OnCHCK_DOBL_ATTN_STATChanging(string value);
-    partial void OnCHCK_DOBL_ATTN_STATChanged();
-    partial void OnCHCK_ATTN_ALRMChanging(string value);
-    partial void OnCHCK_ATTN_ALRMChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Computer_Action()
+		private void attach_Computer_Actions(Computer_Action entity)
 		{
-			OnCreated();
+			this.SendPropertyChanging();
+			entity.Method = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
+		private void detach_Computer_Actions(Computer_Action entity)
 		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(50)")]
-		public string COMP_NAME
-		{
-			get
-			{
-				return this._COMP_NAME;
-			}
-			set
-			{
-				if ((this._COMP_NAME != value))
-				{
-					this.OnCOMP_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._COMP_NAME = value;
-					this.SendPropertyChanged("COMP_NAME");
-					this.OnCOMP_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_DOBL_ATTN_STAT", DbType="VarChar(3)")]
-		public string CHCK_DOBL_ATTN_STAT
-		{
-			get
-			{
-				return this._CHCK_DOBL_ATTN_STAT;
-			}
-			set
-			{
-				if ((this._CHCK_DOBL_ATTN_STAT != value))
-				{
-					this.OnCHCK_DOBL_ATTN_STATChanging(value);
-					this.SendPropertyChanging();
-					this._CHCK_DOBL_ATTN_STAT = value;
-					this.SendPropertyChanged("CHCK_DOBL_ATTN_STAT");
-					this.OnCHCK_DOBL_ATTN_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_ATTN_ALRM", DbType="VarChar(3)")]
-		public string CHCK_ATTN_ALRM
-		{
-			get
-			{
-				return this._CHCK_ATTN_ALRM;
-			}
-			set
-			{
-				if ((this._CHCK_ATTN_ALRM != value))
-				{
-					this.OnCHCK_ATTN_ALRMChanging(value);
-					this.SendPropertyChanging();
-					this._CHCK_ATTN_ALRM = value;
-					this.SendPropertyChanged("CHCK_ATTN_ALRM");
-					this.OnCHCK_ATTN_ALRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.Method = null;
 		}
 	}
 	
@@ -68373,6 +68171,301 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Misc_Expense = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Computer_Action")]
+	public partial class Computer_Action : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _COMP_NAME;
+		
+		private string _CHCK_DOBL_ATTN_STAT;
+		
+		private string _CHCK_ATTN_ALRM;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Method> _Method;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCOMP_NAMEChanging(string value);
+    partial void OnCOMP_NAMEChanged();
+    partial void OnCHCK_DOBL_ATTN_STATChanging(string value);
+    partial void OnCHCK_DOBL_ATTN_STATChanged();
+    partial void OnCHCK_ATTN_ALRMChanging(string value);
+    partial void OnCHCK_ATTN_ALRMChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Computer_Action()
+		{
+			this._Method = default(EntityRef<Method>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string COMP_NAME
+		{
+			get
+			{
+				return this._COMP_NAME;
+			}
+			set
+			{
+				if ((this._COMP_NAME != value))
+				{
+					this.OnCOMP_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_NAME = value;
+					this.SendPropertyChanged("COMP_NAME");
+					this.OnCOMP_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_DOBL_ATTN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CHCK_DOBL_ATTN_STAT
+		{
+			get
+			{
+				return this._CHCK_DOBL_ATTN_STAT;
+			}
+			set
+			{
+				if ((this._CHCK_DOBL_ATTN_STAT != value))
+				{
+					this.OnCHCK_DOBL_ATTN_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CHCK_DOBL_ATTN_STAT = value;
+					this.SendPropertyChanged("CHCK_DOBL_ATTN_STAT");
+					this.OnCHCK_DOBL_ATTN_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_ATTN_ALRM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CHCK_ATTN_ALRM
+		{
+			get
+			{
+				return this._CHCK_ATTN_ALRM;
+			}
+			set
+			{
+				if ((this._CHCK_ATTN_ALRM != value))
+				{
+					this.OnCHCK_ATTN_ALRMChanging(value);
+					this.SendPropertyChanging();
+					this._CHCK_ATTN_ALRM = value;
+					this.SendPropertyChanged("CHCK_ATTN_ALRM");
+					this.OnCHCK_ATTN_ALRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					if (this._Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Computer_Action", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Computer_Actions.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Computer_Actions.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

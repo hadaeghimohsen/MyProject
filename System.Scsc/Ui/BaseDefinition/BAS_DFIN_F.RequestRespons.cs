@@ -717,6 +717,8 @@ namespace System.Scsc.Ui.BaseDefinition
          RqttBs1.DataSource = iScsc.Requester_Types.Where(rt => rt.CODE == "001" || rt.CODE == "004");
          DCyclBs1.DataSource = iScsc.D_CYCLs;
          DWkdyBs1.DataSource = iScsc.D_WKDies;
+         DysnoBs.DataSource = iScsc.D_YSNOs;
+         VCompBs.DataSource = iScsc.V_Computers;
 
          job.Status = StatusType.Successful;
       }

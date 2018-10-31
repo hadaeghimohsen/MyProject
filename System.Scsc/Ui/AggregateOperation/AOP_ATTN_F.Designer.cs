@@ -2418,7 +2418,6 @@
          this.gridView1.GridControl = this.aggregation_Operation_DetailsGridControl;
          this.gridView1.Name = "gridView1";
          this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
          this.gridView1.OptionsView.ShowDetailButtons = false;
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;

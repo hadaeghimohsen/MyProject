@@ -1124,6 +1124,7 @@ namespace System.Scsc.Ui.MasterPage
                                          WHERE ms.Figh_File_No = {0}
                                            AND ms.Figh_File_No = fp.Figh_File_No
                                            AND fp.Mtod_Code = mt.Code
+                                           AND mt.Code = ISNULL({1}, mt.Code)
                                            AND ms.Rect_Code = '004'
                                            AND ms.Type = '001'
                                            AND ms.Vald_Type = '002'
@@ -1132,7 +1133,8 @@ namespace System.Scsc.Ui.MasterPage
                                            AND CAST(ms.STRT_DATE as DATE) <= CAST(GETDATE() AS DATE)
                                            AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
                                            AND (mt.Chck_Attn_Alrm = '001' AND CAST(ms.End_Date AS DATE) >= CAST(GETDATE() AS DATE))
-                                       ", figh.FILE_NO) 
+                                       ", figh.FILE_NO
+                                        , host.MTOD_CODE == null ? "NULL" : host.MTOD_CODE.ToString()) 
                         :
                         /* منشی پشت سیستم حضور ندارد */
                         string.Format(@"SELECT ms.*
@@ -1140,6 +1142,7 @@ namespace System.Scsc.Ui.MasterPage
                                          WHERE ms.Figh_File_No = {0}
                                            AND ms.Figh_File_No = fp.Figh_File_No
                                            AND fp.Mtod_Code = mt.Code
+                                           AND mt.Code = ISNULL({1}, mt.Code)
                                            AND ms.Rect_Code = '004'
                                            AND ms.Type = '001'
                                            AND ms.Vald_Type = '002'
@@ -1147,8 +1150,9 @@ namespace System.Scsc.Ui.MasterPage
                                            AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
                                            AND CAST(ms.STRT_DATE as DATE) <= CAST(GETDATE() AS DATE)
                                            AND (ms.Numb_Of_Attn_Mont = 0 OR ms.Numb_Of_Attn_Mont > ms.Sum_Attn_Mont_Dnrm)
-                                           AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
-                                       ", figh.FILE_NO) 
+                                           AND (mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE))
+                                       ", figh.FILE_NO
+                                        , host.MTOD_CODE == null ? "NULL" : host.MTOD_CODE.ToString()) 
                   ).ToList<Data.Member_Ship>();
 
                // 1396/12/11 * اصلاح حضور و غیاب مربیان
@@ -1197,6 +1201,7 @@ namespace System.Scsc.Ui.MasterPage
                                             WHERE ms.Figh_File_No = {0}
                                               AND ms.Figh_File_No = fp.Figh_File_No
                                               AND fp.Mtod_Code = mt.Code
+                                              AND mt.Code = ISNULL({1}, mt.Code)
                                               AND ms.Rect_Code = '004'
                                               AND ms.Type = '001'
                                               AND ms.Vald_Type = '002'
@@ -1204,7 +1209,8 @@ namespace System.Scsc.Ui.MasterPage
                                               AND ms.Fgpb_Rect_Code_Dnrm = fp.Rect_Code
                                               AND ( mt.Chck_Attn_Alrm = '002' AND CAST(GETDATE() AS DATE) BETWEEN CAST(ms.Strt_Date AS DATE) AND CAST(ms.End_Date AS DATE) )
                                             ORDER BY ms.Rwno DESC
-                                       ", figh.FILE_NO) 
+                                       ", figh.FILE_NO
+                                        , host.MTOD_CODE == null ? "NULL" : host.MTOD_CODE.ToString()) 
                         ).ToList<Data.Member_Ship>();                        
                   }
                   Job _InteractWithScsc =

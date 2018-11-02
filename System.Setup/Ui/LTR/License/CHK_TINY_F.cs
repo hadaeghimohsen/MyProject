@@ -37,40 +37,40 @@ namespace System.Setup.Ui.LTR.License
             if (TinySNInstaller_Txt.Text == "") { TinySNInstaller_Txt.Focus(); return; }
 
             // Install Tiny SDK
-            //var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            //var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
-            //var tinypath = parentpath.FullName + "\\tools\\tinysdk";
-            ////tinypath = @"D:\AnarSys\tools\tinysdk";
-            //if (Environment.Is64BitOperatingSystem)
-            //{               
-            //   foreach (var dllfile in IO.Directory.GetFiles(tinypath).Where(f => f.Contains(".ocx")))
-            //   {
-            //      IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\syswow64\") + new IO.FileInfo(dllfile).Name, true);
-            //   }
-            //   Process.Start(tinypath + "\\Just64bit_register_TinySDK.bat");
-            //}
-            //else
-            //{
-            //   foreach (var dllfile in IO.Directory.GetFiles(tinypath).Where(f => f.Contains(".ocx")))
-            //   {
-            //      IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\system32\") + new IO.FileInfo(dllfile).Name, true);
-            //   }
-            //   Process.Start(tinypath + "\\Just32bit_register_TinySDK.bat");
-            //}
+            var execpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            var parentpath = new System.IO.DirectoryInfo(execpath).Parent;
+            var tinypath = parentpath.FullName + "\\tools\\tinysdk";
+            //tinypath = @"D:\AnarSys\tools\tinysdk";
+            if (Environment.Is64BitOperatingSystem)
+            {               
+               foreach (var dllfile in IO.Directory.GetFiles(tinypath).Where(f => f.Contains(".ocx")))
+               {
+                  IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\syswow64\") + new IO.FileInfo(dllfile).Name, true);
+               }
+               Process.Start(tinypath + "\\Just64bit_register_TinySDK.bat");
+            }
+            else
+            {
+               foreach (var dllfile in IO.Directory.GetFiles(tinypath).Where(f => f.Contains(".ocx")))
+               {
+                  IO.File.Copy(dllfile, Environment.ExpandEnvironmentVariables(@"%windir%\system32\") + new IO.FileInfo(dllfile).Name, true);
+               }
+               Process.Start(tinypath + "\\Just32bit_register_TinySDK.bat");
+            }
 
             // Check Input Tiny Serial No With Tiny Lock
-            //var _CheckInstallTinyLock =
-            //   new Job(SendType.External, "localhost", "DefaultGateway:DataGuard", 32 /* Execute DoWork4CheckInstallTinyLock */, SendType.Self) { Input = TinySNInstaller_Txt.Text };
-            //_DefaultGateway.Gateway(_CheckInstallTinyLock);
+            var _CheckInstallTinyLock =
+               new Job(SendType.External, "localhost", "DefaultGateway:DataGuard", 32 /* Execute DoWork4CheckInstallTinyLock */, SendType.Self) { Input = TinySNInstaller_Txt.Text };
+            _DefaultGateway.Gateway(_CheckInstallTinyLock);
 
-            //if (_CheckInstallTinyLock.Output != null)
-            //{
-            //   var _jobUnSecureHashCode =
-            //      new Job(SendType.External, "Localhost", "DefaultGateway:DataGuard", 08 /* Execute DoWork4UnSecureHashCode  */, SendType.Self) { Input = (_CheckInstallTinyLock.Output as XElement).Value };
-            //   _DefaultGateway.Gateway(_jobUnSecureHashCode);
-            //   MessageBox.Show(_jobUnSecureHashCode.Output.ToString());
-            //}
-            //else
+            if (_CheckInstallTinyLock.Output != null)
+            {
+               var _jobUnSecureHashCode =
+                  new Job(SendType.External, "Localhost", "DefaultGateway:DataGuard", 08 /* Execute DoWork4UnSecureHashCode  */, SendType.Self) { Input = (_CheckInstallTinyLock.Output as XElement).Value };
+               _DefaultGateway.Gateway(_jobUnSecureHashCode);
+               MessageBox.Show(_jobUnSecureHashCode.Output.ToString());
+            }
+            else
             {
                // Open First Page Setup
                _DefaultGateway.Gateway(

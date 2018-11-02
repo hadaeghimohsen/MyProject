@@ -1165,7 +1165,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
             if (cbmt == null) return;
             if (cbmt.CRET_BY == null)
             {
@@ -2076,6 +2076,101 @@ namespace System.Scsc.Ui.BaseDefinition
                Execute_Query();
             }
          }
+      }
+
+      private void CbmtBs2_CurrentChanged(object sender, EventArgs e)
+      {
+         var cbmt = CbmtBs2.Current as Data.Club_Method;
+         if(cbmt == null)return;
+
+         CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
+
+         if(CbmtwkdyBs1.List.Count == 0)
+         {
+            ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+            return;
+         }
+
+         foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
+         {
+            var rslt = ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+            rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+         }
+      }
+
+      private void SaveWkdy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var c = CbmtBs2.Current as Data.Club_Method;
+
+            iScsc.STNG_SAVE_P(
+               new XElement("Config",
+                  new XAttribute("type", "005"),
+                     new XElement("Update",
+                        new XElement("Club_Method",
+                           new XAttribute("code", c.CODE),
+                           new XAttribute("clubcode", c.CLUB_CODE),
+                           new XAttribute("mtodcode", c.MTOD_CODE),
+                           new XAttribute("cochfileno", c.COCH_FILE_NO),
+                           new XAttribute("daytype", c.DAY_TYPE),
+                           new XAttribute("strttime", c.STRT_TIME.ToString()),
+                           new XAttribute("endtime", c.END_TIME.ToString()),
+                           new XAttribute("mtodstat", c.MTOD_STAT),
+                           new XAttribute("sextype", c.SEX_TYPE),
+                           new XAttribute("cbmtdesc", c.CBMT_DESC ?? ""),
+                           new XAttribute("dfltstat", c.DFLT_STAT ?? "001"),
+                           new XAttribute("cpctnumb", c.CPCT_NUMB ?? 0),
+                           new XAttribute("cpctstat", c.CPCT_STAT ?? "001"),
+                           new XAttribute("cbmttime", c.CBMT_TIME ?? 0),
+                           new XAttribute("cbmttimestat", c.CBMT_TIME_STAT ?? "001"),
+                           new XAttribute("clastime", c.CLAS_TIME ?? 90),
+                           new XElement("Club_Method_Weekdays",
+                              CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().Select(cbmw =>
+                                 new XElement("Club_Method_Weekday",
+                                    new XAttribute("code", cbmw.CODE),
+                                    new XAttribute("weekday", cbmw.WEEK_DAY),
+                                    new XAttribute("stat", cbmw.STAT)
+                                 )
+                              )
+                           )
+                        )
+                     )
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void Wkdy00i_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SimpleButton sb = sender as SimpleButton;
+
+            if (CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT == "001")
+            {
+               CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT = "002";
+               sb.Appearance.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+               CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT = "001";
+               sb.Appearance.BackColor = Color.LightGray;
+            }
+         }catch{}
       }
    }
 }

@@ -646,8 +646,9 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            Sp_Barcode.WriteLine("enroll");
-            Sp_Barcode.WriteLine(enrollId);
+            Sp_Barcode.Write("enroll");
+            Threading.Thread.Sleep(2000);
+            Sp_Barcode.Write(enrollId);
          }
          catch (Exception exc)
          {
@@ -659,8 +660,9 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            Sp_Barcode.WriteLine("delete");
-            Sp_Barcode.WriteLine(enrollId);
+            Sp_Barcode.Write("delete");
+            Threading.Thread.Sleep(2000);
+            Sp_Barcode.Write(enrollId);
          }
          catch (Exception exc)
          {
@@ -2829,6 +2831,21 @@ namespace System.Scsc.Ui.MasterPage
             AttnType_Lov.Focus();
          }
          catch { }
+      }
+
+      private void button1_Click(object sender, EventArgs e)
+      {
+         Enroll_Finger(FngrPrnt_Txt.Text);
+      }
+
+      private void button2_Click(object sender, EventArgs e)
+      {
+         Delete_Finger(FngrPrnt_Txt.Text);
+      }
+
+      private void button3_Click(object sender, EventArgs e)
+      {
+         Sp_Barcode.Write("empty");
       }
 
       

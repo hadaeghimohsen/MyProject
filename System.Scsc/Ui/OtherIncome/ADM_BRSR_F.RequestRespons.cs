@@ -249,7 +249,7 @@ namespace System.Scsc.Ui.OtherIncome
          #region Rqsw block
          try
          {
-            DSxtpBs1.DataSource = iScsc.D_SXTPs;
+            DSxtpBs1.DataSource = iScsc.D_SXTPs.Where(d => d.VALU != "003");
             isFirstLoaded = true;
          }
          catch { }

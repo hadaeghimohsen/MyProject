@@ -64,6 +64,7 @@
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.tp_003 = new System.Windows.Forms.TabPage();
+         this.AttachRespons_Lb = new DevExpress.XtraEditors.LabelControl();
          this.AttachDatabaseFile_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SelectDatabaseFile_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DatabaseFiles_Lst = new System.Windows.Forms.ListBox();
@@ -72,13 +73,13 @@
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.tp_004 = new System.Windows.Forms.TabPage();
+         this.OdbcConnectionStatus_Lb = new DevExpress.XtraEditors.LabelControl();
          this.TestInstanceCreateDatabaseLink_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
          this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
          this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.AttachRespons_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+         this.RestoredbStatus_Lb = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -450,6 +451,7 @@
          // tp_002
          // 
          this.tp_002.AutoScroll = true;
+         this.tp_002.Controls.Add(this.RestoredbStatus_Lb);
          this.tp_002.Controls.Add(this.CreateTestDemoDatabase_Cb);
          this.tp_002.Controls.Add(this.InstallConfigDatabase_Butn);
          this.tp_002.Controls.Add(this.SelectPathTargetDbFile_Butn);
@@ -642,6 +644,21 @@
          this.tp_003.Text = "Attach Database files";
          this.tp_003.UseVisualStyleBackColor = true;
          // 
+         // AttachRespons_Lb
+         // 
+         this.AttachRespons_Lb.AllowHtmlString = true;
+         this.AttachRespons_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AttachRespons_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.AttachRespons_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1641;
+         this.AttachRespons_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.AttachRespons_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.AttachRespons_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+         this.AttachRespons_Lb.Location = new System.Drawing.Point(176, 241);
+         this.AttachRespons_Lb.Name = "AttachRespons_Lb";
+         this.AttachRespons_Lb.Size = new System.Drawing.Size(456, 38);
+         this.AttachRespons_Lb.TabIndex = 82;
+         this.AttachRespons_Lb.Text = "Wait for respons action";
+         // 
          // AttachDatabaseFile_Butn
          // 
          this.AttachDatabaseFile_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -751,7 +768,7 @@
          // 
          // tp_004
          // 
-         this.tp_004.Controls.Add(this.labelControl13);
+         this.tp_004.Controls.Add(this.OdbcConnectionStatus_Lb);
          this.tp_004.Controls.Add(this.TestInstanceCreateDatabaseLink_Butn);
          this.tp_004.Controls.Add(this.labelControl25);
          this.tp_004.Location = new System.Drawing.Point(4, 23);
@@ -761,6 +778,21 @@
          this.tp_004.TabIndex = 3;
          this.tp_004.Text = "Create Connection Database Instance";
          this.tp_004.UseVisualStyleBackColor = true;
+         // 
+         // OdbcConnectionStatus_Lb
+         // 
+         this.OdbcConnectionStatus_Lb.AllowHtmlString = true;
+         this.OdbcConnectionStatus_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OdbcConnectionStatus_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.OdbcConnectionStatus_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1641;
+         this.OdbcConnectionStatus_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.OdbcConnectionStatus_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.OdbcConnectionStatus_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+         this.OdbcConnectionStatus_Lb.Location = new System.Drawing.Point(112, 120);
+         this.OdbcConnectionStatus_Lb.Name = "OdbcConnectionStatus_Lb";
+         this.OdbcConnectionStatus_Lb.Size = new System.Drawing.Size(377, 38);
+         this.OdbcConnectionStatus_Lb.TabIndex = 83;
+         this.OdbcConnectionStatus_Lb.Text = "Wait for respons action";
          // 
          // TestInstanceCreateDatabaseLink_Butn
          // 
@@ -806,35 +838,20 @@
          this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
          this.SelectDatabaseFile_Ofd.Multiselect = true;
          // 
-         // AttachRespons_Lb
+         // RestoredbStatus_Lb
          // 
-         this.AttachRespons_Lb.AllowHtmlString = true;
-         this.AttachRespons_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AttachRespons_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.AttachRespons_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1641;
-         this.AttachRespons_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.AttachRespons_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AttachRespons_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.AttachRespons_Lb.Location = new System.Drawing.Point(176, 241);
-         this.AttachRespons_Lb.Name = "AttachRespons_Lb";
-         this.AttachRespons_Lb.Size = new System.Drawing.Size(456, 38);
-         this.AttachRespons_Lb.TabIndex = 82;
-         this.AttachRespons_Lb.Text = "Wait for respons action";
-         // 
-         // labelControl13
-         // 
-         this.labelControl13.AllowHtmlString = true;
-         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl13.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl13.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1641;
-         this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.labelControl13.Location = new System.Drawing.Point(112, 120);
-         this.labelControl13.Name = "labelControl13";
-         this.labelControl13.Size = new System.Drawing.Size(377, 38);
-         this.labelControl13.TabIndex = 83;
-         this.labelControl13.Text = "Wait for respons action";
+         this.RestoredbStatus_Lb.AllowHtmlString = true;
+         this.RestoredbStatus_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RestoredbStatus_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.RestoredbStatus_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1611;
+         this.RestoredbStatus_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.RestoredbStatus_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.RestoredbStatus_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+         this.RestoredbStatus_Lb.Location = new System.Drawing.Point(164, 215);
+         this.RestoredbStatus_Lb.Name = "RestoredbStatus_Lb";
+         this.RestoredbStatus_Lb.Size = new System.Drawing.Size(404, 38);
+         this.RestoredbStatus_Lb.TabIndex = 69;
+         this.RestoredbStatus_Lb.Text = "Restore Status";
          // 
          // SQL_CONF_F
          // 
@@ -911,7 +928,8 @@
       private DevExpress.XtraEditors.LabelControl ConnectionStatus_Lb;
       private Windows.Forms.OpenFileDialog SelectDatabaseFile_Ofd;
       private DevExpress.XtraEditors.LabelControl AttachRespons_Lb;
-      private DevExpress.XtraEditors.LabelControl labelControl13;
+      private DevExpress.XtraEditors.LabelControl OdbcConnectionStatus_Lb;
+      private DevExpress.XtraEditors.LabelControl RestoredbStatus_Lb;
 
    }
 }

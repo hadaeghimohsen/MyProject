@@ -578,7 +578,7 @@ namespace System.Scsc.Ui.Admission
             RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
             DPydsBs1.DataSource = iScsc.D_PYDS;
             DAtypBs1.DataSource = iScsc.D_ATYPs;
-            DSxtpBs1.DataSource = iScsc.D_SXTPs;
+            DSxtpBs1.DataSource = iScsc.D_SXTPs.Where(d => d.VALU != "003");
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));

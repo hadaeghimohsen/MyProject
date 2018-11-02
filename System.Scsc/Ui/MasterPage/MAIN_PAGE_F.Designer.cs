@@ -179,6 +179,9 @@
          this.SystemAdmin_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.SystemAdmin_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
+         this.button3 = new System.Windows.Forms.Button();
+         this.button2 = new System.Windows.Forms.Button();
+         this.button1 = new System.Windows.Forms.Button();
          this.ChngAttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
@@ -1502,6 +1505,9 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.spc_desktop.Panel2.Controls.Add(this.button3);
+         this.spc_desktop.Panel2.Controls.Add(this.button2);
+         this.spc_desktop.Panel2.Controls.Add(this.button1);
          this.spc_desktop.Panel2.Controls.Add(this.ChngAttnActn_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.TlgrmBot_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.BackGrnd_Butn);
@@ -1523,6 +1529,39 @@
          this.spc_desktop.Size = new System.Drawing.Size(1145, 302);
          this.spc_desktop.SplitterDistance = 261;
          this.spc_desktop.TabIndex = 3;
+         // 
+         // button3
+         // 
+         this.button3.Location = new System.Drawing.Point(637, 6);
+         this.button3.Name = "button3";
+         this.button3.Size = new System.Drawing.Size(75, 23);
+         this.button3.TabIndex = 21;
+         this.button3.Text = "Empty";
+         this.button3.UseVisualStyleBackColor = true;
+         this.button3.Visible = false;
+         this.button3.Click += new System.EventHandler(this.button3_Click);
+         // 
+         // button2
+         // 
+         this.button2.Location = new System.Drawing.Point(556, 6);
+         this.button2.Name = "button2";
+         this.button2.Size = new System.Drawing.Size(75, 23);
+         this.button2.TabIndex = 21;
+         this.button2.Text = "Delete";
+         this.button2.UseVisualStyleBackColor = true;
+         this.button2.Visible = false;
+         this.button2.Click += new System.EventHandler(this.button2_Click);
+         // 
+         // button1
+         // 
+         this.button1.Location = new System.Drawing.Point(475, 6);
+         this.button1.Name = "button1";
+         this.button1.Size = new System.Drawing.Size(75, 23);
+         this.button1.TabIndex = 21;
+         this.button1.Text = "Enroll";
+         this.button1.UseVisualStyleBackColor = true;
+         this.button1.Visible = false;
+         this.button1.Click += new System.EventHandler(this.button1_Click);
          // 
          // ChngAttnActn_Butn
          // 
@@ -2076,5 +2115,8 @@
       private DevExpress.XtraBars.Ribbon.RibbonPageCategory SystemAdmin_RPgc;
       private DevExpress.XtraEditors.SimpleButton ChngAttnActn_Butn;
       private DevExpress.XtraEditors.SimpleButton GameHours_Butn;
+      private Windows.Forms.Button button3;
+      private Windows.Forms.Button button2;
+      private Windows.Forms.Button button1;
    }
 }

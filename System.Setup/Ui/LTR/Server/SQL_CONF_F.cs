@@ -172,7 +172,7 @@ namespace System.Setup.Ui.LTR.Server
                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
                );
             cmd.Connection.Open();
-            //cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             cmd.Connection.Close();
 
             // 2nd Step Empty Database for Ready to Use
@@ -217,9 +217,15 @@ namespace System.Setup.Ui.LTR.Server
             cmd.Connection.Open();
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
+
+            RestoredbStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1609;
+            RestoredbStatus_Lb.Text = "Restore db welldone!";
          }
          catch (Exception exc)
          {
+            RestoredbStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1608;
+            RestoredbStatus_Lb.Text = "Restore db Failed!";
+
             MessageBox.Show(exc.Message);
          }
       }
@@ -291,7 +297,7 @@ namespace System.Setup.Ui.LTR.Server
             con.Close();
 
             // Second Step * Create Odbc Connection With iProject Dsn Name
-            _DefaultGateway.Gateway(
+            var _odbcConnection =
                new Job(SendType.External, "localhost", "Commons:Odbc:OdbcSettings", 12 /* Execute CreateDsnName */, SendType.SelfToUserInterface)
                {
                   Input = new List<object>
@@ -304,11 +310,27 @@ namespace System.Setup.Ui.LTR.Server
                      "scott",
                      false
                   }
-               }
+               };
+            _DefaultGateway.Gateway(
+               _odbcConnection
             );
+
+            if (_odbcConnection.Status == StatusType.Successful)
+            {
+               OdbcConnectionStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1609;
+               OdbcConnectionStatus_Lb.Text = "Create db connection welldone!";
+            }
+            else
+            {
+               OdbcConnectionStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1608;
+               OdbcConnectionStatus_Lb.Text = "Create db connection Failed!";
+            }
          }
          catch (Exception exc)
          {
+            OdbcConnectionStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1608;
+            OdbcConnectionStatus_Lb.Text = "Create db connection Failed!";
+
             MessageBox.Show(exc.Message);
          }
       }

@@ -514,7 +514,7 @@ namespace System.Scsc.Ui.Admission
             DCyclBs1.DataSource = iScsc.D_CYCLs;
             //MtodBs2.DataSource = iScsc.Methods;
             //CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.Method == MtodBs2.Current as Scsc.Data.Method).OrderBy(c => c.ORDR);
-            DSxtpBs1.DataSource = iScsc.D_SXTPs;
+            DSxtpBs1.DataSource = iScsc.D_SXTPs.Where(d => d.VALU != "003");
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DEducBs1.DataSource = iScsc.D_EDUCs;
             DstpBs1.DataSource = iScsc.Diseases_Types;

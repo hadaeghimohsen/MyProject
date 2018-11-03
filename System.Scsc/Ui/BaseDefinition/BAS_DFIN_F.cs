@@ -128,16 +128,6 @@ namespace System.Scsc.Ui.BaseDefinition
             ClubBs1.Position = club;
             Cbmt_Gv.TopRowIndex = cbmt;
             CbmtBs2.Position = cbmt;
-
-            //CbmtBs1.List.Clear();
-            //if (CbmtGv1.Tag != null)
-            //{
-               
-            //   CbmtBs1.DataSource = iScsc.Club_Methods.Where(cb => cb.CLUB_CODE == ((Data.Club)CbmtGv1.Tag).CODE);
-            //   Cbmt_Gv.TopRowIndex = cbmt;
-            //   CbmtBs1.Position = cbmt;
-            //}
-            //CreateClubMenu();
          }
          else if(Tb_Master.SelectedTab == tp_007)
          {
@@ -2171,6 +2161,103 @@ namespace System.Scsc.Ui.BaseDefinition
                sb.Appearance.BackColor = Color.LightGray;
             }
          }catch{}
+      }
+
+      private void Cbmt_Gv_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+      {
+         try
+         {
+            if (e.Column.FieldName == "colUbStrtTime")
+            {
+               var row = e.Row as Data.Club_Method;
+               if (e.IsGetData)
+               {
+                  if (row.STRT_TIME == null)
+                     e.Value = new DateTime();
+                  else
+                     e.Value = new DateTime(((TimeSpan)row.STRT_TIME).Ticks);
+               }
+               if (e.IsSetData)
+               {
+                  if (e.Value is DateTime)
+                     row.STRT_TIME = new TimeSpan(((DateTime)e.Value).Ticks);
+               }
+            }
+            else if (e.Column.FieldName == "colUbEndTime")
+            {
+               var row = e.Row as Data.Club_Method;
+               if (e.IsGetData)
+               {
+                  if (row.END_TIME == null)
+                     e.Value = new DateTime();
+                  else
+                     e.Value = new DateTime(((TimeSpan)row.END_TIME).Ticks);
+               }
+               if (e.IsSetData)
+               {
+                  if (e.Value is DateTime)
+                     row.END_TIME = new TimeSpan(((DateTime)e.Value).Ticks);
+               }
+            }
+         }
+         catch { }
+      }
+
+      private void Cbmt_Gv_InitNewRow(object sender, InitNewRowEventArgs e)
+      {
+         Cbmt_Gv.SetRowCellValue(e.RowHandle, colUbStrtTime, new DateTime());
+         Cbmt_Gv.SetRowCellValue(e.RowHandle, colUbEndTime, new DateTime());
+      }
+
+      private void QWkdy00i_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SimpleButton sb = sender as SimpleButton;
+
+            if (sb.Appearance.BackColor == Color.LightGray)
+            {
+               sb.Appearance.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+               sb.Appearance.BackColor = Color.LightGray;
+            }
+         }
+         catch { }
+      }
+
+      private void ClubBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         var club = ClubBs1.Current as Data.Club;
+         if(club == null)return;
+         
+         var weekdays = new List<string>();
+         CommandCbmt_Pnl.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null && sb.Appearance.BackColor == Color.GreenYellow).ToList().ForEach(sb => weekdays.Add(string.Format("'{0}'",sb.Tag.ToString())));
+
+         if(weekdays.Count == 0)
+         {
+            CbmtBs2.DataSource = null;
+         }
+         else
+         {
+            CbmtBs2.DataSource =
+               iScsc.ExecuteQuery<Data.Club_Method>(
+                  string.Format(
+                     "SELECT * FROM Club_Method cm " + 
+                     "WHERE CLUB_CODE = {0} " +                     
+                     "AND EXISTS(SELECT * FROM Club_Method_Weekday cmw WHERE cm.CODE = cmw.CBMT_CODE AND cmw.STAT = '002' AND WEEK_DAY IN ({1})) " +
+                     "AND ((STRT_TIME >= '{2}' AND END_TIME <= '{3}') OR (STRT_TIME <= '{2}' AND END_TIME >= '{3}') OR ((STRT_TIME <= '{2}' AND END_TIME >= '{2}') AND END_TIME <= '{3}') OR ((STRT_TIME >= '{2}' AND STRT_TIME <= '{3}' ))) " ,
+                     club.CODE,
+                     string.Join(",", weekdays),
+                     QStrtTime_Tim.Text,
+                     QEndTime_Tim.Text
+                  )
+               );
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null)
+               CbmtBs2.DataSource = null;
+         }
       }
    }
 }

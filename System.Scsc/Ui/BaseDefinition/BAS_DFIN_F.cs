@@ -984,39 +984,43 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddClubMethod_Butn_Click(object sender, EventArgs e)
       {
-         if (CbmtBs2.List.OfType<Data.Club_Method>().Any(cm => cm.CODE == 0)) return;
-
-         var club = ClubBs1.Current as Data.Club;
-         var oldcbmt = CbmtBs2.Current as Data.Club_Method;
-
-         CbmtBs2.AddNew();
-
-         var newcbmt = CbmtBs2.Current as Data.Club_Method;
-         
-         newcbmt.CLUB_CODE = club.CODE;
-         
-         if(oldcbmt == null)
+         try
          {
-            newcbmt.DFLT_STAT = "001";
-            newcbmt.MTOD_STAT = "002";
+            if (CbmtBs2.List.OfType<Data.Club_Method>().Any(cm => cm.CODE == 0)) return;
+
+            var club = ClubBs1.Current as Data.Club;
+            var oldcbmt = CbmtBs2.Current as Data.Club_Method;
+
+            CbmtBs2.AddNew();
+
+            var newcbmt = CbmtBs2.Current as Data.Club_Method;
+
+            newcbmt.CLUB_CODE = club.CODE;
+
+            if (oldcbmt == null)
+            {
+               newcbmt.DFLT_STAT = "001";
+               newcbmt.MTOD_STAT = "002";
+            }
+            else
+            {
+               //newcbmt.COCH_FILE_NO = oldcbmt.COCH_FILE_NO;
+               //newcbmt.MTOD_CODE = oldcbmt.MTOD_CODE;
+               newcbmt.DAY_TYPE = oldcbmt.DAY_TYPE;
+               newcbmt.SEX_TYPE = oldcbmt.SEX_TYPE;
+               newcbmt.MTOD_STAT = oldcbmt.MTOD_STAT;
+               newcbmt.DFLT_STAT = oldcbmt.DFLT_STAT;
+               newcbmt.STRT_TIME = oldcbmt.STRT_TIME;
+               newcbmt.END_TIME = oldcbmt.END_TIME;
+               newcbmt.CBMT_TIME = 0;
+               newcbmt.CBMT_TIME_STAT = "001";
+               newcbmt.CLAS_TIME = 90;
+               newcbmt.CPCT_NUMB = 0;
+               newcbmt.CPCT_STAT = "001";
+               newcbmt.AMNT = 0;
+            }
          }
-         else
-         {
-            //newcbmt.COCH_FILE_NO = oldcbmt.COCH_FILE_NO;
-            //newcbmt.MTOD_CODE = oldcbmt.MTOD_CODE;
-            newcbmt.DAY_TYPE = oldcbmt.DAY_TYPE;
-            newcbmt.SEX_TYPE = oldcbmt.SEX_TYPE;
-            newcbmt.MTOD_STAT = oldcbmt.MTOD_STAT;
-            newcbmt.DFLT_STAT = oldcbmt.DFLT_STAT;
-            newcbmt.STRT_TIME = oldcbmt.STRT_TIME;
-            newcbmt.END_TIME = oldcbmt.END_TIME;
-            newcbmt.CBMT_TIME = 0;
-            newcbmt.CBMT_TIME_STAT = "001";
-            newcbmt.CLAS_TIME = 90;
-            newcbmt.CPCT_NUMB = 0;
-            newcbmt.CPCT_STAT = "001";
-            newcbmt.AMNT = 0;
-         }
+         catch(Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void SaveClubMethod_Butn_Click(object sender, EventArgs e)
@@ -2086,6 +2090,27 @@ namespace System.Scsc.Ui.BaseDefinition
             var rslt = ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
             rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
          }
+
+         try
+         {
+            UserProFile_Rb.ImageProfile = null;
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+
+            //Pb_FighImg.Visible = true;
+
+            if (InvokeRequired)
+               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+            else
+               UserProFile_Rb.ImageProfile = bm;
+         }
+         catch
+         { //Pb_FighImg.Visible = false;
+            UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+         }
       }
 
       private void SaveWkdy_Butn_Click(object sender, EventArgs e)
@@ -2229,35 +2254,52 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void ClubBs1_CurrentChanged(object sender, EventArgs e)
       {
-         var club = ClubBs1.Current as Data.Club;
-         if(club == null)return;
-         
-         var weekdays = new List<string>();
-         CommandCbmt_Pnl.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null && sb.Appearance.BackColor == Color.GreenYellow).ToList().ForEach(sb => weekdays.Add(string.Format("'{0}'",sb.Tag.ToString())));
+         try
+         {
+            var club = ClubBs1.Current as Data.Club;
+            if (club == null) return;
 
-         if(weekdays.Count == 0)
-         {
-            CbmtBs2.DataSource = null;
-         }
-         else
-         {
-            CbmtBs2.DataSource =
-               iScsc.ExecuteQuery<Data.Club_Method>(
-                  string.Format(
-                     "SELECT * FROM Club_Method cm " + 
-                     "WHERE CLUB_CODE = {0} " +                     
-                     "AND EXISTS(SELECT * FROM Club_Method_Weekday cmw WHERE cm.CODE = cmw.CBMT_CODE AND cmw.STAT = '002' AND WEEK_DAY IN ({1})) " +
-                     "AND ((STRT_TIME >= '{2}' AND END_TIME <= '{3}') OR (STRT_TIME <= '{2}' AND END_TIME >= '{3}') OR ((STRT_TIME <= '{2}' AND END_TIME >= '{2}') AND END_TIME <= '{3}') OR ((STRT_TIME >= '{2}' AND STRT_TIME <= '{3}' ))) " ,
-                     club.CODE,
-                     string.Join(",", weekdays),
-                     QStrtTime_Tim.Text,
-                     QEndTime_Tim.Text
-                  )
-               );
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
-            if (cbmt == null)
+            var weekdays = new List<string>();
+            //CommandCbmt_Pnl.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null && sb.Appearance.BackColor == Color.GreenYellow).ToList().ForEach(sb => weekdays.Add(string.Format("'{0}'", sb.Tag.ToString())));
+            CommandCbmt_Pnl.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null && sb.Appearance.BackColor == Color.GreenYellow).ToList().ForEach(sb => weekdays.Add(sb.Tag.ToString()));
+
+            if (weekdays.Count == 0)
+            {
                CbmtBs2.DataSource = null;
+            }
+            else
+            {
+               //CbmtBs2.DataSource =
+               //   iScsc.ExecuteQuery<Data.Club_Method>(
+               //      string.Format(
+               //         "SELECT * FROM Club_Method cm " + 
+               //         "WHERE CLUB_CODE = {0} " +                     
+               //         "AND EXISTS(SELECT * FROM Club_Method_Weekday cmw WHERE cm.CODE = cmw.CBMT_CODE AND cmw.STAT = '002' AND WEEK_DAY IN ({1})) " +
+               //         "AND ((STRT_TIME >= '{2}' AND END_TIME <= '{3}') OR (STRT_TIME <= '{2}' AND END_TIME >= '{3}') OR ((STRT_TIME <= '{2}' AND END_TIME >= '{2}') AND END_TIME <= '{3}') OR ((STRT_TIME >= '{2}' AND STRT_TIME <= '{3}' ))) " ,
+               //         club.CODE,
+               //         string.Join(",", weekdays),
+               //         QStrtTime_Tim.Text,
+               //         QEndTime_Tim.Text
+               //      )
+               //   );
+               var strttime = new TimeSpan(((DateTime)QStrtTime_Tim.EditValue).Ticks);
+               var endtime = new TimeSpan(((DateTime)QEndTime_Tim.EditValue).Ticks);
+
+               CbmtBs2.DataSource =
+                  iScsc.Club_Methods.Where(cm =>
+                     cm.CLUB_CODE == club.CODE &&
+                     cm.Club_Method_Weekdays.Any(cmw => cmw.STAT == "002" && weekdays.Contains(cmw.WEEK_DAY)) 
+                     /*((cm.STRT_TIME >= strttime && cm.END_TIME <= endtime) ||
+                      (cm.STRT_TIME <= strttime && cm.END_TIME >= endtime) ||
+                      ((cm.STRT_TIME <= strttime && cm.END_TIME >= strttime) && cm.END_TIME <= endtime) ||
+                      ((cm.STRT_TIME >= strttime && cm.STRT_TIME <= endtime)))*/
+                  );
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null)
+                  CbmtBs2.DataSource = null;
+            }
          }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
    }
 }

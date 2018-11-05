@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <VF_x0024_Coach_MemberShip Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>VF$Coach_MemberShip</Alias>
+        <Columns isList="true" count="23">
+          <value>RWNO,System.Int16</value>
+          <value>STRT_DATE,System.DateTime</value>
+          <value>END_DATE,System.DateTime</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int32</value>
+          <value>SUM_ATTN_MONT_DNRM,System.Int32</value>
+          <value>PERS_STRT_DATE,System.String</value>
+          <value>PERS_END_DATE,System.String</value>
+          <value>CBMT_CODE,System.Int64</value>
+          <value>STRT_TIME,System.String</value>
+          <value>END_TIME,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>PERS_BRTH_DATE,System.String</value>
+          <value>AGE,System.Int32</value>
+          <value>MTOD_DESC,System.String</value>
+          <value>CTGY_DESC,System.String</value>
+          <value>COCH_NAME_DNRM,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>VF$Coach_MemberShip</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT * FROM VF$Coach_MemberShip('{WhereClause}')</SqlCommand>
+      </VF_x0024_Coach_MemberShip>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,1.5</ClientRectangle>
+          <Components isList="true" count="9">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.4,0,15.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,9,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>گزارش کلاسی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>2fe48e1cb5ad43f2a17625c3a77ab343</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>ساعت شروع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,0.8,2.4,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>7802624d1303463eb2fb71fb9b738298</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>ساعت شروع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>e2f8e23d3c1e476ab840625d60665f21</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{VF_Coach_MemberShip.STRT_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,4,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>2ba6651069254b839082cbeb50704b61</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{VF_Coach_MemberShip.END_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <HeaderV_Coach_MemberShip_FNGR_PRNT_DNRM Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>26.2,0,1.5,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_FNGR_PRNT_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>گروه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_FNGR_PRNT_DNRM>
+            <DataV_Coach_MemberShip_FNGR_PRNT_DNRM Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>22.2,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_FNGR_PRNT_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{VF_Coach_MemberShip.MTOD_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_FNGR_PRNT_DNRM>
+            <HeaderV_Coach_MemberShip_TELL_PHON_DNRM Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>26.2,0.8,1.5,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_TELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>سرپرست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_TELL_PHON_DNRM>
+            <DataV_Coach_MemberShip_TELL_PHON_DNRM Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>22.2,0.8,4,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_TELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{VF_Coach_MemberShip.COCH_NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_TELL_PHON_DNRM>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <PrintOn>OnlyFirstPage</PrintOn>
+        </PageHeaderBand1>
+        <HeaderVF_Coach_MemberShip Ref="15" type="HeaderBand" isKey="true">
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>0,2.7,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="12">
+            <HeaderV_Coach_MemberShip_RWNO Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>26.2,0,1.5,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,6.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_RWNO</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text> ردیف تمدید</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_RWNO>
+            <HeaderV_Coach_MemberShip_PERS_STRT_DATE Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_PERS_STRT_DATE</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>تاریخ شروع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_PERS_STRT_DATE>
+            <HeaderV_Coach_MemberShip_PERS_END_DATE Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_PERS_END_DATE</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>تاریخ پایان</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_PERS_END_DATE>
+            <HeaderV_Coach_MemberShip_NAME_DNRM Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>نام مشترک</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_NAME_DNRM>
+            <HeaderV_Coach_MemberShip_CELL_PHON_DNRM Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_CELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>موبایل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_CELL_PHON_DNRM>
+            <HeaderV_Coach_MemberShip_DEBT_DNRM Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_DEBT_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>میزان بدهی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_DEBT_DNRM>
+            <HeaderV_Coach_MemberShip_NATL_CODE_DNRM Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_NATL_CODE_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>کد ملی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_NATL_CODE_DNRM>
+            <HeaderV_Coach_MemberShip_PERS_BRTH_DATE Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.4,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_PERS_BRTH_DATE</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>تاریخ تولد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_PERS_BRTH_DATE>
+            <HeaderV_Coach_MemberShip_AGE Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19.6,0,1.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Coach_MemberShip_AGE</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>سن</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Coach_MemberShip_AGE>
+            <Text6 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>883af6802bb94bc7881ae7fa521e41fa</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>زیر گروه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text8 Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>f9b0a30338aa4e3c9988cec382fb34fc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>کل جلسات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text10 Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>5d92dcb026a74337a8b80d7a909f617b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="15" />
+              <Text>جلسات باقیمانده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderVF_Coach_MemberShip</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </HeaderVF_Coach_MemberShip>
+        <DataVF_x0024_Coach_MemberShip Ref="28" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4.3,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="12">
+            <DataV_Coach_MemberShip_RWNO Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>26.2,0,1.5,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_RWNO</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.RWNO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_RWNO>
+            <DataV_Coach_MemberShip_PERS_STRT_DATE Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_PERS_STRT_DATE</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.PERS_STRT_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_PERS_STRT_DATE>
+            <DataV_Coach_MemberShip_PERS_END_DATE Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_PERS_END_DATE</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.PERS_END_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_PERS_END_DATE>
+            <DataV_Coach_MemberShip_NAME_DNRM Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_NAME_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_NAME_DNRM>
+            <DataV_Coach_MemberShip_CELL_PHON_DNRM Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_CELL_PHON_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_CELL_PHON_DNRM>
+            <DataV_Coach_MemberShip_DEBT_DNRM Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>21,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_DEBT_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.DEBT_DNRM}</Text>
+              <TextBrush>[34:177:76]</TextBrush>
+              <TextFormat Ref="35" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_DEBT_DNRM>
+            <DataV_Coach_MemberShip_NATL_CODE_DNRM Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>15.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_NATL_CODE_DNRM</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.NATL_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_NATL_CODE_DNRM>
+            <DataV_Coach_MemberShip_PERS_BRTH_DATE Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>17.4,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_PERS_BRTH_DATE</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.PERS_BRTH_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_PERS_BRTH_DATE>
+            <DataV_Coach_MemberShip_AGE Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>19.6,0,1.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Coach_MemberShip_AGE</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.AGE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Coach_MemberShip_AGE>
+            <Text7 Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>291a270132e44fb0ba4f1613c93b3b42</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.CTGY_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text9 Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>c203471c17664ab48f1c45916479b970</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.NUMB_OF_ATTN_MONT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text11 Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.4,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,8.25,Regular,Point,False,178</Font>
+              <Guid>62c731eb7a904aeda704d4ef821b54f3</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="28" />
+              <Text>{VF_Coach_MemberShip.SUM_ATTN_MONT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>VF$Coach_MemberShip</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataVF$Coach_MemberShip</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataVF_x0024_Coach_MemberShip>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>2a4c55ac2ca94ec5baae383b33730dcc</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="42" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="43" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/5/2018 11:33:19 AM</ReportChanged>
+  <ReportCreated>8/1/2017 3:08:42 PM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_SPSM_004_R.mrt</ReportFile>
+  <ReportGuid>ded7f3408cdb4236b400879f0c965a23</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

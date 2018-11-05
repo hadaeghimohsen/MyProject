@@ -187,14 +187,14 @@ namespace System.Scsc.Ui.AggregateOperation
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         if (!isFirstLoaded)
+         //if (!isFirstLoaded)
          {
             RegnBs1.DataSource = iScsc.Regions.Where(r => Fga_Urgn_U.Split(',').Contains(r.PRVN_CODE + r.CODE) );
-            CtgyBs1.DataSource = iScsc.Category_Belts;
+            CtgyBs1.DataSource = iScsc.Category_Belts.Where(cb => cb.CTGY_STAT == "002");
             CochBs1.DataSource = iScsc.Fighters.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003"));
-            CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => Fga_Uclb_U.Contains(c.CLUB_CODE));
+            CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002" && Fga_Uclb_U.Contains(c.CLUB_CODE));
             DDytpBs1.DataSource = iScsc.D_DYTPs;
-            RqttBs1.DataSource = iScsc.Requester_Types;
+            RqttBs1.DataSource = iScsc.Requester_Types.Where(rt => rt.CODE == "001" || rt.CODE == "004");
             isFirstLoaded = true;
          }
          job.Status = StatusType.Successful;

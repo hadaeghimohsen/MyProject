@@ -108,9 +108,11 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (crnt == null) return;
 
-         nUMB_MONT_OFFRSpinEdit.EditValue = null;
+         NumbMontOffr_Txt.EditValue = null;
+         NumbOfAttnMont_Txt.EditValue = null;
 
          crnt.NUMB_MONT_OFFR = null;
+         crnt.NUMB_OF_ATTN_MONT = null;
       }
 
       private void ClerRqtt_Butn_Click(object sender, EventArgs e)
@@ -119,7 +121,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (crnt == null) return;
 
-         rQTT_CODEGridLookupEdit.EditValue = null;
+         RqttCode_Lov.EditValue = null;
 
          crnt.RQTT_CODE = null;
       }
@@ -142,6 +144,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            AgopBs1.EndEdit();
             var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
             if (crnt == null) return;
@@ -163,7 +166,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprtstat", crnt.OPRT_STAT ?? "001"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
                      new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0)
+                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
+                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0),
+                     new XAttribute("newmtodcode", crnt.NEW_MTOD_CODE ?? 0),
+                     new XAttribute("newctgycode", crnt.NEW_CTGY_CODE ?? 0),
+                     new XAttribute("newcbmtcode", crnt.NEW_CBMT_CODE ?? 0)
                   )
                )
             );
@@ -209,7 +216,8 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprtstat", "003"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
                      new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0)
+                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
+                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0)
                   )
                )
             );
@@ -255,7 +263,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprtstat", "002"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
                      new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0)
+                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
+                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0),
+                     new XAttribute("newmtodcode", crnt.NEW_MTOD_CODE ?? 0),
+                     new XAttribute("newctgycode", crnt.NEW_CTGY_CODE ?? 0),
+                     new XAttribute("newcbmtcode", crnt.NEW_CBMT_CODE ?? 0)
                   )
                )
             );
@@ -339,7 +351,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprtstat", "004"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
                      new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0)
+                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
+                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0),
+                     new XAttribute("newmtodcode", crnt.NEW_MTOD_CODE ?? 0),
+                     new XAttribute("newctgycode", crnt.NEW_CTGY_CODE ?? 0),
+                     new XAttribute("newcbmtcode", crnt.NEW_CBMT_CODE ?? 0)
                   )
                )
             );
@@ -357,6 +373,69 @@ namespace System.Scsc.Ui.AggregateOperation
                Execute_Query();
                requery = false;
             }
+         }
+      }
+
+      private void ClerNewCtgy_Butn_Click(object sender, EventArgs e)
+      {
+         var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+
+         if (crnt == null) return;
+
+         CtgyNew_Lov.EditValue = null;
+         crnt.NEW_MTOD_CODE = crnt.NEW_CTGY_CODE = null;
+      }
+
+      private void ClerNewCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+
+         if (crnt == null) return;
+
+         CbmtNew_Lov.EditValue = null;
+         crnt.NEW_CBMT_CODE = null;
+      }
+
+      private void Btn_AutoCalcAttn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+
+            if (crnt == null) return;
+
+            //if (tb_master.SelectedTab == tp_001)
+            {
+               //var rqst = RqstBs1.Current as Data.Request;
+               //if (rqst == null) return;
+
+               //long mtodcode = 0;//(long)MtodCode_LookupEdit001.EditValue;
+               if (RqttCode_Lov.EditValue == null || RqttCode_Lov.EditValue.ToString() == "")
+                  RqttCode_Lov.EditValue = "001";
+
+               long ctgycode = (long)CtgyNew_Lov.EditValue;
+               string rqttcode = (string)RqttCode_Lov.EditValue;
+               var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
+
+               FromDate_Dt.Value = DateTime.Now;
+               //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
+               //else
+               //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
+               ToDate_Dt.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               NumbOfAttnMont_Txt.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
+               NumbMontOffr_Txt.Value = expn.NUMB_MONT_OFER ?? 0;
+
+               //crnt.RQTT_CODE = RqttCode_Lov.EditValue.ToString();
+               //crnt.FROM_DATE = FromDate_Dt.Value.Value.Date;
+               //crnt.TO_DATE = ToDate_Dt.Value.Value.Date;
+               //crnt.NUMB_MONT_OFFR = Convert.ToInt32(NumbMontOffr_Txt.Value);
+               //crnt.NUMB_OF_ATTN_MONT = Convert.ToInt32(NumbOfAttnMont_Txt.Value);
+            }
+         }
+         catch (Exception)
+         {
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
       }
    }

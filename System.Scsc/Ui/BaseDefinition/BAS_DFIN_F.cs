@@ -1452,7 +1452,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      SaveClubMethod_Butn_Click(null, null);
                      break;
                   case 2:
-                     WeekDay_Butn_Click(null, null);
+                     PrintDefaultClubMethod_Butn_Click(null, null);
                      break;
                   default:
                      break;
@@ -2091,6 +2091,22 @@ namespace System.Scsc.Ui.BaseDefinition
             rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
          }
 
+         CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
+
+         var listMbsp = 
+            iScsc.Member_Ships
+            .Where(ms =>                
+               ms.RECT_CODE == "004" &&
+               ms.VALD_TYPE == "002" &&
+               ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
+               ms.END_DATE.Value.Date >= DateTime.Now.Date &&
+               (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
+               ms.Fighter_Public.CBMT_CODE == cbmt.CODE
+            );
+
+         ActvMembCount_Lb.Text = listMbsp.Count().ToString();
+         AgeMemb_Lb.Text = string.Join(", ", listMbsp.Select(ms => (DateTime.Now.Year - ms.Fighter.BRTH_DATE_DNRM.Value.Year).ToString()).Distinct().OrderBy(f => f).ToList());
+
          try
          {
             UserProFile_Rb.ImageProfile = null;
@@ -2265,7 +2281,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
             if (weekdays.Count == 0)
             {
-               CbmtBs2.DataSource = null;
+               //CbmtBs2.DataSource = null;
+               CbmtBs2.List.Clear();
+               ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+               return;
             }
             else
             {
@@ -2296,7 +2315,12 @@ namespace System.Scsc.Ui.BaseDefinition
                   );
                var cbmt = CbmtBs2.Current as Data.Club_Method;
                if (cbmt == null)
-                  CbmtBs2.DataSource = null;
+               {
+                  //CbmtBs2.DataSource = null;
+                  CbmtBs2.List.Clear();
+                  ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+                  return;
+               }
             }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }

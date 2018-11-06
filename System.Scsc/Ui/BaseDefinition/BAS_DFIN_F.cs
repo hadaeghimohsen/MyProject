@@ -2109,7 +2109,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
          try
          {
-            UserProFile_Rb.ImageProfile = null;
+            CochProFile_Rb.ImageProfile = null;
             MemoryStream mStream = new MemoryStream();
             byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
             mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
@@ -2119,13 +2119,13 @@ namespace System.Scsc.Ui.BaseDefinition
             //Pb_FighImg.Visible = true;
 
             if (InvokeRequired)
-               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+               Invoke(new Action(() => CochProFile_Rb.ImageProfile = bm));
             else
-               UserProFile_Rb.ImageProfile = bm;
+               CochProFile_Rb.ImageProfile = bm;
          }
          catch
          { //Pb_FighImg.Visible = false;
-            UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            CochProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          }
       }
 
@@ -2301,17 +2301,21 @@ namespace System.Scsc.Ui.BaseDefinition
                //         QEndTime_Tim.Text
                //      )
                //   );
-               var strttime = new TimeSpan(((DateTime)QStrtTime_Tim.EditValue).Ticks);
-               var endtime = new TimeSpan(((DateTime)QEndTime_Tim.EditValue).Ticks);
+               var strttime = TimeSpan.Parse(QStrtTime_Tim.Text);
+               var endtime = TimeSpan.Parse(QEndTime_Tim.Text);
 
                CbmtBs2.DataSource =
                   iScsc.Club_Methods.Where(cm =>
                      cm.CLUB_CODE == club.CODE &&
-                     cm.Club_Method_Weekdays.Any(cmw => cmw.STAT == "002" && weekdays.Contains(cmw.WEEK_DAY)) 
-                     /*((cm.STRT_TIME >= strttime && cm.END_TIME <= endtime) ||
-                      (cm.STRT_TIME <= strttime && cm.END_TIME >= endtime) ||
-                      ((cm.STRT_TIME <= strttime && cm.END_TIME >= strttime) && cm.END_TIME <= endtime) ||
-                      ((cm.STRT_TIME >= strttime && cm.STRT_TIME <= endtime)))*/
+                     cm.Club_Method_Weekdays.Any(cmw => cmw.STAT == "002" && weekdays.Contains(cmw.WEEK_DAY)) &&
+                     //((cm.STRT_TIME >= strttime && cm.END_TIME <= endtime) ||
+                     // (cm.STRT_TIME <= strttime && cm.END_TIME >= endtime) ||
+                     // ((cm.STRT_TIME <= strttime && cm.END_TIME >= strttime) && cm.END_TIME <= endtime) ||
+                     // ((cm.STRT_TIME >= strttime && cm.STRT_TIME <= endtime)))
+                     ((cm.STRT_TIME.CompareTo(strttime) >= 0 && cm.END_TIME.CompareTo(endtime) <= 0) ||
+                      (cm.STRT_TIME.CompareTo(strttime) <= 0 && cm.END_TIME.CompareTo(endtime) >= 0) ||
+                      (cm.STRT_TIME.CompareTo(strttime) <= 0 && cm.END_TIME.CompareTo(strttime) >= 0 && cm.END_TIME.CompareTo(endtime) <= 0) ||
+                      (cm.STRT_TIME.CompareTo(strttime) >= 0 && cm.STRT_TIME.CompareTo(endtime) <= 0))
                   );
                var cbmt = CbmtBs2.Current as Data.Club_Method;
                if (cbmt == null)
@@ -2324,6 +2328,20 @@ namespace System.Scsc.Ui.BaseDefinition
             }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void CochProFile_Rb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO)) }
+            );
+         }
+         catch { }
       }
    }
 }

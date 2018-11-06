@@ -594,7 +594,13 @@
          this.Wkdy002_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Wkdy001_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Wkdy007_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
+         this.AgeMemb_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.ActvMembCount_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+         this.CochName_Lb = new DevExpress.XtraEditors.LabelControl();
          this.CbmtGv1 = new DevExpress.XtraGrid.GridControl();
          this.CbmtBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.Cbmt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -708,12 +714,6 @@
          this.HldyDay_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Coma_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.CochName_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-         this.ActvMembCount_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-         this.AgeMemb_Lb = new DevExpress.XtraEditors.LabelControl();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -828,6 +828,8 @@
          this.ClubWkdy_Spn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).BeginInit();
+         this.splitContainerControl10.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtGv1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cbmt_Gv)).BeginInit();
@@ -865,8 +867,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).BeginInit();
-         this.splitContainerControl10.SuspendLayout();
          this.SuspendLayout();
          // 
          // label5
@@ -6754,6 +6754,26 @@
          this.Wkdy007_Butn.ToolTip = "بازگشت";
          this.Wkdy007_Butn.Click += new System.EventHandler(this.Wkdy00i_Butn_Click);
          // 
+         // splitContainerControl10
+         // 
+         this.splitContainerControl10.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl10.Horizontal = false;
+         this.splitContainerControl10.Location = new System.Drawing.Point(0, 48);
+         this.splitContainerControl10.Name = "splitContainerControl10";
+         this.splitContainerControl10.Panel1.Controls.Add(this.UserProFile_Rb);
+         this.splitContainerControl10.Panel1.Controls.Add(this.AgeMemb_Lb);
+         this.splitContainerControl10.Panel1.Controls.Add(this.ActvMembCount_Lb);
+         this.splitContainerControl10.Panel1.Controls.Add(this.labelControl8);
+         this.splitContainerControl10.Panel1.Controls.Add(this.labelControl6);
+         this.splitContainerControl10.Panel1.Controls.Add(this.CochName_Lb);
+         this.splitContainerControl10.Panel1.Text = "Panel1";
+         this.splitContainerControl10.Panel2.Controls.Add(this.CbmtGv1);
+         this.splitContainerControl10.Panel2.Text = "Panel2";
+         this.splitContainerControl10.Size = new System.Drawing.Size(796, 440);
+         this.splitContainerControl10.SplitterPosition = 80;
+         this.splitContainerControl10.TabIndex = 68;
+         this.splitContainerControl10.Text = "splitContainerControl10";
+         // 
          // UserProFile_Rb
          // 
          this.UserProFile_Rb.Active = true;
@@ -6777,6 +6797,85 @@
          this.UserProFile_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.UserProFile_Rb.TabIndex = 67;
          this.UserProFile_Rb.Tooltip = null;
+         // 
+         // AgeMemb_Lb
+         // 
+         this.AgeMemb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.AgeMemb_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AgeMemb_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.AgeMemb_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.AgeMemb_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.AgeMemb_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.AgeMemb_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.AgeMemb_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.AgeMemb_Lb.Location = new System.Drawing.Point(89, 53);
+         this.AgeMemb_Lb.Name = "AgeMemb_Lb";
+         this.AgeMemb_Lb.Size = new System.Drawing.Size(354, 22);
+         this.AgeMemb_Lb.TabIndex = 19;
+         // 
+         // ActvMembCount_Lb
+         // 
+         this.ActvMembCount_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ActvMembCount_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ActvMembCount_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.ActvMembCount_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.ActvMembCount_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.ActvMembCount_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.ActvMembCount_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.ActvMembCount_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.ActvMembCount_Lb.Location = new System.Drawing.Point(520, 53);
+         this.ActvMembCount_Lb.Name = "ActvMembCount_Lb";
+         this.ActvMembCount_Lb.Size = new System.Drawing.Size(83, 22);
+         this.ActvMembCount_Lb.TabIndex = 19;
+         // 
+         // labelControl8
+         // 
+         this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl8.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl8.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl8.Appearance.Image")));
+         this.labelControl8.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl8.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.labelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl8.Location = new System.Drawing.Point(449, 53);
+         this.labelControl8.Name = "labelControl8";
+         this.labelControl8.Size = new System.Drawing.Size(62, 22);
+         this.labelControl8.TabIndex = 19;
+         this.labelControl8.Text = "رده سنی";
+         // 
+         // labelControl6
+         // 
+         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl6.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl6.Appearance.Image")));
+         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl6.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl6.Location = new System.Drawing.Point(609, 53);
+         this.labelControl6.Name = "labelControl6";
+         this.labelControl6.Size = new System.Drawing.Size(99, 22);
+         this.labelControl6.TabIndex = 19;
+         this.labelControl6.Text = "تعداد اعضا فعال";
+         // 
+         // CochName_Lb
+         // 
+         this.CochName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CochName_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CochName_Lb.Appearance.ForeColor = System.Drawing.Color.Red;
+         this.CochName_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("CochName_Lb.Appearance.Image")));
+         this.CochName_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.CochName_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.CochName_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.CochName_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.CochName_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.CochName_Lb.Location = new System.Drawing.Point(455, 21);
+         this.CochName_Lb.Name = "CochName_Lb";
+         this.CochName_Lb.Size = new System.Drawing.Size(253, 26);
+         this.CochName_Lb.TabIndex = 19;
+         this.CochName_Lb.Text = "نام سرپرست";
          // 
          // CbmtGv1
          // 
@@ -8558,105 +8657,6 @@
          // 
          this.CbmtwkdyBs1.DataSource = typeof(System.Scsc.Data.Club_Method_Weekday);
          // 
-         // splitContainerControl10
-         // 
-         this.splitContainerControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.splitContainerControl10.Horizontal = false;
-         this.splitContainerControl10.Location = new System.Drawing.Point(0, 48);
-         this.splitContainerControl10.Name = "splitContainerControl10";
-         this.splitContainerControl10.Panel1.Controls.Add(this.UserProFile_Rb);
-         this.splitContainerControl10.Panel1.Controls.Add(this.AgeMemb_Lb);
-         this.splitContainerControl10.Panel1.Controls.Add(this.ActvMembCount_Lb);
-         this.splitContainerControl10.Panel1.Controls.Add(this.labelControl8);
-         this.splitContainerControl10.Panel1.Controls.Add(this.labelControl6);
-         this.splitContainerControl10.Panel1.Controls.Add(this.CochName_Lb);
-         this.splitContainerControl10.Panel1.Text = "Panel1";
-         this.splitContainerControl10.Panel2.Controls.Add(this.CbmtGv1);
-         this.splitContainerControl10.Panel2.Text = "Panel2";
-         this.splitContainerControl10.Size = new System.Drawing.Size(796, 440);
-         this.splitContainerControl10.SplitterPosition = 80;
-         this.splitContainerControl10.TabIndex = 68;
-         this.splitContainerControl10.Text = "splitContainerControl10";
-         // 
-         // CochName_Lb
-         // 
-         this.CochName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CochName_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CochName_Lb.Appearance.ForeColor = System.Drawing.Color.Red;
-         this.CochName_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("CochName_Lb.Appearance.Image")));
-         this.CochName_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.CochName_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-         this.CochName_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.CochName_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.CochName_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.CochName_Lb.Location = new System.Drawing.Point(455, 21);
-         this.CochName_Lb.Name = "CochName_Lb";
-         this.CochName_Lb.Size = new System.Drawing.Size(253, 26);
-         this.CochName_Lb.TabIndex = 19;
-         this.CochName_Lb.Text = "نام سرپرست";
-         // 
-         // labelControl6
-         // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl6.Appearance.Image")));
-         this.labelControl6.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl6.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-         this.labelControl6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl6.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl6.Location = new System.Drawing.Point(609, 53);
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(99, 22);
-         this.labelControl6.TabIndex = 19;
-         this.labelControl6.Text = "تعداد اعضا فعال";
-         // 
-         // ActvMembCount_Lb
-         // 
-         this.ActvMembCount_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ActvMembCount_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ActvMembCount_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.ActvMembCount_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.ActvMembCount_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-         this.ActvMembCount_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.ActvMembCount_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.ActvMembCount_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.ActvMembCount_Lb.Location = new System.Drawing.Point(520, 53);
-         this.ActvMembCount_Lb.Name = "ActvMembCount_Lb";
-         this.ActvMembCount_Lb.Size = new System.Drawing.Size(83, 22);
-         this.ActvMembCount_Lb.TabIndex = 19;
-         // 
-         // labelControl8
-         // 
-         this.labelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl8.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl8.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.labelControl8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl8.Appearance.Image")));
-         this.labelControl8.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl8.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-         this.labelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl8.Location = new System.Drawing.Point(449, 53);
-         this.labelControl8.Name = "labelControl8";
-         this.labelControl8.Size = new System.Drawing.Size(62, 22);
-         this.labelControl8.TabIndex = 19;
-         this.labelControl8.Text = "رده سنی";
-         // 
-         // AgeMemb_Lb
-         // 
-         this.AgeMemb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.AgeMemb_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AgeMemb_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.AgeMemb_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.AgeMemb_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-         this.AgeMemb_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.AgeMemb_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AgeMemb_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.AgeMemb_Lb.Location = new System.Drawing.Point(89, 53);
-         this.AgeMemb_Lb.Name = "AgeMemb_Lb";
-         this.AgeMemb_Lb.Size = new System.Drawing.Size(354, 22);
-         this.AgeMemb_Lb.TabIndex = 19;
-         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8784,6 +8784,8 @@
          this.ClubWkdy_Spn.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).EndInit();
+         this.splitContainerControl10.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtGv1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cbmt_Gv)).EndInit();
@@ -8822,8 +8824,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).EndInit();
-         this.splitContainerControl10.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

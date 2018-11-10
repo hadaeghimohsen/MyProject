@@ -503,12 +503,7 @@ namespace System.Scsc.Ui.Admission
          #region Rqsw block
          try
          {
-            if (isFirstLoaded) goto finishcommand;
-
-            if (InvokeRequired)
-               Invoke(new Action(() => Execute_Query()));
-            else
-               Execute_Query();
+            if (isFirstLoaded) goto finishcommand;           
 
             DDegrBs2.DataSource = iScsc.D_DEGRs;
             DCyclBs1.DataSource = iScsc.D_CYCLs;
@@ -524,6 +519,11 @@ namespace System.Scsc.Ui.Admission
 
             isFirstLoaded = true;
             finishcommand:
+            
+            if (InvokeRequired)
+               Invoke(new Action(() => Execute_Query()));
+            else
+               Execute_Query();
 
             if (InvokeRequired)
                Invoke(new Action(() => 

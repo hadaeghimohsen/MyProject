@@ -493,6 +493,53 @@ namespace System.Scsc.Ui.BaseDefinition
          }
       }
 
+      private void ActvMtodExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            long? epit = (long?)ExpnEpit_Lov.EditValue;
+            if (epit == null || (long)(epit) == 0) { ExpnEpit_Lov.Focus(); return; }
+
+            var expn =
+               iScsc.Expenses.
+               Where(ex => ex.Regulation.TYPE == "001"
+                  && ex.Regulation.REGL_STAT == "002"
+                  && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009")
+                  && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
+                  && ex.Expense_Type.EPIT_CODE == epit
+               //&& ex.MTOD_CODE == mtod.CODE
+               //&& ex.CTGY_CODE == ctgy.CODE
+               );
+
+            if (expn.Count() > 0)
+            {
+               expn.ToList().ForEach(ex =>
+               {
+                  var ctgy = iScsc.Category_Belts.FirstOrDefault(cb => cb.CODE == ex.CTGY_CODE);
+                  ex.PRIC = (int)ctgy.PRIC;
+                  ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY;
+                  ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT;
+                  ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
+                  ex.EXPN_STAT = ctgy.CTGY_STAT;
+               });
+
+               iScsc.SubmitChanges();
+               requery = true;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               requery = false;
+            }
+         }
+      }
+
       private void AddCategory_Butn_Click(object sender, EventArgs e)
       {
          var mtod = MtodBs1.Current as Data.Method;
@@ -632,6 +679,55 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if(requery)
             {               
+               requery = false;
+            }
+         }
+      }
+
+      private void ActvCtgyExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mtod = MtodBs1.Current as Data.Method;
+            if (mtod == null) return;
+            long? epit = (long?)ExpnEpit_Lov.EditValue;
+            if (epit == null || (long)(epit) == 0) { ExpnEpit_Lov.Focus(); return; }
+
+            var expn =
+               iScsc.Expenses.
+               Where(ex => ex.Regulation.TYPE == "001"
+                  && ex.Regulation.REGL_STAT == "002"
+                  && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009")
+                  && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
+                  && ex.Expense_Type.EPIT_CODE == epit
+                  && ex.MTOD_CODE == mtod.CODE
+               //&& ex.CTGY_CODE == ctgy.CODE
+               );
+
+            if (expn.Count() > 0)
+            {
+               expn.ToList().ForEach(ex =>
+               {
+                  var ctgy = iScsc.Category_Belts.FirstOrDefault(cb => cb.CODE == ex.CTGY_CODE);
+                  ex.PRIC = (int)ctgy.PRIC;
+                  ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY;
+                  ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT;
+                  ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
+                  ex.EXPN_STAT = ctgy.CTGY_STAT;
+               });
+
+               iScsc.SubmitChanges();
+               requery = true;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
                requery = false;
             }
          }
@@ -2330,5 +2426,6 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch { }
       }
+
    }
 }

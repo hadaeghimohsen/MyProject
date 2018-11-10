@@ -2281,26 +2281,14 @@ namespace System.Scsc.Ui.BaseDefinition
 
             if (weekdays.Count == 0)
             {
-               //CbmtBs2.DataSource = null;
-               CbmtBs2.List.Clear();
+               CbmtBs2.DataSource =
+                  iScsc.Club_Methods.Where(cm =>
+                     cm.CLUB_CODE == club.CODE);
                ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
                return;
             }
             else
             {
-               //CbmtBs2.DataSource =
-               //   iScsc.ExecuteQuery<Data.Club_Method>(
-               //      string.Format(
-               //         "SELECT * FROM Club_Method cm " + 
-               //         "WHERE CLUB_CODE = {0} " +                     
-               //         "AND EXISTS(SELECT * FROM Club_Method_Weekday cmw WHERE cm.CODE = cmw.CBMT_CODE AND cmw.STAT = '002' AND WEEK_DAY IN ({1})) " +
-               //         "AND ((STRT_TIME >= '{2}' AND END_TIME <= '{3}') OR (STRT_TIME <= '{2}' AND END_TIME >= '{3}') OR ((STRT_TIME <= '{2}' AND END_TIME >= '{2}') AND END_TIME <= '{3}') OR ((STRT_TIME >= '{2}' AND STRT_TIME <= '{3}' ))) " ,
-               //         club.CODE,
-               //         string.Join(",", weekdays),
-               //         QStrtTime_Tim.Text,
-               //         QEndTime_Tim.Text
-               //      )
-               //   );
                var strttime = TimeSpan.Parse(QStrtTime_Tim.Text);
                var endtime = TimeSpan.Parse(QEndTime_Tim.Text);
 
@@ -2320,8 +2308,7 @@ namespace System.Scsc.Ui.BaseDefinition
                var cbmt = CbmtBs2.Current as Data.Club_Method;
                if (cbmt == null)
                {
-                  //CbmtBs2.DataSource = null;
-                  CbmtBs2.List.Clear();
+                  //CbmtBs2.List.Clear();
                   ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
                   return;
                }

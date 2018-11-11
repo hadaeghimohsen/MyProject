@@ -507,6 +507,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009")
                   && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
                   && ex.Expense_Type.EPIT_CODE == epit
+                  && ex.Method.MTOD_STAT == "002"
                //&& ex.MTOD_CODE == mtod.CODE
                //&& ex.CTGY_CODE == ctgy.CODE
                );
@@ -1138,7 +1139,14 @@ namespace System.Scsc.Ui.BaseDefinition
                CbmtBs2.EndEdit();
                Cbmt_Gv.PostEditor();
 
-               iScsc.SubmitChanges();
+               //iScsc.SubmitChanges();
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               if (cbmt.CODE == 0)
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT);
+               else
+                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT);
                //if (cbmt.CODE == 0)
                //   iScsc.STNG_SAVE_P(
                //      new XElement("Config",

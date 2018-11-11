@@ -680,7 +680,13 @@ namespace System.Emis.Sas.Model
 
       public string RGRO(string phas, string netw_type, int fromampr, int toampr, int frompowr, long topowr)
       {
-         return (phas == "1" ? "تک فاز" : phas == "3" && fromampr == 10 && toampr == 48 ? "سه فاز" : phas == "3" && frompowr == 30 && topowr == 99999 ? "اولیه" : "ثانویه");
+         return (phas == "1" ? 
+                 "تک فاز" : 
+                 phas == "3" && fromampr == 10 && toampr == 48 ? 
+                 "سه فاز" : 
+                 phas == "3" && frompowr == 30 && topowr == 99999 ? 
+                 "اولیه" : 
+                 "ثانویه");
       }
 
       public DataTable NWTYP()

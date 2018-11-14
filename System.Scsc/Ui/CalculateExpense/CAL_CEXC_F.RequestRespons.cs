@@ -218,11 +218,13 @@ namespace System.Scsc.Ui.CalculateExpense
             case "tp_001":
                tb_master.TabPages.Add(tp_001);
                tb_master.SelectedTab = tp_001;
+               CalcExpn_Butn.Visible = ConfExpn_Butn.Visible = true;
                //lbl_currentcash.Text = "صندوقدار جاری : " + iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "002")));
                break;
             case "tp_002":
                tb_master.TabPages.Add(tp_002);
                tb_master.SelectedTab = tp_002;
+               CalcExpn_Butn.Visible = ConfExpn_Butn.Visible = false;
                break;
          }
          Execute_Query();

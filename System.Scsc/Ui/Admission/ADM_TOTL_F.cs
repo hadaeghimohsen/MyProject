@@ -808,9 +808,9 @@ namespace System.Scsc.Ui.Admission
                      new XAttribute("rqtpcode", "009"),
                      new XAttribute("rqttcode", RQTT_CODE_LookUpEdit3.EditValue),
                      new XElement("Request_Row",
-                        new XAttribute("fileno", FIGH_FILE_NOLookUpEdit.EditValue),
+                        new XAttribute("fileno", Figh_Lov.EditValue),
                         new XElement("Fighter",
-                           new XAttribute("mtodcodednrm", MtodCode_LookupEdit003.EditValue ?? ""),
+                           //new XAttribute("mtodcodednrm", MtodCode_LookupEdit003.EditValue ?? ""),
                            new XAttribute("ctgycodednrm", CtgyCode_LookupEdit003.EditValue ?? ""),
                            new XAttribute("cbmtcodednrm", CBMT_CODE_GridLookUpEdit003.EditValue ?? "")
                         ),
@@ -903,7 +903,7 @@ namespace System.Scsc.Ui.Admission
 
                Pn_MbspInfo.Visible = true;
 
-               //ReloadSelectedData();
+               ReloadSelectedData();
 
                try
                {
@@ -1697,26 +1697,6 @@ namespace System.Scsc.Ui.Admission
       //   }
       //}
 
-      private void MtodCode_LookupEdit001_EditValueChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            //if (tb_master.SelectedTab == tp_001)
-            //{
-            //   MtodBs2.Position = MtodCode_LookupEdit001.Properties.GetDataSourceRowIndex(MtodCode_LookupEdit001.Properties.ValueMember, MtodCode_LookupEdit001.EditValue);
-            //   cBMT_CODEGridLookUpEditView.ActiveFilterString = string.Format("[Method.CODE] = {0}", MtodCode_LookupEdit001.EditValue);
-            //}
-            //if(tb_master.SelectedTab == tp_003)
-            {
-               if (MtodCode_LookupEdit003.EditValue.ToString() == "") return;
-               //MtodBs2.Position = MtodBs2.List.OfType<Data.Method>().ToList().FindIndex(m => m.CODE == Convert.ToInt64(MtodCode_LookupEdit003.EditValue));// MtodCode_LookupEdit003.Properties.GetDataSourceRowIndex(MtodCode_LookupEdit003.Properties.ValueMember, MtodCode_LookupEdit003.EditValue);
-               CbmtCode_GridView003.ActiveFilterString = string.Format("[Method.CODE] = {0}", MtodCode_LookupEdit003.EditValue);
-               CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == Convert.ToInt64(MtodCode_LookupEdit003.EditValue) && c.CTGY_STAT == "002");
-            }
-         }
-         catch { }
-      }
-
       private void RqstBnADocPicProfile1_Click(object sender, EventArgs e)
       {
          try
@@ -1880,10 +1860,9 @@ namespace System.Scsc.Ui.Admission
                //var rqst = RqstBs3.Current as Data.Request;
                //if (rqst == null) return;
 
-               long mtodcode = (long)MtodCode_LookupEdit003.EditValue;
                long ctgycode = (long)CtgyCode_LookupEdit003.EditValue;
                string rqttcode = (string)RQTT_CODE_LookUpEdit3.EditValue;
-               var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.MTOD_CODE == mtodcode && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
+               var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
                StrtDate_DateTime003.Value = DateTime.Now;
                //if(MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -1906,7 +1885,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            var fileno = FIGH_FILE_NOLookUpEdit.EditValue;
+            var fileno = Figh_Lov.EditValue;
             if (fileno == null) return;
 
             _DefaultGateway.Gateway(
@@ -1961,34 +1940,14 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if(FIGH_FILE_NOLookUpEdit.EditValue.ToString() == "")return;
+            if(Figh_Lov.EditValue.ToString() == "")return;
 
-            var figh = iScsc.Fighters.First(f => f.FIGH_FILE_NO == Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue));
+            var figh = FighBs3.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(Figh_Lov.EditValue));//iScsc.Fighters.First(f => f.FIGH_FILE_NO == Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue));
 
-            MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
-            CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
-            //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
             CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
+            CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
          }
          catch 
-         {
-         }
-      }
-
-      private void FixMtodCtgy_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            if (FIGH_FILE_NOLookUpEdit.EditValue.ToString() == "") return;
-
-            var figh = iScsc.Fighter_Publics.First(f => f.FIGH_FILE_NO == Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue) && f.RWNO == f.Fighter.FGPB_RWNO_DNRM && f.RECT_CODE == "004");
-
-            MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE;
-            CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE;
-            //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
-            CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE;
-         }
-         catch
          {
          }
       }
@@ -2046,7 +2005,7 @@ namespace System.Scsc.Ui.Admission
          if (rqst == null) return;
 
          var figh = rqst.Request_Rows.FirstOrDefault().Fighter;
-         MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
+         //MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
          CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
          //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
          CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
@@ -2309,6 +2268,24 @@ namespace System.Scsc.Ui.Admission
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void CBMT_CODE_GridLookUpEdit003_Popup(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CBMT_CODE_GridLookUpEdit003.EditValue;
+
+            if (cbmt == null || cbmt.ToString() == "") return;
+
+            var crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(c => c.CODE == (long)cbmt);
+
+            CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == crntcbmt.MTOD_CODE && c.CTGY_STAT == "002");
+         }
+         catch (Exception)
+         {
+
          }
       }
    }

@@ -513,7 +513,7 @@ namespace System.Scsc.Ui.Admission
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DEducBs1.DataSource = iScsc.D_EDUCs;
             DstpBs1.DataSource = iScsc.Diseases_Types;
-            DFgtpBs1.DataSource = iScsc.D_FGTPs;
+            DFgtpBs1.DataSource = iScsc.D_FGTPs.Where(d => d.VALU != "002" && d.VALU != "006" && d.VALU != "007" && d.VALU != "008" && d.VALU != "009");
             DCetpBs1.DataSource = iScsc.D_CETPs;
             DBlodBs1.DataSource = iScsc.D_BLODs;            
 

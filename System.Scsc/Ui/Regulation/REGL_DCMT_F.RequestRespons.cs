@@ -427,7 +427,7 @@ namespace System.Scsc.Ui.Regulation
 
          SubmitRqrq_Click(null, null);
 
-         GV_RQRQ.ActiveFilterString = "";
+         GV_RQRQ.ActiveFilterString = "RQTT_CODE != '002' AND RQTT_CODE != '006' AND RQTT_CODE != '008'";
 
          job.Status = StatusType.Successful;
       }
@@ -441,7 +441,7 @@ namespace System.Scsc.Ui.Regulation
          if (job.Input == null) { job.Status = StatusType.Successful; return; }
 
          var input = job.Input as XElement;
-         GV_RQRQ.ActiveFilterString = string.Format("Rqtp_Code = '{0}'", input.Element("Request_Requester").Attribute("rqtpcode").Value);
+         GV_RQRQ.ActiveFilterString = string.Format("RQTT_CODE != '002' AND RQTT_CODE != '006' AND RQTT_CODE != '008' AND Rqtp_Code = '{0}'", input.Element("Request_Requester").Attribute("rqtpcode").Value);
          job.Status = StatusType.Successful;
       }
    }

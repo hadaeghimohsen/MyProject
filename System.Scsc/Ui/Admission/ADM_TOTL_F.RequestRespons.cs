@@ -291,11 +291,6 @@ namespace System.Scsc.Ui.Admission
                      //MontOfer_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MontOfer_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "mtodcode_lb":
-                     MtodCode_Lb.Text = control.LABL_TEXT;
-                     //MtodCode_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //MtodCode_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
                   case "ctgycode_lb":
                      CtgyCode_Lb.Text = control.LABL_TEXT;
                      //CtgyCode_Lb.Text = control.LABL_TEXT; // ToolTip
@@ -514,7 +509,8 @@ namespace System.Scsc.Ui.Admission
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
-         MtodBs2.DataSource = iScsc.Methods.Where(m=> m.MTOD_STAT == "002");
+         //MtodBs2.DataSource = iScsc.Methods.Where(m=> m.MTOD_STAT == "002");
+         CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
          job.Status = StatusType.Successful;
       }
 
@@ -553,7 +549,7 @@ namespace System.Scsc.Ui.Admission
                      RqstBs3.AddNew();
 
                   var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == (job.Input as XElement).Attribute("enrollnumber").Value).FirstOrDefault();
-                  FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
+                  Figh_Lov.EditValue = figh.FILE_NO;
                   RQTT_CODE_LookUpEdit3.EditValue = "001";//figh.FGPB_TYPE_DNRM;
                   Btn_RqstRqt3_Click(null, null);
 
@@ -571,7 +567,7 @@ namespace System.Scsc.Ui.Admission
                {
                   Execute_Query();
 
-                  ReloadSelectedData();
+                  //ReloadSelectedData();
                }
             }
             else

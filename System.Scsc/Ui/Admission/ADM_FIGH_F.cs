@@ -11,6 +11,7 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -812,42 +813,88 @@ namespace System.Scsc.Ui.Admission
       #region Finger Print Device Operation
       private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
       {
-         if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
-         
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface) 
-            { 
-               Input = 
-                  new XElement("Command",
-                     new XAttribute("type", "fngrprntdev"),
-                     new XAttribute("fngractn", "enroll"),
-                     new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-                  )
-            }
-         );
+         try
+         {            
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch (Exception exc) { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
       {
-         if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            {
-               Input =
-                  new XElement("Command",
-                     new XAttribute("type", "fngrprntdev"),
-                     new XAttribute("fngractn", "delete"),
-                     new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-                  )
-            }
-         );
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch (Exception exc) { }
       }
 
-      private void RqstBnFlashFngrPrnt1_Click(object sender, EventArgs e)
+      private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
       {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "enroll"),
+                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                     )
+               }
+            );
+         }
+         catch (Exception exc) { }
       }
+
+      private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "delete"),
+                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                     )
+               }
+            );
+         }
+         catch (Exception exc) { }
+      }      
+
       #endregion
       
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
@@ -1416,7 +1463,5 @@ namespace System.Scsc.Ui.Admission
                Execute_Query();
          }
       }
-
-      
    }
 }

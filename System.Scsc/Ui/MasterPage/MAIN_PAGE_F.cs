@@ -669,6 +669,11 @@ namespace System.Scsc.Ui.MasterPage
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void Truncate_Finger()
+      {
+         Sp_Barcode.Write("empty");
+      }
       #endregion
 
       #region Finger Print

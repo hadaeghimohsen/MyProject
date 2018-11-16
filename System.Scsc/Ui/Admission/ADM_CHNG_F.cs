@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.JobRouting.Jobs;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -562,6 +563,90 @@ namespace System.Scsc.Ui.Admission
       {
          if (AutoTrans_Cb.Checked)
             CardNumb_Text.Text = FNGR_PRNT_TextEdit.Text;
+      }
+
+      private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "enroll"),
+                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                     )
+               }
+            );
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "delete"),
+                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                     )
+               }
+            );
+         }
+         catch (Exception exc) { }
       }
    }
 }

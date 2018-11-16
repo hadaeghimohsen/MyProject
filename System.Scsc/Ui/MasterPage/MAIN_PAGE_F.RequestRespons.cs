@@ -617,6 +617,10 @@ namespace System.Scsc.Ui.MasterPage
             {
                Delete_Finger((job.Input as XElement).Attribute("fngrprnt").Value);
             }
+            else if ((job.Input as XElement).Attribute("fngractn").Value == "truncate")
+            {
+               Truncate_Finger();
+            }
          }
          job.Status = StatusType.Successful;
       }

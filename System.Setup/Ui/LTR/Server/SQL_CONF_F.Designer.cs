@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SQL_CONF_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -54,6 +54,7 @@
          this.RestoreBackupFile_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Connect_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tp_002 = new System.Windows.Forms.TabPage();
+         this.RestoredbStatus_Lb = new DevExpress.XtraEditors.LabelControl();
          this.CreateTestDemoDatabase_Cb = new System.Windows.Forms.CheckBox();
          this.InstallConfigDatabase_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SelectPathTargetDbFile_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -79,7 +80,6 @@
          this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
          this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.RestoredbStatus_Lb = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -233,7 +233,7 @@
          this.Server_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Server_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Server_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.Server_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Server_Txt.Properties.NullText = "---";
          this.Server_Txt.Properties.NullValuePrompt = "---";
@@ -470,6 +470,21 @@
          this.tp_002.Text = "Restore Backup file and initializing";
          this.tp_002.UseVisualStyleBackColor = true;
          // 
+         // RestoredbStatus_Lb
+         // 
+         this.RestoredbStatus_Lb.AllowHtmlString = true;
+         this.RestoredbStatus_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RestoredbStatus_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.RestoredbStatus_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1611;
+         this.RestoredbStatus_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.RestoredbStatus_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.RestoredbStatus_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+         this.RestoredbStatus_Lb.Location = new System.Drawing.Point(164, 215);
+         this.RestoredbStatus_Lb.Name = "RestoredbStatus_Lb";
+         this.RestoredbStatus_Lb.Size = new System.Drawing.Size(404, 38);
+         this.RestoredbStatus_Lb.TabIndex = 69;
+         this.RestoredbStatus_Lb.Text = "Ready For Restore Database!";
+         // 
          // CreateTestDemoDatabase_Cb
          // 
          this.CreateTestDemoDatabase_Cb.AutoSize = true;
@@ -479,6 +494,7 @@
          this.CreateTestDemoDatabase_Cb.TabIndex = 68;
          this.CreateTestDemoDatabase_Cb.Text = "Create Test and Demo database file";
          this.CreateTestDemoDatabase_Cb.UseVisualStyleBackColor = true;
+         this.CreateTestDemoDatabase_Cb.CheckedChanged += new System.EventHandler(this.CreateTestDemoDatabase_Cb_CheckedChanged);
          // 
          // InstallConfigDatabase_Butn
          // 
@@ -589,7 +605,7 @@
          this.BackupFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.BackupFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.BackupFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.BackupFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.BackupFile_Txt.Properties.NullText = "---";
          this.BackupFile_Txt.Properties.NullValuePrompt = "---";
@@ -837,21 +853,6 @@
          // 
          this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
          this.SelectDatabaseFile_Ofd.Multiselect = true;
-         // 
-         // RestoredbStatus_Lb
-         // 
-         this.RestoredbStatus_Lb.AllowHtmlString = true;
-         this.RestoredbStatus_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RestoredbStatus_Lb.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.RestoredbStatus_Lb.Appearance.Image = global::System.Setup.Properties.Resources.IMAGE_1611;
-         this.RestoredbStatus_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.RestoredbStatus_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.RestoredbStatus_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.RestoredbStatus_Lb.Location = new System.Drawing.Point(164, 215);
-         this.RestoredbStatus_Lb.Name = "RestoredbStatus_Lb";
-         this.RestoredbStatus_Lb.Size = new System.Drawing.Size(404, 38);
-         this.RestoredbStatus_Lb.TabIndex = 69;
-         this.RestoredbStatus_Lb.Text = "Restore Status";
          // 
          // SQL_CONF_F
          // 

@@ -280,7 +280,7 @@
          this.EmstRevnAmnt_Txt.Name = "EmstRevnAmnt_Txt";
          this.EmstRevnAmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.EmstRevnAmnt_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.EmstRevnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.EmstRevnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.EmstRevnAmnt_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.EmstRevnAmnt_Txt.Properties.Appearance.Options.UseBorderColor = true;
          this.EmstRevnAmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -296,6 +296,9 @@
          this.EmstRevnAmnt_Txt.Properties.EditFormat.FormatString = "{0:n0}";
          this.EmstRevnAmnt_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.EmstRevnAmnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.EmstRevnAmnt_Txt.Properties.Mask.EditMask = "n0";
+         this.EmstRevnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.EmstRevnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
          this.EmstRevnAmnt_Txt.Properties.NullText = "---";
          this.EmstRevnAmnt_Txt.Properties.NullValuePrompt = "---";
          this.EmstRevnAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;

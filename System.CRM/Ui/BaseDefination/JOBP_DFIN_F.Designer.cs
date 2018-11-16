@@ -1792,7 +1792,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(657, 552);
+         this.tp_003.Size = new System.Drawing.Size(657, 550);
          this.tp_003.TabIndex = 4;
          this.tp_003.Text = "قالب آماده ایمیل";
          this.tp_003.UseVisualStyleBackColor = true;
@@ -1810,7 +1810,7 @@
             this.persianRepositoryItemDateEdit2,
             this.repositoryItemLookUpEdit3,
             this.repositoryItemLookUpEdit4});
-         this.gridControl4.Size = new System.Drawing.Size(651, 514);
+         this.gridControl4.Size = new System.Drawing.Size(651, 512);
          this.gridControl4.TabIndex = 6;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -2045,7 +2045,7 @@
          this.tp_004.Location = new System.Drawing.Point(4, 23);
          this.tp_004.Name = "tp_004";
          this.tp_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_004.Size = new System.Drawing.Size(657, 552);
+         this.tp_004.Size = new System.Drawing.Size(657, 550);
          this.tp_004.TabIndex = 3;
          this.tp_004.Text = "قالب پیامک";
          this.tp_004.UseVisualStyleBackColor = true;
@@ -2063,7 +2063,7 @@
             this.persianRepositoryItemDateEdit1,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemLookUpEdit7});
-         this.gridControl5.Size = new System.Drawing.Size(651, 514);
+         this.gridControl5.Size = new System.Drawing.Size(651, 512);
          this.gridControl5.TabIndex = 1;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -2299,7 +2299,7 @@
          this.tp_005.Location = new System.Drawing.Point(4, 23);
          this.tp_005.Name = "tp_005";
          this.tp_005.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_005.Size = new System.Drawing.Size(657, 552);
+         this.tp_005.Size = new System.Drawing.Size(657, 550);
          this.tp_005.TabIndex = 5;
          this.tp_005.Text = "حریم خصوصی";
          this.tp_005.UseVisualStyleBackColor = true;

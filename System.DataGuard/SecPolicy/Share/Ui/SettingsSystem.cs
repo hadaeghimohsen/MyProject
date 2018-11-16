@@ -192,7 +192,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                NDF_Lbl.Text = NumToUnit(dbfilesinfo.Where(f => f.type == 0 && f.File_Type == "NDF").Sum(f => f.size));
                SubSysDesc_Text.Text = subsys.SUB_DESC;
 
-               InstallUninstall_Butn.Text = subsys.INST_STAT == "001" ? "Install" : "Uninstall";
+               UninstallApp_Butn.Text = subsys.INST_STAT == "001" ? "Install" : "Uninstall";
             }
             else if(Tb_Master.SelectedTab == tp_005)
             {
@@ -230,7 +230,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SubSysBs_CurrentChanged(null, null);
       }
 
-      private void InstallUninstall_Butn_Click(object sender, EventArgs e)
+      private void UninstallApp_Butn_Click(object sender, EventArgs e)
       {
 
       }
@@ -560,6 +560,19 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   new Job(SendType.SelfToUserInterface, "SettingsSystemScript", 10 /* Execute ActionCallWindow */){Input = new XElement("Script", new XAttribute("subsys", subsys.SUB_SYS))}
                }
             )
+         );
+      }
+
+      private void InstallApp_Butn_Click(object sender, EventArgs e)
+      {
+         var TResult = iProject.ExecuteQuery<string>("SELECT x.query('/Settings/TinyLock').value('(TinyLock/@serialno)[1]', 'VARCHAR(100)') FROM dbo.Settings;");
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons:Program:Setup", 05 /* Execute Chk_Tiny_F */, SendType.Self) { Input = TResult.FirstOrDefault() }
+         );
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons:Program:Setup", 02 /* Execute Frst_Page_F */, SendType.Self)
          );
       }
    }

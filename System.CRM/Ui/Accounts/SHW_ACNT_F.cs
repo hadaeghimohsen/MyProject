@@ -36,66 +36,10 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {
-            Actn_Clmn.Width = 25;
-            if (CompActn_Butn.Buttons.OfType<EditorButton>().Any(b => b.Tag != null && b.Visible == false))
-               CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Visible == false).Visible = true;
-
-            CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Tag.ToString() == (onoftag == "on" ? "002" : "001")).Visible = false;
-
             iCRM = new Data.iCRMDataContext(ConnectionString);
-
-            var Qxml = Filter_Butn.Tag as XElement;
-            
-            if (Qxml == null)
-               Qxml =
-                  new XElement("Company",
-                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001"),
-                     new XAttribute("type", "001")
-                  );
-            else
-               Qxml.Add(
-                  new XElement("Company",
-                     new XAttribute("recdstat", onoftag == "on" ? "002" : "001"),
-                     new XAttribute("type", "001")
-                  )
-               );
-
-            ///******
-            //switch(AcntsSearch_Lov.Tag.ToString())
-            //{
-            //   case "001": // نمایش کل شرکت ها                  
-            //      break;
-            //   case "002": // نمایش شرکت های پیش فرض نواحی
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("dfltstat", "002")
-            //         )
-            //      );
-            //      break;
-            //   case "003": // نمایش شرکت های غیر از پیش فرض نواحی
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("dfltstat", "001")
-            //         )
-            //      );
-            //      break;
-            //   case "004": // شرکت هایی که مشتری به آن متصل می باشد
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("empynumb", "002")
-            //         )
-            //      );
-            //      break;
-            //   case "005": // شرکت هایی که مشتری با آن متصل نمی باشد
-            //      Qxml.Add(
-            //         new XElement("Company",
-            //            new XAttribute("empynumb", "001")
-            //         )
-            //      );
-            //      break;
-            //}
             CompBs.DataSource =
-               iCRM.VF_Companies(Qxml);
+               iCRM.Companies.Where(c => c.RECD_STAT == "002");
+               
             requery = false;
          }
          catch { }
@@ -109,7 +53,7 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {
-            var cont = CompBs.Current as Data.VF_CompaniesResult;
+            var cont = CompBs.Current as Data.Company;
             if (cont == null) return;
 
             if(actntype == "join")
@@ -156,7 +100,7 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {
-            var comp = CompBs.Current as Data.VF_CompaniesResult;
+            var comp = CompBs.Current as Data.Company;
             if (comp == null) return;
 
             Job _InteractWithCRM = null;
@@ -343,7 +287,7 @@ namespace System.CRM.Ui.Acounts
       {
          try
          {            
-            var comp = CompBs.Current as Data.VF_CompaniesResult;
+            var comp = CompBs.Current as Data.Company;
             if(comp == null)
                return;
 

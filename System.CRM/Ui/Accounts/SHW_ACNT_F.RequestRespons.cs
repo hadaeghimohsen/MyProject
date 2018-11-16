@@ -54,9 +54,6 @@ namespace System.CRM.Ui.Acounts
             case 11:
                GetNewRecord(job);
                break;
-            case 100:
-               SetFilterOnQuery(job);
-               break;
             default:
                break;
          }
@@ -229,20 +226,24 @@ namespace System.CRM.Ui.Acounts
 
          }
 
+         var runqury = iCRM.Job_Personnels.FirstOrDefault(s => s.USER_NAME == CurrentUser).RUN_QURY ?? "002";
+
          if (InvokeRequired)
          {
             Invoke(
                new Action(
                   () =>
                   {
-                     Execute_Query();
+                     if(runqury == "002")
+                        Execute_Query();
                   }
                )
             );
          }
          else
          {
-            Execute_Query();
+            if(runqury == "002")
+               Execute_Query();
          }
          job.Status = StatusType.Successful;
       }
@@ -253,11 +254,11 @@ namespace System.CRM.Ui.Acounts
       /// <param name="job"></param>
       private void GetNewRecord(Job job)
       {
-         var comp = CompBs.Current as Data.VF_CompaniesResult;
+         var comp = CompBs.Current as Data.Company;
          if (comp == null) return;
 
          var xinput = job.Input as XElement;
-         var newcomp = CompBs.Current as Data.VF_CompaniesResult;
+         var newcomp = CompBs.Current as Data.Company;
 
          if (xinput != null)
          {
@@ -265,7 +266,7 @@ namespace System.CRM.Ui.Acounts
             {
                case "next":
                   CompBs.MoveNext();
-                  newcomp = CompBs.Current as Data.VF_CompaniesResult;
+                  newcomp = CompBs.Current as Data.Company;
 
                   if (comp == newcomp) return;
 
@@ -279,7 +280,7 @@ namespace System.CRM.Ui.Acounts
                   break;
                case "previous":
                   CompBs.MovePrevious();
-                  newcomp = CompBs.Current as Data.VF_CompaniesResult;
+                  newcomp = CompBs.Current as Data.Company;
 
                   if (comp == newcomp) return;
 
@@ -295,33 +296,6 @@ namespace System.CRM.Ui.Acounts
                   break;
             }
          }
-         job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetFilterOnQuery(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            var count = 0;
-            if (xinput.Element("Tags") != null)
-               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
-            if (xinput.Element("Regions") != null)
-               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
-            if (xinput.Element("Extra_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
-            if (xinput.Element("Contact_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-         }
-         else
-         {
-            Filter_Butn.Tag = null;
-         }
-         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

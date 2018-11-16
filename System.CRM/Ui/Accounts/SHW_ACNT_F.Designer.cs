@@ -29,14 +29,14 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SHW_ACNT_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colHOST_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DclonBs = new System.Windows.Forms.BindingSource(this.components);
          this.Acnt_Gc = new DevExpress.XtraGrid.GridControl();
@@ -97,9 +97,27 @@
          this.Filter_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
          this.GridFind_Tgbt = new C1.Win.C1Ribbon.RibbonToggleButton();
+         this.ribbonMenu1 = new C1.Win.C1Ribbon.RibbonMenu();
+         this.Lead1_Lbl = new C1.Win.C1Ribbon.RibbonLabel();
+         this.ribbonSeparator1 = new C1.Win.C1Ribbon.RibbonSeparator();
+         this.Lead1_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead2_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead3_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead4_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead5_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead6_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead7_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead8_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead9_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead10_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead11_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead12_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead13_Btn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Lead14_Btn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
+         this.colPOST_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.DclonBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Acnt_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompBs)).BeginInit();
@@ -139,7 +157,7 @@
          // 
          // CompBs
          // 
-         this.CompBs.DataSource = typeof(System.CRM.Data.VF_CompaniesResult);
+         this.CompBs.DataSource = typeof(System.CRM.Data.Company);
          this.CompBs.CurrentChanged += new System.EventHandler(this.CompBs_CurrentChanged);
          // 
          // Comp_Gv
@@ -170,15 +188,16 @@
             this.colLAST_SERV_FILE_NO_DNRM,
             this.Actn_Clmn,
             this.colHOST_STAT,
-            this.colEMAL_ADRS});
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colHOST_STAT;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "002";
+            this.colEMAL_ADRS,
+            this.colPOST_ADRS});
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colHOST_STAT;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "002";
          this.Comp_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
          this.Comp_Gv.GridControl = this.Acnt_Gc;
          this.Comp_Gv.Name = "Comp_Gv";
          this.Comp_Gv.OptionsFind.AlwaysVisible = true;
@@ -200,44 +219,42 @@
          this.colCNTY_NAME.Name = "colCNTY_NAME";
          this.colCNTY_NAME.OptionsColumn.AllowEdit = false;
          this.colCNTY_NAME.OptionsColumn.ReadOnly = true;
-         this.colCNTY_NAME.Visible = true;
-         this.colCNTY_NAME.VisibleIndex = 8;
          this.colCNTY_NAME.Width = 100;
          // 
          // colPRVN_NAME
          // 
          this.colPRVN_NAME.Caption = "استان";
-         this.colPRVN_NAME.FieldName = "PRVN_NAME";
+         this.colPRVN_NAME.FieldName = "Region.Province.NAME";
          this.colPRVN_NAME.Name = "colPRVN_NAME";
          this.colPRVN_NAME.OptionsColumn.AllowEdit = false;
          this.colPRVN_NAME.OptionsColumn.ReadOnly = true;
          this.colPRVN_NAME.Visible = true;
-         this.colPRVN_NAME.VisibleIndex = 7;
-         this.colPRVN_NAME.Width = 90;
+         this.colPRVN_NAME.VisibleIndex = 4;
+         this.colPRVN_NAME.Width = 84;
          // 
          // colREGN_NAME
          // 
          this.colREGN_NAME.Caption = "ناحیه";
-         this.colREGN_NAME.FieldName = "REGN_NAME";
+         this.colREGN_NAME.FieldName = "Region.NAME";
          this.colREGN_NAME.Name = "colREGN_NAME";
          this.colREGN_NAME.OptionsColumn.AllowEdit = false;
          this.colREGN_NAME.OptionsColumn.ReadOnly = true;
          this.colREGN_NAME.Visible = true;
-         this.colREGN_NAME.VisibleIndex = 6;
-         this.colREGN_NAME.Width = 90;
+         this.colREGN_NAME.VisibleIndex = 3;
+         this.colREGN_NAME.Width = 82;
          // 
          // colCOMP_NAME
          // 
          this.colCOMP_NAME.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
          this.colCOMP_NAME.AppearanceCell.Options.UseBackColor = true;
          this.colCOMP_NAME.Caption = "نام شرکت";
-         this.colCOMP_NAME.FieldName = "COMP_NAME";
+         this.colCOMP_NAME.FieldName = "NAME";
          this.colCOMP_NAME.Name = "colCOMP_NAME";
          this.colCOMP_NAME.OptionsColumn.AllowEdit = false;
          this.colCOMP_NAME.OptionsColumn.ReadOnly = true;
          this.colCOMP_NAME.Visible = true;
-         this.colCOMP_NAME.VisibleIndex = 5;
-         this.colCOMP_NAME.Width = 90;
+         this.colCOMP_NAME.VisibleIndex = 2;
+         this.colCOMP_NAME.Width = 241;
          // 
          // colDEBT_DNRM
          // 
@@ -248,9 +265,7 @@
          this.colDEBT_DNRM.Name = "colDEBT_DNRM";
          this.colDEBT_DNRM.OptionsColumn.AllowEdit = false;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
-         this.colDEBT_DNRM.Visible = true;
-         this.colDEBT_DNRM.VisibleIndex = 4;
-         this.colDEBT_DNRM.Width = 90;
+         this.colDEBT_DNRM.Width = 111;
          // 
          // colRQTP_DESC
          // 
@@ -259,8 +274,6 @@
          this.colRQTP_DESC.Name = "colRQTP_DESC";
          this.colRQTP_DESC.OptionsColumn.AllowEdit = false;
          this.colRQTP_DESC.OptionsColumn.ReadOnly = true;
-         this.colRQTP_DESC.Visible = true;
-         this.colRQTP_DESC.VisibleIndex = 2;
          this.colRQTP_DESC.Width = 90;
          // 
          // colSERV_NAME
@@ -270,8 +283,6 @@
          this.colSERV_NAME.Name = "colSERV_NAME";
          this.colSERV_NAME.OptionsColumn.AllowEdit = false;
          this.colSERV_NAME.OptionsColumn.ReadOnly = true;
-         this.colSERV_NAME.Visible = true;
-         this.colSERV_NAME.VisibleIndex = 1;
          this.colSERV_NAME.Width = 90;
          // 
          // colCRET_BY
@@ -300,20 +311,18 @@
          this.Actn_Clmn.OptionsColumn.AllowEdit = false;
          this.Actn_Clmn.OptionsColumn.FixedWidth = true;
          this.Actn_Clmn.OptionsColumn.ReadOnly = true;
-         this.Actn_Clmn.Visible = true;
-         this.Actn_Clmn.VisibleIndex = 0;
          this.Actn_Clmn.Width = 50;
          // 
          // CompActn_Butn
          // 
          this.CompActn_Butn.AutoHeight = false;
          this.CompActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "ثبت تماس تلفنی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1566, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "ایجاد شرکت زیر مجموعه", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "حذف", "001", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "بازیابی", "002", null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "ویرایش", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "ارسال ایمیل", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1512, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "ثبت تماس تلفنی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.CRM.Properties.Resources.IMAGE_1566, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "ایجاد شرکت زیر مجموعه", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "حذف", "001", null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "بازیابی", "002", null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "ویرایش", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CompActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "ارسال ایمیل", null, null, true)});
          this.CompActn_Butn.Name = "CompActn_Butn";
          this.CompActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.CompActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.LeadActn_Butn_ButtonClick);
@@ -326,7 +335,8 @@
          this.colEMAL_ADRS.OptionsColumn.AllowEdit = false;
          this.colEMAL_ADRS.OptionsColumn.ReadOnly = true;
          this.colEMAL_ADRS.Visible = true;
-         this.colEMAL_ADRS.VisibleIndex = 3;
+         this.colEMAL_ADRS.VisibleIndex = 0;
+         this.colEMAL_ADRS.Width = 225;
          // 
          // splitContainerControl1
          // 
@@ -731,6 +741,7 @@
          this.ribbonGroup1.Items.Add(this.Filter_Butn);
          this.ribbonGroup1.Items.Add(this.ribbonButton3);
          this.ribbonGroup1.Items.Add(this.GridFind_Tgbt);
+         this.ribbonGroup1.Items.Add(this.ribbonMenu1);
          this.ribbonGroup1.Name = "ribbonGroup1";
          this.ribbonGroup1.Text = "جستجو";
          // 
@@ -754,6 +765,122 @@
          this.GridFind_Tgbt.ToolTip = "نمایش پنل جستجو ردیفی";
          this.GridFind_Tgbt.Click += new System.EventHandler(this.GridFind_Tgbt_Click);
          // 
+         // ribbonMenu1
+         // 
+         this.ribbonMenu1.Items.Add(this.Lead1_Lbl);
+         this.ribbonMenu1.Items.Add(this.ribbonSeparator1);
+         this.ribbonMenu1.Items.Add(this.Lead1_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead2_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead3_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead4_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead5_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead6_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead7_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead8_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead9_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead10_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead11_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead12_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead13_Btn);
+         this.ribbonMenu1.Items.Add(this.Lead14_Btn);
+         this.ribbonMenu1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonMenu1.LargeImage")));
+         this.ribbonMenu1.Name = "ribbonMenu1";
+         this.ribbonMenu1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonMenu1.SmallImage")));
+         this.ribbonMenu1.Text = "نمایش";
+         // 
+         // Lead1_Lbl
+         // 
+         this.Lead1_Lbl.Name = "Lead1_Lbl";
+         this.Lead1_Lbl.Text = "نمایش های سیستم";
+         // 
+         // ribbonSeparator1
+         // 
+         this.ribbonSeparator1.Name = "ribbonSeparator1";
+         // 
+         // Lead1_Btn
+         // 
+         this.Lead1_Btn.Name = "Lead1_Btn";
+         this.Lead1_Btn.Tag = "1";
+         this.Lead1_Btn.Text = "Lead Being Followed";
+         // 
+         // Lead2_Btn
+         // 
+         this.Lead2_Btn.Name = "Lead2_Btn";
+         this.Lead2_Btn.Tag = "2";
+         this.Lead2_Btn.Text = "Lead I Follow";
+         // 
+         // Lead3_Btn
+         // 
+         this.Lead3_Btn.Name = "Lead3_Btn";
+         this.Lead3_Btn.Tag = "3";
+         this.Lead3_Btn.Text = "ارتباطات من";
+         // 
+         // Lead4_Btn
+         // 
+         this.Lead4_Btn.Name = "Lead4_Btn";
+         this.Lead4_Btn.Tag = "4";
+         this.Lead4_Btn.Text = "سرنخ هایی که هیچ گونه فعالیت تبلیغی انجام  نشده است";
+         // 
+         // Lead5_Btn
+         // 
+         this.Lead5_Btn.Name = "Lead5_Btn";
+         this.Lead5_Btn.Tag = "5";
+         this.Lead5_Btn.Text = "سرنخ های تجاری باز";
+         // 
+         // Lead6_Btn
+         // 
+         this.Lead6_Btn.Name = "Lead6_Btn";
+         this.Lead6_Btn.Tag = "6";
+         this.Lead6_Btn.Text = "سرنخ های تجاری باز شده طی هفته گذشته";
+         // 
+         // Lead7_Btn
+         // 
+         this.Lead7_Btn.Name = "Lead7_Btn";
+         this.Lead7_Btn.Tag = "7";
+         this.Lead7_Btn.Text = "سرنخ های تجاری باز شده طی همین هفته";
+         // 
+         // Lead8_Btn
+         // 
+         this.Lead8_Btn.Name = "Lead8_Btn";
+         this.Lead8_Btn.Tag = "8";
+         this.Lead8_Btn.Text = "سرنخ های تجاری باز من";
+         // 
+         // Lead9_Btn
+         // 
+         this.Lead9_Btn.Name = "Lead9_Btn";
+         this.Lead9_Btn.Tag = "9";
+         this.Lead9_Btn.Text = "سرنخ های تجاری بسته";
+         // 
+         // Lead10_Btn
+         // 
+         this.Lead10_Btn.Name = "Lead10_Btn";
+         this.Lead10_Btn.Tag = "10";
+         this.Lead10_Btn.Text = "سرنخ های تجاری تبلیغات";
+         // 
+         // Lead11_Btn
+         // 
+         this.Lead11_Btn.Name = "Lead11_Btn";
+         this.Lead11_Btn.Tag = "11";
+         this.Lead11_Btn.Text = "سرنخ های تجاری پروژه های موفق";
+         // 
+         // Lead12_Btn
+         // 
+         this.Lead12_Btn.Name = "Lead12_Btn";
+         this.Lead12_Btn.Tag = "12";
+         this.Lead12_Btn.Text = "سرنخ های تجاری قدیمی تر از 6 ماه";
+         // 
+         // Lead13_Btn
+         // 
+         this.Lead13_Btn.Name = "Lead13_Btn";
+         this.Lead13_Btn.Tag = "13";
+         this.Lead13_Btn.Text = "همه سرنخ های تجاری";
+         // 
+         // Lead14_Btn
+         // 
+         this.Lead14_Btn.Name = "Lead14_Btn";
+         this.Lead14_Btn.Tag = "14";
+         this.Lead14_Btn.Text = "همه سرنخ های تجاری در سال مالی جاری";
+         // 
          // ribbonGroup2
          // 
          this.ribbonGroup2.Items.Add(this.ribbonButton4);
@@ -773,6 +900,15 @@
          // 
          this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
          this.ribbonTopToolBar1.Visible = false;
+         // 
+         // colPOST_ADRS
+         // 
+         this.colPOST_ADRS.Caption = "آدرس پستی";
+         this.colPOST_ADRS.FieldName = "POST_ADRS";
+         this.colPOST_ADRS.Name = "colPOST_ADRS";
+         this.colPOST_ADRS.Visible = true;
+         this.colPOST_ADRS.VisibleIndex = 1;
+         this.colPOST_ADRS.Width = 168;
          // 
          // SHW_ACNT_F
          // 
@@ -864,5 +1000,23 @@
       private C1.Win.C1Ribbon.RibbonTab ribbonTab1;
       private C1.Win.C1Ribbon.RibbonToggleButton GridFind_Tgbt;
       private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS;
+      private C1.Win.C1Ribbon.RibbonMenu ribbonMenu1;
+      private C1.Win.C1Ribbon.RibbonLabel Lead1_Lbl;
+      private C1.Win.C1Ribbon.RibbonSeparator ribbonSeparator1;
+      private C1.Win.C1Ribbon.RibbonButton Lead1_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead2_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead3_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead4_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead5_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead6_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead7_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead8_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead9_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead10_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead11_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead12_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead13_Btn;
+      private C1.Win.C1Ribbon.RibbonButton Lead14_Btn;
+      private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS;
    }
 }

@@ -125,7 +125,7 @@ namespace System.Setup.Code
                new List<Job>
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "chk_tiny_f"},
-                  new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 02 /* Execute Set */){WhereIsInputData = WhereIsInputDataType.StepBack},
                   new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "CHK_TINY_F", 03 /* Execute Paint */),                  
                });

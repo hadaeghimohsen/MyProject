@@ -102,6 +102,17 @@ namespace System.Setup.Ui.LTR.Server
             if (SelectBackupFile_Ofd.ShowDialog() != DialogResult.OK) return;
 
             BackupFile_Txt.Text = SelectBackupFile_Ofd.FileName;
+            // D:\AnarSys\data\backup\iCRM.bak
+            var destdb = new DirectoryInfo(BackupFile_Txt.Text);
+            PathTargetDbFile_Txt.Tag = 
+            PathTargetDbFile_Txt.Text = 
+               string.Format(@"{0}\{1}", 
+                  destdb.Parent.Parent.FullName,
+                  destdb.Name.Substring(0, destdb.Name.LastIndexOf('.'))
+               );
+
+            RestoredbStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1611;
+            RestoredbStatus_Lb.Text = "Ready For Restore Database!";
          }
          catch (Exception exc)
          {
@@ -335,5 +346,13 @@ namespace System.Setup.Ui.LTR.Server
          }
       }
       #endregion
+
+      private void CreateTestDemoDatabase_Cb_CheckedChanged(object sender, EventArgs e)
+      {
+         PathTargetDbFile_Txt.Text =
+            CreateTestDemoDatabase_Cb.Checked ?
+            PathTargetDbFile_Txt.Tag.ToString() + "001" :
+            PathTargetDbFile_Txt.Tag.ToString();
+      }
    }
 }

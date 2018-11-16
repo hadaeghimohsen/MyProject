@@ -88,7 +88,11 @@ namespace System.Setup.Ui.LTR.License
       /// </summary>
       /// <param name="job"></param>
       private void Set(Job job)
-      {         
+      {     
+         if(job.Input != null)
+         {
+            TinySNInstaller_Txt.Text = job.Input.ToString();
+         }
          job.Status = StatusType.Successful;
       }
 

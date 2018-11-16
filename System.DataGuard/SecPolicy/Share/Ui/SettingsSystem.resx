@@ -126,6 +126,12 @@
   <metadata name="SubSysBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="SubSysBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="UserGatewayBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>213, 17</value>
+  </metadata>
   <data name="labelControl12.Text" xml:space="preserve">
     <value>کاربرانی که مایل باشند برای سرعت عمل بیشتر بعد از سپری کردن مرحله ورود و احراز هویت بخواند به صورت اتوماتیک یک مرحله سریع تر وارد گام بعدی شوند می توانند از این گزینه برای مشخص کردن نرم افزار پیش فرض خود استفاده کنند</value>
   </data>

@@ -16,6 +16,8 @@ namespace System.CRM.Ui.Contacts
       private Data.iCRMDataContext iCRM;
       private string ConnectionString;
       private string CurrentUser;
+      private string onoftag;
+      private long compcode;
 
       public void SendRequest(Job job)
       {
@@ -50,9 +52,6 @@ namespace System.CRM.Ui.Contacts
             case 11:
                GetNewRecord(job);
                break;
-            case 100:
-               SetFilterOnQuery(job);
-               break;
             default:
                break;
          }
@@ -69,7 +68,6 @@ namespace System.CRM.Ui.Contacts
          if (keyData == Keys.Enter)
          {
             SendKeys.Send("{TAB}");
-            ImageProfile_Butn_Click(null, null);
          }
          else if(keyData == (Keys.F11 | Keys.Control))
          {
@@ -77,12 +75,6 @@ namespace System.CRM.Ui.Contacts
          }
          else if(keyData == Keys.F11)
          {
-            FrstName_Txt.Focus();
-            FrstName_Txt.Text = LastName_Txt.Text = CellPhon_Txt.Text = TellPhon_Txt.Text = NatlCode_Txt.Text = ServNo_Txt.Text = PostAddr_Txt.Text = CordX_Txt.Text = CordY_Txt.Text = Radius_Txt.Text = EmalAddr_Txt.Text = "";
-            BothSex_Rb.Checked = true;
-            ConfDate_Dat.Value = null;
-            MainStat_Lov.EditValue = SubStat_Lov.EditValue = null;
-            tc_master.SelectedTab = tp_002;
          }
          else if (keyData == Keys.Escape)
          {
@@ -108,6 +100,7 @@ namespace System.CRM.Ui.Contacts
       /// <param name="job"></param>
       private void Set(Job job)
       {
+         Menu_Rbn.Minimized = true;
          var GetConnectionString =
             new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iCRM</Database><Dbms>SqlServer</Dbms>" };
          _DefaultGateway.Gateway(
@@ -205,9 +198,6 @@ namespace System.CRM.Ui.Contacts
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         //DsstgBs.DataSource = iCRM.D_SSTGs;
-         //DslonBs.DataSource = iCRM.D_SLONs;         
-         MsttBs.DataSource = iCRM.Main_States;
          job.Status = StatusType.Successful;
       }      
 
@@ -218,18 +208,18 @@ namespace System.CRM.Ui.Contacts
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         if(xinput != null)
+         if (xinput != null)
          {
             if (xinput.Attribute("onoftag") != null)
                onoftag = xinput.Attribute("onoftag").Value;
-            
+
             if (xinput.Attribute("compcode") != null)
                compcode = Convert.ToInt64(xinput.Attribute("compcode").Value);
             else
                compcode = 0;
          }
 
-         var runqury = iCRM.Job_Personnels.FirstOrDefault(s => s.USER_NAME == CurrentUser).RUN_QURY;
+         var runqury = iCRM.Job_Personnels.FirstOrDefault(s => s.USER_NAME == CurrentUser).RUN_QURY ?? "002";
 
          if (InvokeRequired)
          {
@@ -237,7 +227,7 @@ namespace System.CRM.Ui.Contacts
                new Action(
                   () =>
                   {
-                     if(runqury == "002")
+                     if (runqury == "002")
                         Execute_Query();
                   }
                )
@@ -245,7 +235,7 @@ namespace System.CRM.Ui.Contacts
          }
          else
          {
-            if(runqury == "002")
+            if (runqury == "002")
                Execute_Query();
          }
          job.Status = StatusType.Successful;
@@ -257,11 +247,11 @@ namespace System.CRM.Ui.Contacts
       /// <param name="job"></param>
       private void GetNewRecord(Job job)
       {
-         var serv = ServBs.Current as Data.VF_ServicesResult;
+         var serv = ServBs.Current as Data.Service;
          if (serv == null) return;
 
          var xinput = job.Input as XElement;
-         var newserv = ServBs.Current as Data.VF_ServicesResult;
+         var newserv = ServBs.Current as Data.Service;
 
          if (xinput != null)
          {
@@ -269,7 +259,7 @@ namespace System.CRM.Ui.Contacts
             {
                case "next":
                   ServBs.MoveNext();
-                  newserv = ServBs.Current as Data.VF_ServicesResult;
+                  newserv = ServBs.Current as Data.Service;
 
                   if (serv == newserv) return;
 
@@ -283,7 +273,7 @@ namespace System.CRM.Ui.Contacts
                   break;
                case "previous":
                   ServBs.MovePrevious();
-                  newserv = ServBs.Current as Data.VF_ServicesResult;
+                  newserv = ServBs.Current as Data.Service;
 
                   if (serv == newserv) return;
 
@@ -300,52 +290,7 @@ namespace System.CRM.Ui.Contacts
             }
          }
          job.Status = StatusType.Successful;
-      }
-
-      /// <summary>
-      /// 100
-      /// </summary>
-      /// <param name="job"></param>
-      private void SetFilterOnQuery(Job job)
-      {
-         var xinput = job.Input as XElement;
-         if (xinput != null)
-         {
-            var count = 0;
-            Lb_FilterCount.Visible = true;
-            if (xinput.Element("Tags") != null)
-               count += Convert.ToInt32(xinput.Element("Tags").Attribute("cont").Value);
-            if (xinput.Element("Regions") != null)
-               count += Convert.ToInt32(xinput.Element("Regions").Attribute("cont").Value);
-            if (xinput.Element("Extra_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Extra_Infos").Attribute("cont").Value);
-            if (xinput.Element("Contact_Infos") != null)
-               count += Convert.ToInt32(xinput.Element("Contact_Infos").Attribute("cont").Value);
-
-            if (count != 0)
-            {
-               Lb_FilterCount.Visible = true;
-               Lb_FilterCount.Text = count.ToString();
-               Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1598;
-               Filter_Butn.Tag = xinput;
-            }
-            else
-            {
-               Lb_FilterCount.Visible = false;
-               Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
-               Filter_Butn.Tag = null;
-            }
-         }
-         else
-         {
-            Lb_FilterCount.Visible = false;
-            Filter_Butn.ImageProfile = Properties.Resources.IMAGE_1597;
-            Filter_Butn.Tag = null;
-         }
-         Execute_Query();
-         job.Status = StatusType.Successful;
-      }
-
+      }      
    }
 }
 

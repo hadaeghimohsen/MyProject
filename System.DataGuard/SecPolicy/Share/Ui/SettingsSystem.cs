@@ -575,5 +575,18 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             new Job(SendType.External, "localhost", "Commons:Program:Setup", 02 /* Execute Frst_Page_F */, SendType.Self)
          );
       }
+
+      private void ConfigTinyLock_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 42 /* Execute DoWork4SettingsSystemTinyLock */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemTinyLock", 10 /* Execute ActionCallWindow */)
+               }
+            )
+         );
+      }
    }
 }

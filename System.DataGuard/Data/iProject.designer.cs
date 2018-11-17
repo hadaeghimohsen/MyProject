@@ -158,6 +158,18 @@ namespace System.DataGuard.Data
     partial void InsertScript_Parameter(Script_Parameter instance);
     partial void UpdateScript_Parameter(Script_Parameter instance);
     partial void DeleteScript_Parameter(Script_Parameter instance);
+    partial void InsertService(Service instance);
+    partial void UpdateService(Service instance);
+    partial void DeleteService(Service instance);
+    partial void InsertOpportunity(Opportunity instance);
+    partial void UpdateOpportunity(Opportunity instance);
+    partial void DeleteOpportunity(Opportunity instance);
+    partial void InsertTiny_Lock(Tiny_Lock instance);
+    partial void UpdateTiny_Lock(Tiny_Lock instance);
+    partial void DeleteTiny_Lock(Tiny_Lock instance);
+    partial void InsertTiny_Sub_System(Tiny_Sub_System instance);
+    partial void UpdateTiny_Sub_System(Tiny_Sub_System instance);
+    partial void DeleteTiny_Sub_System(Tiny_Sub_System instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -747,6 +759,38 @@ namespace System.DataGuard.Data
 			get
 			{
 				return this.GetTable<Script_Parameter>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Service> Services
+		{
+			get
+			{
+				return this.GetTable<Service>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Opportunity> Opportunities
+		{
+			get
+			{
+				return this.GetTable<Opportunity>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tiny_Lock> Tiny_Locks
+		{
+			get
+			{
+				return this.GetTable<Tiny_Lock>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tiny_Sub_System> Tiny_Sub_Systems
+		{
+			get
+			{
+				return this.GetTable<Tiny_Sub_System>();
 			}
 		}
 		
@@ -19140,6 +19184,8 @@ namespace System.DataGuard.Data
 		
 		private EntitySet<Script> _Scripts;
 		
+		private EntitySet<Tiny_Sub_System> _Tiny_Sub_Systems;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -19213,6 +19259,7 @@ namespace System.DataGuard.Data
 			this._Localizations = new EntitySet<Localization>(new Action<Localization>(this.attach_Localizations), new Action<Localization>(this.detach_Localizations));
 			this._Forms = new EntitySet<Form>(new Action<Form>(this.attach_Forms), new Action<Form>(this.detach_Forms));
 			this._Scripts = new EntitySet<Script>(new Action<Script>(this.attach_Scripts), new Action<Script>(this.detach_Scripts));
+			this._Tiny_Sub_Systems = new EntitySet<Tiny_Sub_System>(new Action<Tiny_Sub_System>(this.attach_Tiny_Sub_Systems), new Action<Tiny_Sub_System>(this.detach_Tiny_Sub_Systems));
 			OnCreated();
 		}
 		
@@ -19899,6 +19946,19 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Tiny_Sub_System", Storage="_Tiny_Sub_Systems", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Tiny_Sub_System> Tiny_Sub_Systems
+		{
+			get
+			{
+				return this._Tiny_Sub_Systems;
+			}
+			set
+			{
+				this._Tiny_Sub_Systems.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -20046,6 +20106,18 @@ namespace System.DataGuard.Data
 		}
 		
 		private void detach_Scripts(Script entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
+		}
+		
+		private void attach_Tiny_Sub_Systems(Tiny_Sub_System entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Tiny_Sub_Systems(Tiny_Sub_System entity)
 		{
 			this.SendPropertyChanging();
 			entity.Sub_System = null;
@@ -20735,6 +20807,1246 @@ namespace System.DataGuard.Data
 						this._SCRP_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Script");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Service")]
+	public partial class Service : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _FILE_NO;
+		
+		private string _FRST_NAME;
+		
+		private string _LAST_NAME;
+		
+		private string _CELL_PHON;
+		
+		private string _TELL_PHON;
+		
+		private string _EMAL_ADRS;
+		
+		private string _POST_ADRS;
+		
+		private string _COMP_NAME;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Opportunity> _Opportunities;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFILE_NOChanging(long value);
+    partial void OnFILE_NOChanged();
+    partial void OnFRST_NAMEChanging(string value);
+    partial void OnFRST_NAMEChanged();
+    partial void OnLAST_NAMEChanging(string value);
+    partial void OnLAST_NAMEChanged();
+    partial void OnCELL_PHONChanging(string value);
+    partial void OnCELL_PHONChanged();
+    partial void OnTELL_PHONChanging(string value);
+    partial void OnTELL_PHONChanged();
+    partial void OnEMAL_ADRSChanging(string value);
+    partial void OnEMAL_ADRSChanged();
+    partial void OnPOST_ADRSChanging(string value);
+    partial void OnPOST_ADRSChanged();
+    partial void OnCOMP_NAMEChanging(string value);
+    partial void OnCOMP_NAMEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Service()
+		{
+			this._Opportunities = new EntitySet<Opportunity>(new Action<Opportunity>(this.attach_Opportunities), new Action<Opportunity>(this.detach_Opportunities));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long FILE_NO
+		{
+			get
+			{
+				return this._FILE_NO;
+			}
+			set
+			{
+				if ((this._FILE_NO != value))
+				{
+					this.OnFILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FILE_NO = value;
+					this.SendPropertyChanged("FILE_NO");
+					this.OnFILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string FRST_NAME
+		{
+			get
+			{
+				return this._FRST_NAME;
+			}
+			set
+			{
+				if ((this._FRST_NAME != value))
+				{
+					this.OnFRST_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._FRST_NAME = value;
+					this.SendPropertyChanged("FRST_NAME");
+					this.OnFRST_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string LAST_NAME
+		{
+			get
+			{
+				return this._LAST_NAME;
+			}
+			set
+			{
+				if ((this._LAST_NAME != value))
+				{
+					this.OnLAST_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_NAME = value;
+					this.SendPropertyChanged("LAST_NAME");
+					this.OnLAST_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this.OnCELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._CELL_PHON = value;
+					this.SendPropertyChanged("CELL_PHON");
+					this.OnCELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string TELL_PHON
+		{
+			get
+			{
+				return this._TELL_PHON;
+			}
+			set
+			{
+				if ((this._TELL_PHON != value))
+				{
+					this.OnTELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._TELL_PHON = value;
+					this.SendPropertyChanged("TELL_PHON");
+					this.OnTELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this.OnEMAL_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._EMAL_ADRS = value;
+					this.SendPropertyChanged("EMAL_ADRS");
+					this.OnEMAL_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string POST_ADRS
+		{
+			get
+			{
+				return this._POST_ADRS;
+			}
+			set
+			{
+				if ((this._POST_ADRS != value))
+				{
+					this.OnPOST_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._POST_ADRS = value;
+					this.SendPropertyChanged("POST_ADRS");
+					this.OnPOST_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string COMP_NAME
+		{
+			get
+			{
+				return this._COMP_NAME;
+			}
+			set
+			{
+				if ((this._COMP_NAME != value))
+				{
+					this.OnCOMP_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._COMP_NAME = value;
+					this.SendPropertyChanged("COMP_NAME");
+					this.OnCOMP_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Opportunity", Storage="_Opportunities", ThisKey="FILE_NO", OtherKey="SERV_FILE_NO")]
+		public EntitySet<Opportunity> Opportunities
+		{
+			get
+			{
+				return this._Opportunities;
+			}
+			set
+			{
+				this._Opportunities.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Opportunities(Opportunity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service = this;
+		}
+		
+		private void detach_Opportunities(Opportunity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Opportunity")]
+	public partial class Opportunity : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _SERV_FILE_NO;
+		
+		private long _OPID;
+		
+		private System.Nullable<System.DateTime> _ISSU_DATE;
+		
+		private System.Nullable<System.DateTime> _CNCL_DATE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Tiny_Lock> _Tiny_Locks;
+		
+		private EntityRef<Service> _Service;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSERV_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnSERV_FILE_NOChanged();
+    partial void OnOPIDChanging(long value);
+    partial void OnOPIDChanged();
+    partial void OnISSU_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnISSU_DATEChanged();
+    partial void OnCNCL_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCNCL_DATEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Opportunity()
+		{
+			this._Tiny_Locks = new EntitySet<Tiny_Lock>(new Action<Tiny_Lock>(this.attach_Tiny_Locks), new Action<Tiny_Lock>(this.detach_Tiny_Locks));
+			this._Service = default(EntityRef<Service>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> SERV_FILE_NO
+		{
+			get
+			{
+				return this._SERV_FILE_NO;
+			}
+			set
+			{
+				if ((this._SERV_FILE_NO != value))
+				{
+					if (this._Service.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSERV_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_FILE_NO = value;
+					this.SendPropertyChanged("SERV_FILE_NO");
+					this.OnSERV_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long OPID
+		{
+			get
+			{
+				return this._OPID;
+			}
+			set
+			{
+				if ((this._OPID != value))
+				{
+					this.OnOPIDChanging(value);
+					this.SendPropertyChanging();
+					this._OPID = value;
+					this.SendPropertyChanged("OPID");
+					this.OnOPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISSU_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> ISSU_DATE
+		{
+			get
+			{
+				return this._ISSU_DATE;
+			}
+			set
+			{
+				if ((this._ISSU_DATE != value))
+				{
+					this.OnISSU_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._ISSU_DATE = value;
+					this.SendPropertyChanged("ISSU_DATE");
+					this.OnISSU_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNCL_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CNCL_DATE
+		{
+			get
+			{
+				return this._CNCL_DATE;
+			}
+			set
+			{
+				if ((this._CNCL_DATE != value))
+				{
+					this.OnCNCL_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CNCL_DATE = value;
+					this.SendPropertyChanged("CNCL_DATE");
+					this.OnCNCL_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Opportunity_Tiny_Lock", Storage="_Tiny_Locks", ThisKey="OPID", OtherKey="OPRT_OPID")]
+		public EntitySet<Tiny_Lock> Tiny_Locks
+		{
+			get
+			{
+				return this._Tiny_Locks;
+			}
+			set
+			{
+				this._Tiny_Locks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Opportunity", Storage="_Service", ThisKey="SERV_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Service Service
+		{
+			get
+			{
+				return this._Service.Entity;
+			}
+			set
+			{
+				Service previousValue = this._Service.Entity;
+				if (((previousValue != value) 
+							|| (this._Service.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service.Entity = null;
+						previousValue.Opportunities.Remove(this);
+					}
+					this._Service.Entity = value;
+					if ((value != null))
+					{
+						value.Opportunities.Add(this);
+						this._SERV_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._SERV_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tiny_Locks(Tiny_Lock entity)
+		{
+			this.SendPropertyChanging();
+			entity.Opportunity = this;
+		}
+		
+		private void detach_Tiny_Locks(Tiny_Lock entity)
+		{
+			this.SendPropertyChanging();
+			entity.Opportunity = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Tiny_Lock")]
+	public partial class Tiny_Lock : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _OPRT_OPID;
+		
+		private long _TNID;
+		
+		private string _TINY_CODE_DNRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Tiny_Sub_System> _Tiny_Sub_Systems;
+		
+		private EntityRef<Opportunity> _Opportunity;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOPRT_OPIDChanging(System.Nullable<long> value);
+    partial void OnOPRT_OPIDChanged();
+    partial void OnTNIDChanging(long value);
+    partial void OnTNIDChanged();
+    partial void OnTINY_CODE_DNRMChanging(string value);
+    partial void OnTINY_CODE_DNRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Tiny_Lock()
+		{
+			this._Tiny_Sub_Systems = new EntitySet<Tiny_Sub_System>(new Action<Tiny_Sub_System>(this.attach_Tiny_Sub_Systems), new Action<Tiny_Sub_System>(this.detach_Tiny_Sub_Systems));
+			this._Opportunity = default(EntityRef<Opportunity>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPRT_OPID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> OPRT_OPID
+		{
+			get
+			{
+				return this._OPRT_OPID;
+			}
+			set
+			{
+				if ((this._OPRT_OPID != value))
+				{
+					if (this._Opportunity.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOPRT_OPIDChanging(value);
+					this.SendPropertyChanging();
+					this._OPRT_OPID = value;
+					this.SendPropertyChanged("OPRT_OPID");
+					this.OnOPRT_OPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TNID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long TNID
+		{
+			get
+			{
+				return this._TNID;
+			}
+			set
+			{
+				if ((this._TNID != value))
+				{
+					this.OnTNIDChanging(value);
+					this.SendPropertyChanging();
+					this._TNID = value;
+					this.SendPropertyChanged("TNID");
+					this.OnTNIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINY_CODE_DNRM", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string TINY_CODE_DNRM
+		{
+			get
+			{
+				return this._TINY_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._TINY_CODE_DNRM != value))
+				{
+					this.OnTINY_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TINY_CODE_DNRM = value;
+					this.SendPropertyChanged("TINY_CODE_DNRM");
+					this.OnTINY_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tiny_Lock_Tiny_Sub_System", Storage="_Tiny_Sub_Systems", ThisKey="TNID", OtherKey="TINY_TNID")]
+		public EntitySet<Tiny_Sub_System> Tiny_Sub_Systems
+		{
+			get
+			{
+				return this._Tiny_Sub_Systems;
+			}
+			set
+			{
+				this._Tiny_Sub_Systems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Opportunity_Tiny_Lock", Storage="_Opportunity", ThisKey="OPRT_OPID", OtherKey="OPID", IsForeignKey=true)]
+		public Opportunity Opportunity
+		{
+			get
+			{
+				return this._Opportunity.Entity;
+			}
+			set
+			{
+				Opportunity previousValue = this._Opportunity.Entity;
+				if (((previousValue != value) 
+							|| (this._Opportunity.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Opportunity.Entity = null;
+						previousValue.Tiny_Locks.Remove(this);
+					}
+					this._Opportunity.Entity = value;
+					if ((value != null))
+					{
+						value.Tiny_Locks.Add(this);
+						this._OPRT_OPID = value.OPID;
+					}
+					else
+					{
+						this._OPRT_OPID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Opportunity");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tiny_Sub_Systems(Tiny_Sub_System entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tiny_Lock = this;
+		}
+		
+		private void detach_Tiny_Sub_Systems(Tiny_Sub_System entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tiny_Lock = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Tiny_Sub_System")]
+	public partial class Tiny_Sub_System : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _TINY_TNID;
+		
+		private System.Nullable<int> _SUB_SYS;
+		
+		private long _TSID;
+		
+		private string _STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Sub_System> _Sub_System;
+		
+		private EntityRef<Tiny_Lock> _Tiny_Lock;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTINY_TNIDChanging(System.Nullable<long> value);
+    partial void OnTINY_TNIDChanged();
+    partial void OnSUB_SYSChanging(System.Nullable<int> value);
+    partial void OnSUB_SYSChanged();
+    partial void OnTSIDChanging(long value);
+    partial void OnTSIDChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Tiny_Sub_System()
+		{
+			this._Sub_System = default(EntityRef<Sub_System>);
+			this._Tiny_Lock = default(EntityRef<Tiny_Lock>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINY_TNID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> TINY_TNID
+		{
+			get
+			{
+				return this._TINY_TNID;
+			}
+			set
+			{
+				if ((this._TINY_TNID != value))
+				{
+					if (this._Tiny_Lock.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTINY_TNIDChanging(value);
+					this.SendPropertyChanging();
+					this._TINY_TNID = value;
+					this.SendPropertyChanged("TINY_TNID");
+					this.OnTINY_TNIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> SUB_SYS
+		{
+			get
+			{
+				return this._SUB_SYS;
+			}
+			set
+			{
+				if ((this._SUB_SYS != value))
+				{
+					if (this._Sub_System.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_SYS = value;
+					this.SendPropertyChanged("SUB_SYS");
+					this.OnSUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TSID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long TSID
+		{
+			get
+			{
+				return this._TSID;
+			}
+			set
+			{
+				if ((this._TSID != value))
+				{
+					this.OnTSIDChanging(value);
+					this.SendPropertyChanging();
+					this._TSID = value;
+					this.SendPropertyChanged("TSID");
+					this.OnTSIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Tiny_Sub_System", Storage="_Sub_System", ThisKey="SUB_SYS", OtherKey="SUB_SYS", IsForeignKey=true)]
+		public Sub_System Sub_System
+		{
+			get
+			{
+				return this._Sub_System.Entity;
+			}
+			set
+			{
+				Sub_System previousValue = this._Sub_System.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_System.Entity = null;
+						previousValue.Tiny_Sub_Systems.Remove(this);
+					}
+					this._Sub_System.Entity = value;
+					if ((value != null))
+					{
+						value.Tiny_Sub_Systems.Add(this);
+						this._SUB_SYS = value.SUB_SYS;
+					}
+					else
+					{
+						this._SUB_SYS = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Sub_System");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tiny_Lock_Tiny_Sub_System", Storage="_Tiny_Lock", ThisKey="TINY_TNID", OtherKey="TNID", IsForeignKey=true)]
+		public Tiny_Lock Tiny_Lock
+		{
+			get
+			{
+				return this._Tiny_Lock.Entity;
+			}
+			set
+			{
+				Tiny_Lock previousValue = this._Tiny_Lock.Entity;
+				if (((previousValue != value) 
+							|| (this._Tiny_Lock.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tiny_Lock.Entity = null;
+						previousValue.Tiny_Sub_Systems.Remove(this);
+					}
+					this._Tiny_Lock.Entity = value;
+					if ((value != null))
+					{
+						value.Tiny_Sub_Systems.Add(this);
+						this._TINY_TNID = value.TNID;
+					}
+					else
+					{
+						this._TINY_TNID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Tiny_Lock");
 				}
 			}
 		}

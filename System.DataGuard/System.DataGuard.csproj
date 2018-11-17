@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataAccess, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="DataEditShamsi">
       <HintPath>..\System.Scsc\bin\Debug\DataEditShamsi.dll</HintPath>
     </Reference>
@@ -327,6 +331,15 @@
       <DependentUpon>SettingsMailServer.cs</DependentUpon>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsMailServer.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemTinyLock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemTinyLock.Designer.cs">
+      <DependentUpon>SettingsSystemTinyLock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsSystemTinyLock.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsSystemScript.cs">
@@ -821,6 +834,9 @@
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsMailServer.resx">
       <DependentUpon>SettingsMailServer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystemTinyLock.resx">
+      <DependentUpon>SettingsSystemTinyLock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsSystemScript.resx">
       <DependentUpon>SettingsSystemScript.cs</DependentUpon>
     </EmbeddedResource>
@@ -975,6 +991,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Localization.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Mail_Server.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Msgb_Privilege.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Opportunity.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package_Activity.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package_Instance.datasource" />
@@ -993,9 +1010,12 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Script_Parameter.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Scsc_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Security_Managment.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.ServiceDef_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Sub_System.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Sub_System_Item.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Tiny_Lock.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Tiny_Sub_System.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Transaction_Log.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Gateway.datasource" />

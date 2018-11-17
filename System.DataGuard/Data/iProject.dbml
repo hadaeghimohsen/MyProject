@@ -957,6 +957,7 @@
       <Association Name="Sub_System_Localization" Member="Localizations" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Localization" />
       <Association Name="Sub_System_Form" Member="Forms" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Form" />
       <Association Name="Sub_System_Script" Member="Scripts" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Script" />
+      <Association Name="Sub_System_Tiny_Sub_System" Member="Tiny_Sub_Systems" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Tiny_Sub_System" />
     </Type>
     <UpdateFunction FunctionId="FunctionId1">
       <Argument Parameter="sub_Sys" Member="SUB_SYS" />
@@ -1011,6 +1012,64 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Script_Script_Parameter" Member="Script" ThisKey="SCRP_CODE" OtherKey="CODE" Type="Script" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Service" Member="Services">
+    <Type Name="Service">
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FRST_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Service_Opportunity" Member="Opportunities" ThisKey="FILE_NO" OtherKey="SERV_FILE_NO" Type="Opportunity" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Opportunity" Member="Opportunities">
+    <Type Name="Opportunity">
+      <Column Name="SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OPID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ISSU_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CNCL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Opportunity_Tiny_Lock" Member="Tiny_Locks" ThisKey="OPID" OtherKey="OPRT_OPID" Type="Tiny_Lock" />
+      <Association Name="Service_Opportunity" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Tiny_Lock" Member="Tiny_Locks">
+    <Type Name="Tiny_Lock">
+      <Column Name="OPRT_OPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TNID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TINY_CODE_DNRM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Tiny_Lock_Tiny_Sub_System" Member="Tiny_Sub_Systems" ThisKey="TNID" OtherKey="TINY_TNID" Type="Tiny_Sub_System" />
+      <Association Name="Opportunity_Tiny_Lock" Member="Opportunity" ThisKey="OPRT_OPID" OtherKey="OPID" Type="Opportunity" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Tiny_Sub_System" Member="Tiny_Sub_Systems">
+    <Type Name="Tiny_Sub_System">
+      <Column Name="TINY_TNID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Sub_System_Tiny_Sub_System" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+      <Association Name="Tiny_Lock_Tiny_Sub_System" Member="Tiny_Lock" ThisKey="TINY_TNID" OtherKey="TNID" Type="Tiny_Lock" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

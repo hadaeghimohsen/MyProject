@@ -51,5 +51,6 @@ namespace System.DataGuard.SecPolicy.Share.Code
       internal Ui.SettingsRegion _SettingsRegion { get; set; }
       internal Ui.SettingsSystemLicense _SettingsSystemLicense { get; set; }
       internal Ui.SettingsSystemScript _SettingsSystemScript { get; set; }
+      internal Ui.SettingsSystemTinyLock _SettingsSystemTinyLock { get; set; }
    }
 }

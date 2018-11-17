@@ -256,6 +256,12 @@ namespace System.DataGuard.SecPolicy.Share.Code
                _SettingsSystemScript = new Ui.SettingsSystemScript { _DefaultGateway = this };
             job.Output = _SettingsSystemScript;
          }
+         else if (value == "settingssystemtinylock")
+         {
+            if (_SettingsSystemTinyLock == null)
+               _SettingsSystemTinyLock = new Ui.SettingsSystemTinyLock { _DefaultGateway = this };
+            job.Output = _SettingsSystemTinyLock;
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -1251,6 +1257,31 @@ namespace System.DataGuard.SecPolicy.Share.Code
                   //new Job(SendType.SelfToUserInterface, "SettingsSystemPackage", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "SettingsSystemScript", 07 /* Execute LoadData */),
                   new Job(SendType.SelfToUserInterface, "SettingsSystemScript", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 42
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4SettingsSystemTinyLock(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi*/){Input = "settingssystemtinylock"},
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemTinyLock", 02 /* Execute Set */),                  
+                  //new Job(SendType.SelfToUserInterface, "SettingsSystemPackage", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemTinyLock", 07 /* Execute LoadData */),
+                  new Job(SendType.SelfToUserInterface, "SettingsSystemTinyLock", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

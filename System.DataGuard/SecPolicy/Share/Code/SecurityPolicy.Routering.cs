@@ -159,6 +159,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
             case 41:
                DoWork4SettingsSystemScript(job);
                break;
+            case 42:
+               DoWork4SettingsSystemTinyLock(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -291,6 +294,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
                break;
             case "SettingsSystemScript":
                _SettingsSystemScript.SendRequest(job);
+               break;
+            case "SettingsSystemTinyLock":
+               _SettingsSystemTinyLock.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

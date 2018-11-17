@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -186,7 +185,7 @@
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DaeatBs = new System.Windows.Forms.BindingSource();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -199,13 +198,13 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.Sp_Barcode = new System.IO.Ports.SerialPort();
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -1538,6 +1537,7 @@
          this.button3.TabIndex = 21;
          this.button3.Text = "Empty";
          this.button3.UseVisualStyleBackColor = true;
+         this.button3.Visible = false;
          this.button3.Click += new System.EventHandler(this.button3_Click);
          // 
          // button2
@@ -1548,6 +1548,7 @@
          this.button2.TabIndex = 21;
          this.button2.Text = "Delete";
          this.button2.UseVisualStyleBackColor = true;
+         this.button2.Visible = false;
          this.button2.Click += new System.EventHandler(this.button2_Click);
          // 
          // button1
@@ -1558,6 +1559,7 @@
          this.button1.TabIndex = 21;
          this.button1.Text = "Enroll";
          this.button1.UseVisualStyleBackColor = true;
+         this.button1.Visible = false;
          this.button1.Click += new System.EventHandler(this.button1_Click);
          // 
          // ChngAttnActn_Butn

@@ -2009,6 +2009,7 @@ namespace System.Scsc.Ui.Admission
          CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
          //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
          CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
+         FNGR_PRNT_TextEdit.EditValue = figh.FNGR_PRNT_DNRM;
       }
 
       private void PosStng_Butn_Click(object sender, EventArgs e)

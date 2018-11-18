@@ -23,7 +23,7 @@ namespace System.CRM.Ui.Contacts
          InitializeComponent();
       }
 
-      private string contactShow = "";
+      private string contactShow = "4";
       private bool requery = false;
 
       private void Back_Butn_Click(object sender, EventArgs e)

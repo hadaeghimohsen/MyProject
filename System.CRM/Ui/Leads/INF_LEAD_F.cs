@@ -133,6 +133,16 @@ namespace System.CRM.Ui.Leads
             }
 
             RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = ColorTranslator.FromHtml(rqst.COLR);
+
+            // 1397/08/27            
+            if(rqst.Request_Rows.FirstOrDefault().Service.CONF_STAT == "002")
+               xinput.Attribute("type").Value = "servicelead";
+            else
+               if(rqst.Request_Rows.FirstOrDefault().Company != null)
+                  xinput.Attribute("type").Value = "companylead";
+               else
+                  xinput.Attribute("type").Value = "newlead";
+
          }
          catch { }
       }

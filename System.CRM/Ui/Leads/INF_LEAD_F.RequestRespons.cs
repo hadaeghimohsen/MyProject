@@ -295,6 +295,20 @@ namespace System.CRM.Ui.Leads
                SubmitChange_Butn_Click(null, null);
                break;
             case "refresh":
+               if(RqstBs.List.Count == 0)
+                  xinput.Attribute("type").Value = "newlead";
+               //else
+               //{
+               //   var rqst = RqstBs.Current as Data.Request;
+               //   if(rqst.Request_Rows.FirstOrDefault().Service.CONF_STAT == "002")
+               //      xinput.Attribute("type").Value = "servicelead";
+               //   else
+               //      //if(iCRM.Request_Rows.Where(rr => rr.Company == rqst.Request_Rows.FirstOrDefault().Company).Count() > 1)
+               //      if(rqst.Request_Rows.FirstOrDefault().Company != null)
+               //         xinput.Attribute("type").Value = "companylead";
+               //      else
+               //         xinput.Attribute("type").Value = "newlead";
+               //}
                break;
             default:
                if (!RqstBs.List.OfType<Data.Request>().Any(r => r.RQID == 0))

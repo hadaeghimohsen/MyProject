@@ -39,27 +39,22 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.colSERV_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Serv_Gc = new DevExpress.XtraGrid.GridControl();
          this.ServBs = new System.Windows.Forms.BindingSource(this.components);
          this.Serv_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colFRST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colLAST_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCONF_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
+         this.colNAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFATH_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPOST_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCOMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRQTP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSERV_STAG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSRPB_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colONOF_TAG_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCOMP_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEMAL_ADRS_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colActn_Butn = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.LeadActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNATL_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.LeadActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.Menu_Rbn = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -110,14 +105,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LeadActn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).BeginInit();
          this.SuspendLayout();
-         // 
-         // colSERV_STAT
-         // 
-         this.colSERV_STAT.FieldName = "SERV_STAT";
-         this.colSERV_STAT.Name = "colSERV_STAT";
          // 
          // Serv_Gc
          // 
@@ -129,7 +121,8 @@
          this.Serv_Gc.MainView = this.Serv_Gv;
          this.Serv_Gc.Name = "Serv_Gc";
          this.Serv_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.LeadActn_Butn});
+            this.LeadActn_Butn,
+            this.persianRepositoryItemDateEdit1});
          this.Serv_Gc.Size = new System.Drawing.Size(934, 555);
          this.Serv_Gc.TabIndex = 0;
          this.Serv_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -137,46 +130,39 @@
          // 
          // ServBs
          // 
-         this.ServBs.DataSource = typeof(System.CRM.Data.VF_ServicesResult);
+         this.ServBs.DataSource = typeof(System.CRM.Data.Service);
          // 
          // Serv_Gv
          // 
          this.Serv_Gv.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Serv_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Serv_Gv.Appearance.FocusedRow.Options.UseBackColor = true;
          this.Serv_Gv.Appearance.FocusedRow.Options.UseFont = true;
-         this.Serv_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Serv_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Serv_Gv.Appearance.FooterPanel.Options.UseFont = true;
-         this.Serv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Serv_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Serv_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Serv_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Serv_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Serv_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Serv_Gv.Appearance.Row.Options.UseFont = true;
          this.Serv_Gv.Appearance.Row.Options.UseTextOptions = true;
          this.Serv_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Serv_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFILE_NO,
-            this.colFRST_NAME_DNRM,
-            this.colLAST_NAME_DNRM,
+            this.colCONF_DATE,
+            this.colNAME_DNRM,
+            this.colFATH_NAME_DNRM,
+            this.colPOST_ADRS_DNRM,
             this.colCELL_PHON_DNRM,
             this.colTELL_PHON_DNRM,
-            this.colCOMP_NAME,
-            this.colRQTP_DESC,
-            this.colCRET_BY,
-            this.colSERV_STAG_CODE,
-            this.colSRPB_TYPE_DNRM,
-            this.colONOF_TAG_DNRM,
+            this.colCOMP_CODE_DNRM,
             this.colEMAL_ADRS_DNRM,
-            this.colDEBT_DNRM,
-            this.colActn_Butn,
-            this.colSERV_NO_DNRM,
-            this.colSERV_STAT,
-            this.colNATL_CODE_DNRM});
+            this.colNATL_CODE_DNRM,
+            this.colSERV_NO_DNRM});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colSERV_STAT;
          styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition1.Value1 = "001";
          this.Serv_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
@@ -190,127 +176,107 @@
          this.Serv_Gv.OptionsView.ShowFooter = true;
          this.Serv_Gv.OptionsView.ShowGroupPanel = false;
          this.Serv_Gv.OptionsView.ShowIndicator = false;
-         this.Serv_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colLAST_NAME_DNRM, DevExpress.Data.ColumnSortOrder.Ascending)});
          this.Serv_Gv.DoubleClick += new System.EventHandler(this.Serv_Gv_DoubleClick);
          // 
          // colFILE_NO
          // 
+         this.colFILE_NO.Caption = "شماره پرونده";
          this.colFILE_NO.FieldName = "FILE_NO";
          this.colFILE_NO.Name = "colFILE_NO";
+         this.colFILE_NO.Visible = true;
+         this.colFILE_NO.VisibleIndex = 10;
          // 
-         // colFRST_NAME_DNRM
+         // colCONF_DATE
          // 
-         this.colFRST_NAME_DNRM.Caption = "نام";
-         this.colFRST_NAME_DNRM.FieldName = "FRST_NAME_DNRM";
-         this.colFRST_NAME_DNRM.Name = "colFRST_NAME_DNRM";
-         this.colFRST_NAME_DNRM.OptionsColumn.AllowEdit = false;
-         this.colFRST_NAME_DNRM.OptionsColumn.ReadOnly = true;
-         this.colFRST_NAME_DNRM.Visible = true;
-         this.colFRST_NAME_DNRM.VisibleIndex = 4;
-         this.colFRST_NAME_DNRM.Width = 65;
+         this.colCONF_DATE.Caption = "تاریخ ثبت";
+         this.colCONF_DATE.ColumnEdit = this.persianRepositoryItemDateEdit1;
+         this.colCONF_DATE.FieldName = "CONF_DATE";
+         this.colCONF_DATE.Name = "colCONF_DATE";
+         this.colCONF_DATE.Visible = true;
+         this.colCONF_DATE.VisibleIndex = 8;
          // 
-         // colLAST_NAME_DNRM
+         // persianRepositoryItemDateEdit1
          // 
-         this.colLAST_NAME_DNRM.Caption = "نام خانوادگی";
-         this.colLAST_NAME_DNRM.FieldName = "LAST_NAME_DNRM";
-         this.colLAST_NAME_DNRM.Name = "colLAST_NAME_DNRM";
-         this.colLAST_NAME_DNRM.OptionsColumn.AllowEdit = false;
-         this.colLAST_NAME_DNRM.OptionsColumn.ReadOnly = true;
-         this.colLAST_NAME_DNRM.Visible = true;
-         this.colLAST_NAME_DNRM.VisibleIndex = 3;
-         this.colLAST_NAME_DNRM.Width = 65;
+         this.persianRepositoryItemDateEdit1.AutoHeight = false;
+         this.persianRepositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.persianRepositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.persianRepositoryItemDateEdit1.Name = "persianRepositoryItemDateEdit1";
+         // 
+         // colNAME_DNRM
+         // 
+         this.colNAME_DNRM.Caption = "نام مشتری";
+         this.colNAME_DNRM.FieldName = "NAME_DNRM";
+         this.colNAME_DNRM.Name = "colNAME_DNRM";
+         this.colNAME_DNRM.Visible = true;
+         this.colNAME_DNRM.VisibleIndex = 9;
+         // 
+         // colFATH_NAME_DNRM
+         // 
+         this.colFATH_NAME_DNRM.Caption = "نام پدر";
+         this.colFATH_NAME_DNRM.FieldName = "FATH_NAME_DNRM";
+         this.colFATH_NAME_DNRM.Name = "colFATH_NAME_DNRM";
+         this.colFATH_NAME_DNRM.Visible = true;
+         this.colFATH_NAME_DNRM.VisibleIndex = 0;
+         // 
+         // colPOST_ADRS_DNRM
+         // 
+         this.colPOST_ADRS_DNRM.Caption = "آدرس پستی";
+         this.colPOST_ADRS_DNRM.FieldName = "POST_ADRS_DNRM";
+         this.colPOST_ADRS_DNRM.Name = "colPOST_ADRS_DNRM";
+         this.colPOST_ADRS_DNRM.Visible = true;
+         this.colPOST_ADRS_DNRM.VisibleIndex = 1;
          // 
          // colCELL_PHON_DNRM
          // 
-         this.colCELL_PHON_DNRM.Caption = "شماره همراه";
+         this.colCELL_PHON_DNRM.Caption = "موبایل";
          this.colCELL_PHON_DNRM.FieldName = "CELL_PHON_DNRM";
          this.colCELL_PHON_DNRM.Name = "colCELL_PHON_DNRM";
-         this.colCELL_PHON_DNRM.OptionsColumn.AllowEdit = false;
-         this.colCELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colCELL_PHON_DNRM.Visible = true;
          this.colCELL_PHON_DNRM.VisibleIndex = 2;
-         this.colCELL_PHON_DNRM.Width = 65;
          // 
          // colTELL_PHON_DNRM
          // 
          this.colTELL_PHON_DNRM.Caption = "تلفن ثابت";
          this.colTELL_PHON_DNRM.FieldName = "TELL_PHON_DNRM";
          this.colTELL_PHON_DNRM.Name = "colTELL_PHON_DNRM";
-         this.colTELL_PHON_DNRM.OptionsColumn.AllowEdit = false;
-         this.colTELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colTELL_PHON_DNRM.Visible = true;
-         this.colTELL_PHON_DNRM.VisibleIndex = 1;
-         this.colTELL_PHON_DNRM.Width = 65;
+         this.colTELL_PHON_DNRM.VisibleIndex = 3;
          // 
-         // colCOMP_NAME
+         // colCOMP_CODE_DNRM
          // 
-         this.colCOMP_NAME.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.colCOMP_NAME.AppearanceCell.Options.UseBackColor = true;
-         this.colCOMP_NAME.Caption = "نام شرکت";
-         this.colCOMP_NAME.FieldName = "COMP_NAME";
-         this.colCOMP_NAME.Name = "colCOMP_NAME";
-         this.colCOMP_NAME.OptionsColumn.AllowEdit = false;
-         this.colCOMP_NAME.OptionsColumn.ReadOnly = true;
-         this.colCOMP_NAME.Visible = true;
-         this.colCOMP_NAME.VisibleIndex = 0;
-         this.colCOMP_NAME.Width = 65;
-         // 
-         // colRQTP_DESC
-         // 
-         this.colRQTP_DESC.Caption = "آخرین درخواست ثبت شده";
-         this.colRQTP_DESC.FieldName = "RQTP_DESC";
-         this.colRQTP_DESC.Name = "colRQTP_DESC";
-         this.colRQTP_DESC.OptionsColumn.AllowEdit = false;
-         this.colRQTP_DESC.OptionsColumn.ReadOnly = true;
-         this.colRQTP_DESC.Width = 105;
-         // 
-         // colCRET_BY
-         // 
-         this.colCRET_BY.Caption = "کاربر ثبت کننده";
-         this.colCRET_BY.FieldName = "CRET_BY";
-         this.colCRET_BY.Name = "colCRET_BY";
-         this.colCRET_BY.OptionsColumn.AllowEdit = false;
-         this.colCRET_BY.OptionsColumn.ReadOnly = true;
-         this.colCRET_BY.Width = 105;
-         // 
-         // colSERV_STAG_CODE
-         // 
-         this.colSERV_STAG_CODE.FieldName = "SERV_STAG_CODE";
-         this.colSERV_STAG_CODE.Name = "colSERV_STAG_CODE";
-         // 
-         // colSRPB_TYPE_DNRM
-         // 
-         this.colSRPB_TYPE_DNRM.FieldName = "SRPB_TYPE_DNRM";
-         this.colSRPB_TYPE_DNRM.Name = "colSRPB_TYPE_DNRM";
-         // 
-         // colONOF_TAG_DNRM
-         // 
-         this.colONOF_TAG_DNRM.FieldName = "ONOF_TAG_DNRM";
-         this.colONOF_TAG_DNRM.Name = "colONOF_TAG_DNRM";
+         this.colCOMP_CODE_DNRM.Caption = "شرکت";
+         this.colCOMP_CODE_DNRM.FieldName = "Company.NAME";
+         this.colCOMP_CODE_DNRM.Name = "colCOMP_CODE_DNRM";
+         this.colCOMP_CODE_DNRM.Visible = true;
+         this.colCOMP_CODE_DNRM.VisibleIndex = 4;
          // 
          // colEMAL_ADRS_DNRM
          // 
+         this.colEMAL_ADRS_DNRM.Caption = "ایمیل";
          this.colEMAL_ADRS_DNRM.FieldName = "EMAL_ADRS_DNRM";
          this.colEMAL_ADRS_DNRM.Name = "colEMAL_ADRS_DNRM";
+         this.colEMAL_ADRS_DNRM.Visible = true;
+         this.colEMAL_ADRS_DNRM.VisibleIndex = 5;
          // 
-         // colDEBT_DNRM
+         // colNATL_CODE_DNRM
          // 
-         this.colDEBT_DNRM.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.colDEBT_DNRM.AppearanceCell.Options.UseBackColor = true;
-         this.colDEBT_DNRM.Caption = "بدهی";
-         this.colDEBT_DNRM.FieldName = "DEBT_DNRM";
-         this.colDEBT_DNRM.Name = "colDEBT_DNRM";
-         this.colDEBT_DNRM.OptionsColumn.AllowEdit = false;
-         this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
-         this.colDEBT_DNRM.Width = 77;
+         this.colNATL_CODE_DNRM.Caption = "کد ملی";
+         this.colNATL_CODE_DNRM.FieldName = "NATL_CODE_DNRM";
+         this.colNATL_CODE_DNRM.Name = "colNATL_CODE_DNRM";
+         this.colNATL_CODE_DNRM.Visible = true;
+         this.colNATL_CODE_DNRM.VisibleIndex = 6;
          // 
-         // colActn_Butn
+         // colSERV_NO_DNRM
          // 
-         this.colActn_Butn.ColumnEdit = this.LeadActn_Butn;
-         this.colActn_Butn.Name = "colActn_Butn";
-         this.colActn_Butn.OptionsColumn.FixedWidth = true;
-         this.colActn_Butn.Width = 50;
+         this.colSERV_NO_DNRM.Caption = "کد حساب";
+         this.colSERV_NO_DNRM.FieldName = "SERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Visible = true;
+         this.colSERV_NO_DNRM.VisibleIndex = 7;
          // 
          // LeadActn_Butn
          // 
@@ -326,30 +292,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LeadActn_Butn.Buttons6"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "ارسال ایمیل", null, null, true)});
          this.LeadActn_Butn.Name = "LeadActn_Butn";
          this.LeadActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-         // 
-         // colSERV_NO_DNRM
-         // 
-         this.colSERV_NO_DNRM.Caption = "کد حساب";
-         this.colSERV_NO_DNRM.FieldName = "SERV_NO_DNRM";
-         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
-         this.colSERV_NO_DNRM.OptionsColumn.AllowEdit = false;
-         this.colSERV_NO_DNRM.OptionsColumn.ReadOnly = true;
-         this.colSERV_NO_DNRM.Visible = true;
-         this.colSERV_NO_DNRM.VisibleIndex = 5;
-         this.colSERV_NO_DNRM.Width = 46;
-         // 
-         // colNATL_CODE_DNRM
-         // 
-         this.colNATL_CODE_DNRM.Caption = "کد ملی";
-         this.colNATL_CODE_DNRM.FieldName = "NATL_CODE_DNRM";
-         this.colNATL_CODE_DNRM.Name = "colNATL_CODE_DNRM";
-         this.colNATL_CODE_DNRM.OptionsColumn.AllowEdit = false;
-         this.colNATL_CODE_DNRM.OptionsColumn.ReadOnly = true;
-         this.colNATL_CODE_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
-         this.colNATL_CODE_DNRM.Visible = true;
-         this.colNATL_CODE_DNRM.VisibleIndex = 6;
-         this.colNATL_CODE_DNRM.Width = 61;
          // 
          // Menu_Rbn
          // 
@@ -704,6 +646,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Serv_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LeadActn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menu_Rbn)).EndInit();
          this.ResumeLayout(false);
@@ -717,24 +661,7 @@
       private Windows.Forms.BindingSource ServBs;
       private DevExpress.XtraGrid.Views.Grid.GridView Serv_Gv;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit LeadActn_Butn;
-      private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO;
-      private DevExpress.XtraGrid.Columns.GridColumn colFRST_NAME_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colLAST_NAME_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCOMP_NAME;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQTP_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_STAG_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colSRPB_TYPE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colONOF_TAG_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colDEBT_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn Actn_Clmn;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colNATL_CODE_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colActn_Butn;
       private C1.Win.C1Ribbon.C1Ribbon Menu_Rbn;
       private C1.Win.C1Ribbon.RibbonApplicationMenu ribbonApplicationMenu1;
       private C1.Win.C1Ribbon.RibbonBottomToolBar ribbonBottomToolBar1;
@@ -782,5 +709,17 @@
       private C1.Win.C1Ribbon.RibbonButton Contact8_Btn;
       private C1.Win.C1Ribbon.RibbonButton Contact9_Btn;
       private C1.Win.C1Ribbon.RibbonButton Contact10_Btn;
+      private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO;
+      private DevExpress.XtraGrid.Columns.GridColumn colCONF_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colFATH_NAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCOMP_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colEMAL_ADRS_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colNATL_CODE_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM;
+      private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
    }
 }
